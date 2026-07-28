@@ -1,0 +1,11 @@
+{
+  "name": "spirit-duel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "test": "node --test",
+    "audit": "node ../../ark-ui-skill/scripts/audit-ark-ui.mjs index.html styles.css formation.css"
+  }
+}

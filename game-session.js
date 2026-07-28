@@ -1,0 +1,168 @@
+import {
+  basicAttack,
+  deserializeGame,
+  endTurn,
+  levelUpUnit,
+  passResponse,
+  playCard,
+  resolveDivinationChoice,
+  serializeGame,
+} from './game-core.js';
+
+export const COMMAND_JOURNAL_VERSION = 1;
+export const SESSION_SAVE_VERSION = 1;
+
+const COMMAND_TYPES = new Set([
+  'play-card',
+  'level-up',
+  'attack',
+  'end-turn',
+  'pass-response',
+  'divination-choice',
+]);
+
+function clone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function requiredString(command, field) {
+  if (typeof command[field] !== 'string' || !command[field]) {
+    throw new Error(`命令 ${command.type} 缺少有效字段 ${field}。`);
+  }
+  return command[field];
+}
+
+function optionalTargetId(command) {
+  if (command.targetId === undefined || command.targetId === null) return null;
+  if (typeof command.targetId !== 'string' || !command.targetId) {
+    throw new Error(`命令 ${command.type} 的 targetId 无效。`);
+  }
+  return command.targetId;
+}
+
+function normalizeCommand(command, sequence = undefined) {
+  if (!command || typeof command !== 'object' || Array.isArray(command)) {
+    throw new Error('命令记录必须是对象。');
+  }
+  if (!COMMAND_TYPES.has(command.type)) throw new Error(`未知命令类型：${String(command.type)}。`);
+  if (command.playerIndex !== 0 && command.playerIndex !== 1) throw new Error('命令玩家索引无效。');
+
+  const normalized = {
+    sequence: sequence ?? command.sequence,
+    type: command.type,
+    playerIndex: command.playerIndex,
+  };
+  if (!Number.isInteger(normalized.sequence) || normalized.sequence <= 0) {
+    throw new Error('命令序号无效。');
+  }
+  if (command.type === 'play-card') {
+    normalized.instanceId = requiredString(command, 'instanceId');
+    normalized.targetId = optionalTargetId(command);
+  } else if (command.type === 'attack') {
+    normalized.unitId = requiredString(command, 'unitId');
+    normalized.targetId = optionalTargetId(command);
+  } else if (command.type === 'level-up') {
+    normalized.unitId = requiredString(command, 'unitId');
+  } else if (command.type === 'divination-choice') {
+    normalized.instanceId = requiredString(command, 'instanceId');
+  }
+  return normalized;
+}
+
+function assertJournal(journal) {
+  if (!journal || typeof journal !== 'object' || Array.isArray(journal)) {
+    throw new Error('命令日志结构无效。');
+  }
+  if (journal.version !== COMMAND_JOURNAL_VERSION) {
+    throw new Error(`不支持的命令日志版本：${String(journal.version)}。`);
+  }
+  deserializeGame(journal.initialGame);
+  if (!Array.isArray(journal.commands)) throw new Error('命令日志缺少 commands 数组。');
+  journal.commands.forEach((command, index) => {
+    const normalized = normalizeCommand(command);
+    if (normalized.sequence !== index + 1) throw new Error('命令日志序号不连续。');
+    if (JSON.stringify(normalized) !== JSON.stringify(command)) throw new Error('命令日志包含未声明字段。');
+  });
+}
+
+export function createCommandJournal(initialState) {
+  return {
+    version: COMMAND_JOURNAL_VERSION,
+    initialGame: serializeGame(initialState),
+    commands: [],
+  };
+}
+
+export function appendCommand(journal, command) {
+  assertJournal(journal);
+  const normalized = normalizeCommand(command, journal.commands.length + 1);
+  return {
+    ...clone(journal),
+    commands: [...clone(journal.commands), normalized],
+  };
+}
+
+export function applyRecordedCommand(state, command) {
+  const normalized = normalizeCommand(command);
+  if (normalized.type === 'play-card') {
+    return playCard(state, normalized.playerIndex, normalized.instanceId, normalized.targetId);
+  }
+  if (normalized.type === 'level-up') return levelUpUnit(state, normalized.playerIndex, normalized.unitId);
+  if (normalized.type === 'attack') return basicAttack(state, normalized.playerIndex, normalized.unitId, normalized.targetId);
+  if (normalized.type === 'end-turn') return endTurn(state, normalized.playerIndex);
+  if (normalized.type === 'pass-response') return passResponse(state, normalized.playerIndex);
+  return resolveDivinationChoice(state, normalized.playerIndex, normalized.instanceId);
+}
+
+export function replayCommandJournal(journal) {
+  return deserializeGame(createCommandReplayFrames(journal).at(-1).game);
+}
+
+export function createCommandReplayFrames(journal) {
+  assertJournal(journal);
+  let state = deserializeGame(journal.initialGame);
+  const frames = [{ sequence: 0, command: null, game: serializeGame(state) }];
+  journal.commands.forEach((command) => {
+    const result = applyRecordedCommand(state, command);
+    if (result.error) throw new Error(`命令 ${command.sequence} 无法重放：${result.error}`);
+    state = result.state;
+    frames.push({ sequence: command.sequence, command: clone(command), game: serializeGame(state) });
+  });
+  return frames;
+}
+
+export function createSessionSave(state, journal, savedAt = new Date().toISOString()) {
+  if (typeof savedAt !== 'string' || Number.isNaN(Date.parse(savedAt))) throw new Error('存档时间无效。');
+  const replayed = replayCommandJournal(journal);
+  const currentGame = serializeGame(state);
+  if (serializeGame(replayed) !== currentGame) throw new Error('当前对局与命令日志不一致，拒绝保存。');
+  return JSON.stringify({
+    version: SESSION_SAVE_VERSION,
+    savedAt,
+    game: currentGame,
+    journal: clone(journal),
+  });
+}
+
+export function restoreSessionSave(json) {
+  if (typeof json !== 'string') throw new Error('本地存档必须是 JSON 字符串。');
+  let envelope;
+  try {
+    envelope = JSON.parse(json);
+  } catch {
+    throw new Error('本地存档不是有效的 JSON。');
+  }
+  if (!envelope || typeof envelope !== 'object' || Array.isArray(envelope)) throw new Error('本地存档结构无效。');
+  if (envelope.version !== SESSION_SAVE_VERSION) {
+    throw new Error(`不支持的本地存档版本：${String(envelope.version)}。`);
+  }
+  if (typeof envelope.savedAt !== 'string' || Number.isNaN(Date.parse(envelope.savedAt))) throw new Error('本地存档时间无效。');
+  const state = deserializeGame(envelope.game);
+  const replayed = replayCommandJournal(envelope.journal);
+  if (serializeGame(replayed) !== serializeGame(state)) throw new Error('本地存档与命令日志不一致。');
+  return {
+    state,
+    journal: clone(envelope.journal),
+    savedAt: envelope.savedAt,
+  };
+}

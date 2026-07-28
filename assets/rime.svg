@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
+  <title id="title">白棱抽象卡面</title>
+  <desc id="desc">由冰蓝色切面和黑色刀锋组成的原创几何图案</desc>
+  <rect width="180" height="220" fill="#191919"/>
+  <path d="m87 24 17 70 50-32-36 59 47 25-62-9-16 65-17-65-55 24 43-44-34-52 49 29z" fill="#5d8797"/>
+  <path d="m86 52 8 56 38-27-27 42 33 13-44-6-8 47-10-47-39 17 31-30-24-36 35 27z" fill="#dceaf0"/>
+  <path d="m86 77 5 39 23-17-17 28 19 6-26-3-4 25-6-25-22 9 18-17-14-22 20 16z" fill="#191919"/>
+  <path d="M18 21h62v5H18zm0 12h41v2H18zM135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
+  <path d="M148 53v109M142 64h12M142 86h12M142 108h12M142 130h12M142 152h12" stroke="#ffed00" stroke-width="2"/>
+</svg>

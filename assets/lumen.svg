@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
+  <title id="title">弦月抽象卡面</title>
+  <desc id="desc">由折光棱镜和黄色光带组成的原创几何图案</desc>
+  <rect width="180" height="220" fill="#191919"/>
+  <path d="m89 36 47 76-47 75-47-75z" fill="#f2f2f0"/>
+  <path d="m89 56 26 56-26 55-25-55z" fill="#d8bd42"/>
+  <path d="m89 74 11 38-11 37-10-37z" fill="#191919"/>
+  <path d="M12 110h54v5H12zm101 0h55v5h-55z" fill="#ffed00"/>
+  <path d="m35 79 32 25-5 6-33-24zm109 0-33 25 5 6 33-24z" fill="#f2f2f0" opacity=".7"/>
+  <path d="M18 21h62v5H18zm0 12h41v2H18zM135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
+</svg>

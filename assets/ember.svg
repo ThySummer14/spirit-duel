@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
+  <title id="title">赤曜抽象卡面</title>
+  <desc id="desc">由红色锋刃和黑色构件组成的原创几何图案</desc>
+  <rect width="180" height="220" fill="#191919"/>
+  <path d="M19 186 76 20l16 72 43-57-28 93 54-19-71 91Z" fill="#e75b32"/>
+  <path d="m44 177 38-86 8 48 38-28-39 74Z" fill="#ffed00"/>
+  <path d="M18 21h62v5H18zm0 12h41v2H18z" fill="#f2f2f0"/>
+  <path d="M135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
+  <path d="M151 59v91M144 67h15M144 84h15M144 101h15M144 118h15M144 135h15" stroke="#f2f2f0" stroke-width="2" opacity=".7"/>
+</svg>

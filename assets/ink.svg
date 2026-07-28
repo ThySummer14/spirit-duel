@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
+  <title id="title">玄砚抽象卡面</title>
+  <desc id="desc">由墨紫印记、米白纸面和黑色构件组成的原创几何图案</desc>
+  <rect width="180" height="220" fill="#191919"/>
+  <path d="M47 42h86l25 39-18 91-48 29-61-26-11-83z" fill="#6f6288"/>
+  <path d="m60 58 58 3 21 31-13 62-38 24-43-19-8-58z" fill="#d8d2c4"/>
+  <path d="m75 76 32 2 14 20-8 40-24 16-27-13-5-37z" fill="#191919"/>
+  <path d="m88 91 14 1 7 10-5 20-13 8-13-6-2-18z" fill="#ffed00"/>
+  <path d="M18 21h62v5H18zm0 12h41v2H18zM135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
+  <path d="M145 57v103M138 69h14M138 92h14M138 115h14M138 138h14" stroke="#f2f2f0" stroke-width="2" opacity=".7"/>
+</svg>

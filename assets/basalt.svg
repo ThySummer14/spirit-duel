@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
+  <title id="title">岚岳抽象卡面</title>
+  <desc id="desc">由岩层方块和信号标记组成的原创几何图案</desc>
+  <rect width="180" height="220" fill="#191919"/>
+  <path d="M30 58h102l18 23-15 102H45L20 146z" fill="#a98b54"/>
+  <path d="m55 42 62 9 17 65-27 73-56-19-18-65z" fill="#ddd6c6"/>
+  <path d="M69 69h34v85H69z" fill="#191919"/>
+  <path d="M43 95h86v33H43z" fill="#191919"/>
+  <path d="M78 104h16v15H78z" fill="#ffed00"/>
+  <path d="M18 21h62v5H18zm0 12h41v2H18zM135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
+  <path d="M147 51v106M141 64h12M141 90h12M141 116h12M141 142h12" stroke="#f2f2f0" stroke-width="2" opacity=".65"/>
+</svg>

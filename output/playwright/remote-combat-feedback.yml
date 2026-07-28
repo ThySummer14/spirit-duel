@@ -1,0 +1,286 @@
+- generic [active] [ref=e1]:
+  - link "跳到战场" [ref=e2] [cursor=pointer]:
+    - /url: "#battlefield"
+  - text: SELECTED SELECTED SELECTED SELECTED
+  - generic [ref=e1684]:
+    - banner [ref=e1685]:
+      - generic "灵枢战线" [ref=e1686]:
+        - generic [ref=e1691]:
+          - strong [ref=e1692]: 灵枢战线
+          - generic [ref=e1693]: NEXUS FRONT / PROTOTYPE 01
+      - generic "对局状态" [ref=e1694]:
+        - generic [ref=e1696]: 巡界者行动
+        - generic [ref=e1698]:
+          - text: ROUND
+          - strong [ref=e1699]: "01"
+      - generic [ref=e1700]:
+        - button "编成" [ref=e1701] [cursor=pointer]
+        - button "查看战报，共 5 条记录" [ref=e4574] [cursor=pointer]:
+          - text: 战报
+          - generic [ref=e1703]: "05"
+        - button "规则" [ref=e1704] [cursor=pointer]
+        - button "重新开始" [ref=e1705] [cursor=pointer]: ↻
+    - main [ref=e1706]:
+      - region "对局战场" [ref=e1707]:
+        - generic [ref=e1709]: FRONT LINE
+        - status:
+          - generic: YOUR TURN
+          - strong: 巡界者行动
+          - generic: 2 点鬼火
+        - generic:
+          - generic:
+            - generic: 远程出击 / REMOTE
+            - strong: 霆鸢 对阵 霆鸢
+            - generic: 攻击者保持当前位置，目标无法反击。
+        - generic [ref=e1711]:
+          - generic [ref=e1712]:
+            - paragraph [ref=e1713]: HOSTILE CORE / AI
+            - heading "失序体" [level=1] [ref=e1714]
+          - generic [ref=e1715]:
+            - generic [ref=e1716]: 核心稳定度
+            - strong [ref=e1717]: 30 / 30
+          - generic [ref=e1720]:
+            - generic [ref=e1721]:
+              - term [ref=e1722]: GHOST FIRE
+              - definition [ref=e1723]: 0 / 2
+            - generic [ref=e1724]:
+              - term [ref=e1725]: DECK
+              - definition [ref=e1726]: "28"
+            - generic [ref=e1727]:
+              - term [ref=e1728]: HAND
+              - definition [ref=e1729]: "4"
+        - generic "敌方前线与准备区" [ref=e1730]:
+          - region "敌方准备区" [ref=e4575]:
+            - generic [ref=e4576]: 准备区 / RESERVE
+            - generic [ref=e4577]:
+              - button "岚岳，准备区，1 勾玉，攻击 1，生命 12/12" [disabled] [ref=e4578]:
+                - generic [ref=e4579]: 准备区
+                - generic [ref=e4581]:
+                  - generic [ref=e4582]: 垒卫 / 护阵 / 站场
+                  - strong [ref=e4583]: 岚岳
+                  - generic "己方回合开始时，若岚岳位于前线，获得 1 点护盾。" [ref=e4584]: ◇ 岩壁
+                - generic [ref=e4585]: "1"
+                - generic [ref=e4587]:
+                  - generic [ref=e4588]:
+                    - generic [ref=e4589]: 攻
+                    - generic [ref=e4590]: "1"
+                  - generic [ref=e4591]:
+                    - generic [ref=e4592]: 命
+                    - generic [ref=e4593]: "12"
+                    - emphasis [ref=e4594]: /12
+              - button "弦月，准备区，1 勾玉，攻击 2，生命 8/8" [disabled] [ref=e4598]:
+                - generic [ref=e4599]: 准备区
+                - generic [ref=e4601]:
+                  - generic [ref=e4602]: 织光 / 恢复 / 调度
+                  - strong [ref=e4603]: 弦月
+                  - generic "每个己方回合第一次使用弦月牌后，己方核心恢复 1 点生命。" [ref=e4604]: ◇ 月返
+                - generic [ref=e4605]: "1"
+                - generic [ref=e4607]:
+                  - generic [ref=e4608]:
+                    - generic [ref=e4609]: 攻
+                    - generic [ref=e4610]: "2"
+                  - generic [ref=e4611]:
+                    - generic [ref=e4612]: 命
+                    - generic [ref=e4613]: "8"
+                    - emphasis [ref=e4614]: /8
+              - button "玄砚，准备区，1 勾玉，攻击 2，生命 10/10" [disabled] [ref=e4618]:
+                - generic [ref=e4619]: 准备区
+                - generic [ref=e4621]:
+                  - generic [ref=e4622]: 墨相 / 策略 / 消耗
+                  - strong [ref=e4623]: 玄砚
+                  - generic "玄砚存活时，己方部署幻境后，当前前线获得 1 点护盾。" [ref=e4624]: ◇ 墨护
+                - generic [ref=e4625]: "1"
+                - generic [ref=e4627]:
+                  - generic [ref=e4628]:
+                    - generic [ref=e4629]: 攻
+                    - generic [ref=e4630]: "2"
+                  - generic [ref=e4631]:
+                    - generic [ref=e4632]: 命
+                    - generic [ref=e4633]: "10"
+                    - emphasis [ref=e4634]: /10
+          - region "敌方战斗区" [ref=e4638]:
+            - generic [ref=e4639]: 战斗区 / FRONT
+            - button "霆鸢，前线，1 勾玉，攻击 3，生命 4/8" [disabled] [ref=e4640]:
+              - generic [ref=e4641]: 战斗区
+              - generic [ref=e4643]:
+                - generic [ref=e4644]: 鸣羽 / 连击 / 压制
+                - strong [ref=e4645]: 霆鸢
+                - generic "霆鸢从后场换入前线完成交战后，对敌方核心造成 1 点伤害。" [ref=e4646]: ◇ 追风
+              - generic [ref=e4647]:
+                - generic [ref=e4648]: 勾玉
+                - generic [ref=e4649]: "1"
+              - generic [ref=e4650]:
+                - generic [ref=e4651]:
+                  - generic [ref=e4652]: 攻
+                  - generic [ref=e4653]: "3"
+                - generic [ref=e4654]:
+                  - generic [ref=e4655]: 命
+                  - generic [ref=e4656]: "4"
+                  - emphasis [ref=e4657]: /8
+              - generic [ref=e4660]:
+                - generic [ref=e4661]: 前线
+                - generic [ref=e4662]: 将承受出击
+              - generic:
+                - generic: 受到伤害
+                - strong: "-4"
+          - generic [ref=e4663]:
+            - generic [ref=e4664]: 幻境席
+            - generic [ref=e4665]: 未部署
+        - region "行动控制" [ref=e1822]:
+          - generic [ref=e1823]:
+            - generic [ref=e1824]: YOU
+            - generic [ref=e1825]:
+              - generic [ref=e1826]: YOUR TURN
+              - strong [ref=e1827]: 你的回合
+          - generic [ref=e1828]:
+            - paragraph [ref=e1829]: CURRENT DIRECTIVE
+            - strong [ref=e1830]: 出击预估：赤曜 从前线出击，对 霆鸢 造成 3 点伤害，预计承受 3 点反击。
+            - generic [ref=e1831]:
+              - generic [ref=e1832]: 刚刚
+              - generic [ref=e1833]: 巡界者 使用「疾电」。
+          - generic "当前行动能量" [ref=e1834]:
+            - generic [ref=e1835]: 鬼火
+            - strong [ref=e1836]:
+              - text: 1/
+              - emphasis [ref=e1837]: "2"
+          - generic [ref=e1841]:
+            - button "赤曜升勾 ↟" [ref=e3540] [cursor=pointer]:
+              - generic [ref=e1843]: ◇
+              - generic [ref=e1844]: 赤曜升勾
+              - generic [ref=e1845]: ↟
+            - button "赤曜出击 1" [ref=e3541] [cursor=pointer]:
+              - generic [ref=e1847]: ⚔
+              - generic [ref=e1848]: 赤曜出击
+              - generic [ref=e1849]: "1"
+            - button "结束回合" [ref=e1850] [cursor=pointer]:
+              - text: 结束回合
+              - generic [ref=e4668]: →
+        - generic "己方前线与准备区" [ref=e1852]:
+          - region "己方准备区" [ref=e4669]:
+            - generic [ref=e4670]: 准备区 / RESERVE
+            - generic [ref=e4671]:
+              - button "岚岳，准备区，1 勾玉，攻击 1，生命 12/12" [ref=e4672]:
+                - generic [ref=e4673]: 准备区
+                - generic [ref=e4675]:
+                  - generic [ref=e4676]: 垒卫 / 护阵 / 站场
+                  - strong [ref=e4677]: 岚岳
+                  - generic "己方回合开始时，若岚岳位于前线，获得 1 点护盾。" [ref=e4678]: ◇ 岩壁
+                - generic [ref=e4679]: "1"
+                - generic [ref=e4681]:
+                  - generic [ref=e4682]:
+                    - generic [ref=e4683]: 攻
+                    - generic [ref=e4684]: "1"
+                  - generic [ref=e4685]:
+                    - generic [ref=e4686]: 命
+                    - generic [ref=e4687]: "12"
+                    - emphasis [ref=e4688]: /12
+              - button "弦月，准备区，1 勾玉，攻击 2，生命 8/8" [ref=e4692]:
+                - generic [ref=e4693]: 准备区
+                - generic [ref=e4695]:
+                  - generic [ref=e4696]: 织光 / 恢复 / 调度
+                  - strong [ref=e4697]: 弦月
+                  - generic "每个己方回合第一次使用弦月牌后，己方核心恢复 1 点生命。" [ref=e4698]: ◇ 月返
+                - generic [ref=e4699]: "1"
+                - generic [ref=e4701]:
+                  - generic [ref=e4702]:
+                    - generic [ref=e4703]: 攻
+                    - generic [ref=e4704]: "2"
+                  - generic [ref=e4705]:
+                    - generic [ref=e4706]: 命
+                    - generic [ref=e4707]: "8"
+                    - emphasis [ref=e4708]: /8
+              - button "霆鸢，准备区，1 勾玉，攻击 3，生命 8/8" [ref=e4712]:
+                - generic [ref=e4713]: 准备区
+                - generic [ref=e4715]:
+                  - generic [ref=e4716]: 鸣羽 / 连击 / 压制
+                  - strong [ref=e4717]: 霆鸢
+                  - generic "霆鸢从后场换入前线完成交战后，对敌方核心造成 1 点伤害。" [ref=e4718]: ◇ 追风
+                - generic [ref=e4719]: "1"
+                - generic [ref=e4721]:
+                  - generic [ref=e4722]:
+                    - generic [ref=e4723]: 攻
+                    - generic [ref=e4724]: "3"
+                  - generic [ref=e4725]:
+                    - generic [ref=e4726]: 命
+                    - generic [ref=e4727]: "8"
+                    - emphasis [ref=e4728]: /8
+                - generic:
+                  - generic: 远程攻击 / REMOTE
+                  - strong: 远程出击
+          - region "己方战斗区" [ref=e4732]:
+            - generic [ref=e4733]: 战斗区 / FRONT
+            - button "赤曜，前线，1 勾玉，攻击 3，生命 9/9" [ref=e4734] [cursor=pointer]:
+              - generic [ref=e4735]: 战斗区
+              - generic [ref=e4737]:
+                - generic [ref=e4738]: 焰锋 / 爆发 / 突击
+                - strong [ref=e4739]: 赤曜
+                - generic "赤曜进入前线时，对敌方前线造成 1 点伤害。" [ref=e4740]: ◇ 余烬追击
+              - generic [ref=e4741]:
+                - generic [ref=e4742]: 勾玉
+                - generic [ref=e4743]: "1"
+              - generic [ref=e4744]:
+                - generic [ref=e4745]:
+                  - generic [ref=e4746]: 攻
+                  - generic [ref=e4747]: "3"
+                - generic [ref=e4748]:
+                  - generic [ref=e4749]: 命
+                  - generic [ref=e4750]: "9"
+                  - emphasis [ref=e4751]: /9
+              - generic [ref=e4754]:
+                - generic [ref=e4755]: 前线
+                - generic [ref=e4756]: 待出击
+          - generic [ref=e4757]:
+            - generic [ref=e4758]: 幻境席
+            - generic [ref=e4759]: 未部署
+        - generic [ref=e1944]:
+          - generic [ref=e1945]:
+            - paragraph [ref=e1946]: BOUNDARY CORE / PLAYER
+            - heading "巡界者" [level=2] [ref=e1947]
+          - generic [ref=e1948]:
+            - generic [ref=e1949]: 核心稳定度
+            - strong [ref=e1950]: 30 / 30
+          - generic [ref=e1953]:
+            - generic [ref=e1954]:
+              - term [ref=e1955]: DECK
+              - definition [ref=e1956]: "27"
+            - generic [ref=e1957]:
+              - term [ref=e1958]: HAND
+              - definition [ref=e1959]: "4"
+      - region [ref=e1960]:
+        - generic [ref=e1961]:
+          - generic [ref=e1962]:
+            - paragraph [ref=e1963]: TACTICAL HAND
+            - heading "战术手牌" [level=2] [ref=e1964]
+          - generic "当前可用手牌" [ref=e1965]:
+            - generic [ref=e1966]: 当前可用
+            - strong [ref=e1967]: 2 张
+        - generic [ref=e1968]:
+          - button "鸣闪，1 勾玉，消耗 1 鬼火，对一名敌方角色造成 2 点伤害。" [ref=e4760] [cursor=pointer]:
+            - generic [ref=e4761]: "1"
+            - generic [ref=e4762]: 1 勾
+            - generic [ref=e4764]: 霆鸢 / 法术牌
+            - strong [ref=e4765]: 鸣闪
+            - generic [ref=e4766]: 对一名敌方角色造成 2 点伤害。
+            - generic [ref=e4767]: 可使用
+          - button "雷走，1 勾玉，消耗 1 鬼火，霆鸢出击，本次攻击 +1。" [ref=e4768] [cursor=pointer]:
+            - generic [ref=e4769]: "1"
+            - generic [ref=e4770]: 1 勾
+            - generic [ref=e4772]: 霆鸢 / 战斗牌
+            - strong [ref=e4773]: 雷走
+            - generic [ref=e4774]: 霆鸢出击，本次攻击 +1。
+            - generic [ref=e4775]: 可使用
+          - button "月环之相，2 勾玉，消耗 1 鬼火，弦月获得 +1 攻击与 +2 生命上限。，当前不可用：需要 2 勾玉，弦月 当前为 1 勾。" [disabled] [ref=e4776]:
+            - generic [ref=e4777]: "1"
+            - generic [ref=e4778]: 2 勾
+            - generic [ref=e4780]: 弦月 / 形态牌
+            - strong [ref=e4781]: 月环之相
+            - generic [ref=e4782]: 弦月获得 +1 攻击与 +2 生命上限。
+            - generic [ref=e4783]: 需 2 勾
+          - button "月环之相，2 勾玉，消耗 1 鬼火，弦月获得 +1 攻击与 +2 生命上限。，当前不可用：需要 2 勾玉，弦月 当前为 1 勾。" [disabled] [ref=e4784]:
+            - generic [ref=e4785]: "1"
+            - generic [ref=e4786]: 2 勾
+            - generic [ref=e4788]: 弦月 / 形态牌
+            - strong [ref=e4789]: 月环之相
+            - generic [ref=e4790]: 弦月获得 +1 攻击与 +2 生命上限。
+            - generic [ref=e4791]: 需 2 勾
+    - status: 新对局已建立。

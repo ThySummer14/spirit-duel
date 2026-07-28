@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
+  <title id="title">霆鸢抽象卡面</title>
+  <desc id="desc">由青蓝雷羽、黄色电弧和黑色构件组成的原创几何图案</desc>
+  <rect width="180" height="220" fill="#191919"/>
+  <path d="m30 166 49-137 12 67 58-43-42 67 45 14-59 8-22 54-4-53z" fill="#1599b5"/>
+  <path d="m87 45 4 66 37-32-25 49 29 8-39 1-18 40 6-53-28 12 29-31z" fill="#ffed00"/>
+  <path d="m87 81 2 37 20-16-12 25 15 5-22-1-9 21 3-29-14 6 15-16z" fill="#f2f2f0"/>
+  <path d="M18 21h62v5H18zm0 12h41v2H18zM135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
+  <path d="M146 58v98M140 68h12M140 89h12M140 110h12M140 131h12M140 152h12" stroke="#f2f2f0" stroke-width="2" opacity=".72"/>
+</svg>
