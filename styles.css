@@ -186,6 +186,7 @@ button:disabled { cursor: not-allowed; }
 .session-actions .quiet-button { color: var(--ink); }
 .session-actions button:disabled { cursor: not-allowed; opacity: .4; }
 .session-replay-button { font-weight: 700; }
+.session-import-button { grid-column: 1 / -1; font-weight: 800; }
 .session-note { color: var(--muted); font-size: .62rem; line-height: 1.6; }
 
 .replay-controller {

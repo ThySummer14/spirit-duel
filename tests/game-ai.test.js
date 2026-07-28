@@ -7,6 +7,7 @@ import {
   createGame,
   endTurn,
   levelUpUnit,
+  passResponse,
   playCard,
   resolveDivinationChoice,
 } from '../game-core.js';
@@ -29,6 +30,7 @@ function applyCommand(state, playerIndex, command) {
   if (command.type === 'level-up') return levelUpUnit(state, playerIndex, command.unitId);
   if (command.type === 'attack') return basicAttack(state, playerIndex, command.unitId, command.targetId);
   if (command.type === 'divination-choice') return resolveDivinationChoice(state, playerIndex, command.instanceId);
+  if (command.type === 'pass-response') return passResponse(state, playerIndex);
   return endTurn(state, playerIndex);
 }
 
@@ -95,6 +97,48 @@ test('returns a legal command or falls back to end-turn', () => {
     score: 0,
     reason: '没有剩余的有效行动，结束回合。',
   });
+});
+
+test('uses response priority during the player turn when preventing damage is beneficial', () => {
+  const state = createGame({
+    seed: 703,
+    enemyUnitIds: ['rime', 'basalt', 'lumen', 'ink'],
+  });
+  state.players[0].energy = 2;
+  state.players[1].energy = 2;
+  state.players[0].hand = [];
+  state.players[1].hand = [];
+  const damage = putCardInHand(state, 0, 'cinder-mark');
+  const response = putCardInHand(state, 1, 'hoar-barrier');
+  const target = state.players[1].units.find((unit) => unit.id === 'rime');
+  const pending = playCard(state, 0, damage.instanceId, target.uid).state;
+
+  assert.equal(pending.currentPlayer, 0);
+  assert.equal(pending.responseWindow.playerIndex, 1);
+  const command = chooseAiCommand(pending, 1);
+  assert.equal(command.type, 'play-card');
+  assert.equal(command.instanceId, response.instanceId);
+  assert.equal(applyCommand(pending, 1, command).error, null);
+});
+
+test('passes response priority instead of ending the current turn when no response is useful', () => {
+  const state = createGame({
+    seed: 704,
+    enemyUnitIds: ['rime', 'basalt', 'lumen', 'ink'],
+  });
+  state.players[0].energy = 2;
+  state.players[1].energy = 0;
+  state.players[0].hand = [];
+  state.players[1].hand = [];
+  const damage = putCardInHand(state, 0, 'cinder-mark');
+  putCardInHand(state, 0, 'hoar-barrier');
+  putCardInHand(state, 1, 'hoar-barrier');
+  const target = state.players[1].units.find((unit) => unit.id === 'rime');
+  const pending = playCard(state, 0, damage.instanceId, target.uid).state;
+
+  const command = chooseAiCommand(pending, 1);
+  assert.equal(command.type, 'pass-response');
+  assert.equal(applyCommand(pending, 1, command).error, null);
 });
 
 test('does not repeat level-up after the free upgrade is consumed', () => {

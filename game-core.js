@@ -96,7 +96,7 @@ export const GAME_EVENTS = Object.freeze({
   MATCH_FINISHED: 'match-finished',
 });
 
-export const GAME_STATE_VERSION = 5;
+export const GAME_STATE_VERSION = 6;
 
 const MAX_EVENT_CHAIN_LENGTH = 64;
 const MAX_RESOLUTION_STACK_LENGTH = 64;
@@ -179,8 +179,59 @@ function assertGameStateStructure(state) {
   if (!Array.isArray(state.resolutionStack)) {
     throw new Error('对局存档的结算栈结构无效。');
   }
-  if (state.responseWindow !== null && (typeof state.responseWindow !== 'object' || Array.isArray(state.responseWindow))) {
-    throw new Error('对局存档的响应窗口结构无效。');
+  if (state.resolutionStack.length > MAX_RESOLUTION_STACK_LENGTH) {
+    throw new Error('对局存档的结算栈超过安全上限。');
+  }
+  const validFrames = state.resolutionStack.every((frame) => {
+    const card = frame && getCardDefinition(frame.definitionId);
+    const commonValid = frame
+      && typeof frame === 'object'
+      && !Array.isArray(frame)
+      && Number.isInteger(frame.resolutionId)
+      && frame.resolutionId > 0
+      && (frame.playerIndex === 0 || frame.playerIndex === 1)
+      && typeof frame.instanceId === 'string'
+      && card
+      && (frame.targetId === null || typeof frame.targetId === 'string')
+      && typeof frame.respondable === 'boolean';
+    if (!commonValid) return false;
+    if (frame.kind === 'card-complete') return frame.respondable === false;
+    return frame.kind === 'card-effect'
+      && Number.isInteger(frame.effectIndex)
+      && frame.effectIndex >= 0
+      && frame.effectIndex < getCardEffects(card).length
+      && typeof frame.responseOffered === 'boolean'
+      && Number.isInteger(frame.responseDepth)
+      && frame.responseDepth >= 0
+      && frame.responseDepth <= GAME_RULES.maxResponseDepth;
+  });
+  if (!validFrames) throw new Error('对局存档的结算帧无效。');
+  if (state.responseWindow !== null) {
+    const window = state.responseWindow;
+    const frame = state.resolutionStack.at(-1);
+    const card = frame && getCardDefinition(frame.definitionId);
+    const effect = card && frame.kind === 'card-effect' ? getCardEffects(card)[frame.effectIndex] : null;
+    const expectedKeys = [
+      'action', 'consecutivePasses', 'definitionId', 'depth', 'id', 'playerIndex',
+      'resolutionId', 'sourcePlayerIndex', 'target', 'targetId',
+    ];
+    const validWindow = window
+      && typeof window === 'object'
+      && !Array.isArray(window)
+      && JSON.stringify(Object.keys(window).sort()) === JSON.stringify(expectedKeys)
+      && frame?.respondable === true
+      && frame.responseOffered === true
+      && window.id === `response-${frame.resolutionId}-${frame.responseDepth}`
+      && window.resolutionId === frame.resolutionId
+      && window.definitionId === frame.definitionId
+      && window.sourcePlayerIndex === frame.playerIndex
+      && window.depth === frame.responseDepth
+      && window.action === effect?.action
+      && window.target === effect?.target
+      && window.targetId === frame.targetId
+      && (window.consecutivePasses === 0 || window.consecutivePasses === 1)
+      && window.playerIndex === (window.consecutivePasses === 0 ? 1 - frame.playerIndex : frame.playerIndex);
+    if (!validWindow) throw new Error('对局存档的响应窗口结构无效。');
   }
   if (state.pendingChoice !== null) {
     const choice = state.pendingChoice;
@@ -1186,7 +1237,7 @@ const EFFECT_HANDLERS = new Map([
   }],
 ]);
 
-function createCardResolutionFrames(state, playerIndex, instanceId, card, targetId, canBeRespondedTo) {
+function createCardResolutionFrames(state, playerIndex, instanceId, card, targetId, options = {}) {
   const resolutionId = state.nextResolutionId;
   state.nextResolutionId += 1;
   const baseFrame = {
@@ -1203,8 +1254,9 @@ function createCardResolutionFrames(state, playerIndex, instanceId, card, target
       ...baseFrame,
       kind: 'card-effect',
       effectIndex,
-      respondable: canBeRespondedTo && effectIndex === 0,
+      respondable: options.respondable === true && effectIndex === 0,
       responseOffered: false,
+      responseDepth: options.responseDepth ?? 0,
     });
   }
   if (state.resolutionStack.length > MAX_RESOLUTION_STACK_LENGTH) {
@@ -1293,6 +1345,31 @@ function hasPlayableResponse(state, playerIndex) {
   ).playable);
 }
 
+function createResponseWindow(frame) {
+  const effect = getCardEffects(getCardDefinition(frame.definitionId))[frame.effectIndex];
+  return {
+    id: `response-${frame.resolutionId}-${frame.responseDepth}`,
+    playerIndex: 1 - frame.playerIndex,
+    sourcePlayerIndex: frame.playerIndex,
+    resolutionId: frame.resolutionId,
+    definitionId: frame.definitionId,
+    action: effect.action,
+    target: effect.target,
+    targetId: frame.targetId,
+    consecutivePasses: 0,
+    depth: frame.responseDepth,
+  };
+}
+
+function eitherPlayerHasResponse(state) {
+  const firstPlayerIndex = state.responseWindow.playerIndex;
+  if (hasPlayableResponse(state, firstPlayerIndex)) return true;
+  state.responseWindow.playerIndex = 1 - firstPlayerIndex;
+  const otherPlayerHasResponse = hasPlayableResponse(state, 1 - firstPlayerIndex);
+  state.responseWindow.playerIndex = firstPlayerIndex;
+  return otherPlayerHasResponse;
+}
+
 function resolveResolutionStack(state) {
   if (state.isResolving || state.responseWindow || state.pendingChoice) return;
   state.isResolving = true;
@@ -1301,17 +1378,8 @@ function resolveResolutionStack(state) {
       const frame = state.resolutionStack.at(-1);
       if (frame.kind === 'card-effect' && frame.respondable && !frame.responseOffered) {
         frame.responseOffered = true;
-        state.responseWindow = {
-          id: `response-${frame.resolutionId}`,
-          playerIndex: 1 - frame.playerIndex,
-          sourcePlayerIndex: frame.playerIndex,
-          resolutionId: frame.resolutionId,
-          definitionId: frame.definitionId,
-          action: getCardEffects(getCardDefinition(frame.definitionId))[frame.effectIndex].action,
-          target: getCardEffects(getCardDefinition(frame.definitionId))[frame.effectIndex].target,
-          targetId: frame.targetId,
-        };
-        if (hasPlayableResponse(state, state.responseWindow.playerIndex)) {
+        state.responseWindow = createResponseWindow(frame);
+        if (eitherPlayerHasResponse(state)) {
           state.phase = 'response';
           recordEvent(state, GAME_EVENTS.RESPONSE_WINDOW_OPENED, clone(state.responseWindow));
           return;
@@ -1555,6 +1623,7 @@ export function playCard(state, playerIndex, instanceId, targetId = null) {
 
 function commitCardPlayInPlace(next, playerIndex, instanceId, targetId = null, options = {}) {
   const isResponse = next.responseWindow !== null;
+  const responseContext = isResponse ? clone(next.responseWindow) : null;
   const player = next.players[playerIndex];
   const handIndex = player.hand.findIndex((item) => item.instanceId === instanceId);
   const instance = player.hand[handIndex];
@@ -1593,9 +1662,18 @@ function commitCardPlayInPlace(next, playerIndex, instanceId, targetId = null, o
     instanceId,
     card,
     targetId,
-    options.respondable ?? !isResponse,
+    {
+      respondable: options.respondable ?? (!isResponse || responseContext.depth + 1 < GAME_RULES.maxResponseDepth),
+      responseDepth: isResponse ? responseContext.depth + 1 : 0,
+    },
   );
-  if (isResponse) next.responseWindow = null;
+  if (isResponse) {
+    const previousFrame = next.resolutionStack
+      .slice(0, -2)
+      .findLast((frame) => frame.kind === 'card-effect' && frame.resolutionId === responseContext.resolutionId);
+    if (previousFrame) previousFrame.responseOffered = false;
+    next.responseWindow = null;
+  }
   resolveResolutionStack(next);
   return { state: next, error: null, pending: next.responseWindow !== null };
 }
@@ -1633,9 +1711,15 @@ export function passResponse(state, playerIndex) {
     playerIndex,
     resolutionId: next.responseWindow.resolutionId,
     definitionId: next.responseWindow.definitionId,
+    consecutivePasses: next.responseWindow.consecutivePasses + 1,
   });
-  next.responseWindow = null;
-  resolveResolutionStack(next);
+  if (next.responseWindow.consecutivePasses === 0) {
+    next.responseWindow.consecutivePasses = 1;
+    next.responseWindow.playerIndex = 1 - playerIndex;
+  } else {
+    next.responseWindow = null;
+    resolveResolutionStack(next);
+  }
   return { state: next, error: null, pending: next.responseWindow !== null };
 }
 

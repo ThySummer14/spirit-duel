@@ -558,6 +558,7 @@ body { overflow: auto; }
   .session-summary > div { border-right: 0; border-bottom: 1px solid var(--rule); }
   .session-summary > div:last-child { border-bottom: 0; }
   .session-actions { grid-template-columns: 1fr; }
+  .session-import-button { grid-column: auto; }
   .replay-controller { grid-template-columns: 1fr; padding: .55rem .6rem; }
   .replay-actions { justify-content: stretch; }
   .replay-actions .icon-button { flex: 0 0 2.5rem; }

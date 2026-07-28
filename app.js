@@ -35,13 +35,19 @@ import {
 } from './game-presentation.js';
 import {
   appendCommand,
-  createCommandReplayFrames,
+  createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
 } from './game-session.js';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
+const MAX_REPLAY_FILE_BYTES = 5 * 1024 * 1024;
+const REPLAY_SOURCE_LABELS = Object.freeze({
+  current: 'CURRENT',
+  saved: 'SAVED SLOT',
+  imported: 'IMPORTED FILE',
+});
 
 const nodes = {
   gameShell: document.querySelector('#game-shell'),
@@ -122,6 +128,10 @@ const nodes = {
   sessionLoadButton: document.querySelector('#session-load-button'),
   sessionReplayCurrentButton: document.querySelector('#session-replay-current-button'),
   sessionReplaySavedButton: document.querySelector('#session-replay-saved-button'),
+  sessionExportCurrentButton: document.querySelector('#session-export-current-button'),
+  sessionExportSavedButton: document.querySelector('#session-export-saved-button'),
+  sessionImportButton: document.querySelector('#session-import-button'),
+  sessionImportInput: document.querySelector('#session-import-input'),
   replayController: document.querySelector('#replay-controller'),
   replaySource: document.querySelector('#replay-source'),
   replayCommandLabel: document.querySelector('#replay-command-label'),
@@ -225,9 +235,12 @@ function renderSessionDialog() {
   nodes.sessionCommandCount.textContent = commandJournal.commands.length;
   nodes.sessionSaveButton.disabled = aiBusy || !battleStarted;
   nodes.sessionReplayCurrentButton.disabled = aiBusy || !battleStarted || commandJournal.commands.length === 0;
+  nodes.sessionExportCurrentButton.disabled = aiBusy || !battleStarted || commandJournal.commands.length === 0;
+  nodes.sessionImportButton.disabled = aiBusy;
   const stored = readLocalSave();
   nodes.sessionLoadButton.disabled = true;
   nodes.sessionReplaySavedButton.disabled = true;
+  nodes.sessionExportSavedButton.disabled = true;
   delete nodes.sessionStatus.dataset.state;
   nodes.sessionSavedAt.textContent = '未创建';
   if (stored.error) {
@@ -246,6 +259,7 @@ function renderSessionDialog() {
     nodes.sessionSavedAt.textContent = formatSavedAt(restored.savedAt);
     nodes.sessionLoadButton.disabled = aiBusy;
     nodes.sessionReplaySavedButton.disabled = aiBusy || restored.journal.commands.length === 0;
+    nodes.sessionExportSavedButton.disabled = aiBusy || restored.journal.commands.length === 0;
   } catch (error) {
     nodes.sessionStatus.textContent = `存档损坏：${error.message}`;
     nodes.sessionStatus.dataset.state = 'error';
@@ -286,6 +300,76 @@ function saveCurrentSession() {
   }
 }
 
+function replayFileName(savedAt) {
+  const timestamp = new Date(savedAt).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+  return `spirit-duel-replay-${timestamp}.json`;
+}
+
+function downloadReplayFile(json) {
+  const restored = restoreSessionSave(json);
+  const formatted = `${JSON.stringify(JSON.parse(json), null, 2)}\n`;
+  const url = URL.createObjectURL(new Blob([formatted], { type: 'application/json' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = replayFileName(restored.savedAt);
+  link.hidden = true;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+  return restored;
+}
+
+function exportCurrentReplay() {
+  try {
+    const restored = downloadReplayFile(createSessionSave(game, commandJournal));
+    announce(`已导出 ${restored.journal.commands.length} 条命令。`, 'success');
+  } catch (error) {
+    nodes.sessionStatus.textContent = `导出失败：${error.message}`;
+    nodes.sessionStatus.dataset.state = 'error';
+    announce('当前回放导出失败。', 'danger');
+  }
+}
+
+function exportSavedReplay() {
+  const stored = readLocalSave();
+  if (!stored.raw || stored.error) {
+    renderSessionDialog();
+    return;
+  }
+  try {
+    const restored = downloadReplayFile(stored.raw);
+    announce(`已导出存档中的 ${restored.journal.commands.length} 条命令。`, 'success');
+  } catch (error) {
+    nodes.sessionStatus.textContent = `导出失败：${error.message}`;
+    nodes.sessionStatus.dataset.state = 'error';
+    announce('存档回放导出失败。', 'danger');
+  }
+}
+
+async function importReplayFile() {
+  const [file] = nodes.sessionImportInput.files;
+  nodes.sessionImportInput.value = '';
+  if (!file) return;
+  if (file.size > MAX_REPLAY_FILE_BYTES) {
+    nodes.sessionStatus.textContent = '导入失败：JSON 文件超过 5 MB。';
+    nodes.sessionStatus.dataset.state = 'error';
+    announce('回放文件过大。', 'danger');
+    return;
+  }
+  try {
+    const restored = restoreSessionSave(await file.text());
+    if (restored.journal.commands.length === 0) throw new Error('文件中没有可回放的命令。');
+    if (startCommandReplay(restored.journal, 'imported', restored.state)) {
+      announce(`已导入 ${restored.journal.commands.length} 条命令，当前对局保持不变。`, 'success');
+    }
+  } catch (error) {
+    nodes.sessionStatus.textContent = `导入失败：${error.message}`;
+    nodes.sessionStatus.dataset.state = 'error';
+    announce('回放文件校验失败。', 'danger');
+  }
+}
+
 function loadLocalSession() {
   const stored = readLocalSave();
   if (!stored.raw || stored.error) {
@@ -300,7 +384,7 @@ function loadLocalSession() {
     syncFormationFromJournal();
     selectedCardId = null;
     selectedAttackUnitId = game.players[0].frontUnitId;
-    aiBusy = game.currentPlayer === 1 && game.winner === null;
+    aiBusy = aiHasControl();
     resultShown = false;
     clearTimeout(resultTimer);
     clearTimeout(feedbackClearTimer);
@@ -368,9 +452,9 @@ function stopReplayPlayback() {
 
 function renderReplayController() {
   if (!replaySession) return;
-  const total = replaySession.frames.length - 1;
+  const total = replaySession.replay.length - 1;
   const current = replaySession.cursor;
-  nodes.replaySource.textContent = `COMMAND REPLAY / ${replaySession.source === 'saved' ? 'SAVED SLOT' : 'CURRENT'}`;
+  nodes.replaySource.textContent = `COMMAND REPLAY / ${REPLAY_SOURCE_LABELS[replaySession.source] ?? 'UNKNOWN'}`;
   nodes.replayCommandLabel.textContent = replaySession.labels[current];
   nodes.replayStep.textContent = current;
   nodes.replayTotal.textContent = total;
@@ -388,25 +472,33 @@ function renderReplayController() {
 
 function setReplayCursor(cursor, { keepPlaying = false } = {}) {
   if (!replaySession) return;
-  const bounded = Math.max(0, Math.min(replaySession.frames.length - 1, Number(cursor)));
+  const bounded = Math.max(0, Math.min(replaySession.replay.length - 1, Number(cursor)));
   if (!Number.isInteger(bounded) || bounded === replaySession.cursor) return;
-  const movingForwardOne = bounded === replaySession.cursor + 1;
-  const previousState = deserializeGame(replaySession.frames[replaySession.cursor].game);
-  if (!keepPlaying) stopReplayPlayback();
-  replaySession.previousVisualState = movingForwardOne ? captureBattleSnapshot(previousState) : null;
-  replaySession.cursor = bounded;
-  renderReplayController();
-  render();
-  requestAnimationFrame(() => {
-    nodes.replayTimeline.querySelector('[aria-current="step"]')?.scrollIntoView({ block: 'nearest', inline: 'center' });
-  });
+  try {
+    const movingForwardOne = bounded === replaySession.cursor + 1;
+    const previousState = deserializeGame(replaySession.currentFrame.game);
+    const nextFrame = replaySession.replay.getFrame(bounded);
+    if (!keepPlaying) stopReplayPlayback();
+    replaySession.previousVisualState = movingForwardOne ? captureBattleSnapshot(previousState) : null;
+    replaySession.currentFrame = nextFrame;
+    replaySession.cursor = bounded;
+    renderReplayController();
+    render();
+    requestAnimationFrame(() => {
+      nodes.replayTimeline.querySelector('[aria-current="step"]')?.scrollIntoView({ block: 'nearest', inline: 'center' });
+    });
+  } catch (error) {
+    stopReplayPlayback();
+    renderReplayController();
+    announce(`回放跳转失败：${error.message}`, 'danger');
+  }
 }
 
 function queueReplayStep() {
   if (!replaySession?.playing) return;
   replaySession.timer = setTimeout(() => {
     if (!replaySession?.playing) return;
-    if (replaySession.cursor >= replaySession.frames.length - 1) {
+    if (replaySession.cursor >= replaySession.replay.length - 1) {
       stopReplayPlayback();
       renderReplayController();
       return;
@@ -423,7 +515,7 @@ function toggleReplayPlayback() {
     renderReplayController();
     return;
   }
-  if (replaySession.cursor === replaySession.frames.length - 1) setReplayCursor(0);
+  if (replaySession.cursor === replaySession.replay.length - 1) setReplayCursor(0);
   replaySession.playing = true;
   nodes.replayPlayButton.textContent = 'Ⅱ';
   nodes.replayPlayButton.setAttribute('aria-label', '暂停播放');
@@ -431,17 +523,16 @@ function toggleReplayPlayback() {
   queueReplayStep();
 }
 
-function startCommandReplay(journal, source) {
-  if (aiBusy || replaySession) return;
+function startCommandReplay(journal, source, finalState) {
+  if (aiBusy || replaySession) return false;
   try {
-    const frames = createCommandReplayFrames(journal);
-    if (frames.length <= 1) throw new Error('当前没有可回放的命令。');
-    if (source === 'current' && frames.at(-1).game !== serializeGame(game)) {
-      throw new Error('当前对局与命令日志不一致，拒绝回放。');
-    }
+    const replay = createCommandReplay(journal, { finalState });
+    if (replay.length <= 1) throw new Error('当前没有可回放的命令。');
+    const initialFrame = replay.getFrame(0);
+    const initialState = deserializeGame(initialFrame.game);
     const labels = ['对局初始状态'];
-    journal.commands.forEach((command, index) => {
-      labels.push(describeReplayCommand(command, deserializeGame(frames[index].game)));
+    journal.commands.forEach((command) => {
+      labels.push(describeReplayCommand(command, initialState));
     });
     gameSession += 1;
     clearTimeout(resultTimer);
@@ -449,7 +540,8 @@ function startCommandReplay(journal, source) {
     clearTimeout(turnCalloutTimer);
     replaySession = {
       source,
-      frames,
+      replay,
+      currentFrame: initialFrame,
       labels,
       cursor: 0,
       playing: false,
@@ -475,10 +567,12 @@ function startCommandReplay(journal, source) {
     renderReplayController();
     render();
     announce('已进入只读命令回放。', 'success');
+    return true;
   } catch (error) {
     nodes.sessionStatus.textContent = `回放失败：${error.message}`;
     nodes.sessionStatus.dataset.state = 'error';
     announce('无法建立命令回放。', 'danger');
+    return false;
   }
 }
 
@@ -497,7 +591,7 @@ function exitCommandReplay() {
 }
 
 function replayCurrentSession() {
-  startCommandReplay(commandJournal, 'current');
+  startCommandReplay(commandJournal, 'current', game);
 }
 
 function replaySavedSession() {
@@ -507,7 +601,8 @@ function replaySavedSession() {
     return;
   }
   try {
-    startCommandReplay(restoreSessionSave(stored.raw).journal, 'saved');
+    const restored = restoreSessionSave(stored.raw);
+    startCommandReplay(restored.journal, 'saved', restored.state);
   } catch (error) {
     nodes.sessionStatus.textContent = `回放失败：${error.message}`;
     nodes.sessionStatus.dataset.state = 'error';
@@ -1415,7 +1510,16 @@ function renderCommands() {
     : '结束回合 <span aria-hidden="true">→</span>';
   nodes.attackLabel.textContent = attacker ? `${attacker.name}出击` : '无法出击';
   nodes.levelLabel.textContent = attacker ? `${attacker.name}升勾` : '无法升勾';
-  nodes.turnOwner.textContent = replaySession ? '命令回放' : playerResponding ? '等待巡界者响应' : userTurn ? '巡界者行动' : displayedGame.winner !== null ? '对局结束' : '失序体行动';
+  const responseOwner = displayedGame.responseWindow?.playerIndex === 0 ? '巡界者' : '失序体';
+  nodes.turnOwner.textContent = replaySession
+    ? '命令回放'
+    : displayedGame.responseWindow
+      ? `优先权：${responseOwner}`
+      : userTurn
+        ? '巡界者行动'
+        : displayedGame.winner !== null
+          ? '对局结束'
+          : '失序体行动';
   nodes.round.textContent = String(getRound(displayedGame)).padStart(2, '0');
   nodes.battleStage.dataset.turn = turnMode;
   document.body.dataset.turn = turnMode;
@@ -1443,9 +1547,11 @@ function renderCommands() {
       : `${card.name}：${prompts[card.target]}`;
   } else if (displayedGame.pendingChoice?.playerIndex === 0) {
     nodes.actionPrompt.textContent = '占卜：从牌库顶的候选中选择一张置顶。';
-  } else if (playerResponding) {
+  } else if (displayedGame.responseWindow) {
     const pending = getCardDefinition(displayedGame.responseWindow.definitionId);
-    nodes.actionPrompt.textContent = `响应「${pending.name}」：使用响应牌，或放弃响应。`;
+    const { consecutivePasses, depth, playerIndex } = displayedGame.responseWindow;
+    const priorityOwner = playerIndex === 0 ? '巡界者' : '失序体';
+    nodes.actionPrompt.textContent = `响应「${pending.name}」 · 优先权 ${priorityOwner} · 深度 ${depth}/${GAME_RULES.maxResponseDepth} · 连续放弃 ${consecutivePasses}/2`;
   } else if (aiBusy) {
     nodes.actionPrompt.textContent = '失序体正在评估前线与准备区。';
   } else if (displayedGame.winner !== null) {
@@ -1464,7 +1570,7 @@ function renderCommands() {
 function render() {
   clearTimeout(feedbackClearTimer);
   displayedGame = replaySession
-    ? deserializeGame(replaySession.frames[replaySession.cursor].game)
+    ? deserializeGame(replaySession.currentFrame.game)
     : game;
   const previousState = replaySession ? replaySession.previousVisualState : previousVisualState;
   visualFeedback = deriveBattleFeedback(previousState, displayedGame);
@@ -1550,7 +1656,6 @@ function handleRealmClick(ownerIndex, realmId) {
 
 function commitCard(instanceId, targetId) {
   if (replaySession) return;
-  const wasResponse = game.responseWindow?.playerIndex === 0;
   const result = playCard(game, 0, instanceId, targetId);
   if (result.error) {
     announce(result.error, 'danger');
@@ -1559,7 +1664,7 @@ function commitCard(instanceId, targetId) {
   game = result.state;
   recordCommand({ type: 'play-card', playerIndex: 0, instanceId, targetId });
   selectedCardId = null;
-  if (wasResponse && game.currentPlayer === 1 && game.winner === null) {
+  if (game.responseWindow?.playerIndex === 1 && game.winner === null) {
     aiBusy = true;
     render();
     runAiTurn(gameSession);
@@ -1606,14 +1711,22 @@ function executeAiCommand(command) {
   if (command.type === 'level-up') return levelUpUnit(game, 1, command.unitId);
   if (command.type === 'attack') return basicAttack(game, 1, command.unitId, command.targetId);
   if (command.type === 'divination-choice') return resolveDivinationChoice(game, 1, command.instanceId);
+  if (command.type === 'pass-response') return passResponse(game, 1);
   return { state: game, error: null };
+}
+
+function aiHasControl() {
+  if (game.winner !== null) return false;
+  if (game.pendingChoice) return game.pendingChoice.playerIndex === 1;
+  if (game.responseWindow) return game.responseWindow.playerIndex === 1;
+  return game.currentPlayer === 1;
 }
 
 async function runAiTurn(session) {
   await wait(1250);
-  if (session !== gameSession || game.currentPlayer !== 1 || game.winner !== null) return;
+  if (session !== gameSession || !aiHasControl()) return;
   let actions = 0;
-  while (session === gameSession && game.currentPlayer === 1 && game.winner === null && actions < 8) {
+  while (session === gameSession && aiHasControl() && actions < 24) {
     while (session === gameSession && (replaySession || nodes.battleLogDialog.open || nodes.rulesDialog.open || nodes.sessionDialog.open || nodes.divinationDialog.open)) await wait(120);
     if (session !== gameSession) return;
     const command = chooseAiCommand(game, 1);
@@ -1624,7 +1737,7 @@ async function runAiTurn(session) {
     game = result.state;
     recordCommand({ ...command, playerIndex: 1 });
     actions += 1;
-    if (game.responseWindow?.playerIndex === 0) {
+    if (!aiHasControl()) {
       aiBusy = false;
       render();
       return;
@@ -1644,6 +1757,11 @@ async function runAiTurn(session) {
   }
 
   if (session !== gameSession || game.winner !== null) {
+    aiBusy = false;
+    render();
+    return;
+  }
+  if (game.responseWindow || game.pendingChoice || game.currentPlayer !== 1) {
     aiBusy = false;
     render();
     return;
@@ -1672,7 +1790,7 @@ function handleEndTurn() {
     game = result.state;
     recordCommand({ type: 'pass-response', playerIndex: 0 });
     selectedCardId = null;
-    aiBusy = game.currentPlayer === 1 && game.winner === null;
+    aiBusy = aiHasControl();
     render();
     if (aiBusy) runAiTurn(gameSession);
     return;
@@ -1760,6 +1878,10 @@ nodes.sessionSaveButton.addEventListener('click', saveCurrentSession);
 nodes.sessionLoadButton.addEventListener('click', loadLocalSession);
 nodes.sessionReplayCurrentButton.addEventListener('click', replayCurrentSession);
 nodes.sessionReplaySavedButton.addEventListener('click', replaySavedSession);
+nodes.sessionExportCurrentButton.addEventListener('click', exportCurrentReplay);
+nodes.sessionExportSavedButton.addEventListener('click', exportSavedReplay);
+nodes.sessionImportButton.addEventListener('click', () => nodes.sessionImportInput.click());
+nodes.sessionImportInput.addEventListener('change', importReplayFile);
 nodes.replayFirstButton.addEventListener('click', () => setReplayCursor(0));
 nodes.replayPreviousButton.addEventListener('click', () => {
   if (replaySession) setReplayCursor(replaySession.cursor - 1);
@@ -1769,7 +1891,7 @@ nodes.replayNextButton.addEventListener('click', () => {
   if (replaySession) setReplayCursor(replaySession.cursor + 1);
 });
 nodes.replayLastButton.addEventListener('click', () => {
-  if (replaySession) setReplayCursor(replaySession.frames.length - 1);
+  if (replaySession) setReplayCursor(replaySession.replay.length - 1);
 });
 nodes.replayExitButton.addEventListener('click', exitCommandReplay);
 nodes.replayScrubber.addEventListener('input', (event) => setReplayCursor(Number(event.target.value)));

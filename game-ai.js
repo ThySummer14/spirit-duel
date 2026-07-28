@@ -107,6 +107,7 @@ function scoreTransition(before, after, playerIndex) {
 }
 
 function createCardCandidates(state, playerIndex) {
+  const evaluationBase = state.responseWindow ? settleResponseWindows(state) : state;
   const player = state.players[playerIndex];
   return player.hand.flatMap((instance) => {
     if (!canPlayCard(state, playerIndex, instance.instanceId)) return [];
@@ -125,10 +126,8 @@ function createCardCandidates(state, playerIndex) {
         const choice = chooseDivinationInstance(projected, playerIndex);
         projected = resolveDivinationChoice(projected, playerIndex, choice).state;
       }
-      if (projected.responseWindow) {
-        projected = passResponse(projected, projected.responseWindow.playerIndex).state;
-      }
-      const evaluation = scoreTransition(state, projected, playerIndex);
+      projected = settleResponseWindows(projected);
+      const evaluation = scoreTransition(evaluationBase, projected, playerIndex);
       return [{
         type: 'play-card',
         instanceId: instance.instanceId,
@@ -138,6 +137,16 @@ function createCardCandidates(state, playerIndex) {
       }];
     });
   });
+}
+
+function settleResponseWindows(state) {
+  let projected = state;
+  for (let step = 0; projected.responseWindow && step < 128; step += 1) {
+    const result = passResponse(projected, projected.responseWindow.playerIndex);
+    if (result.error) break;
+    projected = result.state;
+  }
+  return projected;
 }
 
 function chooseDivinationInstance(state, playerIndex) {
@@ -206,7 +215,7 @@ function commandTieBreak(command) {
  */
 export function chooseAiCommand(state, playerIndex = 1) {
   const player = state?.players?.[playerIndex];
-  if (!player || state.winner !== null || state.currentPlayer !== playerIndex) {
+  if (!player || state.winner !== null) {
     return { type: 'end-turn', score: 0, reason: '当前没有可执行的 AI 行动。' };
   }
   if (state.pendingChoice?.playerIndex === playerIndex) {
@@ -216,6 +225,23 @@ export function chooseAiCommand(state, playerIndex = 1) {
       score: 0,
       reason: '选择下一张更容易使用的卡牌。',
     };
+  }
+
+  if (state.responseWindow) {
+    if (state.responseWindow.playerIndex !== playerIndex) {
+      return { type: 'pass-response', score: 0, reason: '当前响应优先权属于对手。' };
+    }
+    const candidates = createCardCandidates(state, playerIndex).filter((command) => command.score > 0);
+    candidates.sort((first, second) => (second.score - first.score)
+      || (commandTieBreak(second) - commandTieBreak(first)));
+    return candidates[0] ?? {
+      type: 'pass-response',
+      score: 0,
+      reason: '没有更有利的响应，放弃当前优先权。',
+    };
+  }
+  if (state.currentPlayer !== playerIndex) {
+    return { type: 'end-turn', score: 0, reason: '当前没有可执行的 AI 行动。' };
   }
 
   const candidates = [

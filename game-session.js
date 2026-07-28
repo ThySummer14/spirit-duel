@@ -11,6 +11,8 @@ import {
 
 export const COMMAND_JOURNAL_VERSION = 1;
 export const SESSION_SAVE_VERSION = 1;
+export const REPLAY_CHECKPOINT_INTERVAL = 20;
+export const REPLAY_FRAME_CACHE_LIMIT = 12;
 
 const COMMAND_TYPES = new Set([
   'play-card',
@@ -115,20 +117,104 @@ export function applyRecordedCommand(state, command) {
 }
 
 export function replayCommandJournal(journal) {
-  return deserializeGame(createCommandReplayFrames(journal).at(-1).game);
-}
-
-export function createCommandReplayFrames(journal) {
   assertJournal(journal);
   let state = deserializeGame(journal.initialGame);
-  const frames = [{ sequence: 0, command: null, game: serializeGame(state) }];
   journal.commands.forEach((command) => {
     const result = applyRecordedCommand(state, command);
     if (result.error) throw new Error(`命令 ${command.sequence} 无法重放：${result.error}`);
     state = result.state;
-    frames.push({ sequence: command.sequence, command: clone(command), game: serializeGame(state) });
   });
-  return frames;
+  return state;
+}
+
+export function createCommandReplay(journal, options = {}) {
+  assertJournal(journal);
+  const checkpointInterval = options.checkpointInterval ?? REPLAY_CHECKPOINT_INTERVAL;
+  const cacheLimit = options.cacheLimit ?? REPLAY_FRAME_CACHE_LIMIT;
+  if (!Number.isInteger(checkpointInterval) || checkpointInterval <= 0) {
+    throw new Error('回放检查点间隔必须是正整数。');
+  }
+  if (!Number.isInteger(cacheLimit) || cacheLimit < 2) {
+    throw new Error('回放帧缓存上限不能小于 2。');
+  }
+
+  const commands = clone(journal.commands);
+  const initialFrame = { sequence: 0, command: null, game: journal.initialGame };
+  const checkpoints = new Map([[0, initialFrame]]);
+  const frameCache = new Map([[0, initialFrame]]);
+  let replayedCommands = 0;
+
+  if (options.finalState !== undefined) {
+    const finalGame = serializeGame(options.finalState);
+    const sequence = commands.length;
+    frameCache.set(sequence, {
+      sequence,
+      command: sequence === 0 ? null : clone(commands[sequence - 1]),
+      game: finalGame,
+    });
+  }
+
+  function cacheFrame(frame) {
+    frameCache.delete(frame.sequence);
+    frameCache.set(frame.sequence, frame);
+    while (frameCache.size > cacheLimit) {
+      frameCache.delete(frameCache.keys().next().value);
+    }
+  }
+
+  function nearestFrame(sequence) {
+    let nearest = checkpoints.get(0);
+    checkpoints.forEach((frame, frameSequence) => {
+      if (frameSequence <= sequence && frameSequence > nearest.sequence) nearest = frame;
+    });
+    frameCache.forEach((frame, frameSequence) => {
+      if (frameSequence <= sequence && frameSequence > nearest.sequence) nearest = frame;
+    });
+    return nearest;
+  }
+
+  function getFrame(sequence) {
+    if (!Number.isInteger(sequence) || sequence < 0 || sequence > commands.length) {
+      throw new Error(`回放帧序号无效：${String(sequence)}。`);
+    }
+    const cached = frameCache.get(sequence) ?? checkpoints.get(sequence);
+    if (cached) {
+      cacheFrame(cached);
+      return clone(cached);
+    }
+
+    const origin = nearestFrame(sequence);
+    let state = deserializeGame(origin.game);
+    let frame = origin;
+    for (let index = origin.sequence; index < sequence; index += 1) {
+      const command = commands[index];
+      const result = applyRecordedCommand(state, command);
+      if (result.error) throw new Error(`命令 ${command.sequence} 无法重放：${result.error}`);
+      state = result.state;
+      replayedCommands += 1;
+      frame = { sequence: command.sequence, command: clone(command), game: serializeGame(state) };
+      if (frame.sequence % checkpointInterval === 0) checkpoints.set(frame.sequence, frame);
+    }
+    cacheFrame(frame);
+    return clone(frame);
+  }
+
+  return Object.freeze({
+    length: commands.length + 1,
+    getFrame,
+    getStats: () => ({
+      cacheLimit,
+      cachedFrames: frameCache.size,
+      checkpointInterval,
+      checkpoints: checkpoints.size,
+      replayedCommands,
+    }),
+  });
+}
+
+export function createCommandReplayFrames(journal) {
+  const replay = createCommandReplay(journal);
+  return Array.from({ length: replay.length }, (_, sequence) => replay.getFrame(sequence));
 }
 
 export function createSessionSave(state, journal, savedAt = new Date().toISOString()) {

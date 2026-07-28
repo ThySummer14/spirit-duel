@@ -10,6 +10,7 @@ export const GAME_RULES = Object.freeze({
   openingHandSize: 5,
   knockoutCountdown: 2,
   maxUnitLevel: 3,
+  maxResponseDepth: 8,
 });
 
 export const DEFAULT_PLAYER_LINEUP = Object.freeze(['ember', 'basalt', 'lumen', 'rime']);
@@ -292,8 +293,8 @@ export const CARD_DEFINITIONS = Object.freeze([
   // 白棱：眩晕与晶裂形成控制和破防的连续决策。
   card('frost-step', 'rime', '霜步', 'combat', 1, '白棱出击，本次攻击 +1。', 'auto', 'assault', 1, { tags: ['出击'] }),
   card('needle-frost', 'rime', '冰针', 'spell', 1, '对一名敌方角色造成 2 点伤害。', 'enemy-unit', 'damage', 2, { tags: ['解场'] }),
-  card('hoar-barrier', 'rime', '霜障', 'spell', 1, '响应：一名友方角色获得 2 点护盾。', 'ally-unit', 'shield', 2, {
-    timing: 'response', responseTo: ['damage', 'assault'], tags: ['保护', '响应'], keywords: [CARD_KEYWORDS.RESPONSE],
+  card('hoar-barrier', 'rime', '霜障', 'spell', 1, '响应伤害、出击或护盾：一名友方角色获得 2 点护盾。', 'ally-unit', 'shield', 2, {
+    timing: 'response', responseTo: ['damage', 'assault', 'shield'], tags: ['保护', '响应'], keywords: [CARD_KEYWORDS.RESPONSE],
   }),
   card('shatterline', 'rime', '裂霜线', 'spell', 2, '造成 1 点伤害，并使目标进入 1 层晶裂。', 'enemy-unit', 'brittle', 1, { rarity: 'rare', tags: ['破防'] }),
   card('winter-form', 'rime', '凛冬之相', 'form', 2, '白棱获得 +2 攻击。', 'auto', 'form', { attack: 2, hp: 0 }, { rarity: 'rare', tags: ['压制'] }),

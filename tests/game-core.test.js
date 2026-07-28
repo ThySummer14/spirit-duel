@@ -103,7 +103,7 @@ test('every card exposes immutable condition-action-target effect steps', () => 
     { condition: 'match-active', action: 'heal-avatar', target: 'ally-avatar', value: 1 },
   ]);
   assert.equal(getCardDefinition('hoar-barrier').timing, 'response');
-  assert.deepEqual(getCardDefinition('hoar-barrier').responseTo, ['damage', 'assault']);
+  assert.deepEqual(getCardDefinition('hoar-barrier').responseTo, ['damage', 'assault', 'shield']);
   assert.deepEqual(getCardDefinition('moon-ward').keywords, ['instant']);
   assert.deepEqual(getCardDefinition('combustion-edge').keywords, ['pierce']);
   assert.deepEqual(getCardDefinition('static-dash').keywords, ['remote']);
@@ -133,8 +133,9 @@ function createResponseScenario(seed) {
   return { state, damageCard, responseCard, target };
 }
 
-test('a response card resolves before the pending damage frame', () => {
+test('response priority alternates until both players pass, then resolves LIFO', () => {
   const { state, damageCard, responseCard, target } = createResponseScenario(115);
+  putCardInHand(state, 0, 'hoar-barrier');
   const hpBefore = target.hp;
   const pending = playCard(state, 0, damageCard.instanceId, target.uid);
 
@@ -142,12 +143,33 @@ test('a response card resolves before the pending damage frame', () => {
   assert.equal(pending.pending, true);
   assert.equal(pending.state.phase, 'response');
   assert.equal(pending.state.responseWindow.playerIndex, 1);
+  assert.equal(pending.state.responseWindow.consecutivePasses, 0);
+  assert.equal(pending.state.responseWindow.depth, 0);
   assert.equal(pending.state.players[1].units[0].hp, hpBefore);
   assert.ok(pending.state.resolutionStack.length > 0);
   assert.equal(getCardPlayability(pending.state, 1, responseCard.instanceId).playable, true);
   assert.match(basicAttack(pending.state, 0, pending.state.players[0].frontUnitId).error, /响应窗口/);
 
-  const resolved = playCard(pending.state, 1, responseCard.instanceId, target.uid);
+  const chained = playCard(pending.state, 1, responseCard.instanceId, target.uid);
+  assert.equal(chained.error, null);
+  assert.equal(chained.pending, true);
+  assert.equal(chained.state.responseWindow.playerIndex, 0);
+  assert.equal(chained.state.responseWindow.depth, 1);
+  assert.equal(chained.state.responseWindow.consecutivePasses, 0);
+
+  const firstPass = passResponse(chained.state, 0);
+  assert.equal(firstPass.pending, true);
+  assert.equal(firstPass.state.responseWindow.playerIndex, 1);
+  assert.equal(firstPass.state.responseWindow.consecutivePasses, 1);
+  assert.equal(firstPass.state.players[1].units[0].shield, 0);
+
+  const responseResolved = passResponse(firstPass.state, 1);
+  assert.equal(responseResolved.pending, true);
+  assert.equal(responseResolved.state.responseWindow.depth, 0);
+  assert.equal(responseResolved.state.players[1].units[0].shield, 2);
+
+  const rootFirstPass = passResponse(responseResolved.state, 1);
+  const resolved = passResponse(rootFirstPass.state, 0);
   assert.equal(resolved.error, null);
   assert.equal(resolved.pending, false);
   assert.equal(resolved.state.phase, 'main');
@@ -163,11 +185,19 @@ test('a response card resolves before the pending damage frame', () => {
   assert.deepEqual(order.slice(-2), ['hoar-barrier', 'cinder-mark']);
 });
 
-test('passing a response window resumes the pending card unchanged', () => {
+test('two consecutive passes are required to resume the pending card unchanged', () => {
   const { state, damageCard, target } = createResponseScenario(116);
   const hpBefore = target.hp;
   const pending = playCard(state, 0, damageCard.instanceId, target.uid);
-  const resolved = passResponse(pending.state, 1);
+  const firstPass = passResponse(pending.state, 1);
+
+  assert.equal(firstPass.error, null);
+  assert.equal(firstPass.pending, true);
+  assert.equal(firstPass.state.players[1].units[0].hp, hpBefore);
+  assert.equal(firstPass.state.responseWindow.playerIndex, 0);
+  assert.equal(firstPass.state.responseWindow.consecutivePasses, 1);
+
+  const resolved = passResponse(firstPass.state, 0);
 
   assert.equal(resolved.error, null);
   assert.equal(resolved.state.players[1].units[0].hp, hpBefore - 3);
@@ -185,7 +215,74 @@ test('an open response window and its resolution stack survive serialization', (
   assert.deepEqual(restored.resolutionStack, pending.resolutionStack);
   assert.equal(restored.phase, 'response');
   assert.equal(restored.isResolving, false);
-  assert.deepEqual(passResponse(restored, 1).state.resolutionStack, []);
+  const firstPass = passResponse(restored, 1).state;
+  assert.equal(firstPass.responseWindow.consecutivePasses, 1);
+  assert.deepEqual(passResponse(firstPass, 0).state.resolutionStack, []);
+});
+
+test('multiple response cards form a reusable LIFO chain', () => {
+  const { state, damageCard, responseCard, target } = createResponseScenario(128);
+  state.players[0].hand = [damageCard];
+  state.players[1].hand = [responseCard];
+  state.players[0].energy = 10;
+  state.players[1].energy = 10;
+  const playerResponse = putCardInHand(state, 0, 'hoar-barrier');
+  putCardInHand(state, 0, 'hoar-barrier');
+  putCardInHand(state, 1, 'hoar-barrier');
+
+  let chained = playCard(state, 0, damageCard.instanceId, target.uid).state;
+  chained = playCard(chained, 1, responseCard.instanceId, target.uid).state;
+  chained = playCard(chained, 0, playerResponse.instanceId, chained.players[0].units[0].uid).state;
+  assert.equal(chained.responseWindow.depth, 2);
+  assert.equal(chained.responseWindow.playerIndex, 1);
+
+  while (chained.responseWindow) {
+    chained = passResponse(chained, chained.responseWindow.playerIndex).state;
+  }
+  const order = chained.events
+    .filter((event) => event.type === GAME_EVENTS.RESOLUTION_STEP_RESOLVED)
+    .reverse()
+    .map((event) => event.payload.definitionId);
+  assert.deepEqual(order.slice(-3), ['hoar-barrier', 'hoar-barrier', 'cinder-mark']);
+});
+
+test('response nesting stops at the configured depth without exceeding the stack limit', () => {
+  const { state, damageCard, target } = createResponseScenario(129);
+  state.players[0].hand = [damageCard];
+  state.players[1].hand = [];
+  state.players[0].energy = 20;
+  state.players[1].energy = 20;
+  for (let index = 0; index < 5; index += 1) {
+    putCardInHand(state, 0, 'hoar-barrier');
+    putCardInHand(state, 1, 'hoar-barrier');
+  }
+
+  let chained = playCard(state, 0, damageCard.instanceId, target.uid).state;
+  for (let depth = 1; depth <= GAME_RULES.maxResponseDepth; depth += 1) {
+    const playerIndex = chained.responseWindow.playerIndex;
+    const response = chained.players[playerIndex].hand.find((card) => card.definitionId === 'hoar-barrier');
+    const ownTarget = chained.players[playerIndex].units.find((unit) => unit.hp > 0);
+    chained = playCard(chained, playerIndex, response.instanceId, ownTarget.uid).state;
+  }
+
+  assert.equal(chained.responseWindow.depth, GAME_RULES.maxResponseDepth - 1);
+  assert.equal(chained.resolutionStack.some((frame) => frame.responseDepth > GAME_RULES.maxResponseDepth), false);
+  assert.equal(chained.events.filter((event) => (
+    event.type === GAME_EVENTS.RESOLUTION_STEP_RESOLVED
+      && event.payload.definitionId === 'hoar-barrier'
+  )).length, 1);
+});
+
+test('serialization rejects forged response priority and depth state', () => {
+  const { state, damageCard, target } = createResponseScenario(130);
+  const pending = playCard(state, 0, damageCard.instanceId, target.uid).state;
+  const forgedPasses = JSON.parse(serializeGame(pending));
+  forgedPasses.state.responseWindow.consecutivePasses = 2;
+  assert.throws(() => deserializeGame(JSON.stringify(forgedPasses)), /响应窗口结构无效/);
+
+  const forgedDepth = JSON.parse(serializeGame(pending));
+  forgedDepth.state.resolutionStack.at(-1).responseDepth = GAME_RULES.maxResponseDepth + 1;
+  assert.throws(() => deserializeGame(JSON.stringify(forgedDepth)), /结算帧无效/);
 });
 
 test('targeted damage spends one ghost fire and damages the chosen enemy', () => {
@@ -337,7 +434,8 @@ test('charge is reserved through a response window and paid once resolution resu
   assert.equal(getCardPlayability(state, 0, chargedCard.instanceId).playable, true);
 
   const restored = deserializeGame(serializeGame(pending.state));
-  const resolved = passResponse(restored, 1);
+  const firstPass = passResponse(restored, 1);
+  const resolved = passResponse(firstPass.state, 0);
   assert.equal(resolved.error, null);
   assert.equal(resolved.state.players[0].keywordUsage.charge.units[storm.uid].current, 0);
   assert.equal(resolved.state.players[1].units.find((unit) => unit.uid === target.uid).hp, hpBefore - 5);

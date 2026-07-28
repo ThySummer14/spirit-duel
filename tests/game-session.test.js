@@ -5,6 +5,7 @@ import { createGame, serializeGame } from '../game-core.js';
 import {
   appendCommand,
   applyRecordedCommand,
+  createCommandReplay,
   createCommandReplayFrames,
   createCommandJournal,
   createSessionSave,
@@ -67,6 +68,63 @@ test('builds immutable replay frames from the initial state through every comman
   assert.equal(JSON.parse(frames[2].game).state.players[0].avatarHp, initial.players[0].avatarHp);
 });
 
+test('lazily replays from bounded frame caches and reusable checkpoints', () => {
+  const initial = createGame(805);
+  for (let playerIndex = 0; playerIndex < 2; playerIndex += 1) {
+    for (let index = 0; index < 80; index += 1) {
+      initial.players[playerIndex].deck.unshift({
+        instanceId: `long-${playerIndex}-${index}`,
+        definitionId: 'cinder-mark',
+      });
+    }
+  }
+  let state = initial;
+  const journal = createCommandJournal(initial);
+  for (let sequence = 1; sequence <= 60; sequence += 1) {
+    const command = { sequence, type: 'end-turn', playerIndex: state.currentPlayer };
+    journal.commands.push(command);
+    const result = applyRecordedCommand(state, command);
+    assert.equal(result.error, null);
+    state = result.state;
+  }
+
+  const replay = createCommandReplay(journal, { checkpointInterval: 10, cacheLimit: 4 });
+  assert.deepEqual(replay.getStats(), {
+    cacheLimit: 4,
+    cachedFrames: 1,
+    checkpointInterval: 10,
+    checkpoints: 1,
+    replayedCommands: 0,
+  });
+
+  assert.equal(replay.getFrame(35).sequence, 35);
+  assert.equal(replay.getStats().replayedCommands, 35);
+  assert.equal(replay.getStats().checkpoints, 4);
+  assert.equal(replay.getFrame(38).sequence, 38);
+  assert.equal(replay.getStats().replayedCommands, 38);
+  assert.equal(replay.getFrame(21).sequence, 21);
+  assert.equal(replay.getStats().replayedCommands, 39);
+  assert.ok(replay.getStats().cachedFrames <= 4);
+  assert.equal(replay.getFrame(60).game, serializeGame(state));
+});
+
+test('accepts a validated final-state seed without eagerly replaying the journal', () => {
+  const initial = createGame(806);
+  let state = initial;
+  const journal = createCommandJournal(initial);
+  for (let sequence = 1; sequence <= 4; sequence += 1) {
+    const command = { sequence, type: 'end-turn', playerIndex: state.currentPlayer };
+    journal.commands.push(command);
+    state = applyRecordedCommand(state, command).state;
+  }
+
+  const replay = createCommandReplay(journal, { finalState: state });
+  assert.equal(replay.getStats().replayedCommands, 0);
+  assert.equal(replay.getFrame(4).game, serializeGame(state));
+  assert.equal(replay.getStats().replayedCommands, 0);
+  assert.throws(() => replay.getFrame(5), /回放帧序号无效/);
+});
+
 test('round-trips a session save with current state, initial snapshot, and command journal', () => {
   const initial = createGame(802);
   let journal = createCommandJournal(initial);
@@ -95,6 +153,16 @@ test('rejects malformed commands and state-journal mismatches', () => {
   assert.throws(() => createSessionSave(changed, journal), /命令日志不一致/);
 
   const valid = JSON.parse(createSessionSave(initial, journal, '2026-07-27T12:00:00.000Z'));
+  const unsupported = structuredClone(valid);
+  unsupported.version = 999;
+  assert.throws(() => restoreSessionSave(JSON.stringify(unsupported)), /不支持的本地存档版本/);
+
+  const altered = structuredClone(valid);
+  const alteredGame = JSON.parse(altered.game);
+  alteredGame.state.players[0].avatarHp -= 1;
+  altered.game = JSON.stringify(alteredGame);
+  assert.throws(() => restoreSessionSave(JSON.stringify(altered)), /本地存档与命令日志不一致/);
+
   valid.journal.commands.push({ sequence: 2, type: 'end-turn', playerIndex: 0 });
   assert.throws(() => restoreSessionSave(JSON.stringify(valid)), /序号不连续/);
 });

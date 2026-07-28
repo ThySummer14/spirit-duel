@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#191919" />
     <title>灵枢战线 · 原型对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=12" />
-    <link rel="stylesheet" href="formation.css?v=12" />
-    <script type="module" src="app.js?v=12"></script>
+    <link rel="stylesheet" href="styles.css?v=13" />
+    <link rel="stylesheet" href="formation.css?v=13" />
+    <script type="module" src="app.js?v=13"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -254,8 +254,12 @@
             <button class="quiet-button" id="session-load-button" type="button" disabled>读取本地存档</button>
             <button class="quiet-button session-replay-button" id="session-replay-current-button" type="button" disabled>回放当前对局</button>
             <button class="quiet-button session-replay-button" id="session-replay-saved-button" type="button" disabled>回放本地存档</button>
+            <button class="quiet-button" id="session-export-current-button" type="button" disabled>导出当前回放</button>
+            <button class="quiet-button" id="session-export-saved-button" type="button" disabled>导出存档回放</button>
+            <button class="quiet-button session-import-button" id="session-import-button" type="button">导入回放 JSON</button>
+            <input id="session-import-input" type="file" accept=".json,application/json" hidden />
           </div>
-          <small class="session-note">单存档槽，数据仅保存在当前浏览器。存档包含对局状态和双方命令记录。</small>
+          <small class="session-note">导入只打开只读回放，不会覆盖当前对局或本地存档。JSON 文件上限 5 MB。</small>
         </div>
       </dialog>
 
