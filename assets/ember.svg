@@ -1,10 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
-  <title id="title">赤曜抽象卡面</title>
-  <desc id="desc">由红色锋刃和黑色构件组成的原创几何图案</desc>
-  <rect width="180" height="220" fill="#191919"/>
-  <path d="M19 186 76 20l16 72 43-57-28 93 54-19-71 91Z" fill="#e75b32"/>
-  <path d="m44 177 38-86 8 48 38-28-39 74Z" fill="#ffed00"/>
-  <path d="M18 21h62v5H18zm0 12h41v2H18z" fill="#f2f2f0"/>
-  <path d="M135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
-  <path d="M151 59v91M144 67h15M144 84h15M144 101h15M144 118h15M144 135h15" stroke="#f2f2f0" stroke-width="2" opacity=".7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">赤曜 · 焰锋</title>
+  <desc id="desc">狐面焰灵：朱红狐面具栖于焰心，外圈火舌成环，飞舞余烬环绕，鎏金狐瞳</desc>
+  <defs>
+    <linearGradient id="e-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c0e12"/>
+      <stop offset=".55" stop-color="#2a1016"/>
+      <stop offset="1" stop-color="#120a0c"/>
+    </linearGradient>
+    <radialGradient id="e-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#ffb066" stop-opacity=".5"/>
+      <stop offset=".45" stop-color="#e75b32" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#e75b32" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="e-mask" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#fdf3e7"/>
+      <stop offset=".5" stop-color="#f4d9c0"/>
+      <stop offset="1" stop-color="#c98a6a"/>
+    </linearGradient>
+    <linearGradient id="e-flame" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#8f1f1c"/>
+      <stop offset=".45" stop-color="#e75b32"/>
+      <stop offset=".8" stop-color="#ffab52"/>
+      <stop offset="1" stop-color="#ffe6a8"/>
+    </linearGradient>
+    <linearGradient id="e-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#e-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#e-halo)"/>
+  <g fill="url(#e-flame)">
+    <path d="M100 34c14 10 20 24 16 38 8-6 10-18 6-30 12 12 16 30 8 46 10-4 16-14 16-26 8 18 4 40-10 54-8 8-18 12-28 12h-16c-10 0-20-4-28-12-14-14-18-36-10-54 0 12 6 22 16 26-8-16-4-34 8-46-4 12-2 24 6 30-4-14 2-28 16-38Z" opacity=".9"/>
+  </g>
+  <path d="M100 84c10 14 16 26 16 40 0 16-8 28-16 34-8-6-16-18-16-34 0-14 6-26 16-40Z" fill="url(#e-flame)" opacity=".85"/>
+  <g>
+    <path d="M63 84 55 44l30 22h30l30-22-8 40c6 8 9 18 9 28 0 26-16 44-46 44s-46-18-46-44c0-10 3-20 9-28Z" fill="url(#e-mask)" stroke="#5c2418" stroke-width="2.5"/>
+    <path d="M63 84 55 44l30 22h30l30-22-8 40c6 8 9 18 9 28 0 26-16 44-46 44s-46-18-46-44c0-10 3-20 9-28Z" fill="none" stroke="url(#e-gold)" stroke-width="1.2" opacity=".7"/>
+    <path d="M100 70v58M100 96l-14 8M100 96l14 8" stroke="#a33b22" stroke-width="3" stroke-linecap="round" fill="none" opacity=".8"/>
+    <ellipse cx="80" cy="110" rx="9" ry="6" fill="#3a0f0a" transform="rotate(-14 80 110)"/>
+    <ellipse cx="120" cy="110" rx="9" ry="6" fill="#3a0f0a" transform="rotate(14 120 110)"/>
+    <ellipse cx="82" cy="109" rx="3" ry="3.4" fill="#ffd98a"/>
+    <ellipse cx="118" cy="109" rx="3" ry="3.4" fill="#ffd98a"/>
+  </g>
+  <g fill="#ffab52">
+    <circle cx="52" cy="70" r="2.4" opacity=".9"/>
+    <circle cx="150" cy="64" r="1.8" opacity=".7"/>
+    <circle cx="160" cy="120" r="2.6" opacity=".8"/>
+    <circle cx="40" cy="128" r="1.6" opacity=".6"/>
+    <circle cx="132" cy="182" r="2" opacity=".7"/>
+    <circle cx="66" cy="190" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="26" r="1.8" opacity=".6"/>
+    <circle cx="122" cy="40" r="1.2" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#e75b32" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
 </svg>

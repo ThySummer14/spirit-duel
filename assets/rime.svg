@@ -1,10 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
-  <title id="title">白棱抽象卡面</title>
-  <desc id="desc">由冰蓝色切面和黑色刀锋组成的原创几何图案</desc>
-  <rect width="180" height="220" fill="#191919"/>
-  <path d="m87 24 17 70 50-32-36 59 47 25-62-9-16 65-17-65-55 24 43-44-34-52 49 29z" fill="#5d8797"/>
-  <path d="m86 52 8 56 38-27-27 42 33 13-44-6-8 47-10-47-39 17 31-30-24-36 35 27z" fill="#dceaf0"/>
-  <path d="m86 77 5 39 23-17-17 28 19 6-26-3-4 25-6-25-22 9 18-17-14-22 20 16z" fill="#191919"/>
-  <path d="M18 21h62v5H18zm0 12h41v2H18zM135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
-  <path d="M148 53v109M142 64h12M142 86h12M142 108h12M142 130h12M142 152h12" stroke="#ffed00" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">白棱 · 霜刃</title>
+  <desc id="desc">霜晶之灵：六棱冰晶悬浮于青蓝寒雾，棱面折光如刃，碎冰环绕，冷青主调</desc>
+  <defs>
+    <linearGradient id="r-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1418"/>
+      <stop offset=".55" stop-color="#122028"/>
+      <stop offset="1" stop-color="#0a1014"/>
+    </linearGradient>
+    <radialGradient id="r-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#dff6ff" stop-opacity=".5"/>
+      <stop offset=".5" stop-color="#5d8797" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#5d8797" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="r-ice" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eefaff"/>
+      <stop offset=".5" stop-color="#a8d4e6"/>
+      <stop offset="1" stop-color="#5d8797"/>
+    </linearGradient>
+    <linearGradient id="r-ice-deep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9cc6dc"/>
+      <stop offset="1" stop-color="#40606e"/>
+    </linearGradient>
+    <linearGradient id="r-blade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2fbff"/>
+      <stop offset="1" stop-color="#7fb2c8"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#r-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#r-halo)"/>
+  <!-- 寒雾 -->
+  <g fill="#a8d4e6" opacity=".14">
+    <ellipse cx="60" cy="180" rx="60" ry="18"/>
+    <ellipse cx="140" cy="196" rx="70" ry="16"/>
+  </g>
+  <!-- 六棱主晶 -->
+  <g transform="translate(100 112)">
+    <path d="M0-70 24-38 18 34 0 66-18 34-24-38Z" fill="url(#r-ice)" stroke="#e8f7ff" stroke-width="1.6" stroke-opacity=".8"/>
+    <path d="M0-70 24-38 0-14Z" fill="#f2fbff" opacity=".85"/>
+    <path d="M24-38 18 34 0-14Z" fill="url(#r-ice-deep)" opacity=".8"/>
+    <path d="M0 66-18 34 0-14Z" fill="url(#r-ice-deep)" opacity=".6"/>
+    <path d="M0-70-24-38 0-14Z" fill="url(#r-ice)" opacity=".9"/>
+    <path d="M-24-38-18 34 0-14Z" fill="#c3e2f0" opacity=".7"/>
+    <path d="M0-70v136" stroke="#f2fbff" stroke-opacity=".6" stroke-width="1.2"/>
+  </g>
+  <!-- 环绕碎晶 -->
+  <g stroke="#dff2fb" stroke-opacity=".7" stroke-width="1">
+    <path d="M148 66l14 10-6 16-16-8Z" fill="url(#r-ice)"/>
+    <path d="M44 84l12-14 12 10-10 14Z" fill="url(#r-ice)" opacity=".9"/>
+    <path d="M160 152l10 12-12 8-8-14Z" fill="url(#r-ice)" opacity=".85"/>
+    <path d="M36 156l14 6-4 14-14-6Z" fill="url(#r-ice)" opacity=".8"/>
+    <path d="M100 26l8 10-8 8-8-8Z" fill="#eefaff" opacity=".9"/>
+  </g>
+  <!-- 霜刃 -->
+  <path d="M100 96 88 150l12 34 12-34Z" fill="url(#r-blade)" opacity=".55"/>
+  <!-- 飘雪 -->
+  <g fill="#e8f7ff">
+    <circle cx="56" cy="52" r="1.6" opacity=".8"/>
+    <circle cx="152" cy="42" r="1.2" opacity=".6"/>
+    <circle cx="170" cy="108" r="1.8" opacity=".7"/>
+    <circle cx="30" cy="118" r="1.3" opacity=".5"/>
+    <circle cx="140" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="70" cy="212" r="1.8" opacity=".6"/>
+    <circle cx="112" cy="56" r="1" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="226" rx="52" ry="8" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#5d8797" stroke-opacity=".4" stroke-width="1.5" rx="10"/>
 </svg>

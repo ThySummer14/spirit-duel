@@ -29,6 +29,19 @@ import {
   validateDeckDefinition,
 } from './game-core.js';
 import { chooseAiCommand } from './game-ai.js';
+import { gameAudio } from './game-audio.js';
+import {
+  COLLECTION_RULES,
+  RARITY_LABELS,
+  collectionStats,
+  craftCard,
+  createInitialCollection,
+  deserializeCollection,
+  grantMatchReward,
+  openPack,
+  ownedCopies,
+  serializeCollection,
+} from './game-collection.js';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
@@ -42,6 +55,7 @@ import {
 } from './game-session.js';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
+const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
 const MAX_REPLAY_FILE_BYTES = 5 * 1024 * 1024;
 const REPLAY_SOURCE_LABELS = Object.freeze({
   current: 'CURRENT',
@@ -71,14 +85,24 @@ const nodes = {
   formationStartLabel: document.querySelector('#formation-start-label'),
   formationCancelButton: document.querySelector('#formation-cancel-button'),
   formationButton: document.querySelector('#formation-button'),
+  collectionScreen: document.querySelector('#collection-screen'),
+  collectionButton: document.querySelector('#collection-button'),
+  collectionBackButton: document.querySelector('#collection-back-button'),
+  packOpenButton: document.querySelector('#pack-open-button'),
+  packReveal: document.querySelector('#pack-reveal'),
+  packRevealCards: document.querySelector('#pack-reveal-cards'),
+  packRevealCloseButton: document.querySelector('#pack-reveal-close'),
+  pityCount: document.querySelector('#pity-count'),
+  collectionBalance: document.querySelector('#collection-balance'),
+  collectionPacks: document.querySelector('#collection-packs'),
+  collectionRecord: document.querySelector('#collection-record'),
+  codexUnits: document.querySelector('#codex-units'),
+  codexOwned: document.querySelector('#codex-owned'),
+  codexTotal: document.querySelector('#codex-total'),
   battleStage: document.querySelector('.battle-stage'),
   battleFeedback: document.querySelector('#battle-feedback'),
   turnOwner: document.querySelector('#turn-owner'),
   round: document.querySelector('#round-value'),
-  turnState: document.querySelector('#turn-state'),
-  turnStateCode: document.querySelector('#turn-state-code'),
-  turnStateKicker: document.querySelector('#turn-state-kicker'),
-  turnStateLabel: document.querySelector('#turn-state-label'),
   turnCallout: document.querySelector('#turn-callout'),
   turnCalloutKicker: document.querySelector('#turn-callout-kicker'),
   turnCalloutLabel: document.querySelector('#turn-callout-label'),
@@ -87,7 +111,12 @@ const nodes = {
   recentEvent: document.querySelector('#recent-event'),
   playerUnits: document.querySelector('#player-units'),
   enemyUnits: document.querySelector('#enemy-units'),
+  enemyRealms: document.querySelector('#enemy-realms'),
+  playerRealms: document.querySelector('#player-realms'),
   playerHand: document.querySelector('#player-hand'),
+  handPreview: document.querySelector('#hand-preview'),
+  spiritDetail: document.querySelector('#spirit-detail'),
+  deckAutofillButton: document.querySelector('#deck-autofill-button'),
   playerCoreHp: document.querySelector('#player-core-hp'),
   playerCoreBar: document.querySelector('#player-core-bar'),
   playerCore: document.querySelector('.player-core'),
@@ -155,9 +184,17 @@ const nodes = {
   resultRounds: document.querySelector('#result-rounds'),
   resultCards: document.querySelector('#result-cards'),
   resultDamage: document.querySelector('#result-damage'),
+  resultReward: document.querySelector('#result-reward'),
   rematchButton: document.querySelector('#rematch-button'),
   inspectButton: document.querySelector('#inspect-button'),
   toast: document.querySelector('#toast'),
+  audioToggleButton: document.querySelector('#audio-toggle-button'),
+  audioDialog: document.querySelector('#audio-dialog'),
+  audioCloseButton: document.querySelector('#audio-close-button'),
+  audioEnabledCheckbox: document.querySelector('#audio-enabled-checkbox'),
+  audioMasterVolume: document.querySelector('#audio-master-volume'),
+  audioMusicVolume: document.querySelector('#audio-music-volume'),
+  audioSfxVolume: document.querySelector('#audio-sfx-volume'),
 };
 
 let selectedLineup = [...DEFAULT_PLAYER_LINEUP];
@@ -188,8 +225,161 @@ let announcedTurnCounter = 0;
 let turnCalloutTimer = null;
 let feedbackClearTimer = null;
 let draggedAttackUnitId = null;
+let lastFeedbackSfxKey = '';
+let lastResponseWindowKey = '';
+let lastHandInstanceIds = new Set();
+let lastRealmTotal = 0;
+
+/** 根据当前视觉反馈播放一次受击/气绝/核心音效（同一反馈只播一次） */
+function playImpactSfx() {
+  const parts = [];
+  for (const [uid, impact] of visualFeedback.unitImpacts) {
+    if (impact.knockedOut) parts.push(`ko:${uid}`);
+    else if (impact.hpDelta < 0 || impact.shieldDelta < 0) parts.push(`hit:${uid}`);
+    else if (impact.hpDelta > 0) parts.push(`heal:${uid}`);
+    else if (impact.shieldDelta > 0) parts.push(`shield:${uid}`);
+  }
+  for (const [index, impact] of visualFeedback.coreImpacts) {
+    if (impact.hpDelta < 0) parts.push(`core:${index}`);
+  }
+  const key = parts.join('|');
+  if (!key || key === lastFeedbackSfxKey) return;
+  lastFeedbackSfxKey = key;
+  if (parts.some((part) => part.startsWith('ko:'))) gameAudio.knockout();
+  else if (parts.some((part) => part.startsWith('core:'))) gameAudio.coreHit();
+  else if (parts.some((part) => part.startsWith('hit:'))) gameAudio.hit();
+  else if (parts.some((part) => part.startsWith('heal:'))) gameAudio.heal();
+  else if (parts.some((part) => part.startsWith('shield:'))) gameAudio.shield();
+}
 
 const wait = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
+
+/** ===== 秘闻阁：收藏与御札经济 ===== */
+
+function loadCollection() {
+  try {
+    const raw = localStorage.getItem(COLLECTION_STORAGE_KEY);
+    if (raw) return deserializeCollection(raw);
+  } catch { /* 损坏或不可用时重建初始收藏 */ }
+  return createInitialCollection();
+}
+
+function saveCollection() {
+  try {
+    localStorage.setItem(COLLECTION_STORAGE_KEY, serializeCollection(collection));
+  } catch { /* 存储不可用时静默降级 */ }
+}
+
+let collection = loadCollection();
+
+function showCollection() {
+  nodes.formationScreen.hidden = true;
+  nodes.collectionScreen.hidden = false;
+  window.scrollTo({ top: 0 });
+  renderCollectionScreen();
+}
+
+function hideCollection() {
+  nodes.collectionScreen.hidden = true;
+  nodes.formationScreen.hidden = false;
+  window.scrollTo({ top: 0 });
+  renderFormationEditor();
+}
+
+function renderCollectionScreen() {
+  const stats = collectionStats(collection);
+  nodes.collectionBalance.textContent = collection.balance;
+  nodes.collectionPacks.textContent = collection.packsOpened;
+  nodes.collectionRecord.textContent = `${collection.wins}胜 ${collection.losses}败`;
+  nodes.pityCount.textContent = Math.max(0, COLLECTION_RULES.pityLimit - collection.pitySinceEpic);
+  nodes.codexOwned.textContent = stats.distinctOwned;
+  nodes.codexTotal.textContent = stats.totalCards;
+  nodes.packOpenButton.disabled = collection.balance < COLLECTION_RULES.packCost;
+  renderCodex();
+}
+
+function renderCodex() {
+  nodes.codexUnits.replaceChildren(...UNIT_DEFINITIONS.map((unit) => {
+    const section = document.createElement('section');
+    section.className = 'codex-unit';
+    section.style.setProperty('--unit-accent', unit.color);
+    const cards = getCardsForUnit(unit.id);
+    const ownedKinds = cards.filter((card) => ownedCopies(collection, card.id) > 0).length;
+    const head = document.createElement('header');
+    head.innerHTML = `<strong>${unit.name}</strong><small>${unit.title} · ${unit.role}</small><em>${ownedKinds} / ${cards.length} 种</em>`;
+    const grid = document.createElement('div');
+    grid.className = 'codex-grid';
+    cards.forEach((card) => {
+      const copies = ownedCopies(collection, card.id);
+      const tile = document.createElement('article');
+      tile.className = 'codex-tile';
+      tile.dataset.rarity = card.rarity;
+      tile.dataset.owned = String(copies);
+      tile.title = card.text;
+      const pips = Array.from({ length: COLLECTION_RULES.maxCopies }, (_, index) => (
+        `<i${index < copies ? ' class="is-filled"' : ''}></i>`
+      )).join('');
+      tile.innerHTML = `
+        <span class="tile-name">${card.name}</span>
+        <span class="tile-type">${card.typeLabel} · <i>${RARITY_LABELS[card.rarity]}</i> · ${card.level}勾</span>
+        <span class="tile-pips">${pips}</span>`;
+      const cost = COLLECTION_RULES.craftCost[card.rarity];
+      const capped = copies >= COLLECTION_RULES.maxCopies;
+      const craft = document.createElement('button');
+      craft.type = 'button';
+      craft.className = 'tile-craft';
+      craft.classList.toggle('is-capped', capped);
+      craft.disabled = capped || collection.balance < cost;
+      craft.innerHTML = capped ? '<span>已收齐</span><b></b>' : `<span>御札合成</span><b>${cost}</b>`;
+      craft.addEventListener('click', () => {
+        const outcome = craftCard(collection, card.id);
+        if (outcome.error) {
+          announce(outcome.error, 'danger');
+          return;
+        }
+        collection = outcome.collection;
+        saveCollection();
+        gameAudio.craft();
+        announce(`已合成「${card.name}」。`, 'success');
+        renderCollectionScreen();
+      });
+      tile.append(craft);
+      grid.append(tile);
+    });
+    section.append(head, grid);
+    return section;
+  }));
+}
+
+function openPackFlow() {
+  const outcome = openPack(collection);
+  if (outcome.error) {
+    announce(outcome.error, 'danger');
+    return;
+  }
+  collection = outcome.collection;
+  saveCollection();
+  gameAudio.packOpen();
+  nodes.packRevealCards.replaceChildren(...outcome.results.map((entry, index) => {
+    const card = getCardDefinition(entry.cardId);
+    const unit = getUnitDefinition(card.unitId);
+    const el = document.createElement('article');
+    el.className = 'reveal-card';
+    el.dataset.rarity = entry.rarity;
+    el.style.setProperty('--reveal-delay', `${index * 0.14}s`);
+    el.innerHTML = `
+      <span class="reveal-art"><img src="${unit.art}" alt="" width="200" height="260"></span>
+      <span class="reveal-cost"><i>${card.cost}</i></span>
+      <span class="reveal-rarity-tag">${RARITY_LABELS[entry.rarity]}</span>
+      <strong class="reveal-name">${card.name}</strong>
+      <span class="reveal-type">${unit.name} · ${card.typeLabel}</span>
+      <span class="reveal-state ${entry.isNew ? 'is-new' : 'is-dupe'}">${entry.isNew ? 'NEW' : `御札 +${entry.converted}`}</span>`;
+    setTimeout(() => gameAudio.reveal(entry.rarity), 320 + index * 140);
+    return el;
+  }));
+  nodes.packReveal.hidden = false;
+  renderCollectionScreen();
+}
 
 function emptyVisualFeedback() {
   return {
@@ -205,6 +395,7 @@ function announce(message, tone = 'neutral') {
   nodes.toast.textContent = message;
   nodes.toast.dataset.tone = tone;
   nodes.toast.dataset.visible = 'true';
+  if (tone === 'danger') gameAudio.errorBuzz();
   toastTimer = setTimeout(() => { nodes.toast.dataset.visible = 'false'; }, 2200);
 }
 
@@ -393,6 +584,8 @@ function loadLocalSession() {
     announcedTurnCounter = game.turnCounter;
     clearTimeout(turnCalloutTimer);
     battleStarted = true;
+    lastHandInstanceIds = new Set();
+    lastRealmTotal = 0;
     if (nodes.resultDialog.open) nodes.resultDialog.close();
     nodes.sessionDialog.close();
     hideFormation();
@@ -582,6 +775,9 @@ function exitCommandReplay() {
   replaySession = null;
   gameSession += 1;
   displayedGame = game;
+  // 回放期间手牌追踪被回放状态覆盖，静默同步回实时对局，避免误触抽牌音效
+  lastHandInstanceIds = new Set(game.players[0].hand.map((card) => card.instanceId));
+  lastRealmTotal = game.players[0].realms.length + game.players[1].realms.length;
   nodes.replayController.hidden = true;
   nodes.turnCallout.removeAttribute('aria-hidden');
   delete document.body.dataset.replay;
@@ -623,10 +819,11 @@ function unitByUid(player, unitId) {
   return player.units.find((unit) => unit.uid === unitId) ?? null;
 }
 
-function makeStatus(text, className) {
+function makeStatus(text, className, title) {
   const status = document.createElement('span');
   status.className = `unit-status ${className}`;
   status.textContent = text;
+  if (title) status.title = title;
   return status;
 }
 
@@ -643,10 +840,6 @@ function currentDeckDefinition() {
     unitIds: [...selectedLineup],
     cardIds: selectedLineup.flatMap((unitId) => selectedCardsForUnit(unitId)),
   };
-}
-
-function playerFrontZone() {
-  return [...nodes.playerUnits.children].find((child) => child.classList.contains('front-zone')) ?? null;
 }
 
 function renderFormationRoster() {
@@ -666,8 +859,8 @@ function renderFormationRoster() {
     const image = document.createElement('img');
     image.src = unit.art;
     image.alt = '';
-    image.width = 180;
-    image.height = 220;
+    image.width = 200;
+    image.height = 260;
     art.append(image);
 
     const order = document.createElement('span');
@@ -691,8 +884,26 @@ function renderFormationRoster() {
     action.textContent = selected ? '已纳入编成' : '加入编成';
     button.append(art, order, identity, stats, deck, action);
     button.addEventListener('click', () => toggleFormationUnit(unit.id));
+    button.addEventListener('mouseenter', () => renderSpiritDetail(unit));
+    button.addEventListener('focus', () => renderSpiritDetail(unit));
     return button;
   }));
+}
+
+/** 编成名录底部的悬停详情条：被动全文、卡池概况与定位 */
+function renderSpiritDetail(unit) {
+  if (!unit) return;
+  const pool = getCardsForUnit(unit.id);
+  const roleTags = [...new Set(pool.flatMap((card) => card.tags))].slice(0, 6);
+  nodes.spiritDetail.style.setProperty('--unit-accent', unit.color);
+  nodes.spiritDetail.innerHTML = `
+    <span class="detail-name"><b>${unit.name}</b><small>${unit.title} · ${unit.role}</small></span>
+    <i class="detail-seal" aria-hidden="true"></i>
+    <span class="detail-passive"><b>◇ 被动 · ${unit.passive.name}</b><p>${unit.passive.text}</p></span>
+    <span class="detail-meta">
+      <span>攻击 <b>${unit.attack}</b> / 生命 <b>${unit.maxHp}</b></span>
+      <span>专属卡池 <b>${pool.length}</b> 张 · ${roleTags.join(' / ')}</span>
+    </span>`;
 }
 
 function renderDeckUnitTabs() {
@@ -705,7 +916,10 @@ function renderDeckUnitTabs() {
     button.className = 'deck-unit-tab';
     button.style.setProperty('--unit-accent', unit.color);
     button.setAttribute('aria-selected', String(activeDeckUnitId === unitId));
-    button.innerHTML = `<small>0${index + 1} / ${count} OF 8</small><strong>${unit.name}</strong>`;
+    button.innerHTML = `
+      <img src="${unit.art}" alt="" width="200" height="260">
+      <span class="tab-copy"><small>0${index + 1} · ${unit.title}</small><strong>${unit.name}</strong></span>
+      <b class="tab-count" title="已选 ${count} / 8">${count}</b>`;
     button.addEventListener('click', () => {
       activeDeckUnitId = unitId;
       renderFormationEditor();
@@ -719,6 +933,11 @@ function adjustCardCount(unitId, cardId, delta) {
   const currentCount = selected.filter((candidate) => candidate === cardId).length;
   if (delta > 0) {
     if (currentCount >= GAME_RULES.copiesPerCard) return;
+    const owned = ownedCopies(collection, cardId);
+    if (currentCount >= owned) {
+      announce(`收藏不足：「${getCardDefinition(cardId).name}」仅持有 ${owned} 张，可到秘闻阁开卷收集。`, 'danger');
+      return;
+    }
     if (selected.length >= GAME_RULES.cardsPerUnit) {
       announce(`${getUnitDefinition(unitId).name} 已选满 ${GAME_RULES.cardsPerUnit} 张牌。`, 'danger');
       return;
@@ -753,11 +972,13 @@ function renderCardPool() {
     article.className = 'pool-card';
     article.style.setProperty('--unit-accent', unit.color);
     article.dataset.selected = String(count > 0);
+    article.dataset.rarity = card.rarity;
 
-    const tags = card.tags.slice(0, 2).map((tag) => `<span>${tag}</span>`).join('');
+    const rarityLabels = { common: '常见', rare: '稀有', epic: '史诗' };
+    const tags = card.tags.slice(0, 3).map((tag) => `<span>${tag}</span>`).join('');
     article.innerHTML = `
-      <div class="pool-card-art"><img src="${unit.art}" alt="" width="180" height="220"><b>${card.cost}</b><em>${card.level} 勾</em></div>
-      <div class="pool-card-copy"><small>${card.typeLabel} / ${card.rarity.toUpperCase()}</small><strong>${card.name}</strong><p>${card.text}</p><div>${tags}</div></div>
+      <div class="pool-card-art"><img src="${unit.art}" alt="" width="200" height="260"><b><i>${card.cost}</i></b><em>${card.level} 勾</em></div>
+      <div class="pool-card-copy"><small>${card.typeLabel} · <i class="rar-${card.rarity}">${rarityLabels[card.rarity] ?? card.rarity}</i></small><strong>${card.name}</strong><p>${card.text}</p><div>${tags}</div></div>
     `;
 
     const controls = document.createElement('div');
@@ -770,18 +991,34 @@ function renderCardPool() {
     remove.disabled = count === 0;
     const counter = document.createElement('strong');
     counter.textContent = `${count} / ${GAME_RULES.copiesPerCard}`;
+    counter.classList.toggle('maxed', count === GAME_RULES.copiesPerCard);
     const add = document.createElement('button');
     add.type = 'button';
     add.textContent = '+';
     add.title = `增加一张${card.name}`;
     add.setAttribute('aria-label', `增加一张${card.name}`);
-    add.disabled = count >= GAME_RULES.copiesPerCard || selected.length >= GAME_RULES.cardsPerUnit;
+    const owned = ownedCopies(collection, card.id);
+    add.disabled = count >= GAME_RULES.copiesPerCard
+      || count >= owned
+      || selected.length >= GAME_RULES.cardsPerUnit;
+    if (count >= owned && count < GAME_RULES.copiesPerCard) {
+      add.title = `收藏不足：「${card.name}」仅持有 ${owned} 张，可到秘闻阁收集`;
+    }
     remove.addEventListener('click', () => adjustCardCount(unit.id, card.id, -1));
     add.addEventListener('click', () => adjustCardCount(unit.id, card.id, 1));
     controls.append(remove, counter, add);
     article.append(controls);
     return article;
   }));
+}
+
+/** 一键填充当前角色卡组为推荐默认构筑 */
+function autofillActiveDeck() {
+  const unit = getUnitDefinition(activeDeckUnitId);
+  if (!unit) return;
+  deckSelections.set(unit.id, createDefaultDeckDefinition([unit.id]).cardIds);
+  renderFormationEditor();
+  announce(`${unit.name} 的卡组已填充为推荐构筑。`, 'success');
 }
 
 function setFormationStep(step) {
@@ -807,12 +1044,14 @@ function renderFormationSlots() {
       const image = document.createElement('img');
       image.src = unit.art;
       image.alt = '';
-      image.width = 180;
-      image.height = 220;
+      image.width = 200;
+      image.height = 260;
       const copy = document.createElement('span');
+      copy.className = 'slot-copy';
       copy.innerHTML = `<small>0${index + 1} / ${unit.role}</small><strong>${unit.name}</strong><em>8 张专属卡</em>`;
       slot.append(image, copy);
       slot.addEventListener('click', () => toggleFormationUnit(unit.id));
+      slot.addEventListener('mouseenter', () => renderSpiritDetail(unit));
     } else {
       slot.innerHTML = `<span>0${index + 1}</span><strong>待选择</strong>`;
     }
@@ -867,12 +1106,15 @@ function showFormation() {
   nodes.formationScreen.hidden = false;
   renderFormationEditor();
   window.scrollTo({ top: 0 });
+  gameAudio.unlock();
+  gameAudio.setScene('formation');
 }
 
 function hideFormation() {
   nodes.formationScreen.hidden = true;
   nodes.gameShell.hidden = false;
   window.scrollTo({ top: 0 });
+  gameAudio.setScene('battle');
 }
 
 function startBattle() {
@@ -903,6 +1145,10 @@ function startBattle() {
   announcedTurnCounter = 0;
   clearTimeout(turnCalloutTimer);
   battleStarted = true;
+  lastFeedbackSfxKey = '';
+  lastResponseWindowKey = '';
+  lastHandInstanceIds = new Set();
+  lastRealmTotal = 0;
   if (nodes.resultDialog.open) nodes.resultDialog.close();
   hideFormation();
   render();
@@ -954,11 +1200,11 @@ function renderUnit(unit, ownerIndex, placement) {
     && player.energy > 0;
 
   card.type = 'button';
-  card.className = `unit-card is-${placement}-slot`;
+  card.className = 'unit-card';
   card.dataset.owner = isPlayer ? 'player' : 'enemy';
   card.dataset.unitId = unit.uid;
   card.style.setProperty('--unit-accent', unit.color);
-  card.classList.toggle('is-active', placement === 'front');
+  card.classList.toggle('is-front', placement === 'front');
   card.classList.toggle('is-selected', isPlayer && viewAttackUnitId === unit.uid && !viewSelectedCardId && !replaySession);
   card.classList.toggle('is-target', isValidTarget);
   card.classList.toggle('is-target-muted', isTargetMuted);
@@ -982,34 +1228,35 @@ function renderUnit(unit, ownerIndex, placement) {
   const image = document.createElement('img');
   image.src = unit.art;
   image.alt = '';
-  image.width = 180;
-  image.height = 220;
+  image.width = 200;
+  image.height = 260;
   art.append(image);
 
-  const placementTag = document.createElement('span');
-  placementTag.className = 'unit-placement';
-  placementTag.textContent = placement === 'front' ? '战斗区' : '准备区';
-  art.append(placementTag);
+  // 名牌：只保留名字与形态名，被动与完整状态移入检视层
+  const plate = document.createElement('span');
+  plate.className = 'unit-plate';
+  const plateName = document.createElement('strong');
+  plateName.textContent = unit.name;
+  plate.append(plateName);
+  if (unit.form) {
+    const formName = document.createElement('em');
+    formName.textContent = unit.form.name;
+    plate.append(formName);
+  }
 
-  const identity = document.createElement('span');
-  identity.className = 'unit-identity';
-  const title = document.createElement('small');
-  title.textContent = unit.form?.name ?? `${unit.title} / ${unit.role}`;
-  const name = document.createElement('strong');
-  name.textContent = unit.name;
-  const passiveName = document.createElement('span');
-  passiveName.className = 'unit-passive';
-  passiveName.textContent = `◇ ${unit.passive.name}`;
-  passiveName.title = unit.passive.text;
-  identity.append(title, name, passiveName);
+  // 勾玉：紧凑菱形点，悬停看数值
+  const pips = document.createElement('span');
+  pips.className = 'unit-pips';
+  pips.title = `勾玉 ${unit.level} / ${GAME_RULES.maxUnitLevel}`;
+  pips.innerHTML = Array.from({ length: GAME_RULES.maxUnitLevel }, (_, index) => (
+    `<i${index < unit.level ? ' class="is-filled"' : ''}></i>`
+  )).join('');
 
-  const level = document.createElement('span');
-  level.className = 'unit-level';
-  level.innerHTML = `<small>勾玉</small><b>${unit.level}</b>`;
-
+  // 攻/血角标：叠在立绘两下角，一眼可读
   const stats = document.createElement('span');
   stats.className = 'unit-stats';
-  stats.innerHTML = `<span class="attack-stat"><small>攻</small><b>${unit.attack}</b></span><span class="health-stat"><small>命</small><b>${unit.hp}</b><em>/${unit.maxHp}</em></span>`;
+  const hpLow = unit.hp > 0 && unit.hp <= Math.max(1, Math.floor(unit.maxHp / 3));
+  stats.innerHTML = `<b class="unit-atk" title="攻击">${unit.attack}</b><b class="unit-hp" title="生命"${hpLow ? ' data-low="true"' : ''}>${unit.hp}</b>`;
 
   const health = document.createElement('span');
   health.className = 'unit-health';
@@ -1017,22 +1264,63 @@ function renderUnit(unit, ownerIndex, placement) {
   healthFill.style.width = `${Math.max(0, (unit.hp / unit.maxHp) * 100)}%`;
   health.append(healthFill);
 
+  // 状态：紧凑徽章 + 完整文本进 title 与检视层；前线/目标/受击威胁由卡片状态样式表达，不再占文字位
   const statuses = document.createElement('span');
   statuses.className = 'unit-statuses';
-  if (placement === 'front' && unit.hp > 0) statuses.append(makeStatus('前线', 'status-front'));
-  if (isPlayer && viewAttackUnitId === unit.uid && !viewSelectedCardId && unit.hp > 0 && !replaySession) statuses.append(makeStatus('待出击', 'status-selected'));
-  if (isValidTarget) statuses.append(makeStatus('有效目标', 'status-target'));
-  if (willBeHit) statuses.append(makeStatus('将承受出击', 'status-threat'));
-  if (unit.form) statuses.append(makeStatus(unit.form.name, 'status-form'));
-  if (unit.shield > 0) statuses.append(makeStatus(`盾 ${unit.shield}`, 'status-shield'));
-  if (unit.frozen > 0) statuses.append(makeStatus('眩晕', 'status-frozen'));
-  if (unit.brittle > 0) statuses.append(makeStatus(`晶裂 ${unit.brittle}`, 'status-brittle'));
+  const fullStatuses = [];
+  if (isPlayer && viewAttackUnitId === unit.uid && !viewSelectedCardId && !replaySession && unit.hp > 0) {
+    statuses.append(makeStatus('出', 'status-selected', '待出击'));
+    fullStatuses.push('待出击：已选为出击角色');
+  }
+  if (isValidTarget) fullStatuses.push('当前卡牌的有效目标');
+  if (willBeHit) fullStatuses.push('将承受敌方出击');
+  if (unit.form) {
+    statuses.append(makeStatus('形', 'status-form', `形态：${unit.form.name}`));
+    fullStatuses.push(`形态 ${unit.form.name}`);
+  }
+  if (unit.shield > 0) {
+    statuses.append(makeStatus(`盾${unit.shield}`, 'status-shield', `护盾 ${unit.shield}`));
+    fullStatuses.push(`护盾 ${unit.shield}`);
+  }
+  if (unit.frozen > 0) {
+    statuses.append(makeStatus('眩', 'status-frozen', `眩晕 ${unit.frozen} 回合`));
+    fullStatuses.push(`眩晕 ${unit.frozen} 回合：无法出击或反击`);
+  }
+  if (unit.brittle > 0) {
+    statuses.append(makeStatus(`裂${unit.brittle}`, 'status-brittle', `晶裂 ${unit.brittle}`));
+    fullStatuses.push(`晶裂 ${unit.brittle}：受到的攻击伤害 +1`);
+  }
   getUnitKeywordStatuses(owner, unit).forEach((status) => {
-    statuses.append(makeStatus(`${status.label} ${status.detail}`, `status-${status.id}`));
+    statuses.append(makeStatus(status.label.slice(0, 2), `status-${status.id}`, `${status.label} ${status.detail}`));
+    fullStatuses.push(`${status.label} ${status.detail}`);
   });
-  if (unit.hp <= 0) statuses.append(makeStatus(`归队 ${unit.knockout}`, 'status-away'));
+  if (unit.hp <= 0) {
+    statuses.append(makeStatus(`归${unit.knockout}`, 'status-away', `气绝，${unit.knockout} 回合后归队`));
+    fullStatuses.push(`气绝：${unit.knockout} 回合后自动归队`);
+  }
 
-  card.append(art, identity, level, stats, health, statuses);
+  // 检视层：悬停/聚焦时展开被动与全部状态
+  const inspect = document.createElement('span');
+  inspect.className = 'unit-inspect';
+  inspect.setAttribute('aria-hidden', 'true');
+  const inspectHead = document.createElement('header');
+  inspectHead.innerHTML = `<small>${unit.title} / ${unit.role}</small><strong>${unit.name}</strong>`;
+  const inspectPassive = document.createElement('p');
+  inspectPassive.className = 'inspect-passive';
+  inspectPassive.innerHTML = `<b>◇ ${unit.passive.name}</b>${unit.passive.text}`;
+  inspect.append(inspectHead, inspectPassive);
+  if (fullStatuses.length) {
+    const statusList = document.createElement('ul');
+    statusList.className = 'inspect-statuses';
+    fullStatuses.forEach((line) => {
+      const item = document.createElement('li');
+      item.textContent = line;
+      statusList.append(item);
+    });
+    inspect.append(statusList);
+  }
+
+  card.append(art, plate, pips, stats, health, statuses, inspect);
 
   if (impact && (impact.hpDelta || impact.shieldDelta || impact.levelDelta || impact.knockedOut || impact.returned || impact.isRemoteAttacker || impact.isKeywordEmpowered)) {
     const fxSurface = document.createElement('span');
@@ -1093,31 +1381,58 @@ function renderUnit(unit, ownerIndex, placement) {
       event.dataTransfer.effectAllowed = 'move';
       event.dataTransfer.setData('text/plain', unit.uid);
       requestAnimationFrame(() => card.classList.add('is-dragging'));
-      playerFrontZone()?.classList.add('is-drop-ready');
+      markDropZones();
     });
     card.addEventListener('dragend', () => {
       draggedAttackUnitId = null;
       card.classList.remove('is-dragging');
-      playerFrontZone()?.classList.remove('is-drop-ready', 'is-drag-over');
+      clearDropZones();
+    });
+  }
+  if (ownerIndex === 1 && placement === 'front' && !replaySession) {
+    // 拖拽己方角色到敌方前线 = 直接出击
+    card.addEventListener('dragover', (event) => {
+      if (!draggedAttackUnitId) return;
+      event.preventDefault();
+      event.dataTransfer.dropEffect = 'move';
+      card.classList.add('is-drag-over');
+    });
+    card.addEventListener('dragleave', (event) => {
+      if (!card.contains(event.relatedTarget)) card.classList.remove('is-drag-over');
+    });
+    card.addEventListener('drop', (event) => {
+      event.preventDefault();
+      const unitId = draggedAttackUnitId ?? event.dataTransfer.getData('text/plain');
+      draggedAttackUnitId = null;
+      clearDropZones();
+      if (unitId) performBasicAttack(unitId);
     });
   }
   return card;
 }
 
-function renderRealmTrack(player, ownerIndex) {
-  const track = document.createElement('div');
-  track.className = 'realm-track';
-  track.dataset.owner = ownerIndex === 0 ? 'player' : 'enemy';
+/** 拖拽出击时点亮敌方可打击目标（前线 + 幻境） */
+function markDropZones() {
+  nodes.enemyUnits.querySelector('.unit-card.is-front')?.classList.add('is-drop-ready');
+  nodes.enemyRealms.querySelectorAll('.realm-chip:not(:disabled)').forEach((chip) => chip.classList.add('is-drop-ready'));
+}
+
+function clearDropZones() {
+  nodes.enemyUnits.querySelectorAll('.is-drop-ready, .is-drag-over').forEach((el) => el.classList.remove('is-drop-ready', 'is-drag-over'));
+  nodes.enemyRealms.querySelectorAll('.is-drop-ready, .is-drag-over').forEach((el) => el.classList.remove('is-drop-ready', 'is-drag-over'));
+}
+
+function renderRealmColumn(column, player, ownerIndex) {
   const label = document.createElement('span');
   label.className = 'zone-label';
-  label.textContent = '幻境席';
-  track.append(label);
+  label.textContent = ownerIndex === 0 ? '己方幻境' : '敌方幻境';
+  column.replaceChildren(label);
   if (!player.realms.length) {
     const empty = document.createElement('span');
     empty.className = 'realm-empty';
     empty.textContent = '未部署';
-    track.append(empty);
-    return track;
+    column.append(empty);
+    return;
   }
   player.realms.forEach((realm) => {
     const viewSelectedCardId = replaySession ? null : selectedCardId;
@@ -1160,12 +1475,30 @@ function renderRealmTrack(player, ownerIndex) {
       chip.append(number);
     }
     chip.addEventListener('click', () => handleRealmClick(ownerIndex, realm.uid));
-    track.append(chip);
+    if (ownerIndex === 1 && !replaySession) {
+      // 拖拽己方角色到敌方幻境 = 指定该幻境出击
+      chip.addEventListener('dragover', (event) => {
+        if (!draggedAttackUnitId) return;
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'move';
+        chip.classList.add('is-drag-over');
+      });
+      chip.addEventListener('dragleave', (event) => {
+        if (!chip.contains(event.relatedTarget)) chip.classList.remove('is-drag-over');
+      });
+      chip.addEventListener('drop', (event) => {
+        event.preventDefault();
+        const unitId = draggedAttackUnitId ?? event.dataTransfer.getData('text/plain');
+        draggedAttackUnitId = null;
+        clearDropZones();
+        if (unitId && getValidCombatTargets(game, 0).includes(realm.uid)) performBasicAttack(unitId, realm.uid);
+      });
+    }
+    column.append(chip);
   });
-  return track;
 }
 
-function renderFormationLine(container, ownerIndex) {
+function renderUnitRow(container, ownerIndex) {
   const owner = displayedGame.players[ownerIndex];
   const formation = getFormation(displayedGame, ownerIndex);
   const ownerImpacts = [...visualFeedback.unitImpacts.values()]
@@ -1173,60 +1506,34 @@ function renderFormationLine(container, ownerIndex) {
   if (ownerImpacts.some((impact) => impact.isAttacker)) container.dataset.feedback = 'attacker';
   else if (ownerImpacts.length) container.dataset.feedback = 'target';
   else delete container.dataset.feedback;
-  const frontZone = document.createElement('section');
-  frontZone.className = 'front-zone';
-  frontZone.setAttribute('aria-label', ownerIndex === 0 ? '己方战斗区' : '敌方战斗区');
-  const frontLabel = document.createElement('span');
-  frontLabel.className = 'zone-label';
-  frontLabel.textContent = '战斗区 / FRONT';
-  frontZone.append(frontLabel);
+
+  // 先清空再重建：render() 会被操作与反馈定时器反复调用，直接 append 会无限堆叠卡牌
+  container.replaceChildren();
+
+  const label = document.createElement('span');
+  label.className = 'zone-label';
+  label.textContent = ownerIndex === 0 ? '己方战线' : '敌方战线';
+
   const front = owner.units[formation.frontIndex];
-  if (front) frontZone.append(renderUnit(front, ownerIndex, 'front'));
+  if (front) container.append(renderUnit(front, ownerIndex, 'front'));
   else {
     const empty = document.createElement('div');
     empty.className = 'empty-front-slot';
     empty.innerHTML = '<strong>前线空缺</strong><span>下次攻击将直击核心</span>';
-    frontZone.append(empty);
+    container.append(empty);
   }
-  if (ownerIndex === 0 && !replaySession) {
-    frontZone.addEventListener('dragover', (event) => {
-      if (!draggedAttackUnitId) return;
-      event.preventDefault();
-      event.dataTransfer.dropEffect = 'move';
-      frontZone.classList.add('is-drag-over');
-    });
-    frontZone.addEventListener('dragleave', (event) => {
-      if (!frontZone.contains(event.relatedTarget)) frontZone.classList.remove('is-drag-over');
-    });
-    frontZone.addEventListener('drop', (event) => {
-      event.preventDefault();
-      const unitId = draggedAttackUnitId ?? event.dataTransfer.getData('text/plain');
-      draggedAttackUnitId = null;
-      frontZone.classList.remove('is-drop-ready', 'is-drag-over');
-      if (unitId) performBasicAttack(unitId);
-    });
-  }
-
-  const reserveZone = document.createElement('section');
-  reserveZone.className = 'reserve-zone';
-  reserveZone.setAttribute('aria-label', ownerIndex === 0 ? '己方准备区' : '敌方准备区');
-  const reserveLabel = document.createElement('span');
-  reserveLabel.className = 'zone-label';
-  reserveLabel.textContent = '准备区 / RESERVE';
-  const reserveCards = document.createElement('div');
-  reserveCards.className = 'reserve-cards';
-  formation.reserveIndexes.forEach((index) => reserveCards.append(renderUnit(owner.units[index], ownerIndex, 'reserve')));
-  reserveZone.append(reserveLabel, reserveCards);
-
-  container.replaceChildren(reserveZone, frontZone, renderRealmTrack(owner, ownerIndex));
+  formation.reserveIndexes.forEach((index) => container.append(renderUnit(owner.units[index], ownerIndex, 'reserve')));
+  container.append(label);
 }
 
 function renderUnits() {
-  renderFormationLine(nodes.playerUnits, 0);
-  renderFormationLine(nodes.enemyUnits, 1);
+  renderUnitRow(nodes.playerUnits, 0);
+  renderUnitRow(nodes.enemyUnits, 1);
+  renderRealmColumn(nodes.enemyRealms, displayedGame.players[1], 1);
+  renderRealmColumn(nodes.playerRealms, displayedGame.players[0], 0);
 }
 
-function renderHandCard(instance) {
+function renderHandCard(instance, index, totalCount, freshIds) {
   const definition = getCardDefinition(instance.definitionId);
   const unit = getUnitDefinition(definition.unitId);
   const playability = getCardPlayability(displayedGame, 0, instance.instanceId);
@@ -1239,8 +1546,15 @@ function renderHandCard(instance) {
   card.type = 'button';
   card.className = 'hand-card';
   card.style.setProperty('--card-accent', unit.color);
+  card.dataset.cardType = definition.type;
   card.classList.toggle('is-selected', !replaySession && selectedCardId === instance.instanceId);
   card.classList.toggle('is-blocked', !playable);
+  card.classList.toggle('is-drawn', !replaySession && freshIds.has(instance.instanceId));
+  // 扇形排布：以手牌中位为轴，边缘卡牌微微旋转
+  const fanStep = Math.min(3.2, 26 / Math.max(totalCount, 1));
+  const mid = (totalCount - 1) / 2;
+  card.style.setProperty('--fan-rotate', `${((index - mid) * fanStep).toFixed(2)}deg`);
+  card.style.zIndex = String(index + 1);
   card.dataset.block = playable ? 'ready' : playability.code;
   card.disabled = !playable;
   card.setAttribute('aria-disabled', String(!playable));
@@ -1251,7 +1565,7 @@ function renderHandCard(instance) {
   cost.className = 'card-cost';
   cost.classList.toggle('is-unaffordable', playability.code === 'energy');
   cost.classList.toggle('is-free', costIsReduced);
-  cost.textContent = effectiveCost;
+  cost.innerHTML = `<span>${effectiveCost}</span>`;
   const level = document.createElement('span');
   level.className = 'card-level';
   level.textContent = `${definition.level} 勾`;
@@ -1260,8 +1574,8 @@ function renderHandCard(instance) {
   const image = document.createElement('img');
   image.src = unit.art;
   image.alt = '';
-  image.width = 180;
-  image.height = 220;
+  image.width = 200;
+  image.height = 260;
   art.append(image);
   const meta = document.createElement('span');
   meta.className = 'card-meta';
@@ -1298,16 +1612,48 @@ function renderHandCard(instance) {
     : availabilityLabels[playable ? 'ready' : playability.code] ?? playability.reason;
   card.append(cost, level, art, meta, name, text, availability);
   card.addEventListener('click', () => handleCardClick(instance));
+  card.addEventListener('mouseenter', () => showHandPreview(instance));
+  card.addEventListener('focus', () => showHandPreview(instance));
+  card.addEventListener('mouseleave', hideHandPreview);
   return card;
 }
 
+/** 手牌悬停大卡预览：完整卡面文本始终可读 */
+function showHandPreview(instance) {
+  const definition = getCardDefinition(instance.definitionId);
+  const unit = getUnitDefinition(definition.unitId);
+  const effectiveCost = getEffectiveCardCost(displayedGame, 0, instance.instanceId);
+  const tags = definition.tags.map((tag) => `<span>${tag}</span>`).join('');
+  nodes.handPreview.innerHTML = `
+    <div class="hand-preview-card" data-card-type="${definition.type}" style="--card-accent:${unit.color}">
+      <span class="card-art"><img src="${unit.art}" alt="" width="200" height="260"></span>
+      <span class="card-cost"><span>${effectiveCost}</span></span>
+      <span class="card-level">${definition.level} 勾 · ${definition.typeLabel}</span>
+      <span class="card-meta">${unit.name} / ${unit.title}</span>
+      <strong class="card-name">${definition.name}</strong>
+      <span class="card-text">${definition.text}</span>
+      <span class="card-tags">${tags}</span>
+    </div>`;
+  nodes.handPreview.classList.add('is-visible');
+}
+
+function hideHandPreview() {
+  nodes.handPreview.classList.remove('is-visible');
+}
+
 function renderHand() {
-  nodes.playerHand.replaceChildren(...displayedGame.players[0].hand.map(renderHandCard));
+  const hand = displayedGame.players[0].hand;
+  const freshIds = new Set(hand
+    .map((card) => card.instanceId)
+    .filter((instanceId) => !lastHandInstanceIds.has(instanceId)));
+  if (!replaySession && freshIds.size && lastHandInstanceIds.size > 0) gameAudio.cardDraw();
+  lastHandInstanceIds = new Set(hand.map((card) => card.instanceId));
+  nodes.playerHand.replaceChildren(...hand.map((instance, index) => renderHandCard(instance, index, hand.length, freshIds)));
   const playerResponding = displayedGame.responseWindow?.playerIndex === 0;
-  nodes.playableCardCount.textContent = replaySession ? 0 : displayedGame.players[0].hand.filter((card) => (
+  nodes.playableCardCount.textContent = replaySession ? 0 : hand.filter((card) => (
     canPlayCard(displayedGame, 0, card.instanceId) && (!aiBusy || playerResponding)
   )).length;
-  if (displayedGame.players[0].hand.length === 0) {
+  if (hand.length === 0) {
     const empty = document.createElement('p');
     empty.className = 'empty-hand';
     empty.textContent = '手牌已空';
@@ -1320,12 +1666,14 @@ function renderResources() {
   const enemy = displayedGame.players[1];
   nodes.playerCoreHp.textContent = player.avatarHp;
   nodes.playerCoreBar.style.width = `${(player.avatarHp / player.maxAvatarHp) * 100}%`;
+  nodes.playerCoreBar.classList.toggle('is-low', player.avatarHp <= player.maxAvatarHp * 0.3);
   nodes.playerEnergy.textContent = player.energy;
   nodes.playerMaxEnergy.textContent = player.maxEnergy;
   nodes.playerDeck.textContent = player.deck.length;
   nodes.playerHandCount.textContent = player.hand.length;
   nodes.enemyCoreHp.textContent = enemy.avatarHp;
   nodes.enemyCoreBar.style.width = `${(enemy.avatarHp / enemy.maxAvatarHp) * 100}%`;
+  nodes.enemyCoreBar.classList.toggle('is-low', enemy.avatarHp <= enemy.maxAvatarHp * 0.3);
   nodes.enemyEnergy.textContent = `${enemy.energy} / ${enemy.maxEnergy}`;
   nodes.enemyDeck.textContent = enemy.deck.length;
   nodes.enemyHand.textContent = enemy.hand.length;
@@ -1381,7 +1729,10 @@ function renderDivinationDialog() {
     });
     return button;
   }));
-  if (!nodes.divinationDialog.open) nodes.divinationDialog.showModal();
+  if (!nodes.divinationDialog.open) {
+    nodes.divinationDialog.showModal();
+    gameAudio.divinationOpen();
+  }
 }
 
 function renderCoreImpact(coreNode, playerIndex) {
@@ -1455,6 +1806,7 @@ function renderTurnCallout(turnMode) {
   nodes.turnCalloutDetail.textContent = `${current.energy} 点鬼火`;
   nodes.turnCallout.dataset.owner = turnMode;
   nodes.turnCallout.dataset.visible = 'true';
+  gameAudio.turnSwitch(playerTurn);
   turnCalloutTimer = setTimeout(() => { nodes.turnCallout.dataset.visible = 'false'; }, 1150);
 }
 
@@ -1523,10 +1875,6 @@ function renderCommands() {
   nodes.round.textContent = String(getRound(displayedGame)).padStart(2, '0');
   nodes.battleStage.dataset.turn = turnMode;
   document.body.dataset.turn = turnMode;
-  nodes.turnState.dataset.owner = turnMode;
-  nodes.turnStateCode.textContent = turnMode === 'replay' ? 'PLAY' : turnMode === 'player' ? 'YOU' : turnMode === 'response' ? 'REACT' : turnMode === 'enemy' ? 'AI' : 'END';
-  nodes.turnStateKicker.textContent = turnMode === 'replay' ? 'COMMAND REPLAY' : turnMode === 'player' ? 'YOUR TURN' : turnMode === 'response' ? 'RESPONSE WINDOW' : turnMode === 'enemy' ? 'OPPONENT TURN' : 'MATCH COMPLETE';
-  nodes.turnStateLabel.textContent = turnMode === 'replay' ? '只读回放' : turnMode === 'player' ? '你的回合' : turnMode === 'response' ? '等待响应' : turnMode === 'enemy' ? '对手行动' : '对局结束';
   nodes.cancelActionButton.hidden = replaySession || !selectedCardId;
   nodes.recentEvent.textContent = getRecentEventText();
   nodes.attackButton.querySelector('b').classList.toggle('is-unaffordable', player.energy < 1);
@@ -1574,6 +1922,15 @@ function render() {
     : game;
   const previousState = replaySession ? replaySession.previousVisualState : previousVisualState;
   visualFeedback = deriveBattleFeedback(previousState, displayedGame);
+  playImpactSfx();
+  // 幻境部署检测：场上幻境总数增加时播放展开音效
+  const realmTotal = displayedGame.players[0].realms.length + displayedGame.players[1].realms.length;
+  if (!replaySession && realmTotal > lastRealmTotal && lastRealmTotal >= 0 && battleStarted) gameAudio.realmDeploy();
+  lastRealmTotal = realmTotal;
+  const responseWindow = displayedGame.responseWindow;
+  const responseKey = responseWindow ? `${responseWindow.playerIndex}:${responseWindow.depth}` : '';
+  if (responseKey && responseKey !== lastResponseWindowKey) gameAudio.response();
+  lastResponseWindowKey = responseKey;
   renderResources();
   renderCoreImpact(nodes.playerCore, 0);
   renderCoreImpact(nodes.enemyCore, 1);
@@ -1635,6 +1992,7 @@ function handleUnitClick(ownerIndex, unitId) {
   }
   const unit = unitByUid(game.players[ownerIndex], unitId);
   if (ownerIndex === 0 && unit?.hp > 0) {
+    if (selectedAttackUnitId !== unitId) gameAudio.selectTick();
     selectedAttackUnitId = unitId;
     render();
   }
@@ -1664,6 +2022,7 @@ function commitCard(instanceId, targetId) {
   game = result.state;
   recordCommand({ type: 'play-card', playerIndex: 0, instanceId, targetId });
   selectedCardId = null;
+  gameAudio.cardPlay();
   if (game.responseWindow?.playerIndex === 1 && game.winner === null) {
     aiBusy = true;
     render();
@@ -1684,6 +2043,7 @@ function performBasicAttack(unitId, targetId = null) {
   game = result.state;
   recordCommand({ type: 'attack', playerIndex: 0, unitId, targetId });
   selectedCardId = null;
+  gameAudio.attackLunge();
   render();
 }
 
@@ -1701,6 +2061,7 @@ function handleLevelUp() {
   }
   game = result.state;
   recordCommand({ type: 'level-up', playerIndex: 0, unitId: selectedAttackUnitId });
+  gameAudio.levelUp();
   render();
 }
 
@@ -1736,6 +2097,9 @@ async function runAiTurn(session) {
     if (result.error) break;
     game = result.state;
     recordCommand({ ...command, playerIndex: 1 });
+    if (command.type === 'play-card') gameAudio.cardPlay();
+    else if (command.type === 'attack') gameAudio.attackLunge();
+    else if (command.type === 'level-up') gameAudio.levelUp();
     actions += 1;
     if (!aiHasControl()) {
       aiBusy = false;
@@ -1827,9 +2191,14 @@ function maybeShowResult() {
   nodes.resultCode.dataset.result = won ? 'win' : 'loss';
   nodes.resultTitle.textContent = won ? '界碑已稳定' : '核心同步中断';
   nodes.resultSummary.textContent = won ? '失序信号已经退离前线。' : '失序体突破了最后一道防线。';
+  if (won) gameAudio.victory(); else gameAudio.defeat();
   nodes.resultRounds.textContent = getRound(game);
   nodes.resultCards.textContent = player.cardsPlayed;
   nodes.resultDamage.textContent = player.damageDealt;
+  const rewardOutcome = grantMatchReward(collection, won);
+  collection = rewardOutcome.collection;
+  saveCollection();
+  nodes.resultReward.textContent = `御札 +${rewardOutcome.reward} · 现有 ${collection.balance}`;
   const session = gameSession;
   clearTimeout(resultTimer);
   resultTimer = setTimeout(() => showResultDialogWhenReady(session), 1450);
@@ -1851,6 +2220,10 @@ function restartGame() {
   announcedTurnCounter = 0;
   clearTimeout(turnCalloutTimer);
   if (nodes.resultDialog.open) nodes.resultDialog.close();
+  lastFeedbackSfxKey = '';
+  lastResponseWindowKey = '';
+  lastHandInstanceIds = new Set();
+  lastRealmTotal = 0;
   render();
   announce('新对局已建立。', 'success');
 }
@@ -1858,6 +2231,11 @@ function restartGame() {
 nodes.formationStartButton.addEventListener('click', startBattle);
 nodes.lineupStepButton.addEventListener('click', () => setFormationStep('lineup'));
 nodes.deckStepButton.addEventListener('click', () => setFormationStep('deck'));
+nodes.deckAutofillButton.addEventListener('click', autofillActiveDeck);
+nodes.collectionButton.addEventListener('click', showCollection);
+nodes.collectionBackButton.addEventListener('click', hideCollection);
+nodes.packOpenButton.addEventListener('click', openPackFlow);
+nodes.packRevealCloseButton.addEventListener('click', () => { nodes.packReveal.hidden = true; });
 nodes.formationCancelButton.addEventListener('click', hideFormation);
 nodes.formationButton.addEventListener('click', showFormation);
 nodes.attackButton.addEventListener('click', handleAttack);
@@ -1898,6 +2276,39 @@ nodes.replayScrubber.addEventListener('input', (event) => setReplayCursor(Number
 nodes.restartButton.addEventListener('click', restartGame);
 nodes.rematchButton.addEventListener('click', restartGame);
 nodes.inspectButton.addEventListener('click', () => nodes.resultDialog.close());
+nodes.audioToggleButton.addEventListener('click', () => {
+  syncAudioDialog();
+  nodes.audioDialog.showModal();
+});
+nodes.audioCloseButton.addEventListener('click', () => nodes.audioDialog.close());
+nodes.audioEnabledCheckbox.addEventListener('change', () => {
+  gameAudio.setEnabled(nodes.audioEnabledCheckbox.checked);
+  if (gameAudio.enabled) gameAudio.setScene(nodes.gameShell.hidden ? 'formation' : 'battle');
+});
+nodes.audioMasterVolume.addEventListener('input', (event) => gameAudio.setMasterVolume(Number(event.target.value) / 100));
+nodes.audioMusicVolume.addEventListener('input', (event) => gameAudio.setMusicVolume(Number(event.target.value) / 100));
+nodes.audioSfxVolume.addEventListener('input', (event) => gameAudio.setSfxVolume(Number(event.target.value) / 100));
+
+function syncAudioDialog() {
+  nodes.audioEnabledCheckbox.checked = gameAudio.enabled;
+  nodes.audioMasterVolume.value = Math.round(gameAudio.masterVolume * 100);
+  nodes.audioMusicVolume.value = Math.round(gameAudio.musicVolume * 100);
+  nodes.audioSfxVolume.value = Math.round(gameAudio.sfxVolume * 100);
+}
+
+// 首次交互解锁音频并进入当前场景的 BGM
+document.addEventListener('pointerdown', () => {
+  gameAudio.unlock();
+  gameAudio.setScene(nodes.gameShell.hidden ? 'formation' : 'battle');
+}, { once: true, capture: true });
+
+// 统一的按钮音效：普通按钮用叩击音，卡牌/单位选择用清脆 tick
+document.addEventListener('click', (event) => {
+  const target = event.target instanceof Element ? event.target : null;
+  if (!target) return;
+  if (target.closest('.hand-card, .unit-card, .roster-card, .formation-slot, .deck-unit-tab, .pool-card-controls')) return;
+  if (target.closest('button')) gameAudio.uiTap();
+}, { capture: true });
 nodes.divinationDialog.addEventListener('cancel', (event) => event.preventDefault());
 
 document.addEventListener('keydown', (event) => {
@@ -1905,6 +2316,10 @@ document.addEventListener('keydown', (event) => {
   if (nodes.battleLogDialog.open || nodes.rulesDialog.open || nodes.sessionDialog.open || nodes.resultDialog.open) return;
   if (replaySession) {
     exitCommandReplay();
+    return;
+  }
+  if (!nodes.collectionScreen.hidden) {
+    hideCollection();
     return;
   }
   if (!nodes.formationScreen.hidden && battleStarted) {

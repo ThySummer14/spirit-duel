@@ -13,6 +13,13 @@ export const CARD_KEYWORDS = Object.freeze({
   FUSION: 'fusion',
   COOP: 'coop',
   PROJECTILE: 'projectile',
+  CHARGED: 'charged',
+  CHAIN: 'chain',
+  BESTOW: 'bestow',
+  COOK: 'cook',
+  NIGHTFALL: 'nightfall',
+  ORIGIN: 'origin',
+  FOCUS: 'focus',
 });
 
 function defineKeyword(definition) {
@@ -514,6 +521,165 @@ export const KEYWORD_DEFINITIONS = Object.freeze([
         && card.effects?.some((effect) => effect.action === 'damage');
       return valid ? [] : [`${card.name} 的投射配置无效。`];
     },
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.CHARGED,
+    label: '蓄力',
+    description: '打出后附着于来源角色，己方回合开始时推进计数，达到阈值后自动结算蓄力效果。',
+    formatUnitStatus: ({ unit }) => {
+      const chargeUp = unit.chargeUp;
+      if (!chargeUp) return null;
+      return {
+        id: CARD_KEYWORDS.CHARGED,
+        label: '蓄力',
+        detail: `${chargeUp.counters}/${chargeUp.threshold} · ${chargeUp.name}`,
+      };
+    },
+    validateCard: (card) => {
+      const effect = card.effects?.find((candidate) => candidate.action === 'attach-charge');
+      const value = effect?.value ?? {};
+      const supported = ['damage-enemy-front', 'damage-enemy-avatar', 'shield-self', 'heal-self', 'draw'];
+      const valid = effect
+        && effect.target === 'source'
+        && Number.isInteger(value.threshold)
+        && value.threshold > 0
+        && Array.isArray(value.effects)
+        && value.effects.length > 0
+        && value.effects.every((step) => supported.includes(step.action)
+          && Number.isInteger(step.value)
+          && step.value > 0);
+      return valid ? [] : [`${card.name} 的蓄力配置无效。`];
+    },
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.CHAIN,
+    label: '连引',
+    description: '结算后从牌库中抽取出牌所属式神的下一张牌加入手牌。',
+    validateCard: (card) => (
+      card.effects?.some((effect) => effect.action === 'chain-draw')
+        ? []
+        : [`${card.name} 缺少连引动作。`]
+    ),
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.BESTOW,
+    label: '赐能',
+    description: '若来源角色充能达到卡牌声明的数量，则自动消耗并解锁赐能步骤。',
+    beforeCardResolution: ({ player, source, card }) => {
+      const required = card.bestow.cost;
+      const resource = readKeywordUsage(player, CARD_KEYWORDS.CHARGE).units?.[source.uid];
+      const current = resource?.current ?? 0;
+      const ok = current >= required;
+      const usage = keywordUsageFor(player, CARD_KEYWORDS.BESTOW);
+      usage.last = { ok, required, current };
+      if (!ok) return null;
+      resource.current -= required;
+      return { unitId: source.uid, spent: required, current: resource.current, max: resource.max };
+    },
+    effectCondition: ({ condition, player }) => {
+      if (condition !== 'bestow-ready') return undefined;
+      return readKeywordUsage(player, CARD_KEYWORDS.BESTOW).last?.ok === true;
+    },
+    formatSpendLog: ({ source, value }) => `${source.name} 赐能消耗 ${value.spent} 点充能，剩余 ${value.current}/${value.max}。`,
+    validateCard: (card) => {
+      const valid = Number.isInteger(card.bestow?.cost)
+        && card.bestow.cost > 0
+        && card.effects?.some((effect) => effect.condition === 'bestow-ready');
+      return valid ? [] : [`${card.name} 的赐能配置无效。`];
+    },
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.COOK,
+    label: '烹饪',
+    description: '收集鲜鱼、稻米、霜菜三种食材；集齐后自动烹饪，全体己方角色 +1/+1。',
+    formatPlayerStatus: ({ player }) => {
+      const usage = readKeywordUsage(player, CARD_KEYWORDS.COOK);
+      const fish = usage.fish ?? 0;
+      const rice = usage.rice ?? 0;
+      const herb = usage.herb ?? 0;
+      if (!fish && !rice && !herb) return null;
+      return {
+        id: CARD_KEYWORDS.COOK,
+        label: '烹饪',
+        detail: `鱼${fish} 米${rice} 菜${herb}`,
+        title: '集齐三种食材后自动烹饪：全体己方角色 +1 攻击与 +1 生命',
+      };
+    },
+    validateUsage: (usage) => (
+      usage
+      && typeof usage === 'object'
+      && !Array.isArray(usage)
+      && Number.isInteger(usage.fish) && usage.fish >= 0
+      && Number.isInteger(usage.rice) && usage.rice >= 0
+      && Number.isInteger(usage.herb) && usage.herb >= 0
+    ),
+    validateCard: (card) => (
+      card.effects?.some((effect) => effect.action === 'cook-ingredient'
+        && ['fish', 'rice', 'herb'].includes(effect.value))
+        ? []
+        : [`${card.name} 的烹饪配置无效。`]
+    ),
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.NIGHTFALL,
+    label: '入夜',
+    description: '打出后预约夜幕：达到声明的回合数时，在己方回合开始自动结算一次效果。',
+    formatPlayerStatus: ({ player }) => {
+      const pending = readKeywordUsage(player, CARD_KEYWORDS.NIGHTFALL).pending;
+      if (!pending || pending.triggered) return null;
+      return {
+        id: CARD_KEYWORDS.NIGHTFALL,
+        label: '入夜',
+        detail: `第 ${pending.round} 回合 · ${pending.name}`,
+        title: '到达回合后自动结算',
+      };
+    },
+    validateUsage: (usage) => {
+      if (usage === undefined || usage === null) return true;
+      if (typeof usage !== 'object' || Array.isArray(usage)) return false;
+      const pending = usage.pending;
+      if (pending === null) return true;
+      if (!pending) return false;
+      const effects = ['damage-all-enemy-units', 'heal-all-own-units', 'damage-enemy-avatar'];
+      return Number.isInteger(pending.round)
+        && pending.round >= 2
+        && effects.includes(pending.effect)
+        && Number.isInteger(pending.value)
+        && pending.value > 0
+        && typeof pending.name === 'string'
+        && typeof pending.triggered === 'boolean';
+    },
+    validateCard: (card) => {
+      const effects = ['damage-all-enemy-units', 'heal-all-own-units', 'damage-enemy-avatar'];
+      const value = card.effects?.find((candidate) => candidate.action === 'set-nightfall')?.value;
+      const valid = value
+        && Number.isInteger(value.round)
+        && value.round >= 2
+        && effects.includes(value.effect)
+        && Number.isInteger(value.value)
+        && value.value > 0;
+      return valid ? [] : [`${card.name} 的入夜配置无效。`];
+    },
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.ORIGIN,
+    label: '起源',
+    description: '结算后将一张同名牌洗回牌库，让策略生生不息。',
+    validateCard: (card) => (
+      card.effects?.some((effect) => effect.action === 'origin-shuffle')
+        ? []
+        : [`${card.name} 缺少起源动作。`]
+    ),
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.FOCUS,
+    label: '专注',
+    description: '若此牌是你本回合使用的第一张牌，立即抽一张牌。',
+    validateCard: (card) => (
+      card.effects?.some((effect) => effect.action === 'focus-draw')
+        ? []
+        : [`${card.name} 缺少专注动作。`]
+    ),
   }),
 ]);
 

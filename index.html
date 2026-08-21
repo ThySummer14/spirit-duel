@@ -1,60 +1,72 @@
 <!doctype html>
-<html lang="zh-CN" data-ark-theme="endfield" data-ark-depth="complex">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#191919" />
-    <title>灵枢战线 · 原型对局</title>
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0d1220" />
+    <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=13" />
-    <link rel="stylesheet" href="formation.css?v=13" />
-    <script type="module" src="app.js?v=13"></script>
+    <link rel="stylesheet" href="styles.css?v=23" />
+    <link rel="stylesheet" href="formation.css?v=23" />
+    <script type="module" src="app.js?v=23"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
+
+    <!-- ============================== 灵契编成（浅色画册） ============================== -->
     <section class="formation-screen" id="formation-screen" aria-labelledby="formation-title">
-      <div class="formation-grid" aria-hidden="true"></div>
+      <div class="formation-washi" aria-hidden="true"></div>
       <header class="formation-header">
         <div class="brand" aria-label="灵枢战线">
-          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="brand-copy"><strong>灵枢战线</strong><small>NEXUS FRONT / FORMATION</small></span>
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+          <span class="brand-copy"><strong>灵枢战线</strong><small>REIKU FRONT</small></span>
         </div>
         <div class="formation-title-block">
-          <p class="micro-label">PACT FORMATION / 04</p>
+          <p class="micro-label">灵契编成 · PACT FORMATION</p>
           <h1 id="formation-title">灵契编成</h1>
-          <p>选择四名角色，再从每人的十二张专属卡中编入八张，组成 32 张战术牌组。</p>
+          <p>择四名式者，各编八张专属秘术，合三十二张牌组。</p>
         </div>
         <button class="quiet-button formation-cancel" id="formation-cancel-button" type="button" hidden>返回对局</button>
+        <button class="quiet-button" id="collection-button" type="button">秘闻阁</button>
       </header>
 
       <nav class="formation-steps" aria-label="编成步骤">
-        <button id="lineup-step-button" type="button"><b>01</b><span>角色编队</span></button>
-        <button id="deck-step-button" type="button"><b>02</b><span>卡组构筑</span></button>
+        <button id="lineup-step-button" type="button"><b>壱</b><span>角色编队</span></button>
+        <button id="deck-step-button" type="button"><b>弐</b><span>卡组构筑</span></button>
       </nav>
 
       <div class="formation-layout">
+        <!-- 步骤壱：角色名录 -->
         <section class="roster-library" id="roster-library" aria-labelledby="roster-title">
-          <header>
-            <div><p class="micro-label">AVAILABLE PACTS</p><h2 id="roster-title">角色名录</h2></div>
-            <p>点击角色加入或移出编成。</p>
+          <header class="library-head">
+            <div><p class="micro-label">式者名录</p><h2 id="roster-title">角色名录</h2></div>
+            <p>点击立绘加入或移出编成，悬停查看详情。</p>
           </header>
           <div class="formation-roster" id="formation-roster"></div>
+          <aside class="spirit-detail" id="spirit-detail" aria-live="polite">
+            <span class="spirit-detail-empty">悬停任意式者，检视被动与牌库构成。</span>
+          </aside>
         </section>
 
+        <!-- 步骤弐：卡组构筑 -->
         <section class="deck-builder" id="deck-builder" aria-labelledby="deck-builder-title" hidden>
           <header class="deck-builder-header">
-            <div><p class="micro-label">TACTICAL LOADOUT</p><h2 id="deck-builder-title">专属卡组</h2></div>
-            <strong><b id="active-deck-count">8</b> / 8</strong>
+            <div><p class="micro-label">秘术构筑</p><h2 id="deck-builder-title">专属卡组</h2></div>
+            <div class="deck-builder-tools">
+              <button class="quiet-button" id="deck-autofill-button" type="button">一键填充</button>
+              <strong class="deck-count-readout"><b id="active-deck-count">8</b> / 8</strong>
+            </div>
           </header>
           <div class="deck-unit-tabs" id="deck-unit-tabs" role="tablist" aria-label="选择要构筑的角色"></div>
           <section class="passive-dossier" id="passive-dossier" aria-label="角色被动"></section>
           <div class="card-pool" id="card-pool"></div>
         </section>
 
+        <!-- 右侧：出战序列 -->
         <aside class="formation-manifest" aria-label="当前编成">
           <header>
-            <p class="micro-label">ACTIVE MANIFEST</p>
+            <p class="micro-label">出战序列</p>
             <h2>出战序列</h2>
             <strong><b id="formation-count">4</b> / 4</strong>
           </header>
@@ -73,21 +85,73 @@
       </div>
     </section>
 
+    <!-- ============================== 秘闻阁（收藏与御札经济） ============================== -->
+    <section class="collection-screen" id="collection-screen" hidden aria-labelledby="collection-title">
+      <div class="collection-washi" aria-hidden="true"></div>
+      <header class="collection-header">
+        <div class="brand" aria-label="灵枢战线">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+          <span class="brand-copy"><strong>灵枢战线</strong><small>REIKU FRONT</small></span>
+        </div>
+        <div class="collection-title-block">
+          <p class="micro-label">秘闻阁 · SECRET ARCHIVE</p>
+          <h1 id="collection-title">秘闻阁</h1>
+          <p>开启秘闻卷收集式神秘技，重复之卡自动化为御札，御札可补全缺憾。</p>
+        </div>
+        <button class="quiet-button" id="collection-back-button" type="button">返回编成</button>
+      </header>
+
+      <div class="collection-layout">
+        <aside class="pack-panel" aria-label="秘闻卷">
+          <div class="pack-visual" aria-hidden="true">
+            <img src="assets/card-back.svg" alt="">
+            <i class="pack-glow"></i>
+          </div>
+          <p class="pack-pity">距保底史诗还需 <b id="pity-count">25</b> 包</p>
+          <button class="pack-open-button" id="pack-open-button" type="button">
+            <strong>开启秘闻卷</strong><span>消耗 <b>100</b> 御札 · 得五张</span>
+          </button>
+          <dl class="pack-stats">
+            <div><dt>御札</dt><dd id="collection-balance">300</dd></div>
+            <div><dt>已开卷</dt><dd id="collection-packs">0</dd></div>
+            <div><dt>战绩</dt><dd id="collection-record">0胜 0败</dd></div>
+          </dl>
+          <p class="pack-hint">对局胜利 +50 御札，惜败 +20；稀有度分布：常见 60% · 稀有 34.5% · 史诗 5.5%。</p>
+        </aside>
+
+        <section class="codex" aria-label="卡牌图鉴">
+          <header class="codex-head">
+            <div><p class="micro-label">卡牌图鉴</p><h2>秘技收录</h2></div>
+            <strong class="codex-progress"><b id="codex-owned">0</b> / <span id="codex-total">0</span> 种</strong>
+          </header>
+          <div class="codex-units" id="codex-units"></div>
+        </section>
+      </div>
+
+      <div class="pack-reveal" id="pack-reveal" hidden>
+        <p class="micro-label">秘闻卷 · REVEAL</p>
+        <div class="pack-reveal-cards" id="pack-reveal-cards"></div>
+        <button class="dialog-primary" id="pack-reveal-close" type="button">收下</button>
+      </div>
+    </section>
+
+    <!-- ============================== 对局（暗色沉浸） ============================== -->
     <div class="game-shell" id="game-shell" hidden>
       <header class="topbar">
         <div class="brand" aria-label="灵枢战线">
-          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="brand-copy"><strong>灵枢战线</strong><small>NEXUS FRONT / PROTOTYPE 01</small></span>
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+          <span class="brand-copy"><strong>灵枢战线</strong><small>REIKU FRONT</small></span>
         </div>
 
         <div class="match-strip" aria-label="对局状态">
           <span class="online-dot" aria-hidden="true"></span>
           <span id="turn-owner">巡界者行动</span>
           <span class="strip-divider" aria-hidden="true"></span>
-          <span>ROUND <strong id="round-value">01</strong></span>
+          <span>第 <strong id="round-value">01</strong> 回合</span>
         </div>
 
         <div class="top-actions">
+          <button class="icon-button audio-toggle" id="audio-toggle-button" type="button" aria-haspopup="dialog" aria-controls="audio-dialog" aria-label="声音设置" title="声音设置">♪</button>
           <button class="quiet-button" id="formation-button" type="button">编成</button>
           <button class="quiet-button" id="session-button" type="button" aria-haspopup="dialog" aria-controls="session-dialog">存档</button>
           <button class="quiet-button battle-log-button" id="battle-log-button" type="button" aria-haspopup="dialog" aria-controls="battle-log-dialog">
@@ -100,7 +164,7 @@
 
       <section class="replay-controller" id="replay-controller" aria-label="对局回放控制" hidden>
         <div class="replay-heading">
-          <p class="micro-label" id="replay-source">COMMAND REPLAY / CURRENT</p>
+          <p class="micro-label" id="replay-source">命令回放 / CURRENT</p>
           <strong id="replay-command-label">对局初始状态</strong>
           <span>STEP <b id="replay-step">0</b> / <b id="replay-total">0</b></span>
         </div>
@@ -118,89 +182,99 @@
 
       <main class="game-main" id="battlefield">
         <section class="battle-stage" aria-label="对局战场">
-          <div class="stage-grid" aria-hidden="true"></div>
-          <div class="stage-axis" aria-hidden="true"><span>FRONT LINE</span></div>
+          <div class="stage-scenery" aria-hidden="true">
+            <i class="scenery-moon"></i>
+            <i class="scenery-mist"></i>
+            <i class="scenery-grain"></i>
+            <i class="scenery-ridge"></i>
+          </div>
           <div class="turn-callout" id="turn-callout" role="status" aria-live="polite">
             <span id="turn-callout-kicker">YOUR TURN</span>
             <strong id="turn-callout-label">巡界者行动</strong>
-            <small id="turn-callout-detail">2 点行动能量</small>
+            <small id="turn-callout-detail">2 点鬼火</small>
           </div>
           <div class="battle-feedback" id="battle-feedback" aria-live="polite" aria-atomic="true"></div>
 
-          <header class="combatant-header enemy-header">
-            <div>
-              <p class="micro-label">HOSTILE CORE / AI</p>
+          <!-- 敌方状态条 -->
+          <header class="side-strip foe-strip">
+            <div class="strip-identity">
+              <span class="hud-tag">敌阵 · AI</span>
               <h1>失序体</h1>
             </div>
             <div class="core-readout enemy-core">
-              <span>核心稳定度</span>
-              <strong><b id="enemy-core-hp">30</b> / 30</strong>
+              <span class="core-label">核心稳定度</span>
+              <strong><b id="enemy-core-hp">30</b><em>/ 30</em></strong>
               <div class="core-bar" aria-hidden="true"><i id="enemy-core-bar"></i></div>
             </div>
-            <dl class="resource-readout">
-              <div><dt>GHOST FIRE</dt><dd id="enemy-energy">0 / 2</dd></div>
-              <div><dt>DECK</dt><dd id="enemy-deck">28</dd></div>
-              <div><dt>HAND</dt><dd id="enemy-hand">4</dd></div>
+            <dl class="hud-chips">
+              <div><dt>鬼火</dt><dd id="enemy-energy">0 / 2</dd></div>
+              <div><dt>牌库</dt><dd id="enemy-deck">28</dd></div>
+              <div><dt>手牌</dt><dd id="enemy-hand">4</dd></div>
             </dl>
           </header>
 
-          <div class="formation-line enemy-line" id="enemy-units" aria-label="敌方前线与准备区"></div>
+          <!-- 战场 -->
+          <div class="battlefield">
+            <aside class="realm-column" id="enemy-realms" aria-label="敌方幻境席"></aside>
+            <div class="board-column">
+              <div class="unit-row enemy-line" id="enemy-units" aria-label="敌方战线"></div>
 
-          <section class="command-line" aria-label="行动控制">
-            <div class="turn-state" id="turn-state">
-              <span class="turn-state-code" id="turn-state-code">YOU</span>
-              <span><small id="turn-state-kicker">YOUR TURN</small><strong id="turn-state-label">你的回合</strong></span>
-            </div>
-            <div class="turn-brief">
-              <p class="micro-label">CURRENT DIRECTIVE</p>
-              <strong id="action-prompt">选择一张卡牌，或派遣单位出击。</strong>
-              <small class="recent-event"><span>刚刚</span><b id="recent-event">界碑同步完成</b></small>
-            </div>
-            <div class="command-energy" aria-label="当前行动能量">
-              <span>鬼火</span>
-              <strong><b id="player-energy">2</b><i>/</i><em id="player-max-energy">2</em></strong>
-              <span class="energy-pips" id="energy-pips" aria-hidden="true"></span>
-            </div>
-            <div class="keyword-statuses" id="keyword-statuses" aria-label="己方持续战斗状态" aria-live="polite"></div>
-            <div class="command-actions">
-              <button class="command-button cancel-button" id="cancel-action-button" type="button" hidden>
-                <span aria-hidden="true">×</span> 取消选择
-              </button>
-              <button class="command-button level-button" id="level-button" type="button">
-                <span aria-hidden="true">◇</span><span id="level-label">赤曜升勾</span><b>↟</b>
-              </button>
-              <button class="command-button attack-button" id="attack-button" type="button">
-                <span aria-hidden="true">⚔</span><span id="attack-label">赤曜出击</span><b>1</b>
-              </button>
-              <button class="command-button end-turn-button" id="end-turn-button" type="button">
-                结束回合 <span aria-hidden="true">→</span>
-              </button>
-            </div>
-          </section>
+              <section class="command-line" aria-label="行动控制">
+                <div class="front-axis" aria-hidden="true"><span>前线 · FRONT LINE</span></div>
+                <div class="command-brief">
+                  <p class="action-prompt" id="action-prompt">选择一张卡牌，或派遣单位出击。</p>
+                  <small class="recent-event"><b id="recent-event">界碑同步完成</b></small>
+                </div>
+                <div class="command-actions">
+                  <button class="command-button cancel-button" id="cancel-action-button" type="button" hidden>
+                    <span aria-hidden="true">×</span> 取消选择
+                  </button>
+                  <button class="command-button level-button" id="level-button" type="button">
+                    <span aria-hidden="true">勾</span><span id="level-label">升勾</span><b>↟</b>
+                  </button>
+                  <button class="command-button attack-button" id="attack-button" type="button">
+                    <span aria-hidden="true">击</span><span id="attack-label">出击</span><b>1</b>
+                  </button>
+                  <button class="command-button end-turn-button" id="end-turn-button" type="button">
+                    结束回合 <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </section>
 
-          <div class="formation-line player-line" id="player-units" aria-label="己方前线与准备区"></div>
+              <div class="unit-row player-line" id="player-units" aria-label="己方战线"></div>
+            </div>
+            <aside class="realm-column" id="player-realms" aria-label="己方幻境席"></aside>
+          </div>
 
-          <header class="combatant-header player-header">
-            <div>
-              <p class="micro-label">BOUNDARY CORE / PLAYER</p>
+          <!-- 己方状态条 -->
+          <header class="side-strip ally-strip">
+            <div class="strip-identity">
+              <span class="hud-tag">己方 · PLAYER</span>
               <h2>巡界者</h2>
             </div>
             <div class="core-readout player-core">
-              <span>核心稳定度</span>
-              <strong><b id="player-core-hp">30</b> / 30</strong>
+              <span class="core-label">核心稳定度</span>
+              <strong><b id="player-core-hp">30</b><em>/ 30</em></strong>
               <div class="core-bar" aria-hidden="true"><i id="player-core-bar"></i></div>
             </div>
-            <dl class="resource-readout">
-              <div><dt>DECK</dt><dd id="player-deck">27</dd></div>
-              <div><dt>HAND</dt><dd id="player-hand-count">5</dd></div>
+            <div class="energy-readout" aria-label="当前鬼火">
+              <span class="energy-glyph" aria-hidden="true">火</span>
+              <strong><b id="player-energy">2</b><i>/</i><em id="player-max-energy">2</em></strong>
+              <span class="energy-pips" id="energy-pips" aria-hidden="true"></span>
+            </div>
+            <dl class="hud-chips">
+              <div><dt>牌库</dt><dd id="player-deck">27</dd></div>
+              <div><dt>手牌</dt><dd id="player-hand-count">5</dd></div>
             </dl>
+            <div class="keyword-statuses" id="keyword-statuses" aria-label="己方持续战斗状态" aria-live="polite"></div>
           </header>
         </section>
 
         <section class="hand-zone" aria-labelledby="hand-title">
+          <div class="hand-preview" id="hand-preview" aria-hidden="true"></div>
           <header class="hand-header">
-            <div><p class="micro-label">TACTICAL HAND</p><h2 id="hand-title">战术手牌</h2></div>
-            <div class="hand-summary" aria-label="当前可用手牌"><span>当前可用</span><strong><b id="playable-card-count">0</b> 张</strong></div>
+            <p class="micro-label" id="hand-title">战术手牌 · TACTICAL HAND</p>
+            <div class="hand-summary" aria-label="当前可用手牌"><span>可用</span><strong><b id="playable-card-count">0</b> 张</strong></div>
           </header>
           <div class="hand-scroll" id="player-hand" aria-live="polite"></div>
         </section>
@@ -211,7 +285,7 @@
       <dialog class="battle-log-dialog" id="battle-log-dialog" aria-labelledby="battle-log-title">
         <form method="dialog" class="battle-log">
           <header>
-            <div><p class="micro-label">LIVE RECORD</p><h2 id="battle-log-title">战报</h2></div>
+            <div><p class="micro-label">战况实录</p><h2 id="battle-log-title">战报</h2></div>
             <div class="battle-log-tools">
               <span id="log-count">00</span>
               <button class="icon-button dialog-close" value="close" aria-label="关闭战报" title="关闭">×</button>
@@ -224,23 +298,42 @@
       <dialog class="rules-dialog" id="rules-dialog">
         <form method="dialog" class="dialog-shell">
           <header>
-            <div><p class="micro-label">COMBAT PROTOCOL / 01</p><h2>界碑规则</h2></div>
+            <div><p class="micro-label">对局法则</p><h2>界碑规则</h2></div>
             <button class="icon-button dialog-close" value="close" aria-label="关闭规则" title="关闭">×</button>
           </header>
           <div class="rules-grid">
-            <section><span>01</span><h3>稳定核心</h3><p>双方核心初始为 30。令敌方核心降至 0，或令对手在空牌库时再次抽牌，即可赢得对局。</p></section>
-            <section><span>02</span><h3>鬼火行动</h3><p>每回合开始时鬼火恢复至 2。出牌或出击通常消耗 1 点鬼火。</p></section>
-            <section><span>03</span><h3>前线交战</h3><p>准备区角色出击时会实际进入前线，原前线退回准备区。对方前线存在时必须先与其交战。</p></section>
-            <section><span>04</span><h3>勾玉与气绝</h3><p>每回合可免费提升一名角色的勾玉等级。角色生命归零后气绝，两个己方回合后自动归队。</p></section>
+            <section><span>壱</span><h3>稳定核心</h3><p>双方核心初始为 30。令敌方核心降至 0，或令对手在空牌库时再次抽牌，即可赢得对局。</p></section>
+            <section><span>弐</span><h3>鬼火行动</h3><p>每回合开始时鬼火恢复至 2。出牌或出击通常消耗 1 点鬼火。</p></section>
+            <section><span>参</span><h3>前线交战</h3><p>准备区角色出击时会实际进入前线，原前线退回准备区。对方前线存在时必须先与其交战。</p></section>
+            <section><span>肆</span><h3>勾玉与气绝</h3><p>每回合可免费提升一名角色的勾玉等级。角色生命归零后气绝，两个己方回合后自动归队。</p></section>
           </div>
           <button class="dialog-primary" value="close">返回对局</button>
         </form>
       </dialog>
 
+      <dialog class="audio-dialog" id="audio-dialog" aria-labelledby="audio-title">
+        <div class="dialog-shell audio-shell">
+          <header>
+            <div><p class="micro-label">声音设置 · MIXER</p><h2 id="audio-title">混音台</h2></div>
+            <button class="icon-button dialog-close" id="audio-close-button" type="button" aria-label="关闭声音设置" title="关闭">×</button>
+          </header>
+          <label class="audio-enable-row">
+            <input type="checkbox" id="audio-enabled-checkbox" checked />
+            <span>启用游戏声音</span>
+          </label>
+          <div class="audio-mixer">
+            <label><span>总音量</span><input type="range" id="audio-master-volume" min="0" max="100" value="80" /></label>
+            <label><span>音乐</span><input type="range" id="audio-music-volume" min="0" max="100" value="50" /></label>
+            <label><span>音效</span><input type="range" id="audio-sfx-volume" min="0" max="100" value="90" /></label>
+          </div>
+          <small class="audio-note">偏好会保存在本地浏览器；音乐在编成与战斗场景间平滑切换。</small>
+        </div>
+      </dialog>
+
       <dialog class="session-dialog" id="session-dialog" aria-labelledby="session-title">
         <div class="dialog-shell session-shell">
           <header>
-            <div><p class="micro-label">LOCAL SESSION / SLOT 01</p><h2 id="session-title">本地存档</h2></div>
+            <div><p class="micro-label">本地存档 · SLOT 01</p><h2 id="session-title">本地存档</h2></div>
             <button class="icon-button dialog-close" id="session-close-button" type="button" aria-label="关闭存档" title="关闭">×</button>
           </header>
           <p class="session-status" id="session-status" role="status">当前没有本地存档。</p>
@@ -266,7 +359,7 @@
       <dialog class="divination-dialog" id="divination-dialog" aria-labelledby="divination-title">
         <div class="dialog-shell divination-shell">
           <header>
-            <div><p class="micro-label">DECK ORACLE</p><h2 id="divination-title">占卜牌库</h2></div>
+            <div><p class="micro-label">牌库神谕</p><h2 id="divination-title">占卜牌库</h2></div>
             <span class="choice-required">必须选择</span>
           </header>
           <div class="divination-options" id="divination-options" aria-label="占卜候选卡牌"></div>
@@ -275,10 +368,10 @@
 
       <dialog class="result-dialog" id="result-dialog">
         <div class="dialog-shell result-shell">
-          <p class="micro-label">MATCH RESULT / FINAL</p>
-          <p class="result-code" id="result-code">VICTORY</p>
+          <p class="result-seal" id="result-code" aria-hidden="true">胜</p>
           <h2 id="result-title">界碑已稳定</h2>
           <p id="result-summary"></p>
+          <p class="result-reward" id="result-reward"></p>
           <dl class="result-stats">
             <div><dt>回合</dt><dd id="result-rounds">0</dd></div>
             <div><dt>出牌</dt><dd id="result-cards">0</dd></div>

@@ -1,12 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
-  <title id="title">岚岳抽象卡面</title>
-  <desc id="desc">由岩层方块和信号标记组成的原创几何图案</desc>
-  <rect width="180" height="220" fill="#191919"/>
-  <path d="M30 58h102l18 23-15 102H45L20 146z" fill="#a98b54"/>
-  <path d="m55 42 62 9 17 65-27 73-56-19-18-65z" fill="#ddd6c6"/>
-  <path d="M69 69h34v85H69z" fill="#191919"/>
-  <path d="M43 95h86v33H43z" fill="#191919"/>
-  <path d="M78 104h16v15H78z" fill="#ffed00"/>
-  <path d="M18 21h62v5H18zm0 12h41v2H18zM135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
-  <path d="M147 51v106M141 64h12M141 90h12M141 116h12M141 142h12" stroke="#f2f2f0" stroke-width="2" opacity=".65"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">岚岳 · 垒卫</title>
+  <desc id="desc">石守之灵：层叠远山前的厚重石鸟居，居中石灯笼透出暖芒，苔金主调</desc>
+  <defs>
+    <linearGradient id="b-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#15140f"/>
+      <stop offset=".55" stop-color="#211d14"/>
+      <stop offset="1" stop-color="#100f0b"/>
+    </linearGradient>
+    <radialGradient id="b-halo" cx=".5" cy=".52" r=".58">
+      <stop offset="0" stop-color="#ffe9b0" stop-opacity=".34"/>
+      <stop offset=".5" stop-color="#a98b54" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#a98b54" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="b-stone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8d7b58"/>
+      <stop offset=".5" stop-color="#6b5c3e"/>
+      <stop offset="1" stop-color="#493e2a"/>
+    </linearGradient>
+    <linearGradient id="b-stone-hi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c8b287"/>
+      <stop offset="1" stop-color="#93805a"/>
+    </linearGradient>
+    <radialGradient id="b-lamp" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff4cf"/>
+      <stop offset=".55" stop-color="#ffd985"/>
+      <stop offset="1" stop-color="#c98f3d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#b-bg)"/>
+  <circle cx="100" cy="134" r="84" fill="url(#b-halo)"/>
+  <!-- 远山 -->
+  <path d="M0 96 40 62l26 22 22-30 34 34 26-18 52 26v10H0Z" fill="#2a2519" opacity=".8"/>
+  <path d="M0 116 48 92l30 20 34-24 38 30 80-14v22H0Z" fill="#1d1a12" opacity=".9"/>
+  <!-- 石鸟居 -->
+  <g stroke="#2e2718" stroke-width="2">
+    <path d="M28 74h144l6-12H22Z" fill="url(#b-stone-hi)"/>
+    <rect x="36" y="94" width="128" height="14" rx="3" fill="url(#b-stone)"/>
+    <rect x="48" y="108" width="14" height="104" rx="2" fill="url(#b-stone)"/>
+    <rect x="138" y="108" width="14" height="104" rx="2" fill="url(#b-stone)"/>
+  </g>
+  <!-- 石灯笼 -->
+  <g>
+    <circle cx="100" cy="152" r="30" fill="url(#b-lamp)"/>
+    <path d="M76 140h48l8-10H68Z" fill="url(#b-stone-hi)" stroke="#2e2718" stroke-width="2"/>
+    <rect x="80" y="140" width="40" height="26" rx="4" fill="#3a301c" stroke="#2e2718" stroke-width="2"/>
+    <rect x="90" y="145" width="20" height="16" rx="3" fill="#ffdf9e"/>
+    <path d="M92 128l8-12 8 12Z" fill="#ffdf9e" opacity=".9"/>
+    <rect x="76" y="166" width="48" height="10" rx="3" fill="url(#b-stone)" stroke="#2e2718" stroke-width="2"/>
+    <rect x="88" y="176" width="24" height="36" rx="3" fill="url(#b-stone)" stroke="#2e2718" stroke-width="2"/>
+  </g>
+  <!-- 苔点与飞尘 -->
+  <g fill="#c8b287">
+    <circle cx="34" cy="212" r="2.2" opacity=".5"/>
+    <circle cx="164" cy="206" r="1.8" opacity=".4"/>
+    <circle cx="58" cy="60" r="1.6" opacity=".5"/>
+    <circle cx="146" cy="52" r="2" opacity=".6"/>
+    <circle cx="24" cy="132" r="1.5" opacity=".4"/>
+    <circle cx="176" cy="140" r="1.7" opacity=".5"/>
+    <circle cx="100" cy="118" r="1.6" opacity=".7"/>
+  </g>
+  <ellipse cx="100" cy="226" rx="56" ry="8" fill="#000" opacity=".45"/>
+  <rect width="200" height="260" fill="none" stroke="#a98b54" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
 </svg>

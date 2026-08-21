@@ -1,11 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
-  <title id="title">玄砚抽象卡面</title>
-  <desc id="desc">由墨紫印记、米白纸面和黑色构件组成的原创几何图案</desc>
-  <rect width="180" height="220" fill="#191919"/>
-  <path d="M47 42h86l25 39-18 91-48 29-61-26-11-83z" fill="#6f6288"/>
-  <path d="m60 58 58 3 21 31-13 62-38 24-43-19-8-58z" fill="#d8d2c4"/>
-  <path d="m75 76 32 2 14 20-8 40-24 16-27-13-5-37z" fill="#191919"/>
-  <path d="m88 91 14 1 7 10-5 20-13 8-13-6-2-18z" fill="#ffed00"/>
-  <path d="M18 21h62v5H18zm0 12h41v2H18zM135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
-  <path d="M145 57v103M138 69h14M138 92h14M138 115h14M138 138h14" stroke="#f2f2f0" stroke-width="2" opacity=".7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">玄砚 · 墨相</title>
+  <desc id="desc">墨鲤书灵：圆相墨环中墨鲤回游，朱印点睛，笔锋扫过宣纸留白，玄紫主调</desc>
+  <defs>
+    <linearGradient id="i-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12101a"/>
+      <stop offset=".55" stop-color="#1a1626"/>
+      <stop offset="1" stop-color="#0c0a12"/>
+    </linearGradient>
+    <radialGradient id="i-halo" cx=".5" cy=".46" r=".58">
+      <stop offset="0" stop-color="#cabffa" stop-opacity=".4"/>
+      <stop offset=".5" stop-color="#6f6288" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#6f6288" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="i-ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a3450"/>
+      <stop offset=".6" stop-color="#241f34"/>
+      <stop offset="1" stop-color="#15121f"/>
+    </linearGradient>
+    <linearGradient id="i-koi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#565073"/>
+      <stop offset=".55" stop-color="#332d4a"/>
+      <stop offset="1" stop-color="#1c1829"/>
+    </linearGradient>
+    <linearGradient id="i-fins" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f6288" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#6f6288" stop-opacity=".2"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#i-bg)"/>
+  <circle cx="100" cy="118" r="88" fill="url(#i-halo)"/>
+  <!-- 圆相墨环（一笔书） -->
+  <path d="M158 78a64 64 0 1 0 6 52" fill="none" stroke="url(#i-ink)" stroke-width="9" stroke-linecap="round"/>
+  <path d="M158 78a64 64 0 1 0 6 52" fill="none" stroke="#8a7ba8" stroke-width="1.4" stroke-linecap="round" opacity=".5"/>
+  <!-- 笔锋飞白 -->
+  <path d="M20 196c26-10 52-12 80-6 20 4 38 3 56-4" fill="none" stroke="#8a7ba8" stroke-width="2" stroke-linecap="round" opacity=".28" stroke-dasharray="10 7"/>
+  <!-- 墨鲤回游 -->
+  <g transform="translate(100 118) rotate(-18)">
+    <path d="M-52 0c0-20 24-34 52-34s52 14 52 34-24 34-52 34-52-14-52-34Z" fill="url(#i-koi)"/>
+    <path d="M52 0c14-10 26-12 38-8-8 4-10 8-8 8-2 0-4 4-12 10-8-2-14-6-18-10Z" fill="url(#i-fins)"/>
+    <path d="M-52 0c-12-12-24-16-34-12 8 6 8 8 6 8 4 2 8 8 14 16 6-2 10-6 14-12Z" fill="url(#i-fins)"/>
+    <path d="M-8-32c8-12 20-16 30-12-6 6-6 10-4 12-8 0-18 2-26 0Z" fill="url(#i-fins)"/>
+    <path d="M-8 32c8 12 20 16 30 12-6-6-6-10-4-12-8 0-18-2-26 0Z" fill="url(#i-fins)"/>
+    <path d="M-30-6c10 6 40 6 56-2" fill="none" stroke="#8a7ba8" stroke-width="1.6" opacity=".5"/>
+    <!-- 鳞纹 -->
+    <g fill="none" stroke="#8a7ba8" stroke-opacity=".35" stroke-width="1">
+      <path d="M-30-14c6 4 6 24 0 28M-12-20c7 5 7 35 0 40M6-22c7 5 7 39 0 44M24-18c7 5 7 31 0 36"/>
+    </g>
+    <!-- 朱印点睛 -->
+    <circle cx="40" cy="-6" r="3.4" fill="#c93a2e"/>
+    <circle cx="41.4" cy="-7" r="1" fill="#ffd9c9"/>
+  </g>
+  <!-- 朱印落款 -->
+  <g transform="translate(150 178)">
+    <rect x="-13" y="-13" width="26" height="26" rx="3" fill="#c93a2e" opacity=".92"/>
+    <path d="M-6-6h12M-6 0h12M-6 6h12M0-6v12" stroke="#1c1829" stroke-width="2.4"/>
+  </g>
+  <!-- 墨点 -->
+  <g fill="#8a7ba8">
+    <circle cx="44" cy="60" r="2" opacity=".6"/>
+    <circle cx="164" cy="128" r="1.5" opacity=".5"/>
+    <circle cx="36" cy="150" r="1.4" opacity=".4"/>
+    <circle cx="128" cy="52" r="1.7" opacity=".55"/>
+    <circle cx="72" cy="212" r="1.8" opacity=".5"/>
+    <circle cx="118" cy="220" r="1.3" opacity=".4"/>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#6f6288" stroke-opacity=".4" stroke-width="1.5" rx="10"/>
 </svg>

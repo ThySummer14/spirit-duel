@@ -348,6 +348,96 @@ export const CARD_DEFINITIONS = Object.freeze([
     rarity: 'rare', tags: ['幻境', '保护'], realm: { hp: 4, trigger: 'owner-turn-start', triggerEffect: 'shield-front', triggerValue: 1 },
   }),
   card('black-surge', 'ink', '墨潮压境', 'combat', 3, '玄砚出击，本次攻击 +3。', 'auto', 'assault', 3, { cost: 2, rarity: 'epic', tags: ['终结', '出击'] }),
+
+  // ============ 扩展包·不夜宴席：蓄力/连引/赐能/烹饪/入夜/起源/专注 ============
+  // 以下卡牌不进入默认构筑（starterCopies 为 0），需在秘闻阁开包收集或御札合成。
+  card('ember-feast-fish', 'ember', '炙鱼备宴', 'spell', 1, '对敌方核心造成 1 点伤害，并获得食材「鲜鱼」。', 'auto', 'cook-ingredient', null, {
+    rarity: 'common', tags: ['烹饪', '压制'], keywords: [CARD_KEYWORDS.COOK],
+    effects: [
+      { condition: 'always', action: 'damage', target: 'enemy-avatar', value: 1 },
+      { condition: 'always', action: 'cook-ingredient', target: 'ally-player', value: 'fish' },
+    ],
+  }),
+  card('undying-ember', 'ember', '不灭余烬', 'spell', 2, '对一名敌方角色造成 2 点伤害；起源：将一张「不灭余烬」洗回牌库。', 'enemy-unit', 'damage', 2, {
+    rarity: 'rare', tags: ['起源', '解场'], keywords: [CARD_KEYWORDS.ORIGIN],
+    effects: [
+      { condition: 'always', action: 'damage', target: 'selected-enemy', value: 2 },
+      { condition: 'always', action: 'origin-shuffle', target: 'ally-player' },
+    ],
+  }),
+  card('mountain-granary', 'basalt', '山家米仓', 'spell', 1, '一名友方角色获得 2 点护盾，并获得食材「稻米」。', 'ally-unit', 'shield', 2, {
+    rarity: 'common', tags: ['烹饪', '保护'], keywords: [CARD_KEYWORDS.COOK],
+    effects: [
+      { condition: 'always', action: 'shield', target: 'selected-ally', value: 2 },
+      { condition: 'always', action: 'cook-ingredient', target: 'ally-player', value: 'rice' },
+    ],
+  }),
+  card('bedrock-attitude', 'basalt', '磐石蓄势', 'spell', 2, '蓄力 2：两个己方回合后，岚岳获得 4 点护盾，并对敌方前线造成 2 点伤害。', 'auto', 'attach-charge', null, {
+    rarity: 'rare', tags: ['蓄力', '站场'], keywords: [CARD_KEYWORDS.CHARGED],
+    effects: [{
+      condition: 'always',
+      action: 'attach-charge',
+      target: 'source',
+      value: {
+        threshold: 2,
+        effects: [
+          { action: 'shield-self', value: 4 },
+          { action: 'damage-enemy-front', value: 2 },
+        ],
+      },
+    }],
+  }),
+  card('moonlit-verse', 'lumen', '月下连句', 'spell', 1, '为一名友方角色恢复 3 点生命；连引：抽取牌库中下一张弦月的牌。', 'ally-unit', 'heal', 3, {
+    rarity: 'rare', tags: ['连引', '恢复'], keywords: [CARD_KEYWORDS.CHAIN],
+    effects: [
+      { condition: 'always', action: 'heal', target: 'selected-ally', value: 3 },
+      { condition: 'always', action: 'chain-draw', target: 'ally-player' },
+    ],
+  }),
+  card('single-mind', 'lumen', '凝神一注', 'spell', 1, '抽 1 张牌；专注：若这是你本回合使用的第一张牌，再抽 1 张。', 'auto', 'draw', 1, {
+    rarity: 'common', tags: ['专注', '调度'], keywords: [CARD_KEYWORDS.FOCUS],
+    effects: [
+      { condition: 'always', action: 'draw', target: 'ally-player', value: 1 },
+      { condition: 'always', action: 'focus-draw', target: 'ally-player', value: 1 },
+    ],
+  }),
+  card('longest-night', 'rime', '长夜将尽', 'spell', 3, '入夜：第 5 回合开始时，敌方全体角色受到 2 点伤害。', 'auto', 'set-nightfall', null, {
+    rarity: 'epic', tags: ['入夜', '终结'], keywords: [CARD_KEYWORDS.NIGHTFALL],
+    effects: [{
+      condition: 'always',
+      action: 'set-nightfall',
+      target: 'ally-player',
+      value: { round: 5, effect: 'damage-all-enemy-units', value: 2 },
+    }],
+  }),
+  card('frost-pickle', 'rime', '霜厨腌菜', 'spell', 1, '对一名敌方角色造成 1 点伤害，并获得食材「霜菜」。', 'enemy-unit', 'damage', 1, {
+    rarity: 'common', tags: ['烹饪', '解场'], keywords: [CARD_KEYWORDS.COOK],
+    effects: [
+      { condition: 'always', action: 'damage', target: 'selected-enemy', value: 1 },
+      { condition: 'always', action: 'cook-ingredient', target: 'ally-player', value: 'herb' },
+    ],
+  }),
+  card('thunder-endow', 'storm', '雷能赐灌', 'spell', 2, '对一名敌方角色造成 2 点伤害；赐能 2：若霆鸢充能不小于 2，消耗 2 点并额外造成 3 点伤害。', 'enemy-unit', 'damage', 2, {
+    rarity: 'rare', tags: ['赐能', '解场'], keywords: [CARD_KEYWORDS.BESTOW], bestow: { cost: 2 },
+    effects: [
+      { condition: 'always', action: 'damage', target: 'selected-enemy', value: 2 },
+      { condition: 'bestow-ready', action: 'damage', target: 'selected-enemy', value: 3 },
+    ],
+  }),
+  card('ink-feast-fish', 'ink', '墨府家宴', 'spell', 1, '抽 1 张牌，并获得食材「鲜鱼」。', 'auto', 'draw', 1, {
+    rarity: 'common', tags: ['烹饪', '调度'], keywords: [CARD_KEYWORDS.COOK],
+    effects: [
+      { condition: 'always', action: 'draw', target: 'ally-player', value: 1 },
+      { condition: 'always', action: 'cook-ingredient', target: 'ally-player', value: 'fish' },
+    ],
+  }),
+  card('origin-manuscript', 'ink', '起源抄本', 'spell', 2, '抽 1 张牌；起源：将一张「起源抄本」洗回牌库。', 'auto', 'draw', 1, {
+    rarity: 'rare', tags: ['起源', '调度'], keywords: [CARD_KEYWORDS.ORIGIN],
+    effects: [
+      { condition: 'always', action: 'draw', target: 'ally-player', value: 1 },
+      { condition: 'always', action: 'origin-shuffle', target: 'ally-player' },
+    ],
+  }),
 ]);
 
 const UNIT_MAP = new Map(UNIT_DEFINITIONS.map((unit) => [unit.id, unit]));

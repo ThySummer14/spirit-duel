@@ -96,7 +96,7 @@ export const GAME_EVENTS = Object.freeze({
   MATCH_FINISHED: 'match-finished',
 });
 
-export const GAME_STATE_VERSION = 6;
+export const GAME_STATE_VERSION = 7;
 
 const MAX_EVENT_CHAIN_LENGTH = 64;
 const MAX_RESOLUTION_STACK_LENGTH = 64;
@@ -406,6 +406,7 @@ function createPlayer(state, id, name, deckDefinition) {
     keywordUsage: {},
     turnsTaken: 0,
     cardsPlayed: 0,
+    cardsPlayedThisTurn: 0,
     damageDealt: 0,
     realms: [],
   };
@@ -533,6 +534,7 @@ function damageUnit(state, playerIndex, unitIndex, baseAmount, sourcePlayerIndex
     unit.knockout = GAME_RULES.knockoutCountdown;
     unit.frozen = 0;
     unit.brittle = 0;
+    unit.chargeUp = null;
     recordEvent(
       state,
       GAME_EVENTS.UNIT_KNOCKED_OUT,
@@ -867,6 +869,71 @@ function triggerRealms(state, playerIndex, trigger) {
   });
 }
 
+function resolveChargeUpStep(state, playerIndex, unit, step) {
+  const player = state.players[playerIndex];
+  const enemyIndex = 1 - playerIndex;
+  const enemy = state.players[enemyIndex];
+  if (step.action === 'shield-self') {
+    unit.shield += step.value;
+    recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, unitId: unit.uid, effect: 'charge-shield' }, `${unit.name} 获得 ${step.value} 点护盾。`, 'success');
+    return;
+  }
+  if (step.action === 'heal-self') {
+    healUnit(state, playerIndex, player.units.indexOf(unit), step.value);
+    return;
+  }
+  if (step.action === 'damage-enemy-front') {
+    const frontIndex = enemy.units.findIndex((candidate) => candidate.uid === enemy.frontUnitId && candidate.hp > 0);
+    if (frontIndex >= 0) damageUnit(state, enemyIndex, frontIndex, step.value, playerIndex);
+    else damageAvatar(state, enemyIndex, step.value, playerIndex);
+    return;
+  }
+  if (step.action === 'damage-enemy-avatar') {
+    damageAvatar(state, enemyIndex, step.value, playerIndex);
+    return;
+  }
+  if (step.action === 'draw') drawCards(state, playerIndex, step.value);
+}
+
+function advanceChargeUps(state, playerIndex) {
+  const player = state.players[playerIndex];
+  player.units.forEach((unit) => {
+    const chargeUp = unit.chargeUp;
+    if (!chargeUp || unit.hp <= 0) return;
+    chargeUp.counters += 1;
+    if (chargeUp.counters < chargeUp.threshold) {
+      recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, unitId: unit.uid, effect: 'charge-tick', counters: chargeUp.counters }, `${unit.name} 的蓄力推进至 ${chargeUp.counters}/${chargeUp.threshold}。`, 'turn');
+      return;
+    }
+    recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, unitId: unit.uid, effect: 'charge-trigger' }, `${unit.name} 的蓄力「${chargeUp.name}」成熟，开始结算。`, 'success');
+    const steps = chargeUp.effects;
+    unit.chargeUp = null;
+    steps.forEach((step) => resolveChargeUpStep(state, playerIndex, unit, step));
+    checkWinner(state);
+  });
+}
+
+function resolveNightfallIfDue(state, playerIndex) {
+  const player = state.players[playerIndex];
+  const pending = player.keywordUsage?.nightfall?.pending;
+  if (!pending || pending.triggered || state.turnCounter < pending.round) return;
+  pending.triggered = true;
+  const enemyIndex = 1 - playerIndex;
+  recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, effect: 'nightfall', round: pending.round }, `夜幕降临：「${pending.name}」生效。`, 'danger');
+  if (pending.effect === 'damage-all-enemy-units') {
+    state.players[enemyIndex].units.forEach((unit, index) => {
+      if (unit.hp > 0) damageUnit(state, enemyIndex, index, pending.value, playerIndex);
+    });
+  } else if (pending.effect === 'heal-all-own-units') {
+    player.units.forEach((unit, index) => {
+      if (unit.hp > 0) healUnit(state, playerIndex, index, pending.value);
+    });
+  } else if (pending.effect === 'damage-enemy-avatar') {
+    damageAvatar(state, enemyIndex, pending.value, playerIndex);
+  }
+  checkWinner(state);
+}
+
 function beginTurn(state, playerIndex) {
   const player = state.players[playerIndex];
   player.turnsTaken += 1;
@@ -874,6 +941,7 @@ function beginTurn(state, playerIndex) {
   player.energy = player.maxEnergy;
   player.attackUsed = false;
   player.levelUpUsed = false;
+  player.cardsPlayedThisTurn = 0;
   applyTurnStartKeywordHooks({ state, playerIndex, player, recordEvent, gameEvents: GAME_EVENTS });
 
   player.units.forEach((unit, unitIndex) => {
@@ -892,6 +960,8 @@ function beginTurn(state, playerIndex) {
   });
 
   ensureFront(player);
+  advanceChargeUps(state, playerIndex);
+  resolveNightfallIfDue(state, playerIndex);
   triggerRealms(state, playerIndex, 'owner-turn-start');
   if (state.winner === null) drawCards(state, playerIndex, 1);
   if (state.winner === null) triggerAutomaticKeywordCards(state, playerIndex);
@@ -1031,6 +1101,9 @@ const EFFECT_CONDITION_HANDLERS = new Map([
     allows: (context) => selectedEffectTarget(context)?.hp > 0,
   }],
   ['fortune-success', {
+    allows: (context) => getKeywordEffectConditionDecision(context) === true,
+  }],
+  ['bestow-ready', {
     allows: (context) => getKeywordEffectConditionDecision(context) === true,
   }],
 ]);
@@ -1235,6 +1308,96 @@ const EFFECT_HANDLERS = new Map([
       recordEvent(state, GAME_EVENTS.CARD_PLAYED, { enemyIndex, targetId, effect: 'brittle', stacks: target.brittle }, `${target.name} 进入晶裂状态。`, 'card');
     },
   }],
+  ['chain-draw', {
+    resolve: ({ state, player, playerIndex, card }) => {
+      const unitName = getUnitDefinition(card.unitId)?.name ?? '同源';
+      const deckIndex = player.deck.findIndex((instance) => getCardDefinition(instance.definitionId)?.unitId === card.unitId);
+      if (deckIndex < 0) {
+        recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, effect: 'chain-draw', found: false }, `连引未果：牌库中已没有${unitName}的牌。`, 'turn');
+        return;
+      }
+      const [instance] = player.deck.splice(deckIndex, 1);
+      player.hand.push(instance);
+      recordEvent(state, GAME_EVENTS.CARD_DRAWN, { playerIndex, instanceId: instance.instanceId, effect: 'chain-draw' }, `连引：将「${getCardDefinition(instance.definitionId).name}」纳入手牌。`, 'success');
+    },
+  }],
+  ['origin-shuffle', {
+    resolve: ({ state, player, playerIndex, card }) => {
+      const instance = { instanceId: `${player.id}-${state.nextCardId++}`, definitionId: card.id };
+      const insertIndex = player.deck.length > 0
+        ? Math.floor(nextRandom(state) * (player.deck.length + 1))
+        : 0;
+      player.deck.splice(insertIndex, 0, instance);
+      recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, effect: 'origin-shuffle', definitionId: card.id }, `起源：一张「${card.name}」回到牌库深处。`, 'success');
+    },
+  }],
+  ['focus-draw', {
+    resolve: ({ state, player, playerIndex, effect }) => {
+      if ((player.cardsPlayedThisTurn ?? 0) > 1) {
+        recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, effect: 'focus-draw', focused: false }, '专注未达成：本回合已使用过其他卡牌。', 'turn');
+        return;
+      }
+      drawCards(state, playerIndex, effect.value ?? 1);
+      recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, effect: 'focus-draw', focused: true }, '专注达成，灵感涌现。', 'success');
+    },
+  }],
+  ['cook-ingredient', {
+    resolve: ({ state, player, playerIndex, effect }) => {
+      const ingredientLabels = { fish: '鲜鱼', rice: '稻米', herb: '霜菜' };
+      if (!player.keywordUsage.cook || typeof player.keywordUsage.cook !== 'object' || Array.isArray(player.keywordUsage.cook)) {
+        player.keywordUsage.cook = { fish: 0, rice: 0, herb: 0 };
+      }
+      const usage = player.keywordUsage.cook;
+      usage[effect.value] = (usage[effect.value] ?? 0) + 1;
+      recordEvent(
+        state,
+        GAME_EVENTS.CARD_PLAYED,
+        { playerIndex, effect: 'cook-ingredient', ingredient: effect.value },
+        `获得食材「${ingredientLabels[effect.value] ?? effect.value}」（鱼${usage.fish} 米${usage.rice} 菜${usage.herb}）。`,
+        'success',
+      );
+      if (usage.fish < 1 || usage.rice < 1 || usage.herb < 1) return;
+      usage.fish -= 1;
+      usage.rice -= 1;
+      usage.herb -= 1;
+      player.units.forEach((unit) => {
+        if (unit.hp <= 0) return;
+        unit.attack += 1;
+        unit.maxHp += 1;
+        unit.hp += 1;
+      });
+      recordEvent(state, GAME_EVENTS.KEYWORD_STATE_GAINED, { playerIndex, keywordId: 'cook', effect: 'cook-complete' }, '食材集齐，一席灵宴完成：全体己方角色 +1/+1。', 'success');
+    },
+  }],
+  ['attach-charge', {
+    resolve: ({ state, playerIndex, source, card, effect }) => {
+      const value = effect.value;
+      source.chargeUp = {
+        cardId: card.id,
+        name: card.name,
+        threshold: value.threshold,
+        counters: 0,
+        effects: value.effects.map((step) => ({ ...step })),
+      };
+      recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, unitId: source.uid, effect: 'attach-charge' }, `${source.name} 进入蓄力（${value.threshold} 回合后结算）。`, 'success');
+    },
+  }],
+  ['set-nightfall', {
+    resolve: ({ state, player, playerIndex, card, effect }) => {
+      const value = effect.value;
+      player.keywordUsage.nightfall = {
+        pending: {
+          cardId: card.id,
+          name: card.name,
+          round: value.round,
+          effect: value.effect,
+          value: value.value,
+          triggered: false,
+        },
+      };
+      recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, effect: 'set-nightfall', round: value.round }, `夜幕预约：第 ${value.round} 回合开始时「${card.name}」生效。`, 'card');
+    },
+  }],
 ]);
 
 function createCardResolutionFrames(state, playerIndex, instanceId, card, targetId, options = {}) {
@@ -1284,6 +1447,7 @@ function resolveCardEffectFrame(state, frame) {
     source,
     sourceIndex,
     effect,
+    condition: effect.condition,
     frame,
     random: () => nextRandom(state),
   };
@@ -1647,6 +1811,7 @@ function commitCardPlayInPlace(next, playerIndex, instanceId, targetId = null, o
   });
   player.hand.splice(handIndex, 1);
   player.cardsPlayed += 1;
+  player.cardsPlayedThisTurn = (player.cardsPlayedThisTurn ?? 0) + 1;
   if (options.automatic) {
     recordEvent(
       next,

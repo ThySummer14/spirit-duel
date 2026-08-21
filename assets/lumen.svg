@@ -1,11 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
-  <title id="title">弦月抽象卡面</title>
-  <desc id="desc">由折光棱镜和黄色光带组成的原创几何图案</desc>
-  <rect width="180" height="220" fill="#191919"/>
-  <path d="m89 36 47 76-47 75-47-75z" fill="#f2f2f0"/>
-  <path d="m89 56 26 56-26 55-25-55z" fill="#d8bd42"/>
-  <path d="m89 74 11 38-11 37-10-37z" fill="#191919"/>
-  <path d="M12 110h54v5H12zm101 0h55v5h-55z" fill="#ffed00"/>
-  <path d="m35 79 32 25-5 6-33-24zm109 0-33 25 5 6 33-24z" fill="#f2f2f0" opacity=".7"/>
-  <path d="M18 21h62v5H18zm0 12h41v2H18zM135 18h27v27h-5V23h-22zM18 176h5v25h25v5H18z" fill="#f2f2f0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">弦月 · 织光</title>
+  <desc id="desc">月织之灵：弦月悬于靛蓝夜空，白鹤掠过，银线织出光之经纬，流银主调</desc>
+  <defs>
+    <linearGradient id="l-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f1424"/>
+      <stop offset=".55" stop-color="#171d33"/>
+      <stop offset="1" stop-color="#0b0f1c"/>
+    </linearGradient>
+    <radialGradient id="l-halo" cx=".5" cy=".4" r=".6">
+      <stop offset="0" stop-color="#fdf6d8" stop-opacity=".5"/>
+      <stop offset=".5" stop-color="#d8bd42" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#d8bd42" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="l-moon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffbe8"/>
+      <stop offset="1" stop-color="#e8d27a"/>
+    </linearGradient>
+    <linearGradient id="l-thread" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8bd42" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#f5e6a6" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#d8bd42" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="l-crane" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdfaf0"/>
+      <stop offset="1" stop-color="#cfc4a4"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#l-bg)"/>
+  <circle cx="100" cy="104" r="88" fill="url(#l-halo)"/>
+  <!-- 星尘 -->
+  <g fill="#f5e6a6">
+    <circle cx="36" cy="52" r="1.4" opacity=".7"/>
+    <circle cx="168" cy="44" r="1.8" opacity=".8"/>
+    <circle cx="150" cy="96" r="1.2" opacity=".5"/>
+    <circle cx="30" cy="120" r="1.6" opacity=".6"/>
+    <circle cx="176" cy="160" r="1.4" opacity=".5"/>
+    <circle cx="60" cy="188" r="1.4" opacity=".4"/>
+    <circle cx="128" cy="204" r="1.8" opacity=".5"/>
+    <circle cx="48" cy="228" r="1.2" opacity=".4"/>
+  </g>
+  <!-- 弦月 -->
+  <path d="M124 46a58 58 0 1 0 0 116 46 46 0 1 1 0-116Z" fill="url(#l-moon)"/>
+  <path d="M124 46a58 58 0 1 0 0 116 46 46 0 1 1 0-116Z" fill="none" stroke="#fdf6d8" stroke-opacity=".5" stroke-width="1.4"/>
+  <!-- 月面纹理 -->
+  <circle cx="106" cy="88" r="4" fill="#e0cb82" opacity=".5"/>
+  <circle cx="94" cy="118" r="6" fill="#e0cb82" opacity=".4"/>
+  <circle cx="108" cy="140" r="3" fill="#e0cb82" opacity=".45"/>
+  <!-- 织光经纬 -->
+  <g stroke="url(#l-thread)" fill="none">
+    <path d="M18 96h164" stroke-width="1.2"/>
+    <path d="M26 124h148" stroke-width="1" opacity=".7"/>
+    <path d="M34 152h132" stroke-width="1" opacity=".45"/>
+    <path d="M96 40v180" stroke-width="1.2"/>
+    <path d="M132 52v156" stroke-width="1" opacity=".5"/>
+  </g>
+  <!-- 白鹤 -->
+  <g transform="translate(58 84)">
+    <path d="M0 14C10 4 26-4 42-2c-6 6-14 9-22 10 10-1 20 2 26 9-12 3-24 0-32-6-6 4-12 6-14 3Z" fill="url(#l-crane)"/>
+    <path d="M42-2 58-8l-14 8" fill="#fdfaf0"/>
+    <circle cx="50" cy="-6" r="1.4" fill="#2a2416"/>
+    <path d="M56-7l8-2-8 4Z" fill="#c9762c"/>
+  </g>
+  <ellipse cx="100" cy="224" rx="50" ry="8" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#d8bd42" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
 </svg>
