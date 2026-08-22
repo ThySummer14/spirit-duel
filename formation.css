@@ -1151,3 +1151,20 @@
 @media (max-width: 480px) {
   .formation-roster { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
+
+/* ---------------------------------------------------------------- 细节动效补充 */
+
+/* 出战序列槽位填入时的落位感 */
+.formation-slot.is-filled { animation: slot-fill 0.32s cubic-bezier(0.2, 0.9, 0.3, 1.15) backwards; }
+@keyframes slot-fill {
+  from { opacity: 0; transform: scale(0.92); }
+}
+
+/* 卡池卡片入场（构筑切换角色时） */
+.pool-card { animation: pool-in 0.3s ease backwards; }
+@keyframes pool-in {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+/* 步骤页签切换滑动指示 */
+.formation-steps button { position: relative; transition: color 0.2s ease; }

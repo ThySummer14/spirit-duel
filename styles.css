@@ -1904,3 +1904,70 @@ dialog[open] { animation: dialog-pop 0.24s cubic-bezier(0.2, 0.9, 0.3, 1.15); }
 
 /* 菜单收起后顶栏更轻：三个图标钮即可 */
 .icon-button.menu-button { font-size: 15px; }
+
+/* ---------------------------------------------------------------- 细节动效补充 */
+
+/* 弹层背板淡入，配合既有 dialog-pop */
+dialog[open]::backdrop { animation: backdrop-fade 0.28s ease; }
+@keyframes backdrop-fade { from { opacity: 0; } }
+
+/* 菜单项级联入场 */
+.menu-item { animation: menu-item-in 0.34s cubic-bezier(0.2, 0.9, 0.3, 1.1) backwards; }
+.menu-item:nth-child(2) { animation-delay: 0.05s; }
+.menu-item:nth-child(3) { animation-delay: 0.1s; }
+.menu-item:nth-child(4) { animation-delay: 0.15s; }
+@keyframes menu-item-in {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+/* 按钮按压反馈：所有可点元素统一轻微收缩 */
+.quiet-button:not(:disabled):active,
+.icon-button:not(:disabled):active,
+.command-button:not(:disabled):active,
+.menu-item:not(:disabled):active,
+.unit-card:not(:disabled):active,
+.hand-card:not(:disabled):active {
+  transform: scale(0.96);
+  transition-duration: 0.08s;
+}
+
+/* 鬼火点亮时弹跳一下（每次渲染重建节点，变更即重放） */
+.energy-pips i.is-filled { animation: pip-pop 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.5); }
+@keyframes pip-pop {
+  from { transform: rotate(45deg) scale(0.2); }
+  to { transform: rotate(45deg) scale(1); }
+}
+
+/* 关键词状态徽章入场 */
+.keyword-status { animation: status-in 0.32s cubic-bezier(0.2, 0.9, 0.3, 1.35) backwards; }
+@keyframes status-in {
+  from { opacity: 0; transform: translateY(7px) scale(0.85); }
+}
+
+/* 前线单位待命微呼吸（避开交战/受击等一次性动效） */
+.unit-card.is-front:not(.is-attacking):not(.is-remote-attacking):not(.is-hit):not(.is-healed)
+  :not(.is-leveling):not(.is-knocked-out):not(.is-returned):not(.is-keyword-empowered) {
+  animation: front-aura 3.8s ease-in-out infinite;
+}
+@keyframes front-aura {
+  0%, 100% { box-shadow: var(--shadow-1), 0 0 18px rgb(212 175 90 / 0.14), inset 0 0 0 1px rgb(212 175 90 / 0.25); }
+  50% { box-shadow: var(--shadow-1), 0 0 30px rgb(212 175 90 / 0.24), inset 0 0 0 1px rgb(212 175 90 / 0.4); }
+}
+
+/* 玩家回合：提示胶囊亮起金边；对手回合黯淡 */
+.command-brief { transition: border-color 0.35s ease, box-shadow 0.35s ease; }
+.battle-stage[data-turn="player"] .command-brief {
+  border-color: rgb(212 175 90 / 0.5);
+  box-shadow: 0 0 16px rgb(212 175 90 / 0.14);
+}
+.battle-stage[data-turn="enemy"] .command-brief { opacity: 0.72; }
+
+/* 手牌连抽级联：开局一次抽多张时依次落位 */
+.hand-card.is-drawn:nth-child(2) { animation-delay: 0.07s; }
+.hand-card.is-drawn:nth-child(3) { animation-delay: 0.14s; }
+.hand-card.is-drawn:nth-child(4) { animation-delay: 0.21s; }
+.hand-card.is-drawn:nth-child(5) { animation-delay: 0.28s; }
+.hand-card.is-drawn:nth-child(n + 6) { animation-delay: 0.35s; }
+
+/* 手牌悬停抬升与选中浮起已有基础，这里补足过渡一致性 */
+.hand-card { will-change: transform; }
