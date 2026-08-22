@@ -193,6 +193,8 @@ const nodes = {
   menuDialog: document.querySelector('#menu-dialog'),
   menuButton: document.querySelector('#menu-button'),
   menuCloseButton: document.querySelector('#menu-close-button'),
+  themeButton: document.querySelector('#theme-button'),
+  themeLabel: document.querySelector('#theme-label'),
   audioCloseButton: document.querySelector('#audio-close-button'),
   audioEnabledCheckbox: document.querySelector('#audio-enabled-checkbox'),
   audioMasterVolume: document.querySelector('#audio-master-volume'),
@@ -2287,6 +2289,32 @@ nodes.audioToggleButton.addEventListener('click', () => {
 });
 nodes.menuButton.addEventListener('click', () => nodes.menuDialog.showModal());
 nodes.menuCloseButton.addEventListener('click', () => nodes.menuDialog.close());
+
+// ---------------------------------------------------------------- 主题切换
+const THEME_KEY = 'nexus-front:theme';
+
+function applyTheme(theme) {
+  const value = theme === 'day' ? 'day' : 'night';
+  document.documentElement.dataset.theme = value;
+  if (nodes.themeLabel) nodes.themeLabel.textContent = value === 'day' ? '宣纸' : '墨夜';
+  try {
+    localStorage.setItem(THEME_KEY, value);
+  } catch {
+    /* 存储不可用时仅当前会话生效 */
+  }
+}
+
+applyTheme((() => {
+  try {
+    return localStorage.getItem(THEME_KEY) ?? 'night';
+  } catch {
+    return 'night';
+  }
+})());
+
+nodes.themeButton?.addEventListener('click', () => {
+  applyTheme(document.documentElement.dataset.theme === 'day' ? 'night' : 'day');
+});
 // 从菜单打开对应功能时自动收起菜单
 for (const id of ['formation-button', 'battle-log-button', 'session-button', 'rules-button']) {
   document.getElementById(id).addEventListener('click', () => {

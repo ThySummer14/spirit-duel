@@ -33,6 +33,16 @@
   --ally: #d4af5a;
   --foe: #b06ad1;
 
+  /* 面板与氛围（主题可覆盖） */
+  --panel-rgb: 10 14 26;
+  --panel-deep-rgb: 9 13 24;
+  --panel-soft-rgb: 14 19 34;
+  --panel-raised-rgb: 20 27 44;
+  --art-bg: #0a0e18;
+  --glow-top: #16203a;
+  --glow-bottom: #131c30;
+  --stage-floor-rgb: 6 8 14;
+
   /* 卡牌类型 */
   --type-combat: #e06a4a;
   --type-spell: #6fb3d6;
@@ -122,7 +132,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 7px 14px;
   border: 1px solid var(--rule);
   border-radius: 999px;
-  background: linear-gradient(180deg, rgb(35 45 74 / 0.9), rgb(20 27 44 / 0.9));
+  background: linear-gradient(180deg, rgb(var(--panel-raised-rgb) / 0.9), rgb(var(--panel-raised-rgb) / 0.9));
   color: var(--text);
   font-size: 13px;
   letter-spacing: 0.06em;
@@ -142,7 +152,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   height: 36px;
   border: 1px solid var(--rule);
   border-radius: 10px;
-  background: linear-gradient(180deg, rgb(35 45 74 / 0.9), rgb(20 27 44 / 0.9));
+  background: linear-gradient(180deg, rgb(var(--panel-raised-rgb) / 0.9), rgb(var(--panel-raised-rgb) / 0.9));
   color: var(--text);
   font-size: 16px;
   transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
@@ -201,8 +211,8 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   flex-direction: column;
   min-height: 100vh;
   background:
-    radial-gradient(1200px 600px at 50% -10%, #16203a 0%, transparent 60%),
-    radial-gradient(900px 500px at 50% 115%, #131c30 0%, transparent 55%),
+    radial-gradient(1200px 600px at 50% -10%, var(--glow-top) 0%, transparent 60%),
+    radial-gradient(900px 500px at 50% 115%, var(--glow-bottom) 0%, transparent 55%),
     var(--ink-1);
 }
 
@@ -214,7 +224,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   height: 54px;
   padding: 0 18px;
   border-bottom: 1px solid var(--rule-soft);
-  background: linear-gradient(180deg, rgb(13 18 32 / 0.95), rgb(9 13 24 / 0.88));
+  background: linear-gradient(180deg, rgb(var(--panel-deep-rgb) / 0.95), rgb(var(--panel-deep-rgb) / 0.88));
   backdrop-filter: blur(8px);
   position: relative;
   z-index: 30;
@@ -227,7 +237,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 6px 16px;
   border: 1px solid var(--rule);
   border-radius: 999px;
-  background: rgb(10 14 26 / 0.72);
+  background: rgb(var(--panel-rgb) / 0.72);
   font-size: 13px;
   color: var(--text-dim);
 }
@@ -366,7 +376,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   gap: 16px;
   padding: 4px 18px;
   border-top: 1px solid var(--rule-soft);
-  background: linear-gradient(90deg, rgb(10 14 26 / 0.72), rgb(14 19 34 / 0.45) 40%, rgb(10 14 26 / 0.72));
+  background: linear-gradient(90deg, rgb(var(--panel-rgb) / 0.72), rgb(var(--panel-soft-rgb) / 0.45) 40%, rgb(var(--panel-rgb) / 0.72));
 }
 .foe-strip { border-top: none; }
 .foe-strip .strip-identity .hud-tag { color: var(--foe); }
@@ -443,7 +453,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 4px 10px;
   border: 1px solid var(--rule-soft);
   border-radius: var(--radius-s);
-  background: rgb(8 12 22 / 0.6);
+  background: rgb(var(--panel-rgb) / 0.6);
 }
 .hud-chips dt { font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); }
 .hud-chips dd { margin: 0; font-size: 16px; font-weight: 700; color: var(--paper); font-variant-numeric: tabular-nums; }
@@ -689,7 +699,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   inset: 0;
   border-radius: inherit;
   overflow: hidden;
-  background: #0a0e18;
+  background: var(--art-bg);
 }
 .unit-art img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -813,7 +823,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 0 4px;
   border-radius: 6px;
   border: 1px solid rgb(0 0 0 / 0.5);
-  background: rgb(10 14 26 / 0.85);
+  background: rgb(var(--panel-rgb) / 0.85);
   color: var(--paper-dim);
   font-size: 10px;
   font-weight: 700;
@@ -836,7 +846,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 12px 14px;
   border: 1px solid var(--rule);
   border-radius: var(--radius-m);
-  background: linear-gradient(180deg, rgb(17 24 40 / 0.97), rgb(10 14 26 / 0.97));
+  background: linear-gradient(180deg, rgb(17 24 40 / 0.97), rgb(var(--panel-rgb) / 0.97));
   box-shadow: var(--shadow-2);
   transform: translateY(-50%) scale(0.96);
   opacity: 0;
@@ -1049,7 +1059,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 7px 16px;
   border: 1px solid var(--rule-soft);
   border-radius: 999px;
-  background: rgb(10 14 26 / 0.8);
+  background: rgb(var(--panel-rgb) / 0.8);
   backdrop-filter: blur(6px);
 }
 .action-prompt {
@@ -1072,7 +1082,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 7px 13px;
   border: 1px solid var(--rule);
   border-radius: 999px;
-  background: rgb(12 17 30 / 0.78);
+  background: rgb(var(--panel-rgb) / 0.78);
   backdrop-filter: blur(6px);
   font-size: 12.5px;
   letter-spacing: 0.08em;
@@ -1136,7 +1146,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 9px 26px;
   border: 1px solid var(--rule);
   border-radius: var(--radius-m);
-  background: linear-gradient(180deg, rgb(17 24 40 / 0.96), rgb(9 13 24 / 0.96));
+  background: linear-gradient(180deg, rgb(17 24 40 / 0.96), rgb(var(--panel-deep-rgb) / 0.96));
   box-shadow: var(--shadow-2);
   animation: cue-pop 0.32s cubic-bezier(0.2, 0.9, 0.3, 1.3);
 }
@@ -1175,7 +1185,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   width: min(420px, 60vw);
   height: 120px;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, rgb(10 14 26 / 0.92) 18%, rgb(10 14 26 / 0.92) 82%, transparent);
+  background: linear-gradient(90deg, transparent, rgb(var(--panel-rgb) / 0.92) 18%, rgb(var(--panel-rgb) / 0.92) 82%, transparent);
   border-block: 1px solid rgb(212 175 90 / 0.5);
   filter: drop-shadow(0 6px 24px rgb(0 0 0 / 0.6));
   transform: scaleX(0);
@@ -1209,7 +1219,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   position: relative;
   z-index: 20;
   padding: 2px 16px 8px;
-  background: linear-gradient(180deg, transparent, rgb(6 8 14 / 0.85) 30%);
+  background: linear-gradient(180deg, transparent, rgb(var(--stage-floor-rgb) / 0.85) 30%);
 }
 /* 可用计数：悬浮在牌区右上角的小徽章，不再单独占一行标题 */
 .hand-summary {
@@ -1223,7 +1233,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 3px 11px;
   border: 1px solid var(--rule-soft);
   border-radius: 999px;
-  background: rgb(10 14 26 / 0.78);
+  background: rgb(var(--panel-rgb) / 0.78);
   backdrop-filter: blur(6px);
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -1321,7 +1331,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 2px 8px;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--card-accent) 60%, transparent);
-  background: rgb(8 12 22 / 0.85);
+  background: rgb(var(--panel-rgb) / 0.85);
   color: color-mix(in srgb, var(--card-accent) 70%, white);
   font-size: 10.5px;
   letter-spacing: 0.12em;
@@ -1331,7 +1341,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   position: absolute;
   inset: 0 0 34% 0;
   overflow: hidden;
-  background: #0a0e18;
+  background: var(--art-bg);
 }
 .hand-card .card-art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
 .hand-card .card-art::after {
@@ -1339,7 +1349,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   position: absolute;
   inset: auto 0 0 0;
   height: 42%;
-  background: linear-gradient(180deg, transparent, rgb(10 14 26 / 0.95));
+  background: linear-gradient(180deg, transparent, rgb(var(--panel-rgb) / 0.95));
 }
 
 .hand-card .card-meta {
@@ -1437,7 +1447,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   position: absolute;
   inset: auto 0 0 0;
   height: 50%;
-  background: linear-gradient(180deg, transparent, rgb(10 14 26 / 0.98));
+  background: linear-gradient(180deg, transparent, rgb(var(--panel-rgb) / 0.98));
 }
 .hand-preview-card .card-cost {
   position: absolute;
@@ -1466,7 +1476,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 3px 10px;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--card-accent) 60%, transparent);
-  background: rgb(8 12 22 / 0.9);
+  background: rgb(var(--panel-rgb) / 0.9);
   color: color-mix(in srgb, var(--card-accent) 70%, white);
   font-size: 12px;
 }
@@ -1530,7 +1540,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 10px 22px;
   border-radius: 999px;
   border: 1px solid var(--rule);
-  background: rgb(13 18 32 / 0.95);
+  background: rgb(var(--panel-deep-rgb) / 0.95);
   box-shadow: var(--shadow-2);
   font-size: 13.5px;
   color: var(--paper);
@@ -1890,7 +1900,7 @@ dialog[open] { animation: dialog-pop 0.24s cubic-bezier(0.2, 0.9, 0.3, 1.15); }
   padding: 12px 15px;
   border: 1px solid var(--rule-soft);
   border-radius: 12px;
-  background: rgb(16 22 38 / 0.6);
+  background: rgb(var(--panel-soft-rgb) / 0.6);
   color: var(--paper);
   font-size: 14px;
   letter-spacing: 0.08em;
@@ -1971,3 +1981,73 @@ dialog[open]::backdrop { animation: backdrop-fade 0.28s ease; }
 
 /* 手牌悬停抬升与选中浮起已有基础，这里补足过渡一致性 */
 .hand-card { will-change: transform; }
+
+/* ---------------------------------------------------------------- 宣纸主题（清爽浅色） */
+
+html[data-theme="day"] {
+  color-scheme: light;
+  /* 表面：纸白阶 */
+  --ink-0: #eceadf;
+  --ink-1: #f5f2e9;
+  --ink-2: #fcfaf4;
+  --ink-3: #ffffff;
+  --ink-4: #efece1;
+  --rule: #d9d3c2;
+  --rule-soft: #e6e1d2;
+
+  /* 文字：墨色阶 */
+  --paper: #35322a;
+  --text-dim: #8b8474;
+  --paper-dim: #6d675a;
+
+  /* 点缀：琥珀与朱 */
+  --gold: #a97f2c;
+  --gold-bright: #7d5c1c;
+  --gold-deep: #c9a55a;
+
+  /* 阵营 */
+  --ally: #a97f2c;
+  --foe: #8f4bb5;
+
+  /* 面板：白纸半透明 */
+  --panel-rgb: 255 255 255;
+  --panel-deep-rgb: 249 246 237;
+  --panel-soft-rgb: 243 240 229;
+  --panel-raised-rgb: 255 255 255;
+
+  /* 氛围光：淡金 */
+  --glow-top: #fdf6e3;
+  --glow-bottom: #f3ecd9;
+}
+
+/* 立绘是暗底画作：两套主题都保持深色画框与浅色名牌文字 */
+html[data-theme="day"] .unit-art,
+html[data-theme="day"] .hand-card .card-art { background: var(--art-bg); }
+html[data-theme="day"] .unit-art,
+html[data-theme="day"] .hand-card .card-art { --art-bg: #14161f; }
+html[data-theme="day"] .unit-plate strong,
+html[data-theme="day"] .hand-card .card-name { color: #f2ecdc; text-shadow: 0 1px 6px rgb(0 0 0 / 0.85); }
+html[data-theme="day"] .unit-plate em { color: color-mix(in srgb, var(--unit-accent) 70%, white); }
+
+/* 手牌卡面在浅色下加一层纸感描边 */
+html[data-theme="day"] .hand-card { box-shadow: 0 2px 10px rgb(60 50 30 / 0.12); }
+
+/* 浅色下阴影减淡 */
+html[data-theme="day"] .game-shell {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, var(--glow-top) 0%, transparent 60%),
+    radial-gradient(900px 500px at 50% 115%, var(--glow-bottom) 0%, transparent 55%),
+    var(--ink-1);
+}
+
+/* 宣纸主题下的氛围微调 */
+html[data-theme="day"] {
+  --stage-floor-rgb: 233 226 205;
+}
+html[data-theme="day"] .scenery-moon { opacity: 0.35; }
+html[data-theme="day"] .scenery-mist { opacity: 0.4; }
+
+/* 宣纸主题下指挥按钮文字加深，保证可读性 */
+html[data-theme="day"] .attack-button:not(:disabled) { color: #a8432a; border-color: rgb(168 67 42 / 0.55); }
+html[data-theme="day"] .attack-button b.is-unaffordable { color: var(--danger); }
+html[data-theme="day"] .cancel-button:not(:disabled) { color: var(--danger); }
