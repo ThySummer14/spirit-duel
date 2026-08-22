@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=23" />
-    <link rel="stylesheet" href="formation.css?v=23" />
-    <script type="module" src="app.js?v=23"></script>
+    <link rel="stylesheet" href="styles.css?v=27" />
+    <link rel="stylesheet" href="formation.css?v=27" />
+    <script type="module" src="app.js?v=27"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -152,12 +152,7 @@
 
         <div class="top-actions">
           <button class="icon-button audio-toggle" id="audio-toggle-button" type="button" aria-haspopup="dialog" aria-controls="audio-dialog" aria-label="声音设置" title="声音设置">♪</button>
-          <button class="quiet-button" id="formation-button" type="button">编成</button>
-          <button class="quiet-button" id="session-button" type="button" aria-haspopup="dialog" aria-controls="session-dialog">存档</button>
-          <button class="quiet-button battle-log-button" id="battle-log-button" type="button" aria-haspopup="dialog" aria-controls="battle-log-dialog">
-            战报 <span id="log-button-count">00</span>
-          </button>
-          <button class="quiet-button" id="rules-button" type="button">规则</button>
+          <button class="icon-button menu-button" id="menu-button" type="button" aria-haspopup="dialog" aria-controls="menu-dialog" aria-label="更多菜单" title="菜单">☰</button>
           <button class="icon-button" id="restart-button" type="button" aria-label="重新开始" title="重新开始">↻</button>
         </div>
       </header>
@@ -272,15 +267,28 @@
 
         <section class="hand-zone" aria-labelledby="hand-title">
           <div class="hand-preview" id="hand-preview" aria-hidden="true"></div>
-          <header class="hand-header">
-            <p class="micro-label" id="hand-title">战术手牌 · TACTICAL HAND</p>
-            <div class="hand-summary" aria-label="当前可用手牌"><span>可用</span><strong><b id="playable-card-count">0</b> 张</strong></div>
-          </header>
+          <h2 class="visually-hidden" id="hand-title">战术手牌</h2>
+          <div class="hand-summary" aria-label="当前可用手牌"><b id="playable-card-count">0</b><span>/ 可用</span></div>
           <div class="hand-scroll" id="player-hand" aria-live="polite"></div>
         </section>
       </main>
 
       <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+      <dialog class="menu-dialog" id="menu-dialog" aria-labelledby="menu-title">
+        <div class="dialog-shell menu-shell">
+          <header>
+            <div><p class="micro-label">对局菜单</p><h2 id="menu-title">菜单</h2></div>
+            <button class="icon-button dialog-close" id="menu-close-button" type="button" aria-label="关闭菜单" title="关闭">×</button>
+          </header>
+          <div class="menu-list">
+            <button class="menu-item" id="formation-button" type="button">灵契编成 <small>重新调整出战角色</small></button>
+            <button class="menu-item battle-log-button" id="battle-log-button" type="button" aria-haspopup="dialog" aria-controls="battle-log-dialog">战报 <small>战况实录 <span id="log-button-count">00</span> 条</small></button>
+            <button class="menu-item" id="session-button" type="button" aria-haspopup="dialog" aria-controls="session-dialog">存档与回放 <small>本地存档 · 导入导出</small></button>
+            <button class="menu-item" id="rules-button" type="button">界碑规则 <small>核心玩法说明</small></button>
+          </div>
+        </div>
+      </dialog>
 
       <dialog class="battle-log-dialog" id="battle-log-dialog" aria-labelledby="battle-log-title">
         <form method="dialog" class="battle-log">

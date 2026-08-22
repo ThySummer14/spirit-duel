@@ -363,21 +363,20 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   z-index: 5;
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 6px 22px;
+  gap: 16px;
+  padding: 4px 18px;
   border-top: 1px solid var(--rule-soft);
-  border-bottom: 1px solid var(--rule-soft);
-  background: linear-gradient(90deg, rgb(10 14 26 / 0.82), rgb(14 19 34 / 0.6) 40%, rgb(10 14 26 / 0.82));
+  background: linear-gradient(90deg, rgb(10 14 26 / 0.72), rgb(14 19 34 / 0.45) 40%, rgb(10 14 26 / 0.72));
 }
 .foe-strip { border-top: none; }
 .foe-strip .strip-identity .hud-tag { color: var(--foe); }
 .ally-strip .strip-identity .hud-tag { color: var(--ally); }
-.strip-identity { display: flex; flex-direction: column; min-width: 124px; }
-.strip-identity .hud-tag { font-size: 10px; letter-spacing: 0.3em; }
+.strip-identity { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.strip-identity .hud-tag { font-size: 9px; letter-spacing: 0.22em; }
 .strip-identity h1, .strip-identity h2 {
-  font-size: 18px;
+  font-size: 15px;
   color: var(--paper);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
 }
 
 .core-readout { display: flex; align-items: center; gap: 12px; flex: 1; max-width: 460px; position: relative; }
@@ -1015,10 +1014,11 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   z-index: 8;
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 6px 14px;
-  border-block: 1px solid var(--rule-soft);
-  background: linear-gradient(90deg, rgb(10 14 26 / 0.55), rgb(16 22 38 / 0.75), rgb(10 14 26 / 0.55));
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  padding: 12px 14px;
+  background: none;
 }
 
 .front-axis {
@@ -1031,10 +1031,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   pointer-events: none;
 }
 .front-axis span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: none; /* 前线由金框单位与区域标签表达，去掉冗余轴心文字 */
   padding: 2px 14px;
   border: 1px solid rgb(212 175 90 / 0.4);
   border-radius: 999px;
@@ -1045,43 +1042,44 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   white-space: nowrap;
 }
 
-.command-brief { flex: 1; min-width: 0; padding-left: 4px; }
+.command-brief {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: min(54ch, 100%);
+  padding: 7px 16px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 999px;
+  background: rgb(10 14 26 / 0.8);
+  backdrop-filter: blur(6px);
+}
 .action-prompt {
-  font-size: 13.5px;
+  font-size: 12.5px;
   color: var(--paper);
   letter-spacing: 0.03em;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  white-space: nowrap;
 }
-.recent-event { display: block; margin-top: 2px; font-size: 11px; color: var(--text-dim); }
-.recent-event b { font-weight: 600; color: #c7cbd8; }
+/* 与战报弹层重复，隐藏以降低信息密度 */
+.recent-event { display: none; }
 
-.command-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.command-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 
 .command-button {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 8px 14px;
+  gap: 6px;
+  padding: 7px 13px;
   border: 1px solid var(--rule);
-  border-radius: 12px;
-  background: linear-gradient(180deg, rgb(35 45 74 / 0.95), rgb(20 27 44 / 0.95));
-  font-size: 13px;
+  border-radius: 999px;
+  background: rgb(12 17 30 / 0.78);
+  backdrop-filter: blur(6px);
+  font-size: 12.5px;
   letter-spacing: 0.08em;
   transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease, filter 0.2s ease;
 }
-.command-button > span:first-child {
-  display: grid;
-  place-items: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 700;
-}
+/* 去掉按钮内的字块装饰，降低视觉噪音 */
+.command-button > span:first-child { display: none; }
 .command-button b {
   padding: 0 6px;
   border-radius: 999px;
@@ -1093,17 +1091,16 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
 .command-button:not(:disabled):hover { border-color: var(--gold); box-shadow: 0 0 0 1px rgb(212 175 90 / 0.3); transform: translateY(-1px); }
 .command-button:disabled { opacity: 0.4; }
 
-.cancel-button > span:first-child { background: rgb(120 60 40 / 0.4); color: var(--danger-soft); }
-.level-button > span:first-child { background: rgb(212 175 90 / 0.2); color: var(--gold-bright); }
-.attack-button { border-color: rgb(224 106 74 / 0.6); }
+.cancel-button { color: var(--danger-soft); }
+.level-button { color: var(--gold-bright); }
+.attack-button { border-color: rgb(224 106 74 / 0.55); color: #ffb59e; }
 .attack-button:not(:disabled):hover { border-color: var(--type-combat); box-shadow: 0 0 0 1px rgb(224 106 74 / 0.4), 0 0 18px rgb(224 106 74 / 0.25); }
-.attack-button > span:first-child { background: rgb(224 106 74 / 0.25); color: #ffb59e; }
 .attack-button b.is-unaffordable { color: var(--danger); }
 
 .end-turn-button {
   padding: 8px 20px;
   border-color: var(--gold-deep);
-  background: linear-gradient(180deg, #3d3418, #241d0c);
+  background: linear-gradient(180deg, #4a3f1c, #291f0d);
   color: var(--gold-bright);
   font-weight: 700;
 }
@@ -1214,23 +1211,35 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   padding: 2px 16px 8px;
   background: linear-gradient(180deg, transparent, rgb(6 8 14 / 0.85) 30%);
 }
-.hand-header {
+/* 可用计数：悬浮在牌区右上角的小徽章，不再单独占一行标题 */
+.hand-summary {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  z-index: 6;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 4px 2px;
+  align-items: baseline;
+  gap: 4px;
+  padding: 3px 11px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 999px;
+  background: rgb(10 14 26 / 0.78);
+  backdrop-filter: blur(6px);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  pointer-events: none;
 }
-.hand-summary { display: flex; align-items: baseline; gap: 6px; font-size: 12px; color: var(--text-dim); }
-.hand-summary strong { font-size: 15px; color: var(--gold-bright); font-variant-numeric: tabular-nums; }
+.hand-summary b { font-size: 14px; color: var(--gold-bright); font-variant-numeric: tabular-nums; }
 
 .hand-scroll {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   gap: clamp(4px, 0.8vw, 12px);
-  /* 顶部预留抬升空间：悬停放大的手牌不会被滚动容器裁切 */
-  min-height: calc(var(--hand-w) * 1.4 + 52px);
-  padding: 42px 8px 0;
+  /* 顶部预留抬升空间：悬停放大的手牌不会被滚动容器裁切；底部留白防裁切 */
+  min-height: calc(var(--hand-w) * 1.4 + 58px);
+  padding: 42px 8px 16px;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
@@ -1258,7 +1267,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   background: var(--ink-2);
   overflow: hidden;
   box-shadow: var(--shadow-1);
-  transform: translateY(14px) rotate(var(--fan-rotate, 0deg));
+  transform: rotate(var(--fan-rotate, 0deg));
   transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.25, 1.15), box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
   text-align: left;
   --card-accent: var(--type-spell);
@@ -1856,3 +1865,42 @@ dialog[open] { animation: dialog-pop 0.24s cubic-bezier(0.2, 0.9, 0.3, 1.15); }
   .unit-plate strong { font-size: 11px; letter-spacing: 0.1em; }
   .unit-stats b { min-width: 24px; height: 22px; font-size: 13px; }
 }
+
+/* ---------------------------------------------------------------- 菜单弹层 */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.menu-shell { min-width: min(320px, 92vw); }
+.menu-list { display: flex; flex-direction: column; gap: 8px; padding: 4px 2px 2px; }
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 15px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 12px;
+  background: rgb(16 22 38 / 0.6);
+  color: var(--paper);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
+}
+.menu-item:hover { border-color: var(--gold); background: rgb(28 36 58 / 0.85); transform: translateY(-1px); }
+.menu-item:disabled { opacity: 0.4; cursor: not-allowed; }
+.menu-item small { font-size: 11px; letter-spacing: 0.04em; color: var(--text-dim); }
+.menu-item #log-button-count { color: var(--gold-bright); font-variant-numeric: tabular-nums; }
+
+/* 菜单收起后顶栏更轻：三个图标钮即可 */
+.icon-button.menu-button { font-size: 15px; }

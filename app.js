@@ -190,6 +190,9 @@ const nodes = {
   toast: document.querySelector('#toast'),
   audioToggleButton: document.querySelector('#audio-toggle-button'),
   audioDialog: document.querySelector('#audio-dialog'),
+  menuDialog: document.querySelector('#menu-dialog'),
+  menuButton: document.querySelector('#menu-button'),
+  menuCloseButton: document.querySelector('#menu-close-button'),
   audioCloseButton: document.querySelector('#audio-close-button'),
   audioEnabledCheckbox: document.querySelector('#audio-enabled-checkbox'),
   audioMasterVolume: document.querySelector('#audio-master-volume'),
@@ -1860,8 +1863,10 @@ function renderCommands() {
   nodes.endTurnButton.innerHTML = playerResponding
     ? '放弃响应 <span aria-hidden="true">→</span>'
     : '结束回合 <span aria-hidden="true">→</span>';
-  nodes.attackLabel.textContent = attacker ? `${attacker.name}出击` : '无法出击';
-  nodes.levelLabel.textContent = attacker ? `${attacker.name}升勾` : '无法升勾';
+  nodes.attackLabel.textContent = attacker ? '出击' : '无法出击';
+  nodes.attackButton.title = attacker ? `${attacker.name}出击，消耗 1 点鬼火` : '当前没有可出击角色';
+  nodes.levelLabel.textContent = attacker ? '升勾' : '无法升勾';
+  nodes.levelButton.title = attacker ? `免费提升 ${attacker.name} 的勾玉等级` : '当前没有可升勾角色';
   const responseOwner = displayedGame.responseWindow?.playerIndex === 0 ? '巡界者' : '失序体';
   nodes.turnOwner.textContent = replaySession
     ? '命令回放'
@@ -2280,6 +2285,14 @@ nodes.audioToggleButton.addEventListener('click', () => {
   syncAudioDialog();
   nodes.audioDialog.showModal();
 });
+nodes.menuButton.addEventListener('click', () => nodes.menuDialog.showModal());
+nodes.menuCloseButton.addEventListener('click', () => nodes.menuDialog.close());
+// 从菜单打开对应功能时自动收起菜单
+for (const id of ['formation-button', 'battle-log-button', 'session-button', 'rules-button']) {
+  document.getElementById(id).addEventListener('click', () => {
+    if (nodes.menuDialog.open) nodes.menuDialog.close();
+  });
+}
 nodes.audioCloseButton.addEventListener('click', () => nodes.audioDialog.close());
 nodes.audioEnabledCheckbox.addEventListener('change', () => {
   gameAudio.setEnabled(nodes.audioEnabledCheckbox.checked);
