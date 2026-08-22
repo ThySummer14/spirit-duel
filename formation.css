@@ -202,9 +202,11 @@
 }
 
 .roster-card .roster-stats {
+  /* 移到立绘右上角：原 bottom 定位会遮住「已纳入编成」按钮文字 */
   position: absolute;
   right: 10px;
-  bottom: 10px;
+  top: 10px;
+  z-index: 3;
   display: flex;
   gap: 6px;
 }
@@ -379,7 +381,7 @@
   font-size: 15px;
   color: rgb(236 230 214 / 0.4);
 }
-.formation-slot.is-filled span { display: none; }
+.formation-slot.is-filled span:not(.slot-copy) { display: none; }
 .formation-slot .slot-copy {
   position: relative;
   z-index: 2;
@@ -1120,4 +1122,32 @@
   .collection-header { grid-template-columns: 1fr; text-align: center; gap: 10px; }
   .collection-header .brand { justify-content: center; }
   .reveal-card { width: 31vw; }
+}
+
+/* ---------------------------------------------------------------- 窄屏适配 */
+
+@media (max-width: 720px) {
+  /* 被动栏：文字横排换行，不再一字一行 */
+  .passive-dossier {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 12px 16px;
+  }
+  .passive-dossier strong { white-space: nowrap; }
+  .passive-dossier p {
+    flex: 1 1 100%;
+    padding-right: 0;
+    line-height: 1.7;
+  }
+  .passive-dossier::before { display: none; }
+
+  /* 编成页角色卡：徽章移到立绘上后，底部按钮完整可读 */
+  .roster-action { margin-bottom: 12px; }
+
+  /* 秘闻阁按钮不再撑满整行 */
+  .formation-header .quiet-button { width: auto; }
+}
+
+@media (max-width: 480px) {
+  .formation-roster { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }

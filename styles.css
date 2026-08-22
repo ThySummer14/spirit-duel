@@ -645,6 +645,14 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   letter-spacing: 0.3em;
   line-height: 1.6;
 }
+/* 将受击时与「前线」合并为一枚警示徽章：窄卡上两枚徽章相撞、还会压住状态行 */
+.unit-card.is-front.will-be-hit::before {
+  content: "⚠ 将受击";
+  letter-spacing: 0.14em;
+  border-color: var(--danger);
+  background: linear-gradient(180deg, #2a130a, #170a06);
+  color: var(--danger-soft);
+}
 .unit-card.is-selected {
   border-color: var(--ally);
   box-shadow: 0 0 0 2px rgb(212 175 90 / 0.65), 0 10px 28px rgb(212 175 90 / 0.25);
@@ -672,6 +680,8 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   font-size: 10px;
   letter-spacing: 0.12em;
 }
+/* 与前线合并后隐藏独立将受击徽章，避免重叠 */
+.unit-card.is-front.will-be-hit::after { display: none; }
 .unit-card.is-away { filter: grayscale(0.9) brightness(0.62); }
 .unit-card.is-away .unit-art img { opacity: 0.45; }
 
@@ -787,7 +797,8 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
 /* 状态徽章 */
 .unit-statuses {
   position: absolute;
-  top: 7px;
+  /* 下移避开悬挂的 前线/将受击 徽章（其下缘约在 9px） */
+  top: 15px;
   left: 7px;
   z-index: 3;
   display: flex;
@@ -1779,4 +1790,69 @@ dialog[open] { animation: dialog-pop 0.24s cubic-bezier(0.2, 0.9, 0.3, 1.15); }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ---------------------------------------------------------------- 窄屏适配 */
+
+@media (max-width: 720px) {
+  /* 关键信息位禁止竖排断字 */
+  .brand-copy strong, .brand-copy small,
+  .match-strip span, .match-strip strong,
+  .quiet-button, .icon-button,
+  .hud-chips dt, .hud-chips dd,
+  .core-label, .core-readout strong b, .core-readout strong em,
+  .strip-identity h1, .strip-identity h2,
+  .energy-readout strong, .energy-readout b,
+  .command-button, .action-prompt {
+    white-space: nowrap;
+  }
+
+  /* 顶栏：折成两行——品牌+操作一行、对局状态一行 */
+  .topbar {
+    height: auto;
+    flex-wrap: wrap;
+    row-gap: 6px;
+    padding: 8px 10px;
+    gap: 10px;
+  }
+  .brand { flex-shrink: 0; }
+  .brand-mark { width: 26px; height: 26px; }
+  .brand-copy strong { font-size: 15px; }
+  .brand-copy small { font-size: 8.5px; }
+  .match-strip { order: 3; flex-basis: 100%; justify-content: center; padding: 3px 12px; font-size: 12px; gap: 7px; }
+  .match-strip strong { font-size: 13px; }
+  .top-actions { margin-left: auto; gap: 5px; }
+  .quiet-button { padding: 5px 9px; font-size: 11px; }
+  .icon-button { min-width: 30px; height: 30px; }
+
+  /* HUD：允许换行成整齐两行，筹码横向滚动不竖排 */
+  .hud-bar { flex-wrap: wrap; row-gap: 6px; padding: 8px 12px; }
+  .hud-identity h1, .hud-identity h2 { white-space: nowrap; font-size: 15px; }
+  .core-label { display: none; } /* 数字与血条已足够表达 */
+  .core-readout { gap: 8px; min-width: 0; flex: 1 1 auto; }
+  .core-readout strong b { font-size: 19px; }
+  .core-bar { min-width: 72px; }
+  .hud-chips { margin-left: auto; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+  .hud-chips div { min-width: 0; padding: 2px 7px; }
+  .hud-chips dd { font-size: 13px; }
+  .energy-glyph { width: 20px; height: 20px; }
+  .energy-pips i { width: 7px; height: 7px; }
+
+  /* 指挥区按钮紧凑化 */
+  .command-line { gap: 8px; padding: 8px 10px; }
+  .command-button { padding: 6px 10px; font-size: 12px; }
+  .turn-state-code { display: none; }
+
+  /* 手牌：底部预留旋转/抬升空间，「可使用」不再被视口裁掉 */
+  .hand-scroll {
+    min-height: calc(var(--hand-w) * 1.4 + 64px);
+    padding: 40px 6px 18px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  :root { --unit-w: clamp(84px, 21vw, 108px); --hand-w: clamp(96px, 24vw, 118px); }
+  .unit-plate strong { font-size: 11px; letter-spacing: 0.1em; }
+  .unit-stats b { min-width: 24px; height: 22px; font-size: 13px; }
 }
