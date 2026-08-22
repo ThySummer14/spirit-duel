@@ -28,7 +28,7 @@ test('replays a mixed player and AI command journal to the exact deterministic s
     type: 'level-up', playerIndex: 0, unitId: state.players[0].units[1].uid,
   }));
   ({ state, journal } = applyAndRecord(state, journal, {
-    type: 'attack', playerIndex: 0, unitId: state.players[0].frontUnitId, targetId: null,
+    type: 'attack', playerIndex: 0, unitId: state.players[0].units[2].uid, targetId: null,
   }));
   ({ state, journal } = applyAndRecord(state, journal, { type: 'end-turn', playerIndex: 0 }));
   ({ state, journal } = applyAndRecord(state, journal, {
@@ -50,7 +50,7 @@ test('builds immutable replay frames from the initial state through every comman
   }));
   const afterLevel = state;
   ({ state, journal } = applyAndRecord(state, journal, {
-    type: 'attack', playerIndex: 0, unitId: state.players[0].frontUnitId, targetId: null,
+    type: 'attack', playerIndex: 0, unitId: state.players[0].units[2].uid, targetId: null,
   }));
 
   const frames = createCommandReplayFrames(journal);

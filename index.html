@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=31" />
-    <link rel="stylesheet" href="formation.css?v=31" />
-    <script type="module" src="app.js?v=31"></script>
+    <link rel="stylesheet" href="styles.css?v=37" />
+    <link rel="stylesheet" href="formation.css?v=37" />
+    <script type="module" src="app.js?v=37"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -212,10 +212,11 @@
           <div class="battlefield">
             <aside class="realm-column" id="enemy-realms" aria-label="敌方幻境席"></aside>
             <div class="board-column">
-              <div class="unit-row enemy-line" id="enemy-units" aria-label="敌方战线"></div>
+              <div class="unit-row enemy-line" id="enemy-units" aria-label="敌方准备区"></div>
+              <div class="battle-strip enemy-battle" id="enemy-battle" aria-label="敌方战斗区"></div>
 
               <section class="command-line" aria-label="行动控制">
-                <div class="front-axis" aria-hidden="true"><span>前线 · FRONT LINE</span></div>
+                <div class="front-axis" aria-hidden="true"><span>战斗区 · BATTLE ZONE</span></div>
                 <div class="command-brief">
                   <p class="action-prompt" id="action-prompt">选择一张卡牌，或派遣单位出击。</p>
                   <small class="recent-event"><b id="recent-event">界碑同步完成</b></small>
@@ -236,7 +237,8 @@
                 </div>
               </section>
 
-              <div class="unit-row player-line" id="player-units" aria-label="己方战线"></div>
+              <div class="battle-strip player-battle" id="player-battle" aria-label="己方战斗区"></div>
+              <div class="unit-row player-line" id="player-units" aria-label="己方准备区"></div>
             </div>
             <aside class="realm-column" id="player-realms" aria-label="己方幻境席"></aside>
           </div>
@@ -313,7 +315,7 @@
           <div class="rules-grid">
             <section><span>壱</span><h3>稳定核心</h3><p>双方核心初始为 30。令敌方核心降至 0，或令对手在空牌库时再次抽牌，即可赢得对局。</p></section>
             <section><span>弐</span><h3>鬼火行动</h3><p>每回合开始时鬼火恢复至 2。出牌或出击通常消耗 1 点鬼火。</p></section>
-            <section><span>参</span><h3>前线交战</h3><p>准备区角色出击时会实际进入前线，原前线退回准备区。对方前线存在时必须先与其交战。</p></section>
+            <section><span>参</span><h3>战斗区交战</h3><p>开局战斗区为空，角色从准备区出击后进入战斗区并留场穿越对手回合。对方战斗区有人时互相交战，空缺时直击核心；己方回合开始时战斗区角色自动归位，气绝角色立即离场且不自动补位。</p></section>
             <section><span>肆</span><h3>勾玉与气绝</h3><p>每回合可免费提升一名角色的勾玉等级。角色生命归零后气绝，两个己方回合后自动归队。</p></section>
           </div>
           <button class="dialog-primary" value="close">返回对局</button>

@@ -67,9 +67,10 @@ test('prioritizes an immediate core lethal', () => {
 
 test('removes a threatening front unit with a clean damage spell', () => {
   const state = beginAiTurn();
-  const threat = state.players[0].units.find((unit) => unit.uid === state.players[0].frontUnitId);
+  const threat = state.players[0].units[1];
   threat.hp = 3;
   threat.attack = 8;
+  state.players[0].frontUnitId = threat.uid;
   state.players[1].hand = [];
   const removal = putCardInHand(state, 1, 'needle-arc');
 
@@ -171,7 +172,9 @@ test('targets and destroys a low-durability enemy realm without mutating the sup
   state.players[0].energy = 10;
   state = playCard(state, 0, putCardInHand(state, 0, 'wardline').instanceId).state;
   state.players[0].realms[0].hp = 1;
-  state.players[0].units.find((unit) => unit.uid === state.players[0].frontUnitId).shield = 20;
+  const guarded = state.players[0].units[0];
+  state.players[0].frontUnitId = guarded.uid;
+  guarded.shield = 20;
   state = endTurn(state, 0).state;
   state.players[1].hand = [];
   const snapshot = structuredClone(state);

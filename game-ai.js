@@ -9,7 +9,7 @@ import {
   passResponse,
   playCard,
   resolveDivinationChoice,
-} from './game-core.js';
+} from './game-core.js?v=37';
 
 const WIN_SCORE = 1_000_000;
 

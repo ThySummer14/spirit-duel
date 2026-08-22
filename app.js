@@ -27,9 +27,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js';
-import { chooseAiCommand } from './game-ai.js';
-import { gameAudio } from './game-audio.js';
+} from './game-core.js?v=37';
+import { chooseAiCommand } from './game-ai.js?v=37';
+import { gameAudio } from './game-audio.js?v=37';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -41,18 +41,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js';
+} from './game-collection.js?v=37';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js';
+} from './game-presentation.js?v=37';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js';
+} from './game-session.js?v=37';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -111,6 +111,8 @@ const nodes = {
   recentEvent: document.querySelector('#recent-event'),
   playerUnits: document.querySelector('#player-units'),
   enemyUnits: document.querySelector('#enemy-units'),
+  playerBattle: document.querySelector('#player-battle'),
+  enemyBattle: document.querySelector('#enemy-battle'),
   enemyRealms: document.querySelector('#enemy-realms'),
   playerRealms: document.querySelector('#player-realms'),
   playerHand: document.querySelector('#player-hand'),
@@ -213,7 +215,7 @@ let commandJournal = createCommandJournal(game);
 let replaySession = null;
 let battleStarted = false;
 let selectedCardId = null;
-let selectedAttackUnitId = game.players[0].frontUnitId;
+let selectedAttackUnitId = null;
 let aiBusy = false;
 let gameSession = 1;
 let toastTimer = null;
@@ -230,6 +232,8 @@ let announcedTurnCounter = 0;
 let turnCalloutTimer = null;
 let feedbackClearTimer = null;
 let draggedAttackUnitId = null;
+// 正在拖拽施放的手牌实例 id（法术 / 治疗 / 战斗牌拖到目标身上触发）
+let draggedCardInstanceId = null;
 let lastFeedbackSfxKey = '';
 let lastResponseWindowKey = '';
 let lastHandInstanceIds = new Set();
@@ -579,7 +583,7 @@ function loadLocalSession() {
     commandJournal = restored.journal;
     syncFormationFromJournal();
     selectedCardId = null;
-    selectedAttackUnitId = game.players[0].frontUnitId;
+    selectedAttackUnitId = frontUidOf(game.players[0]);
     aiBusy = aiHasControl();
     resultShown = false;
     clearTimeout(resultTimer);
@@ -822,6 +826,12 @@ function selectionTarget() {
 
 function unitByUid(player, unitId) {
   return player.units.find((unit) => unit.uid === unitId) ?? null;
+}
+
+// 战斗区角色的有效 uid；战斗区为空或角色已气绝时返回 null
+function frontUidOf(player) {
+  const front = unitByUid(player, player.frontUnitId);
+  return front?.hp > 0 ? front.uid : null;
 }
 
 function makeStatus(text, className, title) {
@@ -1140,7 +1150,7 @@ function startBattle() {
   game = createGame({ playerDeckDefinition: lockedPlayerDeckDefinition });
   commandJournal = createCommandJournal(game);
   selectedCardId = null;
-  selectedAttackUnitId = game.players[0].frontUnitId;
+  selectedAttackUnitId = frontUidOf(game.players[0]);
   aiBusy = false;
   resultShown = false;
   clearTimeout(resultTimer);
@@ -1176,7 +1186,7 @@ function renderUnit(unit, ownerIndex, placement) {
     && getValidCombatTargets(displayedGame, 0).includes(unit.uid);
   const isValidTarget = isCombatCardTarget || (validTargets.includes(unit.uid)
     && ((isPlayer && ['ally-unit', 'knocked-ally'].includes(targetMode)) || (!isPlayer && targetMode === 'enemy-unit')));
-  const viewAttackUnitId = replaySession ? player.frontUnitId : selectedAttackUnitId;
+  const viewAttackUnitId = replaySession ? frontUidOf(player) : selectedAttackUnitId;
   const canSelectForAttack = !replaySession && isPlayer && unit.hp > 0 && !viewSelectedCardId && displayedGame.currentPlayer === 0 && !aiBusy;
   const selectedAttacker = unitByUid(player, viewAttackUnitId);
   const attackReady = !replaySession
@@ -1225,7 +1235,7 @@ function renderUnit(unit, ownerIndex, placement) {
   card.classList.toggle('is-returned', Boolean(impact?.returned));
   card.disabled = !isInteractive;
   card.draggable = canDragToFront;
-  card.setAttribute('aria-label', `${unit.name}，${placement === 'front' ? '前线' : '准备区'}，${unit.level} 勾玉，攻击 ${unit.attack}，生命 ${unit.hp}/${unit.maxHp}${unit.shield ? `，护盾 ${unit.shield}` : ''}`);
+  card.setAttribute('aria-label', `${unit.name}，${placement === 'front' ? '战斗区' : '准备区'}，${unit.level} 勾玉，攻击 ${unit.attack}，生命 ${unit.hp}/${unit.maxHp}${unit.shield ? `，护盾 ${unit.shield}` : ''}`);
   card.title = `${unit.passive.name}：${unit.passive.text}`;
 
   const art = document.createElement('span');
@@ -1272,58 +1282,103 @@ function renderUnit(unit, ownerIndex, placement) {
   // 状态：紧凑徽章 + 完整文本进 title 与检视层；前线/目标/受击威胁由卡片状态样式表达，不再占文字位
   const statuses = document.createElement('span');
   statuses.className = 'unit-statuses';
-  const fullStatuses = [];
+  // 检视层状态签：{ cls, text }
+  const inspectTags = [];
+  // 关键词效果：完整说明单独成节
+  const keywordNotes = [];
   if (isPlayer && viewAttackUnitId === unit.uid && !viewSelectedCardId && !replaySession && unit.hp > 0) {
     statuses.append(makeStatus('出', 'status-selected', '待出击'));
-    fullStatuses.push('待出击：已选为出击角色');
+    inspectTags.push({ cls: 'chip-ready', text: '待出击' });
   }
-  if (isValidTarget) fullStatuses.push('当前卡牌的有效目标');
-  if (willBeHit) fullStatuses.push('将承受敌方出击');
+  if (isValidTarget) {
+    inspectTags.push({ cls: 'chip-target', text: '卡牌目标' });
+  }
+  if (willBeHit) {
+    inspectTags.push({ cls: 'chip-danger', text: '将受击' });
+  }
   if (unit.form) {
     statuses.append(makeStatus('形', 'status-form', `形态：${unit.form.name}`));
-    fullStatuses.push(`形态 ${unit.form.name}`);
+    inspectTags.push({ cls: 'status-form', text: `形态 · ${unit.form.name}` });
   }
   if (unit.shield > 0) {
     statuses.append(makeStatus(`盾${unit.shield}`, 'status-shield', `护盾 ${unit.shield}`));
-    fullStatuses.push(`护盾 ${unit.shield}`);
+    inspectTags.push({ cls: 'status-shield', text: `护盾 ${unit.shield}` });
   }
   if (unit.frozen > 0) {
     statuses.append(makeStatus('眩', 'status-frozen', `眩晕 ${unit.frozen} 回合`));
-    fullStatuses.push(`眩晕 ${unit.frozen} 回合：无法出击或反击`);
+    inspectTags.push({ cls: 'status-frozen', text: `眩晕 ${unit.frozen} 回合` });
   }
   if (unit.brittle > 0) {
     statuses.append(makeStatus(`裂${unit.brittle}`, 'status-brittle', `晶裂 ${unit.brittle}`));
-    fullStatuses.push(`晶裂 ${unit.brittle}：受到的攻击伤害 +1`);
+    inspectTags.push({ cls: 'status-brittle', text: `晶裂 ${unit.brittle}` });
   }
   getUnitKeywordStatuses(owner, unit).forEach((status) => {
     statuses.append(makeStatus(status.label.slice(0, 2), `status-${status.id}`, `${status.label} ${status.detail}`));
-    fullStatuses.push(`${status.label} ${status.detail}`);
+    keywordNotes.push({ label: status.label, detail: status.detail });
   });
   if (unit.hp <= 0) {
     statuses.append(makeStatus(`归${unit.knockout}`, 'status-away', `气绝，${unit.knockout} 回合后归队`));
-    fullStatuses.push(`气绝：${unit.knockout} 回合后自动归队`);
+    inspectTags.push({ cls: 'status-away', text: `气绝 · ${unit.knockout} 回合后归队` });
   }
 
-  // 检视层：悬停/聚焦时展开被动与全部状态
+  // 检视层：「式神録」卷轴式档案——头像圆徽、大字属性栏、引言式被动、彩色状态签、关键词注记
   const inspect = document.createElement('span');
   inspect.className = 'unit-inspect';
   inspect.setAttribute('aria-hidden', 'true');
+
   const inspectHead = document.createElement('header');
-  inspectHead.innerHTML = `<small>${unit.title} / ${unit.role}</small><strong>${unit.name}</strong>`;
-  const inspectPassive = document.createElement('p');
+  inspectHead.className = 'inspect-head';
+  const emblem = document.createElement('span');
+  emblem.className = 'inspect-emblem';
+  const emblemImg = document.createElement('img');
+  emblemImg.src = unit.art;
+  emblemImg.alt = '';
+  emblemImg.width = 96;
+  emblemImg.height = 96;
+  emblem.append(emblemImg);
+  const idBlock = document.createElement('div');
+  idBlock.className = 'inspect-id';
+  idBlock.innerHTML = `<small>${unit.title} / ${unit.role}</small><strong>${unit.name}</strong>`;
+  inspectHead.append(emblem, idBlock);
+
+  const statRow = document.createElement('div');
+  statRow.className = 'inspect-statrow';
+  statRow.innerHTML = `
+    <div class="stat"><b>${unit.attack}</b><small>攻击</small></div>
+    <div class="stat"><b>${unit.hp}<i>/${unit.maxHp}</i></b><small>生命</small></div>
+    <div class="stat"><b>${unit.level}</b><small>勾玉</small></div>`;
+
+  const inspectPassive = document.createElement('blockquote');
   inspectPassive.className = 'inspect-passive';
-  inspectPassive.innerHTML = `<b>◇ ${unit.passive.name}</b>${unit.passive.text}`;
-  inspect.append(inspectHead, inspectPassive);
-  if (fullStatuses.length) {
-    const statusList = document.createElement('ul');
-    statusList.className = 'inspect-statuses';
-    fullStatuses.forEach((line) => {
-      const item = document.createElement('li');
-      item.textContent = line;
-      statusList.append(item);
+  inspectPassive.innerHTML = `<b>${unit.passive.name}</b>${unit.passive.text}`;
+
+  const body = document.createElement('div');
+  body.className = 'inspect-body';
+  body.append(statRow);
+  if (inspectTags.length) {
+    const chips = document.createElement('div');
+    chips.className = 'inspect-chips';
+    inspectTags.forEach((tag) => {
+      const chip = document.createElement('span');
+      chip.className = `chip ${tag.cls}`;
+      chip.textContent = tag.text;
+      chips.append(chip);
     });
-    inspect.append(statusList);
+    body.append(chips);
   }
+  body.append(inspectPassive);
+  if (keywordNotes.length) {
+    const notes = document.createElement('ul');
+    notes.className = 'inspect-notes';
+    keywordNotes.forEach((note) => {
+      const item = document.createElement('li');
+      item.innerHTML = `<b>${note.label}</b>${note.detail}`;
+      notes.append(item);
+    });
+    body.append(notes);
+  }
+
+  inspect.append(inspectHead, body);
 
   card.append(art, plate, pips, stats, health, statuses, inspect);
 
@@ -1416,14 +1471,72 @@ function renderUnit(unit, ownerIndex, placement) {
   return card;
 }
 
-/** 拖拽出击时点亮敌方可打击目标（前线 + 幻境） */
+/** 手牌拖拽：判定该卡是否支持「拖到目标身上施放」及其目标类别 */
+function getDragTargetMode(definition) {
+  if (!definition) return null;
+  if (['ally-unit', 'knocked-ally'].includes(definition.target)) return 'ally';
+  if (definition.target === 'enemy-unit') return 'enemy';
+  if (definition.effect === 'assault') return 'combat';
+  return null;
+}
+
+/** 点亮这张手牌的全部合法落点（角色卡与幻境） */
+function markCardDropZones(definition) {
+  const mode = getDragTargetMode(definition);
+  if (!mode) return;
+  const uids = mode === 'combat'
+    ? getValidCombatTargets(displayedGame, 0)
+    : getValidTargets(displayedGame, 0, definition.id);
+  document.querySelectorAll('.unit-card').forEach((el) => {
+    if (uids.includes(el.dataset.unitId)) el.classList.add('is-drop-ready');
+  });
+  if (mode === 'combat') {
+    nodes.enemyRealms.querySelectorAll('.realm-chip:not(:disabled)').forEach((chip) => chip.classList.add('is-drop-ready'));
+    // 敌方战斗区为空时，空槽位也是合法落点：直击核心
+    document.querySelectorAll('#enemy-battle .empty-front-slot, #player-battle .empty-front-slot')
+      .forEach((el) => el.classList.add('is-drop-ready'));
+  }
+}
+
+/** 卡牌拖拽落点：容器级监听，气绝等禁用态卡牌也能作为目标 */
+function attachCardDropTarget(container) {
+  container.addEventListener('dragover', (event) => {
+    if (!draggedCardInstanceId) return;
+    const el = event.target.closest('.unit-card, .realm-chip, .empty-front-slot');
+    if (!el || !el.classList.contains('is-drop-ready')) return;
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
+    el.classList.add('is-drag-over');
+  });
+  container.addEventListener('dragleave', (event) => {
+    const el = event.target.closest('.unit-card, .realm-chip, .empty-front-slot');
+    if (el && !el.contains(event.relatedTarget)) el.classList.remove('is-drag-over');
+  });
+  container.addEventListener('drop', (event) => {
+    if (!draggedCardInstanceId) return;
+    const el = event.target.closest('.unit-card, .realm-chip, .empty-front-slot');
+    if (!el || !el.classList.contains('is-drop-ready')) return;
+    event.preventDefault();
+    const instanceId = draggedCardInstanceId;
+    draggedCardInstanceId = null;
+    clearDropZones();
+    commitCard(instanceId, el.dataset.unitId ?? el.dataset.realmId ?? null);
+  });
+}
+
+/** 拖拽出击时点亮可打击目标（敌方战斗区角色、双方战斗区槽位 + 敌方幻境） */
 function markDropZones() {
-  nodes.enemyUnits.querySelector('.unit-card.is-front')?.classList.add('is-drop-ready');
+  nodes.enemyBattle.querySelector('.unit-card.is-front')?.classList.add('is-drop-ready');
+  nodes.enemyBattle.classList.add('is-drop-ready');
+  nodes.playerBattle.classList.add('is-drop-ready');
   nodes.enemyRealms.querySelectorAll('.realm-chip:not(:disabled)').forEach((chip) => chip.classList.add('is-drop-ready'));
 }
 
 function clearDropZones() {
-  nodes.enemyUnits.querySelectorAll('.is-drop-ready, .is-drag-over').forEach((el) => el.classList.remove('is-drop-ready', 'is-drag-over'));
+  [nodes.enemyUnits, nodes.playerUnits, nodes.enemyBattle, nodes.playerBattle].forEach((el) => {
+    el.querySelectorAll('.is-drop-ready, .is-drag-over').forEach((item) => item.classList.remove('is-drop-ready', 'is-drag-over'));
+    el.classList.remove('is-drop-ready', 'is-drag-over');
+  });
   nodes.enemyRealms.querySelectorAll('.is-drop-ready, .is-drag-over').forEach((el) => el.classList.remove('is-drop-ready', 'is-drag-over'));
 }
 
@@ -1445,7 +1558,7 @@ function renderRealmColumn(column, player, ownerIndex) {
     const selected = currentSelectedCard();
     const selectedDefinition = selected && getCardDefinition(selected.definitionId);
     const selectedCombatCard = selectedDefinition?.effect === 'assault';
-    const attackerId = replaySession ? displayedGame.players[0].frontUnitId : selectedAttackUnitId;
+    const attackerId = replaySession ? frontUidOf(displayedGame.players[0]) : selectedAttackUnitId;
     const attacker = unitByUid(displayedGame.players[0], attackerId);
     const attackReady = ownerIndex === 1
       && !replaySession
@@ -1505,7 +1618,6 @@ function renderRealmColumn(column, player, ownerIndex) {
 
 function renderUnitRow(container, ownerIndex) {
   const owner = displayedGame.players[ownerIndex];
-  const formation = getFormation(displayedGame, ownerIndex);
   const ownerImpacts = [...visualFeedback.unitImpacts.values()]
     .filter((impact) => impact.playerIndex === ownerIndex);
   if (ownerImpacts.some((impact) => impact.isAttacker)) container.dataset.feedback = 'attacker';
@@ -1517,23 +1629,65 @@ function renderUnitRow(container, ownerIndex) {
 
   const label = document.createElement('span');
   label.className = 'zone-label';
-  label.textContent = ownerIndex === 0 ? '己方战线' : '敌方战线';
+  label.textContent = ownerIndex === 0 ? '己方准备区' : '敌方准备区';
+
+  // 准备区展示其余角色；战斗区角色由 renderBattleStrip 单独渲染，避免重复
+  const frontUid = frontUidOf(owner);
+  owner.units.forEach((unit) => {
+    if (unit.uid === frontUid) return;
+    container.append(renderUnit(unit, ownerIndex, 'reserve'));
+  });
+  container.append(label);
+}
+
+function attachBattleDrop(container) {
+  // 拖拽己方准备区角色到战斗区槽位 = 直接出击（自动结算：打对方战斗区角色或直击核心）
+  container.addEventListener('dragover', (event) => {
+    if (!draggedAttackUnitId) return;
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
+    container.classList.add('is-drag-over');
+  });
+  container.addEventListener('dragleave', (event) => {
+    if (!container.contains(event.relatedTarget)) container.classList.remove('is-drag-over');
+  });
+  container.addEventListener('drop', (event) => {
+    event.preventDefault();
+    const unitId = draggedAttackUnitId ?? event.dataTransfer.getData('text/plain');
+    draggedAttackUnitId = null;
+    clearDropZones();
+    if (unitId) performBasicAttack(unitId);
+  });
+}
+
+function renderBattleStrip(container, ownerIndex) {
+  const owner = displayedGame.players[ownerIndex];
+  const formation = getFormation(displayedGame, ownerIndex);
+  container.replaceChildren();
+
+  const label = document.createElement('span');
+  label.className = 'zone-label zone-label-battle';
+  label.textContent = ownerIndex === 0 ? '己方战斗区' : '敌方战斗区';
 
   const front = owner.units[formation.frontIndex];
-  if (front) container.append(renderUnit(front, ownerIndex, 'front'));
-  else {
+  if (front) {
+    container.append(renderUnit(front, ownerIndex, 'front'));
+  } else {
     const empty = document.createElement('div');
     empty.className = 'empty-front-slot';
-    empty.innerHTML = '<strong>前线空缺</strong><span>下次攻击将直击核心</span>';
+    empty.innerHTML = ownerIndex === 0
+      ? '<strong>战斗区空缺</strong><span>拖拽角色到此出击</span>'
+      : '<strong>战斗区空缺</strong><span>出击将直击核心</span>';
     container.append(empty);
   }
-  formation.reserveIndexes.forEach((index) => container.append(renderUnit(owner.units[index], ownerIndex, 'reserve')));
   container.append(label);
 }
 
 function renderUnits() {
   renderUnitRow(nodes.playerUnits, 0);
   renderUnitRow(nodes.enemyUnits, 1);
+  renderBattleStrip(nodes.playerBattle, 0);
+  renderBattleStrip(nodes.enemyBattle, 1);
   renderRealmColumn(nodes.enemyRealms, displayedGame.players[1], 1);
   renderRealmColumn(nodes.playerRealms, displayedGame.players[0], 0);
 }
@@ -1616,6 +1770,23 @@ function renderHandCard(instance, index, totalCount, freshIds) {
     ? costReductionLabel ?? '费用减免'
     : availabilityLabels[playable ? 'ready' : playability.code] ?? playability.reason;
   card.append(cost, level, art, meta, name, text, availability);
+  // 拖拽施放：需要选目标且当前可用的手牌，可直接拖到目标身上触发
+  const dragMode = getDragTargetMode(definition);
+  card.draggable = Boolean(playable && dragMode);
+  if (playable && dragMode) {
+    card.addEventListener('dragstart', (event) => {
+      draggedCardInstanceId = instance.instanceId;
+      event.dataTransfer.effectAllowed = 'move';
+      event.dataTransfer.setData('text/plain', instance.instanceId);
+      requestAnimationFrame(() => card.classList.add('is-dragging'));
+      markCardDropZones(definition);
+    });
+    card.addEventListener('dragend', () => {
+      draggedCardInstanceId = null;
+      card.classList.remove('is-dragging');
+      clearDropZones();
+    });
+  }
   card.addEventListener('click', () => handleCardClick(instance));
   card.addEventListener('mouseenter', () => showHandPreview(instance));
   card.addEventListener('focus', () => showHandPreview(instance));
@@ -1827,10 +1998,10 @@ function getAttackPreview(attacker) {
   const statusText = combatStatuses.length
     ? `（${combatStatuses.map((status) => `${status.label} ${status.detail}`).join('；')}）`
     : '';
-  if (!defender || defender.hp <= 0) return `出击预估：${attacker.name} 将进入前线并直击敌方核心，造成 ${attackPower} 点伤害${statusText}。`;
+  if (!defender || defender.hp <= 0) return `出击预估：${attacker.name} 将进入战斗区并直击敌方核心，造成 ${attackPower} 点伤害${statusText}。`;
   const outgoing = Math.max(0, attackPower + (defender.brittle > 0 ? 1 : 0) - defender.shield);
   const counter = defender.frozen > 0 ? 0 : Math.max(0, defender.attack - shield);
-  const movement = attacker.uid === displayedGame.players[0].frontUnitId ? '从前线出击' : '从准备区换入前线';
+  const movement = attacker.uid === displayedGame.players[0].frontUnitId ? '已在战斗区出击' : '从准备区进入战斗区';
   return `出击预估：${attacker.name} ${movement}，对 ${defender.name} 造成 ${outgoing} 点伤害，预计承受 ${counter} 点反击${statusText}。`;
 }
 
@@ -1844,10 +2015,10 @@ function getRecentEventText() {
 
 function renderCommands() {
   const player = displayedGame.players[0];
-  let viewAttackUnitId = replaySession ? player.frontUnitId : selectedAttackUnitId;
+  let viewAttackUnitId = replaySession ? frontUidOf(player) : selectedAttackUnitId;
   const currentAttacker = unitByUid(player, viewAttackUnitId);
   if (!currentAttacker || currentAttacker.hp <= 0) {
-    viewAttackUnitId = unitByUid(player, player.frontUnitId)?.uid
+    viewAttackUnitId = frontUidOf(player)
       ?? player.units.find((unit) => unit.hp > 0)?.uid
       ?? null;
     if (!replaySession) selectedAttackUnitId = viewAttackUnitId;
@@ -1898,7 +2069,7 @@ function renderCommands() {
       'enemy-unit': '选择一名敌方角色。',
     };
     nodes.actionPrompt.textContent = card.effect === 'assault'
-      ? `${card.name}：点击敌方前线或一处幻境。`
+      ? `${card.name}：选择敌方战斗区角色或一处幻境。`
       : `${card.name}：${prompts[card.target]}`;
   } else if (displayedGame.pendingChoice?.playerIndex === 0) {
     nodes.actionPrompt.textContent = '占卜：从牌库顶的候选中选择一张置顶。';
@@ -2217,7 +2388,7 @@ function restartGame() {
   game = createGame({ playerDeckDefinition: lockedPlayerDeckDefinition });
   commandJournal = createCommandJournal(game);
   selectedCardId = null;
-  selectedAttackUnitId = game.players[0].frontUnitId;
+  selectedAttackUnitId = frontUidOf(game.players[0]);
   aiBusy = false;
   resultShown = false;
   clearTimeout(resultTimer);
@@ -2246,6 +2417,11 @@ nodes.packRevealCloseButton.addEventListener('click', () => { nodes.packReveal.h
 nodes.formationCancelButton.addEventListener('click', hideFormation);
 nodes.formationButton.addEventListener('click', showFormation);
 nodes.attackButton.addEventListener('click', handleAttack);
+attachBattleDrop(nodes.playerBattle);
+attachBattleDrop(nodes.enemyBattle);
+// 卡牌拖拽落点：准备区行（友方/敌方目标）、战斗区带（战斗牌目标）、敌方幻境席
+[nodes.playerUnits, nodes.enemyUnits, nodes.playerBattle, nodes.enemyBattle, nodes.enemyRealms]
+  .forEach(attachCardDropTarget);
 nodes.levelButton.addEventListener('click', handleLevelUp);
 nodes.endTurnButton.addEventListener('click', handleEndTurn);
 nodes.cancelActionButton.addEventListener('click', () => {

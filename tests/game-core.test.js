@@ -299,7 +299,7 @@ test('only the first instant card on an owner turn costs zero ghost fire', () =>
   let state = createGame(118);
   const first = putCardInHand(state, 0, 'moon-ward');
   const second = putCardInHand(state, 0, 'moon-ward');
-  const targetUid = state.players[0].frontUnitId;
+  const targetUid = state.players[0].units[1].uid;
 
   assert.equal(getEffectiveCardCost(state, 0, first.instanceId), 0);
   state = playCard(state, 0, first.instanceId, targetUid).state;
@@ -317,9 +317,12 @@ test('pierce transfers only unshielded overkill damage to the enemy core', () =>
   const state = createGame(119);
   const ember = state.players[0].units.find((unit) => unit.id === 'ember');
   ember.level = 3;
-  const defender = state.players[1].units.find((unit) => unit.uid === state.players[1].frontUnitId);
+  // 赤曜已拥有战斗区（复刻旧自动前线前提），本次不会触发「进入前线」被动
+  state.players[0].frontUnitId = ember.uid;
+  const defender = state.players[1].units[0];
   defender.hp = 2;
   defender.shield = 1;
+  state.players[1].frontUnitId = defender.uid;
   const card = putCardInHand(state, 0, 'combustion-edge');
   const result = playCard(state, 0, card.instanceId);
 
@@ -336,7 +339,8 @@ test('remote combat attacks from reserve without replacing the front line or tak
   state.players[1].hand = [];
   const storm = state.players[0].units.find((unit) => unit.id === 'storm');
   const basalt = state.players[0].units.find((unit) => unit.id === 'basalt');
-  const defender = state.players[1].units.find((unit) => unit.uid === state.players[1].frontUnitId);
+  const defender = state.players[1].units[0];
+  state.players[1].frontUnitId = defender.uid;
   state.players[0].frontUnitId = basalt.uid;
   const frontBefore = state.players[0].frontUnitId;
   const stormHpBefore = storm.hp;
@@ -376,7 +380,8 @@ test('remote combat prevents counter damage when the attacker already owns the f
   const state = createGame({ seed: 122, playerUnitIds: ['storm', 'basalt', 'lumen', 'rime'] });
   state.players[1].hand = [];
   const storm = state.players[0].units.find((unit) => unit.id === 'storm');
-  const defender = state.players[1].units.find((unit) => unit.uid === state.players[1].frontUnitId);
+  const defender = state.players[1].units[0];
+  state.players[1].frontUnitId = defender.uid;
   state.players[0].frontUnitId = storm.uid;
   const hpBefore = storm.hp;
   assert.ok(defender.attack > 0);
@@ -564,6 +569,7 @@ test('coop gains its bonus only after a different ally has attacked this turn', 
 test('projectile damages the enemy front first and the core only when the front is empty', () => {
   let state = createGame({ seed: 126, playerUnitIds: ['ink', 'ember', 'basalt', 'lumen'] });
   const first = putCardInHand(state, 0, 'black-stain');
+  state.players[1].frontUnitId = state.players[1].units[0].uid;
   const frontId = state.players[1].frontUnitId;
   const frontBefore = state.players[1].units.find((unit) => unit.uid === frontId).hp;
   state = playCard(state, 0, first.instanceId).state;
@@ -583,16 +589,19 @@ test('a countdown realm ticks on owner turns, triggers at zero, and resets', () 
   state.players[0].units.find((unit) => unit.id === 'ember').level = 2;
   const card = putCardInHand(state, 0, 'fireline');
   state = playCard(state, 0, card.instanceId).state;
-  const defenderUid = state.players[1].frontUnitId;
-  const hpBefore = state.players[1].units.find((unit) => unit.uid === defenderUid).hp;
 
   assert.equal(state.players[0].realms[0].countdown, 2);
   assert.deepEqual(state.players[0].realms[0].keywords, ['countdown']);
   state = endTurn(endTurn(state, 0).state, 1).state;
   assert.equal(state.players[0].realms[0].countdown, 1);
-  assert.equal(state.players[1].units.find((unit) => unit.uid === defenderUid).hp, hpBefore);
 
-  state = endTurn(endTurn(state, 0).state, 1).state;
+  // 敌方出击进入战斗区并留场，倒计时触发时才有前线目标可打
+  const defenderUid = state.players[1].units[0].uid;
+  const hpBefore = state.players[1].units[0].hp;
+  state = endTurn(state, 0).state;
+  state = basicAttack(state, 1, defenderUid).state;
+  state = endTurn(state, 1).state;
+
   assert.equal(state.players[0].realms[0].countdown, 2);
   assert.equal(state.players[1].units.find((unit) => unit.uid === defenderUid).hp, hpBefore - 3);
   assert.ok(state.events.some((event) => event.type === GAME_EVENTS.COUNTDOWN_TRIGGERED));
@@ -620,7 +629,9 @@ test('the next basic attack consumes encourage before damage and counter damage'
   const card = putCardInHand(state, 0, 'radiant-encouragement');
   state = playCard(state, 0, card.instanceId).state;
   const attacker = state.players[0].units[0];
-  const defender = state.players[1].units.find((unit) => unit.uid === state.players[1].frontUnitId);
+  state.players[0].frontUnitId = attacker.uid;
+  const defender = state.players[1].units[0];
+  state.players[1].frontUnitId = defender.uid;
   defender.maxHp = 20;
   defender.hp = 20;
   const attackerHpBefore = attacker.hp;
@@ -662,7 +673,9 @@ test('combat and remote cards both consume encourage without card-specific branc
   const encourageCard = putCardInHand(combatState, 0, 'radiant-encouragement');
   const combatCard = putCardInHand(combatState, 0, 'flash-thrust');
   combatState = playCard(combatState, 0, encourageCard.instanceId).state;
-  const combatDefender = combatState.players[1].units.find((unit) => unit.uid === combatState.players[1].frontUnitId);
+  combatState.players[0].frontUnitId = combatState.players[0].units[0].uid;
+  const combatDefender = combatState.players[1].units[0];
+  combatState.players[1].frontUnitId = combatDefender.uid;
   combatDefender.maxHp = 30;
   combatDefender.hp = 30;
   const combatHpBefore = combatDefender.hp;
@@ -675,7 +688,8 @@ test('combat and remote cards both consume encourage without card-specific branc
   const storm = remoteState.players[0].units.find((unit) => unit.id === 'storm');
   const basalt = remoteState.players[0].units.find((unit) => unit.id === 'basalt');
   remoteState.players[0].frontUnitId = basalt.uid;
-  const remoteDefender = remoteState.players[1].units.find((unit) => unit.uid === remoteState.players[1].frontUnitId);
+  const remoteDefender = remoteState.players[1].units[0];
+  remoteState.players[1].frontUnitId = remoteDefender.uid;
   remoteDefender.maxHp = 30;
   remoteDefender.hp = 30;
   const remoteHpBefore = remoteDefender.hp;
@@ -743,9 +757,11 @@ test('conditional follow-up only applies brittle while the damaged target surviv
 
 test('a reserve unit moves into the front line when it attacks', () => {
   const state = createGame(12);
-  assert.equal(state.players[0].frontUnitId, state.players[0].units[0].uid);
+  // 本家规则：开局战斗区为空，所有角色都在准备区
+  assert.equal(state.players[0].frontUnitId, null);
   const attackerHpBefore = state.players[0].units[2].hp;
-  const defender = state.players[1].units.find((unit) => unit.uid === state.players[1].frontUnitId);
+  const defender = state.players[1].units[0];
+  state.players[1].frontUnitId = defender.uid;
   assert.ok(defender.attack > 0);
   const first = basicAttack(state, 0, state.players[0].units[2].uid);
   assert.equal(first.error, null);
@@ -803,6 +819,7 @@ test('a deployed realm triggers at the start of its owner turn', () => {
   const realm = putCardInHand(state, 0, 'wardline');
   state = playCard(state, 0, realm.instanceId).state;
   assert.equal(state.players[0].realms.length, 1);
+  state.players[0].frontUnitId = state.players[0].units[2].uid;
   const frontIndex = state.players[0].units.findIndex((unit) => unit.uid === state.players[0].frontUnitId);
   const shieldBefore = state.players[0].units[frontIndex].shield;
   state = endTurn(state, 0).state;
@@ -835,7 +852,8 @@ test('ember passive damages the enemy front once when entering from reserve', ()
   const state = createGame(101);
   const ember = state.players[0].units.find((unit) => unit.id === 'ember');
   state.players[0].frontUnitId = state.players[0].units.find((unit) => unit.id === 'basalt').uid;
-  const defender = state.players[1].units.find((unit) => unit.uid === state.players[1].frontUnitId);
+  const defender = state.players[1].units[0];
+  state.players[1].frontUnitId = defender.uid;
   const hpBefore = defender.hp;
 
   const result = basicAttack(state, 0, ember.uid);
@@ -863,7 +881,7 @@ test('lumen passive heals the core once per owner turn', () => {
   state.players[0].avatarHp = 20;
   const first = putCardInHand(state, 0, 'mend');
   const second = putCardInHand(state, 0, 'mend');
-  const targetUid = state.players[0].frontUnitId;
+  const targetUid = state.players[0].units[1].uid;
 
   state = playCard(state, 0, first.instanceId, targetUid).state;
   assert.equal(state.players[0].avatarHp, 21);
@@ -880,6 +898,7 @@ test('rime passive freezes a surviving combat defender', () => {
   const state = createGame(104);
   const rime = state.players[0].units.find((unit) => unit.id === 'rime');
   state.players[0].frontUnitId = rime.uid;
+  state.players[1].frontUnitId = state.players[1].units[1].uid;
   const defenderUid = state.players[1].frontUnitId;
 
   const result = basicAttack(state, 0, rime.uid);
@@ -892,13 +911,18 @@ test('storm passive damages the enemy core only after a reserve attack', () => {
   let state = createGame({ seed: 105, playerUnitIds: ['storm', 'basalt', 'lumen', 'rime'] });
   const stormUid = state.players[0].units.find((unit) => unit.id === 'storm').uid;
   state.players[0].frontUnitId = state.players[0].units.find((unit) => unit.id === 'basalt').uid;
+  const defender = state.players[1].units[0];
+  state.players[1].frontUnitId = defender.uid;
 
   state = basicAttack(state, 0, stormUid).state;
   assert.equal(state.players[1].avatarHp, 29);
 
   state = endTurn(endTurn(state, 0).state, 1).state;
+  // 回合开始归位后重新出击部署，保证敌方战斗区仍有人
+  state.players[1].frontUnitId = defender.uid;
+  // 霓鸢已归位准备区，再次出击仍是从后场换入，追风再次生效
   state = basicAttack(state, 0, stormUid).state;
-  assert.equal(state.players[1].avatarHp, 29);
+  assert.equal(state.players[1].avatarHp, 28);
 });
 
 test('ink passive shields the front when its owner deploys a realm', () => {
@@ -906,7 +930,8 @@ test('ink passive shields the front when its owner deploys a realm', () => {
   const ink = state.players[0].units.find((unit) => unit.id === 'ink');
   ink.level = 3;
   const realm = putCardInHand(state, 0, 'living-archive');
-  const frontUid = state.players[0].frontUnitId;
+  const frontUid = state.players[0].units[1].uid;
+  state.players[0].frontUnitId = frontUid;
 
   state = playCard(state, 0, realm.instanceId).state;
 
@@ -1011,6 +1036,7 @@ test('a basic attack can target a realm without damaging the front or taking cou
   state.players[0].units.find((unit) => unit.id === 'basalt').level = 3;
   state.players[0].energy = 10;
   state = playCard(state, 0, putCardInHand(state, 0, 'wardline').instanceId).state;
+  state.players[0].frontUnitId = state.players[0].units.find((unit) => unit.id === 'basalt').uid;
   state = endTurn(state, 0).state;
 
   const realmId = state.players[0].realms[0].uid;
@@ -1036,7 +1062,9 @@ test('destroying a realm removes it immediately and records damage before destru
   const realmId = state.players[0].realms[0].uid;
   state = endTurn(state, 0).state;
 
-  state = basicAttack(state, 1, state.players[1].frontUnitId, realmId).state;
+  const realmAttacker = state.players[1].units[0];
+  state.players[1].frontUnitId = realmAttacker.uid;
+  state = basicAttack(state, 1, realmAttacker.uid, realmId).state;
   assert.equal(state.players[0].realms.length, 0);
   const realmEvents = state.events
     .filter((event) => event.payload.realmId === realmId)
@@ -1082,4 +1110,75 @@ test('serialization preserves damaged realms and rejects forged realm identity o
   const duplicate = JSON.parse(serializeGame(state));
   duplicate.state.players[1].realms.push(cloneEnvelope(duplicate.state.players[0].realms[0]));
   assert.throws(() => deserializeGame(JSON.stringify(duplicate)), /幻境实例无效/);
+});
+
+test('battle zone starts empty and a knockout leaves it empty without auto replacement', () => {
+  const state = createGame(13);
+  // 本家规则：开局双方战斗区为空，所有角色都在准备区
+  assert.equal(state.players[0].frontUnitId, null);
+  assert.equal(state.players[1].frontUnitId, null);
+
+  // 敌方战斗区有人被气绝后，战斗区变空，不自动补位
+  const defender = state.players[1].units[0];
+  state.players[1].frontUnitId = defender.uid;
+  defender.hp = 1;
+  const attacker = state.players[0].units[0];
+  const result = basicAttack(state, 0, attacker.uid);
+  assert.equal(result.error, null);
+  assert.equal(result.state.players[1].frontUnitId, null);
+  const nextDefender = result.state.players[1].units.find((unit) => unit.uid === defender.uid);
+  assert.equal(nextDefender.hp, 0);
+  assert.ok(result.state.players[1].units.slice(1).every((unit) => unit.hp > 0), '其他角色不应被自动补位影响');
+});
+
+test('battle-zone unit returns to reserve at the start of its owner turn', () => {
+  let state = createGame(14);
+  const unit = state.players[0].units[2];
+  state.players[0].frontUnitId = unit.uid;
+
+  // 对手回合内留场可被攻击
+  state = endTurn(state, 0).state;
+  assert.equal(state.players[0].frontUnitId, unit.uid, '对手回合内应留在战斗区');
+  state = endTurn(state, 1).state;
+  assert.equal(state.players[0].frontUnitId, null, '己方回合开始时应归位准备区');
+  assert.ok(state.events.some((event) => (
+    event.type === GAME_EVENTS.UNIT_RETURNED
+      && event.payload.unitId === unit.uid
+      && event.payload.source === 'battle-zone'
+  )));
+  assert.ok(unit.hp > 0, '归位角色保持存活');
+});
+
+test('attacking into an empty battle zone hits the core directly', () => {
+  const state = createGame(15);
+  assert.equal(state.players[1].frontUnitId, null);
+  assert.deepEqual(getValidCombatTargets(state, 0), []);
+  const attacker = state.players[0].units[0];
+  const coreBefore = state.players[1].avatarHp;
+
+  const result = basicAttack(state, 0, attacker.uid);
+  assert.equal(result.error, null);
+  assert.equal(result.state.players[1].avatarHp, coreBefore - result.state.players[0].units[0].attack);
+  assert.equal(result.state.players[0].frontUnitId, attacker.uid, '攻击者留场');
+});
+
+test('attacking with a second unit replaces the battle-zone occupant back to reserve', () => {
+  const state = createGame(16);
+  const first = state.players[0].units[0];
+  const second = state.players[0].units[2];
+  state.players[0].energy = 10;
+  state.players[0].attackUsed = false;
+
+  // 第一名角色出击留场
+  let next = basicAttack(state, 0, first.uid, null).state;
+  next.players[0].attackUsed = false;
+  // 第二名角色出击替换：原战斗区角色回准备区
+  const replaced = basicAttack(next, 0, second.uid);
+  assert.equal(replaced.error, null);
+  assert.equal(replaced.state.players[0].frontUnitId, second.uid);
+  const enteredEvents = replaced.state.events.filter((event) => (
+    event.type === GAME_EVENTS.UNIT_ENTERED_FRONT && event.payload.unitId === second.uid
+  ));
+  assert.equal(enteredEvents.length, 1);
+  assert.equal(enteredEvents[0].payload.previousFrontUnitId, first.uid, '被替换角色回到准备区');
 });

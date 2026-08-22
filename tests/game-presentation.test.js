@@ -21,6 +21,8 @@ function putCardInHand(state, playerIndex, definitionId) {
 
 test('derives attacker and defender impacts from a combat', () => {
   const state = createGame(201);
+  state.players[0].frontUnitId = state.players[0].units[0].uid;
+  state.players[1].frontUnitId = state.players[1].units[0].uid;
   const attackerUid = state.players[0].frontUnitId;
   const defenderUid = state.players[1].frontUnitId;
   const snapshot = captureBattleSnapshot(state);
@@ -42,7 +44,8 @@ test('distinguishes a remote attacker that remains in reserve and takes no count
   state.players[1].hand = [];
   const storm = state.players[0].units.find((unit) => unit.id === 'storm');
   const basalt = state.players[0].units.find((unit) => unit.id === 'basalt');
-  const defender = state.players[1].units.find((unit) => unit.uid === state.players[1].frontUnitId);
+  const defender = state.players[1].units[0];
+  state.players[1].frontUnitId = defender.uid;
   state.players[0].frontUnitId = basalt.uid;
   defender.maxHp = 20;
   defender.hp = 20;
@@ -74,7 +77,7 @@ test('shows keyword readiness and marks the next attacker as empowered', () => {
   assert.equal(readyFeedback.cue.type, 'keyword-gained');
   assert.match(readyFeedback.cue.title, /鼓舞/);
 
-  const attackerUid = state.players[0].frontUnitId;
+  const attackerUid = state.players[0].units[0].uid;
   const combatSnapshot = captureBattleSnapshot(state);
   const next = basicAttack(state, 0, attackerUid).state;
   const combatFeedback = deriveBattleFeedback(combatSnapshot, next);
@@ -97,9 +100,10 @@ test('gives level-up feedback priority and reports its delta', () => {
 
 test('gives knockout feedback priority over combat', () => {
   const state = createGame(203);
-  const attackerUid = state.players[0].frontUnitId;
-  const defender = state.players[1].units.find((unit) => unit.uid === state.players[1].frontUnitId);
+  const defender = state.players[1].units[0];
   defender.hp = 1;
+  state.players[1].frontUnitId = defender.uid;
+  const attackerUid = state.players[0].units[2].uid;
   const snapshot = captureBattleSnapshot(state);
   const next = basicAttack(state, 0, attackerUid).state;
 
@@ -171,7 +175,8 @@ test('derives a visible realm impact when durability is lost', () => {
   const realmId = state.players[0].realms[0].uid;
   const snapshot = captureBattleSnapshot(state);
 
-  const next = basicAttack(state, 1, state.players[1].frontUnitId, realmId).state;
+  state.players[1].frontUnitId = state.players[1].units[0].uid;
+  const next = basicAttack(state, 1, state.players[1].units[0].uid, realmId).state;
   const feedback = deriveBattleFeedback(snapshot, next);
 
   assert.ok(feedback.realmImpacts.get(realmId).hpDelta < 0);
@@ -190,7 +195,8 @@ test('gives realm destruction a high-priority central cue', () => {
   const realmId = state.players[0].realms[0].uid;
   const snapshot = captureBattleSnapshot(state);
 
-  const next = basicAttack(state, 1, state.players[1].frontUnitId, realmId).state;
+  state.players[1].frontUnitId = state.players[1].units[0].uid;
+  const next = basicAttack(state, 1, state.players[1].units[0].uid, realmId).state;
   const feedback = deriveBattleFeedback(snapshot, next);
 
   assert.equal(feedback.realmImpacts.get(realmId).destroyed, true);

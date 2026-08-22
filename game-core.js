@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js';
+} from './game-content.js?v=37';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js';
+} from './game-keywords.js?v=37';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js';
+} from './game-content.js?v=37';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +55,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js';
+} from './game-keywords.js?v=37';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -96,7 +96,7 @@ export const GAME_EVENTS = Object.freeze({
   MATCH_FINISHED: 'match-finished',
 });
 
-export const GAME_STATE_VERSION = 7;
+export const GAME_STATE_VERSION = 8;
 
 const MAX_EVENT_CHAIN_LENGTH = 64;
 const MAX_RESOLUTION_STACK_LENGTH = 64;
@@ -400,7 +400,8 @@ function createPlayer(state, id, name, deckDefinition) {
     deck: [],
     hand: [],
     units,
-    frontUnitId: units[0]?.uid ?? null,
+    // 本家规则：战斗区初始为空，所有角色都在准备区，出击后才进入战斗区
+    frontUnitId: null,
     attackUsed: false,
     levelUpUsed: false,
     keywordUsage: {},
@@ -437,12 +438,18 @@ function unitIndexByUid(player, unitUid) {
   return player.units.findIndex((unit) => unit.uid === unitUid);
 }
 
-function ensureFront(player) {
+// 读取当前战斗区角色下标；战斗区为空或角色已气绝时返回 -1，不再自动补位
+function frontIndexOf(player) {
   const currentIndex = unitIndexByUid(player, player.frontUnitId);
-  if (player.units[currentIndex]?.hp > 0) return currentIndex;
-  const nextIndex = player.units.findIndex((unit) => unit.hp > 0);
-  player.frontUnitId = nextIndex >= 0 ? player.units[nextIndex].uid : null;
-  return nextIndex;
+  return player.units[currentIndex]?.hp > 0 ? currentIndex : -1;
+}
+
+// 战斗区角色离开战斗区（气绝或回合开始回退）时归位准备区
+function leaveBattleZone(player, unitIndex, source) {
+  const unit = player.units[unitIndex];
+  if (!unit || player.frontUnitId !== unit.uid) return false;
+  player.frontUnitId = null;
+  return { unitIndex, unitId: unit.uid, source };
 }
 
 function checkWinner(state) {
@@ -542,7 +549,8 @@ function damageUnit(state, playerIndex, unitIndex, baseAmount, sourcePlayerIndex
       `${unit.name} 气绝，将在 ${GAME_RULES.knockoutCountdown} 个己方回合后归队。`,
       'danger',
     );
-    ensureFront(player);
+    // 本家规则：气绝角色自动离开战斗区回到准备区，战斗区变空，不自动补位
+    leaveBattleZone(player, unitIndex, 'knockout');
   }
   return { damage, knockedOut, overkill };
 }
@@ -610,7 +618,7 @@ function reviveUnit(state, playerIndex, unitIndex, amount) {
   unit.hp = Math.min(amount, unit.maxHp);
   unit.knockout = 0;
   unit.shield = 0;
-  if (!player.frontUnitId) player.frontUnitId = unit.uid;
+  // 复活角色回到准备区，需要重新出击才能进入战斗区
   recordEvent(
     state,
     GAME_EVENTS.UNIT_RETURNED,
@@ -678,8 +686,7 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
     );
   }
 
-  ensureFront(defenderPlayer);
-  const defenderIndex = unitIndexByUid(defenderPlayer, defenderPlayer.frontUnitId);
+  const defenderIndex = frontIndexOf(defenderPlayer);
   const defender = defenderPlayer.units[defenderIndex];
   const attackPower = attacker.attack + bonus + keywordBonuses.attack;
 
@@ -838,14 +845,14 @@ function deployRealm(state, playerIndex, card) {
 const REALM_TRIGGER_HANDLERS = new Map([
   ['shield-front', (state, ownerIndex, realm) => {
     const owner = state.players[ownerIndex];
-    const frontIndex = ensureFront(owner);
+    const frontIndex = frontIndexOf(owner);
     if (frontIndex < 0) return;
     owner.units[frontIndex].shield += realm.triggerValue;
     recordEvent(state, GAME_EVENTS.REALM_TRIGGERED, { ownerIndex, cardId: realm.cardId, unitIndex: frontIndex }, `${realm.name} 为 ${owner.units[frontIndex].name} 提供 ${realm.triggerValue} 点护盾。`, 'success');
   }],
   ['damage-enemy-front', (state, ownerIndex, realm) => {
     const enemyIndex = 1 - ownerIndex;
-    const frontIndex = ensureFront(state.players[enemyIndex]);
+    const frontIndex = frontIndexOf(state.players[enemyIndex]);
     if (frontIndex < 0) return;
     recordEvent(state, GAME_EVENTS.REALM_TRIGGERED, { ownerIndex, cardId: realm.cardId, targetIndex: frontIndex }, `${realm.name} 引动前线雷压。`, 'card');
     damageUnit(state, enemyIndex, frontIndex, realm.triggerValue, ownerIndex);
@@ -959,7 +966,6 @@ function beginTurn(state, playerIndex) {
     }
   });
 
-  ensureFront(player);
   advanceChargeUps(state, playerIndex);
   resolveNightfallIfDue(state, playerIndex);
   triggerRealms(state, playerIndex, 'owner-turn-start');
@@ -967,6 +973,19 @@ function beginTurn(state, playerIndex) {
   if (state.winner === null) triggerAutomaticKeywordCards(state, playerIndex);
   if (state.winner === null) {
     emitGameEvent(state, GAME_EVENTS.TURN_STARTED, { playerIndex }, `${player.name} 获得行动权。`, 'turn');
+  }
+  // 本家规则：己方回合开始时，战斗区角色自动回退准备区（攻击者留场穿越对手回合后归位）
+  const returningIndex = frontIndexOf(player);
+  if (returningIndex >= 0) {
+    const returningUnit = player.units[returningIndex];
+    leaveBattleZone(player, returningIndex, 'turn-start');
+    recordEvent(
+      state,
+      GAME_EVENTS.UNIT_RETURNED,
+      { playerIndex, unitIndex: returningIndex, unitId: returningUnit.uid, source: 'battle-zone' },
+      `${returningUnit.name} 从战斗区返回准备区。`,
+      'neutral',
+    );
   }
 }
 
@@ -1010,7 +1029,7 @@ function sourceUnitFor(player, card) {
 
 export function getFormation(state, playerIndex) {
   const player = state.players[playerIndex];
-  const frontIndex = ensureFront(player);
+  const frontIndex = frontIndexOf(player);
   return {
     frontIndex,
     frontUnitId: player.frontUnitId,
@@ -1036,11 +1055,9 @@ export function getValidTargets(state, playerIndex, definitionId) {
 
 export function getValidCombatTargets(state, playerIndex) {
   const enemy = state.players[1 - playerIndex];
-  const currentFrontIndex = unitIndexByUid(enemy, enemy.frontUnitId);
-  const frontIndex = enemy.units[currentFrontIndex]?.hp > 0
-    ? currentFrontIndex
-    : enemy.units.findIndex((unit) => unit.hp > 0);
-  const frontId = enemy.units[frontIndex]?.uid;
+  // 本家规则：只能攻击敌方战斗区内的角色；战斗区为空时直接攻击核心（targetId 为 null）
+  const frontIndex = frontIndexOf(enemy);
+  const frontId = frontIndex >= 0 ? enemy.units[frontIndex].uid : null;
   return [
     ...(frontId ? [frontId] : []),
     ...enemy.realms.filter((realm) => realm.hp > 0).map((realm) => realm.uid),
@@ -1614,7 +1631,7 @@ const PASSIVE_HANDLERS = new Map([
       && event.payload.unitId === unit.uid,
     resolve: ({ state, playerIndex, hook }) => {
       const enemyIndex = 1 - playerIndex;
-      const frontIndex = ensureFront(state.players[enemyIndex]);
+      const frontIndex = frontIndexOf(state.players[enemyIndex]);
       if (frontIndex >= 0) damageUnit(state, enemyIndex, frontIndex, hook.params.amount, playerIndex);
     },
   }],
@@ -1656,7 +1673,7 @@ const PASSIVE_HANDLERS = new Map([
     canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.REALM_DEPLOYED
       && event.payload.playerIndex === playerIndex,
     resolve: ({ state, playerIndex, hook }) => {
-      const frontIndex = ensureFront(state.players[playerIndex]);
+      const frontIndex = frontIndexOf(state.players[playerIndex]);
       if (frontIndex >= 0) state.players[playerIndex].units[frontIndex].shield += hook.params.amount;
     },
   }],

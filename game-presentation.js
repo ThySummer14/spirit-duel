@@ -1,4 +1,4 @@
-import { GAME_EVENTS } from './game-core.js';
+import { GAME_EVENTS } from './game-core.js?v=37';
 
 export function captureBattleSnapshot(state) {
   return {
@@ -71,7 +71,7 @@ function combatCue(state, event) {
     title: `${attacker?.name ?? '攻击者'} 对阵 ${defender?.name ?? '界碑核心'}`,
     detail: remote
       ? `${defender ? '攻击者保持当前位置，目标无法反击。' : '攻击者保持当前位置，远程攻击直达核心。'}${bonusDetail}`
-      : `${defender ? '双方攻命同时进入战斗结算。' : '防守前线空缺，此次攻击直达核心。'}${bonusDetail}`,
+      : `${defender ? '双方攻命同时进入战斗结算。' : '对方战斗区空缺，此次攻击直达核心。'}${bonusDetail}`,
     playerIndex: event.payload.attackerPlayerIndex,
     unitId: event.payload.attackerUnitId,
     targetUnitId: event.payload.defenderUnitId ?? null,
