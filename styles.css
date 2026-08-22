@@ -2328,3 +2328,212 @@ html[data-theme="day"] .scenery-mist { opacity: 0.4; }
 html[data-theme="day"] .attack-button:not(:disabled) { color: #a8432a; border-color: rgb(168 67 42 / 0.55); }
 html[data-theme="day"] .attack-button b.is-unaffordable { color: var(--danger); }
 html[data-theme="day"] .cancel-button:not(:disabled) { color: var(--danger); }
+
+/* ================= 角落头像盘（左上敌方 / 左下我方） + 右缘牌库列 ================= */
+.avatar-plate {
+  position: absolute;
+  left: 16px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.foe-plate { top: 10px; }
+.ally-plate { bottom: 14px; }
+
+.avatar-disc {
+  position: relative;
+  width: 62px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-disc span {
+  font-family: var(--font-display);
+  font-size: 25px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+.avatar-disc.foe {
+  background: radial-gradient(circle at 35% 30%, #4a3a6e, #221a38 72%);
+  border: 1px solid rgb(143 75 181 / 0.55);
+  color: #d9c7ee;
+  box-shadow: inset 0 0 16px rgb(143 75 181 / 0.3), 0 2px 10px rgb(0 0 0 / 0.4);
+}
+.avatar-disc.ally {
+  background: radial-gradient(circle at 35% 30%, #3f3522, #1a1508 72%);
+  border: 1px solid rgb(212 175 90 / 0.55);
+  color: var(--gold-bright);
+  box-shadow: inset 0 0 16px rgb(212 175 90 / 0.22), 0 2px 10px rgb(0 0 0 / 0.4);
+}
+/* 血量徽章：头像右下角 */
+.core-badge {
+  position: absolute;
+  right: -12px;
+  bottom: -4px;
+  min-width: 38px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  background: #17130a;
+  border: 1px solid var(--gold-deep);
+  color: var(--gold-bright);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.45);
+}
+html[data-theme="day"] .core-badge { background: #fffdf5; color: #5c4a1e; }
+
+.avatar-meta { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.avatar-name {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.avatar-plate .core-bar {
+  width: 138px;
+  height: 5px;
+  flex: none;
+  border: none;
+}
+.foe-plate .core-bar i { background: linear-gradient(90deg, #9a5ec5, #cfa8e8); }
+
+.foe-resources,
+.ally-resources {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.foe-resources small,
+.ally-resources .energy-num {
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.foe-resources small b,
+.ally-resources .energy-num b {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--gold-bright);
+}
+.hand-mini { font-size: 10px; letter-spacing: 0.08em; color: var(--text-dim); white-space: nowrap; }
+.hand-mini b { color: var(--paper-dim); }
+
+/* 鬼火火焰：小水滴形，亮者为可用鬼火 */
+.flame-pips {
+  display: inline-flex;
+  gap: 4px;
+}
+.flame-pips i {
+  width: 11px;
+  height: 14px;
+  border-radius: 50% 50% 50% 50% / 58% 58% 42% 42%;
+  background: rgb(255 255 255 / 0.08);
+  border: 1px solid var(--rule);
+  transition: filter 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.flame-pips i.is-filled {
+  background: linear-gradient(180deg, #ffd98a, #ef8f3c 78%);
+  border-color: rgb(239 143 60 / 0.8);
+  box-shadow: 0 0 8px rgb(239 143 60 / 0.55);
+}
+
+/* 出击次数标记：金框「击」，用过后熄灭 */
+.attack-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid rgb(212 175 90 / 0.65);
+  background: rgb(212 175 90 / 0.12);
+  color: var(--gold-bright);
+  font-family: var(--font-display);
+  font-size: 13px;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+.attack-marker.is-used { opacity: 0.35; filter: grayscale(1); }
+
+/* 关键词状态条在头像旁收窄 */
+.ally-resources .keyword-statuses { flex-basis: 100%; }
+
+/* 右缘牌库列：上敌方待抽 / 中结束回合 / 下我方待抽 */
+.deck-column {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.deck-pile {
+  position: relative;
+  width: 78px;
+  height: 108px;
+  padding: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.deck-pile:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+.pile-back {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgb(212 175 90 / 0.45);
+  background:
+    radial-gradient(circle at 50% 42%, rgb(212 175 90 / 0.28), transparent 46%),
+    repeating-linear-gradient(-45deg, rgb(212 175 90 / 0.07) 0 6px, transparent 6px 12px),
+    linear-gradient(180deg, #23203a, #14121f);
+  box-shadow: inset 0 0 0 3px rgb(212 175 90 / 0.14), var(--shadow-1);
+}
+html[data-theme="day"] .pile-back {
+  background:
+    radial-gradient(circle at 50% 42%, rgb(169 127 44 / 0.22), transparent 46%),
+    repeating-linear-gradient(-45deg, rgb(169 127 44 / 0.06) 0 6px, transparent 6px 12px),
+    linear-gradient(180deg, #efe9d8, #ded6bf);
+  box-shadow: inset 0 0 0 3px rgb(169 127 44 / 0.16), 0 2px 8px rgb(60 50 30 / 0.15);
+}
+.deck-pile .pile-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 26px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  background: #17130a;
+  border: 1px solid var(--gold-deep);
+  color: var(--gold-bright);
+}
+html[data-theme="day"] .deck-pile .pile-count { background: #fffdf5; color: #5c4a1e; }
+.deck-pile small {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  color: var(--text-dim);
+}
+.deck-end-turn {
+  width: 84px;
+  padding: 11px 6px;
+  justify-content: center;
+}

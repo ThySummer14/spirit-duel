@@ -3,11 +3,18 @@ import assert from 'node:assert/strict';
 
 import {
   basicAttack,
-  createGame,
+  createGame as rawCreateGame,
   endTurn,
   levelUpUnit,
   playCard,
 } from '../game-core.js';
+
+// 新规则：升勾先于出击，默认已完成升级阶段
+function createGame(input = undefined) {
+  const state = rawCreateGame(input);
+  state.players.forEach((player) => { player.levelUpUsed = true; });
+  return state;
+}
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
@@ -15,6 +22,7 @@ import {
 
 function putCardInHand(state, playerIndex, definitionId) {
   const instance = { instanceId: `test-${definitionId}-${state.players[playerIndex].hand.length}`, definitionId };
+  state.players[playerIndex].levelUpUsed = true; // 新规则：出牌前需完成升级阶段
   state.players[playerIndex].hand.push(instance);
   return instance;
 }
@@ -86,7 +94,7 @@ test('shows keyword readiness and marks the next attacker as empowered', () => {
 });
 
 test('gives level-up feedback priority and reports its delta', () => {
-  const state = createGame(202);
+  const state = rawCreateGame(202);
   const unitUid = state.players[0].units[1].uid;
   const snapshot = captureBattleSnapshot(state);
   const next = levelUpUnit(state, 0, unitUid).state;
@@ -172,6 +180,7 @@ test('derives a visible realm impact when durability is lost', () => {
   state.players[0].energy = 10;
   state = playCard(state, 0, putCardInHand(state, 0, 'wardline').instanceId).state;
   state = endTurn(state, 0).state;
+  state.players[1].levelUpUsed = true; // 回合开始重置后补标记
   const realmId = state.players[0].realms[0].uid;
   const snapshot = captureBattleSnapshot(state);
 
@@ -192,6 +201,7 @@ test('gives realm destruction a high-priority central cue', () => {
   state = playCard(state, 0, putCardInHand(state, 0, 'wardline').instanceId).state;
   state.players[0].realms[0].hp = 1;
   state = endTurn(state, 0).state;
+  state.players[1].levelUpUsed = true; // 回合开始重置后补标记
   const realmId = state.players[0].realms[0].uid;
   const snapshot = captureBattleSnapshot(state);
 

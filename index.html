@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=37" />
-    <link rel="stylesheet" href="formation.css?v=37" />
-    <script type="module" src="app.js?v=37"></script>
+    <link rel="stylesheet" href="styles.css?v=39" />
+    <link rel="stylesheet" href="formation.css?v=39" />
+    <script type="module" src="app.js?v=39"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -190,23 +190,21 @@
           </div>
           <div class="battle-feedback" id="battle-feedback" aria-live="polite" aria-atomic="true"></div>
 
-          <!-- 敌方状态条 -->
-          <header class="side-strip foe-strip">
-            <div class="strip-identity">
-              <span class="hud-tag">敌阵 · AI</span>
-              <h1>失序体</h1>
+          <!-- 左上：敌方头像与资源 -->
+          <aside class="avatar-plate foe-plate enemy-core" aria-label="失序体状态">
+            <div class="avatar-disc foe" aria-hidden="true"><span>穢</span>
+              <strong class="core-badge"><b id="enemy-core-hp">30</b></strong>
             </div>
-            <div class="core-readout enemy-core">
-              <span class="core-label">核心稳定度</span>
-              <strong><b id="enemy-core-hp">30</b><em>/ 30</em></strong>
+            <div class="avatar-meta">
+              <small class="avatar-name">失序体 · AI</small>
               <div class="core-bar" aria-hidden="true"><i id="enemy-core-bar"></i></div>
+              <div class="foe-resources">
+                <span class="flame-pips" id="enemy-energy-pips" aria-label="敌方鬼火"></span>
+                <small><b id="enemy-energy">0</b>/<em id="enemy-max-energy">2</em></small>
+                <span class="hand-mini">手牌 <b id="enemy-hand">4</b></span>
+              </div>
             </div>
-            <dl class="hud-chips">
-              <div><dt>鬼火</dt><dd id="enemy-energy">0 / 2</dd></div>
-              <div><dt>牌库</dt><dd id="enemy-deck">28</dd></div>
-              <div><dt>手牌</dt><dd id="enemy-hand">4</dd></div>
-            </dl>
-          </header>
+          </aside>
 
           <!-- 战场 -->
           <div class="battlefield">
@@ -231,9 +229,6 @@
                   <button class="command-button attack-button" id="attack-button" type="button">
                     <span aria-hidden="true">击</span><span id="attack-label">出击</span><b>1</b>
                   </button>
-                  <button class="command-button end-turn-button" id="end-turn-button" type="button">
-                    结束回合 <span aria-hidden="true">→</span>
-                  </button>
                 </div>
               </section>
 
@@ -243,28 +238,43 @@
             <aside class="realm-column" id="player-realms" aria-label="己方幻境席"></aside>
           </div>
 
-          <!-- 己方状态条 -->
-          <header class="side-strip ally-strip">
-            <div class="strip-identity">
-              <span class="hud-tag">己方 · PLAYER</span>
-              <h2>巡界者</h2>
-            </div>
-            <div class="core-readout player-core">
-              <span class="core-label">核心稳定度</span>
-              <strong><b id="player-core-hp">30</b><em>/ 30</em></strong>
-              <div class="core-bar" aria-hidden="true"><i id="player-core-bar"></i></div>
-            </div>
-            <div class="energy-readout" aria-label="当前鬼火">
-              <span class="energy-glyph" aria-hidden="true">火</span>
-              <strong><b id="player-energy">2</b><i>/</i><em id="player-max-energy">2</em></strong>
-              <span class="energy-pips" id="energy-pips" aria-hidden="true"></span>
-            </div>
-            <dl class="hud-chips">
-              <div><dt>牌库</dt><dd id="player-deck">27</dd></div>
-              <div><dt>手牌</dt><dd id="player-hand-count">5</dd></div>
+          <!-- 右缘：双方待抽牌堆，中间为结束回合 -->
+          <aside class="deck-column" aria-label="牌库与回合控制">
+            <button class="deck-pile foe-deck" id="enemy-deck-pile" type="button" title="点击查看剩余张数">
+              <span class="pile-back" aria-hidden="true"></span>
+              <b class="pile-count" id="enemy-deck">28</b>
+              <small>敌方待抽</small>
+            </button>
+            <button class="command-button end-turn-button deck-end-turn" id="end-turn-button" type="button">
+              结束回合 <span aria-hidden="true">→</span>
+            </button>
+            <button class="deck-pile ally-deck" id="player-deck-pile" type="button" title="点击查看剩余张数">
+              <span class="pile-back" aria-hidden="true"></span>
+              <b class="pile-count" id="player-deck">27</b>
+              <small>我方待抽</small>
+            </button>
+            <dl class="visually-hidden">
+              <dt>我方手牌</dt><dd id="player-hand-count">5</dd>
             </dl>
-            <div class="keyword-statuses" id="keyword-statuses" aria-label="己方持续战斗状态" aria-live="polite"></div>
-          </header>
+          </aside>
+
+          <!-- 左下：我方头像与资源 -->
+          <aside class="avatar-plate ally-plate player-core" aria-label="巡界者状态">
+            <div class="avatar-disc ally" aria-hidden="true"><span>界</span>
+              <strong class="core-badge"><b id="player-core-hp">30</b></strong>
+            </div>
+            <div class="avatar-meta">
+              <small class="avatar-name">巡界者</small>
+              <div class="core-bar" aria-hidden="true"><i id="player-core-bar"></i></div>
+              <div class="ally-resources">
+                <span class="energy-glyph flame" aria-hidden="true">火</span>
+                <span class="flame-pips" id="energy-pips" aria-label="当前鬼火"></span>
+                <small class="energy-num"><b id="player-energy">2</b>/<em id="player-max-energy">2</em></small>
+                <span class="attack-marker" id="attack-marker" title="出击机会">击</span>
+                <div class="keyword-statuses" id="keyword-statuses" aria-label="己方持续战斗状态" aria-live="polite"></div>
+              </div>
+            </div>
+          </aside>
         </section>
 
         <section class="hand-zone" aria-labelledby="hand-title">

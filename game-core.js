@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=37';
+} from './game-content.js?v=39';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=37';
+} from './game-keywords.js?v=39';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=37';
+} from './game-content.js?v=39';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +55,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=37';
+} from './game-keywords.js?v=39';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -1125,7 +1125,15 @@ const EFFECT_CONDITION_HANDLERS = new Map([
   }],
 ]);
 
-export function getCardPlayability(state, playerIndex, instanceId) {
+// 升级阶段强制先行：本回合尚未升勾且存在可升级的存活角色时，需先完成升勾才能出牌/出击
+export function isUpgradePending(state, playerIndex) {
+  if (state.winner !== null || state.currentPlayer !== playerIndex) return false;
+  const player = state.players[playerIndex];
+  return !player.levelUpUsed
+    && player.units.some((unit) => unit.hp > 0 && unit.level < GAME_RULES.maxUnitLevel);
+}
+
+export function getCardPlayability(state, playerIndex, instanceId, options = {}) {
   const player = state.players[playerIndex];
   const instance = player?.hand.find((candidate) => candidate.instanceId === instanceId);
   const card = instance && getCardDefinition(instance.definitionId);
@@ -1141,6 +1149,9 @@ export function getCardPlayability(state, playerIndex, instanceId) {
     }
   } else if (state.currentPlayer !== playerIndex) {
     return { playable: false, code: 'turn', reason: '等待对手完成行动。' };
+  }
+  if (!options.skipUpgradeGate && isUpgradePending(state, playerIndex)) {
+    return { playable: false, code: 'upgrade', reason: '升级阶段：请先选择一名角色提升勾玉。' };
   }
   const effectiveCost = effectiveCardCostForDefinition(state, playerIndex, card);
   if (player.energy < effectiveCost) return { playable: false, code: 'energy', reason: `鬼火不足：需要 ${effectiveCost}，当前 ${player.energy}。` };
@@ -1797,6 +1808,7 @@ if (!contentValidation.valid) throw new Error(contentValidation.errors.join(' ')
 export function playCard(state, playerIndex, instanceId, targetId = null) {
   const playability = getCardPlayability(state, playerIndex, instanceId);
   if (!playability.playable) return { state, error: playability.reason };
+  if (isUpgradePending(state, playerIndex)) return { state, error: '升级阶段：请先选择一名角色提升勾玉。' };
 
   const next = clone(state);
   return commitCardPlayInPlace(next, playerIndex, instanceId, targetId);
@@ -1869,7 +1881,7 @@ function triggerAutomaticKeywordCards(state, playerIndex) {
       return trigger ? { instance, card, trigger } : null;
     })
     .filter(Boolean)
-    .filter(({ instance }) => getCardPlayability(state, playerIndex, instance.instanceId).playable)
+    .filter(({ instance }) => getCardPlayability(state, playerIndex, instance.instanceId, { skipUpgradeGate: true }).playable)
     .sort((left, right) => (right.trigger.priority - left.trigger.priority)
       || left.instance.instanceId.localeCompare(right.instance.instanceId));
   const selected = candidates[0];
@@ -1934,6 +1946,7 @@ export function basicAttack(state, playerIndex, unitId, targetId = null) {
   if (state.pendingChoice) return { state, error: '请先完成当前的占卜选择。' };
   if (state.responseWindow) return { state, error: '请先处理当前响应窗口。' };
   if (state.winner !== null || state.currentPlayer !== playerIndex) return { state, error: '现在不是你的行动阶段。' };
+  if (isUpgradePending(state, playerIndex)) return { state, error: '升级阶段：请先选择一名角色提升勾玉。' };
   const player = state.players[playerIndex];
   const unitIndex = unitIndexByUid(player, unitId);
   const unit = player.units[unitIndex];

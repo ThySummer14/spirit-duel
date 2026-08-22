@@ -8,3 +8,8 @@ export function deployToFront(state, playerIndex, unitId) {
   if (!unit || unit.hp <= 0) throw new Error('只能部署存活的角色到战斗区。');
   player.frontUnitId = unit.uid;
 }
+
+// 测试助手：标记升级阶段已完成（新规则要求升勾先于出牌/出击）
+export function completeUpgradePhase(state, playerIndex = 0) {
+  state.players[playerIndex].levelUpUsed = true;
+}

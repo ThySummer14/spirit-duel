@@ -21,15 +21,16 @@ import {
   getUnitDefinition,
   getValidCombatTargets,
   getValidTargets,
+  isUpgradePending,
   levelUpUnit,
   passResponse,
   playCard,
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=37';
-import { chooseAiCommand } from './game-ai.js?v=37';
-import { gameAudio } from './game-audio.js?v=37';
+} from './game-core.js?v=39';
+import { chooseAiCommand } from './game-ai.js?v=39';
+import { gameAudio } from './game-audio.js?v=39';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -41,18 +42,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=37';
+} from './game-collection.js?v=39';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=37';
+} from './game-presentation.js?v=39';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=37';
+} from './game-session.js?v=39';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -124,6 +125,11 @@ const nodes = {
   playerCore: document.querySelector('.player-core'),
   playerEnergy: document.querySelector('#player-energy'),
   playerMaxEnergy: document.querySelector('#player-max-energy'),
+  attackMarker: document.querySelector('#attack-marker'),
+  enemyEnergyPips: document.querySelector('#enemy-energy-pips'),
+  enemyMaxEnergy: document.querySelector('#enemy-max-energy'),
+  enemyDeckPile: document.querySelector('#enemy-deck-pile'),
+  playerDeckPile: document.querySelector('#player-deck-pile'),
   keywordStatuses: document.querySelector('#keyword-statuses'),
   playerDeck: document.querySelector('#player-deck'),
   playerHandCount: document.querySelector('#player-hand-count'),
@@ -1756,6 +1762,7 @@ function renderHandCard(instance, index, totalCount, freshIds) {
     'source-away': `${unit.name}气绝`,
     level: `需 ${definition.level} 勾`,
     frozen: `${unit.name}眩晕`,
+    'upgrade': '先升勾',
     'no-target': '暂无目标',
     finished: '对局结束',
     effect: '效果未接入',
@@ -1850,17 +1857,23 @@ function renderResources() {
   nodes.enemyCoreHp.textContent = enemy.avatarHp;
   nodes.enemyCoreBar.style.width = `${(enemy.avatarHp / enemy.maxAvatarHp) * 100}%`;
   nodes.enemyCoreBar.classList.toggle('is-low', enemy.avatarHp <= enemy.maxAvatarHp * 0.3);
-  nodes.enemyEnergy.textContent = `${enemy.energy} / ${enemy.maxEnergy}`;
+  nodes.enemyEnergy.textContent = enemy.energy;
+  nodes.enemyMaxEnergy.textContent = enemy.maxEnergy;
+  nodes.attackMarker.classList.toggle('is-used', player.attackUsed || Boolean(replaySession));
   nodes.enemyDeck.textContent = enemy.deck.length;
   nodes.enemyHand.textContent = enemy.hand.length;
   nodes.sessionButton.disabled = aiBusy || Boolean(replaySession);
   nodes.formationButton.disabled = Boolean(replaySession);
   nodes.restartButton.disabled = Boolean(replaySession);
-  nodes.energyPips.replaceChildren(...Array.from({ length: player.maxEnergy }, (_, index) => {
-    const pip = document.createElement('i');
-    pip.className = index < player.energy ? 'is-filled' : '';
-    return pip;
-  }));
+  const renderFlames = (container, filled, total) => {
+    container.replaceChildren(...Array.from({ length: total }, (_, index) => {
+      const pip = document.createElement('i');
+      pip.className = index < filled ? 'is-filled' : '';
+      return pip;
+    }));
+  };
+  renderFlames(nodes.energyPips, player.energy, player.maxEnergy);
+  renderFlames(nodes.enemyEnergyPips, enemy.energy, enemy.maxEnergy);
   const keywordStatuses = getPlayerKeywordStatuses(player);
   nodes.keywordStatuses.replaceChildren(...keywordStatuses.map((status) => {
     const item = document.createElement('span');
@@ -2027,7 +2040,9 @@ function renderCommands() {
   const playerResponding = !replaySession && displayedGame.responseWindow?.playerIndex === 0 && displayedGame.winner === null;
   const userTurn = !replaySession && displayedGame.currentPlayer === 0 && !aiBusy && displayedGame.winner === null && !displayedGame.responseWindow;
   const turnMode = replaySession ? 'replay' : displayedGame.winner !== null ? 'over' : playerResponding ? 'response' : userTurn ? 'player' : 'enemy';
-  const canAttack = userTurn && !selectedCardId && attacker && attacker.hp > 0 && attacker.frozen === 0 && player.energy > 0 && !player.attackUsed;
+  // 升级阶段强制先行：未完成升勾时禁止出击
+  const upgradePending = isUpgradePending(displayedGame, 0);
+  const canAttack = userTurn && !upgradePending && !selectedCardId && attacker && attacker.hp > 0 && attacker.frozen === 0 && player.energy > 0 && !player.attackUsed;
   const canLevel = userTurn && !selectedCardId && attacker && attacker.level < GAME_RULES.maxUnitLevel && !player.levelUpUsed;
   nodes.attackButton.disabled = !canAttack;
   nodes.levelButton.disabled = !canLevel;
@@ -2061,6 +2076,8 @@ function renderCommands() {
   const selected = currentSelectedCard();
   if (replaySession) {
     nodes.actionPrompt.textContent = replaySession.labels[replaySession.cursor];
+  } else if (upgradePending) {
+    nodes.actionPrompt.textContent = '升级阶段：点击一名角色，为其提升勾玉。';
   } else if (selected) {
     const card = getCardDefinition(selected.definitionId);
     const prompts = {
@@ -2170,6 +2187,11 @@ function handleUnitClick(ownerIndex, unitId) {
   }
   const unit = unitByUid(game.players[ownerIndex], unitId);
   if (ownerIndex === 0 && unit?.hp > 0) {
+    // 升级阶段强制先行：点选存活角色立即升勾
+    if (isUpgradePending(game, 0)) {
+      handleLevelUp(unitId);
+      return;
+    }
     if (selectedAttackUnitId !== unitId) gameAudio.selectTick();
     selectedAttackUnitId = unitId;
     render();
@@ -2230,9 +2252,10 @@ function handleAttack() {
   performBasicAttack(selectedAttackUnitId);
 }
 
-function handleLevelUp() {
+function handleLevelUp(unitId = selectedAttackUnitId) {
   if (replaySession) return;
-  const result = levelUpUnit(game, 0, selectedAttackUnitId);
+  selectedAttackUnitId = unitId;
+  const result = levelUpUnit(game, 0, unitId);
   if (result.error) {
     announce(result.error, 'danger');
     return;
@@ -2419,6 +2442,12 @@ nodes.formationButton.addEventListener('click', showFormation);
 nodes.attackButton.addEventListener('click', handleAttack);
 attachBattleDrop(nodes.playerBattle);
 attachBattleDrop(nodes.enemyBattle);
+nodes.enemyDeckPile.addEventListener('click', () => {
+  announce(`敌方牌库剩余 ${displayedGame.players[1].deck.length} 张待抽。`, 'neutral');
+});
+nodes.playerDeckPile.addEventListener('click', () => {
+  announce(`我方牌库剩余 ${displayedGame.players[0].deck.length} 张待抽。`, 'neutral');
+});
 // 卡牌拖拽落点：准备区行（友方/敌方目标）、战斗区带（战斗牌目标）、敌方幻境席
 [nodes.playerUnits, nodes.enemyUnits, nodes.playerBattle, nodes.enemyBattle, nodes.enemyRealms]
   .forEach(attachCardDropTarget);

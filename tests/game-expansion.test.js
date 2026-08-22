@@ -16,10 +16,12 @@ function putCardInHand(state, playerIndex, definitionId) {
   const instance = { instanceId: `test-${definitionId}-${state.players[playerIndex].hand.length}`, definitionId };
   state.players[playerIndex].hand.push(instance);
   return instance;
+  state.players[playerIndex].levelUpUsed = true; // 新规则：出牌前需完成升级阶段
 }
 
 function play(state, playerIndex, definitionId, targetId = null) {
   const instance = putCardInHand(state, playerIndex, definitionId);
+  state.players[playerIndex].levelUpUsed = true; // 新规则：任意回合出牌前需完成升勾
   const result = playCard(state, playerIndex, instance.instanceId, targetId);
   assert.equal(result.error, null);
   let current = result.state;

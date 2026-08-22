@@ -14,11 +14,15 @@ import {
 
 function beginAiTurn(options = {}) {
   const state = createGame({ seed: 701, ...options });
+  // 默认跳过强制升勾阶段；AI 的升级决策在专门用例中验证
+  state.players[0].levelUpUsed = true;
+  state.players[1].levelUpUsed = true;
   return endTurn(state, 0).state;
 }
 
 function putCardInHand(state, playerIndex, definitionId) {
   const instance = { instanceId: `ai-test-${definitionId}`, definitionId };
+  state.players[playerIndex].levelUpUsed = true; // 新规则：出牌前需完成升级阶段
   state.players[playerIndex].hand.push(instance);
   return instance;
 }
@@ -176,6 +180,8 @@ test('targets and destroys a low-durability enemy realm without mutating the sup
   state.players[0].frontUnitId = guarded.uid;
   guarded.shield = 20;
   state = endTurn(state, 0).state;
+  // 回合开始会重置升勾标记：AI 行动前视为已完成升级阶段
+  state.players[1].levelUpUsed = true;
   state.players[1].hand = [];
   const snapshot = structuredClone(state);
   const realmId = state.players[0].realms[0].uid;

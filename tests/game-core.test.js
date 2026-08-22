@@ -8,9 +8,9 @@ import {
   GAME_RULES,
   GAME_STATE_VERSION,
   basicAttack,
+  createGame as rawCreateGame,
   canPlayCard,
   createDefaultDeckDefinition,
-  createGame,
   deserializeGame,
   drawCards,
   endTurn,
@@ -18,6 +18,7 @@ import {
   getEffectiveCardCost,
   getCardPlayability,
   getRound,
+  isUpgradePending,
   getValidCombatTargets,
   levelUpUnit,
   passResponse,
@@ -28,12 +29,20 @@ import {
   validateDeckDefinition,
 } from '../game-core.js';
 
+// 新规则：升勾先于出牌/出击。除升勾专项用例外，默认升级阶段已完成。
+function createGame(input = undefined) {
+  const state = rawCreateGame(input);
+  state.players.forEach((player) => { player.levelUpUsed = true; });
+  return state;
+}
+
 function findCard(state, playerIndex, definitionId) {
   return state.players[playerIndex].hand.find((card) => card.definitionId === definitionId);
 }
 
 function putCardInHand(state, playerIndex, definitionId) {
   const instance = { instanceId: `test-${definitionId}-${state.players[playerIndex].hand.length}`, definitionId };
+  state.players[playerIndex].levelUpUsed = true; // 新规则：出牌前需完成升级阶段
   state.players[playerIndex].hand.push(instance);
   return instance;
 }
@@ -599,6 +608,7 @@ test('a countdown realm ticks on owner turns, triggers at zero, and resets', () 
   const defenderUid = state.players[1].units[0].uid;
   const hpBefore = state.players[1].units[0].hp;
   state = endTurn(state, 0).state;
+  state.players[1].levelUpUsed = true; // 回合开始重置后补标记
   state = basicAttack(state, 1, defenderUid).state;
   state = endTurn(state, 1).state;
 
@@ -775,9 +785,11 @@ test('a reserve unit moves into the front line when it attacks', () => {
 });
 
 test('one unit can level up per turn and unlock higher-level cards', () => {
-  const state = createGame(24);
-  const form = putCardInHand(state, 0, 'ember-form');
-  assert.equal(getCardPlayability(state, 0, form.instanceId).code, 'level');
+  const state = rawCreateGame(24);
+  // 手动塞牌：保留未完成升级阶段的初始状态以验证升勾流程
+  const form = { instanceId: 'test-ember-form-manual', definitionId: 'ember-form' };
+  state.players[0].hand.push(form);
+  assert.equal(getCardPlayability(state, 0, form.instanceId).code, 'upgrade');
 
   const leveled = levelUpUnit(state, 0, state.players[0].units[0].uid);
   assert.equal(leveled.error, null);
@@ -918,8 +930,9 @@ test('storm passive damages the enemy core only after a reserve attack', () => {
   assert.equal(state.players[1].avatarHp, 29);
 
   state = endTurn(endTurn(state, 0).state, 1).state;
-  // 回合开始归位后重新出击部署，保证敌方战斗区仍有人
+  // 回合开始归位后重新出击部署，保证敌方战斗区仍有人；升勾标记随回合重置，先补上
   state.players[1].frontUnitId = defender.uid;
+  state.players[0].levelUpUsed = true;
   // 霓鸢已归位准备区，再次出击仍是从后场换入，追风再次生效
   state = basicAttack(state, 0, stormUid).state;
   assert.equal(state.players[1].avatarHp, 28);
@@ -1038,6 +1051,7 @@ test('a basic attack can target a realm without damaging the front or taking cou
   state = playCard(state, 0, putCardInHand(state, 0, 'wardline').instanceId).state;
   state.players[0].frontUnitId = state.players[0].units.find((unit) => unit.id === 'basalt').uid;
   state = endTurn(state, 0).state;
+  state.players[1].levelUpUsed = true; // 回合开始重置后补标记
 
   const realmId = state.players[0].realms[0].uid;
   const attacker = state.players[1].units[1];
@@ -1061,6 +1075,7 @@ test('destroying a realm removes it immediately and records damage before destru
   state.players[0].realms[0].hp = 1;
   const realmId = state.players[0].realms[0].uid;
   state = endTurn(state, 0).state;
+  state.players[1].levelUpUsed = true; // 回合开始重置后补标记
 
   const realmAttacker = state.players[1].units[0];
   state.players[1].frontUnitId = realmAttacker.uid;
@@ -1181,4 +1196,28 @@ test('attacking with a second unit replaces the battle-zone occupant back to res
   ));
   assert.equal(enteredEvents.length, 1);
   assert.equal(enteredEvents[0].payload.previousFrontUnitId, first.uid, '被替换角色回到准备区');
+});
+
+test('upgrade phase is enforced before playing cards or attacking', () => {
+  const state = rawCreateGame(17);
+  // 新回合未升勾且有可升级角色时：出牌与出击都被拦截（手动塞牌避免助手改写升勾标记）
+  assert.equal(isUpgradePending(state, 0), true);
+  state.players[0].hand.push({ instanceId: 'manual-mend', definitionId: 'mend' });
+  const allyUid = state.players[0].units[1].uid;
+  assert.equal(playCard(state, 0, 'manual-mend', allyUid).error, '升级阶段：请先选择一名角色提升勾玉。');
+  assert.match(basicAttack(state, 0, state.players[0].units[0].uid).error, /升级阶段/);
+
+  // 升勾后解除限制
+  const leveled = levelUpUnit(state, 0, state.players[0].units[0].uid);
+  assert.equal(leveled.error, null);
+  assert.equal(isUpgradePending(leveled.state, 0), false);
+  assert.equal(getCardPlayability(leveled.state, 0, 'manual-mend', {}).code, 'ready');
+  assert.equal(playCard(leveled.state, 0, 'manual-mend', allyUid).error, null);
+
+  // 全员满勾时不再强制
+  const maxed = rawCreateGame(18);
+  maxed.players.forEach((player) => {
+    player.units.forEach((unit) => { unit.level = GAME_RULES.maxUnitLevel; });
+  });
+  assert.equal(isUpgradePending(maxed, 0), false);
 });

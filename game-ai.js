@@ -1,6 +1,7 @@
 import {
   basicAttack,
   canPlayCard,
+  isUpgradePending,
   getCardDefinition,
   getCardPlayability,
   getValidCombatTargets,
@@ -9,7 +10,7 @@ import {
   passResponse,
   playCard,
   resolveDivinationChoice,
-} from './game-core.js?v=37';
+} from './game-core.js?v=39';
 
 const WIN_SCORE = 1_000_000;
 
@@ -242,6 +243,15 @@ export function chooseAiCommand(state, playerIndex = 1) {
   }
   if (state.currentPlayer !== playerIndex) {
     return { type: 'end-turn', score: 0, reason: '当前没有可执行的 AI 行动。' };
+  }
+
+  // 升级阶段强制先行：必须先完成升勾才能出牌或出击
+  if (isUpgradePending(state, playerIndex)) {
+    const upgrades = createLevelCandidates(state, playerIndex)
+      .sort((first, second) => (second.score - first.score) || (commandTieBreak(second) - commandTieBreak(first)));
+    if (upgrades.length) {
+      return { ...upgrades[0], reason: `升级阶段：${upgrades[0].reason}` };
+    }
   }
 
   const candidates = [
