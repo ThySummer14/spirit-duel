@@ -2330,6 +2330,23 @@ html[data-theme="day"] .attack-button b.is-unaffordable { color: var(--danger); 
 html[data-theme="day"] .cancel-button:not(:disabled) { color: var(--danger); }
 
 /* ================= 角落头像盘（左上敌方 / 左下我方） + 右缘牌库列 ================= */
+/* 准备区行两侧留白，避免角落头像压住首尾卡牌 */
+.unit-row { padding-inline: clamp(96px, 12vw, 170px); }
+@media (max-width: 760px) {
+  .unit-row { padding-inline: 78px; }
+  .unit-card { flex: 0 1 auto; min-width: 0; }
+  .avatar-plate { transform: scale(0.86); transform-origin: left center; }
+  .foe-plate { transform-origin: left top; }
+  .ally-plate { transform-origin: left bottom; }
+  .deck-pile { width: 62px; height: 88px; }
+  .deck-column { right: 8px; gap: 12px; }
+  .deck-end-turn { width: 70px; padding: 9px 4px; font-size: 12px; }
+}
+@media (max-width: 540px) {
+  .unit-row { padding-inline: 46px; gap: 4px; }
+  .avatar-plate { transform: scale(0.72); }
+  .avatar-plate .core-bar { width: 96px; }
+}
 .avatar-plate {
   position: absolute;
   left: 16px;
@@ -2475,7 +2492,7 @@ html[data-theme="day"] .core-badge { background: #fffdf5; color: #5c4a1e; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 22px;
 }
 .deck-pile {
   position: relative;
@@ -2522,18 +2539,159 @@ html[data-theme="day"] .pile-back {
   color: var(--gold-bright);
 }
 html[data-theme="day"] .deck-pile .pile-count { background: #fffdf5; color: #5c4a1e; }
+/* 标签收进牌堆内部底沿，避免与相邻元素重叠 */
 .deck-pile small {
   position: absolute;
-  bottom: -20px;
+  bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgb(10 12 20 / 0.72);
   font-size: 9px;
-  letter-spacing: 0.24em;
-  color: var(--text-dim);
+  letter-spacing: 0.18em;
+  color: var(--gold-bright);
 }
+html[data-theme="day"] .deck-pile small { background: rgb(255 253 245 / 0.85); color: #7d5c1c; }
 .deck-end-turn {
   width: 84px;
   padding: 11px 6px;
   justify-content: center;
+}
+
+/* ================= 拖动期间隐藏检视浮层 ================= */
+body.is-dragging .unit-inspect { opacity: 0 !important; transition: none; }
+
+/* ================= 未激活（0 勾）角色 ================= */
+.unit-card.is-dormant { filter: grayscale(0.55) brightness(0.82); }
+.unit-card.is-dormant .unit-health { display: none; }
+.unit-card.is-dormant::after {
+  content: "未激活";
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-14deg);
+  z-index: 5;
+  padding: 2px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: rgb(20 20 26 / 0.72);
+  color: var(--text-dim);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+html[data-theme="day"] .unit-card.is-dormant::after { background: rgb(250 248 240 / 0.82); }
+.status-dormant { border-color: var(--rule); color: var(--text-dim); }
+
+/* ================= 幻境小方块（头像下方） ================= */
+.realm-mini-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-height: 20px;
+}
+.realm-chip.is-mini {
+  position: relative;
+  width: 44px;
+  height: 34px;
+  padding: 2px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.realm-chip.is-mini .realm-mini-name {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--paper-dim);
+  white-space: nowrap;
+}
+.realm-chip.is-mini .realm-mini-hp {
+  font-family: var(--font-display);
+  font-size: 12px;
+  line-height: 1;
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ================= 幻境预览弹层 ================= */
+.realm-preview-dialog {
+  border: none;
+  padding: 0;
+  background: none;
+}
+.realm-preview-dialog::backdrop { background: rgb(8 10 18 / 0.55); backdrop-filter: blur(3px); }
+.realm-preview-shell { min-width: min(360px, 86vw); }
+.realm-preview-body { padding: 4px 2px 10px; display: flex; flex-direction: column; gap: 8px; }
+.realm-preview-vital {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+.realm-preview-vital b { font-family: var(--font-display); font-size: 16px; color: var(--paper); }
+.realm-preview-vital span { color: var(--gold-bright); }
+.realm-preview-text {
+  margin: 0;
+  padding: 10px 12px;
+  border-left: 2px solid rgb(212 175 90 / 0.5);
+  border-radius: 0 8px 8px 0;
+  background: rgb(var(--panel-soft-rgb) / 0.75);
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--paper-dim);
+}
+
+/* ================= 开局调度条 ================= */
+.mulligan-bar {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 14px;
+  border: 1px solid rgb(212 175 90 / 0.5);
+  border-radius: 999px;
+  background: rgb(var(--panel-raised-rgb) / 0.95);
+  box-shadow: var(--shadow-1), inset 0 0 0 1px rgb(212 175 90 / 0.12);
+  white-space: nowrap;
+}
+.mulligan-hint {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--paper-dim);
+}
+.mulligan-hint b {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--gold-bright);
+}
+.hand-card.is-mulligan { cursor: pointer; }
+.hand-card.is-mulligan::after {
+  content: "换";
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 6;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgb(212 175 90 / 0.7);
+  background: rgb(212 175 90 / 0.16);
+  color: var(--gold-bright);
+  font-size: 11px;
+  pointer-events: none;
 }

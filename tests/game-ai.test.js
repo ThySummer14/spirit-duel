@@ -15,8 +15,10 @@ import {
 function beginAiTurn(options = {}) {
   const state = createGame({ seed: 701, ...options });
   // 默认跳过强制升勾阶段；AI 的升级决策在专门用例中验证
-  state.players[0].levelUpUsed = true;
-  state.players[1].levelUpUsed = true;
+  state.players.forEach((player) => {
+    player.levelUpUsed = true;
+    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  });
   return endTurn(state, 0).state;
 }
 
@@ -113,6 +115,9 @@ test('uses response priority during the player turn when preventing damage is be
   state.players[1].energy = 2;
   state.players[0].hand = [];
   state.players[1].hand = [];
+  state.players.forEach((player) => {
+    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  });
   const damage = putCardInHand(state, 0, 'cinder-mark');
   const response = putCardInHand(state, 1, 'hoar-barrier');
   const target = state.players[1].units.find((unit) => unit.id === 'rime');
@@ -135,6 +140,9 @@ test('passes response priority instead of ending the current turn when no respon
   state.players[1].energy = 0;
   state.players[0].hand = [];
   state.players[1].hand = [];
+  state.players.forEach((player) => {
+    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  });
   const damage = putCardInHand(state, 0, 'cinder-mark');
   putCardInHand(state, 0, 'hoar-barrier');
   putCardInHand(state, 1, 'hoar-barrier');
@@ -172,6 +180,10 @@ test('does not mutate the supplied state', () => {
 
 test('targets and destroys a low-durability enemy realm without mutating the supplied state', () => {
   let state = createGame(702);
+  state.players.forEach((player) => {
+    player.levelUpUsed = true;
+    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  });
   state.players[0].units.find((unit) => unit.id === 'basalt').level = 3;
   state.players[0].energy = 10;
   state = playCard(state, 0, putCardInHand(state, 0, 'wardline').instanceId).state;

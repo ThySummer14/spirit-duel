@@ -17,20 +17,22 @@ import {
   getPlayerKeywordStatuses,
   getUnitKeywordStatuses,
   getKeywordStatusText,
+  canMulligan,
   getRound,
   getUnitDefinition,
   getValidCombatTargets,
   getValidTargets,
   isUpgradePending,
   levelUpUnit,
+  mulliganCard,
   passResponse,
   playCard,
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=39';
-import { chooseAiCommand } from './game-ai.js?v=39';
-import { gameAudio } from './game-audio.js?v=39';
+} from './game-core.js?v=46';
+import { chooseAiCommand } from './game-ai.js?v=46';
+import { gameAudio } from './game-audio.js?v=46';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -42,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=39';
+} from './game-collection.js?v=46';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=39';
+} from './game-presentation.js?v=46';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=39';
+} from './game-session.js?v=46';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -130,6 +132,12 @@ const nodes = {
   enemyMaxEnergy: document.querySelector('#enemy-max-energy'),
   enemyDeckPile: document.querySelector('#enemy-deck-pile'),
   playerDeckPile: document.querySelector('#player-deck-pile'),
+  mulliganBar: document.querySelector('#mulligan-bar'),
+  mulliganHint: document.querySelector('#mulligan-hint'),
+  mulliganDoneButton: document.querySelector('#mulligan-done-button'),
+  realmPreviewDialog: document.querySelector('#realm-preview-dialog'),
+  realmPreviewTitle: document.querySelector('#realm-preview-title'),
+  realmPreviewBody: document.querySelector('#realm-preview-body'),
   keywordStatuses: document.querySelector('#keyword-statuses'),
   playerDeck: document.querySelector('#player-deck'),
   playerHandCount: document.querySelector('#player-hand-count'),
@@ -240,6 +248,8 @@ let feedbackClearTimer = null;
 let draggedAttackUnitId = null;
 // 正在拖拽施放的手牌实例 id（法术 / 治疗 / 战斗牌拖到目标身上触发）
 let draggedCardInstanceId = null;
+// 开局调度条被玩家手动关闭
+let mulliganDismissed = false;
 let lastFeedbackSfxKey = '';
 let lastResponseWindowKey = '';
 let lastHandInstanceIds = new Set();
@@ -1193,7 +1203,7 @@ function renderUnit(unit, ownerIndex, placement) {
   const isValidTarget = isCombatCardTarget || (validTargets.includes(unit.uid)
     && ((isPlayer && ['ally-unit', 'knocked-ally'].includes(targetMode)) || (!isPlayer && targetMode === 'enemy-unit')));
   const viewAttackUnitId = replaySession ? frontUidOf(player) : selectedAttackUnitId;
-  const canSelectForAttack = !replaySession && isPlayer && unit.hp > 0 && !viewSelectedCardId && displayedGame.currentPlayer === 0 && !aiBusy;
+  const canSelectForAttack = !replaySession && isPlayer && unit.hp > 0 && unit.level >= 1 && !viewSelectedCardId && displayedGame.currentPlayer === 0 && !aiBusy;
   const selectedAttacker = unitByUid(player, viewAttackUnitId);
   const attackReady = !replaySession
     && !viewSelectedCardId
@@ -1207,11 +1217,20 @@ function renderUnit(unit, ownerIndex, placement) {
   const willBeHit = ownerIndex === 1 && owner.frontUnitId === unit.uid && unit.hp > 0 && attackReady;
   const isTargetMuted = Boolean(viewSelectedCardId) && !isValidTarget;
   const impact = visualFeedback.unitImpacts.get(unit.uid);
-  const isInteractive = isValidTarget || canSelectForAttack;
+  // 升级阶段：未激活/可升勾的己方存活角色也要可点（点击即升勾）
+  const upgradeSelectable = isPlayer
+    && !replaySession
+    && displayedGame.currentPlayer === 0
+    && !aiBusy
+    && displayedGame.winner === null
+    && unit.hp > 0
+    && isUpgradePending(displayedGame, 0);
+  const isInteractive = isValidTarget || canSelectForAttack || upgradeSelectable;
   const canDragToFront = isPlayer
     && !replaySession
     && placement === 'reserve'
     && unit.hp > 0
+    && unit.level >= 1
     && unit.frozen === 0
     && !viewSelectedCardId
     && displayedGame.currentPlayer === 0
@@ -1231,6 +1250,7 @@ function renderUnit(unit, ownerIndex, placement) {
   card.classList.toggle('is-target-muted', isTargetMuted);
   card.classList.toggle('will-be-hit', willBeHit);
   card.classList.toggle('is-away', unit.hp <= 0);
+  card.classList.toggle('is-dormant', unit.level < 1);
   card.classList.toggle('is-attacking', Boolean(impact?.isAttacker && !impact.isRemoteAttacker));
   card.classList.toggle('is-remote-attacking', Boolean(impact?.isRemoteAttacker));
   card.classList.toggle('is-keyword-empowered', Boolean(impact?.isKeywordEmpowered));
@@ -1241,7 +1261,7 @@ function renderUnit(unit, ownerIndex, placement) {
   card.classList.toggle('is-returned', Boolean(impact?.returned));
   card.disabled = !isInteractive;
   card.draggable = canDragToFront;
-  card.setAttribute('aria-label', `${unit.name}，${placement === 'front' ? '战斗区' : '准备区'}，${unit.level} 勾玉，攻击 ${unit.attack}，生命 ${unit.hp}/${unit.maxHp}${unit.shield ? `，护盾 ${unit.shield}` : ''}`);
+  card.setAttribute('aria-label', `${unit.name}，${placement === 'front' ? '战斗区' : '准备区'}，${unit.level < 1 ? '未激活' : `${unit.level} 勾玉`}，攻击 ${unit.attack}，生命 ${unit.hp}/${unit.maxHp}${unit.shield ? `，护盾 ${unit.shield}` : ''}`);
   card.title = `${unit.passive.name}：${unit.passive.text}`;
 
   const art = document.createElement('span');
@@ -1290,6 +1310,10 @@ function renderUnit(unit, ownerIndex, placement) {
   statuses.className = 'unit-statuses';
   // 检视层状态签：{ cls, text }
   const inspectTags = [];
+  if (unit.level < 1) {
+    statuses.append(makeStatus('眠', 'status-dormant', '未激活：提升勾玉后才可出击、被选中或使用其卡牌'));
+    inspectTags.push({ cls: 'status-dormant', text: '未激活 · 0 勾' });
+  }
   // 关键词效果：完整说明单独成节
   const keywordNotes = [];
   if (isPlayer && viewAttackUnitId === unit.uid && !viewSelectedCardId && !replaySession && unit.hp > 0) {
@@ -1446,11 +1470,13 @@ function renderUnit(unit, ownerIndex, placement) {
       selectedAttackUnitId = unit.uid;
       event.dataTransfer.effectAllowed = 'move';
       event.dataTransfer.setData('text/plain', unit.uid);
+      document.body.classList.add('is-dragging');
       requestAnimationFrame(() => card.classList.add('is-dragging'));
       markDropZones();
     });
     card.addEventListener('dragend', () => {
       draggedAttackUnitId = null;
+      document.body.classList.remove('is-dragging');
       card.classList.remove('is-dragging');
       clearDropZones();
     });
@@ -1470,6 +1496,7 @@ function renderUnit(unit, ownerIndex, placement) {
       event.preventDefault();
       const unitId = draggedAttackUnitId ?? event.dataTransfer.getData('text/plain');
       draggedAttackUnitId = null;
+      document.body.classList.remove('is-dragging');
       clearDropZones();
       if (unitId) performBasicAttack(unitId);
     });
@@ -1525,6 +1552,7 @@ function attachCardDropTarget(container) {
     event.preventDefault();
     const instanceId = draggedCardInstanceId;
     draggedCardInstanceId = null;
+    document.body.classList.remove('is-dragging');
     clearDropZones();
     commitCard(instanceId, el.dataset.unitId ?? el.dataset.realmId ?? null);
   });
@@ -1547,11 +1575,17 @@ function clearDropZones() {
 }
 
 function renderRealmColumn(column, player, ownerIndex) {
-  const label = document.createElement('span');
-  label.className = 'zone-label';
-  label.textContent = ownerIndex === 0 ? '己方幻境' : '敌方幻境';
-  column.replaceChildren(label);
+  const mini = column.classList.contains('realm-mini-row');
+  if (!mini) {
+    const label = document.createElement('span');
+    label.className = 'zone-label';
+    label.textContent = ownerIndex === 0 ? '己方幻境' : '敌方幻境';
+    column.replaceChildren(label);
+  } else {
+    column.replaceChildren();
+  }
   if (!player.realms.length) {
+    if (mini) return;
     const empty = document.createElement('span');
     empty.className = 'realm-empty';
     empty.textContent = '未部署';
@@ -1587,18 +1621,28 @@ function renderRealmColumn(column, player, ownerIndex) {
     chip.classList.toggle('is-target', isTarget);
     chip.classList.toggle('is-target-muted', Boolean(viewSelectedCardId) && !isCardTarget);
     chip.classList.toggle('is-hit', Boolean(impact?.hpDelta < 0));
-    chip.disabled = !isTarget;
+    chip.classList.toggle('is-mini', mini);
+    chip.disabled = mini ? false : !isTarget;
     const keywordStatus = getKeywordStatusText(realm);
     const keywordSuffix = keywordStatus ? ` · ${keywordStatus}` : '';
     chip.title = `${realm.text}${keywordSuffix}`;
-    chip.innerHTML = `<span class="realm-title"><b>${realm.name}</b><small>${keywordSuffix || '持续生效'}</small></span><span class="realm-vital"><strong>${realm.hp}</strong><small>/ ${realm.maxHp} 耐久</small></span><span class="realm-health"><i style="width:${Math.max(0, (realm.hp / realm.maxHp) * 100)}%"></i></span>`;
+    chip.innerHTML = mini
+      ? `<span class="realm-mini-name">${realm.name.slice(0, 2)}</span><b class="realm-mini-hp">${realm.hp}</b>`
+      : `<span class="realm-title"><b>${realm.name}</b><small>${keywordSuffix || '持续生效'}</small></span><span class="realm-vital"><strong>${realm.hp}</strong><small>/ ${realm.maxHp} 耐久</small></span><span class="realm-health"><i style="width:${Math.max(0, (realm.hp / realm.maxHp) * 100)}%"></i></span>`;
     if (impact?.hpDelta) {
       const number = document.createElement('span');
       number.className = 'realm-impact-number';
       number.textContent = String(impact.hpDelta);
       chip.append(number);
     }
-    chip.addEventListener('click', () => handleRealmClick(ownerIndex, realm.uid));
+    chip.addEventListener('click', () => {
+      // 迷你方块：可作目标时按目标处理，否则弹出效果预览
+      if (mini && !isTarget && !replaySession) {
+        openRealmPreview(realm);
+        return;
+      }
+      handleRealmClick(ownerIndex, realm.uid);
+    });
     if (ownerIndex === 1 && !replaySession) {
       // 拖拽己方角色到敌方幻境 = 指定该幻境出击
       chip.addEventListener('dragover', (event) => {
@@ -1661,6 +1705,7 @@ function attachBattleDrop(container) {
     event.preventDefault();
     const unitId = draggedAttackUnitId ?? event.dataTransfer.getData('text/plain');
     draggedAttackUnitId = null;
+    document.body.classList.remove('is-dragging');
     clearDropZones();
     if (unitId) performBasicAttack(unitId);
   });
@@ -1706,7 +1751,9 @@ function renderHandCard(instance, index, totalCount, freshIds) {
   const costIsReduced = effectiveCost < definition.cost;
   const costReductionLabel = costIsReduced ? getKeywordCostReductionLabel(definition) : null;
   const playerResponding = displayedGame.responseWindow?.playerIndex === 0;
-  const playable = !replaySession && playability.playable && (!aiBusy || playerResponding);
+  // 开局调度阶段：所有手牌可点击（点击即替换），不受升勾/费用限制
+  const mulliganActive = !replaySession && !mulliganDismissed && canMulligan(displayedGame, 0);
+  const playable = mulliganActive || (!replaySession && playability.playable && (!aiBusy || playerResponding));
   const card = document.createElement('button');
   card.type = 'button';
   card.className = 'hand-card';
@@ -1715,6 +1762,7 @@ function renderHandCard(instance, index, totalCount, freshIds) {
   card.classList.toggle('is-selected', !replaySession && selectedCardId === instance.instanceId);
   card.classList.toggle('is-blocked', !playable);
   card.classList.toggle('is-drawn', !replaySession && freshIds.has(instance.instanceId));
+  card.classList.toggle('is-mulligan', !replaySession && !mulliganDismissed && canMulligan(displayedGame, 0));
   // 扇形排布：以手牌中位为轴，边缘卡牌微微旋转
   const fanStep = Math.min(3.2, 26 / Math.max(totalCount, 1));
   const mid = (totalCount - 1) / 2;
@@ -1763,6 +1811,7 @@ function renderHandCard(instance, index, totalCount, freshIds) {
     level: `需 ${definition.level} 勾`,
     frozen: `${unit.name}眩晕`,
     'upgrade': '先升勾',
+    'source-dormant': '未激活',
     'no-target': '暂无目标',
     finished: '对局结束',
     effect: '效果未接入',
@@ -1785,11 +1834,13 @@ function renderHandCard(instance, index, totalCount, freshIds) {
       draggedCardInstanceId = instance.instanceId;
       event.dataTransfer.effectAllowed = 'move';
       event.dataTransfer.setData('text/plain', instance.instanceId);
+      document.body.classList.add('is-dragging');
       requestAnimationFrame(() => card.classList.add('is-dragging'));
       markCardDropZones(definition);
     });
     card.addEventListener('dragend', () => {
       draggedCardInstanceId = null;
+      document.body.classList.remove('is-dragging');
       card.classList.remove('is-dragging');
       clearDropZones();
     });
@@ -1884,6 +1935,13 @@ function renderResources() {
     return item;
   }));
   nodes.keywordStatuses.hidden = keywordStatuses.length === 0;
+  // 开局调度条：首回合行动前可替换最多 2 张手牌
+  const mulliganActive = !replaySession && !mulliganDismissed && canMulligan(game, 0);
+  nodes.mulliganBar.hidden = !mulliganActive;
+  if (mulliganActive) {
+    const left = GAME_RULES.mulliganCount - game.players[0].mulligansUsed;
+    nodes.mulliganHint.innerHTML = `开局调度：点击手牌替换，剩余 <b>${left}</b> 次`;
+  }
 }
 
 function renderDivinationDialog() {
@@ -2149,6 +2207,19 @@ function render() {
 
 function handleCardClick(instance) {
   if (replaySession) return;
+  // 开局调度：点击手牌直接替换
+  if (!mulliganDismissed && canMulligan(game, 0)) {
+    const swap = mulliganCard(game, 0, instance.instanceId);
+    if (swap.error) {
+      announce(swap.error, 'danger');
+      return;
+    }
+    game = swap.state;
+    recordCommand({ type: 'mulligan', playerIndex: 0, instanceId: instance.instanceId });
+    gameAudio.cardDraw?.();
+    render();
+    return;
+  }
   const playability = getCardPlayability(game, 0, instance.instanceId);
   const playerResponding = game.responseWindow?.playerIndex === 0;
   if (!playability.playable || (aiBusy && !playerResponding)) {
@@ -2448,6 +2519,24 @@ nodes.enemyDeckPile.addEventListener('click', () => {
 nodes.playerDeckPile.addEventListener('click', () => {
   announce(`我方牌库剩余 ${displayedGame.players[0].deck.length} 张待抽。`, 'neutral');
 });
+nodes.mulliganDoneButton.addEventListener('click', () => {
+  mulliganDismissed = true;
+  render();
+});
+nodes.realmPreviewDialog.addEventListener('close', () => {
+  nodes.realmPreviewBody.replaceChildren();
+});
+
+/** 幻境小方块点击：弹出效果预览 */
+function openRealmPreview(realm) {
+  if (replaySession) return;
+  nodes.realmPreviewTitle.textContent = realm.name;
+  const keywordText = getKeywordStatusText(realm);
+  nodes.realmPreviewBody.innerHTML = `
+    <p class="realm-preview-vital">耐久 <b>${realm.hp}</b> / ${realm.maxHp}${keywordText ? ` · <span>${keywordText}</span>` : ''}</p>
+    <p class="realm-preview-text">${realm.text}</p>`;
+  if (!nodes.realmPreviewDialog.open) nodes.realmPreviewDialog.showModal();
+}
 // 卡牌拖拽落点：准备区行（友方/敌方目标）、战斗区带（战斗牌目标）、敌方幻境席
 [nodes.playerUnits, nodes.enemyUnits, nodes.playerBattle, nodes.enemyBattle, nodes.enemyRealms]
   .forEach(attachCardDropTarget);

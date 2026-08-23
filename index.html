@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=39" />
-    <link rel="stylesheet" href="formation.css?v=39" />
-    <script type="module" src="app.js?v=39"></script>
+    <link rel="stylesheet" href="styles.css?v=46" />
+    <link rel="stylesheet" href="formation.css?v=46" />
+    <script type="module" src="app.js?v=46"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -203,12 +203,12 @@
                 <small><b id="enemy-energy">0</b>/<em id="enemy-max-energy">2</em></small>
                 <span class="hand-mini">手牌 <b id="enemy-hand">4</b></span>
               </div>
+              <div class="realm-mini-row" id="enemy-realms" aria-label="敌方幻境"></div>
             </div>
           </aside>
 
           <!-- 战场 -->
           <div class="battlefield">
-            <aside class="realm-column" id="enemy-realms" aria-label="敌方幻境席"></aside>
             <div class="board-column">
               <div class="unit-row enemy-line" id="enemy-units" aria-label="敌方准备区"></div>
               <div class="battle-strip enemy-battle" id="enemy-battle" aria-label="敌方战斗区"></div>
@@ -235,7 +235,6 @@
               <div class="battle-strip player-battle" id="player-battle" aria-label="己方战斗区"></div>
               <div class="unit-row player-line" id="player-units" aria-label="己方准备区"></div>
             </div>
-            <aside class="realm-column" id="player-realms" aria-label="己方幻境席"></aside>
           </div>
 
           <!-- 右缘：双方待抽牌堆，中间为结束回合 -->
@@ -273,11 +272,16 @@
                 <span class="attack-marker" id="attack-marker" title="出击机会">击</span>
                 <div class="keyword-statuses" id="keyword-statuses" aria-label="己方持续战斗状态" aria-live="polite"></div>
               </div>
+              <div class="realm-mini-row" id="player-realms" aria-label="己方幻境"></div>
             </div>
           </aside>
         </section>
 
         <section class="hand-zone" aria-labelledby="hand-title">
+          <div class="mulligan-bar" id="mulligan-bar" hidden>
+            <span class="mulligan-hint" id="mulligan-hint">开局调度</span>
+            <button class="quiet-button" id="mulligan-done-button" type="button">完成调度</button>
+          </div>
           <div class="hand-preview" id="hand-preview" aria-hidden="true"></div>
           <h2 class="visually-hidden" id="hand-title">战术手牌</h2>
           <div class="hand-summary" aria-label="当前可用手牌"><b id="playable-card-count">0</b><span>/ 可用</span></div>
@@ -286,6 +290,17 @@
       </main>
 
       <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+      <dialog class="realm-preview-dialog" id="realm-preview-dialog" aria-labelledby="realm-preview-title">
+        <form method="dialog" class="dialog-shell realm-preview-shell">
+          <header>
+            <div><p class="micro-label">幻境 · REALM</p><h2 id="realm-preview-title">幻境</h2></div>
+            <button class="icon-button dialog-close" value="close" aria-label="关闭预览" title="关闭">×</button>
+          </header>
+          <div class="realm-preview-body" id="realm-preview-body"></div>
+          <button class="dialog-primary" value="close">返回对局</button>
+        </form>
+      </dialog>
 
       <dialog class="menu-dialog" id="menu-dialog" aria-labelledby="menu-title">
         <div class="dialog-shell menu-shell">

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 
 import {
   GAME_STATE_VERSION,
-  createGame,
+  createGame as rawCreateGame,
   deserializeGame,
   endTurn,
   getCardDefinition,
@@ -17,6 +17,15 @@ function putCardInHand(state, playerIndex, definitionId) {
   state.players[playerIndex].hand.push(instance);
   return instance;
   state.players[playerIndex].levelUpUsed = true; // 新规则：出牌前需完成升级阶段
+}
+
+function createGame(input = undefined) {
+  const state = rawCreateGame(input);
+  state.players.forEach((player) => {
+    player.levelUpUsed = true;
+    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  });;
+  return state;
 }
 
 function play(state, playerIndex, definitionId, targetId = null) {

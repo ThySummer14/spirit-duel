@@ -3,11 +3,12 @@ import {
   deserializeGame,
   endTurn,
   levelUpUnit,
+  mulliganCard,
   passResponse,
   playCard,
   resolveDivinationChoice,
   serializeGame,
-} from './game-core.js?v=39';
+} from './game-core.js?v=46';
 
 export const COMMAND_JOURNAL_VERSION = 1;
 export const SESSION_SAVE_VERSION = 1;
@@ -18,6 +19,7 @@ const COMMAND_TYPES = new Set([
   'play-card',
   'level-up',
   'attack',
+  'mulligan',
   'end-turn',
   'pass-response',
   'divination-choice',
@@ -65,6 +67,8 @@ function normalizeCommand(command, sequence = undefined) {
     normalized.targetId = optionalTargetId(command);
   } else if (command.type === 'level-up') {
     normalized.unitId = requiredString(command, 'unitId');
+  } else if (command.type === 'mulligan') {
+    normalized.instanceId = requiredString(command, 'instanceId');
   } else if (command.type === 'divination-choice') {
     normalized.instanceId = requiredString(command, 'instanceId');
   }
@@ -110,6 +114,7 @@ export function applyRecordedCommand(state, command) {
     return playCard(state, normalized.playerIndex, normalized.instanceId, normalized.targetId);
   }
   if (normalized.type === 'level-up') return levelUpUnit(state, normalized.playerIndex, normalized.unitId);
+  if (normalized.type === 'mulligan') return mulliganCard(state, normalized.playerIndex, normalized.instanceId);
   if (normalized.type === 'attack') return basicAttack(state, normalized.playerIndex, normalized.unitId, normalized.targetId);
   if (normalized.type === 'end-turn') return endTurn(state, normalized.playerIndex);
   if (normalized.type === 'pass-response') return passResponse(state, normalized.playerIndex);

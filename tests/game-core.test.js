@@ -32,7 +32,10 @@ import {
 // 新规则：升勾先于出牌/出击。除升勾专项用例外，默认升级阶段已完成。
 function createGame(input = undefined) {
   const state = rawCreateGame(input);
-  state.players.forEach((player) => { player.levelUpUsed = true; });
+  state.players.forEach((player) => {
+    player.levelUpUsed = true;
+    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  });;
   return state;
 }
 
@@ -791,12 +794,19 @@ test('one unit can level up per turn and unlock higher-level cards', () => {
   state.players[0].hand.push(form);
   assert.equal(getCardPlayability(state, 0, form.instanceId).code, 'upgrade');
 
+  // 首次升勾：0→1 激活角色
   const leveled = levelUpUnit(state, 0, state.players[0].units[0].uid);
   assert.equal(leveled.error, null);
-  assert.equal(leveled.state.players[0].units[0].level, 2);
+  assert.equal(leveled.state.players[0].units[0].level, 1);
   assert.match(levelUpUnit(leveled.state, 0, leveled.state.players[0].units[1].uid).error, /已经提升/);
 
-  const played = playCard(leveled.state, 0, form.instanceId);
+  // 下一回合再升 1→2，解锁 2 勾形态牌
+  const next = endTurn(endTurn(leveled.state, 0).state, 1).state;
+  const leveled2 = levelUpUnit(next, 0, next.players[0].units[0].uid);
+  assert.equal(leveled2.error, null);
+  assert.equal(leveled2.state.players[0].units[0].level, 2);
+
+  const played = playCard(leveled2.state, 0, form.instanceId);
   assert.equal(played.error, null);
   assert.equal(played.state.players[0].units[0].attack, 4);
   assert.equal(played.state.players[0].units[0].maxHp, 11);
@@ -1203,12 +1213,12 @@ test('upgrade phase is enforced before playing cards or attacking', () => {
   // 新回合未升勾且有可升级角色时：出牌与出击都被拦截（手动塞牌避免助手改写升勾标记）
   assert.equal(isUpgradePending(state, 0), true);
   state.players[0].hand.push({ instanceId: 'manual-mend', definitionId: 'mend' });
-  const allyUid = state.players[0].units[1].uid;
+  const allyUid = state.players[0].units.find((unit) => unit.id === 'lumen').uid; // mend 的来源角色
   assert.equal(playCard(state, 0, 'manual-mend', allyUid).error, '升级阶段：请先选择一名角色提升勾玉。');
   assert.match(basicAttack(state, 0, state.players[0].units[0].uid).error, /升级阶段/);
 
-  // 升勾后解除限制
-  const leveled = levelUpUnit(state, 0, state.players[0].units[0].uid);
+  // 升勾后解除限制（mend 的来源角色是弦月）
+  const leveled = levelUpUnit(state, 0, allyUid);
   assert.equal(leveled.error, null);
   assert.equal(isUpgradePending(leveled.state, 0), false);
   assert.equal(getCardPlayability(leveled.state, 0, 'manual-mend', {}).code, 'ready');

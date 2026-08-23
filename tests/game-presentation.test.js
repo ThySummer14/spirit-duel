@@ -12,7 +12,10 @@ import {
 // 新规则：升勾先于出击，默认已完成升级阶段
 function createGame(input = undefined) {
   const state = rawCreateGame(input);
-  state.players.forEach((player) => { player.levelUpUsed = true; });
+  state.players.forEach((player) => {
+    player.levelUpUsed = true;
+    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  });;
   return state;
 }
 import {

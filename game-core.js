@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=39';
+} from './game-content.js?v=46';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=39';
+} from './game-keywords.js?v=46';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=39';
+} from './game-content.js?v=46';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +55,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=39';
+} from './game-keywords.js?v=46';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -96,7 +96,7 @@ export const GAME_EVENTS = Object.freeze({
   MATCH_FINISHED: 'match-finished',
 });
 
-export const GAME_STATE_VERSION = 8;
+export const GAME_STATE_VERSION = 9;
 
 const MAX_EVENT_CHAIN_LENGTH = 64;
 const MAX_RESOLUTION_STACK_LENGTH = 64;
@@ -372,7 +372,8 @@ function createUnits(unitIds, ownerId) {
       knockout: 0,
       frozen: 0,
       brittle: 0,
-      level: 1,
+      // 本家规则：角色初始 0 勾（未激活），首次升勾 0→1 后才可被选中/出击/使用其卡牌
+      level: 0,
       form: null,
       passiveUsage: {},
     };
@@ -404,6 +405,7 @@ function createPlayer(state, id, name, deckDefinition) {
     frontUnitId: null,
     attackUsed: false,
     levelUpUsed: false,
+    mulligansUsed: 0,
     keywordUsage: {},
     turnsTaken: 0,
     cardsPlayed: 0,
@@ -1047,9 +1049,10 @@ export function getValidTargets(state, playerIndex, definitionId) {
   if (!card) return [];
   const own = state.players[playerIndex];
   const enemy = state.players[1 - playerIndex];
-  if (card.target === 'ally-unit') return own.units.filter((unit) => unit.hp > 0).map((unit) => unit.uid);
-  if (card.target === 'knocked-ally') return own.units.filter((unit) => unit.hp <= 0).map((unit) => unit.uid);
-  if (card.target === 'enemy-unit') return enemy.units.filter((unit) => unit.hp > 0).map((unit) => unit.uid);
+  // 未激活（0 勾）角色无法被效果选中
+  if (card.target === 'ally-unit') return own.units.filter((unit) => unit.hp > 0 && unit.level >= 1).map((unit) => unit.uid);
+  if (card.target === 'knocked-ally') return own.units.filter((unit) => unit.hp <= 0 && unit.level >= 1).map((unit) => unit.uid);
+  if (card.target === 'enemy-unit') return enemy.units.filter((unit) => unit.hp > 0 && unit.level >= 1).map((unit) => unit.uid);
   return [];
 }
 
@@ -1126,6 +1129,45 @@ const EFFECT_CONDITION_HANDLERS = new Map([
 ]);
 
 // 升级阶段强制先行：本回合尚未升勾且存在可升级的存活角色时，需先完成升勾才能出牌/出击
+// 开局调度：首回合行动前可替换手牌（最多 GAME_RULES.mulliganCount 张）
+export function canMulligan(state, playerIndex) {
+  if (state.winner !== null || state.pendingChoice || state.responseWindow) return false;
+  if (state.currentPlayer !== playerIndex) return false;
+  const player = state.players[playerIndex];
+  return player.mulligansUsed < GAME_RULES.mulliganCount
+    && player.turnsTaken <= 1
+    && player.cardsPlayedThisTurn === 0
+    && !player.attackUsed;
+}
+
+export function mulliganCard(state, playerIndex, instanceId) {
+  if (state.pendingChoice) return { state, error: '请先完成当前的占卜选择。' };
+  if (state.responseWindow) return { state, error: '请先处理当前响应窗口。' };
+  if (state.winner !== null || state.currentPlayer !== playerIndex) return { state, error: '现在无法替换手牌。' };
+  const player = state.players[playerIndex];
+  if (player.mulligansUsed >= GAME_RULES.mulliganCount) return { state, error: '开局替换机会已用完。' };
+  if (player.turnsTaken > 1 || player.cardsPlayedThisTurn > 0 || player.attackUsed) {
+    return { state, error: '已进入行动阶段，无法再替换手牌。' };
+  }
+  const index = player.hand.findIndex((item) => item.instanceId === instanceId);
+  if (index < 0) return { state, error: '没有找到这张牌。' };
+
+  const next = clone(state);
+  const nextPlayer = next.players[playerIndex];
+  const [replaced] = nextPlayer.hand.splice(index, 1);
+  nextPlayer.deck.unshift(replaced); // 换下的牌沉到牌库底
+  nextPlayer.mulligansUsed += 1;
+  drawCards(next, playerIndex, 1);
+  recordEvent(
+    next,
+    GAME_EVENTS.CARD_DRAWN,
+    { playerIndex, replacedInstanceId: instanceId },
+    `${nextPlayer.name} 替换了开局手牌（${nextPlayer.mulligansUsed}/${GAME_RULES.mulliganCount}）。`,
+    'neutral',
+  );
+  return { state: next, error: null };
+}
+
 export function isUpgradePending(state, playerIndex) {
   if (state.winner !== null || state.currentPlayer !== playerIndex) return false;
   const player = state.players[playerIndex];
@@ -1160,6 +1202,9 @@ export function getCardPlayability(state, playerIndex, instanceId, options = {})
   const source = player.units[sourceIndex];
   if (sourceIndex < 0 || source.hp <= 0) {
     return { playable: false, code: 'source-away', reason: `${source?.name ?? '本源角色'}正处于气绝。` };
+  }
+  if (source.level < 1) {
+    return { playable: false, code: 'source-dormant', reason: `${source.name} 尚未激活（0 勾），先提升勾玉。` };
   }
   if (source.level < card.level) {
     return { playable: false, code: 'level', reason: `需要 ${card.level} 勾玉，${source.name} 当前为 ${source.level} 勾。` };
@@ -1952,6 +1997,7 @@ export function basicAttack(state, playerIndex, unitId, targetId = null) {
   const unit = player.units[unitIndex];
   if (!unit || unit.hp <= 0) return { state, error: '该角色无法出击。' };
   if (unit.frozen > 0) return { state, error: '该角色正处于眩晕状态。' };
+  if (unit.level < 1) return { state, error: `${unit.name} 尚未激活（0 勾），先提升勾玉再出击。` };
   if (player.attackUsed) return { state, error: '本回合已经出击过。' };
   if (player.energy < 1) return { state, error: '鬼火不足。' };
   if (targetId !== null && !getValidCombatTargets(state, playerIndex).includes(targetId)) {

@@ -1,7 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { createGame, serializeGame } from '../game-core.js';
+import { createGame as rawCreateGame, serializeGame } from '../game-core.js';
+
+// 新规则：角色 0 勾未激活；会话用例默认全员激活到 1 勾（level-up 命令仍可 1→2）
+function createGame(input = undefined) {
+  const state = rawCreateGame(input);
+  state.players.forEach((player) => {
+    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  });
+  return state;
+}
 import {
   appendCommand,
   applyRecordedCommand,
