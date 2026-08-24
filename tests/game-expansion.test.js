@@ -194,5 +194,5 @@ test('new expansion cards are absent from starter decks and the catalog stays va
     assert.equal(starterIds.has(id), false, `${id} 不应出现在默认构筑`);
     assert.ok(getCardDefinition(id), `${id} 应已注册`);
   });
-  assert.equal(CARD_DEFINITIONS.length, 72 + 11);
+  assert.equal(CARD_DEFINITIONS.length, 72 + 11 + 7); // 机制深化：4 关键词代表牌 + 3 响应触发牌
 });

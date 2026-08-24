@@ -20,6 +20,10 @@ export const CARD_KEYWORDS = Object.freeze({
   NIGHTFALL: 'nightfall',
   ORIGIN: 'origin',
   FOCUS: 'focus',
+  COMBO: 'combo',
+  FIRST_STRIKE: 'first-strike',
+  CRIT: 'crit',
+  UNYIELDING: 'unyielding',
 });
 
 function defineKeyword(definition) {
@@ -679,6 +683,49 @@ export const KEYWORD_DEFINITIONS = Object.freeze([
       card.effects?.some((effect) => effect.action === 'focus-draw')
         ? []
         : [`${card.name} 缺少专注动作。`]
+    ),
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.COMBO,
+    label: '连击',
+    description: '出击时追加一次等量战斗伤害。',
+    combatOptions: () => ({ combo: true }),
+    validateCard: (card) => (
+      card.effects?.some((effect) => effect.action === 'assault')
+        ? []
+        : [`${card.name} 的连击关键词只能用于包含出击动作的卡牌。`]
+    ),
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.FIRST_STRIKE,
+    label: '先攻',
+    description: '优先发起攻击：若首次伤害即气绝目标，则不受反击。',
+    combatOptions: () => ({ firstStrike: true }),
+    validateCard: (card) => (
+      card.effects?.some((effect) => effect.action === 'assault')
+        ? []
+        : [`${card.name} 的先攻关键词只能用于包含出击动作的卡牌。`]
+    ),
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.CRIT,
+    label: '暴击',
+    description: '本次出击造成的伤害翻倍。',
+    combatOptions: () => ({ crit: true }),
+    validateCard: (card) => (
+      card.effects?.some((effect) => effect.action === 'assault')
+        ? []
+        : [`${card.name} 的暴击关键词只能用于包含出击动作的卡牌。`]
+    ),
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.UNYIELDING,
+    label: '不屈',
+    description: '生命大于 1 时，至多受到使其生命降为 1 的伤害，不会因伤害气绝。',
+    validateCard: (card) => (
+      card.effects?.some((effect) => effect.action === 'grant-unyielding')
+        ? []
+        : [`${card.name} 的不屈关键词只能用于包含授予不屈效果的卡牌。`]
     ),
   }),
 ]);

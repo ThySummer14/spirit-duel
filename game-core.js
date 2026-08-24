@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=48';
+} from './game-content.js?v=49';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=48';
+} from './game-keywords.js?v=49';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=48';
+} from './game-content.js?v=49';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +55,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=48';
+} from './game-keywords.js?v=49';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -96,7 +96,7 @@ export const GAME_EVENTS = Object.freeze({
   MATCH_FINISHED: 'match-finished',
 });
 
-export const GAME_STATE_VERSION = 10;
+export const GAME_STATE_VERSION = 11;
 
 const MAX_EVENT_CHAIN_LENGTH = 64;
 const MAX_RESOLUTION_STACK_LENGTH = 64;
@@ -526,7 +526,10 @@ function damageUnit(state, playerIndex, unitIndex, baseAmount, sourcePlayerIndex
   const absorbed = Math.min(unit.shield, amount);
   unit.shield -= absorbed;
   const unshieldedDamage = amount - absorbed;
-  const damage = Math.min(unit.hp, unshieldedDamage);
+  // 不屈：生命大于 1 时，至多受到使其生命降为 1 的伤害
+  const unyieldingSave = unit.unyielding && unit.hp > 1 && unshieldedDamage >= unit.hp;
+  const effectiveDamage = unyieldingSave ? unit.hp - 1 : unshieldedDamage;
+  const damage = Math.min(unit.hp, effectiveDamage);
   const overkill = Math.max(0, unshieldedDamage - unit.hp);
   unit.hp = Math.max(0, unit.hp - damage);
   if (sourcePlayerIndex !== null) state.players[sourcePlayerIndex].damageDealt += damage;
@@ -534,7 +537,7 @@ function damageUnit(state, playerIndex, unitIndex, baseAmount, sourcePlayerIndex
     state,
     GAME_EVENTS.UNIT_DAMAGED,
     { playerIndex, unitIndex, unitId: unit.uid, sourcePlayerIndex, damage, absorbed, overkill },
-    `${unit.name} 受到 ${damage} 点伤害${absorbed ? `，护盾抵消 ${absorbed} 点` : ''}。`,
+    `${unit.name} 受到 ${damage} 点伤害${absorbed ? `，护盾抵消 ${absorbed} 点` : ''}${unyieldingSave ? '，不屈抵住致命伤' : ''}。`,
     damage > 0 ? 'danger' : 'neutral',
   );
 
@@ -638,6 +641,9 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
   const bonus = typeof options === 'number' ? options : (combatOptions.bonus ?? 0);
   const pierce = combatOptions.pierce === true;
   const remote = combatOptions.remote === true;
+  const combo = combatOptions.combo === true;
+  const firstStrike = combatOptions.firstStrike === true;
+  const crit = combatOptions.crit === true;
   const targetId = combatOptions.targetId ?? null;
   const attackerPlayer = state.players[attackerPlayerIndex];
   const defenderPlayerIndex = 1 - attackerPlayerIndex;
@@ -693,7 +699,9 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
 
   const defenderIndex = frontIndexOf(defenderPlayer);
   const defender = defenderPlayer.units[defenderIndex];
-  const attackPower = attacker.attack + bonus + keywordBonuses.attack;
+  const basePower = attacker.attack + bonus + keywordBonuses.attack;
+  // 暴击：本次出击伤害翻倍
+  const attackPower = crit ? basePower * 2 : basePower;
 
   const targetRealm = targetId
     ? defenderPlayer.realms.find((realm) => realm.uid === targetId)
@@ -759,7 +767,7 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
   }
 
   const counterPower = defender.attack;
-  const counterAllowed = !remote && defender.frozen === 0;
+  let counterAllowed = !remote && defender.frozen === 0;
   recordEvent(
     state,
     GAME_EVENTS.COMBAT_STARTED,
@@ -778,6 +786,15 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
     damageAvatar(state, defenderPlayerIndex, result.overkill, attackerPlayerIndex);
   }
   if (result.knockedOut && state.winner === null) damageAvatar(state, defenderPlayerIndex, 1, attackerPlayerIndex);
+  // 连击：追加一次等量战斗伤害（目标存活时）
+  let defenderDown = result.knockedOut;
+  if (combo && state.winner === null && defender.hp > 0) {
+    const comboResult = damageUnit(state, defenderPlayerIndex, defenderIndex, attackPower, attackerPlayerIndex);
+    defenderDown = defenderDown || comboResult.knockedOut;
+    if (comboResult.knockedOut && state.winner === null) damageAvatar(state, defenderPlayerIndex, 1, attackerPlayerIndex);
+  }
+  // 先攻：首次伤害即气绝目标时，不受反击
+  if (firstStrike && defenderDown) counterAllowed = false;
   if (state.winner === null && attacker.hp > 0 && counterAllowed && counterPower > 0) {
     damageUnit(state, attackerPlayerIndex, attackerUnitIndex, counterPower, defenderPlayerIndex);
   }
@@ -1323,6 +1340,14 @@ const EFFECT_HANDLERS = new Map([
       const amount = effect.value ?? card.value;
       player.units[targetUnitIndex].shield += amount;
       recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, targetId, effect: 'shield' }, `${player.units[targetUnitIndex].name} 获得 ${amount} 点护盾。`, 'success');
+    },
+  }],
+  ['grant-unyielding', {
+    resolve: ({ state, player, playerIndex, targetUnitIndex, targetId }) => {
+      const target = player.units[targetUnitIndex];
+      if (!target || target.hp <= 0 || target.unyielding) return;
+      target.unyielding = true;
+      recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, targetId, effect: 'grant-unyielding' }, `${target.name} 获得不屈：生命大于 1 时不会因伤害气绝。`, 'success');
     },
   }],
   ['fortify', {

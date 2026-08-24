@@ -1266,3 +1266,131 @@ test('the first player gains a bonus upgrade on their seventh turn', () => {
   assert.equal(second.error, null);
   assert.equal(second.state.players[0].bonusUpgrades, 0);
 });
+
+test('combo deals an extra combat damage instance', () => {
+  const state = createGame({ seed: 31, playerUnitIds: ['ember', 'basalt', 'lumen', 'rime'] });
+  const ember = state.players[0].units.find((unit) => unit.id === 'ember');
+  ember.level = 2;
+  const defender = state.players[1].units[0];
+  defender.maxHp = 30;
+  defender.hp = 30;
+  state.players[1].frontUnitId = defender.uid;
+  const card = putCardInHand(state, 0, 'twin-flame');
+
+  const result = playCard(state, 0, card.instanceId);
+  assert.equal(result.error, null);
+  const nextDefender = result.state.players[1].units.find((unit) => unit.uid === defender.uid);
+  // 两次连击伤害 + 余烬追击被动 1 点（赤曜从准备区进入战斗区）
+  assert.equal(30 - nextDefender.hp, ember.attack * 2 + 1, '连击应造成两次等量伤害');
+  const defenderHits = result.state.events
+    .filter((event) => event.type === GAME_EVENTS.UNIT_DAMAGED && event.payload.unitId === defender.uid)
+    .map((event) => event.payload.damage);
+  assert.equal(defenderHits.filter((damage) => damage === ember.attack).length, 2, '连击 = 两次等量战斗伤害');
+  // 反击只结算一次
+  const nextEmber = result.state.players[0].units.find((unit) => unit.uid === ember.uid);
+  assert.equal(ember.hp - nextEmber.hp, defender.attack);
+});
+
+test('first strike avoids counter damage when the first hit kills', () => {
+  const state = createGame({ seed: 32, playerUnitIds: ['storm', 'basalt', 'lumen', 'rime'] });
+  const storm = state.players[0].units.find((unit) => unit.id === 'storm');
+  const defender = state.players[1].units[0];
+  defender.hp = storm.attack; // 首击恰好气绝
+  state.players[1].frontUnitId = defender.uid;
+  const card = putCardInHand(state, 0, 'lightning-pierce');
+
+  const result = playCard(state, 0, card.instanceId);
+  assert.equal(result.error, null);
+  assert.equal(result.state.players[1].units.find((unit) => unit.uid === defender.uid).hp, 0);
+  // 先攻：击杀后不受反击
+  assert.equal(result.state.players[0].units.find((unit) => unit.uid === storm.uid).hp, storm.hp);
+});
+
+test('crit doubles the combat damage of the attack', () => {
+  const state = createGame({ seed: 33, playerUnitIds: ['rime', 'basalt', 'lumen', 'storm'] });
+  const rime = state.players[0].units.find((unit) => unit.id === 'rime');
+  rime.level = 2;
+  const defender = state.players[1].units[0];
+  defender.maxHp = 30;
+  defender.hp = 30;
+  state.players[1].frontUnitId = defender.uid;
+  const card = putCardInHand(state, 0, 'glacier-crack');
+
+  const result = playCard(state, 0, card.instanceId);
+  assert.equal(result.error, null);
+  const nextDefender = result.state.players[1].units.find((unit) => unit.uid === defender.uid);
+  assert.equal(30 - nextDefender.hp, rime.attack * 2, '暴击应使战斗伤害翻倍');
+});
+
+test('unyielding keeps a unit at 1 hp instead of dying', () => {
+  const state = createGame({ seed: 34, playerUnitIds: ['basalt', 'ember', 'lumen', 'rime'] });
+  state.players[0].units.find((unit) => unit.id === 'basalt').level = 2;
+  const ember = state.players[0].units.find((unit) => unit.id === 'ember');
+  ember.hp = 5;
+  const card = putCardInHand(state, 0, 'unyielding-wall');
+  const granted = playCard(state, 0, card.instanceId, ember.uid);
+  assert.equal(granted.error, null);
+  assert.equal(granted.state.players[0].units.find((unit) => unit.uid === ember.uid).unyielding, true);
+
+  // 致命伤害只降到 1：进入敌方回合，用 2 点伤害打 2 血的赤曜
+  let next = endTurn(granted.state, 0).state;
+  const nextEmber = next.players[0].units.find((unit) => unit.uid === ember.uid);
+  nextEmber.hp = 2;
+  next.players[1].levelUpUsed = true; // 回合开始重置后补标记
+  next.players[1].hand.push({ instanceId: 'lethal-spark', definitionId: 'spark-shot' });
+  const struck = playCard(next, 1, 'lethal-spark', ember.uid);
+  assert.equal(struck.error, null);
+  const survived = struck.state.players[0].units.find((unit) => unit.uid === ember.uid);
+  assert.equal(survived.hp, 1);
+  assert.equal(survived.knockout, 0, '不屈角色不应气绝');
+});
+
+test('response cards can answer healing, revival, and freeze', () => {
+  // 响应治疗：断流
+  const healState = createGame({ seed: 35 });
+  healState.players[0].levelUpUsed = true;
+  healState.players[1].levelUpUsed = true;
+  healState.players[1].energy = 2; // 响应方尚未行动，补鬼火
+  const mend = putCardInHand(healState, 0, 'mend');
+  const sever = putCardInHand(healState, 1, 'sever-flow');
+  const wounded = healState.players[0].units[0];
+  wounded.hp = 10;
+  const pending = playCard(healState, 0, mend.instanceId, wounded.uid).state;
+  assert.equal(pending.responseWindow?.playerIndex, 1);
+  assert.equal(pending.responseWindow.action, 'heal');
+  const answered = playCard(pending, 1, sever.instanceId);
+  assert.equal(answered.error, null);
+  // 断流 -2；弦月被动「月返」在 mend 后为核心 +1（30 封顶），净结果 29
+  assert.equal(answered.state.players[0].avatarHp, 29, '断流应对敌方核心造成 2 点伤害');
+
+  // 响应复活：摄魂税
+  const reviveState = createGame({ seed: 36 });
+  reviveState.players[0].levelUpUsed = true;
+  reviveState.players[1].levelUpUsed = true;
+  reviveState.players[1].energy = 2;
+  reviveState.players[0].units.find((unit) => unit.id === 'lumen').level = 3; // 余辉唤回需 3 勾
+  const recall = putCardInHand(reviveState, 0, 'recall');
+  const tithe = putCardInHand(reviveState, 1, 'soul-tithe');
+  const fallen = reviveState.players[0].units[1];
+  fallen.hp = 0;
+  fallen.knockout = 2;
+  const handBefore = reviveState.players[1].hand.length;
+  const revived = playCard(reviveState, 0, recall.instanceId, fallen.uid).state;
+  assert.equal(revived.responseWindow?.action, 'revive');
+  const taxed = playCard(revived, 1, tithe.instanceId);
+  assert.equal(taxed.error, null);
+  assert.equal(taxed.state.players[1].hand.length, handBefore + 1, '摄魂税：打出 1 张、抽 2 张');
+
+  // 响应冻结：融雪暖光
+  const freezeState = createGame({ seed: 37, playerUnitIds: ['rime', 'basalt', 'lumen', 'storm'] });
+  freezeState.players[0].levelUpUsed = true;
+  freezeState.players[1].levelUpUsed = true;
+  freezeState.players[1].energy = 2;
+  const hush = putCardInHand(freezeState, 0, 'hush');
+  const thaw = putCardInHand(freezeState, 1, 'warm-thaw');
+  const frozen = playCard(freezeState, 0, hush.instanceId, freezeState.players[1].units[0].uid).state;
+  assert.equal(frozen.responseWindow?.action, 'freeze');
+  const shielded = playCard(frozen, 1, thaw.instanceId, freezeState.players[1].units[0].uid);
+  assert.equal(shielded.error, null);
+  assert.equal(shielded.state.players[1].units[0].shield, 3);
+});

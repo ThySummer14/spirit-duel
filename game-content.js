@@ -1,4 +1,4 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=48';
+import { CARD_KEYWORDS } from './game-keywords.js?v=49';
 
 export const GAME_RULES = Object.freeze({
   lineupSize: 4,
@@ -162,6 +162,8 @@ function createEffectSteps(id, effect, target, value) {
   if (effect === 'form') return [effectStep('always', 'form', 'source', value)];
   if (effect === 'realm') return [effectStep('always', 'realm', 'ally-player')];
   if (effect === 'apply-keyword') return [effectStep('always', 'apply-keyword', 'ally-player', value)];
+  if (effect === 'grant-unyielding') return [effectStep('always', 'grant-unyielding', 'selected-ally', value)];
+  if (effect === 'draw') return [effectStep('always', 'draw', 'ally-player', value)];
   return [effectStep('always', effect, target, value)];
 }
 
@@ -207,6 +209,7 @@ export const CARD_DEFINITIONS = Object.freeze([
 
   card('brace', 'basalt', '固阵', 'spell', 1, '一名友方角色获得 4 点护盾。', 'ally-unit', 'shield', 4, { starterCopies: 2, rarity: 'common', tags: ['保护'] }),
   card('iron-vow', 'basalt', '镇守', 'combat', 1, '岚岳进入前线并获得 3 点护盾。', 'auto', 'fortify', 3, { starterCopies: 2, rarity: 'common', tags: ['站场'] }),
+  card('unyielding-wall', 'basalt', '不动如山', 'spell', 2, '一名友方角色获得不屈：生命大于 1 时，不会因伤害气绝。', 'ally-unit', 'grant-unyielding', 1, { rarity: 'epic', tags: ['保护'], keywords: [CARD_KEYWORDS.UNYIELDING] }),
   card('bastion-form', 'basalt', '山门之相', 'form', 2, '岚岳获得 +4 生命上限，并恢复 4 点生命。', 'auto', 'form', { attack: 0, hp: 4 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
   card('wardline', 'basalt', '界碑阵列', 'realm', 3, '幻境：己方回合开始时，前线角色获得 1 点护盾。', 'auto', 'realm', null, {
     starterCopies: 2, rarity: 'epic', tags: ['幻境', '保护'], realm: { hp: 5, trigger: 'owner-turn-start', triggerEffect: 'shield-front', triggerValue: 1 },
@@ -218,6 +221,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('recall', 'lumen', '余辉唤回', 'spell', 3, '唤醒一名离场角色，并回复全部生命。', 'knocked-ally', 'revive', 4, { starterCopies: 2, rarity: 'epic', tags: ['复归'] }),
 
   card('ice-cut', 'rime', '冰脉斩', 'combat', 1, '白棱出击，本次攻击 +1。', 'auto', 'assault', 1, { starterCopies: 2, rarity: 'common', tags: ['出击'] }),
+  card('glacier-crack', 'rime', '冰河爆碎', 'combat', 2, '白棱出击，本次伤害翻倍。', 'auto', 'assault', 0, { rarity: 'epic', tags: ['爆发'], keywords: [CARD_KEYWORDS.CRIT] }),
   card('hush', 'rime', '静默霜域', 'spell', 1, '眩晕一名敌方角色，使其下回合无法出击或反击。', 'enemy-unit', 'freeze', 1, {
     starterCopies: 2, rarity: 'common', tags: ['控制', '眩晕'], keywords: [CARD_KEYWORDS.STUN],
   }),
@@ -225,6 +229,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('fracture', 'rime', '晶裂', 'spell', 3, '造成 2 点伤害；目标后续受到的 2 次伤害各 +1。', 'enemy-unit', 'brittle', 2, { starterCopies: 2, rarity: 'epic', tags: ['破防'] }),
 
   card('thunder-step', 'storm', '雷走', 'combat', 1, '霆鸢出击，本次攻击 +1。', 'auto', 'assault', 1, { starterCopies: 2, rarity: 'common', tags: ['出击'] }),
+  card('lightning-pierce', 'storm', '雷光先袭', 'combat', 1, '霆鸢出击，先攻：若首次伤害即气绝目标，则不受反击。', 'auto', 'assault', 0, { rarity: 'rare', tags: ['出击'], keywords: [CARD_KEYWORDS.FIRST_STRIKE] }),
   card('spark-shot', 'storm', '鸣闪', 'spell', 1, '对一名敌方角色造成 2 点伤害。', 'enemy-unit', 'damage', 2, { starterCopies: 2, rarity: 'common', tags: ['压制'] }),
   card('storm-form', 'storm', '惊雷之翼', 'form', 2, '霆鸢获得 +2 攻击。', 'auto', 'form', { attack: 2, hp: 0 }, { starterCopies: 2, rarity: 'rare', tags: ['爆发'] }),
   card('sky-net', 'storm', '引雷天网', 'realm', 3, '幻境：己方回合开始时，对敌方前线造成 1 点伤害。', 'auto', 'realm', null, {
@@ -249,6 +254,7 @@ export const CARD_DEFINITIONS = Object.freeze([
     realm: { hp: 3, trigger: 'owner-turn-start', triggerEffect: 'damage-enemy-front', triggerValue: 3, countdown: 2, countdownReset: 2 },
   }),
   card('ember-wave', 'ember', '燎原波', 'spell', 2, '敌方全体受到 1 点伤害，敌方核心受到 2 点伤害。', 'auto', 'burn-all', 1, { cost: 2, rarity: 'rare', tags: ['群攻'] }),
+  card('twin-flame', 'ember', '双焰连斩', 'combat', 2, '赤曜出击，并追加一次连击伤害。', 'auto', 'assault', 0, { rarity: 'rare', tags: ['出击'], keywords: [CARD_KEYWORDS.COMBO] }),
   card('combustion-edge', 'ember', '熔锋决', 'combat', 3, '贯通：赤曜出击，本次攻击 +3。', 'auto', 'assault', 3, {
     cost: 2, rarity: 'epic', tags: ['终结', '出击', '贯通'], keywords: [CARD_KEYWORDS.PIERCE],
   }),
@@ -298,6 +304,15 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('needle-frost', 'rime', '冰针', 'spell', 1, '对一名敌方角色造成 2 点伤害。', 'enemy-unit', 'damage', 2, { tags: ['解场'] }),
   card('hoar-barrier', 'rime', '霜障', 'spell', 1, '响应伤害、出击或护盾：一名友方角色获得 2 点护盾。', 'ally-unit', 'shield', 2, {
     timing: 'response', responseTo: ['damage', 'assault', 'shield'], tags: ['保护', '响应'], keywords: [CARD_KEYWORDS.RESPONSE],
+  }),
+  card('sever-flow', 'ink', '断流', 'spell', 1, '响应治疗：敌方全体受到 1 点伤害，敌方核心受到 2 点伤害。', 'auto', 'burn-all', 1, {
+    timing: 'response', responseTo: ['heal', 'heal-avatar'], tags: ['响应', '压制'], keywords: [CARD_KEYWORDS.RESPONSE],
+  }),
+  card('soul-tithe', 'storm', '摄魂税', 'spell', 1, '响应复活：抽 2 张牌。', 'auto', 'draw', 2, {
+    timing: 'response', responseTo: ['revive'], tags: ['响应', '调度'], keywords: [CARD_KEYWORDS.RESPONSE],
+  }),
+  card('warm-thaw', 'lumen', '融雪暖光', 'spell', 1, '响应冻结：一名友方角色获得 3 点护盾。', 'ally-unit', 'shield', 3, {
+    timing: 'response', responseTo: ['freeze'], tags: ['响应', '保护'], keywords: [CARD_KEYWORDS.RESPONSE],
   }),
   card('shatterline', 'rime', '裂霜线', 'spell', 2, '造成 1 点伤害，并使目标进入 1 层晶裂。', 'enemy-unit', 'brittle', 1, { rarity: 'rare', tags: ['破防'] }),
   card('winter-form', 'rime', '凛冬之相', 'form', 2, '白棱获得 +2 攻击。', 'auto', 'form', { attack: 2, hp: 0 }, { rarity: 'rare', tags: ['压制'] }),

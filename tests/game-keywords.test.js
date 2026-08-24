@@ -50,6 +50,10 @@ test('keyword registry exposes immutable reusable definitions', () => {
     CARD_KEYWORDS.NIGHTFALL,
     CARD_KEYWORDS.ORIGIN,
     CARD_KEYWORDS.FOCUS,
+    CARD_KEYWORDS.COMBO,
+    CARD_KEYWORDS.FIRST_STRIKE,
+    CARD_KEYWORDS.CRIT,
+    CARD_KEYWORDS.UNYIELDING,
   ]);
   KEYWORD_DEFINITIONS.forEach((definition) => {
     assert.ok(Object.isFrozen(definition));
