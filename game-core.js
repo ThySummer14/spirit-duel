@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=49';
+} from './game-content.js?v=51';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=49';
+} from './game-keywords.js?v=51';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=49';
+} from './game-content.js?v=51';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +55,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=49';
+} from './game-keywords.js?v=51';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -1741,6 +1741,27 @@ const PASSIVE_HANDLERS = new Map([
       && player.frontUnitId === unit.uid,
     resolve: ({ hook, unit }) => {
       unit.shield += hook.params.amount;
+    },
+  }],
+  ['passive-shield-self-after-combat', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex === playerIndex
+      && event.payload.attackerUnitId === unit.uid
+      && !event.payload.remote,
+    resolve: ({ hook, unit }) => {
+      unit.shield += hook.params.amount;
+    },
+  }],
+  ['passive-heal-self-if-front', {
+    canTrigger: ({ event, playerIndex, player, unit }) => event.type === GAME_EVENTS.TURN_STARTED
+      && event.payload.playerIndex === playerIndex
+      && player.frontUnitId === unit.uid
+      && unit.hp > 0,
+    resolve: ({ state, playerIndex, hook, unit }) => {
+      const healed = Math.min(hook.params.amount, unit.maxHp - unit.hp);
+      if (healed <= 0) return;
+      unit.hp += healed;
+      recordEvent(state, GAME_EVENTS.UNIT_HEALED, { playerIndex, unitId: unit.uid, healed }, `${unit.name} 石肤自愈 ${healed} 点生命。`, 'success');
     },
   }],
   ['passive-heal-avatar-on-own-card', {

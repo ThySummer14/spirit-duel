@@ -1,4 +1,4 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=49';
+import { CARD_KEYWORDS } from './game-keywords.js?v=51';
 
 export const GAME_RULES = Object.freeze({
   lineupSize: 4,
@@ -115,6 +115,34 @@ export const UNIT_DEFINITIONS = Object.freeze([
     color: '#6f6288',
     passive: passive('ink-ward', '墨护', '玄砚存活时，己方部署幻境后，当前前线获得 1 点护盾。', [
       { id: 'realm-shield', event: 'realm-deployed', effect: 'passive-shield-front-on-realm', params: { amount: 1 } },
+    ]),
+  },
+  {
+    id: 'frostblade',
+    name: '银狼',
+    title: '狼牙',
+    role: '狼刃 / 游击 / 连击',
+    strategy: '用连击与先攻贴脸换血，交战后的护盾反哺续航。',
+    maxHp: 8,
+    attack: 3,
+    art: 'assets/frostblade.svg',
+    color: '#7fa8c9',
+    passive: passive('frost-aegis', '刃胄', '银狼完成一次交战后，获得 1 点护盾。', [
+      { id: 'combat-aegis', event: 'combat-resolved', effect: 'passive-shield-self-after-combat', params: { amount: 1 } },
+    ]),
+  },
+  {
+    id: 'kongo',
+    name: '金刚',
+    title: '不坏',
+    role: '石佛 / 铁壁 / 不屈',
+    strategy: '以不屈与护盾死守战斗区，让对手的攻势化为徒劳。',
+    maxHp: 13,
+    attack: 2,
+    art: 'assets/kongo.svg',
+    color: '#9aa085',
+    passive: passive('kongo-skin', '石肤', '己方回合开始时，若金刚位于前线，恢复 1 点生命。', [
+      { id: 'turn-heal', event: 'turn-started', effect: 'passive-heal-self-if-front', params: { amount: 1 } },
     ]),
   },
 ]);
@@ -456,6 +484,43 @@ export const CARD_DEFINITIONS = Object.freeze([
       { condition: 'always', action: 'origin-shuffle', target: 'ally-player' },
     ],
   }),
+  // ---- 霜刃：连击 / 先攻 游击手 ----
+  card('frost-bite', 'frostblade', '霜咬', 'combat', 1, '霜刃出击，本次攻击 +1。', 'auto', 'assault', 1, { starterCopies: 2, rarity: 'common', tags: ['出击'] }),
+  card('twin-gale', 'frostblade', '连霜双击', 'combat', 2, '银狼出击，并追加一次连击伤害。', 'auto', 'assault', 0, { starterCopies: 2, rarity: 'rare', tags: ['出击'], keywords: [CARD_KEYWORDS.COMBO] }),
+  card('wolf-pounce', 'frostblade', '狼袭', 'combat', 1, '银狼出击，先攻：若首次伤害即气绝目标，则不受反击。', 'auto', 'assault', 0, { starterCopies: 2, rarity: 'rare', tags: ['出击'], keywords: [CARD_KEYWORDS.FIRST_STRIKE] }),
+  card('frost-armor', 'frostblade', '刃胄', 'spell', 1, '一名友方角色获得 2 点护盾。', 'ally-unit', 'shield', 2, { starterCopies: 2, rarity: 'common', tags: ['保护'] }),
+  card('moon-fang-form', 'frostblade', '月牙之相', 'form', 2, '银狼获得 +2 攻击与 +1 生命上限。', 'auto', 'form', { attack: 2, hp: 1 }, { rarity: 'rare', tags: ['成长'] }),
+  card('blizzard-step', 'frostblade', '踏雪', 'spell', 1, '眩晕一名敌方角色，使其下回合无法出击或反击。', 'enemy-unit', 'freeze', 1, { rarity: 'rare', tags: ['控制', '眩晕'], keywords: [CARD_KEYWORDS.STUN] }),
+  card('silver-fang', 'frostblade', '银牙', 'combat', 3, '银狼出击，本次攻击 +2。', 'auto', 'assault', 2, { rarity: 'common', tags: ['出击'] }),
+  card('war-howl', 'frostblade', '战嚎', 'spell', 2, '鼓舞：下一次出击获得 +2 攻击与 1 点护盾。', 'auto', 'apply-keyword', {
+    keywordId: CARD_KEYWORDS.ENCOURAGE,
+    attack: 2,
+    shield: 1,
+  }, { rarity: 'rare', tags: ['鼓舞'], keywords: [CARD_KEYWORDS.ENCOURAGE] }),
+  card('shadow-flicker', 'frostblade', '绝影', 'combat', 3, '银狼出击，本次伤害翻倍。', 'auto', 'assault', 0, { rarity: 'epic', tags: ['爆发'], keywords: [CARD_KEYWORDS.CRIT] }),
+  card('frost-bulwark', 'frostblade', '霜壁', 'spell', 2, '一名友方角色获得不屈：生命大于 1 时，不会因伤害气绝。', 'ally-unit', 'grant-unyielding', 1, { rarity: 'epic', tags: ['保护'], keywords: [CARD_KEYWORDS.UNYIELDING] }),
+  card('wild-awakening', 'frostblade', '野性苏醒', 'spell', 3, '唤醒一名离场角色，并回复全部生命。', 'knocked-ally', 'revive', 4, { rarity: 'epic', tags: ['复归'] }),
+  card('gust-breath', 'frostblade', '风息', 'spell', 1, '抽 1 张牌，并为己方核心恢复 1 点生命。', 'auto', 'draw-heal', 1, { rarity: 'common', tags: ['调度'] }),
+
+  // ---- 金刚：不屈 / 铁壁 石佛 ----
+  card('stone-fist', 'kongo', '岩拳', 'combat', 1, '金刚出击，本次攻击 +1。', 'auto', 'assault', 1, { starterCopies: 2, rarity: 'common', tags: ['出击'] }),
+  card('mountain-vow', 'kongo', '山岳之誓', 'combat', 2, '金刚进入前线并获得 3 点护盾。', 'auto', 'fortify', 3, { starterCopies: 2, rarity: 'common', tags: ['站场'] }),
+  card('kongo-guard', 'kongo', '金刚不坏', 'spell', 2, '一名友方角色获得不屈：生命大于 1 时，不会因伤害气绝。', 'ally-unit', 'grant-unyielding', 1, { starterCopies: 2, rarity: 'epic', tags: ['保护'], keywords: [CARD_KEYWORDS.UNYIELDING] }),
+  card('guardian-form', 'kongo', '金身之相', 'form', 2, '金刚获得 +4 生命上限。', 'auto', 'form', { attack: 0, hp: 4 }, { starterCopies: 1, rarity: 'rare', tags: ['成长'] }),
+  card('quake-stomp', 'kongo', '震地踏', 'spell', 2, '敌方全体受到 1 点伤害，敌方核心受到 2 点伤害。', 'auto', 'burn-all', 1, { starterCopies: 1, rarity: 'rare', tags: ['压制'] }),
+  card('iron-aegis', 'kongo', '铁楯', 'spell', 1, '一名友方角色获得 3 点护盾。', 'ally-unit', 'shield', 3, { rarity: 'common', tags: ['保护'] }),
+  card('counter-stance', 'kongo', '待月架', 'combat', 2, '金刚出击，先攻：若首次伤害即气绝目标，则不受反击。', 'auto', 'assault', 0, { rarity: 'rare', tags: ['出击'], keywords: [CARD_KEYWORDS.FIRST_STRIKE] }),
+  card('avalanche-fist', 'kongo', '崩山拳', 'combat', 3, '金刚出击，本次伤害翻倍。', 'auto', 'assault', 0, { rarity: 'epic', tags: ['爆发'], keywords: [CARD_KEYWORDS.CRIT] }),
+  card('stone-mend', 'kongo', '磐石自愈', 'spell', 1, '为一名友方角色恢复 3 点生命。', 'ally-unit', 'heal', 3, { rarity: 'common', tags: ['恢复'] }),
+  card('war-drum', 'kongo', '战鼓', 'spell', 2, '鼓舞：下一次出击获得 +1 攻击与 2 点护盾。', 'auto', 'apply-keyword', {
+    keywordId: CARD_KEYWORDS.ENCOURAGE,
+    attack: 1,
+    shield: 2,
+  }, { rarity: 'rare', tags: ['鼓舞'], keywords: [CARD_KEYWORDS.ENCOURAGE] }),
+  card('warding-stone', 'kongo', '结界石', 'realm', 3, '幻境：己方回合开始时，前线角色获得 1 点护盾。', 'auto', 'realm', null, {
+    rarity: 'rare', tags: ['幻境', '保护'], realm: { hp: 4, trigger: 'owner-turn-start', triggerEffect: 'shield-front', triggerValue: 1 },
+  }),
+  card('stone-whisper', 'kongo', '石语', 'spell', 1, '抽 1 张牌，并为己方核心恢复 1 点生命。', 'auto', 'draw-heal', 1, { rarity: 'common', tags: ['调度'] }),
 ]);
 
 const UNIT_MAP = new Map(UNIT_DEFINITIONS.map((unit) => [unit.id, unit]));

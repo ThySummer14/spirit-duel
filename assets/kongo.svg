@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">金刚 · 不坏</title>
+  <desc id="desc">青灰石佛端坐于莲台，胸嵌鎏金法轮，身后石环如山门，苔痕与金纹共生</desc>
+  <defs>
+    <linearGradient id="kg-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14170f"/>
+      <stop offset=".55" stop-color="#1e2318"/>
+      <stop offset="1" stop-color="#0e100b"/>
+    </linearGradient>
+    <radialGradient id="kg-halo" cx=".5" cy=".42" r=".62">
+      <stop offset="0" stop-color="#e8e2c0" stop-opacity=".4"/>
+      <stop offset=".5" stop-color="#9aa085" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#9aa085" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="kg-stone" x1=".15" y1="0" x2=".85" y2="1">
+      <stop offset="0" stop-color="#c9cbb8"/>
+      <stop offset=".5" stop-color="#9aa085"/>
+      <stop offset="1" stop-color="#5f6552"/>
+    </linearGradient>
+    <linearGradient id="kg-stone2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b3b89f"/>
+      <stop offset="1" stop-color="#6b7059"/>
+    </linearGradient>
+    <linearGradient id="kg-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe2a0"/>
+      <stop offset="1" stop-color="#b98c3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#kg-bg)"/>
+  <circle cx="100" cy="110" r="88" fill="url(#kg-halo)"/>
+  <!-- 身后石环（山门） -->
+  <circle cx="100" cy="118" r="66" fill="none" stroke="#6b7059" stroke-width="9" opacity=".55"/>
+  <circle cx="100" cy="118" r="66" fill="none" stroke="url(#kg-gold)" stroke-width="1.4" opacity=".5"/>
+  <!-- 莲台 -->
+  <g>
+    <path d="M44 208 Q100 186 156 208 L150 222 Q100 204 50 222 Z" fill="url(#kg-stone2)"/>
+    <path d="M50 222 Q100 204 150 222 L144 234 Q100 220 56 234 Z" fill="#565b48"/>
+  </g>
+  <!-- 石佛身 -->
+  <g>
+    <path d="M66 118 Q100 96 134 118 L138 186 Q100 202 62 186 Z" fill="url(#kg-stone)"/>
+    <path d="M62 186 Q100 202 138 186 L134 196 Q100 210 66 196 Z" fill="url(#kg-stone2)"/>
+    <!-- 头 -->
+    <path d="M100 58 Q128 58 128 88 Q128 112 100 116 Q72 112 72 88 Q72 58 100 58 Z" fill="url(#kg-stone)"/>
+    <path d="M76 64 Q100 46 124 64 L120 74 Q100 60 80 74 Z" fill="#b3b89f"/>
+    <!-- 面容：闭目慈悲 -->
+    <path d="M84 88 Q90 84 96 88" stroke="#3c4032" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M104 88 Q110 84 116 88" stroke="#3c4032" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M92 102 Q100 108 108 102" stroke="#3c4032" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <!-- 耳坠 -->
+    <circle cx="72" cy="94" r="5" fill="url(#kg-gold)"/>
+    <circle cx="128" cy="94" r="5" fill="url(#kg-gold)"/>
+    <!-- 胸口法轮 -->
+    <circle cx="100" cy="140" r="15" fill="none" stroke="url(#kg-gold)" stroke-width="3"/>
+    <circle cx="100" cy="140" r="4.5" fill="url(#kg-gold)"/>
+    <path d="M100 127 L100 153 M89 133.5 L111 146.5 M111 133.5 L89 146.5" stroke="url(#kg-gold)" stroke-width="1.8"/>
+    <!-- 苔痕 -->
+    <path d="M70 150 Q76 146 82 150" stroke="#7a8a5c" stroke-width="2" fill="none" opacity=".7"/>
+    <path d="M120 168 Q126 164 132 168" stroke="#7a8a5c" stroke-width="2" fill="none" opacity=".6"/>
+    <!-- 裂而不断 -->
+    <path d="M78 128 L84 138 L80 148" stroke="#4c5140" stroke-width="1.4" fill="none" opacity=".7"/>
+  </g>
+  <rect x="6" y="6" width="188" height="248" fill="none" stroke="#9aa085" stroke-opacity=".4" rx="10"/>
+</svg>
