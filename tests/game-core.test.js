@@ -8,8 +8,8 @@ import {
   GAME_RULES,
   GAME_STATE_VERSION,
   basicAttack,
-  createGame as rawCreateGame,
   canPlayCard,
+  createGame as rawCreateGame,
   createDefaultDeckDefinition,
   deserializeGame,
   drawCards,
@@ -28,26 +28,12 @@ import {
   validateContentCatalog,
   validateDeckDefinition,
 } from '../game-core.js';
+import { makeWrappedCreateGame, putCardInHand } from './front-helper.js';
 
-// 新规则：升勾先于出牌/出击。除升勾专项用例外，默认升级阶段已完成。
-function createGame(input = undefined) {
-  const state = rawCreateGame(input);
-  state.players.forEach((player) => {
-    player.levelUpUsed = true;
-    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
-  });;
-  return state;
-}
+const createGame = makeWrappedCreateGame((input) => rawCreateGame(input));
 
 function findCard(state, playerIndex, definitionId) {
   return state.players[playerIndex].hand.find((card) => card.definitionId === definitionId);
-}
-
-function putCardInHand(state, playerIndex, definitionId) {
-  const instance = { instanceId: `test-${definitionId}-${state.players[playerIndex].hand.length}`, definitionId };
-  state.players[playerIndex].levelUpUsed = true; // 新规则：出牌前需完成升级阶段
-  state.players[playerIndex].hand.push(instance);
-  return instance;
 }
 
 test('creates a deterministic 30-life, 32-card opening state', () => {

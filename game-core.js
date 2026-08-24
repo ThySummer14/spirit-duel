@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=51';
+} from './game-content.js?v=575643cf';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=51';
+} from './game-keywords.js?v=575643cf';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=51';
+} from './game-content.js?v=575643cf';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +55,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=51';
+} from './game-keywords.js?v=575643cf';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -146,6 +146,22 @@ function assertGameStateStructure(state) {
   if (state.players.some((player) => player.realms.some((realm) => !Array.isArray(realm.keywords)))) {
     throw new Error('对局存档的幻境关键词状态无效。');
   }
+  state.players.forEach((player, index) => {
+    const label = `玩家 ${index + 1}`;
+    if (!Number.isInteger(player.mulligansUsed) || player.mulligansUsed < 0 || player.mulligansUsed > GAME_RULES.mulliganCount) {
+      throw new Error(`${label}的开局调度计数无效。`);
+    }
+    if (!Number.isInteger(player.bonusUpgrades) || player.bonusUpgrades < 0) {
+      throw new Error(`${label}的额外升勾计数无效。`);
+    }
+    player.units.forEach((unit) => {
+      if (typeof unit.unyielding !== 'boolean') throw new Error(`${label}的角色不屈状态无效。`);
+      if (!Number.isInteger(unit.level) || unit.level < 0 || unit.level > GAME_RULES.maxUnitLevel) {
+        throw new Error(`${label}的 ${unit.name ?? '角色'} 勾玉等级无效。`);
+      }
+      if (unit.hp > unit.maxHp) throw new Error(`${label}的 ${unit.name ?? '角色'} 生命超过上限。`);
+    });
+  });
   const realmIds = new Set();
   state.players.forEach((player) => {
     player.realms.forEach((realm) => {
@@ -372,6 +388,7 @@ function createUnits(unitIds, ownerId) {
       knockout: 0,
       frozen: 0,
       brittle: 0,
+      unyielding: false,
       // 本家规则：角色初始 0 勾（未激活），首次升勾 0→1 后才可被选中/出击/使用其卡牌
       level: 0,
       form: null,

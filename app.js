@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=51';
-import { chooseAiCommand } from './game-ai.js?v=51';
-import { gameAudio } from './game-audio.js?v=51';
+} from './game-core.js?v=575643cf';
+import { chooseAiCommand } from './game-ai.js?v=575643cf';
+import { gameAudio } from './game-audio.js?v=575643cf';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=51';
+} from './game-collection.js?v=575643cf';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=51';
+} from './game-presentation.js?v=575643cf';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=51';
+} from './game-session.js?v=575643cf';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -1577,23 +1577,9 @@ function clearDropZones() {
 }
 
 function renderRealmColumn(column, player, ownerIndex) {
-  const mini = column.classList.contains('realm-mini-row');
-  if (!mini) {
-    const label = document.createElement('span');
-    label.className = 'zone-label';
-    label.textContent = ownerIndex === 0 ? '己方幻境' : '敌方幻境';
-    column.replaceChildren(label);
-  } else {
-    column.replaceChildren();
-  }
-  if (!player.realms.length) {
-    if (mini) return;
-    const empty = document.createElement('span');
-    empty.className = 'realm-empty';
-    empty.textContent = '未部署';
-    column.append(empty);
-    return;
-  }
+  // 幻境以头像下的小方块呈现（mini），旧的大条布局已移除
+  column.replaceChildren();
+  if (!player.realms.length) return;
   player.realms.forEach((realm) => {
     const viewSelectedCardId = replaySession ? null : selectedCardId;
     const chip = document.createElement('button');
@@ -1628,9 +1614,7 @@ function renderRealmColumn(column, player, ownerIndex) {
     const keywordStatus = getKeywordStatusText(realm);
     const keywordSuffix = keywordStatus ? ` · ${keywordStatus}` : '';
     chip.title = `${realm.text}${keywordSuffix}`;
-    chip.innerHTML = mini
-      ? `<span class="realm-mini-name">${realm.name.slice(0, 2)}</span><b class="realm-mini-hp">${realm.hp}</b>`
-      : `<span class="realm-title"><b>${realm.name}</b><small>${keywordSuffix || '持续生效'}</small></span><span class="realm-vital"><strong>${realm.hp}</strong><small>/ ${realm.maxHp} 耐久</small></span><span class="realm-health"><i style="width:${Math.max(0, (realm.hp / realm.maxHp) * 100)}%"></i></span>`;
+    chip.innerHTML = `<span class="realm-mini-name">${realm.name.slice(0, 2)}</span><b class="realm-mini-hp">${realm.hp}</b>`;
     if (impact?.hpDelta) {
       const number = document.createElement('span');
       number.className = 'realm-impact-number';

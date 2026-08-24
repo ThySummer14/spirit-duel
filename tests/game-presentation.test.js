@@ -8,27 +8,13 @@ import {
   levelUpUnit,
   playCard,
 } from '../game-core.js';
+import { makeWrappedCreateGame, putCardInHand } from './front-helper.js';
 
-// 新规则：升勾先于出击，默认已完成升级阶段
-function createGame(input = undefined) {
-  const state = rawCreateGame(input);
-  state.players.forEach((player) => {
-    player.levelUpUsed = true;
-    player.units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
-  });;
-  return state;
-}
+const createGame = makeWrappedCreateGame(rawCreateGame);
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
 } from '../game-presentation.js';
-
-function putCardInHand(state, playerIndex, definitionId) {
-  const instance = { instanceId: `test-${definitionId}-${state.players[playerIndex].hand.length}`, definitionId };
-  state.players[playerIndex].levelUpUsed = true; // 新规则：出牌前需完成升级阶段
-  state.players[playerIndex].hand.push(instance);
-  return instance;
-}
 
 test('derives attacker and defender impacts from a combat', () => {
   const state = createGame(201);

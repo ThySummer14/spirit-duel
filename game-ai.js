@@ -10,7 +10,7 @@ import {
   passResponse,
   playCard,
   resolveDivinationChoice,
-} from './game-core.js?v=51';
+} from './game-core.js?v=575643cf';
 
 const WIN_SCORE = 1_000_000;
 
@@ -214,7 +214,9 @@ function commandTieBreak(command) {
  * Chooses one legal action without modifying the supplied game state.
  * The caller applies the command through game-core, then asks again.
  */
-export function chooseAiCommand(state, playerIndex = 1) {
+export function chooseAiCommand(state, playerIndex = 1, options = {}) {
+  // 激进兜底：对局陷入僵持时（调用方传入），即使行动评分为负也选择最优攻击，避免互龟软锁
+  const aggressive = options.aggressive === true;
   const player = state?.players?.[playerIndex];
   if (!player || state.winner !== null) {
     return { type: 'end-turn', score: 0, reason: '当前没有可执行的 AI 行动。' };
@@ -254,11 +256,16 @@ export function chooseAiCommand(state, playerIndex = 1) {
     }
   }
 
-  const candidates = [
+  let candidates = [
     ...createCardCandidates(state, playerIndex),
     ...createAttackCandidates(state, playerIndex),
     ...createLevelCandidates(state, playerIndex),
   ].filter((command) => command.score > 0);
+
+  if (!candidates.length && aggressive) {
+    // 僵持破局：只考虑出击（含战斗牌），选择损失最小的攻击
+    candidates = createAttackCandidates(state, playerIndex);
+  }
 
   candidates.sort((first, second) => (second.score - first.score)
     || (commandTieBreak(second) - commandTieBreak(first)));

@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "python3 -m http.server 4173",
     "test": "node --test",
-    "audit": "node ../../ark-ui-skill/scripts/audit-ark-ui.mjs index.html styles.css formation.css"
+    "audit": "node ../../ark-ui-skill/scripts/audit-ark-ui.mjs index.html styles.css formation.css",
+    "cache:sync": "node scripts/bump-cache.mjs",
+    "smoke": "node scripts/balance-smoke.mjs 30 1"
   }
 }
