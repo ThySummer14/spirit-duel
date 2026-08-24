@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=4d6a1886" />
-    <link rel="stylesheet" href="formation.css?v=4d6a1886" />
-    <script type="module" src="app.js?v=4d6a1886"></script>
+    <link rel="stylesheet" href="styles.css?v=5dc91adb" />
+    <link rel="stylesheet" href="formation.css?v=5dc91adb" />
+    <script type="module" src="app.js?v=5dc91adb"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -146,6 +146,7 @@
         <div class="match-strip" aria-label="对局状态">
           <span class="online-dot" aria-hidden="true"></span>
           <span id="turn-owner">巡界者行动</span>
+          <span class="turn-order-tag" id="turn-order-tag" title="你是先手玩家">先手</span>
           <span class="strip-divider" aria-hidden="true"></span>
           <span>第 <strong id="round-value">01</strong> 回合</span>
         </div>
@@ -189,6 +190,8 @@
             <small id="turn-callout-detail">2 点鬼火</small>
           </div>
           <div class="battle-feedback" id="battle-feedback" aria-live="polite" aria-atomic="true"></div>
+          <div class="card-reveal player-side" id="card-reveal-player" aria-hidden="true"></div>
+          <div class="card-reveal enemy-side" id="card-reveal-enemy" aria-hidden="true"></div>
 
           <!-- 左上：敌方头像与资源 -->
           <aside class="avatar-plate foe-plate enemy-core" aria-label="失序体状态">

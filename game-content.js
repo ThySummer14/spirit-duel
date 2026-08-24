@@ -1,4 +1,4 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=4d6a1886';
+import { CARD_KEYWORDS } from './game-keywords.js?v=5dc91adb';
 
 export const GAME_RULES = Object.freeze({
   lineupSize: 4,
@@ -9,6 +9,7 @@ export const GAME_RULES = Object.freeze({
   maxEnergy: 2,
   openingHandSize: 5,
   mulliganCount: 2,
+  maxHandSize: 12,
   mulliganCount: 2,
   knockoutCountdown: 2,
   maxUnitLevel: 3,

@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=4d6a1886';
-import { chooseAiCommand } from './game-ai.js?v=4d6a1886';
-import { gameAudio } from './game-audio.js?v=4d6a1886';
+} from './game-core.js?v=5dc91adb';
+import { chooseAiCommand } from './game-ai.js?v=5dc91adb';
+import { gameAudio } from './game-audio.js?v=5dc91adb';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=4d6a1886';
+} from './game-collection.js?v=5dc91adb';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=4d6a1886';
+} from './game-presentation.js?v=5dc91adb';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=4d6a1886';
+} from './game-session.js?v=5dc91adb';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -104,6 +104,8 @@ const nodes = {
   codexTotal: document.querySelector('#codex-total'),
   battleStage: document.querySelector('.battle-stage'),
   battleFeedback: document.querySelector('#battle-feedback'),
+  cardRevealPlayer: document.querySelector('#card-reveal-player'),
+  cardRevealEnemy: document.querySelector('#card-reveal-enemy'),
   turnOwner: document.querySelector('#turn-owner'),
   round: document.querySelector('#round-value'),
   turnCallout: document.querySelector('#turn-callout'),
@@ -1271,6 +1273,20 @@ function renderUnit(unit, ownerIndex, placement) {
   card.classList.toggle('will-be-hit', willBeHit);
   card.classList.toggle('is-away', unit.hp <= 0);
   card.classList.toggle('is-dormant', unit.level < 1);
+  // 本家规则：可出击的角色轻微脉动提示
+  const attackCapable = isPlayer
+    && !replaySession
+    && displayedGame.currentPlayer === 0
+    && !aiBusy
+    && displayedGame.winner === null
+    && !viewSelectedCardId
+    && unit.hp > 0
+    && unit.level >= 1
+    && unit.frozen === 0
+    && !player.attackUsed
+    && player.energy > 0
+    && !isUpgradePending(displayedGame, 0);
+  card.classList.toggle('is-attack-capable', attackCapable);
   card.classList.toggle('is-attacking', Boolean(impact?.isAttacker && !impact.isRemoteAttacker));
   card.classList.toggle('is-remote-attacking', Boolean(impact?.isRemoteAttacker));
   card.classList.toggle('is-keyword-empowered', Boolean(impact?.isKeywordEmpowered));
@@ -1455,6 +1471,9 @@ function renderUnit(unit, ownerIndex, placement) {
     if (isHealthChange && impact.shieldDelta) label.textContent += ` / 护盾 ${impact.shieldDelta > 0 ? '+' : ''}${impact.shieldDelta}`;
     const value = document.createElement('strong');
     value.textContent = delta > 0 ? `+${delta}` : String(delta);
+    // 数字大小随伤害值变化
+    const magnitude = Math.min(14, Math.abs(delta)) - Math.min(6, Math.abs(delta));
+    impactNumber.style.setProperty('--impact-scale', String(1 + magnitude * 0.06));
     impactNumber.append(label, value);
     card.append(impactNumber);
   }
@@ -1767,6 +1786,14 @@ function renderHandCard(instance, index, totalCount, freshIds) {
   card.classList.toggle('is-blocked', !playable);
   card.classList.toggle('is-drawn', !replaySession && freshIds.has(instance.instanceId));
   card.classList.toggle('is-mulligan', !replaySession && !mulliganDismissed && canMulligan(displayedGame, 0));
+  // 瞬发牌标识
+  const isInstant = definition.keywords.includes('instant');
+  card.classList.toggle('is-instant', isInstant);
+  // 响应窗口：可响应的响应牌脉冲提示
+  const respWindow = displayedGame.responseWindow;
+  const responseMatches = !replaySession && respWindow?.playerIndex === 0
+    && definition.timing === 'response' && definition.responseTo.includes(respWindow.action);
+  card.classList.toggle('is-response-ready', responseMatches && playable);
   // 扇形排布：以手牌中位为轴，边缘卡牌微微旋转
   const fanStep = Math.min(3.2, 26 / Math.max(totalCount, 1));
   const mid = (totalCount - 1) / 2;
@@ -1829,6 +1856,12 @@ function renderHandCard(instance, index, totalCount, freshIds) {
     : costIsReduced && playable
     ? costReductionLabel ?? '费用减免'
     : availabilityLabels[playable ? 'ready' : playability.code] ?? playability.reason;
+  if (isInstant) {
+    const instantBadge = document.createElement('span');
+    instantBadge.className = 'instant-badge';
+    instantBadge.textContent = '瞬发';
+    card.append(instantBadge);
+  }
   card.append(cost, level, art, meta, name, text, availability);
   // 拖拽施放：需要选目标且当前可用的手牌，可直接拖到目标身上触发
   const dragMode = getDragTargetMode(definition);
@@ -1886,7 +1919,12 @@ function renderHand() {
     .filter((instanceId) => !lastHandInstanceIds.has(instanceId)));
   if (!replaySession && freshIds.size && lastHandInstanceIds.size > 0) gameAudio.cardDraw();
   lastHandInstanceIds = new Set(hand.map((card) => card.instanceId));
-  nodes.playerHand.replaceChildren(...hand.map((instance, index) => renderHandCard(instance, index, hand.length, freshIds)));
+  // 本家规则：手牌按所属式神分组排列，同式神相邻
+  const orderedHand = [...hand].sort((first, second) => {
+    const unitDelta = getCardDefinition(first.definitionId).unitId.localeCompare(getCardDefinition(second.definitionId).unitId);
+    return unitDelta !== 0 ? unitDelta : hand.indexOf(first) - hand.indexOf(second);
+  });
+  nodes.playerHand.replaceChildren(...orderedHand.map((instance, index) => renderHandCard(instance, index, orderedHand.length, freshIds)));
   const playerResponding = displayedGame.responseWindow?.playerIndex === 0;
   nodes.playableCardCount.textContent = replaySession ? 0 : hand.filter((card) => (
     canPlayCard(displayedGame, 0, card.instanceId) && (!aiBusy || playerResponding)
@@ -2001,11 +2039,38 @@ function renderCoreImpact(coreNode, playerIndex) {
   label.textContent = impact.hpDelta < 0 ? '核心受击' : '核心恢复';
   const value = document.createElement('strong');
   value.textContent = impact.hpDelta > 0 ? `+${impact.hpDelta}` : String(impact.hpDelta);
+  // 数字大小随伤害值变化
+  number.style.setProperty('--impact-scale', String(1 + Math.min(8, Math.abs(impact.hpDelta)) * 0.05));
   number.append(label, value);
   coreNode.append(number);
 }
 
 function renderBattleFeedback() {
+  // 出牌卡面展示：己方卡面从左侧弹出，敌方从右侧
+  const cardPlayed = visualFeedback.cardPlayed;
+  if (cardPlayed?.definitionId) {
+    const container = cardPlayed.playerIndex === 0 ? nodes.cardRevealPlayer : nodes.cardRevealEnemy;
+    if (container.dataset.definitionId !== cardPlayed.definitionId) {
+      const definition = getCardDefinition(cardPlayed.definitionId);
+      const unit = getUnitDefinition(definition.unitId);
+      container.dataset.definitionId = cardPlayed.definitionId;
+      container.innerHTML = `
+        <span class="reveal-art"><img src="${unit.art}" alt="" width="120" height="156"></span>
+        <span class="reveal-meta"><b>${definition.name}</b><small>${unit.name} / ${definition.typeLabel}</small></span>`;
+      container.classList.remove('is-visible');
+      void container.offsetWidth;
+      container.classList.add('is-visible');
+      clearTimeout(Number(container.dataset.timer));
+      container.dataset.timer = String(setTimeout(() => {
+        container.classList.remove('is-visible');
+        delete container.dataset.definitionId;
+      }, 1500));
+    }
+  } else {
+    [nodes.cardRevealPlayer, nodes.cardRevealEnemy].forEach((container) => {
+      if (!cardPlayed) delete container.dataset.definitionId;
+    });
+  }
   nodes.battleFeedback.replaceChildren();
   const cue = visualFeedback.cue;
   if (!cue) {
@@ -2104,12 +2169,20 @@ function renderCommands() {
   const turnMode = replaySession ? 'replay' : displayedGame.winner !== null ? 'over' : playerResponding ? 'response' : userTurn ? 'player' : 'enemy';
   // 升级阶段强制先行：未完成升勾时禁止出击
   const upgradePending = isUpgradePending(displayedGame, 0);
+  const hand = displayedGame.players[0].hand;
   const canAttack = userTurn && !upgradePending && !selectedCardId && attacker && attacker.hp > 0 && attacker.frozen === 0 && player.energy > 0 && !player.attackUsed;
   const canLevel = userTurn && !selectedCardId && attacker && attacker.level < GAME_RULES.maxUnitLevel && (!player.levelUpUsed || player.bonusUpgrades > 0);
   nodes.attackButton.disabled = !canAttack;
   nodes.levelButton.disabled = !canLevel;
   nodes.levelButton.hidden = !replaySession && Boolean(selectedCardId);
   nodes.endTurnButton.disabled = !userTurn && !playerResponding;
+  // 本家规则：无可行操作时结束回合自动亮起
+  const noActionsLeft = userTurn
+    && !upgradePending
+    && player.levelUpUsed
+    && player.attackUsed
+    && hand.every((instance) => !getCardPlayability(displayedGame, 0, instance.instanceId).playable);
+  nodes.endTurnButton.classList.toggle('is-idle-glow', Boolean(noActionsLeft));
   nodes.endTurnButton.innerHTML = playerResponding
     ? '放弃响应 <span aria-hidden="true">→</span>'
     : '结束回合 <span aria-hidden="true">→</span>';

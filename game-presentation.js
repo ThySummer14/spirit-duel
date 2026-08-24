@@ -1,4 +1,4 @@
-import { GAME_EVENTS } from './game-core.js?v=4d6a1886';
+import { GAME_EVENTS } from './game-core.js?v=5dc91adb';
 
 export function captureBattleSnapshot(state) {
   return {
@@ -136,9 +136,17 @@ export function deriveBattleFeedback(previousSnapshot, state) {
   const unitImpacts = new Map();
   const coreImpacts = new Map();
   const realmImpacts = new Map();
-  if (!previousSnapshot) return { unitImpacts, coreImpacts, realmImpacts, cue: null };
+  if (!previousSnapshot) return { unitImpacts, coreImpacts, realmImpacts, cardPlayed: null, cue: null };
 
   const newEvents = eventsSince(previousSnapshot, state);
+  // 最新一次出牌：用于「出牌卡面展示」（己方左侧 / 敌方右侧）
+  const cardPlayedEvent = newEvents.filter((event) => event.type === GAME_EVENTS.CARD_PLAYED).at(-1) ?? null;
+  const cardPlayed = cardPlayedEvent
+    ? {
+        playerIndex: cardPlayedEvent.payload.playerIndex,
+        definitionId: cardPlayedEvent.payload.definitionId ?? null,
+      }
+    : null;
   const combatEvents = newEvents.filter((event) => event.type === GAME_EVENTS.COMBAT_STARTED);
   const latestCombatByAttacker = new Map();
   combatEvents.forEach((event) => latestCombatByAttacker.set(event.payload.attackerUnitId, event));
@@ -224,25 +232,25 @@ export function deriveBattleFeedback(previousSnapshot, state) {
 
   const impacts = [...unitImpacts.values()];
   const knockedOut = impacts.find((impact) => impact.knockedOut);
-  if (knockedOut) return { unitImpacts, coreImpacts, realmImpacts, cue: knockoutCue(knockedOut) };
+  if (knockedOut) return { unitImpacts, coreImpacts, realmImpacts, cardPlayed, cue: knockoutCue(knockedOut) };
 
   const destroyedRealmEvent = newEvents.filter((event) => event.type === GAME_EVENTS.REALM_DESTROYED).at(-1);
-  if (destroyedRealmEvent) return { unitImpacts, coreImpacts, realmImpacts, cue: realmDestroyedCue(destroyedRealmEvent) };
+  if (destroyedRealmEvent) return { unitImpacts, coreImpacts, realmImpacts, cardPlayed, cue: realmDestroyedCue(destroyedRealmEvent) };
 
   const leveled = impacts.find((impact) => impact.levelDelta > 0);
-  if (leveled) return { unitImpacts, coreImpacts, realmImpacts, cue: levelCue(leveled) };
+  if (leveled) return { unitImpacts, coreImpacts, realmImpacts, cardPlayed, cue: levelCue(leveled) };
 
   const damagedRealm = [...realmImpacts.values()].find((impact) => impact.hpDelta < 0);
-  if (damagedRealm) return { unitImpacts, coreImpacts, realmImpacts, cue: realmHitCue(damagedRealm) };
+  if (damagedRealm) return { unitImpacts, coreImpacts, realmImpacts, cardPlayed, cue: realmHitCue(damagedRealm) };
 
   const latestCombat = combatEvents.at(-1);
-  if (latestCombat) return { unitImpacts, coreImpacts, realmImpacts, cue: combatCue(state, latestCombat) };
+  if (latestCombat) return { unitImpacts, coreImpacts, realmImpacts, cardPlayed, cue: combatCue(state, latestCombat) };
 
   const latestKeywordGain = newEvents.filter((event) => event.type === GAME_EVENTS.KEYWORD_STATE_GAINED).at(-1);
-  if (latestKeywordGain) return { unitImpacts, coreImpacts, realmImpacts, cue: keywordGainCue(latestKeywordGain) };
+  if (latestKeywordGain) return { unitImpacts, coreImpacts, realmImpacts, cardPlayed, cue: keywordGainCue(latestKeywordGain) };
 
   const damagedCore = [...coreImpacts.values()].find((impact) => impact.hpDelta < 0);
-  if (damagedCore) return { unitImpacts, coreImpacts, realmImpacts, cue: coreHitCue(damagedCore) };
+  if (damagedCore) return { unitImpacts, coreImpacts, realmImpacts, cardPlayed, cue: coreHitCue(damagedCore) };
 
   const damagedUnit = impacts.find((impact) => impact.hpDelta < 0);
   return {

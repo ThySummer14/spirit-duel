@@ -156,6 +156,7 @@ test('returns empty feedback for the first frame and unchanged states without mu
 
   assert.equal(firstFrame.unitImpacts.size, 0);
   assert.equal(firstFrame.coreImpacts.size, 0);
+  assert.equal(firstFrame.cardPlayed, null);
   assert.equal(firstFrame.cue, null);
   assert.equal(unchanged.unitImpacts.size, 0);
   assert.equal(unchanged.coreImpacts.size, 0);

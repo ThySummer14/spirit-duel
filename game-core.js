@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=4d6a1886';
+} from './game-content.js?v=5dc91adb';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=4d6a1886';
+} from './game-keywords.js?v=5dc91adb';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=4d6a1886';
+} from './game-content.js?v=5dc91adb';
 
 export {
   CARD_KEYWORDS,
@@ -55,12 +55,13 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=4d6a1886';
+} from './game-keywords.js?v=5dc91adb';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
   TURN_STARTED: 'turn-started',
   CARD_DRAWN: 'card-drawn',
+  HAND_BURNED: 'hand-burned',
   DECK_EXHAUSTED: 'deck-exhausted',
   UNIT_LEVELED: 'unit-leveled',
   CARD_PLAYED: 'card-played',
@@ -96,7 +97,7 @@ export const GAME_EVENTS = Object.freeze({
   MATCH_FINISHED: 'match-finished',
 });
 
-export const GAME_STATE_VERSION = 11;
+export const GAME_STATE_VERSION = 12;
 
 const MAX_EVENT_CHAIN_LENGTH = 64;
 const MAX_RESOLUTION_STACK_LENGTH = 64;
@@ -511,6 +512,20 @@ export function drawCards(state, playerIndex, count = 1) {
     );
     checkWinner(state);
     break;
+  }
+
+  // 本家规则：手牌上限 12 张，超出部分被焚毁
+  if (player.hand.length > GAME_RULES.maxHandSize) {
+    const burned = player.hand.splice(GAME_RULES.maxHandSize);
+    burned.forEach((instance) => {
+      recordEvent(
+        state,
+        GAME_EVENTS.HAND_BURNED,
+        { playerIndex, instanceId: instance.instanceId, definitionId: instance.definitionId },
+        `${player.name} 的手牌超出上限，${getCardDefinition(instance.definitionId).name} 被焚毁。`,
+        'danger',
+      );
+    });
   }
 }
 
