@@ -1,4 +1,4 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=575643cf';
+import { CARD_KEYWORDS } from './game-keywords.js?v=4d6a1886';
 
 export const GAME_RULES = Object.freeze({
   lineupSize: 4,
@@ -18,6 +18,20 @@ export const GAME_RULES = Object.freeze({
 
 export const DEFAULT_PLAYER_LINEUP = Object.freeze(['ember', 'basalt', 'lumen', 'rime']);
 export const DEFAULT_ENEMY_LINEUP = Object.freeze(['storm', 'basalt', 'lumen', 'ink']);
+
+export function getAllUnitIds() {
+  return UNIT_DEFINITIONS.map((unit) => unit.id);
+}
+
+/** 随机挑选 4 名互不重复的角色（用于失序体随机编成） */
+export function createRandomLineup(random = Math.random) {
+  const pool = [...getAllUnitIds()];
+  const picked = [];
+  while (picked.length < 4 && pool.length) {
+    picked.push(...pool.splice(Math.floor(random() * pool.length), 1));
+  }
+  return picked;
+}
 
 function passive(id, name, text, hooks) {
   return Object.freeze({

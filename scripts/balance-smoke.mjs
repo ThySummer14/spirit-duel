@@ -53,7 +53,18 @@ const stats = {
 };
 
 for (let game = 0; game < GAMES; game += 1) {
-  let state = createGame(SEED_BASE + game * 7919);
+  // 随机敌方阵容（种子化，可复现）
+  const pool = ['ember', 'basalt', 'lumen', 'rime', 'storm', 'ink', 'frostblade', 'kongo'];
+  const enemyLineup = [];
+  let rngSeed = SEED_BASE + game * 7919;
+  const rand = () => {
+    rngSeed = (rngSeed * 1103515245 + 12345) % 2147483648;
+    return rngSeed / 2147483648;
+  };
+  while (enemyLineup.length < 4 && pool.length) {
+    enemyLineup.push(...pool.splice(Math.floor(rand() * pool.length), 1));
+  }
+  let state = createGame({ seed: SEED_BASE + game * 7919, enemyUnitIds: enemyLineup });
   let halfTurns = 0;
   let failure = null;
   try {

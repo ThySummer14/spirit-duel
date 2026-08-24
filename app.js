@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=575643cf';
-import { chooseAiCommand } from './game-ai.js?v=575643cf';
-import { gameAudio } from './game-audio.js?v=575643cf';
+} from './game-core.js?v=4d6a1886';
+import { chooseAiCommand } from './game-ai.js?v=4d6a1886';
+import { gameAudio } from './game-audio.js?v=4d6a1886';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=575643cf';
+} from './game-collection.js?v=4d6a1886';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=575643cf';
+} from './game-presentation.js?v=4d6a1886';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=575643cf';
+} from './game-session.js?v=4d6a1886';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -252,6 +252,8 @@ let draggedAttackUnitId = null;
 let draggedCardInstanceId = null;
 // 开局调度条被玩家手动关闭
 let mulliganDismissed = false;
+// 本局失序体的随机编成（用于开战播报）
+let lastEnemyLineup = [];
 let lastFeedbackSfxKey = '';
 let lastResponseWindowKey = '';
 let lastHandInstanceIds = new Set();
@@ -846,6 +848,16 @@ function unitByUid(player, unitId) {
   return player.units.find((unit) => unit.uid === unitId) ?? null;
 }
 
+// 失序体随机编成：从全部角色中随机抽 4 名（允许与玩家阵容重合，增加 PVE 变化）
+function pickEnemyLineup() {
+  const pool = UNIT_DEFINITIONS.map((unit) => unit.id);
+  const picked = [];
+  while (picked.length < 4 && pool.length) {
+    picked.push(...pool.splice(Math.floor(Math.random() * pool.length), 1));
+  }
+  return picked;
+}
+
 // 战斗区角色的有效 uid；战斗区为空或角色已气绝时返回 null
 function frontUidOf(player) {
   const front = unitByUid(player, player.frontUnitId);
@@ -1165,8 +1177,10 @@ function startBattle() {
 
   gameSession += 1;
   lockedPlayerDeckDefinition = structuredClone(deckDefinition);
-  game = createGame({ playerDeckDefinition: lockedPlayerDeckDefinition });
+  const enemyLineup = pickEnemyLineup();
+  game = createGame({ playerDeckDefinition: lockedPlayerDeckDefinition, enemyUnitIds: enemyLineup });
   commandJournal = createCommandJournal(game);
+  lastEnemyLineup = enemyLineup;
   selectedCardId = null;
   selectedAttackUnitId = frontUidOf(game.players[0]);
   aiBusy = false;
@@ -1186,6 +1200,10 @@ function startBattle() {
   hideFormation();
   render();
   announce('灵契编成已锁定。', 'success');
+  if (lastEnemyLineup.length) {
+    const names = lastEnemyLineup.map((id) => UNIT_DEFINITIONS.find((unit) => unit.id === id)?.name ?? id);
+    setTimeout(() => announce(`失序体编成：${names.join(' / ')}`, 'neutral'), 900);
+  }
 }
 
 function renderUnit(unit, ownerIndex, placement) {
@@ -2465,7 +2483,9 @@ function maybeShowResult() {
 function restartGame() {
   if (replaySession) return;
   gameSession += 1;
-  game = createGame({ playerDeckDefinition: lockedPlayerDeckDefinition });
+  const enemyLineup = pickEnemyLineup();
+  lastEnemyLineup = enemyLineup;
+  game = createGame({ playerDeckDefinition: lockedPlayerDeckDefinition, enemyUnitIds: enemyLineup });
   commandJournal = createCommandJournal(game);
   selectedCardId = null;
   selectedAttackUnitId = frontUidOf(game.players[0]);
