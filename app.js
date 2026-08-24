@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=5dc91adb';
-import { chooseAiCommand } from './game-ai.js?v=5dc91adb';
-import { gameAudio } from './game-audio.js?v=5dc91adb';
+} from './game-core.js?v=b7fb8b28';
+import { chooseAiCommand } from './game-ai.js?v=b7fb8b28';
+import { gameAudio } from './game-audio.js?v=b7fb8b28';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=5dc91adb';
+} from './game-collection.js?v=b7fb8b28';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=5dc91adb';
+} from './game-presentation.js?v=b7fb8b28';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=5dc91adb';
+} from './game-session.js?v=b7fb8b28';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -1924,6 +1924,7 @@ function renderHand() {
     const unitDelta = getCardDefinition(first.definitionId).unitId.localeCompare(getCardDefinition(second.definitionId).unitId);
     return unitDelta !== 0 ? unitDelta : hand.indexOf(first) - hand.indexOf(second);
   });
+  nodes.playerHand.dataset.count = String(orderedHand.length);
   nodes.playerHand.replaceChildren(...orderedHand.map((instance, index) => renderHandCard(instance, index, orderedHand.length, freshIds)));
   const playerResponding = displayedGame.responseWindow?.playerIndex === 0;
   nodes.playableCardCount.textContent = replaySession ? 0 : hand.filter((card) => (
