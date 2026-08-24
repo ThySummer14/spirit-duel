@@ -787,26 +787,31 @@ test('a reserve unit moves into the front line when it attacks', () => {
   assert.match(second.error, /已经出击/);
 });
 
-test('one unit can level up per turn and unlock higher-level cards', () => {
+test('level-ups advance in lockstep and unlock higher-level cards', () => {
   const state = rawCreateGame(24);
-  // 手动塞牌：保留未完成升级阶段的初始状态以验证升勾流程
+  // 开局：最左侧首位角色已免费升至 1 勾
+  assert.equal(state.players[0].units[0].level, 1);
+  assert.equal(state.players[0].units[1].level, 0);
+
+  // 齐头并进：仍有 0 勾角色时，不能把 1 勾角色升到 2
+  state.players[0].units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  state.players[0].levelUpUsed = true;
   const form = { instanceId: 'test-ember-form-manual', definitionId: 'ember-form' };
   state.players[0].hand.push(form);
-  assert.equal(getCardPlayability(state, 0, form.instanceId).code, 'upgrade');
+  assert.equal(getCardPlayability(state, 0, form.instanceId).code, 'level');
 
-  // 首次升勾：0→1 激活角色
-  const leveled = levelUpUnit(state, 0, state.players[0].units[0].uid);
+  const emberUid = state.players[0].units[0].uid;
+  state.players[0].units.find((unit) => unit.id === 'rime').level = 0;
+  state.players[0].levelUpUsed = false; // 重置以便验证阶梯门槛
+  assert.match(levelUpUnit(state, 0, emberUid).error, /齐头并进/);
+
+  // 全员 1 勾后解锁 2 勾升级
+  state.players[0].units.find((unit) => unit.id === 'rime').level = 1;
+  const leveled = levelUpUnit(state, 0, emberUid);
   assert.equal(leveled.error, null);
-  assert.equal(leveled.state.players[0].units[0].level, 1);
-  assert.match(levelUpUnit(leveled.state, 0, leveled.state.players[0].units[1].uid).error, /已经提升/);
+  assert.equal(leveled.state.players[0].units[0].level, 2);
 
-  // 下一回合再升 1→2，解锁 2 勾形态牌
-  const next = endTurn(endTurn(leveled.state, 0).state, 1).state;
-  const leveled2 = levelUpUnit(next, 0, next.players[0].units[0].uid);
-  assert.equal(leveled2.error, null);
-  assert.equal(leveled2.state.players[0].units[0].level, 2);
-
-  const played = playCard(leveled2.state, 0, form.instanceId);
+  const played = playCard(leveled.state, 0, form.instanceId);
   assert.equal(played.error, null);
   assert.equal(played.state.players[0].units[0].attack, 4);
   assert.equal(played.state.players[0].units[0].maxHp, 11);
@@ -1213,16 +1218,24 @@ test('upgrade phase is enforced before playing cards or attacking', () => {
   // 新回合未升勾且有可升级角色时：出牌与出击都被拦截（手动塞牌避免助手改写升勾标记）
   assert.equal(isUpgradePending(state, 0), true);
   state.players[0].hand.push({ instanceId: 'manual-mend', definitionId: 'mend' });
-  const allyUid = state.players[0].units.find((unit) => unit.id === 'lumen').uid; // mend 的来源角色
-  assert.equal(playCard(state, 0, 'manual-mend', allyUid).error, '升级阶段：请先选择一名角色提升勾玉。');
+  const lumenUid = state.players[0].units.find((unit) => unit.id === 'lumen').uid; // mend 的来源角色
+  // 已激活的赤曜出击被「升级阶段」拦截
   assert.match(basicAttack(state, 0, state.players[0].units[0].uid).error, /升级阶段/);
+  // 弦月仍为 0 勾未激活：其卡牌可用性标记为「尚未激活」（升级阶段门优先）
+  assert.equal(getCardPlayability(state, 0, 'manual-mend').code, 'upgrade');
+  state.players[0].levelUpUsed = true;
+  assert.equal(getCardPlayability(state, 0, 'manual-mend').code, 'source-dormant');
+  state.players[0].levelUpUsed = false;
 
-  // 升勾后解除限制（mend 的来源角色是弦月）
-  const leveled = levelUpUnit(state, 0, allyUid);
+  // 升勾（弦月 0→1 激活）后解除限制
+  const leveled = levelUpUnit(state, 0, lumenUid);
   assert.equal(leveled.error, null);
   assert.equal(isUpgradePending(leveled.state, 0), false);
   assert.equal(getCardPlayability(leveled.state, 0, 'manual-mend', {}).code, 'ready');
-  assert.equal(playCard(leveled.state, 0, 'manual-mend', allyUid).error, null);
+  assert.equal(playCard(leveled.state, 0, 'manual-mend', state.players[0].units[0].uid).error, null);
+
+  // 齐头并进：弦月（1 勾）不能在赤曜（0 勾）激活前再升
+  assert.match(levelUpUnit(leveled.state, 0, lumenUid).error, /齐头并进/);
 
   // 全员满勾时不再强制
   const maxed = rawCreateGame(18);
@@ -1230,4 +1243,26 @@ test('upgrade phase is enforced before playing cards or attacking', () => {
     player.units.forEach((unit) => { unit.level = GAME_RULES.maxUnitLevel; });
   });
   assert.equal(isUpgradePending(maxed, 0), false);
+});
+
+test('the first player gains a bonus upgrade on their seventh turn', () => {
+  let state = rawCreateGame(19);
+  // 推进到先手第 7 回合（每个大回合结束双方各行动一次）
+  for (let round = 0; round < 6; round += 1) {
+    state = endTurn(endTurn(state, 0).state, 1).state;
+  }
+  assert.equal(state.currentPlayer, 0);
+  assert.equal(state.players[0].turnsTaken, 7);
+  assert.equal(state.players[0].bonusUpgrades, 1);
+  assert.equal(state.players[1].bonusUpgrades, 0);
+
+  // 额外机会允许本回合连升两次（阶梯门槛内）
+  state.players[0].units.forEach((unit) => { if (unit.level < 1) unit.level = 1; });
+  const first = levelUpUnit(state, 0, state.players[0].units[1].uid);
+  assert.equal(first.error, null);
+  assert.equal(first.state.players[0].levelUpUsed, true);
+  assert.equal(first.state.players[0].bonusUpgrades, 1);
+  const second = levelUpUnit(first.state, 0, first.state.players[0].units[2].uid);
+  assert.equal(second.error, null);
+  assert.equal(second.state.players[0].bonusUpgrades, 0);
 });

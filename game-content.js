@@ -1,4 +1,4 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=46';
+import { CARD_KEYWORDS } from './game-keywords.js?v=48';
 
 export const GAME_RULES = Object.freeze({
   lineupSize: 4,
@@ -12,6 +12,7 @@ export const GAME_RULES = Object.freeze({
   mulliganCount: 2,
   knockoutCountdown: 2,
   maxUnitLevel: 3,
+  bonusUpgradeTurn: 7, // 先手玩家在该回合获得一次额外升勾机会
   maxResponseDepth: 8,
 });
 
@@ -214,7 +215,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('mend', 'lumen', '回响疗愈', 'spell', 1, '为一名友方角色恢复 4 点生命。', 'ally-unit', 'heal', 4, { starterCopies: 2, rarity: 'common', tags: ['恢复'] }),
   card('refract', 'lumen', '折光', 'spell', 1, '抽 2 张牌，并为己方核心恢复 1 点生命。', 'auto', 'draw-heal', 2, { starterCopies: 2, rarity: 'common', tags: ['调度'] }),
   card('prism-form', 'lumen', '月环之相', 'form', 2, '弦月获得 +1 攻击与 +2 生命上限。', 'auto', 'form', { attack: 1, hp: 2 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
-  card('recall', 'lumen', '余辉唤回', 'spell', 3, '唤醒一名离场角色，使其恢复 4 点生命。', 'knocked-ally', 'revive', 4, { starterCopies: 2, rarity: 'epic', tags: ['复归'] }),
+  card('recall', 'lumen', '余辉唤回', 'spell', 3, '唤醒一名离场角色，并回复全部生命。', 'knocked-ally', 'revive', 4, { starterCopies: 2, rarity: 'epic', tags: ['复归'] }),
 
   card('ice-cut', 'rime', '冰脉斩', 'combat', 1, '白棱出击，本次攻击 +1。', 'auto', 'assault', 1, { starterCopies: 2, rarity: 'common', tags: ['出击'] }),
   card('hush', 'rime', '静默霜域', 'spell', 1, '眩晕一名敌方角色，使其下回合无法出击或反击。', 'enemy-unit', 'freeze', 1, {
@@ -332,7 +333,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('squall-field', 'storm', '风暴域', 'realm', 2, '幻境：己方回合开始时，对敌方前线造成 1 点伤害。', 'auto', 'realm', null, {
     rarity: 'rare', tags: ['幻境', '压制'], realm: { hp: 4, trigger: 'owner-turn-start', triggerEffect: 'damage-enemy-front', triggerValue: 1 },
   }),
-  card('thunder-return', 'storm', '鸣雷返航', 'spell', 3, '唤醒一名离场角色，使其恢复 4 点生命。', 'knocked-ally', 'revive', 4, { cost: 2, rarity: 'epic', tags: ['复归'] }),
+  card('thunder-return', 'storm', '鸣雷返航', 'spell', 3, '唤醒一名离场角色，并回复全部生命。', 'knocked-ally', 'revive', 4, { cost: 2, rarity: 'epic', tags: ['复归'] }),
 
   // 玄砚：护盾、消耗与幻境调度组成长线构筑。
   card('margin-ward', 'ink', '页边障', 'spell', 1, '一名友方角色获得 2 点护盾。', 'ally-unit', 'shield', 2, { tags: ['保护'] }),

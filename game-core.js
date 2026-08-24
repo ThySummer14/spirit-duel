@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=46';
+} from './game-content.js?v=48';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=46';
+} from './game-keywords.js?v=48';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=46';
+} from './game-content.js?v=48';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +55,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=46';
+} from './game-keywords.js?v=48';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -96,7 +96,7 @@ export const GAME_EVENTS = Object.freeze({
   MATCH_FINISHED: 'match-finished',
 });
 
-export const GAME_STATE_VERSION = 9;
+export const GAME_STATE_VERSION = 10;
 
 const MAX_EVENT_CHAIN_LENGTH = 64;
 const MAX_RESOLUTION_STACK_LENGTH = 64;
@@ -406,6 +406,7 @@ function createPlayer(state, id, name, deckDefinition) {
     attackUsed: false,
     levelUpUsed: false,
     mulligansUsed: 0,
+    bonusUpgrades: 0,
     keywordUsage: {},
     turnsTaken: 0,
     cardsPlayed: 0,
@@ -614,10 +615,12 @@ function healAvatar(state, playerIndex, amount) {
 }
 
 function reviveUnit(state, playerIndex, unitIndex, amount) {
+  // 本家规则：复活一律回复全部生命（amount 参数保留以兼容效果签名）
+  void amount;
   const player = state.players[playerIndex];
   const unit = player.units[unitIndex];
   if (!unit || unit.hp > 0) return;
-  unit.hp = Math.min(amount, unit.maxHp);
+  unit.hp = unit.maxHp;
   unit.knockout = 0;
   unit.shield = 0;
   // 复活角色回到准备区，需要重新出击才能进入战斗区
@@ -950,6 +953,16 @@ function beginTurn(state, playerIndex) {
   player.energy = player.maxEnergy;
   player.attackUsed = false;
   player.levelUpUsed = false;
+  if (playerIndex === 0 && player.turnsTaken === GAME_RULES.bonusUpgradeTurn) {
+    player.bonusUpgrades += 1;
+    recordEvent(
+      state,
+      GAME_EVENTS.TURN_STARTED,
+      { playerIndex, bonusUpgrade: true },
+      `${player.name} 获得一次额外升勾机会。`,
+      'success',
+    );
+  }
   player.cardsPlayedThisTurn = 0;
   applyTurnStartKeywordHooks({ state, playerIndex, player, recordEvent, gameEvents: GAME_EVENTS });
 
@@ -957,12 +970,13 @@ function beginTurn(state, playerIndex) {
     if (unit.hp > 0 || unit.knockout <= 0) return;
     unit.knockout -= 1;
     if (unit.knockout === 0) {
-      unit.hp = Math.max(1, Math.ceil(unit.maxHp * 0.4));
+      // 本家规则：气绝倒计时结束后复活并回复全部生命
+      unit.hp = unit.maxHp;
       recordEvent(
         state,
         GAME_EVENTS.UNIT_RETURNED,
         { playerIndex, unitIndex, hp: unit.hp, source: 'countdown' },
-        `${unit.name} 自行归队，恢复 ${unit.hp} 点生命。`,
+        `${unit.name} 自行归队，生命回复至 ${unit.hp}/${unit.maxHp}。`,
         'success',
       );
     }
@@ -1018,6 +1032,11 @@ export function createGame(input = undefined) {
     createPlayer(state, 'player', '巡界者', options.playerDeckDefinition),
     createPlayer(state, 'ai', '失序体', options.enemyDeckDefinition),
   ];
+  // 开局：双方最左侧首位角色免费升至 1 勾（激活）
+  state.players.forEach((player) => {
+    const first = player.units[0];
+    if (first) first.level = 1;
+  });
   drawCards(state, 0, GAME_RULES.openingHandSize - 1);
   drawCards(state, 1, GAME_RULES.openingHandSize - 1);
   beginTurn(state, 0);
@@ -1970,13 +1989,23 @@ export function levelUpUnit(state, playerIndex, unitId) {
   const unitIndex = unitIndexByUid(player, unitId);
   const unit = player.units[unitIndex];
   if (!unit) return { state, error: '没有找到该角色。' };
-  if (player.levelUpUsed) return { state, error: '本回合已经提升过一名角色。' };
+  // 齐头并进：只能升级处于全队最低勾玉等级的角色
+  const minLevel = Math.min(...player.units.map((candidate) => candidate.level));
+  if (unit.level > minLevel) {
+    return { state, error: '升勾需齐头并进：所有角色达到相同勾玉等级后，才能迈向下一级。' };
+  }
+  let usesBonus = false;
+  if (player.levelUpUsed) {
+    if (player.bonusUpgrades > 0) usesBonus = true;
+    else return { state, error: '本回合已经提升过一名角色。' };
+  }
   if (unit.level >= GAME_RULES.maxUnitLevel) return { state, error: `${unit.name} 已达到最高勾玉等级。` };
 
   const next = clone(state);
   const nextPlayer = next.players[playerIndex];
   nextPlayer.units[unitIndex].level += 1;
-  nextPlayer.levelUpUsed = true;
+  if (usesBonus) nextPlayer.bonusUpgrades -= 1;
+  else nextPlayer.levelUpUsed = true;
   recordEvent(
     next,
     GAME_EVENTS.UNIT_LEVELED,

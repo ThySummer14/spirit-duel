@@ -51,6 +51,7 @@ class SpiritAudio {
     this.masterVolume = typeof prefs?.master === 'number' ? prefs.master : MASTER_DEFAULT;
     this.musicVolume = typeof prefs?.music === 'number' ? prefs.music : MUSIC_DEFAULT;
     this.sfxVolume = typeof prefs?.sfx === 'number' ? prefs.sfx : SFX_DEFAULT;
+    this.bgmTrack = prefs?.bgm === 'hot' ? 'hot' : 'classic';
     this.context = null;
     this.masterGain = null;
     this.musicGain = null;
@@ -74,6 +75,7 @@ class SpiritAudio {
         master: this.masterVolume,
         music: this.musicVolume,
         sfx: this.sfxVolume,
+        bgm: this.bgmTrack,
       }));
     } catch { /* 忽略 */ }
   }
@@ -563,7 +565,7 @@ class SpiritAudio {
   }
 
   createMusicRunner(mode) {
-    const tempo = mode === 'battle' ? 0.27 : 0.42;
+    const tempo = mode === 'battle-hot' ? 0.185 : mode === 'battle' ? 0.27 : 0.42;
     return () => {
       if (!this.context || this.musicMode !== mode) return;
       while (this.nextNoteTime < this.context.currentTime + 0.4) {
@@ -575,46 +577,53 @@ class SpiritAudio {
   }
 
   scheduleMusicStep(mode, step, when) {
-    const tempo = mode === 'battle' ? 0.27 : 0.42;
-    const scale = mode === 'battle' ? HIRAJOSHI_SCALE : YO_SCALE;
-    const root = mode === 'battle' ? D3 : D3; // 都以 D3 为基座
+    const tempo = mode === 'battle-hot' ? 0.185 : mode === 'battle' ? 0.27 : 0.42;
+    const scale = mode === 'formation' ? YO_SCALE : HIRAJOSHI_SCALE;
+    const root = D3; // 都以 D3 为基座
     const bar = Math.floor(step / 8) % 4;
     const beat = step % 8;
-    const seed = step + (mode === 'battle' ? 1000 : 0);
+    const seed = step + (mode === 'battle' ? 1000 : mode === 'battle-hot' ? 2000 : 0);
+    const isHot = mode === 'battle-hot';
+    const isBattleLike = mode !== 'formation';
 
-    // 四小节和声进行：编成 I-IV-V-vi 感；战斗 i-VI-VII-v 感
-    const progression = mode === 'battle' ? [0, 3, 4, 3] : [0, 2, 3, 1];
+    // 四小节和声进行：编成 I-IV-V-vi 感；战斗/热血 i-VI-VII-v 感
+    const progression = mode === 'formation' ? [0, 2, 3, 1] : [0, 3, 4, 3];
     const degree = progression[bar];
     const rootFreq = root * Math.pow(2, scale[degree] / 12);
 
-    // --- 低音持续音（每小节起）：根音 + 纯五度，战斗加一层八度 ---
+    // --- 低音持续音（每小节起）：根音 + 纯五度；热血每两拍加八度脉冲推进 ---
     if (beat === 0) {
-      const droneGain = mode === 'battle' ? 0.11 : 0.085;
+      const droneGain = isBattleLike ? 0.11 : 0.085;
       this.tone({ freq: rootFreq, dur: tempo * 8, type: 'sine', gain: droneGain, attack: 0.5, release: 1.2, dest: this.musicBus, curve: 'lin' });
       this.tone({ freq: rootFreq * 1.5, dur: tempo * 7.5, type: 'sine', gain: droneGain * 0.5, attack: 0.6, release: 1.2, dest: this.musicBus, curve: 'lin' });
-      if (mode === 'battle') {
+      if (isBattleLike) {
         this.tone({ freq: rootFreq / 2, dur: tempo * 8, type: 'triangle', gain: 0.07, attack: 0.4, release: 1.4, dest: this.musicBus, curve: 'lin' });
       }
     }
+    if (isHot && (beat === 2 || beat === 6)) {
+      // 热血：八度短脉冲，制造冲锋推进感
+      this.tone({ freq: rootFreq * 2, dur: tempo * 1.6, type: 'sawtooth', gain: 0.05, attack: 0.01, release: 0.12, dest: this.musicBus, curve: 'lin' });
+    }
 
     // --- 和筝拨弦 ---
-    const pluckChance = mode === 'battle' ? 0.62 : 0.4;
+    const pluckChance = isHot ? 0.85 : mode === 'battle' ? 0.62 : 0.4;
     if (hashRandom(seed, 1) < pluckChance) {
       const idx = Math.floor(hashRandom(seed, 2) * scale.length);
-      const octave = hashRandom(seed, 3) > (mode === 'battle' ? 0.35 : 0.6) ? 2 : 1;
+      const octave = hashRandom(seed, 3) > (isBattleLike ? 0.35 : 0.6) ? 2 : 1;
       const freq = rootFreq * octave * Math.pow(2, scale[idx] / 12);
-      this.koto(freq, { when, gain: mode === 'battle' ? 0.075 : 0.085, dur: mode === 'battle' ? 0.34 : 0.6 });
+      this.koto(freq, { when, gain: isHot ? 0.07 : 0.085, dur: isBattleLike ? 0.3 : 0.6 });
     }
-    // 战斗：反拍短促拨弦制造驱动力
-    if (mode === 'battle' && (beat === 3 || beat === 6) && hashRandom(seed, 4) > 0.35) {
+    // 战斗/热血：反拍短促拨弦制造驱动力；热血几乎每拍都有
+    const offbeatChance = isHot ? 0.8 : mode === 'battle' ? 0.65 : 0;
+    if (isBattleLike && (beat === 3 || beat === 6 || (isHot && beat % 2 === 1)) && hashRandom(seed, 4) > 1 - offbeatChance) {
       const idx = Math.floor(hashRandom(seed, 5) * scale.length);
       this.koto(rootFreq * 2 * Math.pow(2, scale[idx] / 12), { when, gain: 0.05, dur: 0.2 });
     }
 
-    // --- 尺八旋律：级进为主，偶有跳进与长音 ---
-    const melodyChance = mode === 'battle' ? 0.34 : 0.3;
+    // --- 尺八旋律：级进为主，偶有跳进与长音；热血更高亢急促 ---
+    const melodyChance = isHot ? 0.55 : mode === 'battle' ? 0.34 : 0.3;
     if (hashRandom(seed, 6) < melodyChance) {
-      const options = [-2, -1, -1, 0, 1, 1, 2];
+      const options = isHot ? [-1, 0, 1, 1, 2, 2, 3] : [-2, -1, -1, 0, 1, 1, 2];
       const move = options[Math.floor(hashRandom(seed, 7) * options.length)];
       const prev = this.lastFluteNote ?? degree;
       let next = prev + move;
@@ -623,13 +632,17 @@ class SpiritAudio {
       const octave = next >= scale.length ? 2 : 1;
       const idx = ((next % scale.length) + scale.length) % scale.length;
       this.lastFluteNote = next;
-      const freq = rootFreq * octave * Math.pow(2, scale[idx] / 12);
-      const long = hashRandom(seed, 8) > 0.72;
-      this.shakuhachi(freq, { when, gain: mode === 'battle' ? 0.06 : 0.1, dur: long ? tempo * 3 : tempo * 1.4 });
+      const freq = rootFreq * octave * (isHot ? 2 : 1) * Math.pow(2, scale[idx] / 12);
+      const long = hashRandom(seed, 8) > (isHot ? 0.85 : 0.72);
+      this.shakuhachi(freq, { when, gain: isHot ? 0.065 : mode === 'battle' ? 0.06 : 0.1, dur: long ? tempo * 3 : tempo * 1.4 });
     }
 
-    // --- 太鼓：战斗节拍（0 强拍、4 中鼓、偶尔 6 弱鼓） ---
-    if (mode === 'battle') {
+    // --- 太鼓：战斗节拍（0 强拍、4 中鼓、偶尔 6 弱鼓）；热血全程驱动 ---
+    if (isHot) {
+      if (beat % 2 === 0) this.taiko({ when, gain: beat === 0 ? 0.24 : 0.14, pitch: beat === 0 ? 92 : 108 });
+      else this.taiko({ when, gain: 0.07, pitch: 140 });
+      if (beat === 7 && bar % 2 === 1) this.taiko({ when, gain: 0.12, pitch: 150 });
+    } else if (mode === 'battle') {
       if (beat === 0) this.taiko({ when, gain: 0.22, pitch: 92 });
       if (beat === 4) this.taiko({ when, gain: 0.15, pitch: 92 });
       if (beat === 6 && bar % 2 === 1) this.taiko({ when, gain: 0.1, pitch: 118 });
@@ -664,6 +677,16 @@ class SpiritAudio {
     this.musicMode = null;
   }
 
+  /** 战斗 BGM 曲目：classic（平调子·阴郁） | hot（热血激昂） */
+  setBgmTrack(track) {
+    this.bgmTrack = track === 'hot' ? 'hot' : 'classic';
+    this.persist();
+    // 若正在播放战斗曲，即时切换
+    if (this.musicMode === 'battle' || this.musicMode === 'battle-hot') {
+      this.setScene(this.enabled ? 'battle' : 'off');
+    }
+  }
+
   /** 场景切换入口：formation | battle | off */
   setScene(scene) {
     if (!this.enabled) return;
@@ -671,7 +694,8 @@ class SpiritAudio {
       this.stopMusic();
       return;
     }
-    this.startMusic(scene);
+    const mode = scene === 'battle' && this.bgmTrack === 'hot' ? 'battle-hot' : scene;
+    this.startMusic(mode);
   }
 }
 

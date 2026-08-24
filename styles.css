@@ -1694,9 +1694,9 @@ html[data-theme="day"] .chip.chip-danger { color: var(--danger); }
 /* 悬停大卡预览 */
 .hand-preview {
   position: absolute;
-  left: 22px;
+  left: clamp(150px, 16vw, 210px);
   bottom: 100%;
-  z-index: 30;
+  z-index: 60;
   width: 250px;
   opacity: 0;
   transform: translateY(10px) scale(0.96);
@@ -2695,3 +2695,153 @@ html[data-theme="day"] .unit-card.is-dormant::after { background: rgb(250 248 24
   font-size: 11px;
   pointer-events: none;
 }
+
+/* ============================================================
+   视觉改版 · v2 skin —— 对局界面整体刷新
+   （追加层：同特异性下后出覆盖，两套主题共用 token）
+   ============================================================ */
+
+/* --- 舞台：更深的夜空层次 + 极光晕 + 暗角 --- */
+.battle-stage {
+  background:
+    radial-gradient(120% 90% at 78% -10%, rgb(64 84 140 / 0.2), transparent 55%),
+    radial-gradient(90% 70% at 12% 108%, rgb(150 110 50 / 0.14), transparent 60%),
+    radial-gradient(140% 120% at 50% 50%, transparent 55%, rgb(4 6 12 / 0.5)),
+    linear-gradient(180deg, var(--ink-0), var(--ink-1));
+}
+.stage-scenery .scenery-mist { opacity: 0.5; }
+html[data-theme="day"] .battle-stage {
+  background:
+    radial-gradient(120% 90% at 78% -10%, rgb(255 244 214 / 0.75), transparent 55%),
+    radial-gradient(90% 70% at 12% 108%, rgb(255 226 170 / 0.5), transparent 60%),
+    radial-gradient(140% 120% at 50% 50%, transparent 58%, rgb(120 105 70 / 0.18)),
+    linear-gradient(180deg, var(--ink-0), var(--ink-1));
+}
+
+/* --- 顶栏对局状态：玻璃药丸 --- */
+.match-strip {
+  padding: 5px 20px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 999px;
+  background: rgb(var(--panel-raised-rgb) / 0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-1);
+}
+
+/* --- 指令按钮：三种性格 --- */
+.command-button {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.16s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.command-button:not(:disabled):hover { transform: translateY(-2px); filter: brightness(1.08); }
+.command-button:not(:disabled):active { transform: translateY(0); }
+.end-turn-button {
+  background: linear-gradient(180deg, #d8b25e, #9c7426 78%);
+  border: 1px solid rgb(255 226 160 / 0.55);
+  color: #241c08;
+  font-weight: 700;
+  box-shadow: 0 3px 14px rgb(212 175 90 / 0.35), inset 0 1px 0 rgb(255 240 200 / 0.6);
+}
+.end-turn-button:not(:disabled) { color: #241c08; }
+html[data-theme="day"] .end-turn-button { background: linear-gradient(180deg, #e8c674, #b8912f 78%); }
+.attack-button {
+  border-color: rgb(214 92 58 / 0.65);
+  background: linear-gradient(180deg, rgb(214 92 58 / 0.16), rgb(214 92 58 / 0.05));
+}
+.attack-button:not(:disabled) {
+  color: #e0684a;
+  box-shadow: inset 0 0 12px rgb(214 92 58 / 0.12);
+}
+html[data-theme="day"] .attack-button:not(:disabled) { color: #a8432a; }
+.level-button {
+  border-color: rgb(96 165 130 / 0.55);
+  background: linear-gradient(180deg, rgb(96 165 130 / 0.14), rgb(96 165 130 / 0.04));
+}
+.level-button:not(:disabled) { color: #5fae8b; }
+html[data-theme="day"] .level-button:not(:disabled) { color: #2f7d5c; }
+
+/* --- 手牌：可出牌呼吸金光 + 更立体的卡面 --- */
+.hand-card {
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.35);
+}
+.hand-card.is-blocked { filter: grayscale(0.5) brightness(0.72); }
+.hand-card:not(.is-blocked):hover {
+  transform: translateY(-14px) rotate(0deg) scale(1.04);
+  box-shadow: var(--shadow-2), 0 0 18px rgb(212 175 90 / 0.28);
+  z-index: 60;
+}
+.hand-card:not(.is-blocked)::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgb(212 175 90 / 0.28);
+  border-radius: calc(var(--radius-m) - 3px);
+  pointer-events: none;
+  z-index: 5;
+}
+.hand-card .card-cost {
+  border: 1px solid rgb(212 175 90 / 0.6);
+  background: linear-gradient(180deg, #2a2412, #151007);
+  color: var(--gold-bright);
+  text-shadow: none;
+}
+
+/* --- 单位卡：内衬发丝线 + 主色描边 --- */
+.unit-card {
+  box-shadow: var(--shadow-1), inset 0 0 0 1px rgb(255 255 255 / 0.04);
+}
+.unit-card:not(:disabled):hover { box-shadow: var(--shadow-2), 0 0 16px rgb(212 175 90 / 0.18); }
+.unit-plate {
+  background: linear-gradient(180deg, transparent, rgb(8 10 16 / 0.88) 62%);
+}
+
+/* --- 对话弹层：统一玻璃壳 --- */
+.dialog-shell {
+  border: 1px solid rgb(212 175 90 / 0.4);
+  background: linear-gradient(168deg, rgb(var(--panel-raised-rgb) / 0.98), rgb(var(--panel-deep-rgb) / 0.96));
+  box-shadow: var(--shadow-2), inset 0 1px 0 rgb(212 175 90 / 0.15);
+  backdrop-filter: blur(14px);
+}
+
+/* --- 回合呼出：更醒目的横幅 --- */
+.turn-callout {
+  border: 1px solid rgb(212 175 90 / 0.45);
+  background: linear-gradient(180deg, rgb(var(--panel-raised-rgb) / 0.96), rgb(var(--panel-deep-rgb) / 0.92));
+  box-shadow: var(--shadow-2), 0 0 24px rgb(212 175 90 / 0.16);
+  backdrop-filter: blur(10px);
+}
+
+/* --- BGM 曲目切换 --- */
+.audio-bgm-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.audio-bgm-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  margin-right: 2px;
+}
+.bgm-option {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: rgb(var(--panel-soft-rgb) / 0.7);
+  color: var(--paper-dim);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.bgm-option[aria-pressed="true"] {
+  border-color: rgb(212 175 90 / 0.75);
+  background: rgb(212 175 90 / 0.14);
+  color: var(--gold-bright);
+  box-shadow: 0 0 10px rgb(212 175 90 / 0.2);
+}
+.bgm-option:hover { border-color: rgb(212 175 90 / 0.5); }

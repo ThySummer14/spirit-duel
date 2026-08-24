@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=46';
-import { chooseAiCommand } from './game-ai.js?v=46';
-import { gameAudio } from './game-audio.js?v=46';
+} from './game-core.js?v=48';
+import { chooseAiCommand } from './game-ai.js?v=48';
+import { gameAudio } from './game-audio.js?v=48';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=46';
+} from './game-collection.js?v=48';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=46';
+} from './game-presentation.js?v=48';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=46';
+} from './game-session.js?v=48';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -216,6 +216,8 @@ const nodes = {
   audioMasterVolume: document.querySelector('#audio-master-volume'),
   audioMusicVolume: document.querySelector('#audio-music-volume'),
   audioSfxVolume: document.querySelector('#audio-sfx-volume'),
+  bgmClassicButton: document.querySelector('#bgm-classic-button'),
+  bgmHotButton: document.querySelector('#bgm-hot-button'),
 };
 
 let selectedLineup = [...DEFAULT_PLAYER_LINEUP];
@@ -2101,7 +2103,7 @@ function renderCommands() {
   // 升级阶段强制先行：未完成升勾时禁止出击
   const upgradePending = isUpgradePending(displayedGame, 0);
   const canAttack = userTurn && !upgradePending && !selectedCardId && attacker && attacker.hp > 0 && attacker.frozen === 0 && player.energy > 0 && !player.attackUsed;
-  const canLevel = userTurn && !selectedCardId && attacker && attacker.level < GAME_RULES.maxUnitLevel && !player.levelUpUsed;
+  const canLevel = userTurn && !selectedCardId && attacker && attacker.level < GAME_RULES.maxUnitLevel && (!player.levelUpUsed || player.bonusUpgrades > 0);
   nodes.attackButton.disabled = !canAttack;
   nodes.levelButton.disabled = !canLevel;
   nodes.levelButton.hidden = !replaySession && Boolean(selectedCardId);
@@ -2112,7 +2114,7 @@ function renderCommands() {
   nodes.attackLabel.textContent = attacker ? '出击' : '无法出击';
   nodes.attackButton.title = attacker ? `${attacker.name}出击，消耗 1 点鬼火` : '当前没有可出击角色';
   nodes.levelLabel.textContent = attacker ? '升勾' : '无法升勾';
-  nodes.levelButton.title = attacker ? `免费提升 ${attacker.name} 的勾玉等级` : '当前没有可升勾角色';
+  nodes.levelButton.title = attacker ? `免费提升 ${attacker.name} 的勾玉等级${player.levelUpUsed && player.bonusUpgrades > 0 ? '（额外升勾机会）' : ''}` : '当前没有可升勾角色';
   const responseOwner = displayedGame.responseWindow?.playerIndex === 0 ? '巡界者' : '失序体';
   nodes.turnOwner.textContent = replaySession
     ? '命令回放'
@@ -2623,9 +2625,17 @@ nodes.audioEnabledCheckbox.addEventListener('change', () => {
 nodes.audioMasterVolume.addEventListener('input', (event) => gameAudio.setMasterVolume(Number(event.target.value) / 100));
 nodes.audioMusicVolume.addEventListener('input', (event) => gameAudio.setMusicVolume(Number(event.target.value) / 100));
 nodes.audioSfxVolume.addEventListener('input', (event) => gameAudio.setSfxVolume(Number(event.target.value) / 100));
+function syncBgmTrackButtons() {
+  const hot = gameAudio.bgmTrack === 'hot';
+  nodes.bgmClassicButton.setAttribute('aria-pressed', String(!hot));
+  nodes.bgmHotButton.setAttribute('aria-pressed', String(hot));
+}
+nodes.bgmClassicButton.addEventListener('click', () => { gameAudio.setBgmTrack('classic'); syncBgmTrackButtons(); });
+nodes.bgmHotButton.addEventListener('click', () => { gameAudio.setBgmTrack('hot'); syncBgmTrackButtons(); });
 
 function syncAudioDialog() {
   nodes.audioEnabledCheckbox.checked = gameAudio.enabled;
+  syncBgmTrackButtons();
   nodes.audioMasterVolume.value = Math.round(gameAudio.masterVolume * 100);
   nodes.audioMusicVolume.value = Math.round(gameAudio.musicVolume * 100);
   nodes.audioSfxVolume.value = Math.round(gameAudio.sfxVolume * 100);

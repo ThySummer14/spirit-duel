@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=46" />
-    <link rel="stylesheet" href="formation.css?v=46" />
-    <script type="module" src="app.js?v=46"></script>
+    <link rel="stylesheet" href="styles.css?v=48" />
+    <link rel="stylesheet" href="formation.css?v=48" />
+    <script type="module" src="app.js?v=48"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -357,12 +357,17 @@
             <input type="checkbox" id="audio-enabled-checkbox" checked />
             <span>启用游戏声音</span>
           </label>
+          <div class="audio-bgm-row" role="radiogroup" aria-label="战斗音乐风格">
+            <span class="audio-bgm-label">战斗音乐</span>
+            <button class="bgm-option" id="bgm-classic-button" type="button" aria-pressed="true">阴郁 · 平调子</button>
+            <button class="bgm-option" id="bgm-hot-button" type="button" aria-pressed="false">热血 · 冲锋</button>
+          </div>
           <div class="audio-mixer">
             <label><span>总音量</span><input type="range" id="audio-master-volume" min="0" max="100" value="80" /></label>
             <label><span>音乐</span><input type="range" id="audio-music-volume" min="0" max="100" value="50" /></label>
             <label><span>音效</span><input type="range" id="audio-sfx-volume" min="0" max="100" value="90" /></label>
           </div>
-          <small class="audio-note">偏好会保存在本地浏览器；音乐在编成与战斗场景间平滑切换。</small>
+          <small class="audio-note">偏好会保存在本地浏览器；音乐在编成与战斗场景间平滑切换，切换曲目即时生效。</small>
         </div>
       </dialog>
 
