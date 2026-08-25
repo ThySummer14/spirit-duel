@@ -482,15 +482,6 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   gap: clamp(8px, 1.2vw, 16px);
   min-height: 0;
 }
-.unit-row .zone-label {
-  position: absolute;
-  left: 2%;
-  top: 4px;
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  color: var(--text-dim);
-  opacity: 0.7;
-}
 .unit-card {
   position: relative;
   width: var(--unit-w);
@@ -1087,18 +1078,6 @@ html[data-theme="day"] .chip.chip-danger { color: var(--danger); }
   pointer-events: none;
 }
 .battle-strip.player-battle::after { bottom: auto; top: -1px; }
-.battle-strip .zone-label,
-.battle-strip .zone-label-battle {
-  position: absolute;
-  left: 2%;
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  color: var(--gold);
-  opacity: 0.8;
-  white-space: nowrap;
-}
-.battle-strip.enemy-battle .zone-label { bottom: 0; }
-.battle-strip.player-battle .zone-label { top: 0; }
 /* 战斗区角色略小一档，紧贴中线，避免战场纵向膨胀 */
 .battle-strip .unit-card {
   width: calc(var(--unit-w) * 0.82);
@@ -2750,10 +2729,6 @@ html[data-theme="day"] .instant-badge { background: rgb(240 250 242 / 0.95); col
   backdrop-filter: blur(6px);
 }
 .foe-plate { top: 10px; }
-/* 桌面端：敌方准备区标签让开左上角头像盘（原 left:2% 正好压在头像盘文字上） */
-@media (min-width: 761px) {
-  .game-main .battle-stage .unit-row.enemy-line .zone-label { left: 290px; }
-}
 /* 中窄桌面：压缩头像盘宽度，避免压到首列卡牌 */
 @media (min-width: 761px) and (max-width: 1100px) {
   .avatar-plate .core-bar { width: 110px; }

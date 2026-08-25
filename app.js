@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=ce8e86be';
-import { chooseAiCommand } from './game-ai.js?v=ce8e86be';
-import { gameAudio } from './game-audio.js?v=ce8e86be';
+} from './game-core.js?v=f97e0c79';
+import { chooseAiCommand } from './game-ai.js?v=f97e0c79';
+import { gameAudio } from './game-audio.js?v=f97e0c79';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=ce8e86be';
+} from './game-collection.js?v=f97e0c79';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=ce8e86be';
+} from './game-presentation.js?v=f97e0c79';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=ce8e86be';
+} from './game-session.js?v=f97e0c79';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -1783,17 +1783,12 @@ function renderUnitRow(container, ownerIndex) {
   // 先清空再重建：render() 会被操作与反馈定时器反复调用，直接 append 会无限堆叠卡牌
   container.replaceChildren();
 
-  const label = document.createElement('span');
-  label.className = 'zone-label';
-  label.textContent = ownerIndex === 0 ? '己方准备区' : '敌方准备区';
-
   // 准备区展示其余角色；战斗区角色由 renderBattleStrip 单独渲染，避免重复
   const frontUid = frontUidOf(owner);
   owner.units.forEach((unit) => {
     if (unit.uid === frontUid) return;
     container.append(renderUnit(unit, ownerIndex, 'reserve'));
   });
-  container.append(label);
 }
 
 function attachBattleDrop(container) {
@@ -1823,10 +1818,6 @@ function renderBattleStrip(container, ownerIndex) {
   const formation = getFormation(displayedGame, ownerIndex);
   container.replaceChildren();
 
-  const label = document.createElement('span');
-  label.className = 'zone-label zone-label-battle';
-  label.textContent = ownerIndex === 0 ? '己方战斗区' : '敌方战斗区';
-
   const front = owner.units[formation.frontIndex];
   if (front) {
     container.append(renderUnit(front, ownerIndex, 'front'));
@@ -1838,7 +1829,6 @@ function renderBattleStrip(container, ownerIndex) {
       : '<strong>战斗区空缺</strong><span>出击将直击核心</span>';
     container.append(empty);
   }
-  container.append(label);
 }
 
 function renderUnits() {
