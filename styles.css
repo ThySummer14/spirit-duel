@@ -2792,6 +2792,14 @@ body.is-dragging, body.is-dragging * { cursor: grabbing !important; }
 @media (max-height: 760px) { :root { --unit-w-h: calc((100vh - 300px) / 4.75); } }
 @media (max-height: 660px) { :root { --unit-w-h: max(64px, calc((100vh - 280px) / 4.75)); } }
 
+/* 窄屏（≤760）：头像条在文档流内占高，高度预算额外扣减，确保手牌完整在屏内 */
+@media (max-width: 760px) and (max-height: 1100px) {
+  :root { --unit-w-h: calc((100vh - 480px) / 4.4); }
+}
+@media (max-width: 760px) and (max-height: 820px) {
+  :root { --unit-w-h: max(56px, calc((100vh - 420px) / 4.4)); }
+}
+
 /* ---- 矮视口压缩：保证战场 + 手牌始终在一屏内 ---- */
 @media (max-height: 860px) {
   :root { --unit-w: min(clamp(92px, 9.6vw, 132px), var(--unit-w-h)); --hand-w: clamp(96px, 11vw, 122px); }
@@ -2816,4 +2824,26 @@ body.is-dragging, body.is-dragging * { cursor: grabbing !important; }
   letter-spacing: 0.14em;
   color: var(--text-dim);
   text-align: right;
+}
+
+/* 窄屏（≤760）：头像条在文档流内占高，角色卡改为「高度驱动」——
+   卡高 = 剩余视口高度均分，宽度按纵横比自适应，从构造上保证一屏收纳 */
+@media (max-width: 760px) {
+  :root { --unit-h: max(64px, calc((100vh - 560px) / 4.6)); }
+  .unit-card {
+    height: var(--unit-h);
+    width: auto;
+    aspect-ratio: 20 / 26;
+  }
+  .battle-strip .unit-card {
+    height: calc(var(--unit-h) * 0.82);
+    width: auto;
+  }
+  .battle-strip .empty-front-slot {
+    width: auto;
+    height: calc(var(--unit-h) * 0.82);
+    aspect-ratio: auto;
+    padding: 8px 14px;
+  }
+  .avatar-plate .core-bar { width: 96px; }
 }
