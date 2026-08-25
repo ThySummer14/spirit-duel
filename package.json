@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "python3 -m http.server 4173",
+    "dev": "python3 scripts/dev-server.py",
     "test": "node --test",
     "audit": "node ../../ark-ui-skill/scripts/audit-ark-ui.mjs index.html styles.css formation.css",
     "cache:sync": "node scripts/bump-cache.mjs",
