@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=f97e0c79';
-import { chooseAiCommand } from './game-ai.js?v=f97e0c79';
-import { gameAudio } from './game-audio.js?v=f97e0c79';
+} from './game-core.js?v=a946bba3';
+import { chooseAiCommand } from './game-ai.js?v=a946bba3';
+import { gameAudio } from './game-audio.js?v=a946bba3';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=f97e0c79';
+} from './game-collection.js?v=a946bba3';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=f97e0c79';
+} from './game-presentation.js?v=a946bba3';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=f97e0c79';
+} from './game-session.js?v=a946bba3';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -1698,6 +1698,9 @@ function clearDropZones() {
 
 function renderRealmColumn(column, player, ownerIndex) {
   // 幻境以头像下的小方块呈现（mini），旧的大条布局已移除
+  // mini 判断必须保留：4f4d573 曾误删此定义，导致打出幻境牌后每次 render 抛
+  // ReferenceError，AI 回合循环中断并永久卡死（aiBusy 无法复位）
+  const mini = column.classList.contains('realm-mini-row');
   column.replaceChildren();
   if (!player.realms.length) return;
   player.realms.forEach((realm) => {
@@ -2521,37 +2524,42 @@ async function runAiTurn(session) {
   await wait(1250);
   if (session !== gameSession || !aiHasControl()) return;
   let actions = 0;
-  while (session === gameSession && aiHasControl() && actions < 24) {
-    while (session === gameSession && (replaySession || nodes.battleLogDialog.open || nodes.rulesDialog.open || nodes.sessionDialog.open || nodes.divinationDialog.open)) await wait(120);
-    if (session !== gameSession) return;
-    const command = chooseAiCommand(game, 1);
-    if (command.type === 'end-turn') break;
-    if (session !== gameSession) return;
-    const result = executeAiCommand(command);
-    if (result.error) break;
-    game = result.state;
-    recordCommand({ ...command, playerIndex: 1 });
-    if (command.type === 'play-card') gameAudio.cardPlay();
-    else if (command.type === 'attack') gameAudio.attackLunge();
-    else if (command.type === 'level-up') gameAudio.levelUp();
-    actions += 1;
-    if (!aiHasControl()) {
-      aiBusy = false;
+  try {
+    while (session === gameSession && aiHasControl() && actions < 24) {
+      while (session === gameSession && (replaySession || nodes.battleLogDialog.open || nodes.rulesDialog.open || nodes.sessionDialog.open || nodes.divinationDialog.open)) await wait(120);
+      if (session !== gameSession) return;
+      const command = chooseAiCommand(game, 1);
+      if (command.type === 'end-turn') break;
+      if (session !== gameSession) return;
+      const result = executeAiCommand(command);
+      if (result.error) break;
+      game = result.state;
+      recordCommand({ ...command, playerIndex: 1 });
+      if (command.type === 'play-card') gameAudio.cardPlay();
+      else if (command.type === 'attack') gameAudio.attackLunge();
+      else if (command.type === 'level-up') gameAudio.levelUp();
+      actions += 1;
+      if (!aiHasControl()) {
+        aiBusy = false;
+        render();
+        return;
+      }
       render();
-      return;
+      const cueType = visualFeedback.cue?.type;
+      const holdDuration = cueType === 'knockout'
+        ? 1350
+        : cueType === 'level-up'
+          ? 1250
+          : cueType === 'remote-combat'
+            ? 1200
+          : command.type === 'attack'
+            ? 1200
+            : 1050;
+      await wait(holdDuration);
     }
-    render();
-    const cueType = visualFeedback.cue?.type;
-    const holdDuration = cueType === 'knockout'
-      ? 1350
-      : cueType === 'level-up'
-        ? 1250
-        : cueType === 'remote-combat'
-          ? 1200
-        : command.type === 'attack'
-          ? 1200
-          : 1050;
-    await wait(holdDuration);
+  } catch (error) {
+    // 渲染或指令抛异常时绝不能把 aiBusy 卡在 true（否则 AI 永久不动、对局软锁）
+    console.error('失序体行动异常，提前收束回合。', error);
   }
 
   if (session !== gameSession || game.winner !== null) {
