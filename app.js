@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=aa95a06d';
-import { chooseAiCommand } from './game-ai.js?v=aa95a06d';
-import { gameAudio } from './game-audio.js?v=aa95a06d';
+} from './game-core.js?v=ca2ee02c';
+import { chooseAiCommand } from './game-ai.js?v=ca2ee02c';
+import { gameAudio } from './game-audio.js?v=ca2ee02c';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=aa95a06d';
+} from './game-collection.js?v=ca2ee02c';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=aa95a06d';
+} from './game-presentation.js?v=ca2ee02c';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=aa95a06d';
+} from './game-session.js?v=ca2ee02c';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -2689,6 +2689,9 @@ nodes.enemyDeckPile.addEventListener('click', () => {
 nodes.playerDeckPile.addEventListener('click', () => {
   announce(`我方牌库剩余 ${displayedGame.players[0].deck.length} 张待抽。`, 'neutral');
 });
+const buildTagValue = document.querySelector('meta[name="build"]')?.content ?? 'dev';
+const buildTagNode = document.querySelector('#build-tag span');
+if (buildTagNode) buildTagNode.textContent = buildTagValue;
 nodes.mulliganDoneButton.addEventListener('click', () => {
   mulliganDismissed = true;
   render();

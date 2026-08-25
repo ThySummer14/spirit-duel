@@ -33,6 +33,9 @@ for (const name of [...jsFiles, ...htmlFiles]) {
   const path = join(root, name);
   const src = readFileSync(path, 'utf8');
   let next = src.replace(/\?v=[a-z0-9]+/g, `?v=${version}`);
+  if (name === 'index.html') {
+    next = next.replace(/(<meta name="build" content=")[^"]*(" \/>)/, `$1${version}$2`);
+  }
   // 兜底：新写的相对导入可能漏掉版本参数
   next = next.replace(/(from '\.\/[a-z-]+\.js)(?!\?v=)/g, `$1?v=${version}`);
   if (next !== src) {

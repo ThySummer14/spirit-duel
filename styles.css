@@ -184,7 +184,8 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
 .game-shell {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background:
     radial-gradient(1200px 600px at 50% -10%, var(--glow-top) 0%, transparent 60%),
     radial-gradient(900px 500px at 50% 115%, var(--glow-bottom) 0%, transparent 55%),
@@ -1360,8 +1361,8 @@ html[data-theme="day"] .chip.chip-danger { color: var(--danger); }
   align-items: flex-end;
   gap: clamp(4px, 0.8vw, 12px);
   /* 顶部预留抬升空间：悬停放大的手牌不会被滚动容器裁切；底部留白防裁切 */
-  min-height: calc(var(--hand-w) * 1.4 + 58px);
-  padding: 42px 8px 16px;
+  min-height: calc(var(--hand-w) * 1.12 + 26px);
+  padding: 26px 8px 14px;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
@@ -2783,3 +2784,29 @@ body.is-dragging, body.is-dragging * { cursor: grabbing !important; }
 
 /* 拖拽中的源卡牌：缩小淡出，突出箭头 */
 .hand-card.is-dragging { opacity: 0.3; transform: scale(0.92); }
+
+/* ---- 矮视口压缩：保证战场 + 手牌始终在一屏内 ---- */
+@media (max-height: 860px) {
+  :root { --unit-w: clamp(92px, 9.6vw, 132px); --hand-w: clamp(96px, 11vw, 122px); }
+  .hand-scroll { min-height: calc(var(--hand-w) * 1.1 + 22px); padding-top: 22px; }
+}
+@media (max-height: 760px) {
+  :root { --unit-w: clamp(84px, 8.6vw, 116px); --hand-w: clamp(88px, 10vw, 110px); }
+  .command-line { padding: 6px 10px; }
+  .turn-callout { top: 8px; }
+}
+@media (max-height: 660px) {
+  :root { --unit-w: clamp(72px, 8vw, 100px); --hand-w: clamp(80px, 9.5vw, 98px); }
+  .hand-scroll { min-height: calc(var(--hand-w) * 1.05 + 18px); padding-top: 16px; padding-bottom: 10px; }
+}
+
+/* 菜单构建号 */
+.build-tag {
+  margin: 10px 0 0;
+  padding-top: 8px;
+  border-top: 1px dashed var(--rule-soft);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  text-align: right;
+}
