@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=b9f737d6';
-import { chooseAiCommand } from './game-ai.js?v=b9f737d6';
-import { gameAudio } from './game-audio.js?v=b9f737d6';
+} from './game-core.js?v=d52b3890';
+import { chooseAiCommand } from './game-ai.js?v=d52b3890';
+import { gameAudio } from './game-audio.js?v=d52b3890';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=b9f737d6';
+} from './game-collection.js?v=d52b3890';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=b9f737d6';
+} from './game-presentation.js?v=d52b3890';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=b9f737d6';
+} from './game-session.js?v=d52b3890';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -2010,11 +2010,11 @@ function renderHand() {
     const unitDelta = getCardDefinition(first.definitionId).unitId.localeCompare(getCardDefinition(second.definitionId).unitId);
     return unitDelta !== 0 ? unitDelta : hand.indexOf(first) - hand.indexOf(second);
   });
-  // 卡宽按容器实际宽度连续收缩：任何张数、任何窗口宽度下，每张手牌都完整可见
+  // 手牌收拢：容器越窄、张数越多，整卡缩放越小（内部布局不变，绝不裁切）
   const containerW = nodes.playerHand.clientWidth || 360;
   const count = Math.max(orderedHand.length, 1);
-  const fitWidth = Math.max(54, Math.min(118, Math.floor((containerW - 30) / count * 1.5)));
-  nodes.playerHand.style.setProperty('--hand-fit', `${fitWidth}px`);
+  const handScale = Math.min(1, Math.max(0.5, (containerW - 24) / (count * 132)));
+  nodes.playerHand.style.setProperty('--hand-scale', handScale.toFixed(3));
   nodes.playerHand.replaceChildren(...orderedHand.map((instance, index) => renderHandCard(instance, index, orderedHand.length, freshIds)));
   const playerResponding = displayedGame.responseWindow?.playerIndex === 0;
   nodes.playableCardCount.textContent = replaySession ? 0 : hand.filter((card) => (
