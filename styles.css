@@ -50,7 +50,7 @@
   --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
   --font-display: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
   /* 尺寸（按 900px 高视口预算：条带 56×2 + 横排 190×2 + 指令 58 + 手牌 268） */
-  --unit-w: clamp(108px, 10.2vw, 148px);
+  --unit-w: min(clamp(108px, 10.2vw, 148px), var(--unit-w-h, 148px));
   --hand-w: clamp(126px, 10.6vw, 146px);
   --radius-s: 8px;
   --radius-m: 12px;
@@ -1363,8 +1363,7 @@ html[data-theme="day"] .chip.chip-danger { color: var(--danger); }
   /* 顶部预留抬升空间：悬停放大的手牌不会被滚动容器裁切；底部留白防裁切 */
   min-height: calc(var(--hand-w) * 1.12 + 26px);
   padding: 26px 8px 14px;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: visible;
   scrollbar-width: none;
 }
 .hand-scroll::-webkit-scrollbar { display: none; }
@@ -1866,13 +1865,13 @@ dialog[open] { animation: dialog-pop 0.24s cubic-bezier(0.2, 0.9, 0.3, 1.15); }
 /* 矮视口（≤940px 高，如 1440×900 常见笔记本）进一步压缩卡牌尺寸 */
 @media (max-height: 940px) {
   :root {
-    --unit-w: clamp(96px, 9vw, 130px);
+    --unit-w: min(clamp(96px, 9vw, 130px), var(--unit-w-h));
     --hand-w: clamp(116px, 9.6vw, 128px);
   }
   .hand-scroll { min-height: calc(var(--hand-w) * 1.4 + 46px); padding-top: 36px; }
 }
 @media (max-width: 1180px) {
-  :root { --unit-w: clamp(104px, 11.4vw, 132px); --hand-w: clamp(124px, 13vw, 150px); }
+  :root { --unit-w: min(clamp(104px, 11.4vw, 132px), var(--unit-w-h)); --hand-w: clamp(124px, 13vw, 150px); }
   .strip-identity { min-width: 104px; }
   .strip-identity h1, .strip-identity h2 { font-size: 17px; }
 }
@@ -1935,7 +1934,7 @@ dialog[open] { animation: dialog-pop 0.24s cubic-bezier(0.2, 0.9, 0.3, 1.15); }
   }
 }
 @media (max-width: 480px) {
-  :root { --unit-w: clamp(84px, 21vw, 108px); --hand-w: clamp(96px, 24vw, 118px); }
+  :root { --unit-w: min(clamp(84px, 21vw, 108px), var(--unit-w-h)); --hand-w: clamp(96px, 24vw, 118px); }
   .unit-plate strong { font-size: 11px; letter-spacing: 0.1em; }
   .unit-stats b { min-width: 24px; height: 22px; font-size: 13px; }
 }
@@ -2785,13 +2784,19 @@ body.is-dragging, body.is-dragging * { cursor: grabbing !important; }
 /* 拖拽中的源卡牌：缩小淡出，突出箭头 */
 .hand-card.is-dragging { opacity: 0.3; transform: scale(0.92); }
 
+/* ---- 角色卡尺寸受视口高度约束（战场 + 手牌装进一屏） ---- */
+:root { --unit-w-h: 148px; }
+@media (max-height: 900px) { :root { --unit-w-h: calc((100vh - 340px) / 4.75); } }
+@media (max-height: 760px) { :root { --unit-w-h: calc((100vh - 300px) / 4.75); } }
+@media (max-height: 660px) { :root { --unit-w-h: max(64px, calc((100vh - 280px) / 4.75)); } }
+
 /* ---- 矮视口压缩：保证战场 + 手牌始终在一屏内 ---- */
 @media (max-height: 860px) {
-  :root { --unit-w: clamp(92px, 9.6vw, 132px); --hand-w: clamp(96px, 11vw, 122px); }
+  :root { --unit-w: min(clamp(92px, 9.6vw, 132px), var(--unit-w-h)); --hand-w: clamp(96px, 11vw, 122px); }
   .hand-scroll { min-height: calc(var(--hand-w) * 1.1 + 22px); padding-top: 22px; }
 }
 @media (max-height: 760px) {
-  :root { --unit-w: clamp(84px, 8.6vw, 116px); --hand-w: clamp(88px, 10vw, 110px); }
+  :root { --unit-w: min(clamp(84px, 8.6vw, 116px), var(--unit-w-h)); --hand-w: clamp(88px, 10vw, 110px); }
   .command-line { padding: 6px 10px; }
   .turn-callout { top: 8px; }
 }
