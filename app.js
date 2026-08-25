@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=789632f4';
-import { chooseAiCommand } from './game-ai.js?v=789632f4';
-import { gameAudio } from './game-audio.js?v=789632f4';
+} from './game-core.js?v=ce8e86be';
+import { chooseAiCommand } from './game-ai.js?v=ce8e86be';
+import { gameAudio } from './game-audio.js?v=ce8e86be';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=789632f4';
+} from './game-collection.js?v=ce8e86be';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=789632f4';
+} from './game-presentation.js?v=ce8e86be';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=789632f4';
+} from './game-session.js?v=ce8e86be';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -1946,7 +1946,11 @@ function renderHandCard(instance, index, totalCount, freshIds) {
     instantBadge.textContent = '瞬发';
     card.append(instantBadge);
   }
-  card.append(cost, level, art, meta, name, text, availability);
+  // 卡面外壳：clip-path 必须与扇形 rotate 分层，否则合成层光栅化会吞掉卡面（只剩顶部一小截）
+  const body = document.createElement('span');
+  body.className = 'card-body';
+  body.append(cost, level, art, meta, name, text, availability);
+  card.append(body);
   // 拖拽施放：需要选目标且当前可用的手牌，可直接拖到目标身上触发
   const dragMode = getDragTargetMode(definition);
   card.draggable = Boolean(playable && dragMode);

@@ -523,6 +523,7 @@ img { display: block; user-select: none; -webkit-user-drag: none; }
   font-size: 10px;
   letter-spacing: 0.3em;
   line-height: 1.6;
+  white-space: nowrap; /* 窄卡上禁止竖排折行 */
 }
 /* 将受击时与「前线」合并为一枚警示徽章：窄卡上两枚徽章相撞、还会压住状态行 */
 .unit-card.is-front.will-be-hit::before {
@@ -1382,15 +1383,22 @@ html[data-theme="day"] .chip.chip-danger { color: var(--danger); }
   aspect-ratio: 5 / 7;
   flex-shrink: 0;
   padding: 0;
+  transform: rotate(var(--fan-rotate, 0deg));
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.25, 1.15), box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+  text-align: left;
+  --card-accent: var(--type-spell);
+}
+/* 卡面视觉外壳放在无 transform 的内层：clip-path 与扇形 rotate 同层时，
+   Chromium 合成层会把卡面光栅化成只剩顶部一小截（combat/spell 卡消失成一条） */
+.hand-card .card-body {
+  position: absolute;
+  inset: 0;
+  display: block;
   border: 1px solid var(--rule);
   border-radius: var(--radius-m);
   background: var(--ink-2);
   overflow: hidden;
   box-shadow: var(--shadow-1);
-  transform: rotate(var(--fan-rotate, 0deg));
-  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.25, 1.15), box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
-  text-align: left;
-  --card-accent: var(--type-spell);
 }
 .hand-card.is-drawn { animation: draw-in 0.55s cubic-bezier(0.2, 0.8, 0.3, 1.1) backwards; }
 @keyframes draw-in {
@@ -1400,10 +1408,13 @@ html[data-theme="day"] .chip.chip-danger { color: var(--danger); }
 .hand-card.is-selected {
   transform: translateY(-30px) rotate(0deg) scale(1.07);
   z-index: 10;
+}
+.hand-card:not(:disabled):hover .card-body,
+.hand-card.is-selected .card-body {
   border-color: color-mix(in srgb, var(--card-accent) 75%, white);
   box-shadow: 0 14px 40px rgb(0 0 0 / 0.6), 0 0 0 1px color-mix(in srgb, var(--card-accent) 55%, transparent), 0 0 24px color-mix(in srgb, var(--card-accent) 30%, transparent);
 }
-.hand-card.is-selected { box-shadow: 0 0 0 2px var(--gold-bright), 0 14px 40px rgb(0 0 0 / 0.6); }
+.hand-card.is-selected .card-body { box-shadow: 0 0 0 2px var(--gold-bright), 0 14px 40px rgb(0 0 0 / 0.6); }
 .hand-card.is-blocked { filter: saturate(0.55) brightness(0.72); }
 .hand-card[data-card-type="combat"] { --card-accent: var(--type-combat); }
 .hand-card[data-card-type="spell"] { --card-accent: var(--type-spell); }
@@ -2028,8 +2039,8 @@ dialog[open]::backdrop { animation: backdrop-fade 0.28s ease; }
 .hand-card.is-drawn:nth-child(4) { animation-delay: 0.21s; }
 .hand-card.is-drawn:nth-child(5) { animation-delay: 0.28s; }
 .hand-card.is-drawn:nth-child(n + 6) { animation-delay: 0.35s; }
-/* 手牌悬停抬升与选中浮起已有基础，这里补足过渡一致性 */
-.hand-card { will-change: transform; }
+/* 手牌悬停抬升与选中浮起已有基础；不设 will-change：常驻合成层会让 clip-path 卡面
+   在旋转光栅化时只剩顶部一小截（combat/spell 卡消失），交由浏览器按需提升 */
 /* ---------------------------------------------------------------- 宣纸主题（清爽浅色） */
 html[data-theme="day"] {
   color-scheme: light;
@@ -2070,7 +2081,7 @@ html[data-theme="day"] .unit-plate strong,
 html[data-theme="day"] .hand-card .card-name { color: #f2ecdc; text-shadow: 0 1px 6px rgb(0 0 0 / 0.85); }
 html[data-theme="day"] .unit-plate em { color: color-mix(in srgb, var(--unit-accent) 70%, white); }
 /* 手牌卡面在浅色下加一层纸感描边 */
-html[data-theme="day"] .hand-card { box-shadow: 0 2px 10px rgb(60 50 30 / 0.12); }
+html[data-theme="day"] .hand-card .card-body { box-shadow: 0 2px 10px rgb(60 50 30 / 0.12); }
 /* 浅色下阴影减淡 */
 html[data-theme="day"] .game-shell {
   background:
@@ -2089,8 +2100,8 @@ html[data-theme="day"] .attack-button:not(:disabled) { color: #a8432a; border-co
 html[data-theme="day"] .attack-button b.is-unaffordable { color: var(--danger); }
 html[data-theme="day"] .cancel-button:not(:disabled) { color: var(--danger); }
 /* ================= 角落头像盘（左上敌方 / 左下我方） + 右缘牌库列 ================= */
-/* 准备区行两侧留白，避免角落头像压住首尾卡牌（头像盘宽约 130-190px） */
-.unit-row { padding-inline: clamp(140px, 25vw, 210px); }
+/* 准备区行两侧留白，避免角落头像压住首尾卡牌（头像盘宽约 240px，含面板内边距） */
+.unit-row { padding-inline: clamp(150px, 28vw, 252px); }
 .ally-plate { bottom: 14px; }
 .avatar-disc {
   position: relative;
@@ -2400,7 +2411,7 @@ html[data-theme="day"] .unit-card.is-dormant::after { background: rgb(250 248 24
   color: var(--gold-bright);
 }
 .hand-card.is-mulligan { cursor: pointer; }
-.hand-card.is-mulligan::after {
+.hand-card.is-mulligan .card-body::after {
   content: "换";
   position: absolute;
   top: 6px;
@@ -2481,7 +2492,7 @@ html[data-theme="day"] .attack-button:not(:disabled) { color: #a8432a; }
 .level-button:not(:disabled) { color: #5fae8b; }
 html[data-theme="day"] .level-button:not(:disabled) { color: #2f7d5c; }
 /* --- 手牌：可出牌呼吸金光 + 更立体的卡面 --- */
-.hand-card {
+.hand-card .card-body {
   border: 1px solid var(--rule);
   box-shadow: 0 2px 10px rgb(0 0 0 / 0.35);
 }
@@ -2496,11 +2507,12 @@ html[data-theme="day"] .level-button:not(:disabled) { color: #2f7d5c; }
   transform: rotate(var(--fan-rotate, 0deg)) scale(calc(var(--hand-scale, 1) * 1.12)) translateY(-10px);
 }
 .hand-card:not(.is-blocked):hover {
-  transform: translateY(-14px) rotate(0deg) scale(1.04);
-  box-shadow: var(--shadow-2), 0 0 18px rgb(212 175 90 / 0.28);
   z-index: 60;
 }
-.hand-card:not(.is-blocked)::before {
+.hand-card:not(.is-blocked):hover .card-body {
+  box-shadow: var(--shadow-2), 0 0 18px rgb(212 175 90 / 0.28);
+}
+.hand-card:not(.is-blocked) .card-body::before {
   content: "";
   position: absolute;
   inset: 3px;
@@ -2585,17 +2597,22 @@ html[data-theme="day"] .level-button:not(:disabled) { color: #2f7d5c; }
   font-size: 10px;
   letter-spacing: 0.18em;
 }
-/* --- ④ 卡牌类型顶部轮廓：战斗尖角 / 形态圆润 / 法术多边形 --- */
-.hand-card[data-card-type="combat"] {
-  clip-path: polygon(14% 0, 86% 0, 100% 9%, 100% 100%, 0 100%, 0 9%);
-  border-top: none;
+/* --- ④ 卡牌类型顶部轮廓 ---
+   原用 clip-path 切角，但在扇形 rotate 的合成层内 Chromium 光栅化会失效
+   （combat/spell 卡只剩顶部一小截或整张白板，真实 Chrome 与 headless 均复现），
+   故改用圆角近似：战斗近直角 / 法术拱顶 / 形态大圆角，保证任何环境下完整绘制 */
+.hand-card[data-card-type="combat"] .card-body {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-top: 2px solid color-mix(in srgb, var(--card-accent) 65%, transparent);
 }
-.hand-card[data-card-type="form"] {
+.hand-card[data-card-type="form"] .card-body {
   border-top-left-radius: 22px;
   border-top-right-radius: 22px;
 }
-.hand-card[data-card-type="spell"] {
-  clip-path: polygon(7% 0, 93% 0, 100% 6%, 96% 12%, 4% 12%, 0 6%);
+.hand-card[data-card-type="spell"] .card-body {
+  border-top-left-radius: 50% 16%;
+  border-top-right-radius: 50% 16%;
 }
 /* --- ⑤ 瞬发牌标识 --- */
 .instant-badge {
@@ -2624,6 +2641,8 @@ html[data-theme="day"] .instant-badge { background: rgb(240 250 242 / 0.95); col
 /* --- ⑧ 响应窗口：可响应的响应牌脉冲 --- */
 .hand-card.is-response-ready {
   animation: response-pulse 1.1s ease-in-out infinite;
+}
+.hand-card.is-response-ready .card-body {
   border-color: rgb(126 165 220 / 0.9);
 }
 @keyframes response-pulse {
@@ -2722,9 +2741,23 @@ html[data-theme="day"] .instant-badge { background: rgb(240 250 242 / 0.95); col
   z-index: 30;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  /* 面板底：头像盘悬浮在战场纹理上，纯透明时名字与资源难以阅读 */
+  padding: 10px 16px 10px 10px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 14px;
+  background: rgb(var(--panel-soft-rgb) / 0.72);
+  backdrop-filter: blur(6px);
 }
 .foe-plate { top: 10px; }
+/* 桌面端：敌方准备区标签让开左上角头像盘（原 left:2% 正好压在头像盘文字上） */
+@media (min-width: 761px) {
+  .game-main .battle-stage .unit-row.enemy-line .zone-label { left: 290px; }
+}
+/* 中窄桌面：压缩头像盘宽度，避免压到首列卡牌 */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .avatar-plate .core-bar { width: 110px; }
+}
 /* ============================================================
    指示箭头 + 目标虚圈 + 拖拽手感
    ============================================================ */
