@@ -2486,16 +2486,9 @@ html[data-theme="day"] .level-button:not(:disabled) { color: #2f7d5c; }
   box-shadow: 0 2px 10px rgb(0 0 0 / 0.35);
 }
 .hand-card.is-blocked { filter: grayscale(0.5) brightness(0.72); }
-.hand-scroll { --hand-scale: 1; }
-#player-hand[data-count="6"] { --hand-scale: 0.88; }
-#player-hand[data-count="7"] { --hand-scale: 0.79; }
-#player-hand[data-count="8"] { --hand-scale: 0.71; }
-#player-hand[data-count="9"] { --hand-scale: 0.64; }
-#player-hand[data-count="10"] { --hand-scale: 0.58; }
-#player-hand[data-count="11"] { --hand-scale: 0.53; }
-#player-hand[data-count="12"] { --hand-scale: 0.48; }
+
 .hand-scroll .hand-card {
-  width: calc(var(--hand-w) * var(--hand-scale));
+  width: var(--hand-fit, var(--hand-w));
   min-width: 0;
   flex: 0 1 auto;
   overflow: hidden;

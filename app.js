@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=b7fb8b28';
-import { chooseAiCommand } from './game-ai.js?v=b7fb8b28';
-import { gameAudio } from './game-audio.js?v=b7fb8b28';
+} from './game-core.js?v=61b30a13';
+import { chooseAiCommand } from './game-ai.js?v=61b30a13';
+import { gameAudio } from './game-audio.js?v=61b30a13';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=b7fb8b28';
+} from './game-collection.js?v=61b30a13';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=b7fb8b28';
+} from './game-presentation.js?v=61b30a13';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=b7fb8b28';
+} from './game-session.js?v=61b30a13';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -1924,7 +1924,11 @@ function renderHand() {
     const unitDelta = getCardDefinition(first.definitionId).unitId.localeCompare(getCardDefinition(second.definitionId).unitId);
     return unitDelta !== 0 ? unitDelta : hand.indexOf(first) - hand.indexOf(second);
   });
-  nodes.playerHand.dataset.count = String(orderedHand.length);
+  // 卡宽按容器实际宽度连续收缩：任何张数、任何窗口宽度下，每张手牌都完整可见
+  const containerW = nodes.playerHand.clientWidth || 360;
+  const count = Math.max(orderedHand.length, 1);
+  const fitWidth = Math.max(54, Math.min(118, Math.floor((containerW - 30) / count * 1.5)));
+  nodes.playerHand.style.setProperty('--hand-fit', `${fitWidth}px`);
   nodes.playerHand.replaceChildren(...orderedHand.map((instance, index) => renderHandCard(instance, index, orderedHand.length, freshIds)));
   const playerResponding = displayedGame.responseWindow?.playerIndex === 0;
   nodes.playableCardCount.textContent = replaySession ? 0 : hand.filter((card) => (
