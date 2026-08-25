@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=61b30a13';
-import { chooseAiCommand } from './game-ai.js?v=61b30a13';
-import { gameAudio } from './game-audio.js?v=61b30a13';
+} from './game-core.js?v=aa95a06d';
+import { chooseAiCommand } from './game-ai.js?v=aa95a06d';
+import { gameAudio } from './game-audio.js?v=aa95a06d';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=61b30a13';
+} from './game-collection.js?v=aa95a06d';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=61b30a13';
+} from './game-presentation.js?v=aa95a06d';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=61b30a13';
+} from './game-session.js?v=aa95a06d';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -106,6 +106,10 @@ const nodes = {
   battleFeedback: document.querySelector('#battle-feedback'),
   cardRevealPlayer: document.querySelector('#card-reveal-player'),
   cardRevealEnemy: document.querySelector('#card-reveal-enemy'),
+  targetingOverlay: document.querySelector('#targeting-overlay'),
+  targetingPath: document.querySelector('#targeting-path'),
+  targetingHead: document.querySelector('#targeting-head'),
+  targetingDot: document.querySelector('#targeting-dot'),
   turnOwner: document.querySelector('#turn-owner'),
   round: document.querySelector('#round-value'),
   turnCallout: document.querySelector('#turn-callout'),
@@ -1510,12 +1514,14 @@ function renderUnit(unit, ownerIndex, placement) {
       event.dataTransfer.effectAllowed = 'move';
       event.dataTransfer.setData('text/plain', unit.uid);
       document.body.classList.add('is-dragging');
+      startCardTargeting(card, 'unit');
       requestAnimationFrame(() => card.classList.add('is-dragging'));
       markDropZones();
     });
     card.addEventListener('dragend', () => {
       draggedAttackUnitId = null;
       document.body.classList.remove('is-dragging');
+      endTargeting();
       card.classList.remove('is-dragging');
       clearDropZones();
     });
@@ -1536,6 +1542,7 @@ function renderUnit(unit, ownerIndex, placement) {
       const unitId = draggedAttackUnitId ?? event.dataTransfer.getData('text/plain');
       draggedAttackUnitId = null;
       document.body.classList.remove('is-dragging');
+      endTargeting();
       clearDropZones();
       if (unitId) performBasicAttack(unitId);
     });
@@ -1570,6 +1577,81 @@ function markCardDropZones(definition) {
   }
 }
 
+// ---------------------------------------------------------------- 指示箭头
+// 拖拽卡牌/角色时：一条弧形虚线箭头从起点跟随鼠标，合法目标显示虚圈
+
+const targetingState = { active: false, kind: null, originX: 0, originY: 0 };
+
+function showTargetingArrow(kind, originX, originY) {
+  targetingState.active = true;
+  targetingState.kind = kind;
+  targetingState.originX = originX;
+  targetingState.originY = originY;
+  nodes.targetingOverlay.dataset.kind = kind;
+  nodes.targetingOverlay.classList.add('is-active');
+}
+
+function updateTargetingArrow(x, y) {
+  if (!targetingState.active) return;
+  const { originX, originY } = targetingState;
+  nodes.targetingDot.setAttribute('cx', x);
+  nodes.targetingDot.setAttribute('cy', y);
+  const dx = x - originX;
+  const dy = y - originY;
+  if (Math.hypot(dx, dy) < 14) {
+    nodes.targetingPath.setAttribute('d', '');
+    nodes.targetingHead.setAttribute('points', '');
+    return;
+  }
+  // 弧线控制点：垂直于连线方向偏移，形成自然弓形
+  const mx = (originX + x) / 2 - dy * 0.18;
+  const my = (originY + y) / 2 + dx * 0.18;
+  nodes.targetingPath.setAttribute('d', `M ${originX} ${originY} Q ${mx} ${my} ${x} ${y}`);
+  // 箭头三角：朝向曲线末端切线方向
+  const angle = Math.atan2(y - my, x - mx);
+  const size = 13;
+  const a1 = angle + Math.PI * 0.85;
+  const a2 = angle - Math.PI * 0.85;
+  nodes.targetingHead.setAttribute('points', [
+    `${x + Math.cos(angle) * size * 0.6},${y + Math.sin(angle) * size * 0.6}`,
+    `${x + Math.cos(a1) * size},${y + Math.sin(a1) * size}`,
+    `${x + Math.cos(a2) * size},${y + Math.sin(a2) * size}`,
+  ].join(' '));
+}
+
+function hideTargetingArrow() {
+  targetingState.active = false;
+  nodes.targetingOverlay.classList.remove('is-active');
+  nodes.targetingPath.setAttribute('d', '');
+  nodes.targetingHead.setAttribute('points', '');
+  nodes.targetingDot.setAttribute('cx', '-100');
+  nodes.targetingDot.setAttribute('cy', '-100');
+  document.querySelectorAll('.is-targeting').forEach((el) => el.classList.remove('is-targeting'));
+}
+
+// 文档级 dragover：捕获指针坐标更新箭头，并为悬停中的合法目标加虚圈
+document.addEventListener('dragover', (event) => {
+  if (!targetingState.active) return;
+  updateTargetingArrow(event.clientX, event.clientY);
+  const el = event.target.closest?.('.is-drop-ready');
+  document.querySelectorAll('.is-targeting').forEach((item) => {
+    if (item !== el) item.classList.remove('is-targeting');
+  });
+  if (el && el !== event.target) el.classList.add('is-targeting');
+  else if (el === event.target) el.classList.add('is-targeting');
+});
+
+/** 卡牌拖拽起手：记录起点并显示箭头 */
+function startCardTargeting(card, kind) {
+  const rect = card.getBoundingClientRect();
+  showTargetingArrow(kind, rect.left + rect.width / 2, rect.top + rect.height / 2);
+}
+
+/** 卡牌拖拽结束：收起箭头与虚圈 */
+function endTargeting() {
+  hideTargetingArrow();
+}
+
 /** 卡牌拖拽落点：容器级监听，气绝等禁用态卡牌也能作为目标 */
 function attachCardDropTarget(container) {
   container.addEventListener('dragover', (event) => {
@@ -1592,6 +1674,7 @@ function attachCardDropTarget(container) {
     const instanceId = draggedCardInstanceId;
     draggedCardInstanceId = null;
     document.body.classList.remove('is-dragging');
+    endTargeting();
     clearDropZones();
     commitCard(instanceId, el.dataset.unitId ?? el.dataset.realmId ?? null);
   });
@@ -1729,6 +1812,7 @@ function attachBattleDrop(container) {
     const unitId = draggedAttackUnitId ?? event.dataTransfer.getData('text/plain');
     draggedAttackUnitId = null;
     document.body.classList.remove('is-dragging');
+    endTargeting();
     clearDropZones();
     if (unitId) performBasicAttack(unitId);
   });
@@ -1872,12 +1956,14 @@ function renderHandCard(instance, index, totalCount, freshIds) {
       event.dataTransfer.effectAllowed = 'move';
       event.dataTransfer.setData('text/plain', instance.instanceId);
       document.body.classList.add('is-dragging');
+      startCardTargeting(card, 'card');
       requestAnimationFrame(() => card.classList.add('is-dragging'));
       markCardDropZones(definition);
     });
     card.addEventListener('dragend', () => {
       draggedCardInstanceId = null;
       document.body.classList.remove('is-dragging');
+      endTargeting();
       card.classList.remove('is-dragging');
       clearDropZones();
     });

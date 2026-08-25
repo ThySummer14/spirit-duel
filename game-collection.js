@@ -9,7 +9,7 @@
  * - 偏好由 app.js 负责持久化到 localStorage
  */
 
-import { CARD_DEFINITIONS } from './game-content.js?v=61b30a13';
+import { CARD_DEFINITIONS } from './game-content.js?v=aa95a06d';
 
 export const COLLECTION_RULES = Object.freeze({
   version: 1,

@@ -2723,3 +2723,63 @@ html[data-theme="day"] .instant-badge { background: rgb(240 250 242 / 0.95); col
   gap: 10px;
 }
 .foe-plate { top: 10px; }
+/* ============================================================
+   指示箭头 + 目标虚圈 + 拖拽手感
+   ============================================================ */
+
+/* 拖拽中：全局抓取光标 */
+body.is-dragging, body.is-dragging * { cursor: grabbing !important; }
+
+/* 全屏箭头层（不拦截任何指针事件） */
+.targeting-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+.targeting-overlay.is-active { opacity: 1; }
+
+/* 弧形虚线箭头：金色（卡牌）/ 朱红（角色出击） */
+.targeting-path {
+  stroke: url(#targeting-gold);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  stroke-dasharray: 12 9;
+  animation: targeting-march 0.45s linear infinite;
+  filter: drop-shadow(0 0 6px rgb(255 210 120 / 0.75));
+}
+.targeting-overlay[data-kind="unit"] .targeting-path {
+  stroke: rgb(230 120 80 / 0.95);
+  filter: drop-shadow(0 0 6px rgb(230 120 80 / 0.75));
+}
+@keyframes targeting-march {
+  to { stroke-dashoffset: -21; }
+}
+.targeting-head {
+  fill: #ffd98a;
+  filter: drop-shadow(0 0 5px rgb(255 210 120 / 0.8));
+}
+.targeting-overlay[data-kind="unit"] .targeting-head { fill: #e8825a; }
+.targeting-dot {
+  fill: rgb(255 226 160 / 0.95);
+  filter: drop-shadow(0 0 8px rgb(255 210 120 / 0.9));
+}
+.targeting-overlay[data-kind="unit"] .targeting-dot { fill: rgb(240 160 120 / 0.95); }
+
+/* 悬停合法目标：虚圈标识（旋转虚线环 + 呼吸光） */
+.is-targeting {
+  outline: 2.5px dashed var(--gold-bright) !important;
+  outline-offset: 5px;
+  border-radius: 14px;
+  animation: targeting-ring 0.9s ease-in-out infinite;
+  filter: brightness(1.12);
+}
+@keyframes targeting-ring {
+  0%, 100% { outline-offset: 4px; }
+  50% { outline-offset: 8px; }
+}
+
+/* 拖拽中的源卡牌：缩小淡出，突出箭头 */
+.hand-card.is-dragging { opacity: 0.3; transform: scale(0.92); }

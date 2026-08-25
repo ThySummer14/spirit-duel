@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=61b30a13" />
-    <link rel="stylesheet" href="formation.css?v=61b30a13" />
-    <script type="module" src="app.js?v=61b30a13"></script>
+    <link rel="stylesheet" href="styles.css?v=aa95a06d" />
+    <link rel="stylesheet" href="formation.css?v=aa95a06d" />
+    <script type="module" src="app.js?v=aa95a06d"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -192,6 +192,17 @@
           <div class="battle-feedback" id="battle-feedback" aria-live="polite" aria-atomic="true"></div>
           <div class="card-reveal player-side" id="card-reveal-player" aria-hidden="true"></div>
           <div class="card-reveal enemy-side" id="card-reveal-enemy" aria-hidden="true"></div>
+          <svg class="targeting-overlay" id="targeting-overlay" aria-hidden="true">
+            <defs>
+              <linearGradient id="targeting-gold" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#ffe2a0"/>
+                <stop offset="1" stop-color="#e8b64c"/>
+              </linearGradient>
+            </defs>
+            <path id="targeting-path" class="targeting-path" d="" fill="none"/>
+            <polygon id="targeting-head" class="targeting-head" points=""/>
+            <circle id="targeting-dot" class="targeting-dot" r="7" cx="-100" cy="-100"/>
+          </svg>
 
           <!-- 左上：敌方头像与资源 -->
           <aside class="avatar-plate foe-plate enemy-core" aria-label="失序体状态">
