@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=d52b3890';
-import { chooseAiCommand } from './game-ai.js?v=d52b3890';
-import { gameAudio } from './game-audio.js?v=d52b3890';
+} from './game-core.js?v=97af4cd1';
+import { chooseAiCommand } from './game-ai.js?v=97af4cd1';
+import { gameAudio } from './game-audio.js?v=97af4cd1';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=d52b3890';
+} from './game-collection.js?v=97af4cd1';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=d52b3890';
+} from './game-presentation.js?v=97af4cd1';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=d52b3890';
+} from './game-session.js?v=97af4cd1';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -1879,7 +1879,7 @@ function renderHandCard(instance, index, totalCount, freshIds) {
     && definition.timing === 'response' && definition.responseTo.includes(respWindow.action);
   card.classList.toggle('is-response-ready', responseMatches && playable);
   // 扇形排布：以手牌中位为轴，边缘卡牌微微旋转
-  const fanStep = Math.min(3.2, 26 / Math.max(totalCount, 1));
+  const fanStep = Math.min(2.2, 20 / Math.max(totalCount, 1));
   const mid = (totalCount - 1) / 2;
   card.style.setProperty('--fan-rotate', `${((index - mid) * fanStep).toFixed(2)}deg`);
   card.style.zIndex = String(index + 1);
