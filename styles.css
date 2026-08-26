@@ -621,6 +621,11 @@ dialog::backdrop {
   pointer-events: none;
 }
 .battle-strip.player-battle::after { bottom: auto; top: -1px; }
+/* 战斗区角色略小一档，紧贴中线，避免战场纵向膨胀（漏写会导致前线角色显大） */
+.battle-strip .unit-card {
+  width: calc(var(--unit-w) * 0.82);
+  cursor: pointer;
+}
 
 /* 空槽位 */
 .empty-front-slot {
