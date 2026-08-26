@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=a946bba3';
-import { chooseAiCommand } from './game-ai.js?v=a946bba3';
-import { gameAudio } from './game-audio.js?v=a946bba3';
+} from './game-core.js?v=0e568c45';
+import { chooseAiCommand } from './game-ai.js?v=0e568c45';
+import { gameAudio } from './game-audio.js?v=0e568c45';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=a946bba3';
+} from './game-collection.js?v=0e568c45';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=a946bba3';
+} from './game-presentation.js?v=0e568c45';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=a946bba3';
+} from './game-session.js?v=0e568c45';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
