@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=12040b60';
-import { chooseAiCommand } from './game-ai.js?v=12040b60';
-import { gameAudio } from './game-audio.js?v=12040b60';
+} from './game-core.js?v=98256261';
+import { chooseAiCommand } from './game-ai.js?v=98256261';
+import { gameAudio } from './game-audio.js?v=98256261';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,18 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=12040b60';
+} from './game-collection.js?v=98256261';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=12040b60';
+} from './game-presentation.js?v=98256261';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=12040b60';
+} from './game-session.js?v=98256261';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -1904,9 +1904,6 @@ function renderHandCard(instance, index, totalCount, freshIds) {
   const name = document.createElement('strong');
   name.className = 'card-name';
   name.textContent = definition.name;
-  const text = document.createElement('span');
-  text.className = 'card-text';
-  text.textContent = definition.text;
   const availability = document.createElement('span');
   availability.className = 'card-availability';
   const availabilityLabels = {
@@ -1942,7 +1939,7 @@ function renderHandCard(instance, index, totalCount, freshIds) {
   // 卡面外壳：clip-path 必须与扇形 rotate 分层，否则合成层光栅化会吞掉卡面（只剩顶部一小截）
   const body = document.createElement('span');
   body.className = 'card-body';
-  body.append(cost, level, art, meta, name, text, availability);
+  body.append(cost, level, art, meta, name, availability);
   card.append(body);
   // 拖拽施放：需要选目标且当前可用的手牌，可直接拖到目标身上触发
   const dragMode = getDragTargetMode(definition);

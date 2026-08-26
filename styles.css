@@ -524,29 +524,52 @@ dialog::backdrop {
   100% { opacity: 0; transform: translate(-50%, -18px); }
 }
 
-/* 卡牌揭示（抽大牌动效） */
+/* 出牌揭示：己方卡面从左侧滑入，敌方从右侧 */
 .card-reveal {
   position: absolute;
-  left: 50%;
-  top: 40%;
+  top: 30%;
   z-index: 70;
+  width: max-content;
+  max-width: 300px;
   display: flex;
-  gap: 14px;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.45);
+  border-radius: var(--radius-m);
+  background: linear-gradient(168deg, rgb(var(--panel-raised-rgb) / 0.97), rgb(var(--panel-deep-rgb) / 0.95));
+  box-shadow: var(--shadow-2), 0 0 24px rgb(var(--gold-rgb) / 0.14);
+  backdrop-filter: blur(10px);
+  opacity: 0;
   pointer-events: none;
 }
-.card-reveal .reveal-card {
-  width: 120px;
-  aspect-ratio: 5 / 7;
-  border-radius: var(--radius-m);
-  border: 1px solid rgb(var(--gold-rgb) / 0.5);
-  background: var(--ink-2);
-  box-shadow: var(--shadow-2);
-  animation: reveal-pop 0.5s cubic-bezier(0.2, 0.8, 0.3, 1.15) backwards;
+.card-reveal.player-side { left: 4%; transform: translateX(-26px); }
+.card-reveal.enemy-side { right: 4%; transform: translateX(26px); }
+.card-reveal.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.18s ease, transform 0.24s cubic-bezier(0.2, 0.8, 0.3, 1.2);
 }
-@keyframes reveal-pop {
-  from { opacity: 0; transform: translateY(30px) scale(0.8); }
+.card-reveal .reveal-art {
+  flex: none;
+  display: block;
+  width: 54px;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgb(var(--gold-rgb) / 0.4);
+  background: var(--art-bg);
 }
+.card-reveal .reveal-art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+.card-reveal .reveal-meta { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.card-reveal .reveal-meta b {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  color: var(--paper);
+  white-space: nowrap;
+}
+.card-reveal .reveal-meta small { font-size: 10.5px; letter-spacing: 0.1em; color: var(--text-dim); }
 
 /* 目标指示层 */
 .targeting-overlay {
@@ -1427,20 +1450,35 @@ body.is-dragging, body.is-dragging * { cursor: grabbing !important; }
 }
 .inspect-statrow {
   display: flex;
-  gap: 8px;
-  margin-bottom: 10px;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  padding: 2px 4px;
 }
-.inspect-statrow b {
-  flex: 1;
-  padding: 4px 0;
-  border: 1px solid var(--rule);
-  border-radius: 7px;
-  background: rgb(var(--panel-soft-rgb) / 0.8);
-  color: var(--paper-dim);
+.inspect-statrow .stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.inspect-statrow .stat + .stat {
+  border-left: 1px solid var(--rule);
+  padding-left: 14px;
+}
+.inspect-statrow .stat b {
   font-family: var(--font-display);
-  font-size: 13px;
-  text-align: center;
+  font-size: 19px;
+  line-height: 1;
+  color: var(--paper);
   font-variant-numeric: tabular-nums;
+}
+.inspect-statrow .stat b i { font-style: normal; font-size: 11px; color: var(--text-faint); }
+.inspect-statrow .stat:nth-child(1) b { color: var(--danger-soft); }
+.inspect-statrow .stat:nth-child(2) b { color: var(--ok); }
+.inspect-statrow .stat:nth-child(3) b { color: var(--gold-bright); }
+.inspect-statrow .stat small {
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
 }
 .inspect-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
 .inspect-chips span {
@@ -1708,7 +1746,7 @@ body.is-dragging .unit-inspect { opacity: 0 !important; visibility: hidden !impo
 .hand-card .card-meta {
   position: absolute;
   left: 0; right: 0;
-  bottom: 68px;
+  bottom: 66px;
   z-index: 3;
   text-align: center;
   font-size: 8.5px;
@@ -1720,16 +1758,18 @@ body.is-dragging .unit-inspect { opacity: 0 !important; visibility: hidden !impo
 .hand-card .card-name {
   position: absolute;
   left: 6px; right: 6px;
-  bottom: 46px;
+  bottom: 38px;
   z-index: 3;
   text-align: center;
   font-family: var(--font-display);
-  font-size: 14px;
-  letter-spacing: 0.14em;
+  font-size: 15.5px;
+  letter-spacing: 0.16em;
   color: var(--paper);
   text-shadow: 0 1px 6px rgb(0 0 0 / 0.95);
   pointer-events: none;
 }
+/* 效果描述只在悬停预览展示，手牌卡面不再排文字（太挤） */
+.hand-card .card-text { display: none; }
 .hand-card .card-text {
   position: absolute;
   left: 8px; right: 8px;
@@ -1746,10 +1786,20 @@ body.is-dragging .unit-inspect { opacity: 0 !important; visibility: hidden !impo
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+.hand-card .card-name::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 1px;
+  background: color-mix(in srgb, var(--card-accent) 60%, transparent);
+}
 .hand-card .card-availability {
   position: absolute;
   left: 8px; right: 8px;
-  bottom: 5px;
+  bottom: 6px;
   z-index: 3;
   padding: 2px 6px;
   border-radius: 999px;
@@ -2009,7 +2059,15 @@ html[data-theme="day"] .instant-badge { background: rgb(240 250 242 / 0.95); col
 .build-tag { margin-top: 8px; text-align: right; font-size: 10px; color: var(--text-faint); }
 
 /* 战报 */
-.battle-log { width: min(520px, calc(100vw - 48px)); }
+.battle-log {
+  width: min(520px, calc(100vw - 48px));
+  padding: 22px 24px 24px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.28);
+  border-radius: var(--radius-l);
+  background: linear-gradient(168deg, rgb(var(--panel-raised-rgb) / 0.97), rgb(var(--panel-deep-rgb) / 0.97));
+  box-shadow: var(--shadow-2), inset 0 1px 0 rgb(255 255 255 / 0.04);
+  backdrop-filter: blur(16px);
+}
 .battle-log header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
 .battle-log-tools { display: inline-flex; align-items: center; gap: 10px; color: var(--text-faint); font-variant-numeric: tabular-nums; }
 #log-list {

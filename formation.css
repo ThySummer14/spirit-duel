@@ -704,6 +704,16 @@
 .reveal-card[data-rarity="epic"] .reveal-rarity-tag { border: 1px solid #8a4fa8; color: #8a4fa8; background: rgb(138 79 168 / 0.08); }
 .reveal-name { font-family: var(--font-display); font-size: 15px; letter-spacing: 0.1em; color: #33291a; }
 .reveal-type { font-size: 9.5px; color: #8d8264; }
+.reveal-state {
+  align-self: center;
+  margin-top: 5px;
+  padding: 1px 10px;
+  border-radius: 999px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+.reveal-state.is-new { background: rgb(126 201 138 / 0.16); color: #2f7d5c; border: 1px solid rgb(126 201 138 / 0.5); }
+.reveal-state.is-dupe { background: rgb(201 164 94 / 0.12); color: #8a6f34; border: 1px solid rgb(201 164 94 / 0.4); }
 
 /* ---------------------------------------------------------------- 响应式 */
 @media (max-width: 1100px) {
