@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>灵枢战线 · 战斗界面概念稿 v6</title>
+<style>
+/* ============================================================
+   战斗界面概念稿 v6「枢夜交战」
+   设计锚点：Shadowverse 的交战轴密度 × 百闻牌的式神盘面
+             × 本项目既有「墨金夜阵」色板
+   ============================================================ */
+:root {
+  --ink-0: #06080d;
+  --ink-1: #0a0e17;
+  --ink-2: #10151f;
+  --ink-3: #161d2c;
+  --ink-4: #1e2739;
+  --rule: #2a3145;
+  --rule-soft: #212839;
+  --rule-strong: #3b445e;
+  --paper: #ece6d6;
+  --paper-dim: #b6b1a2;
+  --text-dim: #9aa1b6;
+  --text-faint: #6b7290;
+  --gold: #c9a45e;
+  --gold-bright: #eed49c;
+  --gold-deep: #7d6232;
+  --gold-rgb: 201 164 94;
+  --danger: #d95b3a;
+  --danger-soft: #ef9370;
+  --ok: #7fc48d;
+  --foe: #a86cc8;
+  --ally: #c9a45e;
+  --font-display: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  min-height: 100vh;
+  background: #06080d;
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 13px;
+  overflow-x: hidden;
+}
+
+/* ---------- 舞台布景 ---------- */
+.stage {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  min-height: 720px;
+  background:
+    radial-gradient(90% 55% at 50% 42%, rgb(28 38 62 / 0.45), transparent 70%),
+    radial-gradient(60% 40% at 18% 18%, rgb(80 50 110 / 0.12), transparent),
+    radial-gradient(55% 35% at 82% 78%, rgb(160 120 60 / 0.08), transparent),
+    linear-gradient(180deg, #0b101a 0%, #080c14 45%, #070a12 100%);
+  overflow: hidden;
+}
+.stage::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.55;
+}
+.moon {
+  position: absolute;
+  top: 8%; right: 12%;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, rgb(240 228 190 / 0.22), rgb(180 160 120 / 0.06) 55%, transparent 70%);
+  filter: blur(0.5px);
+  pointer-events: none;
+}
+.ridge {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 28%;
+  background:
+    radial-gradient(110% 100% at 20% 100%, transparent 55%, rgb(5 8 14 / 0.85) 56%),
+    radial-gradient(120% 100% at 78% 100%, transparent 58%, rgb(5 8 14 / 0.9) 59%);
+  pointer-events: none;
+}
+
+/* ---------- 顶栏 ---------- */
+.topbar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--rule-soft);
+  background: linear-gradient(180deg, rgb(10 14 23 / 0.92), rgb(10 14 23 / 0.7));
+  backdrop-filter: blur(12px);
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  min-width: 160px;
+}
+.brand-mark {
+  width: 28px; height: 28px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.55);
+  border-radius: 8px;
+  display: grid; place-items: center;
+  color: var(--gold-bright);
+  font-family: var(--font-display);
+  font-size: 15px;
+  background: linear-gradient(145deg, #2a2210, #14100a);
+}
+.brand-copy strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  color: var(--paper);
+}
+.brand-copy small {
+  font-size: 8px;
+  letter-spacing: 0.32em;
+  color: var(--text-faint);
+}
+.turn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 18px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: rgb(var(--panel-raised-rgb, 22 29 46) / 0.55);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--paper-dim);
+}
+.turn-pill .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 8px rgb(127 196 141 / 0.7);
+}
+.turn-pill b {
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 13px;
+}
+.turn-pill .tag {
+  padding: 1px 8px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.5);
+  border-radius: 999px;
+  background: rgb(var(--gold-rgb) / 0.12);
+  color: var(--gold-bright);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+.top-actions { display: flex; gap: 8px; min-width: 160px; justify-content: flex-end; }
+.icon-btn {
+  width: 34px; height: 34px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  background: rgb(16 21 31 / 0.7);
+  color: var(--text-dim);
+  font-size: 13px;
+  display: grid; place-items: center;
+}
+
+/* ---------- 主战场三栏 ---------- */
+.field {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 88px;
+  gap: 14px;
+  padding: 12px 14px;
+  min-height: 0;
+}
+
+/* 左栏：双方核心盘 */
+.rails {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  min-height: 0;
+}
+.plate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 12px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background:
+    linear-gradient(165deg, rgb(22 29 46 / 0.88), rgb(12 16 26 / 0.82));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.03);
+  overflow: hidden;
+}
+.plate::before {
+  content: "";
+  position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px;
+  border-radius: 2px;
+}
+.plate.foe::before { background: linear-gradient(180deg, var(--foe), transparent); }
+.plate.ally::before { background: linear-gradient(180deg, var(--gold), transparent); }
+
+.plate-head {
+  display: flex; align-items: center; gap: 10px;
+}
+.avatar {
+  position: relative;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-size: 20px;
+  flex: none;
+}
+.plate.foe .avatar {
+  background: radial-gradient(circle at 35% 30%, #3c2f5c, #191330 72%);
+  border: 1px solid rgb(168 108 200 / 0.5);
+  color: #d9c7ee;
+}
+.plate.ally .avatar {
+  background: radial-gradient(circle at 35% 30%, #3a3120, #171208 72%);
+  border: 1px solid rgb(var(--gold-rgb) / 0.5);
+  color: var(--gold-bright);
+}
+.core-badge {
+  position: absolute;
+  right: -6px; bottom: -4px;
+  min-width: 28px; padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--gold-deep);
+  background: #15110a;
+  color: var(--gold-bright);
+  font-family: var(--font-display);
+  font-size: 12px;
+  text-align: center;
+}
+.plate-meta { min-width: 0; flex: 1; }
+.plate-meta .name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--paper);
+}
+.plate-meta .sub {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--text-faint);
+  margin-top: 1px;
+}
+.core-bar {
+  height: 4px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.06);
+  overflow: hidden;
+}
+.core-bar i { display: block; height: 100%; border-radius: inherit; }
+.plate.foe .core-bar i { width: 90%; background: linear-gradient(90deg, #8f5cbd, #cfa8e8); }
+.plate.ally .core-bar i { width: 73%; background: linear-gradient(90deg, #a8873f, #ecd39a); }
+
+.res-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+}
+.res-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: rgb(10 14 23 / 0.7);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+.res-chip b {
+  font-family: var(--font-display);
+  color: var(--paper);
+  font-size: 11px;
+}
+.flame {
+  display: inline-flex; gap: 3px;
+}
+.flame i {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgb(var(--gold-rgb) / 0.2);
+  border: 1px solid rgb(var(--gold-rgb) / 0.45);
+}
+.flame i.on {
+  background: linear-gradient(180deg, #f0d48a, #b8893a);
+  box-shadow: 0 0 6px rgb(var(--gold-rgb) / 0.5);
+}
+
+.realm-mini {
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.realm-chip {
+  width: 42px; height: 32px;
+  border: 1px solid rgb(157 130 212 / 0.4);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #241d38, #14101f);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 9px; color: #cfc2e8;
+  letter-spacing: 0.04em;
+}
+.realm-chip b {
+  font-family: var(--font-display);
+  font-size: 11px; color: var(--paper);
+}
+
+/* 中栏：五行战场 */
+.board {
+  display: grid;
+  grid-template-rows:
+    minmax(0, 1.15fr)
+    auto
+    auto
+    auto
+    minmax(0, 1.15fr);
+  gap: 8px;
+  min-height: 0;
+  min-width: 0;
+}
+
+.row-label {
+  position: absolute;
+  left: 8px; top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
+  font-size: 8px;
+  letter-spacing: 0.28em;
+  color: var(--text-faint);
+  opacity: 0.55;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.lane {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.2vw, 16px);
+  min-height: 0;
+  padding: 4px 28px;
+}
+.lane.prepare { padding-inline: 36px; }
+.lane.battle {
+  min-height: 108px;
+  padding-block: 6px;
+}
+.lane.battle::before {
+  content: "";
+  position: absolute;
+  left: 8%; right: 8%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(var(--gold-rgb) / 0.14) 20%, rgb(var(--gold-rgb) / 0.14) 80%, transparent);
+  pointer-events: none;
+}
+
+/* 交战轴 */
+.axis {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 54px;
+  padding: 0 14px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.22);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgb(28 34 50 / 0.92), rgb(14 18 30 / 0.9));
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.4),
+    0 10px 28px rgb(0 0 0 / 0.35),
+    inset 0 1px 0 rgb(255 255 255 / 0.04);
+  backdrop-filter: blur(14px);
+}
+.axis-badge {
+  flex: none;
+  padding: 3px 10px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.35);
+  border-radius: 999px;
+  background: rgb(var(--gold-rgb) / 0.08);
+  color: var(--gold-bright);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+}
+.axis-text { flex: 1; min-width: 0; }
+.axis-text .prompt {
+  font-size: 12px;
+  color: var(--paper-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.axis-text .event {
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.axis-text .event b { color: var(--danger-soft); font-weight: 500; }
+.axis-actions { display: flex; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  background: rgb(20 26 40 / 0.8);
+  color: var(--paper-dim);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+.btn i {
+  width: 16px; height: 16px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-style: normal;
+  font-size: 9px;
+  opacity: 0.8;
+}
+.btn.gold {
+  border-color: rgb(var(--gold-rgb) / 0.55);
+  background: linear-gradient(180deg, rgb(var(--gold-rgb) / 0.16), rgb(var(--gold-rgb) / 0.05));
+  color: var(--gold-bright);
+}
+.btn.red {
+  border-color: rgb(217 91 58 / 0.6);
+  background: linear-gradient(180deg, rgb(217 91 58 / 0.16), rgb(217 91 58 / 0.04));
+  color: var(--danger-soft);
+}
+
+/* ---------- 单位卡 ---------- */
+.unit {
+  position: relative;
+  width: clamp(104px, 9.5vw, 132px);
+  aspect-ratio: 20 / 26;
+  border-radius: 12px;
+  border: 1px solid var(--rule-strong);
+  background: linear-gradient(180deg, #182032 0%, #0f1524 100%);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.4), inset 0 0 0 1px rgb(255 255 255 / 0.03);
+  overflow: hidden;
+  flex: none;
+}
+.unit.front { width: 78px; }
+.unit.front.foe-unit { border-color: rgb(168 108 200 / 0.55); }
+.unit.front.ally-unit { border-color: rgb(var(--gold-rgb) / 0.65); }
+.unit.front::after {
+  content: "前线";
+  position: absolute;
+  top: 5px; right: 5px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  background: rgb(10 14 23 / 0.85);
+  color: var(--text-faint);
+}
+.unit.front.ally-unit::after {
+  color: var(--gold-bright);
+  border: 1px solid rgb(var(--gold-rgb) / 0.4);
+}
+.unit.front.foe-unit::after {
+  color: #d9c7ee;
+  border: 1px solid rgb(168 108 200 / 0.4);
+}
+
+.unit-art {
+  position: absolute;
+  inset: 0 0 34% 0;
+  background:
+    radial-gradient(circle at 50% 30%, rgb(var(--c, 201 164 94) / 0.18), transparent 60%),
+    linear-gradient(180deg, #1a2234, #0d121f);
+  display: grid; place-items: center;
+}
+.unit-art img {
+  width: 72%; height: 72%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgb(0 0 0 / 0.45));
+}
+.unit-art::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgb(13 17 28 / 0.92) 100%);
+}
+
+.unit-plate {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 6px 6px 7px;
+  text-align: center;
+}
+.unit-name {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--paper);
+  margin-bottom: 4px;
+}
+.unit-stats {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.stat {
+  min-width: 28px;
+  padding: 2px 6px;
+  border-radius: 7px;
+  border: 1px solid var(--rule-strong);
+  background: rgb(10 14 23 / 0.85);
+  font-family: var(--font-display);
+  font-size: 12px;
+  line-height: 1.3;
+}
+.stat.atk { color: var(--danger-soft); border-color: rgb(217 91 58 / 0.45); }
+.stat.hp { color: var(--ok); border-color: rgb(127 196 141 / 0.4); }
+.unit.front .unit-name { font-size: 10px; letter-spacing: 0.12em; margin-bottom: 3px; }
+.unit.front .stat { min-width: 24px; font-size: 11px; padding: 1px 4px; }
+
+.pips {
+  position: absolute;
+  top: 6px; left: 6px;
+  display: flex; flex-direction: column; gap: 3px;
+  z-index: 2;
+}
+.pip {
+  width: 8px; height: 8px;
+  transform: rotate(45deg);
+  border: 1px solid var(--gold-deep);
+  background: transparent;
+}
+.pip.on {
+  background: linear-gradient(135deg, #f0d48a, #b8893a);
+  box-shadow: 0 0 6px rgb(var(--gold-rgb) / 0.45);
+}
+
+.unit.foe-unit { --c: 168 108 200; }
+.unit.ally-unit { --c: 201 164 94; }
+.unit.will-hit { box-shadow: 0 0 0 2px rgb(217 91 58 / 0.7), 0 0 18px rgb(217 91 58 / 0.35); }
+.unit.selected {
+  box-shadow: 0 0 0 2px var(--gold-bright), 0 8px 22px rgb(var(--gold-rgb) / 0.3);
+  transform: translateY(-2px);
+}
+
+/* 空槽 */
+.slot {
+  width: 148px;
+  min-height: 92px;
+  border: 1.5px dashed rgb(var(--gold-rgb) / 0.28);
+  border-radius: 12px;
+  background: radial-gradient(circle at 50% 50%, rgb(var(--gold-rgb) / 0.05), transparent 70%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px;
+  color: var(--text-faint);
+  flex: none;
+}
+.slot strong {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  color: rgb(var(--gold-rgb) / 0.7);
+}
+.slot span { font-size: 10px; letter-spacing: 0.08em; }
+
+/* 检视浮层示意 */
+.inspect-float {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  transform: translateX(-50%);
+  width: 228px;
+  padding: 12px 14px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.28);
+  border-radius: 12px;
+  background: linear-gradient(170deg, rgb(28 34 52 / 0.97), rgb(12 16 28 / 0.95));
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.5);
+  z-index: 35;
+  text-align: left;
+}
+.inspect-float .ih {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+}
+.inspect-float .em {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #3a3120, #171208);
+  border: 1px solid rgb(var(--gold-rgb) / 0.4);
+  display: grid; place-items: center;
+  font-size: 14px; color: var(--gold-bright);
+}
+.inspect-float .ih small {
+  display: block; font-size: 8px; letter-spacing: 0.16em; color: var(--text-faint);
+}
+.inspect-float .ih strong {
+  font-family: var(--font-display); font-size: 14px; letter-spacing: 0.14em;
+}
+.inspect-float .sr {
+  display: flex; gap: 10px; margin-bottom: 8px; font-size: 10px; color: var(--text-faint);
+}
+.inspect-float .sr b {
+  font-family: var(--font-display); font-size: 14px; color: var(--paper);
+  margin-right: 3px;
+}
+.inspect-float .ps {
+  padding: 7px 9px;
+  border-left: 2px solid rgb(var(--gold-rgb) / 0.5);
+  background: rgb(var(--gold-rgb) / 0.06);
+  font-size: 10px;
+  line-height: 1.55;
+  color: var(--paper-dim);
+}
+
+/* 右栏：牌库 */
+.decks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 0;
+}
+.pile {
+  width: 64px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #1a2030, #0e1320);
+  padding: 10px 4px 8px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.35);
+}
+.pile .back {
+  width: 36px; height: 50px;
+  margin: 0 auto 6px;
+  border-radius: 4px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.35);
+  background:
+    linear-gradient(145deg, #2a2212, #12100a),
+    repeating-linear-gradient(45deg, transparent, transparent 4px, rgb(var(--gold-rgb) / 0.08) 4px, rgb(var(--gold-rgb) / 0.08) 5px);
+}
+.pile.foe-pile .back { border-color: rgb(168 108 200 / 0.35); background: linear-gradient(145deg, #2a1f38, #100a18); }
+.pile b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--paper);
+}
+.pile small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+  margin-top: 1px;
+}
+.end-turn {
+  width: 64px;
+  padding: 14px 4px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.55);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #2c2413, #171106);
+  color: var(--gold-bright);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  box-shadow: 0 0 16px rgb(var(--gold-rgb) / 0.12);
+}
+.end-turn small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+/* ---------- 手牌 ---------- */
+.hand {
+  position: relative;
+  z-index: 15;
+  border-top: 1px solid var(--rule-soft);
+  background:
+    radial-gradient(60% 120% at 50% 0%, rgb(26 33 51 / 0.45), transparent 70%),
+    linear-gradient(180deg, #0a0e17, #070a11);
+  padding: 18px 20px 14px;
+}
+.hand-head {
+  position: absolute;
+  right: 18px; top: 10px;
+  display: flex; align-items: baseline; gap: 5px;
+  padding: 3px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: rgb(15 20 32 / 0.8);
+}
+.hand-head b {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--gold-bright);
+}
+.hand-head span { font-size: 10px; color: var(--text-faint); letter-spacing: 0.12em; }
+.hand-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+  min-height: 168px;
+  padding-right: 220px; /* 给预览卡留位，不与手牌叠在一起 */
+}
+.card {
+  position: relative;
+  width: 112px;
+  height: 156px;
+  border-radius: 12px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.28);
+  background: linear-gradient(178deg, #1a2133, #10152a 60%, #0d1120);
+  box-shadow: 0 8px 22px rgb(0 0 0 / 0.45);
+  overflow: hidden;
+  flex: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card.lift {
+  transform: translateY(-14px) scale(1.04);
+  box-shadow: 0 16px 36px rgb(0 0 0 / 0.55), 0 0 24px rgb(var(--gold-rgb) / 0.18);
+  border-color: rgb(var(--gold-rgb) / 0.55);
+  z-index: 5;
+}
+.card .cost {
+  position: absolute; top: 7px; left: 7px; z-index: 3;
+  width: 26px; height: 26px;
+  transform: rotate(45deg);
+  border: 1px solid rgb(var(--gold-rgb) / 0.6);
+  border-radius: 7px;
+  background: linear-gradient(135deg, #2f2712, #191207);
+  display: grid; place-items: center;
+}
+.card .cost span {
+  transform: rotate(-45deg);
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--gold-bright);
+}
+.card .lv {
+  position: absolute; top: 8px; right: 8px; z-index: 3;
+  padding: 1px 7px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: rgb(10 14 23 / 0.85);
+  font-size: 9px;
+  color: var(--text-dim);
+}
+.card .art {
+  position: absolute; inset: 0 0 38% 0;
+  background:
+    radial-gradient(circle at 50% 30%, rgb(var(--c, 201 164 94) / 0.16), transparent 60%),
+    linear-gradient(180deg, #1a2234, #0d121f);
+  display: grid; place-items: center;
+}
+.card .art img { width: 68%; height: 68%; object-fit: contain; }
+.card .art::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgb(13 17 28 / 0.9) 100%);
+}
+.card .nm {
+  position: absolute; left: 0; right: 0; bottom: 34px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--paper);
+}
+.card .tp {
+  position: absolute; left: 0; right: 0; bottom: 18px;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+}
+.card .ok {
+  position: absolute; left: 0; right: 0; bottom: 5px;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--ok);
+}
+.card .ok.warn { color: var(--text-faint); }
+.card.combat { border-top: 2px solid #dd6a48; --c: 221 106 72; }
+.card.spell { border-top: 2px solid #64aed8; --c: 100 174 216; }
+.card.form { border-top: 2px solid #c9a45e; --c: 201 164 94; }
+.card.blocked { opacity: 0.45; filter: grayscale(0.35); }
+
+/* 大卡预览：贴手牌右侧浮起，不压战场中轴 */
+.preview {
+  position: absolute;
+  right: 28px;
+  bottom: calc(100% - 12px);
+  width: 196px;
+  height: 274px;
+  border-radius: 16px;
+  border: 1px solid rgb(var(--gold-rgb) / 0.5);
+  background: linear-gradient(178deg, #1a2133, #10152a 55%, #0d1120);
+  box-shadow: 0 20px 50px rgb(0 0 0 / 0.6), 0 0 36px rgb(var(--gold-rgb) / 0.15);
+  overflow: hidden;
+  z-index: 40;
+  pointer-events: none;
+}
+.preview .p-art {
+  position: absolute; inset: 0 0 46% 0;
+  background:
+    radial-gradient(circle at 45% 30%, rgb(221 106 72 / 0.2), transparent 55%),
+    linear-gradient(180deg, #1c2438, #0d121f);
+  display: grid; place-items: center;
+}
+.preview .p-art img { width: 62%; height: 62%; object-fit: contain; }
+.preview .p-art::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgb(13 17 28 / 0.92) 100%);
+}
+.preview .p-cost {
+  position: absolute; top: 12px; left: 12px;
+  width: 32px; height: 32px;
+  transform: rotate(45deg);
+  border: 1px solid rgb(var(--gold-rgb) / 0.65);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2f2712, #191207);
+  display: grid; place-items: center;
+  z-index: 2;
+}
+.preview .p-cost span {
+  transform: rotate(-45deg);
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--gold-bright);
+}
+.preview .p-lv {
+  position: absolute; top: 14px; right: 12px;
+  padding: 2px 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: rgb(10 14 23 / 0.85);
+  font-size: 10px;
+  color: var(--text-dim);
+}
+.preview .p-meta {
+  position: absolute; left: 0; right: 0; bottom: 118px;
+  text-align: center; font-size: 9px; letter-spacing: 0.2em;
+  color: rgb(221 106 72 / 0.85);
+}
+.preview .p-name {
+  position: absolute; left: 0; right: 0; bottom: 92px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  color: var(--paper);
+}
+.preview .p-text {
+  position: absolute; left: 14px; right: 14px; bottom: 48px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--paper-dim);
+}
+.preview .p-tags {
+  position: absolute; left: 0; right: 0; bottom: 16px;
+  display: flex; justify-content: center; gap: 5px;
+}
+.preview .p-tags span {
+  padding: 2px 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: rgb(15 20 32 / 0.9);
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+.preview .shine {
+  position: absolute; inset: 0;
+  background: linear-gradient(112deg, transparent 30%, rgb(255 230 160 / 0.08) 48%, transparent 62%);
+  pointer-events: none;
+}
+
+/* 设计注记 */
+.notes {
+  position: fixed;
+  left: 12px; bottom: 12px;
+  z-index: 50;
+  max-width: 280px;
+  padding: 10px 12px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  background: rgb(10 14 23 / 0.88);
+  backdrop-filter: blur(10px);
+  font-size: 10px;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+.notes strong {
+  display: block;
+  color: var(--gold-bright);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+}
+.notes ul { margin: 0; padding-left: 14px; }
+.notes li { margin: 2px 0; }
+
+@media (max-width: 980px) {
+  .field { grid-template-columns: 160px minmax(0, 1fr) 72px; gap: 8px; padding: 8px; }
+  .unit { width: 96px; }
+  .unit.front { width: 68px; }
+  .slot { width: 120px; min-height: 80px; }
+  .preview { display: none; }
+  .inspect-float { display: none; }
+  .notes { display: none; }
+  .hand-row .card:nth-child(n+5) { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="moon" aria-hidden="true"></div>
+  <div class="ridge" aria-hidden="true"></div>
+
+  <!-- 顶栏 -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">枢</div>
+      <div class="brand-copy">
+        <strong>灵枢战线</strong>
+        <small>REIKU FRONT</small>
+      </div>
+    </div>
+    <div class="turn-pill">
+      <span class="dot"></span>
+      <span>巡界者行动</span>
+      <span class="tag">先手</span>
+      <span>第 <b>03</b> 回合</span>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn">♪</button>
+      <button class="icon-btn">☰</button>
+      <button class="icon-btn">↻</button>
+    </div>
+  </header>
+
+  <!-- 主战场 -->
+  <main class="field">
+    <!-- 左栏核心盘 -->
+    <aside class="rails">
+      <div class="plate foe">
+        <div class="plate-head">
+          <div class="avatar">穢<span class="core-badge">27</span></div>
+          <div class="plate-meta">
+            <div class="name">失序体</div>
+            <div class="sub">AI · 失序</div>
+          </div>
+        </div>
+        <div class="core-bar"><i></i></div>
+        <div class="res-row">
+          <span class="res-chip"><span class="flame"><i class="on"></i><i class="on"></i></span><b>2</b>/2</span>
+          <span class="res-chip">手牌 <b>5</b></span>
+        </div>
+        <div class="realm-mini">
+          <div class="realm-chip">幻境<b>4</b></div>
+        </div>
+      </div>
+      <div class="plate ally">
+        <div class="plate-head">
+          <div class="avatar">界<span class="core-badge">22</span></div>
+          <div class="plate-meta">
+            <div class="name">巡界者</div>
+            <div class="sub">你 · 灵契</div>
+          </div>
+        </div>
+        <div class="core-bar"><i></i></div>
+        <div class="res-row">
+          <span class="res-chip"><span class="flame"><i class="on"></i><i></i></span><b>1</b>/2</span>
+          <span class="res-chip">出击 <b>1</b></span>
+        </div>
+        <div class="realm-mini"></div>
+      </div>
+    </aside>
+
+    <!-- 中栏战场 -->
+    <section class="board">
+      <!-- 敌方准备区 -->
+      <div class="lane prepare">
+        <span class="row-label">敌方准备</span>
+        <div class="unit foe-unit" style="--c:168 108 200">
+          <div class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></div>
+          <div class="unit-art"><img src="../assets/lumen.svg" alt="" /></div>
+          <div class="unit-plate"><div class="unit-name">弦月</div>
+            <div class="unit-stats"><span class="stat atk">2</span><span class="stat hp">8</span></div></div>
+        </div>
+        <div class="unit foe-unit" style="--c:168 108 200">
+          <div class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></div>
+          <div class="unit-art"><img src="../assets/frostblade.svg" alt="" /></div>
+          <div class="unit-plate"><div class="unit-name">白棱</div>
+            <div class="unit-stats"><span class="stat atk">2</span><span class="stat hp">9</span></div></div>
+        </div>
+        <div class="unit foe-unit" style="--c:168 108 200">
+          <div class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></div>
+          <div class="unit-art"><img src="../assets/basalt.svg" alt="" /></div>
+          <div class="unit-plate"><div class="unit-name">岚岳</div>
+            <div class="unit-stats"><span class="stat atk">1</span><span class="stat hp">12</span></div></div>
+        </div>
+        <div class="unit foe-unit" style="--c:168 108 200">
+          <div class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i></div>
+          <div class="unit-art"><img src="../assets/storm.svg" alt="" /></div>
+          <div class="unit-plate"><div class="unit-name">霆鸢</div>
+            <div class="unit-stats"><span class="stat atk">3</span><span class="stat hp">8</span></div></div>
+        </div>
+      </div>
+
+      <!-- 敌方战斗区 -->
+      <div class="lane battle">
+        <div class="unit front foe-unit will-hit" style="--c:168 108 200">
+          <div class="pips"><i class="pip on"></i><i class="pip on"></i></div>
+          <div class="unit-art"><img src="../assets/ink.svg" alt="" /></div>
+          <div class="unit-plate"><div class="unit-name">银狼</div>
+            <div class="unit-stats"><span class="stat atk">3</span><span class="stat hp">7</span></div></div>
+        </div>
+      </div>
+
+      <!-- 交战轴 / 指令条 -->
+      <div class="axis">
+        <span class="axis-badge">交战轴</span>
+        <div class="axis-text">
+          <div class="prompt">升级阶段：点击一名角色，为其提升勾玉</div>
+          <div class="event">失序体的 <b>银狼</b> 进入前线，对巡界者造成 3 点伤害</div>
+        </div>
+        <div class="axis-actions">
+          <button class="btn gold"><i>勾</i>升勾</button>
+          <button class="btn red"><i>击</i>出击 1</button>
+        </div>
+      </div>
+
+      <!-- 己方战斗区 -->
+      <div class="lane battle">
+        <div class="slot">
+          <strong>出击位</strong>
+          <span>拖拽角色至此</span>
+        </div>
+      </div>
+
+      <!-- 己方准备区（含检视浮层示意） -->
+      <div class="lane prepare">
+        <span class="row-label">己方准备</span>
+        <div class="unit ally-unit" style="--c:201 164 94">
+          <div class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></div>
+          <div class="unit-art"><img src="../assets/ember.svg" alt="" /></div>
+          <div class="unit-plate"><div class="unit-name">赤曜</div>
+            <div class="unit-stats"><span class="stat atk">3</span><span class="stat hp">9</span></div></div>
+        </div>
+        <div class="unit ally-unit selected" style="--c:201 164 94">
+          <div class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></div>
+          <div class="unit-art"><img src="../assets/basalt.svg" alt="" /></div>
+          <div class="unit-plate"><div class="unit-name">岚岳</div>
+            <div class="unit-stats"><span class="stat atk">1</span><span class="stat hp">12</span></div></div>
+          <!-- 检视浮层：向上展开，不遮挡相邻角色 -->
+          <div class="inspect-float">
+            <div class="ih">
+              <div class="em">岳</div>
+              <div><small>垒卫 / 护阵</small><strong>岚岳</strong></div>
+            </div>
+            <div class="sr">
+              <span><b>1</b>攻击</span>
+              <span><b>12</b>生命</span>
+              <span><b>1</b>勾玉</span>
+            </div>
+            <div class="ps"><b>岩壁</b>　己方回合开始时，若岚岳位于前线，获得 1 点护盾。</div>
+          </div>
+        </div>
+        <div class="unit ally-unit" style="--c:201 164 94">
+          <div class="pips"><i class="pip on"></i><i class="pip on"></i></div>
+          <div class="unit-art"><img src="../assets/lumen.svg" alt="" /></div>
+          <div class="unit-plate"><div class="unit-name">弦月</div>
+            <div class="unit-stats"><span class="stat atk">2</span><span class="stat hp">8</span></div></div>
+        </div>
+        <div class="unit ally-unit" style="--c:201 164 94">
+          <div class="pips"><i class="pip on"></i><i class="pip on"></i></div>
+          <div class="unit-art"><img src="../assets/frostblade.svg" alt="" /></div>
+          <div class="unit-plate"><div class="unit-name">白棱</div>
+            <div class="unit-stats"><span class="stat atk">2</span><span class="stat hp">9</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 右栏牌库 -->
+    <aside class="decks">
+      <div class="pile foe-pile">
+        <div class="back"></div>
+        <b>25</b>
+        <small>敌方待抽</small>
+      </div>
+      <button class="end-turn">结束回合<small>→</small></button>
+      <div class="pile">
+        <div class="back"></div>
+        <b>22</b>
+        <small>我方待抽</small>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 手牌 -->
+  <footer class="hand">
+    <div class="hand-head"><b>5</b><span>手牌</span></div>
+    <!-- 大卡预览（悬停态） -->
+    <div class="preview">
+      <div class="p-art"><img src="../assets/ember.svg" alt="" /></div>
+      <div class="p-cost"><span>1</span></div>
+      <div class="p-lv">1 勾 · 战斗牌</div>
+      <div class="p-meta">赤曜 / 焰锋</div>
+      <div class="p-name">焰闪</div>
+      <div class="p-text">赤曜出击，本次攻击 +2。</div>
+      <div class="p-tags"><span>迅捷</span><span>战斗</span></div>
+      <div class="shine"></div>
+    </div>
+    <div class="hand-row">
+      <div class="card form">
+        <div class="cost"><span>1</span></div><div class="lv">2 勾</div>
+        <div class="art"><img src="../assets/basalt.svg" alt="" /></div>
+        <div class="nm">山门之相</div><div class="tp">岚岳 / 形态牌</div><div class="ok warn">需 2 勾</div>
+      </div>
+      <div class="card spell">
+        <div class="cost"><span>1</span></div><div class="lv">1 勾</div>
+        <div class="art"><img src="../assets/lumen.svg" alt="" /></div>
+        <div class="nm">月环之相</div><div class="tp">弦月 / 形态牌</div><div class="ok">可使用</div>
+      </div>
+      <div class="card combat lift">
+        <div class="cost"><span>1</span></div><div class="lv">1 勾</div>
+        <div class="art"><img src="../assets/ember.svg" alt="" /></div>
+        <div class="nm">焰闪</div><div class="tp">赤曜 / 战斗牌</div><div class="ok">可使用</div>
+      </div>
+      <div class="card spell">
+        <div class="cost"><span>1</span></div><div class="lv">1 勾</div>
+        <div class="art"><img src="../assets/frostblade.svg" alt="" /></div>
+        <div class="nm">折光</div><div class="tp">弦月 / 法术牌</div><div class="ok">可使用</div>
+      </div>
+      <div class="card spell blocked">
+        <div class="cost"><span>1</span></div><div class="lv">2 勾</div>
+        <div class="art"><img src="../assets/rime.svg" alt="" /></div>
+        <div class="nm">冰镜之相</div><div class="tp">白棱 / 形态牌</div><div class="ok warn">需 2 勾</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<aside class="notes">
+  <strong>设计注记 · v6 枢夜交战</strong>
+  <ul>
+    <li><b>五行纵轴</b>：准备 / 战斗 / 交战轴 / 战斗 / 准备，层高按卡牌实高分配，杜绝遮挡。</li>
+    <li><b>交战轴</b>为唯一指令带：徽标 + 提示 + 战报一行 + 双钮，信息密度 56px。</li>
+    <li><b>前线卡缩至 78px</b>，与托盘同高；准备区 132px，对比出层次。</li>
+    <li><b>检视浮层向上展开</b>，不压邻卡；大卡预览浮在手牌上方。</li>
+    <li><b>左栏核心盘</b>吸收头像/鬼火/幻境，中栏只留战斗信息。</li>
+  </ul>
+</aside>
+</body>
+</html>
