@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=fe3da8db';
-import { chooseAiCommand } from './game-ai.js?v=fe3da8db';
-import { gameAudio } from './game-audio.js?v=fe3da8db';
+} from './game-core.js?v=91f7111c';
+import { chooseAiCommand } from './game-ai.js?v=91f7111c';
+import { gameAudio } from './game-audio.js?v=91f7111c';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -45,25 +45,25 @@ import {
   ownedCopies,
   ownedHoloCopies,
   serializeCollection,
-} from './game-collection.js?v=fe3da8db';
+} from './game-collection.js?v=91f7111c';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=fe3da8db';
+} from './game-presentation.js?v=91f7111c';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=fe3da8db';
+} from './game-session.js?v=91f7111c';
 import {
   holoLayers,
   holoSheenMarkup,
   initCollectionHolo,
   initPreviewHolo,
   initRevealHolo,
-} from './card-holo.js?v=fe3da8db';
+} from './card-holo.js?v=91f7111c';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
