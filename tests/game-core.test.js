@@ -67,6 +67,21 @@ test('builds a legal deck only from the four selected units', () => {
   unitCounts.forEach((count) => assert.equal(count, 8));
 });
 
+test('marks only configured deck copies as holo variants', () => {
+  const definition = createDefaultDeckDefinition(DEFAULT_PLAYER_LINEUP);
+  definition.holoCardIds = ['flash-thrust'];
+  const state = createGame({ seed: 17, playerDeckDefinition: definition });
+  const allCards = [...state.players[0].hand, ...state.players[0].deck];
+  const holoCards = allCards.filter((instance) => instance.isHolo);
+
+  assert.equal(holoCards.length, 1);
+  assert.equal(holoCards[0].definitionId, 'flash-thrust');
+  assert.throws(
+    () => createGame({ seed: 17, playerDeckDefinition: { ...definition, holoCardIds: ['missing-card'] } }),
+    /不在当前构筑/,
+  );
+});
+
 test('deck validation rejects incomplete and duplicate lineups', () => {
   const incomplete = createDefaultDeckDefinition(['ember', 'basalt', 'lumen']);
   assert.equal(validateDeckDefinition(incomplete).valid, false);

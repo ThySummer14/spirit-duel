@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=34e4471a';
-import { chooseAiCommand } from './game-ai.js?v=34e4471a';
-import { gameAudio } from './game-audio.js?v=34e4471a';
+} from './game-core.js?v=fe3da8db';
+import { chooseAiCommand } from './game-ai.js?v=fe3da8db';
+import { gameAudio } from './game-audio.js?v=fe3da8db';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -43,20 +43,27 @@ import {
   grantMatchReward,
   openPack,
   ownedCopies,
+  ownedHoloCopies,
   serializeCollection,
-} from './game-collection.js?v=34e4471a';
+} from './game-collection.js?v=fe3da8db';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=34e4471a';
+} from './game-presentation.js?v=fe3da8db';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=34e4471a';
-import { holoLayers, holoSheenMarkup, initHandHolo, initRevealHolo } from './card-holo.js?v=34e4471a';
+} from './game-session.js?v=fe3da8db';
+import {
+  holoLayers,
+  holoSheenMarkup,
+  initCollectionHolo,
+  initPreviewHolo,
+  initRevealHolo,
+} from './card-holo.js?v=fe3da8db';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -103,6 +110,7 @@ const nodes = {
   codexUnits: document.querySelector('#codex-units'),
   codexOwned: document.querySelector('#codex-owned'),
   codexTotal: document.querySelector('#codex-total'),
+  codexHolo: document.querySelector('#codex-holo'),
   battleStage: document.querySelector('.battle-stage'),
   battleFeedback: document.querySelector('#battle-feedback'),
   cardRevealPlayer: document.querySelector('#card-reveal-player'),
@@ -330,6 +338,7 @@ function renderCollectionScreen() {
   nodes.pityCount.textContent = Math.max(0, COLLECTION_RULES.pityLimit - collection.pitySinceEpic);
   nodes.codexOwned.textContent = stats.distinctOwned;
   nodes.codexTotal.textContent = stats.totalCards;
+  nodes.codexHolo.textContent = `${stats.distinctHoloOwned} 种闪卡`;
   nodes.packOpenButton.disabled = collection.balance < COLLECTION_RULES.packCost;
   renderCodex();
 }
@@ -347,18 +356,24 @@ function renderCodex() {
     grid.className = 'codex-grid';
     cards.forEach((card) => {
       const copies = ownedCopies(collection, card.id);
+      const holoCopies = ownedHoloCopies(collection, card.id);
       const tile = document.createElement('article');
       tile.className = 'codex-tile';
+      tile.classList.toggle('is-holo', holoCopies > 0);
+      tile.classList.toggle('is-holo-epic', holoCopies > 0 && card.rarity === 'epic');
+      tile.classList.toggle('is-holo-rare', holoCopies > 0 && card.rarity !== 'epic');
       tile.dataset.rarity = card.rarity;
       tile.dataset.owned = String(copies);
-      tile.title = card.text;
+      tile.title = `${card.text}${holoCopies ? `\n闪卡 ${holoCopies} / ${copies}` : ''}`;
       const pips = Array.from({ length: COLLECTION_RULES.maxCopies }, (_, index) => (
-        `<i${index < copies ? ' class="is-filled"' : ''}></i>`
+        `<i class="${index < copies ? 'is-filled' : ''}${index < holoCopies ? ' is-holo-copy' : ''}"></i>`
       )).join('');
       tile.innerHTML = `
         <span class="tile-name">${card.name}</span>
         <span class="tile-type">${card.typeLabel} · <i>${RARITY_LABELS[card.rarity]}</i> · ${card.level}勾</span>
+        ${holoCopies ? `<span class="tile-holo">闪卡 ${holoCopies} / ${copies}</span>` : ''}
         <span class="tile-pips">${pips}</span>`;
+      tile.append(...holoLayers(holoCopies > 0));
       const cost = COLLECTION_RULES.craftCost[card.rarity];
       const capped = copies >= COLLECTION_RULES.maxCopies;
       const craft = document.createElement('button');
@@ -402,8 +417,8 @@ function openPackFlow() {
     const el = document.createElement('article');
     el.className = 'reveal-card';
     el.dataset.rarity = entry.rarity;
-    // 稀有 / 史诗开包卡：入场扫光 + 史诗残留虹彩（card-holo.css）
-    if (entry.rarity === 'rare' || entry.rarity === 'epic') {
+    // 闪卡是独立外观变体，不再由稀有度自动触发。
+    if (entry.isHolo) {
       el.classList.add('is-holo', entry.rarity === 'epic' ? 'is-holo-epic' : 'is-holo-rare');
     }
     el.style.setProperty('--reveal-delay', `${index * 0.14}s`);
@@ -413,8 +428,8 @@ function openPackFlow() {
       <span class="reveal-rarity-tag">${RARITY_LABELS[entry.rarity]}</span>
       <strong class="reveal-name">${card.name}</strong>
       <span class="reveal-type">${unit.name} · ${card.typeLabel}</span>
-      <span class="reveal-state ${entry.isNew ? 'is-new' : 'is-dupe'}">${entry.isNew ? 'NEW' : `御札 +${entry.converted}`}</span>
-      ${holoSheenMarkup(entry.rarity)}`;
+      <span class="reveal-state ${entry.isNew ? 'is-new' : 'is-dupe'}">${entry.isHolo ? '闪卡 · ' : ''}${entry.isNew ? 'NEW' : `御札 +${entry.converted}`}</span>
+      ${holoSheenMarkup(entry.isHolo)}`;
     setTimeout(() => gameAudio.reveal(entry.rarity), 320 + index * 140);
     return el;
   }));
@@ -506,6 +521,9 @@ function syncFormationFromJournal() {
   lockedPlayerDeckDefinition = {
     unitIds: [...selectedLineup],
     cardIds: allInstances.map((instance) => instance.definitionId),
+    holoCardIds: allInstances
+      .filter((instance) => instance.isHolo === true)
+      .map((instance) => instance.definitionId),
   };
   deckSelections = new Map(UNIT_DEFINITIONS.map((unit) => [
     unit.id,
@@ -899,6 +917,22 @@ function currentDeckDefinition() {
   };
 }
 
+function addOwnedHoloVariants(deckDefinition) {
+  const remainingByCard = new Map();
+  deckDefinition.cardIds.forEach((cardId) => {
+    if (!remainingByCard.has(cardId)) {
+      remainingByCard.set(cardId, ownedHoloCopies(collection, cardId));
+    }
+  });
+  const holoCardIds = deckDefinition.cardIds.filter((cardId) => {
+    const remaining = remainingByCard.get(cardId) ?? 0;
+    if (remaining <= 0) return false;
+    remainingByCard.set(cardId, remaining - 1);
+    return true;
+  });
+  return { ...deckDefinition, holoCardIds };
+}
+
 function renderFormationRoster() {
   nodes.formationRoster.replaceChildren(...UNIT_DEFINITIONS.map((unit, index) => {
     const selectedIndex = selectedLineup.indexOf(unit.id);
@@ -1188,7 +1222,7 @@ function startBattle() {
   }
 
   gameSession += 1;
-  lockedPlayerDeckDefinition = structuredClone(deckDefinition);
+  lockedPlayerDeckDefinition = addOwnedHoloVariants(structuredClone(deckDefinition));
   const enemyLineup = pickEnemyLineup();
   game = createGame({ playerDeckDefinition: lockedPlayerDeckDefinition, enemyUnitIds: enemyLineup });
   commandJournal = createCommandJournal(game);
@@ -1866,10 +1900,6 @@ function renderHandCard(instance, index, totalCount, freshIds) {
   card.style.setProperty('--card-accent', unit.color);
   card.dataset.cardType = definition.type;
   card.dataset.rarity = definition.rarity;
-  // 全息效果分级：稀有牌镭射限定卡图，史诗牌彩虹流光（card-holo.js/css）
-  if (definition.rarity === 'rare' || definition.rarity === 'epic') {
-    card.classList.add('is-holo', definition.rarity === 'epic' ? 'is-holo-epic' : 'is-holo-rare');
-  }
   card.classList.toggle('is-selected', !replaySession && selectedCardId === instance.instanceId);
   card.classList.toggle('is-blocked', !playable);
   card.classList.toggle('is-drawn', !replaySession && freshIds.has(instance.instanceId));
@@ -1951,8 +1981,6 @@ function renderHandCard(instance, index, totalCount, freshIds) {
   const body = document.createElement('span');
   body.className = 'card-body';
   body.append(cost, level, art, meta, name, availability);
-  // 稀有牌追加镭射 / 眩光层（common 无层，零开销）
-  body.append(...holoLayers(definition.rarity));
   card.append(body);
   // 拖拽施放：需要选目标且当前可用的手牌，可直接拖到目标身上触发
   const dragMode = getDragTargetMode(definition);
@@ -1988,16 +2016,20 @@ function showHandPreview(instance) {
   const unit = getUnitDefinition(definition.unitId);
   const effectiveCost = getEffectiveCardCost(displayedGame, 0, instance.instanceId);
   const tags = definition.tags.map((tag) => `<span>${tag}</span>`).join('');
+  const holoClass = instance.isHolo
+    ? ` is-holo ${definition.rarity === 'epic' ? 'is-holo-epic' : 'is-holo-rare'}`
+    : '';
   nodes.handPreview.innerHTML = `
-    <div class="hand-preview-card" data-card-type="${definition.type}" style="--card-accent:${unit.color}">
+    <div class="hand-preview-card${holoClass}" data-card-type="${definition.type}" style="--card-accent:${unit.color}">
       <span class="card-art"><img src="${unit.art}" alt="" width="200" height="260"></span>
       <span class="card-cost"><span>${effectiveCost}</span></span>
       <span class="card-level">${definition.level} 勾 · ${definition.typeLabel}</span>
       <span class="card-meta">${unit.name} / ${unit.title}</span>
       <strong class="card-name">${definition.name}</strong>
       <span class="card-text">${definition.text}</span>
-      <span class="card-tags">${tags}</span>
+      <span class="card-tags">${instance.isHolo ? '<span class="holo-tag">闪卡</span>' : ''}${tags}</span>
     </div>`;
+  nodes.handPreview.firstElementChild?.append(...holoLayers(instance.isHolo === true));
   nodes.handPreview.classList.add('is-visible');
 }
 
@@ -2148,25 +2180,29 @@ function renderBattleFeedback() {
   const cardPlayed = visualFeedback.cardPlayed;
   if (cardPlayed?.definitionId) {
     const container = cardPlayed.playerIndex === 0 ? nodes.cardRevealPlayer : nodes.cardRevealEnemy;
-    if (container.dataset.definitionId !== cardPlayed.definitionId) {
+    const revealKey = cardPlayed.instanceId ?? cardPlayed.definitionId;
+    if (container.dataset.revealKey !== revealKey) {
       const definition = getCardDefinition(cardPlayed.definitionId);
       const unit = getUnitDefinition(definition.unitId);
-      container.dataset.definitionId = cardPlayed.definitionId;
+      container.dataset.revealKey = revealKey;
+      container.classList.toggle('is-holo', cardPlayed.isHolo);
+      container.classList.toggle('is-holo-epic', cardPlayed.isHolo && definition.rarity === 'epic');
       container.innerHTML = `
         <span class="reveal-art"><img src="${unit.art}" alt="" width="120" height="156"></span>
-        <span class="reveal-meta"><b>${definition.name}</b><small>${unit.name} / ${definition.typeLabel}</small></span>`;
+        <span class="reveal-meta"><b>${definition.name}</b><small>${unit.name} / ${definition.typeLabel}${cardPlayed.isHolo ? ' / 闪卡' : ''}</small></span>
+        ${holoSheenMarkup(cardPlayed.isHolo)}`;
       container.classList.remove('is-visible');
       void container.offsetWidth;
       container.classList.add('is-visible');
       clearTimeout(Number(container.dataset.timer));
       container.dataset.timer = String(setTimeout(() => {
         container.classList.remove('is-visible');
-        delete container.dataset.definitionId;
+        delete container.dataset.revealKey;
       }, 1500));
     }
   } else {
     [nodes.cardRevealPlayer, nodes.cardRevealEnemy].forEach((container) => {
-      if (!cardPlayed) delete container.dataset.definitionId;
+      if (!cardPlayed) delete container.dataset.revealKey;
     });
   }
   nodes.battleFeedback.replaceChildren();
@@ -2253,11 +2289,18 @@ function getRecentEventText() {
 
 function renderCommands() {
   const player = displayedGame.players[0];
+  const upgradePending = isUpgradePending(displayedGame, 0);
+  const livingUnits = player.units.filter((unit) => unit.hp > 0);
+  const minimumLevel = livingUnits.length
+    ? Math.min(...livingUnits.map((unit) => unit.level))
+    : GAME_RULES.maxUnitLevel;
   let viewAttackUnitId = replaySession ? frontUidOf(player) : selectedAttackUnitId;
   const currentAttacker = unitByUid(player, viewAttackUnitId);
-  if (!currentAttacker || currentAttacker.hp <= 0) {
-    viewAttackUnitId = frontUidOf(player)
-      ?? player.units.find((unit) => unit.hp > 0)?.uid
+  if (!currentAttacker || currentAttacker.hp <= 0 || (upgradePending && currentAttacker.level !== minimumLevel)) {
+    viewAttackUnitId = (upgradePending
+      ? livingUnits.find((unit) => unit.level === minimumLevel)?.uid
+      : frontUidOf(player))
+      ?? livingUnits[0]?.uid
       ?? null;
     if (!replaySession) selectedAttackUnitId = viewAttackUnitId;
   }
@@ -2266,10 +2309,14 @@ function renderCommands() {
   const userTurn = !replaySession && displayedGame.currentPlayer === 0 && !aiBusy && displayedGame.winner === null && !displayedGame.responseWindow;
   const turnMode = replaySession ? 'replay' : displayedGame.winner !== null ? 'over' : playerResponding ? 'response' : userTurn ? 'player' : 'enemy';
   // 升级阶段强制先行：未完成升勾时禁止出击
-  const upgradePending = isUpgradePending(displayedGame, 0);
   const hand = displayedGame.players[0].hand;
   const canAttack = userTurn && !upgradePending && !selectedCardId && attacker && attacker.hp > 0 && attacker.frozen === 0 && player.energy > 0 && !player.attackUsed;
-  const canLevel = userTurn && !selectedCardId && attacker && attacker.level < GAME_RULES.maxUnitLevel && (!player.levelUpUsed || player.bonusUpgrades > 0);
+  const canLevel = userTurn
+    && !selectedCardId
+    && attacker
+    && attacker.level === minimumLevel
+    && attacker.level < GAME_RULES.maxUnitLevel
+    && (!player.levelUpUsed || player.bonusUpgrades > 0);
   nodes.attackButton.disabled = !canAttack;
   nodes.levelButton.disabled = !canLevel;
   nodes.levelButton.hidden = !replaySession && Boolean(selectedCardId);
@@ -2433,8 +2480,14 @@ function handleUnitClick(ownerIndex, unitId) {
   }
   const unit = unitByUid(game.players[ownerIndex], unitId);
   if (ownerIndex === 0 && unit?.hp > 0) {
-    // 升级阶段强制先行：点选存活角色立即升勾
+    // 升级阶段强制先行：只响应齐头并进可升的角色，避免点到高勾角色弹错误
     if (isUpgradePending(game, 0)) {
+      const living = game.players[0].units.filter((candidate) => candidate.hp > 0);
+      const minLevel = living.length ? Math.min(...living.map((candidate) => candidate.level)) : GAME_RULES.maxUnitLevel;
+      if (unit.level !== minLevel) {
+        announce(`升勾需齐头并进：请先提升 ${living.find((candidate) => candidate.level === minLevel)?.name ?? '最低勾'}。`, 'danger');
+        return;
+      }
       handleLevelUp(unitId);
       return;
     }
@@ -2860,6 +2913,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 renderFormationEditor();
-// 手牌容器启用全息指针跟踪（事件委托，一次绑定）
-initHandHolo(nodes.playerHand);
+// 闪卡特效仅在收藏、开卷和战斗大卡预览中跟踪指针。
+initCollectionHolo(nodes.codexUnits);
+initPreviewHolo(nodes.playerHand, nodes.handPreview);
 initRevealHolo(nodes.packRevealCards);

@@ -10,6 +10,7 @@ import {
   grantMatchReward,
   openPack,
   ownedCopies,
+  ownedHoloCopies,
   serializeCollection,
 } from '../game-collection.js';
 import { CARD_DEFINITIONS } from '../game-content.js';
@@ -20,10 +21,14 @@ function queuedRng(values) {
   return () => values[index++ % values.length];
 }
 
-/** 生成一包的 rng 序列：每张卡先掷稀有度再挑卡 */
-function packSequence(rarities, pickValue = 0.5) {
+/** 生成一包的 rng 序列：每张卡依次掷稀有度、挑卡和闪卡 */
+function packSequence(rarities, pickValue = 0.5, holoIndexes = []) {
   const rarityValue = { common: 0.1, rare: 0.7, epic: 0.99 };
-  return rarities.flatMap((rarity) => [rarityValue[rarity], pickValue]);
+  return rarities.flatMap((rarity, index) => [
+    rarityValue[rarity],
+    pickValue,
+    holoIndexes.includes(index) ? COLLECTION_RULES.holoChance / 2 : 0.99,
+  ]);
 }
 
 test('initial collection owns two copies of every starter card and nothing else', () => {
@@ -33,9 +38,23 @@ test('initial collection owns two copies of every starter card and nothing else'
   starters.forEach((card) => assert.equal(ownedCopies(collection, card.id), 2));
   expansion.forEach((card) => assert.equal(ownedCopies(collection, card.id), 0));
   assert.equal(collection.balance, COLLECTION_RULES.startingBalance);
+  assert.equal(collection.version, COLLECTION_RULES.version);
+  assert.equal(collectionStats(collection).holoCopies, 0);
   const stats = collectionStats(collection);
   assert.equal(stats.distinctOwned, starters.length);
   assert.equal(stats.totalCards, CARD_DEFINITIONS.length);
+});
+
+test('holo pulls are independent from rarity and persist as owned variants', () => {
+  const collection = createInitialCollection();
+  collection.balance = 100000;
+  const rarities = ['common', 'rare', 'epic', 'common', 'rare'];
+  const outcome = openPack(collection, queuedRng(packSequence(rarities, 0.37, [0, 2])));
+
+  assert.deepEqual(outcome.results.map((entry) => entry.isHolo), [true, false, true, false, false]);
+  const holoEntries = outcome.results.filter((entry) => entry.isHolo);
+  holoEntries.forEach((entry) => assert.ok(ownedHoloCopies(outcome.collection, entry.cardId) > 0));
+  assert.ok(collectionStats(outcome.collection).holoCopies >= 2);
 });
 
 test('opening a pack costs balance, returns five cards, and resets pity on epic', () => {
@@ -138,10 +157,27 @@ test('collection survives a serialization round trip and drops ghost cards', () 
   const withGhost = structuredClone(collection);
   withGhost.owned['ghost-card'] = 2;
   withGhost.owned['undying-ember'] = 9;
+  withGhost.holoOwned['ghost-card'] = 2;
+  withGhost.holoOwned['undying-ember'] = 9;
   const restored = deserializeCollection(JSON.stringify(withGhost));
   assert.equal(restored.owned['ghost-card'], undefined);
   assert.equal(restored.owned['undying-ember'], COLLECTION_RULES.maxCopies);
+  assert.equal(restored.holoOwned['ghost-card'], undefined);
+  assert.equal(restored.holoOwned['undying-ember'], COLLECTION_RULES.maxCopies);
   assert.equal(restored.owned['flash-thrust'], 2);
   assert.throws(() => deserializeCollection('{"version":99}'), /无效/);
   assert.equal(typeof serializeCollection(collection), 'string');
+});
+
+test('version 1 collections migrate without losing progress', () => {
+  const legacy = createInitialCollection();
+  legacy.version = 1;
+  delete legacy.holoOwned;
+  legacy.balance = 777;
+  const restored = deserializeCollection(JSON.stringify(legacy));
+
+  assert.equal(restored.version, COLLECTION_RULES.version);
+  assert.equal(restored.balance, 777);
+  assert.deepEqual(restored.holoOwned, {});
+  assert.equal(restored.owned['flash-thrust'], 2);
 });

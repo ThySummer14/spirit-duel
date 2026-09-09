@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=34e4471a';
+} from './game-content.js?v=fe3da8db';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=34e4471a';
+} from './game-keywords.js?v=fe3da8db';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=34e4471a';
+} from './game-content.js?v=fe3da8db';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +55,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=34e4471a';
+} from './game-keywords.js?v=fe3da8db';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -97,7 +97,7 @@ export const GAME_EVENTS = Object.freeze({
   MATCH_FINISHED: 'match-finished',
 });
 
-export const GAME_STATE_VERSION = 12;
+export const GAME_STATE_VERSION = 13;
 
 const MAX_EVENT_CHAIN_LENGTH = 64;
 const MAX_RESOLUTION_STACK_LENGTH = 64;
@@ -399,9 +399,19 @@ function createUnits(unitIds, ownerId) {
 }
 
 function createDeck(state, owner, deckDefinition) {
+  const holoCounts = new Map();
+  (deckDefinition.holoCardIds ?? []).forEach((definitionId) => {
+    holoCounts.set(definitionId, (holoCounts.get(definitionId) ?? 0) + 1);
+  });
   const deck = deckDefinition.cardIds.map((definitionId) => ({
     instanceId: `${owner}-${state.nextCardId++}`,
     definitionId,
+    isHolo: (() => {
+      const remaining = holoCounts.get(definitionId) ?? 0;
+      if (remaining <= 0) return false;
+      holoCounts.set(definitionId, remaining - 1);
+      return true;
+    })(),
   }));
   shuffle(state, deck);
   return deck;
@@ -447,6 +457,18 @@ function normalizeGameOptions(input) {
   const enemyValidation = validateDeckDefinition(enemyDeckDefinition);
   if (!playerValidation.valid) throw new Error(playerValidation.errors.join(' '));
   if (!enemyValidation.valid) throw new Error(enemyValidation.errors.join(' '));
+
+  [playerDeckDefinition, enemyDeckDefinition].forEach((deckDefinition) => {
+    if (deckDefinition.holoCardIds === undefined) return;
+    if (!Array.isArray(deckDefinition.holoCardIds)) throw new Error('闪卡构筑数据无效。');
+    const available = new Map();
+    deckDefinition.cardIds.forEach((cardId) => available.set(cardId, (available.get(cardId) ?? 0) + 1));
+    deckDefinition.holoCardIds.forEach((cardId) => {
+      const remaining = available.get(cardId) ?? 0;
+      if (remaining <= 0) throw new Error(`闪卡「${cardId}」不在当前构筑中。`);
+      available.set(cardId, remaining - 1);
+    });
+  });
 
   return {
     seed: (options.seed ?? Date.now()) >>> 0,
@@ -1471,8 +1493,12 @@ const EFFECT_HANDLERS = new Map([
     },
   }],
   ['origin-shuffle', {
-    resolve: ({ state, player, playerIndex, card }) => {
-      const instance = { instanceId: `${player.id}-${state.nextCardId++}`, definitionId: card.id };
+    resolve: ({ state, player, playerIndex, card, frame }) => {
+      const instance = {
+        instanceId: `${player.id}-${state.nextCardId++}`,
+        definitionId: card.id,
+        isHolo: frame.isHolo === true,
+      };
       const insertIndex = player.deck.length > 0
         ? Math.floor(nextRandom(state) * (player.deck.length + 1))
         : 0;
@@ -1558,6 +1584,7 @@ function createCardResolutionFrames(state, playerIndex, instanceId, card, target
     instanceId,
     definitionId: card.id,
     targetId,
+    isHolo: options.isHolo === true,
   };
   state.resolutionStack.push({ ...baseFrame, kind: 'card-complete', respondable: false });
   const effects = getCardEffects(card);
@@ -1644,6 +1671,7 @@ function resolveCardCompleteFrame(state, frame) {
       targetId: frame.targetId,
       sourceUnitId: player.units[sourceIndex]?.uid ?? null,
       resolutionId: frame.resolutionId,
+      isHolo: frame.isHolo === true,
     },
     `${player.name} 使用「${card.name}」。`,
     'card',
@@ -1999,6 +2027,7 @@ function commitCardPlayInPlace(next, playerIndex, instanceId, targetId = null, o
     card,
     targetId,
     {
+      isHolo: instance.isHolo === true,
       respondable: options.respondable ?? (!isResponse || responseContext.depth + 1 < GAME_RULES.maxResponseDepth),
       responseDepth: isResponse ? responseContext.depth + 1 : 0,
     },

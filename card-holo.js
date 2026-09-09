@@ -6,7 +6,7 @@
  *
  * 设计要点：
  * - 单例 rAF 循环，只在有活动卡牌时运行，全部收敛后自动停止；
- * - 容器级事件委托（手牌 DOM 每次状态变化都会重建，不逐卡绑定）；
+ * - 容器级事件委托（收藏与预览 DOM 会重建，不逐卡绑定）；
  * - 静息透明度 REST_OPACITY：不悬停时镭射仍以低强度存在，稀有度可辨识；
  * - prefers-reduced-motion：完全不绑定监听（CSS 层同步降级为静态弱效果）。
  */
@@ -197,9 +197,31 @@ function initHoloPointer(container, selector) {
   });
 }
 
-/** 手牌容器：跟踪 .hand-card.is-holo（变量由 .card-body 消费） */
-export function initHandHolo(container) {
-  initHoloPointer(container, '.hand-card.is-holo');
+/** 战斗大卡预览：用手牌上的指针坐标驱动独立预览层。 */
+export function initPreviewHolo(handContainer, previewContainer) {
+  if (REDUCED_MOTION || !handContainer || !previewContainer || handContainer.dataset.holoPreviewBound === '1') return;
+  handContainer.dataset.holoPreviewBound = '1';
+  const previewCard = () => previewContainer.querySelector('.hand-preview-card.is-holo');
+  handContainer.addEventListener('pointerover', (event) => {
+    if (event.pointerType === 'touch') return;
+    const card = previewCard();
+    if (card) enterCard(card, event);
+  });
+  handContainer.addEventListener('pointermove', (event) => {
+    if (event.pointerType === 'touch') return;
+    const card = previewCard();
+    if (card) moveCard(card, event);
+  });
+  handContainer.addEventListener('pointerout', (event) => {
+    if (event.pointerType === 'touch') return;
+    const card = previewCard();
+    if (card && !event.currentTarget.contains(event.relatedTarget)) leaveCard(card);
+  });
+}
+
+/** 秘闻阁图鉴：只跟踪已收藏的闪卡条目。 */
+export function initCollectionHolo(container) {
+  initHoloPointer(container, '.codex-tile.is-holo');
 }
 
 /** 开包揭示容器：跟踪 .reveal-card.is-holo（变量由卡片自身消费） */
@@ -208,12 +230,12 @@ export function initRevealHolo(container) {
 }
 
 /**
- * 生成手牌卡的全息效果层（稀有牌专用；common 返回空数组）。
- * @param {string} rarity 'common' | 'rare' | 'epic'
+ * 生成闪卡的全息效果层。
+ * @param {boolean} enabled 当前副本是否为闪卡
  * @returns {HTMLSpanElement[]}
  */
-export function holoLayers(rarity) {
-  if (rarity !== 'rare' && rarity !== 'epic') return [];
+export function holoLayers(enabled) {
+  if (!enabled) return [];
   const foil = document.createElement('span');
   foil.className = 'card-holo-foil';
   foil.setAttribute('aria-hidden', 'true');
@@ -225,10 +247,10 @@ export function holoLayers(rarity) {
 
 /**
  * 开包揭示卡的扫光层标记（注入到 innerHTML 模板中）。
- * @param {string} rarity
- * @returns {string} rare/epic 时返回 sheen span 标记，否则空串
+ * @param {boolean} enabled
+ * @returns {string} 闪卡返回 sheen span 标记，否则空串
  */
-export function holoSheenMarkup(rarity) {
-  if (rarity !== 'rare' && rarity !== 'epic') return '';
+export function holoSheenMarkup(enabled) {
+  if (!enabled) return '';
   return '<span class="card-holo-sheen" aria-hidden="true"></span>';
 }

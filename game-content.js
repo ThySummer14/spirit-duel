@@ -1,4 +1,4 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=34e4471a';
+import { CARD_KEYWORDS } from './game-keywords.js?v=fe3da8db';
 
 export const GAME_RULES = Object.freeze({
   lineupSize: 4,

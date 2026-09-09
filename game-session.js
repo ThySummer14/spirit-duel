@@ -8,7 +8,7 @@ import {
   playCard,
   resolveDivinationChoice,
   serializeGame,
-} from './game-core.js?v=34e4471a';
+} from './game-core.js?v=fe3da8db';
 
 export const COMMAND_JOURNAL_VERSION = 1;
 export const SESSION_SAVE_VERSION = 1;

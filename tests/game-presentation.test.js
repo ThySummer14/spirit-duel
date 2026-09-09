@@ -164,6 +164,22 @@ test('returns empty feedback for the first frame and unchanged states without mu
   assert.deepEqual(state, before);
 });
 
+test('passes a holo card variant through battle feedback', () => {
+  const state = createGame(211);
+  const source = state.players[0].units.find((unit) => unit.id === 'ember');
+  source.level = 2;
+  state.players[0].energy = 2;
+  const instance = putCardInHand(state, 0, 'ember-form');
+  instance.isHolo = true;
+  const snapshot = captureBattleSnapshot(state);
+  const next = playCard(state, 0, instance.instanceId).state;
+  const feedback = deriveBattleFeedback(snapshot, next);
+
+  assert.equal(feedback.cardPlayed.instanceId, instance.instanceId);
+  assert.equal(feedback.cardPlayed.definitionId, 'ember-form');
+  assert.equal(feedback.cardPlayed.isHolo, true);
+});
+
 test('derives a visible realm impact when durability is lost', () => {
   let state = createGame(209);
   state.players[0].units.find((unit) => unit.id === 'basalt').level = 3;

@@ -591,6 +591,7 @@
 }
 .codex-progress { font-family: var(--font-display); font-size: 15px; color: #8a6f34; }
 .codex-progress b { font-size: 20px; color: #4a3910; }
+.codex-progress small { display: block; font-family: var(--font-body); font-size: 9px; font-weight: 500; color: #8d8264; text-align: right; }
 .codex-units { display: flex; flex-direction: column; gap: 22px; }
 .codex-unit header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
 .codex-unit header strong { font-family: var(--font-display); font-size: 17px; color: #33291a; }
@@ -606,7 +607,10 @@
   border: 1px solid #cfc3a4;
   border-radius: var(--radius-s);
   background: rgb(255 253 246 / 0.85);
+  overflow: hidden;
+  transform-style: preserve-3d;
 }
+.codex-tile > :not(.card-holo-foil):not(.card-holo-glare) { position: relative; z-index: 8; }
 .codex-tile[data-owned="0"] { opacity: 0.55; background: rgb(244 238 221 / 0.5); }
 .codex-tile .tile-name { font-family: var(--font-display); font-size: 13.5px; letter-spacing: 0.08em; color: #33291a; }
 .codex-tile .tile-type { font-size: 9.5px; color: #8d8264; }
@@ -619,6 +623,23 @@
   background: transparent;
 }
 .codex-tile .tile-pips i.is-filled { background: #a8863c; border-color: #8a6f34; }
+.codex-tile .tile-pips i.is-holo-copy {
+  background: linear-gradient(135deg, #e87fc3, #f0cc68 38%, #75bddd 68%, #78c99b);
+  border-color: #8a6f34;
+  box-shadow: 0 0 7px rgb(88 145 176 / 0.45);
+}
+.tile-holo {
+  position: absolute !important;
+  top: 9px;
+  right: 9px;
+  padding: 2px 7px;
+  border: 1px solid rgb(78 130 154 / 0.55);
+  border-radius: 6px;
+  background: rgb(250 246 234 / 0.82);
+  color: #466f7d;
+  font-size: 8.5px;
+  letter-spacing: 0.08em;
+}
 .tile-craft {
   position: absolute;
   right: 8px;
@@ -632,6 +653,7 @@
   background: rgb(255 253 246 / 0.9);
   color: #6b6250;
   font-size: 9.5px;
+  z-index: 9;
 }
 .tile-craft b { font-family: var(--font-display); color: #8a6f34; }
 .tile-craft:hover:not(:disabled) { border-color: #a8863c; color: #5c4a1e; }

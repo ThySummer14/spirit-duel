@@ -1,4 +1,4 @@
-import { GAME_EVENTS } from './game-core.js?v=34e4471a';
+import { GAME_EVENTS } from './game-core.js?v=fe3da8db';
 
 export function captureBattleSnapshot(state) {
   return {
@@ -145,6 +145,8 @@ export function deriveBattleFeedback(previousSnapshot, state) {
     ? {
         playerIndex: cardPlayedEvent.payload.playerIndex,
         definitionId: cardPlayedEvent.payload.definitionId ?? null,
+        instanceId: cardPlayedEvent.payload.instanceId ?? null,
+        isHolo: cardPlayedEvent.payload.isHolo === true,
       }
     : null;
   const combatEvents = newEvents.filter((event) => event.type === GAME_EVENTS.COMBAT_STARTED);
@@ -257,6 +259,7 @@ export function deriveBattleFeedback(previousSnapshot, state) {
     unitImpacts,
     coreImpacts,
     realmImpacts,
+    cardPlayed,
     cue: damagedUnit ? unitHitCue(damagedUnit) : null,
   };
 }

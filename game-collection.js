@@ -9,13 +9,14 @@
  * - 偏好由 app.js 负责持久化到 localStorage
  */
 
-import { CARD_DEFINITIONS } from './game-content.js?v=34e4471a';
+import { CARD_DEFINITIONS } from './game-content.js?v=fe3da8db';
 
 export const COLLECTION_RULES = Object.freeze({
-  version: 1,
+  version: 2,
   packSize: 5,
   packCost: 100,
   startingBalance: 300,
+  holoChance: 0.08,
   // 与《百闻牌》秘闻卷一致的稀有度分布
   rarityWeights: Object.freeze({ common: 0.6, rare: 0.345, epic: 0.055 }),
   pityLimit: 25,
@@ -44,6 +45,7 @@ export function createInitialCollection() {
     version: COLLECTION_RULES.version,
     balance: COLLECTION_RULES.startingBalance,
     owned,
+    holoOwned: {},
     packsOpened: 0,
     pitySinceEpic: 0,
     wins: 0,
@@ -55,14 +57,24 @@ export function ownedCopies(collection, cardId) {
   return collection?.owned?.[cardId] ?? 0;
 }
 
+export function ownedHoloCopies(collection, cardId) {
+  return Math.min(collection?.holoOwned?.[cardId] ?? 0, ownedCopies(collection, cardId));
+}
+
 export function collectionStats(collection) {
   const ownedEntries = Object.entries(collection?.owned ?? {}).filter(([, copies]) => copies > 0);
   const totalCopies = ownedEntries.reduce((total, [, copies]) => total + copies, 0);
+  const holoEntries = Object.entries(collection?.holoOwned ?? {})
+    .filter(([cardId, copies]) => copies > 0 && ownedCopies(collection, cardId) > 0);
   return {
     distinctOwned: ownedEntries.length,
     totalCards: CARD_DEFINITIONS.length,
     totalCopies,
     maxCopies: CARD_DEFINITIONS.length * COLLECTION_RULES.maxCopies,
+    distinctHoloOwned: holoEntries.length,
+    holoCopies: holoEntries.reduce((total, [cardId, copies]) => (
+      total + Math.min(copies, ownedCopies(collection, cardId))
+    ), 0),
   };
 }
 
@@ -92,15 +104,19 @@ export function openPack(collection, rng = Math.random) {
     const rarity = rollRarity(pityDue, rng);
     const pool = CARDS_BY_RARITY[rarity];
     const cardId = pool[Math.floor(rng() * pool.length)];
+    const isHolo = rng() < COLLECTION_RULES.holoChance;
     const copiesBefore = ownedCopies(next, cardId);
+    const holoBefore = ownedHoloCopies(next, cardId);
     let entry;
     if (copiesBefore < COLLECTION_RULES.maxCopies) {
       next.owned[cardId] = copiesBefore + 1;
-      entry = { cardId, rarity, isNew: copiesBefore === 0, copies: copiesBefore + 1, converted: 0 };
+      if (isHolo) next.holoOwned[cardId] = holoBefore + 1;
+      entry = { cardId, rarity, isHolo, isNew: copiesBefore === 0, copies: copiesBefore + 1, converted: 0 };
     } else {
       const refund = COLLECTION_RULES.dupeValue[rarity];
       next.balance += refund;
-      entry = { cardId, rarity, isNew: false, copies: copiesBefore, converted: refund };
+      if (isHolo && holoBefore < copiesBefore) next.holoOwned[cardId] = holoBefore + 1;
+      entry = { cardId, rarity, isHolo, isNew: false, copies: copiesBefore, converted: refund };
     }
     results.push(entry);
   }
@@ -143,7 +159,7 @@ export function serializeCollection(collection) {
 
 export function deserializeCollection(json) {
   const parsed = JSON.parse(json);
-  if (parsed?.version !== COLLECTION_RULES.version
+  if (![1, COLLECTION_RULES.version].includes(parsed?.version)
     || typeof parsed.balance !== 'number'
     || typeof parsed.owned !== 'object'
     || parsed.owned === null
@@ -157,10 +173,17 @@ export function deserializeCollection(json) {
       owned[cardId] = Math.max(0, Math.min(COLLECTION_RULES.maxCopies, copies));
     }
   });
+  const holoOwned = {};
+  Object.entries(parsed.holoOwned ?? {}).forEach(([cardId, copies]) => {
+    if (Object.hasOwn(owned, cardId) && Number.isInteger(copies)) {
+      holoOwned[cardId] = Math.max(0, Math.min(owned[cardId], copies));
+    }
+  });
   return {
     version: COLLECTION_RULES.version,
     balance: Math.max(0, parsed.balance),
     owned,
+    holoOwned,
     packsOpened: parsed.packsOpened ?? 0,
     pitySinceEpic: Math.min(parsed.pitySinceEpic ?? 0, COLLECTION_RULES.pityLimit),
     wins: parsed.wins ?? 0,
