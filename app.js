@@ -30,9 +30,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=98256261';
-import { chooseAiCommand } from './game-ai.js?v=98256261';
-import { gameAudio } from './game-audio.js?v=98256261';
+} from './game-core.js?v=34e4471a';
+import { chooseAiCommand } from './game-ai.js?v=34e4471a';
+import { gameAudio } from './game-audio.js?v=34e4471a';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -44,18 +44,19 @@ import {
   openPack,
   ownedCopies,
   serializeCollection,
-} from './game-collection.js?v=98256261';
+} from './game-collection.js?v=34e4471a';
 import {
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=98256261';
+} from './game-presentation.js?v=34e4471a';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=98256261';
+} from './game-session.js?v=34e4471a';
+import { holoLayers, holoSheenMarkup, initHandHolo, initRevealHolo } from './card-holo.js?v=34e4471a';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -401,6 +402,10 @@ function openPackFlow() {
     const el = document.createElement('article');
     el.className = 'reveal-card';
     el.dataset.rarity = entry.rarity;
+    // 稀有 / 史诗开包卡：入场扫光 + 史诗残留虹彩（card-holo.css）
+    if (entry.rarity === 'rare' || entry.rarity === 'epic') {
+      el.classList.add('is-holo', entry.rarity === 'epic' ? 'is-holo-epic' : 'is-holo-rare');
+    }
     el.style.setProperty('--reveal-delay', `${index * 0.14}s`);
     el.innerHTML = `
       <span class="reveal-art"><img src="${unit.art}" alt="" width="200" height="260"></span>
@@ -408,7 +413,8 @@ function openPackFlow() {
       <span class="reveal-rarity-tag">${RARITY_LABELS[entry.rarity]}</span>
       <strong class="reveal-name">${card.name}</strong>
       <span class="reveal-type">${unit.name} · ${card.typeLabel}</span>
-      <span class="reveal-state ${entry.isNew ? 'is-new' : 'is-dupe'}">${entry.isNew ? 'NEW' : `御札 +${entry.converted}`}</span>`;
+      <span class="reveal-state ${entry.isNew ? 'is-new' : 'is-dupe'}">${entry.isNew ? 'NEW' : `御札 +${entry.converted}`}</span>
+      ${holoSheenMarkup(entry.rarity)}`;
     setTimeout(() => gameAudio.reveal(entry.rarity), 320 + index * 140);
     return el;
   }));
@@ -1859,6 +1865,11 @@ function renderHandCard(instance, index, totalCount, freshIds) {
   card.className = 'hand-card';
   card.style.setProperty('--card-accent', unit.color);
   card.dataset.cardType = definition.type;
+  card.dataset.rarity = definition.rarity;
+  // 全息效果分级：稀有牌镭射限定卡图，史诗牌彩虹流光（card-holo.js/css）
+  if (definition.rarity === 'rare' || definition.rarity === 'epic') {
+    card.classList.add('is-holo', definition.rarity === 'epic' ? 'is-holo-epic' : 'is-holo-rare');
+  }
   card.classList.toggle('is-selected', !replaySession && selectedCardId === instance.instanceId);
   card.classList.toggle('is-blocked', !playable);
   card.classList.toggle('is-drawn', !replaySession && freshIds.has(instance.instanceId));
@@ -1940,6 +1951,8 @@ function renderHandCard(instance, index, totalCount, freshIds) {
   const body = document.createElement('span');
   body.className = 'card-body';
   body.append(cost, level, art, meta, name, availability);
+  // 稀有牌追加镭射 / 眩光层（common 无层，零开销）
+  body.append(...holoLayers(definition.rarity));
   card.append(body);
   // 拖拽施放：需要选目标且当前可用的手牌，可直接拖到目标身上触发
   const dragMode = getDragTargetMode(definition);
@@ -2847,3 +2860,6 @@ document.addEventListener('keydown', (event) => {
 });
 
 renderFormationEditor();
+// 手牌容器启用全息指针跟踪（事件委托，一次绑定）
+initHandHolo(nodes.playerHand);
+initRevealHolo(nodes.packRevealCards);

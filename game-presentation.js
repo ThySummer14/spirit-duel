@@ -1,4 +1,4 @@
-import { GAME_EVENTS } from './game-core.js?v=98256261';
+import { GAME_EVENTS } from './game-core.js?v=34e4471a';
 
 export function captureBattleSnapshot(state) {
   return {

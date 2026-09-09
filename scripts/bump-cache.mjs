@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const jsFiles = readdirSync(root).filter((name) => name.endsWith('.js'));
-const cssFiles = ['styles.css', 'formation.css'].filter((name) => {
+const cssFiles = ['styles.css', 'formation.css', 'card-holo.css'].filter((name) => {
   try { readFileSync(join(root, name)); return true; } catch { return false; }
 });
 const htmlFiles = ['index.html'];
