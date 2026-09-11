@@ -1,0 +1,5 @@
+
+> spirit-duel@0.1.0 audit
+> node scripts/audit-ui.mjs
+
+UI audit: 100 checks, 0 errors

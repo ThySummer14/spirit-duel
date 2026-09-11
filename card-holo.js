@@ -8,10 +8,10 @@
  * - 单例 rAF 循环，只在有活动卡牌时运行，全部收敛后自动停止；
  * - 容器级事件委托（收藏与预览 DOM 会重建，不逐卡绑定）；
  * - 静息透明度 REST_OPACITY：不悬停时镭射仍以低强度存在，稀有度可辨识；
- * - prefers-reduced-motion：完全不绑定监听（CSS 层同步降级为静态弱效果）。
+ * - prefers-reduced-motion：动态停止帧并清理变量，CSS 同步降级。
  */
 
-const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 /** 静息态效果强度（悬停时升至 1） */
 const REST_OPACITY = 0.3;
@@ -58,6 +58,40 @@ const activeCards = new Map();
 let rafId = 0;
 let lastTime = 0;
 
+
+const POINTER_PROPERTIES = ['--pointer-x', '--pointer-y', '--holo-near', '--holo-rx',
+  '--holo-ry', '--holo-bg-x', '--holo-bg-y', '--holo-opacity'];
+
+function clearActiveCards() {
+  if (rafId) cancelAnimationFrame(rafId);
+  rafId = 0;
+  for (const el of activeCards.keys()) {
+    POINTER_PROPERTIES.forEach((property) => el.style.removeProperty(property));
+  }
+  activeCards.clear();
+}
+
+motionPreference.addEventListener('change', () => {
+  if (motionPreference.matches) clearActiveCards();
+});
+window.addEventListener('pagehide', clearActiveCards);
+// DOM 重建可能没有 pointerout；即使 RAF 已收敛也必须释放悬停卡引用。
+const detachedObserver = new MutationObserver(() => {
+  for (const el of activeCards.keys()) {
+    if (!el.isConnected) activeCards.delete(el);
+  }
+  if (!activeCards.size && rafId) {
+    cancelAnimationFrame(rafId);
+    rafId = 0;
+  }
+});
+detachedObserver.observe(document.documentElement, { childList: true, subtree: true });
+
+/** 可用于生命周期回归的只读统计。 */
+export function getHoloDiagnostics() {
+  return { activeCards: activeCards.size, framePending: Boolean(rafId), reducedMotion: motionPreference.matches };
+}
+
 function writeVars(el, state) {
   const style = el.style;
   style.setProperty('--pointer-x', `${state.px.value.toFixed(2)}%`);
@@ -75,24 +109,27 @@ function tick(now) {
   lastTime = now;
   let alive = false;
   for (const [el, state] of activeCards) {
+    if (!el.isConnected) {
+      activeCards.delete(el);
+      continue;
+    }
     let moving = false;
     for (const key of ['px', 'py', 'near', 'rx', 'ry', 'bgx', 'bgy', 'op']) {
       stepSmooth(state[key], dt);
       moving = moving || !state[key].settled;
     }
     writeVars(el, state);
-    // 已离开且全部收敛 → 摘除；仍在悬停或运动中的卡保持循环
+    // 已离开且全部收敛 → 摘除；静止悬停不继续请求帧
     if (!state.hover && !moving) {
       activeCards.delete(el);
-    } else {
-      alive = true;
     }
+    alive = alive || moving;
   }
   rafId = alive ? requestAnimationFrame(tick) : 0;
 }
 
 function ensureLoop() {
-  if (!rafId) {
+  if (!motionPreference.matches && !rafId) {
     lastTime = performance.now();
     rafId = requestAnimationFrame(tick);
   }
@@ -171,7 +208,7 @@ function leaveCard(el) {
  * @param {string} selector 卡牌选择器
  */
 function initHoloPointer(container, selector) {
-  if (REDUCED_MOTION || !container) return;
+  if (!container) return;
   const boundKey = 'holoBound' + selector.replace(/[^a-zA-Z]/g, '');
   if (container.dataset[boundKey] === '1') return;
   container.dataset[boundKey] = '1';
@@ -179,19 +216,19 @@ function initHoloPointer(container, selector) {
   const cardOf = (target) => (target instanceof Element ? target.closest(selector) : null);
 
   container.addEventListener('pointerover', (event) => {
-    if (event.pointerType === 'touch') return; // 触屏点按不需要悬停跟踪
+    if (motionPreference.matches || event.pointerType === 'touch') return; // 触屏点按不需要悬停跟踪
     const card = cardOf(event.target);
     if (card) enterCard(card, event);
   });
 
   container.addEventListener('pointermove', (event) => {
-    if (event.pointerType === 'touch') return;
+    if (motionPreference.matches || event.pointerType === 'touch') return;
     const card = cardOf(event.target);
     if (card) moveCard(card, event);
   });
 
   container.addEventListener('pointerout', (event) => {
-    if (event.pointerType === 'touch') return;
+    if (motionPreference.matches || event.pointerType === 'touch') return;
     const card = cardOf(event.target);
     if (card && !card.contains(event.relatedTarget)) leaveCard(card);
   });
@@ -199,21 +236,21 @@ function initHoloPointer(container, selector) {
 
 /** 战斗大卡预览：用手牌上的指针坐标驱动独立预览层。 */
 export function initPreviewHolo(handContainer, previewContainer) {
-  if (REDUCED_MOTION || !handContainer || !previewContainer || handContainer.dataset.holoPreviewBound === '1') return;
+  if (!handContainer || !previewContainer || handContainer.dataset.holoPreviewBound === '1') return;
   handContainer.dataset.holoPreviewBound = '1';
   const previewCard = () => previewContainer.querySelector('.hand-preview-card.is-holo');
   handContainer.addEventListener('pointerover', (event) => {
-    if (event.pointerType === 'touch') return;
+    if (motionPreference.matches || event.pointerType === 'touch') return;
     const card = previewCard();
     if (card) enterCard(card, event);
   });
   handContainer.addEventListener('pointermove', (event) => {
-    if (event.pointerType === 'touch') return;
+    if (motionPreference.matches || event.pointerType === 'touch') return;
     const card = previewCard();
     if (card) moveCard(card, event);
   });
   handContainer.addEventListener('pointerout', (event) => {
-    if (event.pointerType === 'touch') return;
+    if (motionPreference.matches || event.pointerType === 'touch') return;
     const card = previewCard();
     if (card && !event.currentTarget.contains(event.relatedTarget)) leaveCard(card);
   });

@@ -1,4 +1,4 @@
-import { GAME_EVENTS } from './game-core.js?v=91f7111c';
+import { GAME_EVENTS, levelUpUnit } from './game-core.js?v=048ffabb';
 
 export function captureBattleSnapshot(state) {
   return {
@@ -262,4 +262,9 @@ export function deriveBattleFeedback(previousSnapshot, state) {
     cardPlayed,
     cue: damagedUnit ? unitHitCue(damagedUnit) : null,
   };
+}
+
+/** Read-only UI availability: include knocked-out units exactly as the facade does. */
+export function canUpgradeUnit(state, unitId) {
+  return !levelUpUnit(state, 0, unitId).error;
 }

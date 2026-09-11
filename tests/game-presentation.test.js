@@ -12,6 +12,7 @@ import { makeWrappedCreateGame, putCardInHand } from './front-helper.js';
 
 const createGame = makeWrappedCreateGame(rawCreateGame);
 import {
+  canUpgradeUnit,
   captureBattleSnapshot,
   deriveBattleFeedback,
 } from '../game-presentation.js';
@@ -218,4 +219,20 @@ test('gives realm destruction a high-priority central cue', () => {
   assert.equal(feedback.realmImpacts.get(realmId).destroyed, true);
   assert.equal(feedback.cue.type, 'realm-destroyed');
   assert.equal(feedback.cue.realmId, realmId);
+});
+
+
+test('UI upgrade availability includes a knocked-out lowest-level unit without mutating state', () => {
+  const state = rawCreateGame({ seed: 12 });
+  state.players[0].units.forEach((unit) => { unit.level = 2; });
+  const unit = state.players[0].units[1];
+  unit.level = 1; unit.hp = 0; unit.knockout = 2;
+  const before = JSON.stringify(state);
+  assert.equal(canUpgradeUnit(state, unit.uid), true);
+  assert.equal(canUpgradeUnit(state, state.players[0].units[0].uid), false);
+  assert.equal(JSON.stringify(state), before);
+  state.players[0].levelUpUsed = true;
+  assert.equal(canUpgradeUnit(state, unit.uid), false);
+  state.players[0].bonusUpgrades = 1;
+  assert.equal(canUpgradeUnit(state, unit.uid), true);
 });

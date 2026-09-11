@@ -2387,289 +2387,188 @@ html[data-theme="day"] .realm-chip .realm-mini-name { color: #6a5580; }
 html[data-theme="day"] .realm-chip .realm-mini-hp { color: #4a4130; }
 
 /* ==========================================================================
-   对局布局 v5：状态 / 战场 / 牌库三分栏
-   要点：战斗区角色卡按托盘高度缩放；指令条独立成带，绝不与角色互相遮挡
+   枢夜交战 v6 — layout ownership: five explicit tracks, independent core rails.
+   Cards never derive their width from their count or shrink inside a flex row.
    ========================================================================== */
 :root {
-  /* 战斗区角色：宽度由准备区卡片派生，高度严格贴合托盘 */
-  --front-unit-w: min(calc(var(--unit-w) * 0.55), 86px);
+  --unit-w: clamp(88px, calc((100dvh - 480px) / 5.2), 126px);
+  --front-unit-w: var(--unit-w);
   --front-card-h: calc(var(--front-unit-w) * 1.3);
-  --front-row-h: calc(var(--front-card-h) + 10px);
-  --cmd-row-h: 56px;
+  --front-row-h: calc(var(--front-card-h) + 16px);
+  --hand-w: 108px;
 }
-.game-main { height: auto; min-height: 0; }
+.game-shell { height: auto; min-height: 100dvh; overflow: visible; }
+.game-main { flex: 1; height: auto; min-height: 0; overflow: visible; }
 .battle-stage {
-  display: grid;
-  grid-template-columns: clamp(176px, 17vw, 232px) minmax(0, 1fr) 88px;
-  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-areas:
-    "foe-status board deck"
-    "ally-status board deck";
-  gap: 0 clamp(8px, 1vw, 16px);
-  padding: 10px 12px;
+  flex: 1; display: grid;
+  grid-template-columns: 216px minmax(0, 1fr) 100px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "foe-status board deck" "ally-status board deck";
+  gap: 0 18px; padding: 14px 20px;
+  min-height: 0; overflow: visible; isolation: isolate;
 }
-.battle-stage > :not(.stage-scenery):not(.turn-callout):not(.battle-feedback):not(.card-reveal):not(.targeting-overlay) {
-  position: relative;
-  z-index: 2;
-}
-.battle-stage { scrollbar-width: none; }
-.battle-stage::-webkit-scrollbar { display: none; }
-
-.battlefield {
-  grid-area: board;
-  min-width: 0;
-  overflow: visible;
-}
-
-/* 五行战场：准备 / 战斗 / 指令 / 战斗 / 准备
-   战斗托盘与指令条使用固定高度，fr 只留给准备区，避免互相挤压 */
+.battle-stage > .avatar-plate, .battlefield, .deck-column { position: relative; z-index: 2; }
+.battle-stage::after { z-index: 0; }
+.battlefield { grid-area: board; min-width: 0; overflow: visible; }
 .board-column {
-  display: grid;
-  grid-template-rows:
-    minmax(calc(var(--unit-w) * 1.22), 1.2fr)
-    var(--front-row-h)
-    var(--cmd-row-h)
-    var(--front-row-h)
-    minmax(calc(var(--unit-w) * 1.22), 1.2fr);
-  gap: clamp(4px, 0.6vh, 7px);
-  width: 100%;
-  min-height: 0;
-  padding: 0;
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto var(--front-row-h) auto var(--front-row-h) auto;
+  justify-content: stretch; align-content: center;
+  width: 100%; min-width: 0; padding: 0; gap: 8px;
 }
-
 .unit-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(6px, 1vw, 14px);
-  min-width: 0;
-  min-height: 0;
-  padding: 2px clamp(4px, 1.2vw, 20px);
-  overflow: visible;
+  display: flex; flex-wrap: nowrap; justify-content: center; align-items: start;
+  min-width: 0; min-height: 0; padding: 10px 0 4px; gap: 16px; overflow: visible;
 }
-.unit-row .unit-card {
-  flex: 0 0 var(--unit-w);
-  min-width: 0;
-  max-height: 100%;
-}
-
-/* 战斗托盘：卡牌高度 = 托盘内容高，禁止溢出到指令条 */
+.unit-row .unit-card { flex: 0 0 var(--unit-w); width: var(--unit-w); max-height: none; }
+.unit-card { aspect-ratio: 10 / 13; }
 .battle-strip {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(8px, 1vw, 16px);
-  flex: none;
-  min-width: 0;
-  height: var(--front-row-h);
-  min-height: var(--front-row-h);
-  padding: 4px;
-  overflow: visible;
+  display: flex; justify-content: center; align-items: center;
+  width: 100%; height: var(--front-row-h); min-height: var(--front-row-h);
+  padding: 8px 0; flex: none; overflow: visible;
 }
-.battle-strip .unit-card {
-  flex: 0 0 var(--front-unit-w);
-  width: var(--front-unit-w);
-  height: var(--front-card-h);
-  aspect-ratio: auto;
+.battle-strip .unit-card { flex: 0 0 var(--front-unit-w); width: var(--front-unit-w); height: var(--front-card-h); }
+.empty-front-slot { width: var(--front-unit-w); height: calc(var(--front-card-h) - 8px); min-height: 0; }
+.empty-front-slot strong { font-size: 11px; letter-spacing: .1em; }
+.empty-front-slot span { font-size: 10px; }
+.unit-row::before {
+  content: attr(aria-label); position: absolute; left: 0; top: -3px;
+  color: var(--text-faint); font-size: 9px; letter-spacing: .15em;
 }
-.empty-front-slot {
-  width: min(calc(var(--front-unit-w) * 1.7), 168px);
-  min-height: calc(var(--front-card-h) - 8px);
-  height: calc(var(--front-card-h) - 8px);
-}
-
-/* 指令条：独立实心带，z 高于托盘，内容裁剪防溢出 */
+.battle-strip::before { left: 8%; right: 8%; }
 .command-line {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: min(100%, 780px);
-  height: var(--cmd-row-h);
-  min-height: var(--cmd-row-h);
-  max-height: var(--cmd-row-h);
-  margin: 0 auto;
-  padding: 0 14px 0 12px;
-  border: 1px solid var(--rule);
-  border-radius: 14px;
-  background:
-    linear-gradient(180deg, rgb(var(--panel-raised-rgb) / 0.97), rgb(var(--panel-deep-rgb) / 0.94));
-  box-shadow:
-    var(--shadow-1),
-    0 0 0 1px rgb(0 0 0 / 0.35),
-    0 10px 28px rgb(0 0 0 / 0.35);
-  backdrop-filter: blur(14px);
-  overflow: clip;
+  position: relative; z-index: 10; display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  width: 100%; min-height: 64px; height: auto; max-height: none;
+  margin: 0; padding: 10px 14px; gap: 12px;
+  border: 1px solid var(--rule); border-radius: 8px;
+  background: rgb(var(--panel-deep-rgb) / .96); overflow: visible;
 }
-/* 交战轴标签改为指令条左侧小徽标，不再叠在角色卡上 */
-.front-axis {
-  position: static;
-  left: auto;
-  top: auto;
-  flex: none;
-  transform: none;
-  pointer-events: none;
-}
-.front-axis span {
-  display: block;
-  padding: 3px 9px;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  background: rgb(10 14 23 / 0.7);
-  color: var(--text-faint);
-  font-size: 8.5px;
-  letter-spacing: 0.28em;
-  text-indent: 0.1em;
-  white-space: nowrap;
-}
-.command-brief { flex: 1 1 200px; min-width: 0; max-width: none; }
-.action-prompt {
-  margin: 0;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  line-height: 1.35;
-  color: var(--paper-dim);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.recent-event { display: block; font-size: 10.5px; line-height: 1.3; }
-.command-actions { display: inline-flex; gap: 7px; flex: none; }
-.command-line .command-button { padding: 7px 14px; font-size: 12px; }
-
+.front-axis { display: none; }
+.command-brief { min-width: 0; max-width: none; }
+.action-prompt { white-space: normal; overflow: visible; font-size: 12px; line-height: 1.5; letter-spacing: .03em; }
+.recent-event { display: block; font-size: 10px; line-height: 1.5; }
+.recent-event b { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.command-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: 6px; }
+.command-line .command-button { padding: 8px 12px; font-size: 12px; }
 .avatar-plate {
-  position: relative;
-  left: auto;
-  width: 100%;
-  min-width: 0;
-  align-self: start;
-  padding: 8px 10px;
+  position: relative; left: auto; width: 100%; min-width: 0;
+  padding: 12px; gap: 18px; align-self: start;
+  border-radius: 8px; background: rgb(var(--panel-deep-rgb) / .85);
 }
 .foe-plate { grid-area: foe-status; top: auto; }
 .ally-plate { grid-area: ally-status; bottom: auto; align-self: end; }
-.avatar-disc { width: 48px; }
-.avatar-meta { flex: 1; }
+.avatar-disc { width: 42px; }
+.avatar-meta { flex: 1; min-width: 0; }
+.avatar-name { white-space: normal; letter-spacing: .1em; line-height: 1.5; }
 .avatar-plate .core-bar { width: 100%; }
-.realm-mini-row { max-width: 100%; }
-.deck-column {
-  position: relative;
-  inset: auto;
-  grid-area: deck;
-  z-index: 3;
-  width: 100%;
-  padding: 2px 0;
-}
-.deck-pile { width: 60px; height: 84px; }
-
-/* 悬停抬升：检视层浮到邻卡之上；指令条仍更高一层 */
-.unit-row .unit-card:hover,
-.unit-row .unit-card:focus-visible,
-.battle-strip .unit-card:hover,
-.battle-strip .unit-card:focus-visible { z-index: 40; }
-
-.hand-zone { z-index: 5; }
+.foe-resources, .ally-resources { gap: 5px; flex-wrap: wrap; }
+.core-badge { right: -9px; min-width: 30px; padding-inline: 5px; }
+.realm-mini-row { width: 100%; max-width: none; flex-wrap: wrap; gap: 5px; }
+.realm-chip.is-mini { width: 100%; height: auto; min-height: 42px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 5px; gap: 3px; }
+.realm-mini-name { font-size: 11px; position: static; }
+.realm-mini-hp { position: static; font-size: 12px; }
+.realm-keyword-status { flex-basis: 100%; font-size: 10px; color: var(--paper-dim); }
+.deck-column { grid-area: deck; position: relative; inset: auto; width: 100%; padding: 4px 0; gap: 12px; }
+.deck-pile { width: 62px; height: 88px; }
+.end-turn-button.deck-end-turn { width: 96px; padding: 12px 4px; font-size: 12px; }
+.unit-row .unit-card:hover, .battle-strip .unit-card:hover { z-index: 40; }
+.unit-inspect { position: fixed; left: 20px; top: 230px; bottom: auto; width: 216px; transform: none; max-height: 340px; overflow-y: auto; }
+.unit-row.player-line .unit-inspect, .battle-strip.player-battle .unit-inspect { top: 230px; bottom: auto; transform: none; }
+.unit-card:not(:disabled):hover .unit-inspect, .unit-card:focus-visible .unit-inspect { transform: none; }
+.unit-row.player-line .unit-card:not(:disabled):hover .unit-inspect, .battle-strip.player-battle .unit-card:not(:disabled):hover .unit-inspect { transform: none; }
+.unit-statuses { max-width: calc(100% - 22px); gap: 2px; }
+.unit-statuses span { padding: 1px 3px; font-size: 10px; white-space: normal; }
+.unit-stats b { font-size: 16px; min-width: 24px; }
+.unit-plate strong { font-size: 13px; letter-spacing: .1em; }
+.hand-zone { z-index: 6; padding-top: 0; }
 .hand-scroll {
-  justify-content: safe center;
-  gap: clamp(4px, 0.6vw, 8px);
-  padding-inline: clamp(48px, 6vw, 88px);
-  overscroll-behavior-x: contain;
+  justify-content: safe center; align-items: start; gap: 12px;
+  min-height: 0; padding: 32px 24px 14px;
+  overflow-x: auto; overflow-y: hidden; scrollbar-width: thin;
+  overscroll-behavior-x: contain; scroll-snap-type: x proximity;
+}
+.hand-scroll .hand-card { flex: 0 0 var(--hand-w); width: var(--hand-w); transform: none; scroll-snap-align: center; }
+.hand-scroll .hand-card:hover, .hand-scroll .hand-card:focus-visible { transform: perspective(800px) translateY(-10px) rotateX(var(--fx-rx, var(--holo-rx, 0deg))) rotateY(var(--fx-ry, var(--holo-ry, 0deg))); z-index: 60; }
+.hand-scroll .hand-card.is-selected { transform: translateY(-12px) !important; }
+.hand-summary { top: 5px; right: 18px; padding: 0 10px; }
+.mulligan-bar { display: flex; position: relative; left: auto; top: auto; transform: none; width: max-content; max-width: calc(100% - 24px); margin: 6px auto 0; padding: 4px 8px; white-space: normal; }
+.hand-preview { position: fixed; left: 20px; top: 245px; bottom: auto; transform: translateY(8px); }
+.hand-preview.is-visible { transform: none; }
+.hand-preview-card { width: 216px; }
+.scenery-mist { animation: none; }
+.battle-log-shortcut { font-size: 12px; width: auto; padding-inline: 10px; }
+.fx-setting { display: flex; gap: 12px; align-items: center; padding: 12px; font-size: 13px; color: var(--paper); }
+.fx-setting input { accent-color: var(--gold); }
+.fx-setting small { display: block; color: var(--text-dim); line-height: 1.5; }
+@media (max-width: 1100px) {
+  :root { --unit-w: 104px; --hand-w: 110px; }
+  .battle-stage { grid-template-columns: 168px minmax(0, 1fr) 80px; gap: 0 10px; padding: 12px; }
+  .avatar-plate { padding: 8px; gap: 12px; }
+  .avatar-disc { width: 34px; }
+  .unit-row { gap: 10px; }
+  .command-line { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 8px 10px; }
+  .command-actions { justify-content: center; }
+  .end-turn-button.deck-end-turn { width: 78px; }
+  .hand-preview { left: 12px; top: 225px; }
+  .hand-preview-card { width: 166px; min-height: 285px; }
+  .unit-inspect { display: none; }
+}
+@media (max-width: 760px) {
+  :root { --unit-w: calc((100vw - 44px) / 4); --front-unit-w: 96px; --hand-w: 104px; }
+  .topbar { flex-wrap: wrap; padding: 6px 10px; gap: 6px; }
+  .brand { display: none; }
+  .match-strip { flex-basis: auto; order: 0; margin: 0; padding: 5px 8px; font-size: 11px; letter-spacing: 0; }
+  .top-actions { gap: 4px; }
+  .top-actions .icon-button { height: 30px; min-width: 30px; padding: 4px; }
+  .turn-order-tag, .strip-divider { display: none; }
+  .battle-stage {
+    grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto auto;
+    grid-template-areas: "foe-status" "board" "ally-status" "deck";
+    padding: 8px; gap: 10px; overflow: visible;
+  }
+  .game-main .battle-stage .avatar-plate { position: relative !important; margin: 0; width: 100%; padding: 7px 10px; gap: 16px; transform: none !important; }
+  .avatar-disc { width: 32px; }
+  .avatar-meta { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; }
+  .avatar-plate .core-bar { display: none; }
+  .foe-resources, .ally-resources { justify-content: end; }
+  .realm-mini-row { grid-column: 1 / -1; }
+  .realm-chip.is-mini { width: auto; min-height: 28px; }
+  .realm-keyword-status { flex-basis: auto; }
+  .battlefield { min-height: 0; }
+  .board-column { gap: 6px; }
+  .unit-row { gap: 8px; padding: 10px 0 4px; flex-wrap: nowrap; overflow: visible; }
+  .unit-row .unit-card { flex-shrink: 0; }
+  .command-line { width: 100%; margin: 0; min-height: 74px; text-align: center; }
+  .command-line .command-button { padding: 7px 10px; }
+  .recent-event { display: none; }
+  .deck-column { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 0; }
+  .deck-pile { width: 80px; height: 34px; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 4px; }
+  .deck-pile .pile-back { display: none; }
+  .deck-pile .pile-count, .deck-pile small { position: static; font-size: 11px; }
+  .end-turn-button.deck-end-turn { order: 1; width: 100px; padding: 9px 4px; }
+  .ally-deck { order: 2; }
+  .hand-scroll { justify-content: flex-start; padding: 30px 12px 12px; }
+  .hand-preview { display: none; }
+  .hand-card .card-name { font-size: 12px; letter-spacing: .06em; }
+  .unit-plate strong { font-size: 12px; }
+  .unit-plate em { font-size: 8px; letter-spacing: 0; }
+  .unit-statuses span { font-size: 9px; padding: 1px 2px; }
+  .unit-pips { gap: 3px; left: 4px; }
+  .unit-pips i { width: 7px; height: 7px; }
 }
 
-@media (max-width: 980px) and (min-width: 761px) {
-  :root {
-    --front-unit-w: min(calc(var(--unit-w) * 0.52), 78px);
-  }
-  .battle-stage { grid-template-columns: 168px minmax(0, 1fr) 76px; gap: 0 8px; padding-inline: 8px; }
-  .avatar-plate { gap: 8px; }
-  .avatar-disc { width: 42px; }
-  .avatar-name { letter-spacing: 0.16em; }
-  .foe-resources, .ally-resources { gap: 5px; }
-  .deck-pile { width: 54px; height: 78px; }
-  .end-turn-button.deck-end-turn { width: 70px; padding-inline: 4px; }
-  .command-line { padding-inline: 10px; gap: 8px; }
-  .front-axis { display: none; }
-}
+.game-main { position: relative; isolation: isolate; }
+
+.unit-inspect-dock { position: absolute; left: 20px; top: 170px; width: 216px; max-height: 350px; overflow: auto; z-index: 45; border: 1px solid var(--rule); border-radius: 10px; background: rgb(var(--panel-deep-rgb)); padding: 10px; }
+@media (max-width: 1100px) { .unit-inspect-dock { display: none; } }
+
+.stage-scenery { overflow: clip; }
+.card-reveal:not(.is-visible) { display: none; }
 
 @media (max-width: 760px) {
-  :root {
-    --unit-w-h: 108px;
-    --front-unit-w: min(calc(var(--unit-w) * 0.58), 72px);
-    --cmd-row-h: auto;
-  }
-  .game-shell { height: auto; min-height: 100dvh; overflow: visible; }
-  .game-main { height: auto; min-height: 100dvh; overflow: visible; }
-  .battle-stage {
-    grid-template-columns: minmax(0, 1fr) 68px;
-    grid-template-rows: auto minmax(520px, auto) auto;
-    grid-template-areas:
-      "foe-status foe-status"
-      "board deck"
-      "ally-status ally-status";
-    gap: 8px;
-    padding: 8px;
-    overflow: clip;
-  }
-  .game-main .battle-stage .avatar-plate {
-    position: relative !important;
-    width: 100%;
-    margin: 0;
-    padding: 7px 10px;
-  }
-  .battlefield { min-height: 520px; overflow: visible; }
-  .board-column {
-    grid-template-rows:
-      minmax(108px, 1.15fr)
-      var(--front-row-h)
-      auto
-      var(--front-row-h)
-      minmax(108px, 1.15fr);
-    gap: 5px;
-  }
-  .unit-row {
-    justify-content: flex-start;
-    gap: 7px;
-    padding-inline: 4px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    scroll-snap-type: x proximity;
-  }
-  .unit-row::-webkit-scrollbar { display: none; }
-  .unit-row .unit-card { scroll-snap-align: center; }
-  .battle-strip { min-height: var(--front-row-h); }
-  .deck-column { right: auto; gap: 10px; padding-block: 12px; }
-  .deck-pile { width: 50px; height: 72px; }
-  .command-line {
-    width: calc(100% - 4px);
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    flex-wrap: wrap;
-    margin: 2px 2px;
-    padding: 8px 10px;
-    gap: 8px;
-    overflow: visible;
-  }
-  .front-axis { display: none; }
-  .command-brief { flex-basis: 100%; text-align: center; max-width: none; }
-  .command-actions { width: 100%; justify-content: center; flex-wrap: wrap; }
-  .action-prompt { white-space: normal; font-size: 11.5px; }
-  .unit-inspect { display: none; }
-  .hand-scroll { justify-content: flex-start; padding-inline: 12px; }
+  .deck-pile::before, .deck-pile::after { display: none; }
+  .deck-pile .pile-count { transform: none; width: auto; flex: none; }
+  .deck-pile small { width: auto; white-space: nowrap; letter-spacing: 0; }
 }
 
-@media (max-width: 420px) {
-  :root {
-    --unit-w: 84px;
-    --hand-w: 104px;
-    --front-unit-w: min(calc(var(--unit-w) * 0.6), 64px);
-  }
-  .battle-stage { grid-template-columns: minmax(0, 1fr) 60px; }
-  .battlefield { min-height: 500px; }
-  .deck-pile { width: 46px; height: 66px; }
-  .end-turn-button.deck-end-turn { width: 54px; font-size: 10px; }
-  .command-button { padding: 7px 10px; font-size: 11px; }
-  .recent-event { display: none; }
-}
+.hand-preview-card:not(.is-holo) { transform: perspective(900px) rotateX(var(--fx-rx, 0deg)) rotateY(var(--fx-ry, 0deg)); transition: transform .18s ease; }

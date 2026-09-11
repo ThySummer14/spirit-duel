@@ -1,0 +1,31 @@
+### Result
+[{"width":1440,"cards":12,"cardWidth":108,"scrollWidth":1476,"viewportWidth":1432,"lastCardReachable":true},{"width":820,"cards":12,"cardWidth":110,"scrollWidth":1500,"viewportWidth":820,"lastCardReachable":true},{"width":390,"cards":12,"cardWidth":104,"scrollWidth":1404,"viewportWidth":382,"lastCardReachable":true}]
+### Ran Playwright code
+```js
+await (async page => {
+  const results=[];
+  for(const [width,height] of [[1440,1000],[820,1180],[390,844]]) {
+    await page.setViewportSize({width,height});
+    results.push(await page.evaluate(async()=>{
+      const build=document.querySelector('meta[name=build]').content;
+      const [{createGame},{createBattleRenderer}]=await Promise.all([import(`./game-core.js?v=${build}`),import(`./battle-render.js?v=${build}`)]);
+      const state=createGame({seed:91});
+      // A detached test snapshot; neither the live game nor any save is modified.
+      state.players[0].hand.push(...state.players[0].deck.splice(0,12-state.players[0].hand.length));
+      const zone=document.createElement('section');zone.className='hand-zone';zone.style.cssText='position:fixed;left:0;right:0;bottom:0;z-index:1000';
+      const hand=document.createElement('div');hand.className='hand-scroll';
+      const preview=document.createElement('div'),count=document.createElement('b');zone.append(hand);document.body.append(zone);
+      const render=createBattleRenderer({nodes:{playerHand:hand,handPreview:preview,playableCardCount:count},displayedGame:state,replaySession:true,lastHandInstanceIds:new Set(),getDragTargetMode:()=>null});
+      render.renderHand();
+      const cards=[...hand.querySelectorAll('.hand-card')];
+      const bad=cards.some(c=>{const a=c.getBoundingClientRect(),b=c.querySelector('.card-body').getBoundingClientRect();return a.width<100||Math.abs(a.width-b.width)>2||Math.abs(a.height-b.height)>2;});
+      hand.scrollLeft=hand.scrollWidth;
+      const last=cards.at(-1).getBoundingClientRect(), bounds=hand.getBoundingClientRect();
+      const result={width:innerWidth,cards:cards.length,cardWidth:cards[0].offsetWidth,scrollWidth:hand.scrollWidth,viewportWidth:hand.clientWidth,lastCardReachable:last.right<=bounds.right+1&&!bad};
+      if(bad||cards.length!==12||!result.lastCardReachable)throw new Error(JSON.stringify(result));
+      zone.remove();return result;
+    }));
+  }
+  return results;
+})(page);
+```

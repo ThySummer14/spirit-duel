@@ -1,6 +1,19 @@
 # 灵枢战线开发现状
 
-更新日期：2026-08-23
+更新日期：2026-09-11
+
+
+## 2026-09-11 · v6「枢夜交战」与 three.js
+
+战斗界面按参考图保留上下双方、中央前线、核心资源、手牌、回合与战报分区。五行战场显式占满中栏，前线恢复与准备区同级尺寸，手机四角色不换行；手牌完整横向滚动。护盾、眩晕回合、关键词资源、幻境完整名称和当前/最大耐久及倒计时常显。角色检视从卡内移至独立左栏，避免隐藏面板产生页面溢出。战报新增顶栏直达按钮，skip-link、ARIA、减少动态效果保留并补齐弹层与核心资源可访问名称。
+
+`battle-render.js` 承担单位/幻境/手牌/预览 DOM，`app.js` 保留规则操作与会话编排。`battle-fx.js` 通过 importmap + jsdelivr **three@0.180.0** 动态加载；卡牌及预览物理材质边光、指针光照、灯火景深、交战/气绝/幻境部署破碎/核心受击组成叠加表现层。唯一 canvas/context 保留复用；离场和终局 dispose 场景资源与 renderer wrapper，重入以原 context 建立新 wrapper。ResourceTracker 去重释放资源，按需 RAF，移动 1×，菜单开关/CDN失败/WebGL失败/reduced-motion 自动降级。规则、经济、存档版本与校验未改变；规则相关模块的其他 diff 只来自 `cache:sync`。
+
+修复前后的可复现行为与完整验收数据见 [`output/playwright/v6-acceptance.md`](output/playwright/v6-acceptance.md)。本轮发现并修复：升勾按钮错误传 MouseEvent、气绝角色可升勾但 UI 禁用、重开调度状态不重置、空前线与幻境并存时缺少核心目标入口、全息 hover 静止仍 RAF/移除节点残留，以及 three 已缓存后重入的 loading Promise 竞态。旧 realm-chip 的 mini 判定保留，完整对局包含幻境部署/伤害/破碎且没有 AI 卡死。
+
+已完成的验收：132 项 node 测试全绿；30 局冒烟零崩溃/非法命令/软锁，平均 17.4 回合；项目内 UI 审计 99 项零错误。三档真实 UI 对局全部结算，关闭 3D 和 reduced-motion 各完整结算一局，控制台零错误。桌面实际播放 100 次 3D 反馈，终局资源归零；三次进出战斗独立监测 WebGL 分配始终 1，强制 GC 后 heap 从预热阶段 4.64 MB 到末两次约 5.044/5.048 MB，未呈持续增长。静止采样 renderCount 不变、pendingFrame=false。
+
+原 `npm run audit` 所指的项目外脚本本机缺失；现提供可移植的项目内静态审计，范围在 README 明列，不等同原 ark-ui-skill 的历史审计。浏览器实测为本机 Chrome，其他 GPU/浏览器的性能仍需各设备验证；本次未部署、未发布。
 
 ## 当前结论
 
@@ -166,5 +179,9 @@
 | `game-ai.js` | 纯 AI 命令评分和选择 |
 | `game-presentation.js` | 从状态快照推导视觉反馈 |
 | `game-session.js` | 双方命令日志、检查点、有限按需帧缓存、确定性重放与本地会话存档校验 |
-| `app.js` | 构筑、渲染、交互编排、AI 执行、存档入口、JSON 文件交换和只读回放播放器 |
+| `app.js` | 构筑、交互编排、AI 执行、存档入口、JSON 文件交换和只读回放播放器 |
+| `battle-render.js` | 战斗卡牌、单位、幻境与检视 DOM |
+| `battle-fx.js` | three@0.180.0 按需表现、资源生命周期、开关与降级 |
+| `card-holo.js` | CSS 全息指针平滑与停止/清理 |
+| `scripts/audit-ui.mjs` | 项目内可移植 UI 静态边界检查 |
 | `styles.css` / `formation.css` | 通用视觉 token、战场与响应式布局 |

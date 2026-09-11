@@ -34,20 +34,37 @@
 | `game-presentation.js` | 从相邻对局快照推导攻击、受击、升勾、气绝与核心受击反馈 |
 | `game-session.js` | 双方命令日志、检查点与有限按需帧缓存、确定性重放、本地会话存档信封与一致性校验 |
 | `game-collection.js` | 秘闻阁纯数据层：御札经济、秘闻卷概率与保底、重复折算、合成与对局奖励 |
-| `app.js` | 编成界面、战场渲染、交互编排、AI 命令执行、本地存档、JSON 文件交换和只读回放播放器 |
+| `app.js` | 编成、战斗交互编排、AI 命令执行、本地存档、JSON 文件交换和只读回放播放器 |
+| `battle-render.js` | 战斗单位、幻境、手牌与预览 DOM；通过动态视图上下文读取状态，操作委托 app |
+| `battle-fx.js` | 可选 three.js 叠加层：renderer/context 生命周期、ResourceTracker、按需帧、卡牌光照、氛围与低频特效 |
+| `card-holo.js` / `card-holo.css` | 保留的 CSS 闪卡材质与指针平滑；静止停帧、节点移除与 reduced-motion 清理 |
+| `scripts/audit-ui.mjs` | 项目内静态 UI/资源/无障碍与 3D 边界审计，不代替浏览器截图验收 |
 | `game-audio.js` | 程序化音频引擎：尺八/和筝/太鼓合成乐器、卷积混响、场景 BGM 与全量音效 |
 | `styles.css` | 墨夜和风设计系统（token、通用控件、战斗界面、动效关键帧） |
 | `formation.css` | 宣纸画册风格的灵契编成与卡组构筑界面 |
 
 `game-core.js` 是对 UI 稳定的 facade。角色和卡牌内容不应写进 `app.js`，新效果不应在 `playCard()` 内继续增加分支。
 
-## 第二代表现层（v2 迭代）
+## 战斗表现层（v6「枢夜交战」）
 
-- **战斗界面**：敌方/己方各一条状态条 + 单排四卡战线（前线金框标签居首）+ 中央指令带 + 两侧幻境栏；手牌扇形排布，悬停抬升并在左侧展开完整大卡预览。
+- **战斗界面**：明确五行「敌方准备 / 敌方前线 / 指令 / 己方前线 / 己方准备」，独立左侧核心资源栏、右侧牌库和结束回合、底部完整手牌。前线与准备区同尺寸；手机四角色同排、核心资源上下分区、牌库控制移到己方资源下方。长手牌整卡横向滚动，不按张数缩成切片。桌面左栏承担卡牌预览与角色详情。
 - **编成界面**：宣纸画册风。角色名录大卡 + 悬停详情条（被动全文与卡池概况）；卡组构筑带角色页签、被动档案、稀有度配色与一键填充。
 - **交互**：点选出击 + 拖拽己方角色到敌方前线/幻境直接出击；悬停任意单位展开检视浮层（被动与全部状态）。
 - **动效**：抽牌入场、出击前冲、受击抖动、气绝崩落、升勾金环、伤害飘字、回合横幅、结案印章等关键帧，并支持 `prefers-reduced-motion`。
 - **音频**：BGM 由三层乐器（持续音 + 和筝拨弦 + 尺八旋律 + 太鼓）按四小节和声循环实时合成，编成用阳调式、战斗用平调子；音效新增抽牌、护盾、幻境部署、占卜、选择、错误与 UI 叩击等，并带音乐闪避。
+
+
+### three.js 引入与降级
+
+`index.html` 使用原生 importmap，锁定 **three@0.180.0**：`three` 映射到 `https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js`，`three/addons/` 映射到同版本 `examples/jsm/`。没有构建链、npm 运行依赖或后处理。`battle-fx.js` 动态 `import('three')`，CDN 失败、WebGL2 不可用、context 丢失时自动退回 DOM/CSS，不影响对局。
+
+3D 是 `.game-main` 上透明且 `pointer-events: none` 的画布。手牌与左侧预览使用透视、指针点光源和按稀有度设置的物理全息边框，原有 card-holo 材质保留。静态低对比灯火深度场提供氛围；只在交战、气绝、核心受击、幻境部署与破碎时播放有限时长的光环/碎片。游戏状态、目标合法性与命令结算继续走 `game-core`；升级可用性也直接查询 facade，包括气绝角色。
+
+遵循 [Rendering on Demand](https://threejs.org/manual/en/rendering-on-demand.html)：状态、尺寸、指针变化请求帧，特效结束停 RAF，静止悬停不维持循环。遵循 [Cleanup](https://threejs.org/manual/en/cleanup.html)：每段特效结束释放 geometry/material，离场或终局释放全部场景资源与 renderer 内部缓存。整个页面保留唯一 canvas/WebGL context；再次进入以**同一 context**重建已被 dispose 的 renderer wrapper，避免调用终结后的 wrapper 或增加 context。`getBattleFxDiagnostics()` 是只读表现诊断，不暴露游戏修改入口。
+
+菜单内「3D 表现」开关以本地偏好持久化。`prefers-reduced-motion` 动态变化时立即销毁 3D 资源并保留 CSS 静态反馈；关闭偏好后按需恢复。移动端 1×，桌面不超过 1.5×，无后处理。战斗布局不依赖 WebGL，手机采用纵向完整战场和可横滑手牌，短视口可正常纵向滚动。
+
+`npm run audit` 原本引用项目外缺失的 ark-ui-skill 脚本，现改为项目内 `scripts/audit-ui.mjs`。此检查覆盖语义、ARIA 引用、重复 ID、资源与 import 存在性、断点、关键布局约束和 three.js 引入边界，**不声称与原外部审计等价**；几何重叠与真实操作由 `output/playwright/v6-play-match.js` 验证。
 
 ## 添加角色
 

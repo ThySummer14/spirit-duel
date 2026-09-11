@@ -1,17 +1,20 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <meta name="build" content="91f7111c" />
-    <link rel="stylesheet" href="styles.css?v=91f7111c" />
-    <link rel="stylesheet" href="formation.css?v=91f7111c" />
-    <link rel="stylesheet" href="card-holo.css?v=91f7111c" />
-    <script type="module" src="app.js?v=91f7111c"></script>
+    <meta name="build" content="048ffabb" />
+    <link rel="stylesheet" href="styles.css?v=048ffabb" />
+    <link rel="stylesheet" href="formation.css?v=048ffabb" />
+    <link rel="stylesheet" href="card-holo.css?v=048ffabb" />
+    <script type="module" src="app.js?v=048ffabb"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -154,6 +157,7 @@
         </div>
 
         <div class="top-actions">
+          <button class="icon-button battle-log-shortcut" id="battle-log-shortcut" type="button" aria-label="查看战报" aria-controls="battle-log-dialog">战报</button>
           <button class="icon-button audio-toggle" id="audio-toggle-button" type="button" aria-haspopup="dialog" aria-controls="audio-dialog" aria-label="声音设置" title="声音设置">♪</button>
           <button class="icon-button menu-button" id="menu-button" type="button" aria-haspopup="dialog" aria-controls="menu-dialog" aria-label="更多菜单" title="菜单">☰</button>
           <button class="icon-button" id="restart-button" type="button" aria-label="重新开始" title="重新开始">↻</button>
@@ -179,7 +183,8 @@
       </section>
 
       <main class="game-main" id="battlefield">
-        <section class="battle-stage" aria-label="对局战场">
+        <section id="battle-stage" class="battle-stage" aria-label="对局战场">
+          <aside id="unit-inspect-dock" class="unit-inspect-dock" hidden aria-label="角色详情"></aside>
           <div class="stage-scenery" aria-hidden="true">
             <i class="scenery-moon"></i>
             <i class="scenery-mist"></i>
@@ -325,6 +330,7 @@
             <button class="icon-button dialog-close" id="menu-close-button" type="button" aria-label="关闭菜单" title="关闭">×</button>
           </header>
           <div class="menu-list">
+            <label class="fx-setting"><input id="battle-3d-toggle" type="checkbox" checked /><span>3D 表现<small id="battle-3d-status">卡牌光照 · 夜樱灯火 · 交战特效</small></span></label>
             <button class="menu-item" id="theme-button" type="button">外观 · <span id="theme-label">墨夜</span> <small>点击切换宣纸 / 墨夜</small></button>
             <button class="menu-item" id="formation-button" type="button">灵契编成 <small>重新调整出战角色</small></button>
             <button class="menu-item battle-log-button" id="battle-log-button" type="button" aria-haspopup="dialog" aria-controls="battle-log-dialog">战报 <small>战况实录 <span id="log-button-count">00</span> 条</small></button>
@@ -348,7 +354,7 @@
         </form>
       </dialog>
 
-      <dialog class="rules-dialog" id="rules-dialog">
+      <dialog class="rules-dialog" id="rules-dialog" aria-label="界碑规则">
         <form method="dialog" class="dialog-shell">
           <header>
             <div><p class="micro-label">对局法则</p><h2>界碑规则</h2></div>
@@ -408,7 +414,7 @@
             <button class="quiet-button" id="session-export-current-button" type="button" disabled>导出当前回放</button>
             <button class="quiet-button" id="session-export-saved-button" type="button" disabled>导出存档回放</button>
             <button class="quiet-button session-import-button" id="session-import-button" type="button">导入回放 JSON</button>
-            <input id="session-import-input" type="file" accept=".json,application/json" hidden />
+            <input id="session-import-input" aria-label="导入对局回放文件" type="file" accept=".json,application/json" hidden />
           </div>
           <small class="session-note">导入只打开只读回放，不会覆盖当前对局或本地存档。JSON 文件上限 5 MB。</small>
         </div>
@@ -424,7 +430,7 @@
         </div>
       </dialog>
 
-      <dialog class="result-dialog" id="result-dialog">
+      <dialog class="result-dialog" id="result-dialog" aria-labelledby="result-title">
         <div class="dialog-shell result-shell">
           <p class="result-seal" id="result-code" aria-hidden="true">胜</p>
           <h2 id="result-title">界碑已稳定</h2>
