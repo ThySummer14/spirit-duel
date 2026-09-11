@@ -1,5 +1,5 @@
-import { createBattleRenderer } from './battle-render.js?v=27739295';
-import { createBattleFx } from './battle-fx.js?v=27739295';
+import { createBattleRenderer } from './battle-render.js?v=e4daa5a4';
+import { createBattleFx } from './battle-fx.js?v=e4daa5a4';
 import {
   DEFAULT_PLAYER_LINEUP,
   GAME_RULES,
@@ -10,6 +10,7 @@ import {
   deserializeGame,
   endTurn,
   getCardDefinition,
+  getCardArt,
   getCardPlayability,
   getCardsForUnit,
   getPlayerKeywordStatuses,
@@ -27,9 +28,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=27739295';
-import { chooseAiCommand } from './game-ai.js?v=27739295';
-import { gameAudio } from './game-audio.js?v=27739295';
+} from './game-core.js?v=e4daa5a4';
+import { chooseAiCommand } from './game-ai.js?v=e4daa5a4';
+import { gameAudio } from './game-audio.js?v=e4daa5a4';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -42,26 +43,26 @@ import {
   ownedCopies,
   ownedHoloCopies,
   serializeCollection,
-} from './game-collection.js?v=27739295';
+} from './game-collection.js?v=e4daa5a4';
 import {
   canUpgradeUnit,
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=27739295';
+} from './game-presentation.js?v=e4daa5a4';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=27739295';
+} from './game-session.js?v=e4daa5a4';
 import {
   holoLayers,
   holoSheenMarkup,
   initCollectionHolo,
   initPreviewHolo,
   initRevealHolo,
-} from './card-holo.js?v=27739295';
+} from './card-holo.js?v=e4daa5a4';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -461,7 +462,7 @@ function openPackFlow() {
     }
     el.style.setProperty('--reveal-delay', `${index * 0.14}s`);
     el.innerHTML = `
-      <span class="reveal-art"><img src="${unit.art}" alt="" width="200" height="260"></span>
+      <span class="reveal-art"><img src="${getCardArt(card) ?? unit.art}" alt="" width="200" height="260"></span>
       <span class="reveal-cost"><i>${card.cost}</i></span>
       <span class="reveal-rarity-tag">${RARITY_LABELS[entry.rarity]}</span>
       <strong class="reveal-name">${card.name}</strong>
@@ -1107,7 +1108,7 @@ function renderCardPool() {
 
     const tags = card.tags.slice(0, 3).map((tag) => `<span>${tag}</span>`).join('');
     article.innerHTML = `
-      <div class="pool-card-art"><img src="${unit.art}" alt="" width="200" height="260"><b><i>${card.cost}</i></b><em>${card.level} 勾</em></div>
+      <div class="pool-card-art"><img src="${getCardArt(card) ?? unit.art}" alt="" width="200" height="260"><b><i>${card.cost}</i></b><em>${card.level} 勾</em></div>
       <div class="pool-card-copy"><small>${card.typeLabel} · <i class="rar-${card.rarity}">${RARITY_LABELS[card.rarity] ?? card.rarity}</i></small><strong>${card.name}</strong><p>${card.text}</p><div>${tags}</div></div>
     `;
 
@@ -1586,7 +1587,7 @@ function renderBattleFeedback() {
       container.classList.toggle('is-holo', cardPlayed.isHolo);
       container.classList.toggle('is-holo-epic', cardPlayed.isHolo && (definition.rarity === 'epic' || definition.rarity === 'ssr'));
       container.innerHTML = `
-        <span class="reveal-art"><img src="${unit.art}" alt="" width="120" height="156"></span>
+        <span class="reveal-art"><img src="${getCardArt(definition) ?? unit.art}" alt="" width="120" height="156"></span>
         <span class="reveal-meta"><b>${definition.name}</b><small>${unit.name} / ${definition.typeLabel}${cardPlayed.isHolo ? ' / 闪卡' : ''}</small></span>
         ${holoSheenMarkup(cardPlayed.isHolo)}`;
       container.classList.remove('is-visible');

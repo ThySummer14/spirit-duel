@@ -1,11 +1,11 @@
-import { canUpgradeUnit } from './game-presentation.js?v=27739295';
+import { canUpgradeUnit } from './game-presentation.js?v=e4daa5a4';
 /** 战斗 DOM 表现层；状态由 ctx 动态读取，操作继续委托现有 app/game-core 路径。 */
 import { GAME_RULES, getCardDefinition, getValidTargets, getValidCombatTargets,
   isUpgradePending, getUnitKeywordStatuses, getKeywordStatusText, getFormation,
-  getUnitDefinition, getCardPlayability, getEffectiveCardCost,
-  getKeywordCostReductionLabel, canMulligan, canPlayCard } from './game-core.js?v=27739295';
-import { gameAudio } from './game-audio.js?v=27739295';
-import { holoLayers } from './card-holo.js?v=27739295';
+  getUnitDefinition, getCardPlayability, getEffectiveCardCost, getCardArt,
+  getKeywordCostReductionLabel, canMulligan, canPlayCard } from './game-core.js?v=e4daa5a4';
+import { gameAudio } from './game-audio.js?v=e4daa5a4';
+import { holoLayers } from './card-holo.js?v=e4daa5a4';
 
 export function createBattleRenderer(ctx) {
   const { nodes, selectionTarget, currentSelectedCard, frontUidOf, unitByUid, makeStatus, handleUnitClick, startCardTargeting, markDropZones, endTargeting, clearDropZones, performBasicAttack, openRealmPreview, handleRealmClick, getDragTargetMode, markCardDropZones, handleCardClick } = ctx;
@@ -537,7 +537,7 @@ export function createBattleRenderer(ctx) {
     const art = document.createElement('span');
     art.className = 'card-art';
     const image = document.createElement('img');
-    image.src = unit.art;
+    image.src = getCardArt(definition) ?? unit.art;
     image.alt = '';
     image.width = 200;
     image.height = 260;
@@ -624,7 +624,7 @@ export function createBattleRenderer(ctx) {
       : '';
     nodes.handPreview.innerHTML = `
       <div class="hand-preview-card${holoClass}" data-card-type="${definition.type}" data-rarity="${definition.rarity}" style="--card-accent:${unit.color}">
-        <span class="card-art"><img src="${unit.art}" alt="" width="200" height="260"></span>
+        <span class="card-art"><img src="${getCardArt(definition) ?? unit.art}" alt="" width="200" height="260"></span>
         <span class="card-cost"><span>${effectiveCost}</span></span>
         <span class="card-level">${definition.level} 勾 · ${definition.typeLabel}</span>
         <span class="card-meta">${unit.name} / ${unit.title}</span>

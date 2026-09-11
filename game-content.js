@@ -1,4 +1,4 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=27739295';
+import { CARD_KEYWORDS } from './game-keywords.js?v=e4daa5a4';
 
 export const GAME_RULES = Object.freeze({
   lineupSize: 4,
@@ -53,6 +53,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     maxHp: 9,
     attack: 3,
     art: 'assets/ember.svg',
+    awakenedArt: 'assets/ember-awakened.svg',
     color: '#e75b32',
     passive: passive('ember-pursuit', '余烬追击', '赤曜进入前线时，对敌方前线造成 1 点伤害。', [
       { id: 'front-burn', event: 'unit-entered-front', effect: 'passive-damage-enemy-front', params: { amount: 1 } },
@@ -70,6 +71,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     maxHp: 12,
     attack: 1,
     art: 'assets/basalt.svg',
+    awakenedArt: 'assets/basalt-awakened.svg',
     color: '#a98b54',
     passive: passive('basalt-wall', '岩壁', '己方回合开始时，若岚岳位于前线，获得 1 点护盾。', [
       { id: 'turn-shield', event: 'turn-started', effect: 'passive-shield-self-if-front', params: { amount: 1 } },
@@ -87,6 +89,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     maxHp: 8,
     attack: 2,
     art: 'assets/lumen.svg',
+    awakenedArt: 'assets/lumen-awakened.svg',
     color: '#d8bd42',
     passive: passive('lumen-return', '月返', '每个己方回合第一次使用弦月牌后，己方核心恢复 1 点生命。', [
       { id: 'card-heal-core', event: 'card-played', effect: 'passive-heal-avatar-on-own-card', params: { amount: 1 }, limit: { scope: 'owner-turn', max: 1 } },
@@ -104,6 +107,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     maxHp: 9,
     attack: 2,
     art: 'assets/rime.svg',
+    awakenedArt: 'assets/rime-awakened.svg',
     color: '#5d8797',
     passive: passive('rime-trace', '霜痕', '白棱完成一次与敌方角色的交战后，眩晕该角色。', [
       { id: 'combat-freeze', event: 'combat-resolved', effect: 'passive-freeze-combat-defender', params: { turns: 1 } },
@@ -121,6 +125,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     maxHp: 8,
     attack: 3,
     art: 'assets/storm.svg',
+    awakenedArt: 'assets/storm-awakened.svg',
     color: '#1599b5',
     keywords: Object.freeze([CARD_KEYWORDS.CHARGE]),
     keywordConfig: Object.freeze({
@@ -143,6 +148,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     maxHp: 10,
     attack: 2,
     art: 'assets/ink.svg',
+    awakenedArt: 'assets/ink-awakened.svg',
     color: '#6f6288',
     passive: passive('ink-ward', '墨护', '玄砚存活时，己方部署幻境后，当前前线获得 1 点护盾。', [
       { id: 'realm-shield', event: 'realm-deployed', effect: 'passive-shield-front-on-realm', params: { amount: 1 } },
@@ -160,6 +166,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     maxHp: 8,
     attack: 3,
     art: 'assets/frostblade.svg',
+    awakenedArt: 'assets/frostblade-awakened.svg',
     color: '#7fa8c9',
     passive: passive('frost-aegis', '刃胄', '银狼完成一次交战后，获得 1 点护盾。', [
       { id: 'combat-aegis', event: 'combat-resolved', effect: 'passive-shield-self-after-combat', params: { amount: 1 } },
@@ -178,6 +185,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     maxHp: 13,
     attack: 2,
     art: 'assets/kongo.svg',
+    awakenedArt: 'assets/kongo-awakened.svg',
     color: '#9aa085',
     passive: passive('kongo-skin', '石肤', '己方回合开始时，若金刚位于前线，恢复 1 点生命。', [
       { id: 'turn-heal', event: 'turn-started', effect: 'passive-heal-self-if-front', params: { amount: 1 } },
@@ -284,7 +292,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('brace', 'basalt', '固阵', 'spell', 1, '一名友方角色获得 4 点护盾。', 'ally-unit', 'shield', 4, { starterCopies: 2, rarity: 'common', tags: ['保护'] }),
   card('iron-vow', 'basalt', '镇守', 'combat', 1, '岚岳进入前线并获得 3 点护盾。', 'auto', 'fortify', 3, { starterCopies: 2, rarity: 'common', tags: ['站场'] }),
   card('unyielding-wall', 'basalt', '不动如山', 'spell', 2, '一名友方角色获得不屈：生命大于 1 时，不会因伤害气绝。', 'ally-unit', 'grant-unyielding', 1, { rarity: 'epic', tags: ['保护'], keywords: [CARD_KEYWORDS.UNYIELDING] }),
-  card('bastion-form', 'basalt', '山门之相', 'form', 2, '岚岳获得 +4 生命上限，并恢复 4 点生命。', 'auto', 'form', { attack: 0, hp: 4 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
+  card('bastion-form', 'basalt', '山门之相', 'form', 2, '岚岳获得 +4 生命上限。', 'auto', 'form', { attack: 0, hp: 4 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
   card('wardline', 'basalt', '界碑阵列', 'realm', 3, '幻境：己方回合开始时，前线角色获得 1 点护盾。', 'auto', 'realm', null, {
     starterCopies: 1, rarity: 'epic', tags: ['幻境', '保护'], realm: { hp: 5, trigger: 'owner-turn-start', triggerEffect: 'shield-front', triggerValue: 1 },
   }),
@@ -312,7 +320,7 @@ export const CARD_DEFINITIONS = Object.freeze([
 
   card('ink-ward', 'ink', '墨障', 'spell', 1, '一名友方角色获得 3 点护盾。', 'ally-unit', 'shield', 3, { starterCopies: 2, rarity: 'common', tags: ['保护'] }),
   card('erode-script', 'ink', '蚀字', 'spell', 1, '造成 1 点伤害，并使目标进入 1 层晶裂。', 'enemy-unit', 'brittle', 1, { starterCopies: 2, rarity: 'common', tags: ['消耗'] }),
-  card('ink-form', 'ink', '无相墨躯', 'form', 2, '玄砚获得 +3 生命上限，并恢复 3 点生命。', 'auto', 'form', { attack: 0, hp: 3 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
+  card('ink-form', 'ink', '无相墨躯', 'form', 2, '玄砚获得 +3 生命上限。', 'auto', 'form', { attack: 0, hp: 3 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
   card('living-archive', 'ink', '活页归档', 'realm', 3, '幻境：己方回合开始时，额外抽 1 张牌。', 'auto', 'realm', null, {
     starterCopies: 1, rarity: 'epic', tags: ['幻境', '调度'], realm: { hp: 3, trigger: 'owner-turn-start', triggerEffect: 'draw', triggerValue: 1 },
   }),
@@ -338,7 +346,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('crag-ward', 'basalt', '岩隙护壁', 'spell', 1, '一名友方角色获得 2 点护盾。', 'ally-unit', 'shield', 2, { tags: ['保护'] }),
   card('faultline', 'basalt', '断层', 'spell', 1, '造成 1 点伤害，并使目标进入 1 层晶裂。', 'enemy-unit', 'brittle', 1, { tags: ['破防'] }),
   card('earth-rest', 'basalt', '地脉休整', 'spell', 2, '为一名友方角色恢复 3 点生命。', 'ally-unit', 'heal', 3, { rarity: 'rare', tags: ['恢复'] }),
-  card('monolith-form', 'basalt', '磐碑之相', 'form', 2, '岚岳获得 +5 生命上限，并恢复 5 点生命。', 'auto', 'form', { attack: 0, hp: 5 }, { rarity: 'rare', tags: ['成长'] }),
+  card('monolith-form', 'basalt', '磐碑之相', 'form', 2, '岚岳获得 +5 生命上限。', 'auto', 'form', { attack: 0, hp: 5 }, { rarity: 'rare', tags: ['成长'] }),
   card('granite-oath', 'basalt', '重岩誓约', 'combat', 2, '岚岳进入前线并获得 4 点护盾。', 'auto', 'fortify', 4, { cost: 2, rarity: 'rare', tags: ['站场'] }),
   card('gatehouse', 'basalt', '守界石门', 'realm', 2, '幻境：己方回合开始时，前线角色获得 1 点护盾。', 'auto', 'realm', null, {
     rarity: 'rare', tags: ['幻境', '保护'], realm: { hp: 4, trigger: 'owner-turn-start', triggerEffect: 'shield-front', triggerValue: 1 },
@@ -366,7 +374,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   }, {
     tags: ['鼓舞', '支援'], keywords: [CARD_KEYWORDS.ENCOURAGE],
   }),
-  card('luminous-form', 'lumen', '晓环之相', 'form', 2, '弦月获得 +2 生命上限，并恢复 2 点生命。', 'auto', 'form', { attack: 0, hp: 2 }, { rarity: 'rare', tags: ['成长'] }),
+  card('luminous-form', 'lumen', '晓环之相', 'form', 2, '弦月获得 +2 生命上限。', 'auto', 'form', { attack: 0, hp: 2 }, { rarity: 'rare', tags: ['成长'] }),
   card('pale-survey', 'lumen', '微光巡阅', 'spell', 2, '抽 1 张牌，并为己方核心恢复 1 点生命。', 'auto', 'draw-heal', 1, { rarity: 'rare', tags: ['调度'] }),
   card('soft-revival', 'lumen', '柔光归返', 'spell', 2, '唤醒一名离场角色，使其恢复 3 点生命。', 'knocked-ally', 'revive', 3, { rarity: 'rare', tags: ['复归'] }),
   card('moonlit-chamber', 'lumen', '月室', 'realm', 3, '幻境：己方回合开始时，额外抽 1 张牌。', 'auto', 'realm', null, {
@@ -720,6 +728,13 @@ export function getCardDefinition(definitionId) {
 
 export function getCardsForUnit(unitId) {
   return CARD_DEFINITIONS.filter((definition) => definition.unitId === unitId);
+}
+
+/** 卡面插画：觉醒牌展示觉醒相，其余用角色基础相 */
+export function getCardArt(cardDefinition) {
+  const unit = getUnitDefinition(cardDefinition.unitId);
+  if (!unit) return null;
+  return cardDefinition.type === 'awakening' ? (unit.awakenedArt ?? unit.art) : unit.art;
 }
 
 export function getStarterCardIdsForUnit(unitId) {

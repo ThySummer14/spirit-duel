@@ -127,6 +127,7 @@ test('awakening swaps the passive, grants +1/+1 and cannot be repeated', () => {
   const ember = unit(state, 0, 'ember');
   assert.equal(ember.awakened, true);
   assert.equal(ember.passive.id, 'ember-pursuit-awakened');
+  assert.equal(ember.art, 'assets/ember-awakened.svg', '觉醒后头像应替换为觉醒相');
   assert.equal(ember.attack, 4); // 基础 3 + 成长 1
   assert.equal(ember.maxHp, 10); // 基础 9 + 成长 1
   assert.ok(hasLog(state, '烬燃冲锋'));
@@ -169,6 +170,30 @@ test('awakened state survives serialization; forged passive is rejected', () => 
   const target = forged.state.players[0].units.find((candidate) => candidate.id === 'lumen');
   target.passive = JSON.parse(JSON.stringify(UNIT_DEFINITIONS.find((def) => def.id === 'lumen').passive));
   assert.throws(() => deserializeGame(JSON.stringify(forged)), /觉醒状态与角色定义不一致/);
+
+  const forgedArt = JSON.parse(serializeGame(state));
+  const artTarget = forgedArt.state.players[0].units.find((candidate) => candidate.id === 'lumen');
+  artTarget.art = 'assets/lumen.svg'; // 觉醒态偷回基础头像
+  assert.throws(() => deserializeGame(JSON.stringify(forgedArt)), /觉醒头像与角色定义不一致/);
+});
+
+test('form resonance heals every surviving ally to full without reviving the fallen', () => {
+  let state = createGame({ seed: 918 });
+  setLevel(state, 0, 'basalt', 2);
+  const woundedA = unit(state, 0, 'ember');
+  const woundedB = unit(state, 0, 'lumen');
+  const fallen = unit(state, 0, 'rime');
+  woundedA.hp = 2;
+  woundedB.hp = 1;
+  fallen.hp = 0; // 气绝者不回
+
+  state = play(state, 0, 'bastion-form'); // 山门之相：+4 生命上限
+
+  assert.equal(unit(state, 0, 'basalt').hp, unit(state, 0, 'basalt').maxHp, '自身回满到新上限');
+  assert.equal(unit(state, 0, 'ember').hp, unit(state, 0, 'ember').maxHp);
+  assert.equal(unit(state, 0, 'lumen').hp, unit(state, 0, 'lumen').maxHp);
+  assert.equal(unit(state, 0, 'rime').hp, 0, '形态共鸣不复活气绝角色');
+  assert.ok(hasLog(state, '形态共鸣'));
 });
 
 test('kongo awakening grants permanent unyielding', () => {

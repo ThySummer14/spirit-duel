@@ -544,13 +544,16 @@ test('fusion stacks declared bonuses and blocks the same fusion card at its cap'
   const third = putCardInHand(state, 0, 'cloud-form');
 
   state = playCard(state, 0, first.instanceId).state;
+  // 受伤后再打第二张融合：形态共鸣应把霆鸢回满（而非仅 +1 生命上限）
+  const wounded = state.players[0].units.find((unit) => unit.id === 'storm');
+  wounded.hp -= 4;
   state = playCard(state, 0, second.instanceId).state;
   state.players[0].energy = 1;
 
   const fused = state.players[0].units.find((unit) => unit.id === 'storm');
   assert.equal(fused.attack, 5);
   assert.equal(fused.maxHp, 10);
-  assert.equal(fused.hp, 10);
+  assert.equal(fused.hp, 10, '形态共鸣：融合形态牌也应触发全体回满');
   assert.equal(fused.fusion.stacks, 2);
   assert.equal(getCardPlayability(state, 0, third.instanceId).code, 'fusion-max');
   assert.match(getCardPlayability(state, 0, third.instanceId).reason, /2 层融合上限/);

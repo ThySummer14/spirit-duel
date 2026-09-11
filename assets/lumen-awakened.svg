@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">弦月 · 织光 · 觉醒相</title>
+  <desc id="desc">月织之灵：弦月悬于靛蓝夜空，白鹤掠过，银线织出光之经纬，流银主调。觉醒相：${motif.desc}</desc>
+  <defs>
+    <linearGradient id="l-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f1424"/>
+      <stop offset=".55" stop-color="#171d33"/>
+      <stop offset="1" stop-color="#0b0f1c"/>
+    </linearGradient>
+    <radialGradient id="l-halo" cx=".5" cy=".4" r=".6">
+      <stop offset="0" stop-color="#fdf6d8" stop-opacity=".5"/>
+      <stop offset=".5" stop-color="#d8bd42" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#d8bd42" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="l-moon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffbe8"/>
+      <stop offset="1" stop-color="#e8d27a"/>
+    </linearGradient>
+    <linearGradient id="l-thread" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8bd42" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#f5e6a6" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#d8bd42" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="l-crane" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdfaf0"/>
+      <stop offset="1" stop-color="#cfc4a4"/>
+    </linearGradient>
+      <radialGradient id="awk-bloom" cx=".5" cy=".43" r=".62">
+      <stop offset="0" stop-color="#ffe9b2" stop-opacity=".20"/>
+      <stop offset=".55" stop-color="#e8b45a" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#e8b45a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="awk-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe6a8"/>
+      <stop offset=".5" stop-color="#e8b45a"/>
+      <stop offset="1" stop-color="#b9772e"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#l-bg)"/>
+  <circle cx="100" cy="104" r="88" fill="url(#l-halo)"/>
+  <!-- 星尘 -->
+  <g fill="#f5e6a6">
+    <circle cx="36" cy="52" r="1.4" opacity=".7"/>
+    <circle cx="168" cy="44" r="1.8" opacity=".8"/>
+    <circle cx="150" cy="96" r="1.2" opacity=".5"/>
+    <circle cx="30" cy="120" r="1.6" opacity=".6"/>
+    <circle cx="176" cy="160" r="1.4" opacity=".5"/>
+    <circle cx="60" cy="188" r="1.4" opacity=".4"/>
+    <circle cx="128" cy="204" r="1.8" opacity=".5"/>
+    <circle cx="48" cy="228" r="1.2" opacity=".4"/>
+  </g>
+  <!-- 弦月 -->
+  <path d="M124 46a58 58 0 1 0 0 116 46 46 0 1 1 0-116Z" fill="url(#l-moon)"/>
+  <path d="M124 46a58 58 0 1 0 0 116 46 46 0 1 1 0-116Z" fill="none" stroke="#fdf6d8" stroke-opacity=".5" stroke-width="1.4"/>
+  <!-- 月面纹理 -->
+  <circle cx="106" cy="88" r="4" fill="#e0cb82" opacity=".5"/>
+  <circle cx="94" cy="118" r="6" fill="#e0cb82" opacity=".4"/>
+  <circle cx="108" cy="140" r="3" fill="#e0cb82" opacity=".45"/>
+  <!-- 织光经纬 -->
+  <g stroke="url(#l-thread)" fill="none">
+    <path d="M18 96h164" stroke-width="1.2"/>
+    <path d="M26 124h148" stroke-width="1" opacity=".7"/>
+    <path d="M34 152h132" stroke-width="1" opacity=".45"/>
+    <path d="M96 40v180" stroke-width="1.2"/>
+    <path d="M132 52v156" stroke-width="1" opacity=".5"/>
+  </g>
+  <!-- 白鹤 -->
+  <g transform="translate(58 84)">
+    <path d="M0 14C10 4 26-4 42-2c-6 6-14 9-22 10 10-1 20 2 26 9-12 3-24 0-32-6-6 4-12 6-14 3Z" fill="url(#l-crane)"/>
+    <path d="M42-2 58-8l-14 8" fill="#fdfaf0"/>
+    <circle cx="50" cy="-6" r="1.4" fill="#2a2416"/>
+    <path d="M56-7l8-2-8 4Z" fill="#c9762c"/>
+  </g>
+  <ellipse cx="100" cy="224" rx="50" ry="8" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="url(#awk-bloom)"/>
+    <g fill="none" stroke="url(#awk-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g><circle cx="24.7" cy="68.5" r="6" fill="url(#awk-gold)" stroke="#59371b" stroke-width="1"/><circle cx="24.7" cy="68.5" r="1.8" fill="#e8e4d8"/></g>
+    <g><circle cx="175.3" cy="68.5" r="6" fill="url(#awk-gold)" stroke="#59371b" stroke-width="1"/><circle cx="175.3" cy="68.5" r="1.8" fill="#e8e4d8"/></g>
+    <g><circle cx="100.0" cy="199.0" r="6" fill="url(#awk-gold)" stroke="#59371b" stroke-width="1"/><circle cx="100.0" cy="199.0" r="1.8" fill="#e8e4d8"/></g>
+    <g><circle cx="100" cy="24" r="8.5" fill="url(#awk-gold)"/><circle cx="103" cy="21.5" r="7" fill="#1c1830" opacity=".85"/><circle cx="101.5" cy="23.5" r="6" fill="url(#awk-gold)"/></g>
+    <g stroke="url(#awk-gold)" stroke-width=".8" opacity=".55" fill="none"><path d="M36 58q18-10 34-4M130 52q16-6 34 6M46 176q14 10 28 6M128 180q14 6 28-2"/></g>
+    <g fill="#ffe6a8" opacity=".7"><circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/><circle cx="100" cy="208" r="1.4"/></g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="url(#awk-gold)" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

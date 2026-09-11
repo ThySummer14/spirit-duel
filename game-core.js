@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=27739295';
+} from './game-content.js?v=e4daa5a4';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=27739295';
+} from './game-keywords.js?v=e4daa5a4';
 
 export {
   CARD_DEFINITIONS,
@@ -39,12 +39,13 @@ export {
   GAME_RULES,
   UNIT_DEFINITIONS,
   createDefaultDeckDefinition,
+  getCardArt,
   getCardDefinition,
   getCardsForUnit,
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=27739295';
+} from './game-content.js?v=e4daa5a4';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +56,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=27739295';
+} from './game-keywords.js?v=e4daa5a4';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -167,6 +168,9 @@ function assertGameStateStructure(state) {
       if (unit.awakened === true) {
         if (!unitDefinition?.awakenedPassive || unit.passive?.id !== unitDefinition.awakenedPassive.id) {
           throw new Error(`${label}的 ${unit.name ?? '角色'} 觉醒状态与角色定义不一致。`);
+        }
+        if (unitDefinition.awakenedArt && unit.art !== unitDefinition.awakenedArt) {
+          throw new Error(`${label}的 ${unit.name ?? '角色'} 觉醒头像与角色定义不一致。`);
         }
       } else if (unitDefinition?.passive && unit.passive?.id != null && unit.passive.id !== unitDefinition.passive.id) {
         throw new Error(`${label}的 ${unit.name ?? '角色'} 被动与角色定义不一致。`);
@@ -1551,6 +1555,8 @@ const EFFECT_HANDLERS = new Map([
       source.awakened = true;
       source.passive = clone(awakened);
       source.passiveUsage = {};
+      // 觉醒换相：状态内的头像同步替换，渲染层读取 unit.art 自动生效
+      if (definition.awakenedArt) source.art = definition.awakenedArt;
       applyUnitGrowth(source, { attack: effect.value?.attack ?? 1, hp: effect.value?.hp ?? 1 });
       if (effect.value?.grantUnyielding && source.unyielding !== true) {
         source.unyielding = true;
@@ -1810,6 +1816,25 @@ function resolveCardCompleteFrame(state, frame) {
     `${player.name} 使用「${card.name}」。`,
     'card',
   );
+  // 形态共鸣：形态牌结算完毕时，己方全体存活角色恢复全部生命（不走响应管线，避免改变出牌时序）
+  if (card.type === 'form' && state.winner === null) {
+    const healed = [];
+    player.units.forEach((candidate, index) => {
+      if (candidate.hp > 0 && candidate.hp < candidate.maxHp) {
+        healUnit(state, frame.playerIndex, index, candidate.maxHp);
+        healed.push(candidate.name);
+      }
+    });
+    if (healed.length > 0) {
+      recordEvent(
+        state,
+        GAME_EVENTS.FORM_CHANGED,
+        { playerIndex: frame.playerIndex, resonance: true, healed: healed.length },
+        `形态共鸣：${healed.join('、')} 恢复全部生命。`,
+        'success',
+      );
+    }
+  }
 }
 
 function hasPlayableResponse(state, playerIndex) {
@@ -2167,6 +2192,9 @@ export function validateContentCatalog() {
     });
     if (!unit.awakenedPassive) {
       errors.push(`${unit.name} 缺少觉醒被动定义。`);
+    }
+    if (!unit.awakenedArt) {
+      errors.push(`${unit.name} 缺少觉醒插画（awakenedArt）。`);
     }
     const awakeningCards = unitCards.filter((candidate) => candidate.type === 'awakening');
     if (awakeningCards.length !== 1) errors.push(`${unit.name} 必须恰好有 1 张觉醒牌，当前 ${awakeningCards.length} 张。`);
