@@ -20,6 +20,7 @@
 | 运势 | `fortune` | `sides`, `threshold` | `beforeCardResolution`, `effectCondition` | 玩家最近一次结果 | 曙针 |
 | 鼓舞 | `encourage` | `attack`, `shield` | `applyEffect`, `prepareCombat` | 玩家 `keywordUsage` | 辉月鼓舞 |
 | 充能 | `charge` | 角色 `max`, `gainPerTurn`; 卡牌 `chargeCost` | `onTurnStart`, `canPlayCard`, `beforeCardResolution` | 玩家按角色 UID 存储 | 聚雷矢 |
+| 爆能 | `burst` | 卡牌 `burst.perCharge` | `beforeCardResolution`（倾泻并快照）、`combatOptions`（读即消耗） | 玩家 `keywordUsage.burst.pending` | 雷神一击 |
 | 倒计时 | `countdown` | `countdown`, `countdownReset` | `beforeRealmTrigger`, `afterRealmTrigger` | 幻境实例 | 焚线 |
 | 占卜 | `divination` | `count` 与 `divination` 效果 | 暂停/恢复结算 | `pendingChoice` 与结算帧 | 索引页 |
 | 化身 | `incarnation` | `trigger`, `priority` | `automaticCard`, `afterCardPlayed` | 玩家 `keywordUsage` | 残影回环 |
