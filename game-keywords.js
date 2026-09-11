@@ -24,6 +24,7 @@ export const CARD_KEYWORDS = Object.freeze({
   FIRST_STRIKE: 'first-strike',
   CRIT: 'crit',
   UNYIELDING: 'unyielding',
+  BURST: 'burst',
 });
 
 function defineKeyword(definition) {
@@ -311,6 +312,49 @@ export const KEYWORD_DEFINITIONS = Object.freeze([
         ? []
         : [`${card.name} 的充能消耗配置无效。`]
     ),
+  }),
+  defineKeyword({
+    id: CARD_KEYWORDS.BURST,
+    label: '爆能',
+    description: '出击时消耗来源角色的全部充能，每点按卡牌折算转化为本次攻击加成（读即消耗，不重复计入）。',
+    beforeCardResolution: ({ player, source, card }) => {
+      const chargeUsage = readKeywordUsage(player, CARD_KEYWORDS.CHARGE).units?.[source.uid];
+      const current = chargeUsage?.current ?? 0;
+      const usage = keywordUsageFor(player, CARD_KEYWORDS.BURST);
+      if (current <= 0) {
+        usage.pending = null;
+        return null;
+      }
+      const attackBonus = current * (card.burst?.perCharge ?? 1);
+      chargeUsage.current = 0;
+      usage.pending = { unitUid: source.uid, spent: current, attackBonus };
+      return { unitId: source.uid, spent: current, attackBonus, current: 0, max: chargeUsage.max };
+    },
+    combatOptions: ({ player, source }) => {
+      const usage = readKeywordUsage(player, CARD_KEYWORDS.BURST);
+      const pending = usage.pending;
+      if (!pending || pending.unitUid !== source.uid) return {};
+      // 读即消耗：同一次出击只领取一次加成，避免重复查询叠加。
+      keywordUsageFor(player, CARD_KEYWORDS.BURST).pending = null;
+      return { attackBonus: pending.attackBonus };
+    },
+    formatSpendLog: ({ source, value }) => `${source.name} 爆能：倾泻 ${value.spent} 点充能，本次攻击额外 +${value.attackBonus ?? 0}。`,
+    validateUsage: (usage) => (
+      usage
+      && typeof usage === 'object'
+      && !Array.isArray(usage)
+      && (usage.pending === null || usage.pending === undefined || (
+        typeof usage.pending.unitUid === 'string'
+        && Number.isInteger(usage.pending.spent) && usage.pending.spent >= 0
+        && Number.isInteger(usage.pending.attackBonus) && usage.pending.attackBonus >= 0
+      ))
+    ),
+    validateCard: (card) => {
+      const valid = Number.isInteger(card.burst?.perCharge)
+        && card.burst.perCharge > 0
+        && card.effects?.some((effect) => effect.action === 'assault');
+      return valid ? [] : [`${card.name} 的爆能配置无效（需声明 perCharge 且包含出击动作）。`];
+    },
   }),
   defineKeyword({
     id: CARD_KEYWORDS.COUNTDOWN,

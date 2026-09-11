@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=048ffabb';
+} from './game-content.js?v=27739295';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=048ffabb';
+} from './game-keywords.js?v=27739295';
 
 export {
   CARD_DEFINITIONS,
@@ -44,7 +44,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=048ffabb';
+} from './game-content.js?v=27739295';
 
 export {
   CARD_KEYWORDS,
@@ -55,7 +55,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=048ffabb';
+} from './game-keywords.js?v=27739295';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -75,6 +75,7 @@ export const GAME_EVENTS = Object.freeze({
   UNIT_RETURNED: 'unit-returned',
   AVATAR_DAMAGED: 'avatar-damaged',
   FORM_CHANGED: 'form-changed',
+  UNIT_AWAKENED: 'unit-awakened',
   REALM_DEPLOYED: 'realm-deployed',
   REALM_TRIGGERED: 'realm-triggered',
   REALM_DAMAGED: 'realm-damaged',
@@ -97,7 +98,7 @@ export const GAME_EVENTS = Object.freeze({
   MATCH_FINISHED: 'match-finished',
 });
 
-export const GAME_STATE_VERSION = 13;
+export const GAME_STATE_VERSION = 14;
 
 const MAX_EVENT_CHAIN_LENGTH = 64;
 const MAX_RESOLUTION_STACK_LENGTH = 64;
@@ -161,6 +162,32 @@ function assertGameStateStructure(state) {
         throw new Error(`${label}的 ${unit.name ?? '角色'} 勾玉等级无效。`);
       }
       if (unit.hp > unit.maxHp) throw new Error(`${label}的 ${unit.name ?? '角色'} 生命超过上限。`);
+      // 觉醒与永久成长通道：拒绝伪造的被动替换与超限数值
+      const unitDefinition = getUnitDefinition(unit.id);
+      if (unit.awakened === true) {
+        if (!unitDefinition?.awakenedPassive || unit.passive?.id !== unitDefinition.awakenedPassive.id) {
+          throw new Error(`${label}的 ${unit.name ?? '角色'} 觉醒状态与角色定义不一致。`);
+        }
+      } else if (unitDefinition?.passive && unit.passive?.id != null && unit.passive.id !== unitDefinition.passive.id) {
+        throw new Error(`${label}的 ${unit.name ?? '角色'} 被动与角色定义不一致。`);
+      }
+      if (!Number.isInteger(unit.attackBonus) || unit.attackBonus < 0 || unit.attackBonus > 12) {
+        throw new Error(`${label}的 ${unit.name ?? '角色'} 攻击成长数值无效。`);
+      }
+      if (!Number.isInteger(unit.maxHpBonus) || unit.maxHpBonus < 0 || unit.maxHpBonus > 12) {
+        throw new Error(`${label}的 ${unit.name ?? '角色'} 生命成长数值无效。`);
+      }
+      const fusionAttack = Object.values(player.keywordUsage?.fusion?.units?.[unit.uid]?.cards ?? {})
+        .reduce((total, entry) => total + (Number.isInteger(entry?.attack) ? entry.attack : 0), 0);
+      if (unit.attack > unit.baseAttack + unit.attackBonus + (unit.form?.attackBonus ?? 0) + fusionAttack) {
+        throw new Error(`${label}的 ${unit.name ?? '角色'} 攻击数值超出定义上限。`);
+      }
+      if (unit.passiveAmp != null) {
+        if (!unit.passiveAmp || typeof unit.passiveAmp !== 'object' || Array.isArray(unit.passiveAmp)
+          || !Number.isInteger(unit.passiveAmp.aegisBonus) || unit.passiveAmp.aegisBonus < 0 || unit.passiveAmp.aegisBonus > 1) {
+          throw new Error(`${label}的 ${unit.name ?? '角色'} 被动增幅状态无效。`);
+        }
+      }
     });
   });
   const realmIds = new Set();
@@ -169,17 +196,22 @@ function assertGameStateStructure(state) {
       const definition = realm && getCardDefinition(realm.cardId);
       const realmDefinition = definition?.type === 'realm' ? definition.realm : null;
       const hasValidIdentity = typeof realm?.uid === 'string' && /^realm-\d+$/.test(realm.uid);
+      const durabilityBonus = realm?.durabilityBonus ?? 0;
+      const hasValidDurabilityBonus = Number.isInteger(durabilityBonus) && durabilityBonus >= 0 && durabilityBonus <= 2;
       const hasValidHealth = Number.isInteger(realm?.hp)
         && Number.isInteger(realm?.maxHp)
         && realm.hp > 0
         && realm.hp <= realm.maxHp
-        && realm.maxHp === realmDefinition?.hp;
+        && hasValidDurabilityBonus
+        && realm.maxHp === (realmDefinition?.hp ?? -1) + durabilityBonus;
       const matchesDefinition = realmDefinition
         && realm.unitId === definition.unitId
         && JSON.stringify(realm.keywords) === JSON.stringify(definition.keywords)
         && realm.trigger === realmDefinition.trigger
-        && realm.triggerEffect === realmDefinition.triggerEffect
-        && realm.triggerValue === realmDefinition.triggerValue;
+        && JSON.stringify(realm.triggerEffects ?? null) === JSON.stringify(realmDefinition.triggerEffects ?? null)
+        && (realmDefinition.triggerEffects
+          ? true
+          : realm.triggerEffect === realmDefinition.triggerEffect && realm.triggerValue === realmDefinition.triggerValue);
       if (!hasValidIdentity || realmIds.has(realm.uid) || !hasValidHealth || !matchesDefinition) {
         throw new Error('对局存档的幻境实例无效。');
       }
@@ -390,6 +422,11 @@ function createUnits(unitIds, ownerId) {
       frozen: 0,
       brittle: 0,
       unyielding: false,
+      // 非形态来源的永久成长通道（觉醒、狼王胄击杀、烹饪），形态与爆击加成在此基础上叠加
+      attackBonus: 0,
+      maxHpBonus: 0,
+      awakened: false,
+      passiveAmp: null,
       // 本家规则：角色初始 0 勾（未激活），首次升勾 0→1 后才可被选中/出击/使用其卡牌
       level: 0,
       form: null,
@@ -703,8 +740,8 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
   const defenderPlayerIndex = 1 - attackerPlayerIndex;
   const defenderPlayer = state.players[defenderPlayerIndex];
   const attacker = attackerPlayer.units[attackerUnitIndex];
-  if (!attacker || attacker.hp <= 0) return;
-  if (targetId?.startsWith('realm-') && !defenderPlayer.realms.some((realm) => realm.uid === targetId)) return;
+  if (!attacker || attacker.hp <= 0) return { killedUnit: false };
+  if (targetId?.startsWith('realm-') && !defenderPlayer.realms.some((realm) => realm.uid === targetId)) return { killedUnit: false };
   const preparedKeywords = preparePlayerCombatKeywords({
     state,
     playerIndex: attackerPlayerIndex,
@@ -787,7 +824,7 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
       remote,
       keywordBonuses,
     });
-    return;
+    return { killedUnit: false };
   }
 
   if (!defender || defenderIndex < 0) {
@@ -817,7 +854,7 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
       remote,
       keywordBonuses,
     });
-    return;
+    return { killedUnit: false };
   }
 
   const counterPower = defender.attack;
@@ -870,21 +907,42 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
     remote,
     keywordBonuses,
   });
+  return { killedUnit: defenderDown };
+}
+
+function recalcUnitStats(unit) {
+  const nextAttack = unit.baseAttack + (unit.attackBonus ?? 0) + (unit.form?.attackBonus ?? 0);
+  const nextMaxHp = unit.baseMaxHp + (unit.maxHpBonus ?? 0) + (unit.form?.hpBonus ?? 0);
+  const hpGain = nextMaxHp - unit.maxHp;
+  unit.attack = nextAttack;
+  unit.maxHp = nextMaxHp;
+  if (unit.hp > 0 && hpGain > 0) unit.hp += hpGain;
+  if (unit.hp > unit.maxHp) unit.hp = unit.maxHp;
+}
+
+// 永久成长通道（烹饪、觉醒、击杀成长）：不受后续形态切换覆盖
+function applyUnitGrowth(unit, { attack = 0, hp = 0 }) {
+  unit.attackBonus = (unit.attackBonus ?? 0) + attack;
+  unit.maxHpBonus = (unit.maxHpBonus ?? 0) + hp;
+  recalcUnitStats(unit);
 }
 
 function applyForm(state, playerIndex, sourceIndex, card) {
   const unit = state.players[playerIndex].units[sourceIndex];
   const bonuses = card.value ?? { attack: 0, hp: 0 };
   const damageTaken = Math.max(0, unit.maxHp - unit.hp);
-  unit.attack = unit.baseAttack + (bonuses.attack ?? 0);
-  unit.maxHp = unit.baseMaxHp + (bonuses.hp ?? 0);
-  unit.hp = unit.hp > 0 ? Math.max(1, unit.maxHp - damageTaken) : 0;
   unit.form = {
     cardId: card.id,
     name: card.name,
     attackBonus: bonuses.attack ?? 0,
     hpBonus: bonuses.hp ?? 0,
   };
+  // 被动增幅标记（苍狼王之相）：形态附带，永久生效
+  if (card.passiveAmp) unit.passiveAmp = { ...(unit.passiveAmp ?? {}), ...card.passiveAmp };
+  // 形态加成与永久成长叠加；保留当前已损伤势
+  unit.attack = unit.baseAttack + (unit.attackBonus ?? 0) + (bonuses.attack ?? 0);
+  unit.maxHp = unit.baseMaxHp + (unit.maxHpBonus ?? 0) + (bonuses.hp ?? 0);
+  unit.hp = unit.hp > 0 ? Math.max(1, unit.maxHp - damageTaken) : 0;
   recordEvent(
     state,
     GAME_EVENTS.FORM_CHANGED,
@@ -905,6 +963,8 @@ function deployRealm(state, playerIndex, card) {
     keywords: [...card.keywords],
     ...clone(card.realm),
     maxHp: card.realm.hp,
+    // 墨守万相觉醒后的部署耐久加成（存档校验限 0..2）
+    durabilityBonus: 0,
   };
   const existingIndex = player.realms.findIndex((candidate) => candidate.cardId === card.id);
   if (existingIndex >= 0) player.realms[existingIndex] = realm;
@@ -919,23 +979,30 @@ function deployRealm(state, playerIndex, card) {
 }
 
 const REALM_TRIGGER_HANDLERS = new Map([
-  ['shield-front', (state, ownerIndex, realm) => {
+  ['shield-all-allies', (state, ownerIndex, realm, value) => {
+    const owner = state.players[ownerIndex];
+    const targets = owner.units.filter((unit) => unit.hp > 0);
+    if (targets.length === 0) return;
+    targets.forEach((unit) => { unit.shield += value; });
+    recordEvent(state, GAME_EVENTS.REALM_TRIGGERED, { ownerIndex, cardId: realm.cardId, targets: targets.length }, `${realm.name} 为 ${targets.length} 名己方角色提供 ${value} 点护盾。`, 'success');
+  }],
+  ['shield-front', (state, ownerIndex, realm, value) => {
     const owner = state.players[ownerIndex];
     const frontIndex = frontIndexOf(owner);
     if (frontIndex < 0) return;
-    owner.units[frontIndex].shield += realm.triggerValue;
-    recordEvent(state, GAME_EVENTS.REALM_TRIGGERED, { ownerIndex, cardId: realm.cardId, unitIndex: frontIndex }, `${realm.name} 为 ${owner.units[frontIndex].name} 提供 ${realm.triggerValue} 点护盾。`, 'success');
+    owner.units[frontIndex].shield += value;
+    recordEvent(state, GAME_EVENTS.REALM_TRIGGERED, { ownerIndex, cardId: realm.cardId, unitIndex: frontIndex }, `${realm.name} 为 ${owner.units[frontIndex].name} 提供 ${value} 点护盾。`, 'success');
   }],
-  ['damage-enemy-front', (state, ownerIndex, realm) => {
+  ['damage-enemy-front', (state, ownerIndex, realm, value) => {
     const enemyIndex = 1 - ownerIndex;
     const frontIndex = frontIndexOf(state.players[enemyIndex]);
     if (frontIndex < 0) return;
     recordEvent(state, GAME_EVENTS.REALM_TRIGGERED, { ownerIndex, cardId: realm.cardId, targetIndex: frontIndex }, `${realm.name} 引动前线雷压。`, 'card');
-    damageUnit(state, enemyIndex, frontIndex, realm.triggerValue, ownerIndex);
+    damageUnit(state, enemyIndex, frontIndex, value, ownerIndex);
   }],
-  ['draw', (state, ownerIndex, realm) => {
+  ['draw', (state, ownerIndex, realm, value) => {
     recordEvent(state, GAME_EVENTS.REALM_TRIGGERED, { ownerIndex, cardId: realm.cardId }, `${realm.name} 翻开一页新的战术记录。`, 'card');
-    drawCards(state, ownerIndex, realm.triggerValue);
+    drawCards(state, ownerIndex, value);
   }],
 ]);
 
@@ -947,7 +1014,13 @@ function triggerRealms(state, playerIndex, trigger) {
     if (realm.trigger !== trigger || state.winner !== null) return;
     const keywordContext = { state, playerIndex, realm, recordEvent, gameEvents: GAME_EVENTS };
     if (!prepareRealmKeywordTrigger(keywordContext)) return;
-    REALM_TRIGGER_HANDLERS.get(realm.triggerEffect)?.(state, playerIndex, realm);
+    // 多效果幻境（墨海无量）：triggerEffects 按序结算；单效果幻境沿用 triggerEffect/triggerValue
+    const subEffects = Array.isArray(realm.triggerEffects)
+      ? realm.triggerEffects
+      : [{ effect: realm.triggerEffect, value: realm.triggerValue }];
+    subEffects.forEach((sub) => {
+      REALM_TRIGGER_HANDLERS.get(sub.effect)?.(state, playerIndex, realm, sub.value ?? realm.triggerValue);
+    });
     completeRealmKeywordTrigger(keywordContext);
   });
 }
@@ -1350,11 +1423,26 @@ const EFFECT_HANDLERS = new Map([
     canPlay: ({ source }) => (source.frozen > 0
       ? { playable: false, code: 'frozen', reason: `${source.name}被眩晕，无法发动战斗牌。` }
       : null),
-    resolve: ({ state, playerIndex, source, sourceIndex, card, effect, targetId }) => resolveCombat(state, playerIndex, sourceIndex, {
-      bonus: effect.value ?? card.value,
-      targetId,
-      ...getKeywordCombatOptions({ state, playerIndex, player: state.players[playerIndex], source, card, effect }),
-    }),
+    resolve: ({ state, player, playerIndex, source, sourceIndex, card, effect, targetId }) => {
+      let bonus = (effect.value ?? card.value) ?? 0;
+      // 护盾门槛加成（怒罗汉崩山）：防御经济转化为爆发
+      const threshold = card.combatOption?.shieldThreshold;
+      if (Number.isInteger(threshold) && source.shield >= threshold) {
+        bonus += card.combatOption.bonusAttack ?? 0;
+      }
+      const result = resolveCombat(state, playerIndex, sourceIndex, {
+        bonus,
+        targetId,
+        ...getKeywordCombatOptions({ state, playerIndex, player: state.players[playerIndex], source, card, effect }),
+      });
+      // 击杀后撤（孤狼一闪）：击倒目标则撤回准备区并带回护盾
+      const onKill = card.afterCombat?.onKill === 'return-to-reserve' ? (card.afterCombat.shield ?? 0) : 0;
+      if (onKill > 0 && result?.killedUnit && state.winner === null && source.hp > 0) {
+        player.frontUnitId = null;
+        source.shield += onKill;
+        recordEvent(state, GAME_EVENTS.UNIT_RETURNED, { playerIndex, unitId: source.uid, source: 'on-kill-return' }, `${source.name} 击倒目标后飘然撤回准备区，获得 ${onKill} 点护盾。`, 'success');
+      }
+    },
   }],
   ['damage', {
     resolve: ({ state, enemyIndex, targetUnitIndex, card, playerIndex, effect }) => {
@@ -1390,18 +1478,23 @@ const EFFECT_HANDLERS = new Map([
     },
   }],
   ['shield', {
-    resolve: ({ state, player, playerIndex, targetUnitIndex, targetId, card, effect }) => {
+    resolve: ({ state, player, playerIndex, sourceIndex, targetUnitIndex, targetId, card, effect }) => {
       const amount = effect.value ?? card.value;
-      player.units[targetUnitIndex].shield += amount;
-      recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, targetId, effect: 'shield' }, `${player.units[targetUnitIndex].name} 获得 ${amount} 点护盾。`, 'success');
+      const targets = effectAllyTargets(player, effect, sourceIndex, targetUnitIndex);
+      targets.forEach((target) => {
+        if (!target || target.hp <= 0) return;
+        target.shield += amount;
+        recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, targetId, effect: 'shield' }, `${target.name} 获得 ${amount} 点护盾。`, 'success');
+      });
     },
   }],
   ['grant-unyielding', {
-    resolve: ({ state, player, playerIndex, targetUnitIndex, targetId }) => {
-      const target = player.units[targetUnitIndex];
-      if (!target || target.hp <= 0 || target.unyielding) return;
-      target.unyielding = true;
-      recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, targetId, effect: 'grant-unyielding' }, `${target.name} 获得不屈：生命大于 1 时不会因伤害气绝。`, 'success');
+    resolve: ({ state, player, playerIndex, sourceIndex, targetUnitIndex, targetId, effect }) => {
+      effectAllyTargets(player, effect ?? { target: 'selected-ally' }, sourceIndex, targetUnitIndex).forEach((target) => {
+        if (!target || target.hp <= 0 || target.unyielding) return;
+        target.unyielding = true;
+        recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, targetId, effect: 'grant-unyielding' }, `${target.name} 获得不屈：生命大于 1 时不会因伤害气绝。`, 'success');
+      });
     },
   }],
   ['fortify', {
@@ -1415,7 +1508,11 @@ const EFFECT_HANDLERS = new Map([
     },
   }],
   ['heal', {
-    resolve: ({ state, playerIndex, targetUnitIndex, card, effect }) => healUnit(state, playerIndex, targetUnitIndex, effect.value ?? card.value),
+    resolve: ({ state, player, playerIndex, sourceIndex, targetUnitIndex, card, effect }) => {
+      const amount = effect.value ?? card.value;
+      effectAllyTargets(player, effect, sourceIndex, targetUnitIndex)
+        .forEach((target) => { if (target) healUnit(state, playerIndex, player.units.indexOf(target), amount); });
+    },
   }],
   ['draw-heal', {
     resolve: ({ state, player, playerIndex, card }) => {
@@ -1429,9 +1526,37 @@ const EFFECT_HANDLERS = new Map([
   }],
   ['freeze', {
     resolve: ({ state, enemyIndex, targetUnitIndex, targetId, effect }) => {
+      const amount = effect.value ?? 1;
+      if (effect.target === 'all-enemy-units') {
+        state.players[enemyIndex].units.forEach((target) => {
+          if (target.hp <= 0) return;
+          target.frozen = Math.max(amount, target.frozen);
+          recordEvent(state, GAME_EVENTS.CARD_PLAYED, { enemyIndex, targetId: target.uid, effect: 'freeze' }, `${target.name} 被眩晕。`, 'card');
+        });
+        return;
+      }
       const target = state.players[enemyIndex].units[targetUnitIndex];
-      target.frozen = Math.max(effect.value ?? 1, target.frozen);
+      target.frozen = Math.max(amount, target.frozen);
       recordEvent(state, GAME_EVENTS.CARD_PLAYED, { enemyIndex, targetId, effect: 'freeze' }, `${target.name} 被眩晕。`, 'card');
+    },
+  }],
+  ['awaken', {
+    canPlay: ({ source }) => (source.awakened === true
+      ? { playable: false, code: 'awakened', reason: `${source.name} 已经完成过觉醒。` }
+      : null),
+    resolve: ({ state, playerIndex, source, sourceIndex, card, effect }) => {
+      const definition = getUnitDefinition(card.unitId);
+      const awakened = definition?.awakenedPassive;
+      if (!awakened || source.awakened === true) return;
+      source.awakened = true;
+      source.passive = clone(awakened);
+      source.passiveUsage = {};
+      applyUnitGrowth(source, { attack: effect.value?.attack ?? 1, hp: effect.value?.hp ?? 1 });
+      if (effect.value?.grantUnyielding && source.unyielding !== true) {
+        source.unyielding = true;
+        recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, unitId: source.uid, effect: 'grant-unyielding' }, `${source.name} 获得不屈：生命大于 1 时不会因伤害气绝。`, 'success');
+      }
+      recordEvent(state, GAME_EVENTS.UNIT_AWAKENED, { playerIndex, unitIndex: sourceIndex, unitId: source.uid, passiveId: awakened.id }, `${source.name} 觉醒！被动升级为「${awakened.name}」。`, 'success');
     },
   }],
   ['brittle', {
@@ -1537,9 +1662,7 @@ const EFFECT_HANDLERS = new Map([
       usage.herb -= 1;
       player.units.forEach((unit) => {
         if (unit.hp <= 0) return;
-        unit.attack += 1;
-        unit.maxHp += 1;
-        unit.hp += 1;
+        applyUnitGrowth(unit, { attack: 1, hp: 1 });
       });
       recordEvent(state, GAME_EVENTS.KEYWORD_STATE_GAINED, { playerIndex, keywordId: 'cook', effect: 'cook-complete' }, '食材集齐，一席灵宴完成：全体己方角色 +1/+1。', 'success');
     },
@@ -1574,6 +1697,16 @@ const EFFECT_HANDLERS = new Map([
     },
   }],
 ]);
+
+// 群体/来源目标解析：返回受效果影响的友方单位列表（选定目标回退到 targetUnitIndex）
+function effectAllyTargets(player, effect, sourceIndex, targetUnitIndex) {
+  if (effect?.target === 'source') return [player.units[sourceIndex]];
+  if (effect?.target === 'all-ally-units') return player.units.filter((unit) => unit.hp > 0);
+  if (effect?.target === 'all-other-allies') {
+    return player.units.filter((unit, index) => unit.hp > 0 && index !== sourceIndex);
+  }
+  return [player.units[targetUnitIndex]];
+}
 
 function createCardResolutionFrames(state, playerIndex, instanceId, card, targetId, options = {}) {
   const resolutionId = state.nextResolutionId;
@@ -1670,6 +1803,7 @@ function resolveCardCompleteFrame(state, frame) {
       definitionId: card.id,
       targetId: frame.targetId,
       sourceUnitId: player.units[sourceIndex]?.uid ?? null,
+      cardType: card.type,
       resolutionId: frame.resolutionId,
       isHolo: frame.isHolo === true,
     },
@@ -1792,7 +1926,14 @@ const PASSIVE_HANDLERS = new Map([
     resolve: ({ state, playerIndex, hook }) => {
       const enemyIndex = 1 - playerIndex;
       const frontIndex = frontIndexOf(state.players[enemyIndex]);
-      if (frontIndex >= 0) damageUnit(state, enemyIndex, frontIndex, hook.params.amount, playerIndex);
+      if (frontIndex >= 0) {
+        damageUnit(state, enemyIndex, frontIndex, hook.params.amount, playerIndex);
+        return;
+      }
+      // 烬燃冲锋：敌方前线无人时改烧核心
+      if (hook.params.fallbackAvatar === true && state.winner === null) {
+        damageAvatar(state, enemyIndex, hook.params.amount, playerIndex);
+      }
     },
   }],
   ['passive-shield-self-if-front', {
@@ -1809,7 +1950,8 @@ const PASSIVE_HANDLERS = new Map([
       && event.payload.attackerUnitId === unit.uid
       && !event.payload.remote,
     resolve: ({ hook, unit }) => {
-      unit.shield += hook.params.amount;
+      // 苍狼王之相的 aegisBonus 与刃胄/狼王胄叠加
+      unit.shield += hook.params.amount + (unit.passiveAmp?.aegisBonus ?? 0);
     },
   }],
   ['passive-heal-self-if-front', {
@@ -1858,6 +2000,96 @@ const PASSIVE_HANDLERS = new Map([
       if (frontIndex >= 0) state.players[playerIndex].units[frontIndex].shield += hook.params.amount;
     },
   }],
+  // ===== 觉醒被动（P2/P3/P4/P5/P6/P7/P8）=====
+  ['passive-shield-self-heal-avatar-if-front', {
+    canTrigger: ({ event, playerIndex, player, unit }) => event.type === GAME_EVENTS.TURN_STARTED
+      && event.payload.playerIndex === playerIndex
+      && player.frontUnitId === unit.uid
+      && unit.hp > 0,
+    resolve: ({ state, playerIndex, hook, unit }) => {
+      unit.shield += hook.params.amount;
+      healAvatar(state, playerIndex, hook.params.avatarHeal ?? 0);
+    },
+  }],
+  ['passive-heal-draw-avatar-on-own-card', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.CARD_PLAYED
+      && event.payload.playerIndex === playerIndex
+      && event.payload.sourceUnitId === unit.uid,
+    resolve: ({ state, playerIndex, hook, event }) => {
+      healAvatar(state, playerIndex, hook.params.amount);
+      if (event.payload.cardType === 'spell' && (hook.params.spellDraw ?? 0) > 0 && state.winner === null) {
+        drawCards(state, playerIndex, hook.params.spellDraw);
+      }
+    },
+  }],
+  ['passive-freeze-brittle-combat-defender', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex === playerIndex
+      && event.payload.attackerUnitId === unit.uid
+      && event.payload.defenderSurvived,
+    resolve: ({ state, event, hook }) => {
+      const defender = state.players[event.payload.defenderPlayerIndex].units
+        .find((candidate) => candidate.uid === event.payload.defenderUnitId);
+      if (defender?.hp <= 0 || !defender) return;
+      defender.frozen = Math.max(hook.params.turns, defender.frozen);
+      defender.brittle = Math.max(defender.brittle, hook.params.brittle ?? 0);
+    },
+  }],
+  ['passive-gain-charge-after-combat', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex === playerIndex
+      && event.payload.attackerUnitId === unit.uid,
+    resolve: ({ state, playerIndex, player, hook, unit }) => {
+      const resource = player.keywordUsage?.charge?.units?.[unit.uid];
+      if (!resource) return;
+      const before = resource.current;
+      resource.current = Math.min(resource.max, before + hook.params.amount);
+      if (resource.current > before) {
+        recordEvent(state, GAME_EVENTS.KEYWORD_RESOURCE_GAINED, { playerIndex, unitId: unit.uid, keywordId: 'charge', gained: resource.current - before, current: resource.current, max: resource.max }, `${unit.name} 疾风蓄势，获得 ${resource.current - before} 点充能（${resource.current}/${resource.max}）。`, 'success');
+      }
+    },
+  }],
+  ['passive-shield-front-boost-realm-on-realm', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.REALM_DEPLOYED
+      && event.payload.playerIndex === playerIndex,
+    resolve: ({ state, playerIndex, hook, event }) => {
+      const frontIndex = frontIndexOf(state.players[playerIndex]);
+      if (frontIndex >= 0) state.players[playerIndex].units[frontIndex].shield += hook.params.amount;
+      const realmUid = event.payload.realm?.uid;
+      const realm = state.players[playerIndex].realms.find((candidate) => candidate.uid === realmUid);
+      if (realm && (hook.params.realmBonus ?? 0) > 0) {
+        realm.durabilityBonus = (realm.durabilityBonus ?? 0) + hook.params.realmBonus;
+        realm.maxHp += hook.params.realmBonus;
+        realm.hp += hook.params.realmBonus;
+      }
+    },
+  }],
+  ['passive-growth-attack-on-kill', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex === playerIndex
+      && event.payload.attackerUnitId === unit.uid
+      && event.payload.defenderUnitId != null
+      && event.payload.defenderSurvived === false,
+    resolve: ({ state, playerIndex, hook, unit }) => {
+      if (unit.hp <= 0) return;
+      applyUnitGrowth(unit, { attack: hook.params.amount });
+      recordEvent(state, GAME_EVENTS.KEYWORD_STATE_GAINED, { playerIndex, unitId: unit.uid, effect: 'wolf-king-growth' }, `${unit.name} 噬敌成长，攻击 +${hook.params.amount}。`, 'success');
+    },
+  }],
+  ['passive-heal-shield-self-if-front', {
+    canTrigger: ({ event, playerIndex, player, unit }) => event.type === GAME_EVENTS.TURN_STARTED
+      && event.payload.playerIndex === playerIndex
+      && player.frontUnitId === unit.uid
+      && unit.hp > 0,
+    resolve: ({ state, playerIndex, hook, unit }) => {
+      const healed = Math.min(hook.params.amount, unit.maxHp - unit.hp);
+      if (healed > 0) {
+        unit.hp += healed;
+        recordEvent(state, GAME_EVENTS.UNIT_HEALED, { playerIndex, unitId: unit.uid, healed }, `${unit.name} 金身自愈 ${healed} 点生命。`, 'success');
+      }
+      unit.shield += hook.params.shield ?? 0;
+    },
+  }],
 ]);
 
 function dispatchPassiveHooks(state, event) {
@@ -1899,12 +2131,14 @@ export function validateContentCatalog() {
     'selected-ally',
     'selected-enemy',
     'all-enemy-units',
+    'all-ally-units',
+    'all-other-allies',
     'enemy-avatar',
     'ally-player',
     'ally-avatar',
   ]);
   const knownEvents = new Set(Object.values(GAME_EVENTS));
-  const knownRarities = new Set(['common', 'rare', 'epic']);
+  const knownRarities = new Set(['common', 'rare', 'epic', 'ssr']);
   const knownTimings = new Set(['main', 'response']);
   const knownRealmTriggers = new Set(['owner-turn-start']);
   const cardIds = new Set();
@@ -1922,12 +2156,22 @@ export function validateContentCatalog() {
       errors.push(`${unit.name} 缺少被动定义。`);
     }
     errors.push(...validateUnitKeywordConfiguration(unit));
-    if (passiveIds.has(unit.passive?.id)) errors.push(`${unit.name} 使用了重复的被动 ID。`);
-    if (unit.passive?.id) passiveIds.add(unit.passive.id);
-    unit.passive?.hooks?.forEach((hook) => {
-      if (!knownEvents.has(hook.event)) errors.push(`${unit.name} 的被动使用了未知事件 ${hook.event}。`);
-      if (!PASSIVE_HANDLERS.has(hook.effect)) errors.push(`${unit.name} 的被动使用了未注册效果 ${hook.effect}。`);
+    [unit.passive, unit.awakenedPassive].forEach((passive) => {
+      if (!passive) return;
+      if (passiveIds.has(passive.id)) errors.push(`${unit.name} 使用了重复的被动 ID。`);
+      passiveIds.add(passive.id);
+      passive.hooks?.forEach((hook) => {
+        if (!knownEvents.has(hook.event)) errors.push(`${unit.name} 的被动使用了未知事件 ${hook.event}。`);
+        if (!PASSIVE_HANDLERS.has(hook.effect)) errors.push(`${unit.name} 的被动使用了未注册效果 ${hook.effect}。`);
+      });
     });
+    if (!unit.awakenedPassive) {
+      errors.push(`${unit.name} 缺少觉醒被动定义。`);
+    }
+    const awakeningCards = unitCards.filter((candidate) => candidate.type === 'awakening');
+    if (awakeningCards.length !== 1) errors.push(`${unit.name} 必须恰好有 1 张觉醒牌，当前 ${awakeningCards.length} 张。`);
+    const ssrCards = unitCards.filter((candidate) => candidate.rarity === 'ssr');
+    if (ssrCards.length !== 2) errors.push(`${unit.name} 必须恰好有 2 张 SSR，当前 ${ssrCards.length} 张。`);
   });
   CARD_DEFINITIONS.forEach((card) => {
     if (cardIds.has(card.id)) errors.push(`卡牌 ID ${card.id} 重复。`);
@@ -1955,8 +2199,16 @@ export function validateContentCatalog() {
     if (card.type === 'realm') {
       if (!Number.isInteger(card.realm?.hp) || card.realm.hp <= 0) errors.push(`${card.name} 的幻境耐久无效。`);
       if (!knownRealmTriggers.has(card.realm?.trigger)) errors.push(`${card.name} 使用了未知幻境触发时机 ${card.realm?.trigger}。`);
-      if (!REALM_TRIGGER_HANDLERS.has(card.realm?.triggerEffect)) errors.push(`${card.name} 使用了未注册幻境效果 ${card.realm?.triggerEffect}。`);
-      if (!Number.isFinite(card.realm?.triggerValue) || card.realm.triggerValue < 0) errors.push(`${card.name} 的幻境触发数值无效。`);
+      if (Array.isArray(card.realm?.triggerEffects)) {
+        // 多效果幻境（墨海无量）：逐项校验；不再要求单数 triggerEffect
+        card.realm.triggerEffects.forEach((sub) => {
+          if (!REALM_TRIGGER_HANDLERS.has(sub.effect)) errors.push(`${card.name} 的多效果幻境使用了未注册效果 ${sub.effect}。`);
+          if (!Number.isFinite(sub.value) || sub.value < 0) errors.push(`${card.name} 的多效果幻境数值无效。`);
+        });
+      } else {
+        if (!REALM_TRIGGER_HANDLERS.has(card.realm?.triggerEffect)) errors.push(`${card.name} 使用了未注册幻境效果 ${card.realm?.triggerEffect}。`);
+        if (!Number.isFinite(card.realm?.triggerValue) || card.realm.triggerValue < 0) errors.push(`${card.name} 的幻境触发数值无效。`);
+      }
     }
     if (card.timing === 'response' && !card.keywords.includes(CARD_KEYWORDS.RESPONSE)) {
       errors.push(`${card.name} 的响应牌必须声明响应关键词。`);
@@ -1966,8 +2218,16 @@ export function validateContentCatalog() {
     }
     errors.push(...validateCardKeywordConfiguration(card, getUnitDefinition(card.unitId)));
     if (card.copies > GAME_RULES.copiesPerCard) errors.push(`${card.name} 的同名上限超出规则。`);
+    if (!Number.isInteger(card.deckLimit) || card.deckLimit < 1 || card.deckLimit > card.copies) {
+      errors.push(`${card.name} 的牌组同名上限不合法。`);
+    }
     if (card.starterCopies < 0 || card.starterCopies > card.copies) errors.push(`${card.name} 的起始牌组数量不合法。`);
     if (card.cost < 0 || card.cost > GAME_RULES.maxEnergy) errors.push(`${card.name} 的鬼火消耗不合法。`);
+    if (card.type === 'awakening') {
+      if (card.effect !== 'awaken') errors.push(`${card.name} 觉醒牌只能包含 awaken 动作。`);
+      if (card.rarity === 'ssr') errors.push(`${card.name} 觉醒牌不应使用传说稀有度。`);
+    }
+    if (card.rarity === 'ssr' && card.starterCopies > 0) errors.push(`${card.name} 的 SSR 不应进入默认构筑。`);
   });
   return { valid: errors.length === 0, errors };
 }
