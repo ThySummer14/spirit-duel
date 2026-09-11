@@ -177,21 +177,20 @@ test('awakened state survives serialization; forged passive is rejected', () => 
   assert.throws(() => deserializeGame(JSON.stringify(forgedArt)), /觉醒头像与角色定义不一致/);
 });
 
-test('form resonance heals every surviving ally to full without reviving the fallen', () => {
+test('form card fully heals its source only, not allies or the fallen', () => {
   let state = createGame({ seed: 918 });
   setLevel(state, 0, 'basalt', 2);
-  const woundedA = unit(state, 0, 'ember');
-  const woundedB = unit(state, 0, 'lumen');
+  const allyWounded = unit(state, 0, 'ember');
+  const selfWounded = unit(state, 0, 'basalt');
   const fallen = unit(state, 0, 'rime');
-  woundedA.hp = 2;
-  woundedB.hp = 1;
+  allyWounded.hp = 2;
+  selfWounded.hp = 1;
   fallen.hp = 0; // 气绝者不回
 
   state = play(state, 0, 'bastion-form'); // 山门之相：+4 生命上限
 
-  assert.equal(unit(state, 0, 'basalt').hp, unit(state, 0, 'basalt').maxHp, '自身回满到新上限');
-  assert.equal(unit(state, 0, 'ember').hp, unit(state, 0, 'ember').maxHp);
-  assert.equal(unit(state, 0, 'lumen').hp, unit(state, 0, 'lumen').maxHp);
+  assert.equal(unit(state, 0, 'basalt').hp, unit(state, 0, 'basalt').maxHp, '该角色应回满到新上限');
+  assert.equal(unit(state, 0, 'ember').hp, 2, '形态共鸣不应波及其他角色');
   assert.equal(unit(state, 0, 'rime').hp, 0, '形态共鸣不复活气绝角色');
   assert.ok(hasLog(state, '形态共鸣'));
 });

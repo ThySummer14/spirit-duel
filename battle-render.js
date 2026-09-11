@@ -1,11 +1,11 @@
-import { canUpgradeUnit } from './game-presentation.js?v=e4daa5a4';
+import { canUpgradeUnit } from './game-presentation.js?v=0a4691ae';
 /** 战斗 DOM 表现层；状态由 ctx 动态读取，操作继续委托现有 app/game-core 路径。 */
 import { GAME_RULES, getCardDefinition, getValidTargets, getValidCombatTargets,
   isUpgradePending, getUnitKeywordStatuses, getKeywordStatusText, getFormation,
   getUnitDefinition, getCardPlayability, getEffectiveCardCost, getCardArt,
-  getKeywordCostReductionLabel, canMulligan, canPlayCard } from './game-core.js?v=e4daa5a4';
-import { gameAudio } from './game-audio.js?v=e4daa5a4';
-import { holoLayers } from './card-holo.js?v=e4daa5a4';
+  getKeywordCostReductionLabel, canMulligan, canPlayCard } from './game-core.js?v=0a4691ae';
+import { gameAudio } from './game-audio.js?v=0a4691ae';
+import { holoLayers } from './card-holo.js?v=0a4691ae';
 
 export function createBattleRenderer(ctx) {
   const { nodes, selectionTarget, currentSelectedCard, frontUidOf, unitByUid, makeStatus, handleUnitClick, startCardTargeting, markDropZones, endTargeting, clearDropZones, performBasicAttack, openRealmPreview, handleRealmClick, getDragTargetMode, markCardDropZones, handleCardClick } = ctx;

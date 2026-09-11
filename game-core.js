@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=e4daa5a4';
+} from './game-content.js?v=0a4691ae';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=e4daa5a4';
+} from './game-keywords.js?v=0a4691ae';
 
 export {
   CARD_DEFINITIONS,
@@ -45,7 +45,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=e4daa5a4';
+} from './game-content.js?v=0a4691ae';
 
 export {
   CARD_KEYWORDS,
@@ -56,7 +56,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=e4daa5a4';
+} from './game-keywords.js?v=0a4691ae';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -1816,21 +1816,17 @@ function resolveCardCompleteFrame(state, frame) {
     `${player.name} 使用「${card.name}」。`,
     'card',
   );
-  // 形态共鸣：形态牌结算完毕时，己方全体存活角色恢复全部生命（不走响应管线，避免改变出牌时序）
+  // 形态共鸣：形态牌结算完毕时，该角色恢复全部生命（不走响应管线，避免改变出牌时序）
   if (card.type === 'form' && state.winner === null) {
-    const healed = [];
-    player.units.forEach((candidate, index) => {
-      if (candidate.hp > 0 && candidate.hp < candidate.maxHp) {
-        healUnit(state, frame.playerIndex, index, candidate.maxHp);
-        healed.push(candidate.name);
-      }
-    });
-    if (healed.length > 0) {
+    const sourceIndex = sourceUnitFor(player, card);
+    const source = player.units[sourceIndex];
+    if (source && source.hp > 0 && source.hp < source.maxHp) {
+      healUnit(state, frame.playerIndex, sourceIndex, source.maxHp);
       recordEvent(
         state,
         GAME_EVENTS.FORM_CHANGED,
-        { playerIndex: frame.playerIndex, resonance: true, healed: healed.length },
-        `形态共鸣：${healed.join('、')} 恢复全部生命。`,
+        { playerIndex: frame.playerIndex, resonance: true, unitId: source.uid },
+        `形态共鸣：${source.name} 恢复全部生命。`,
         'success',
       );
     }

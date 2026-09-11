@@ -553,7 +553,7 @@ test('fusion stacks declared bonuses and blocks the same fusion card at its cap'
   const fused = state.players[0].units.find((unit) => unit.id === 'storm');
   assert.equal(fused.attack, 5);
   assert.equal(fused.maxHp, 10);
-  assert.equal(fused.hp, 10, '形态共鸣：融合形态牌也应触发全体回满');
+  assert.equal(fused.hp, 10, '形态共鸣：融合形态牌每次使用都应把来源角色回满');
   assert.equal(fused.fusion.stacks, 2);
   assert.equal(getCardPlayability(state, 0, third.instanceId).code, 'fusion-max');
   assert.match(getCardPlayability(state, 0, third.instanceId).reason, /2 层融合上限/);

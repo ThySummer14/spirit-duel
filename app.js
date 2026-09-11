@@ -1,5 +1,5 @@
-import { createBattleRenderer } from './battle-render.js?v=e4daa5a4';
-import { createBattleFx } from './battle-fx.js?v=e4daa5a4';
+import { createBattleRenderer } from './battle-render.js?v=0a4691ae';
+import { createBattleFx } from './battle-fx.js?v=0a4691ae';
 import {
   DEFAULT_PLAYER_LINEUP,
   GAME_RULES,
@@ -28,9 +28,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=e4daa5a4';
-import { chooseAiCommand } from './game-ai.js?v=e4daa5a4';
-import { gameAudio } from './game-audio.js?v=e4daa5a4';
+} from './game-core.js?v=0a4691ae';
+import { chooseAiCommand } from './game-ai.js?v=0a4691ae';
+import { gameAudio } from './game-audio.js?v=0a4691ae';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -43,26 +43,26 @@ import {
   ownedCopies,
   ownedHoloCopies,
   serializeCollection,
-} from './game-collection.js?v=e4daa5a4';
+} from './game-collection.js?v=0a4691ae';
 import {
   canUpgradeUnit,
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=e4daa5a4';
+} from './game-presentation.js?v=0a4691ae';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=e4daa5a4';
+} from './game-session.js?v=0a4691ae';
 import {
   holoLayers,
   holoSheenMarkup,
   initCollectionHolo,
   initPreviewHolo,
   initRevealHolo,
-} from './card-holo.js?v=e4daa5a4';
+} from './card-holo.js?v=0a4691ae';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';

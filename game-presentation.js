@@ -1,4 +1,4 @@
-import { GAME_EVENTS, levelUpUnit } from './game-core.js?v=e4daa5a4';
+import { GAME_EVENTS, levelUpUnit } from './game-core.js?v=0a4691ae';
 
 export function captureBattleSnapshot(state) {
   return {
