@@ -46,10 +46,12 @@
   --type-spell: #64aed8;
   --type-form: #c9a45e;
   --type-realm: #9d82d4;
+  --type-awakening: #e8c76a;
   /* 稀有度 */
   --rarity-common: #8b93b8;
   --rarity-rare: #5fa8d6;
   --rarity-epic: #c98fe8;
+  --rarity-ssr: #f0c869;
   /* 字体 */
   --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
   --font-display: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
@@ -1684,6 +1686,8 @@ body.is-dragging .unit-inspect { opacity: 0 !important; visibility: hidden !impo
 .hand-card[data-card-type="spell"] { --card-accent: var(--type-spell); }
 .hand-card[data-card-type="form"] { --card-accent: var(--type-form); }
 .hand-card[data-card-type="realm"] { --card-accent: var(--type-realm); }
+.hand-card[data-card-type="awakening"] { --card-accent: var(--type-awakening); }
+.hand-card[data-rarity="ssr"] { border-color: rgb(240 200 105 / 0.55); box-shadow: 0 0 12px rgb(240 200 105 / 0.18), 0 8px 22px rgb(0 0 0 / 0.35); }
 /* 类型顶缘造型：圆角近似，绝不用 clip-path */
 .hand-card[data-card-type="combat"] .card-body {
   border-top: 2px solid color-mix(in srgb, var(--card-accent) 75%, transparent);
@@ -1701,6 +1705,12 @@ body.is-dragging .unit-inspect { opacity: 0 !important; visibility: hidden !impo
 }
 .hand-card[data-card-type="realm"] .card-body {
   border-top: 2px solid color-mix(in srgb, var(--card-accent) 55%, transparent);
+}
+/* 觉醒牌：金色顶缘 + 双斜角，区别于形态的圆拱 */
+.hand-card[data-card-type="awakening"] .card-body {
+  border-top: 2px solid color-mix(in srgb, var(--card-accent) 85%, transparent);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 16px;
 }
 /* 内衬发丝线 */
 .hand-card:not(.is-blocked) .card-body::before {
@@ -1897,6 +1907,8 @@ html[data-theme="day"] .instant-badge { background: rgb(240 250 242 / 0.95); col
 .hand-preview-card[data-card-type="spell"] { --card-accent: var(--type-spell); }
 .hand-preview-card[data-card-type="form"] { --card-accent: var(--type-form); }
 .hand-preview-card[data-card-type="realm"] { --card-accent: var(--type-realm); }
+.hand-preview-card[data-card-type="awakening"] { --card-accent: var(--type-awakening); }
+.awakened-badge { display: inline-block; margin-right: 6px; padding: 1px 7px; border: 1px solid rgb(232 199 106 / 0.7); border-radius: 999px; color: #e8c76a; font-style: normal; font-size: 11px; vertical-align: 2px; }
 .hand-preview-card .card-art { position: absolute; inset: 0 0 46% 0; overflow: hidden; }
 .hand-preview-card .card-art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%; }
 .hand-preview-card .card-art::after {

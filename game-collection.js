@@ -9,37 +9,39 @@
  * - 偏好由 app.js 负责持久化到 localStorage
  */
 
-import { CARD_DEFINITIONS } from './game-content.js?v=048ffabb';
+import { CARD_DEFINITIONS } from './game-content.js?v=27739295';
 
 export const COLLECTION_RULES = Object.freeze({
-  version: 2,
+  version: 3,
   packSize: 5,
   packCost: 100,
   startingBalance: 300,
   holoChance: 0.08,
-  // 与《百闻牌》秘闻卷一致的稀有度分布
-  rarityWeights: Object.freeze({ common: 0.6, rare: 0.345, epic: 0.055 }),
+  // 与《百闻牌》秘闻卷一致的稀有度分布；v3 新增传说（SSR）档
+  rarityWeights: Object.freeze({ common: 0.585, rare: 0.33, epic: 0.06, ssr: 0.025 }),
   pityLimit: 25,
+  ssrPityLimit: 40,
   maxCopies: 2,
   winReward: 50,
   lossReward: 20,
-  dupeValue: Object.freeze({ common: 5, rare: 25, epic: 100 }),
-  craftCost: Object.freeze({ common: 40, rare: 200, epic: 600 }),
+  dupeValue: Object.freeze({ common: 5, rare: 25, epic: 100, ssr: 400 }),
+  craftCost: Object.freeze({ common: 40, rare: 200, epic: 600, ssr: 2400 }),
 });
 
 export const INGREDIENT_LABELS = Object.freeze({ fish: '鲜鱼', rice: '稻米', herb: '霜菜' });
-export const RARITY_LABELS = Object.freeze({ common: '常见', rare: '稀有', epic: '史诗' });
+export const RARITY_LABELS = Object.freeze({ common: '常见', rare: '稀有', epic: '史诗', ssr: '传说' });
 
 const CARDS_BY_RARITY = Object.freeze({
   common: Object.freeze(CARD_DEFINITIONS.filter((card) => card.rarity === 'common').map((card) => card.id)),
   rare: Object.freeze(CARD_DEFINITIONS.filter((card) => card.rarity === 'rare').map((card) => card.id)),
   epic: Object.freeze(CARD_DEFINITIONS.filter((card) => card.rarity === 'epic').map((card) => card.id)),
+  ssr: Object.freeze(CARD_DEFINITIONS.filter((card) => card.rarity === 'ssr').map((card) => card.id)),
 });
 
 export function createInitialCollection() {
   const owned = {};
   CARD_DEFINITIONS.forEach((card) => {
-    if (card.starterCopies > 0) owned[card.id] = COLLECTION_RULES.maxCopies;
+    if (card.starterCopies > 0) owned[card.id] = Math.min(COLLECTION_RULES.maxCopies, card.deckLimit ?? COLLECTION_RULES.maxCopies);
   });
   return {
     version: COLLECTION_RULES.version,
@@ -48,6 +50,7 @@ export function createInitialCollection() {
     holoOwned: {},
     packsOpened: 0,
     pitySinceEpic: 0,
+    pitySinceSsr: 0,
     wins: 0,
     losses: 0,
   };
@@ -78,13 +81,15 @@ export function collectionStats(collection) {
   };
 }
 
-function rollRarity(pityDue, rng) {
-  if (pityDue) return 'epic';
+function rollRarity(epicDue, ssrDue, rng) {
+  if (ssrDue) return 'ssr';
+  if (epicDue) return 'epic';
   const roll = rng();
-  const { common, rare } = COLLECTION_RULES.rarityWeights;
+  const { common, rare, epic } = COLLECTION_RULES.rarityWeights;
   if (roll < common) return 'common';
   if (roll < common + rare) return 'rare';
-  return 'epic';
+  if (roll < common + rare + epic) return 'epic';
+  return 'ssr';
 }
 
 /**
@@ -100,8 +105,9 @@ export function openPack(collection, rng = Math.random) {
   next.packsOpened += 1;
   const results = [];
   for (let index = 0; index < COLLECTION_RULES.packSize; index += 1) {
-    const pityDue = next.pitySinceEpic + 1 >= COLLECTION_RULES.pityLimit;
-    const rarity = rollRarity(pityDue, rng);
+    const epicPityDue = next.pitySinceEpic + 1 >= COLLECTION_RULES.pityLimit;
+    const ssrPityDue = next.pitySinceSsr + 1 >= COLLECTION_RULES.ssrPityLimit;
+    const rarity = rollRarity(epicPityDue, ssrPityDue, rng);
     const pool = CARDS_BY_RARITY[rarity];
     const cardId = pool[Math.floor(rng() * pool.length)];
     const isHolo = rng() < COLLECTION_RULES.holoChance;
@@ -120,8 +126,10 @@ export function openPack(collection, rng = Math.random) {
     }
     results.push(entry);
   }
-  const hitEpic = results.some((entry) => entry.rarity === 'epic');
+  const hitSsr = results.some((entry) => entry.rarity === 'ssr');
+  const hitEpic = hitSsr || results.some((entry) => entry.rarity === 'epic');
   next.pitySinceEpic = hitEpic ? 0 : next.pitySinceEpic + 1;
+  next.pitySinceSsr = hitSsr ? 0 : next.pitySinceSsr + 1;
   return { collection: next, results, error: null };
 }
 
@@ -159,7 +167,7 @@ export function serializeCollection(collection) {
 
 export function deserializeCollection(json) {
   const parsed = JSON.parse(json);
-  if (![1, COLLECTION_RULES.version].includes(parsed?.version)
+  if (![1, 2, COLLECTION_RULES.version].includes(parsed?.version)
     || typeof parsed.balance !== 'number'
     || typeof parsed.owned !== 'object'
     || parsed.owned === null
@@ -186,6 +194,7 @@ export function deserializeCollection(json) {
     holoOwned,
     packsOpened: parsed.packsOpened ?? 0,
     pitySinceEpic: Math.min(parsed.pitySinceEpic ?? 0, COLLECTION_RULES.pityLimit),
+    pitySinceSsr: Math.min(parsed.pitySinceSsr ?? 0, COLLECTION_RULES.ssrPityLimit),
     wins: parsed.wins ?? 0,
     losses: parsed.losses ?? 0,
   };

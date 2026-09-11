@@ -1,5 +1,5 @@
-import { createBattleRenderer } from './battle-render.js?v=048ffabb';
-import { createBattleFx } from './battle-fx.js?v=048ffabb';
+import { createBattleRenderer } from './battle-render.js?v=27739295';
+import { createBattleFx } from './battle-fx.js?v=27739295';
 import {
   DEFAULT_PLAYER_LINEUP,
   GAME_RULES,
@@ -27,9 +27,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=048ffabb';
-import { chooseAiCommand } from './game-ai.js?v=048ffabb';
-import { gameAudio } from './game-audio.js?v=048ffabb';
+} from './game-core.js?v=27739295';
+import { chooseAiCommand } from './game-ai.js?v=27739295';
+import { gameAudio } from './game-audio.js?v=27739295';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -42,26 +42,26 @@ import {
   ownedCopies,
   ownedHoloCopies,
   serializeCollection,
-} from './game-collection.js?v=048ffabb';
+} from './game-collection.js?v=27739295';
 import {
   canUpgradeUnit,
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=048ffabb';
+} from './game-presentation.js?v=27739295';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=048ffabb';
+} from './game-session.js?v=27739295';
 import {
   holoLayers,
   holoSheenMarkup,
   initCollectionHolo,
   initPreviewHolo,
   initRevealHolo,
-} from './card-holo.js?v=048ffabb';
+} from './card-holo.js?v=27739295';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -398,8 +398,8 @@ function renderCodex() {
       const tile = document.createElement('article');
       tile.className = 'codex-tile';
       tile.classList.toggle('is-holo', holoCopies > 0);
-      tile.classList.toggle('is-holo-epic', holoCopies > 0 && card.rarity === 'epic');
-      tile.classList.toggle('is-holo-rare', holoCopies > 0 && card.rarity !== 'epic');
+      tile.classList.toggle('is-holo-epic', holoCopies > 0 && (card.rarity === 'epic' || card.rarity === 'ssr'));
+      tile.classList.toggle('is-holo-rare', holoCopies > 0 && card.rarity !== 'epic' && card.rarity !== 'ssr');
       tile.dataset.rarity = card.rarity;
       tile.dataset.owned = String(copies);
       tile.title = `${card.text}${holoCopies ? `\n闪卡 ${holoCopies} / ${copies}` : ''}`;
@@ -457,7 +457,7 @@ function openPackFlow() {
     el.dataset.rarity = entry.rarity;
     // 闪卡是独立外观变体，不再由稀有度自动触发。
     if (entry.isHolo) {
-      el.classList.add('is-holo', entry.rarity === 'epic' ? 'is-holo-epic' : 'is-holo-rare');
+      el.classList.add('is-holo', entry.rarity === 'epic' || entry.rarity === 'ssr' ? 'is-holo-epic' : 'is-holo-rare');
     }
     el.style.setProperty('--reveal-delay', `${index * 0.14}s`);
     el.innerHTML = `
@@ -1060,9 +1060,10 @@ function renderDeckUnitTabs() {
 
 function adjustCardCount(unitId, cardId, delta) {
   const selected = [...selectedCardsForUnit(unitId)];
+  const deckLimit = getCardDefinition(cardId)?.deckLimit ?? GAME_RULES.copiesPerCard;
   const currentCount = selected.filter((candidate) => candidate === cardId).length;
   if (delta > 0) {
-    if (currentCount >= GAME_RULES.copiesPerCard) return;
+    if (currentCount >= deckLimit) return;
     const owned = ownedCopies(collection, cardId);
     if (currentCount >= owned) {
       announce(`收藏不足：「${getCardDefinition(cardId).name}」仅持有 ${owned} 张，可到秘闻阁开卷收集。`, 'danger');
@@ -1104,11 +1105,10 @@ function renderCardPool() {
     article.dataset.selected = String(count > 0);
     article.dataset.rarity = card.rarity;
 
-    const rarityLabels = { common: '常见', rare: '稀有', epic: '史诗' };
     const tags = card.tags.slice(0, 3).map((tag) => `<span>${tag}</span>`).join('');
     article.innerHTML = `
       <div class="pool-card-art"><img src="${unit.art}" alt="" width="200" height="260"><b><i>${card.cost}</i></b><em>${card.level} 勾</em></div>
-      <div class="pool-card-copy"><small>${card.typeLabel} · <i class="rar-${card.rarity}">${rarityLabels[card.rarity] ?? card.rarity}</i></small><strong>${card.name}</strong><p>${card.text}</p><div>${tags}</div></div>
+      <div class="pool-card-copy"><small>${card.typeLabel} · <i class="rar-${card.rarity}">${RARITY_LABELS[card.rarity] ?? card.rarity}</i></small><strong>${card.name}</strong><p>${card.text}</p><div>${tags}</div></div>
     `;
 
     const controls = document.createElement('div');
@@ -1120,18 +1120,19 @@ function renderCardPool() {
     remove.setAttribute('aria-label', `减少一张${card.name}`);
     remove.disabled = count === 0;
     const counter = document.createElement('strong');
-    counter.textContent = `${count} / ${GAME_RULES.copiesPerCard}`;
-    counter.classList.toggle('maxed', count === GAME_RULES.copiesPerCard);
+    counter.textContent = `${count} / ${card.deckLimit ?? GAME_RULES.copiesPerCard}`;
+    counter.classList.toggle('maxed', count === (card.deckLimit ?? GAME_RULES.copiesPerCard));
     const add = document.createElement('button');
     add.type = 'button';
     add.textContent = '+';
     add.title = `增加一张${card.name}`;
     add.setAttribute('aria-label', `增加一张${card.name}`);
     const owned = ownedCopies(collection, card.id);
-    add.disabled = count >= GAME_RULES.copiesPerCard
+    const cardLimit = card.deckLimit ?? GAME_RULES.copiesPerCard;
+    add.disabled = count >= cardLimit
       || count >= owned
       || selected.length >= GAME_RULES.cardsPerUnit;
-    if (count >= owned && count < GAME_RULES.copiesPerCard) {
+    if (count >= owned && count < cardLimit) {
       add.title = `收藏不足：「${card.name}」仅持有 ${owned} 张，可到秘闻阁收集`;
     }
     remove.addEventListener('click', () => adjustCardCount(unit.id, card.id, -1));
@@ -1583,7 +1584,7 @@ function renderBattleFeedback() {
       const unit = getUnitDefinition(definition.unitId);
       container.dataset.revealKey = revealKey;
       container.classList.toggle('is-holo', cardPlayed.isHolo);
-      container.classList.toggle('is-holo-epic', cardPlayed.isHolo && definition.rarity === 'epic');
+      container.classList.toggle('is-holo-epic', cardPlayed.isHolo && (definition.rarity === 'epic' || definition.rarity === 'ssr'));
       container.innerHTML = `
         <span class="reveal-art"><img src="${unit.art}" alt="" width="120" height="156"></span>
         <span class="reveal-meta"><b>${definition.name}</b><small>${unit.name} / ${definition.typeLabel}${cardPlayed.isHolo ? ' / 闪卡' : ''}</small></span>

@@ -1,11 +1,11 @@
-import { canUpgradeUnit } from './game-presentation.js?v=048ffabb';
+import { canUpgradeUnit } from './game-presentation.js?v=27739295';
 /** 战斗 DOM 表现层；状态由 ctx 动态读取，操作继续委托现有 app/game-core 路径。 */
 import { GAME_RULES, getCardDefinition, getValidTargets, getValidCombatTargets,
   isUpgradePending, getUnitKeywordStatuses, getKeywordStatusText, getFormation,
   getUnitDefinition, getCardPlayability, getEffectiveCardCost,
-  getKeywordCostReductionLabel, canMulligan, canPlayCard } from './game-core.js?v=048ffabb';
-import { gameAudio } from './game-audio.js?v=048ffabb';
-import { holoLayers } from './card-holo.js?v=048ffabb';
+  getKeywordCostReductionLabel, canMulligan, canPlayCard } from './game-core.js?v=27739295';
+import { gameAudio } from './game-audio.js?v=27739295';
+import { holoLayers } from './card-holo.js?v=27739295';
 
 export function createBattleRenderer(ctx) {
   const { nodes, selectionTarget, currentSelectedCard, frontUidOf, unitByUid, makeStatus, handleUnitClick, startCardTargeting, markDropZones, endTargeting, clearDropZones, performBasicAttack, openRealmPreview, handleRealmClick, getDragTargetMode, markCardDropZones, handleCardClick } = ctx;
@@ -95,7 +95,7 @@ export function createBattleRenderer(ctx) {
     card.disabled = !isInteractive;
     card.draggable = canDragToFront;
     card.setAttribute('aria-label', `${unit.name}，${placement === 'front' ? '战斗区' : '准备区'}，${unit.level < 1 ? '未激活' : `${unit.level} 勾玉`}，攻击 ${unit.attack}，生命 ${unit.hp}/${unit.maxHp}${unit.shield ? `，护盾 ${unit.shield}` : ''}${unit.frozen ? `，眩晕 ${unit.frozen} 回合` : ''}，${getUnitKeywordStatuses(owner, unit).map((status) => `${status.label} ${status.detail}`).join('，')}`);
-    card.title = `${unit.passive.name}：${unit.passive.text}`;
+    card.title = `${unit.awakened === true ? '【已觉醒】' : ''}${unit.passive.name}：${unit.passive.text}`;
 
     const art = document.createElement('span');
     art.className = 'unit-art';
@@ -213,7 +213,7 @@ export function createBattleRenderer(ctx) {
 
     const inspectPassive = document.createElement('blockquote');
     inspectPassive.className = 'inspect-passive';
-    inspectPassive.innerHTML = `<b>${unit.passive.name}</b>${unit.passive.text}`;
+    inspectPassive.innerHTML = `${unit.awakened === true ? '<i class="awakened-badge">觉醒</i>' : ''}<b>${unit.passive.name}</b>${unit.passive.text}`;
 
     const body = document.createElement('div');
     body.className = 'inspect-body';
@@ -620,7 +620,7 @@ export function createBattleRenderer(ctx) {
     const effectiveCost = getEffectiveCardCost(ctx.displayedGame, 0, instance.instanceId);
     const tags = definition.tags.map((tag) => `<span>${tag}</span>`).join('');
     const holoClass = instance.isHolo
-      ? ` is-holo ${definition.rarity === 'epic' ? 'is-holo-epic' : 'is-holo-rare'}`
+      ? ` is-holo ${definition.rarity === 'epic' || definition.rarity === 'ssr' ? 'is-holo-epic' : 'is-holo-rare'}`
       : '';
     nodes.handPreview.innerHTML = `
       <div class="hand-preview-card${holoClass}" data-card-type="${definition.type}" data-rarity="${definition.rarity}" style="--card-accent:${unit.color}">

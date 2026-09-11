@@ -475,6 +475,7 @@
 .pool-card-copy small .rar-common { color: #7d745e; }
 .pool-card-copy small .rar-rare { color: #3a7ba8; }
 .pool-card-copy small .rar-epic { color: #8a4fa8; }
+.pool-card-copy small .rar-ssr { color: #a8791f; font-weight: 600; }
 .pool-card-copy strong { font-family: var(--font-display); font-size: 14.5px; letter-spacing: 0.1em; color: #33291a; }
 .pool-card-copy p {
   margin: 0;
@@ -724,6 +725,7 @@
 .reveal-card[data-rarity="common"] .reveal-rarity-tag { border: 1px solid #b8ab8a; color: #7d745e; }
 .reveal-card[data-rarity="rare"] .reveal-rarity-tag { border: 1px solid #3a7ba8; color: #3a7ba8; }
 .reveal-card[data-rarity="epic"] .reveal-rarity-tag { border: 1px solid #8a4fa8; color: #8a4fa8; background: rgb(138 79 168 / 0.08); }
+.reveal-card[data-rarity="ssr"] .reveal-rarity-tag { border: 1px solid #c9a24a; color: #a8791f; background: rgb(240 200 105 / 0.16); font-weight: 600; }
 .reveal-name { font-family: var(--font-display); font-size: 15px; letter-spacing: 0.1em; color: #33291a; }
 .reveal-type { font-size: 9.5px; color: #8d8264; }
 .reveal-state {
