@@ -21,9 +21,9 @@ function queuedRng(values) {
   return () => values[index++ % values.length];
 }
 
-/** 生成一包的 rng 序列：每张卡依次掷稀有度、挑卡和闪卡 */
+/** 生成一包的 rng 序列：每张卡依次掷稀有度、挑卡和闪卡；区间对齐 v3 权重 */
 function packSequence(rarities, pickValue = 0.5, holoIndexes = []) {
-  const rarityValue = { common: 0.1, rare: 0.7, epic: 0.99 };
+  const rarityValue = { common: 0.1, rare: 0.7, epic: 0.95, ssr: 0.99 };
   return rarities.flatMap((rarity, index) => [
     rarityValue[rarity],
     pickValue,
@@ -31,12 +31,19 @@ function packSequence(rarities, pickValue = 0.5, holoIndexes = []) {
   ]);
 }
 
-test('initial collection owns two copies of every starter card and nothing else', () => {
+test('initial collection owns starter copies (deckLimit-capped for awakening cards) and nothing else', () => {
   const collection = createInitialCollection();
   const starters = CARD_DEFINITIONS.filter((card) => card.starterCopies > 0);
   const expansion = CARD_DEFINITIONS.filter((card) => card.starterCopies === 0);
-  starters.forEach((card) => assert.equal(ownedCopies(collection, card.id), 2));
+  starters.forEach((card) => assert.equal(
+    ownedCopies(collection, card.id),
+    Math.min(COLLECTION_RULES.maxCopies, card.deckLimit ?? COLLECTION_RULES.maxCopies),
+    `${card.name} 的初始发放份数应受牌组同名上限约束`,
+  ));
   expansion.forEach((card) => assert.equal(ownedCopies(collection, card.id), 0));
+  // 觉醒牌限带 1 份；SSR 全部属于扩展池
+  assert.equal(ownedCopies(collection, 'awaken-ember'), 1);
+  assert.equal(ownedCopies(collection, 'ssr-ember-meteorfall'), 0);
   assert.equal(collection.balance, COLLECTION_RULES.startingBalance);
   assert.equal(collection.version, COLLECTION_RULES.version);
   assert.equal(collectionStats(collection).holoCopies, 0);

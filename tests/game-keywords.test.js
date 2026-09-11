@@ -37,6 +37,7 @@ test('keyword registry exposes immutable reusable definitions', () => {
     CARD_KEYWORDS.FORTUNE,
     CARD_KEYWORDS.ENCOURAGE,
     CARD_KEYWORDS.CHARGE,
+    CARD_KEYWORDS.BURST,
     CARD_KEYWORDS.COUNTDOWN,
     CARD_KEYWORDS.DIVINATION,
     CARD_KEYWORDS.INCARNATION,

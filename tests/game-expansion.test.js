@@ -194,5 +194,5 @@ test('new expansion cards are absent from starter decks and the catalog stays va
     assert.equal(starterIds.has(id), false, `${id} 不应出现在默认构筑`);
     assert.ok(getCardDefinition(id), `${id} 应已注册`);
   });
-  assert.equal(CARD_DEFINITIONS.length, 72 + 11 + 7 + 24); // 机制深化牌 + 两名新角色（霜刃 / 金刚）各 12 张
+  assert.equal(CARD_DEFINITIONS.length, 72 + 11 + 7 + 24 + 24); // 机制深化牌 + 两名新角色各 12 张 + 觉醒与 SSR 扩展 24 张
 });
