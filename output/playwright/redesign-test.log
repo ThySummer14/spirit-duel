@@ -1,0 +1,968 @@
+
+> spirit-duel@0.1.0 test
+> node --test
+
+TAP version 13
+# Subtest: ResourceTracker frees shared geometry/material/texture once and detaches objects
+ok 1 - ResourceTracker frees shared geometry/material/texture once and detaches objects
+  ---
+  duration_ms: 0.642625
+  type: 'test'
+  ...
+# Subtest: reduced motion and disabled mode never import Three or allocate a context
+ok 2 - reduced motion and disabled mode never import Three or allocate a context
+  ---
+  duration_ms: 0.441792
+  type: 'test'
+  ...
+# Subtest: CDN failure degrades once without rejecting DOM presentation or retry loops
+ok 3 - CDN failure degrades once without rejecting DOM presentation or retry loops
+  ---
+  duration_ms: 1.608417
+  type: 'test'
+  ...
+# Subtest: leaving while Three loads prevents late renderer initialization
+ok 4 - leaving while Three loads prevents late renderer initialization
+  ---
+  duration_ms: 0.195167
+  type: 'test'
+  ...
+# Subtest: cached Three module re-enters three times without a stale loading promise or new context
+ok 5 - cached Three module re-enters three times without a stale loading promise or new context
+  ---
+  duration_ms: 1.278625
+  type: 'test'
+  ...
+# Subtest: collection hover settles without continuous RAF, resumes on move, and releases on leave
+ok 6 - collection hover settles without continuous RAF, resumes on move, and releases on leave
+  ---
+  duration_ms: 4.29475
+  type: 'test'
+  ...
+# Subtest: preview replacement releases detached cards even after pointer RAF has stopped
+ok 7 - preview replacement releases detached cards even after pointer RAF has stopped
+  ---
+  duration_ms: 0.910375
+  type: 'test'
+  ...
+# Subtest: dynamic reduced motion cancels active animation, clears variables, and restores pointer handling
+ok 8 - dynamic reduced motion cancels active animation, clears variables, and restores pointer handling
+  ---
+  duration_ms: 2.1715
+  type: 'test'
+  ...
+# Subtest: initial reduced motion can be disabled without rebinding preview listeners
+ok 9 - initial reduced motion can be disabled without rebinding preview listeners
+  ---
+  duration_ms: 2.688666
+  type: 'test'
+  ...
+# Subtest: resolves an AI divination choice with a legal top-deck card
+ok 10 - resolves an AI divination choice with a legal top-deck card
+  ---
+  duration_ms: 14.79225
+  type: 'test'
+  ...
+# Subtest: prioritizes an immediate core lethal
+ok 11 - prioritizes an immediate core lethal
+  ---
+  duration_ms: 4.250541
+  type: 'test'
+  ...
+# Subtest: removes a threatening front unit with a clean damage spell
+ok 12 - removes a threatening front unit with a clean damage spell
+  ---
+  duration_ms: 2.344209
+  type: 'test'
+  ...
+# Subtest: returns a legal command or falls back to end-turn
+ok 13 - returns a legal command or falls back to end-turn
+  ---
+  duration_ms: 5.238416
+  type: 'test'
+  ...
+# Subtest: uses response priority during the player turn when preventing damage is beneficial
+ok 14 - uses response priority during the player turn when preventing damage is beneficial
+  ---
+  duration_ms: 1.608583
+  type: 'test'
+  ...
+# Subtest: passes response priority instead of ending the current turn when no response is useful
+ok 15 - passes response priority instead of ending the current turn when no response is useful
+  ---
+  duration_ms: 0.550834
+  type: 'test'
+  ...
+# Subtest: does not repeat level-up after the free upgrade is consumed
+ok 16 - does not repeat level-up after the free upgrade is consumed
+  ---
+  duration_ms: 0.646375
+  type: 'test'
+  ...
+# Subtest: does not mutate the supplied state
+ok 17 - does not mutate the supplied state
+  ---
+  duration_ms: 1.865
+  type: 'test'
+  ...
+# Subtest: targets and destroys a low-durability enemy realm without mutating the supplied state
+ok 18 - targets and destroys a low-durability enemy realm without mutating the supplied state
+  ---
+  duration_ms: 3.894583
+  type: 'test'
+  ...
+# Subtest: completes a full AI turn with only legal commands inside the safety limit
+ok 19 - completes a full AI turn with only legal commands inside the safety limit
+  ---
+  duration_ms: 3.319708
+  type: 'test'
+  ...
+# Subtest: every unit carries exactly one awakening card and two SSRs, catalog stays valid
+ok 20 - every unit carries exactly one awakening card and two SSRs, catalog stays valid
+  ---
+  duration_ms: 2.825375
+  type: 'test'
+  ...
+# Subtest: default decks pick up the awakening card while SSRs stay collectible-only
+ok 21 - default decks pick up the awakening card while SSRs stay collectible-only
+  ---
+  duration_ms: 0.428708
+  type: 'test'
+  ...
+# Subtest: deck validation enforces per-card deckLimit for awakening cards
+ok 22 - deck validation enforces per-card deckLimit for awakening cards
+  ---
+  duration_ms: 0.836041
+  type: 'test'
+  ...
+# Subtest: awakening swaps the passive, grants +1/+1 and cannot be repeated
+ok 23 - awakening swaps the passive, grants +1/+1 and cannot be repeated
+  ---
+  duration_ms: 3.672958
+  type: 'test'
+  ...
+# Subtest: awakened ember burns the enemy core when the enemy lane is empty
+ok 24 - awakened ember burns the enemy core when the enemy lane is empty
+  ---
+  duration_ms: 1.435458
+  type: 'test'
+  ...
+# Subtest: form switching preserves awakening growth (attack pipeline fix)
+ok 25 - form switching preserves awakening growth (attack pipeline fix)
+  ---
+  duration_ms: 0.550375
+  type: 'test'
+  ...
+# Subtest: awakened state survives serialization; forged passive is rejected
+ok 26 - awakened state survives serialization; forged passive is rejected
+  ---
+  duration_ms: 4.112167
+  type: 'test'
+  ...
+# Subtest: form card fully heals its source only, not allies or the fallen
+ok 27 - form card fully heals its source only, not allies or the fallen
+  ---
+  duration_ms: 0.83025
+  type: 'test'
+  ...
+# Subtest: kongo awakening grants permanent unyielding
+ok 28 - kongo awakening grants permanent unyielding
+  ---
+  duration_ms: 1.200542
+  type: 'test'
+  ...
+# Subtest: awakened lumen heals and draws on the first spell of the turn only
+ok 29 - awakened lumen heals and draws on the first spell of the turn only
+  ---
+  duration_ms: 1.366
+  type: 'test'
+  ...
+# Subtest: burst dumps all charge into one pierce strike (storm)
+ok 30 - burst dumps all charge into one pierce strike (storm)
+  ---
+  duration_ms: 5.2965
+  type: 'test'
+  ...
+# Subtest: lone wolf flash returns to reserve with a shield after the kill (frostblade)
+ok 31 - lone wolf flash returns to reserve with a shield after the kill (frostblade)
+  ---
+  duration_ms: 0.659542
+  type: 'test'
+  ...
+# Subtest: wrath arhat smashes harder with a shield wall (kongo threshold)
+ok 32 - wrath arhat smashes harder with a shield wall (kongo threshold)
+  ---
+  duration_ms: 1.119584
+  type: 'test'
+  ...
+# Subtest: absolute zero spends both fires to lock the enemy board
+ok 33 - absolute zero spends both fires to lock the enemy board
+  ---
+  duration_ms: 0.847834
+  type: 'test'
+  ...
+# Subtest: mountain resonance answers an incoming damage step with a shield wall (basalt)
+ok 34 - mountain resonance answers an incoming damage step with a shield wall (basalt)
+  ---
+  duration_ms: 1.011042
+  type: 'test'
+  ...
+# Subtest: moonlit aria chains draws with an explicit one-fire cost (lumen)
+ok 35 - moonlit aria chains draws with an explicit one-fire cost (lumen)
+  ---
+  duration_ms: 0.818833
+  type: 'test'
+  ...
+# Subtest: verdict brush divines, maims with brittle and recycles via origin (ink)
+ok 36 - verdict brush divines, maims with brittle and recycles via origin (ink)
+  ---
+  duration_ms: 1.067458
+  type: 'test'
+  ...
+# Subtest: immovable fudou-myoo ward shields every ally each turn
+ok 37 - immovable fudou-myoo ward shields every ally each turn
+  ---
+  duration_ms: 1.384083
+  type: 'test'
+  ...
+# Subtest: boundless inksea explodes with a three-part countdown burst
+ok 38 - boundless inksea explodes with a three-part countdown burst
+  ---
+  duration_ms: 1.385916
+  type: 'test'
+  ...
+# Subtest: benevolent king trades a full turn for team protection (kongo)
+ok 39 - benevolent king trades a full turn for team protection (kongo)
+  ---
+  duration_ms: 0.491083
+  type: 'test'
+  ...
+# Subtest: awakened storm banks charge from every combat (gale fury)
+ok 40 - awakened storm banks charge from every combat (gale fury)
+  ---
+  duration_ms: 0.867542
+  type: 'test'
+  ...
+# Subtest: form hooks amplify identity, survive save/load, and stop after switching
+ok 41 - form hooks amplify identity, survive save/load, and stop after switching
+  ---
+  duration_ms: 2.288
+  type: 'test'
+  ...
+# Subtest: switching out of wolf king removes its shield amplifier
+ok 42 - switching out of wolf king removes its shield amplifier
+  ---
+  duration_ms: 0.70375
+  type: 'test'
+  ...
+# Subtest: shattered mirror removes armor and rewards a surviving frozen target
+ok 43 - shattered mirror removes armor and rewards a surviving frozen target
+  ---
+  duration_ms: 0.503042
+  type: 'test'
+  ...
+# Subtest: spell form triggers once per owner turn and ignores another character spells
+ok 44 - spell form triggers once per owner turn and ignores another character spells
+  ---
+  duration_ms: 0.740167
+  type: 'test'
+  ...
+# Subtest: SSR definitions allow a pair while awakenings stay unique
+ok 45 - SSR definitions allow a pair while awakenings stay unique
+  ---
+  duration_ms: 0.105375
+  type: 'test'
+  ...
+# Subtest: initial collection owns starter copies (deckLimit-capped for awakening cards) and nothing else
+ok 46 - initial collection owns starter copies (deckLimit-capped for awakening cards) and nothing else
+  ---
+  duration_ms: 1.340084
+  type: 'test'
+  ...
+# Subtest: holo pulls are independent from rarity and persist as owned variants
+ok 47 - holo pulls are independent from rarity and persist as owned variants
+  ---
+  duration_ms: 1.13175
+  type: 'test'
+  ...
+# Subtest: opening a pack costs balance, returns five cards, and resets pity on epic
+ok 48 - opening a pack costs balance, returns five cards, and resets pity on epic
+  ---
+  duration_ms: 0.363083
+  type: 'test'
+  ...
+# Subtest: duplicate cards convert into currency and never exceed the cap
+ok 49 - duplicate cards convert into currency and never exceed the cap
+  ---
+  duration_ms: 1.163041
+  type: 'test'
+  ...
+# Subtest: pity forces an epic at the 25th pack since the last epic
+ok 50 - pity forces an epic at the 25th pack since the last epic
+  ---
+  duration_ms: 0.594458
+  type: 'test'
+  ...
+# Subtest: insufficient balance refuses to open a pack
+ok 51 - insufficient balance refuses to open a pack
+  ---
+  duration_ms: 0.111541
+  type: 'test'
+  ...
+# Subtest: crafting charges rarity cost and stops at the copy cap
+ok 52 - crafting charges rarity cost and stops at the copy cap
+  ---
+  duration_ms: 0.39375
+  type: 'test'
+  ...
+# Subtest: match rewards track wins and losses
+ok 53 - match rewards track wins and losses
+  ---
+  duration_ms: 0.193416
+  type: 'test'
+  ...
+# Subtest: collection survives a serialization round trip and drops ghost cards
+ok 54 - collection survives a serialization round trip and drops ghost cards
+  ---
+  duration_ms: 1.119833
+  type: 'test'
+  ...
+# Subtest: version 1 collections migrate without losing progress
+ok 55 - version 1 collections migrate without losing progress
+  ---
+  duration_ms: 1.523084
+  type: 'test'
+  ...
+# Subtest: creates a deterministic 30-life, 32-card opening state
+ok 56 - creates a deterministic 30-life, 32-card opening state
+  ---
+  duration_ms: 4.728459
+  type: 'test'
+  ...
+# Subtest: builds a legal deck only from the four selected units
+ok 57 - builds a legal deck only from the four selected units
+  ---
+  duration_ms: 0.70025
+  type: 'test'
+  ...
+# Subtest: marks only configured deck copies as holo variants
+ok 58 - marks only configured deck copies as holo variants
+  ---
+  duration_ms: 0.746959
+  type: 'test'
+  ...
+# Subtest: deck validation rejects incomplete and duplicate lineups
+ok 59 - deck validation rejects incomplete and duplicate lineups
+  ---
+  duration_ms: 0.193125
+  type: 'test'
+  ...
+# Subtest: content catalog only references registered units, targets, and effects
+ok 60 - content catalog only references registered units, targets, and effects
+  ---
+  duration_ms: 1.024792
+  type: 'test'
+  ...
+# Subtest: every card exposes immutable condition-action-target effect steps
+ok 61 - every card exposes immutable condition-action-target effect steps
+  ---
+  duration_ms: 0.581042
+  type: 'test'
+  ...
+# Subtest: response priority alternates until both players pass, then resolves LIFO
+ok 62 - response priority alternates until both players pass, then resolves LIFO
+  ---
+  duration_ms: 5.144125
+  type: 'test'
+  ...
+# Subtest: two consecutive passes are required to resume the pending card unchanged
+ok 63 - two consecutive passes are required to resume the pending card unchanged
+  ---
+  duration_ms: 1.872416
+  type: 'test'
+  ...
+# Subtest: an open response window and its resolution stack survive serialization
+ok 64 - an open response window and its resolution stack survive serialization
+  ---
+  duration_ms: 2.461042
+  type: 'test'
+  ...
+# Subtest: multiple response cards form a reusable LIFO chain
+ok 65 - multiple response cards form a reusable LIFO chain
+  ---
+  duration_ms: 2.209667
+  type: 'test'
+  ...
+# Subtest: response nesting stops at the configured depth without exceeding the stack limit
+ok 66 - response nesting stops at the configured depth without exceeding the stack limit
+  ---
+  duration_ms: 2.300583
+  type: 'test'
+  ...
+# Subtest: serialization rejects forged response priority and depth state
+ok 67 - serialization rejects forged response priority and depth state
+  ---
+  duration_ms: 1.610959
+  type: 'test'
+  ...
+# Subtest: targeted damage spends one ghost fire and damages the chosen enemy
+ok 68 - targeted damage spends one ghost fire and damages the chosen enemy
+  ---
+  duration_ms: 0.854208
+  type: 'test'
+  ...
+# Subtest: only the first instant card on an owner turn costs zero ghost fire
+ok 69 - only the first instant card on an owner turn costs zero ghost fire
+  ---
+  duration_ms: 0.715542
+  type: 'test'
+  ...
+# Subtest: pierce transfers only unshielded overkill damage to the enemy core
+ok 70 - pierce transfers only unshielded overkill damage to the enemy core
+  ---
+  duration_ms: 1.072125
+  type: 'test'
+  ...
+# Subtest: remote combat attacks from reserve without replacing the front line or taking counter damage
+ok 71 - remote combat attacks from reserve without replacing the front line or taking counter damage
+  ---
+  duration_ms: 8.360042
+  type: 'test'
+  ...
+# Subtest: remote combat prevents counter damage when the attacker already owns the front line
+ok 72 - remote combat prevents counter damage when the attacker already owns the front line
+  ---
+  duration_ms: 1.539875
+  type: 'test'
+  ...
+# Subtest: charge grows on owner turns to its cap and survives serialization
+ok 73 - charge grows on owner turns to its cap and survives serialization
+  ---
+  duration_ms: 2.685208
+  type: 'test'
+  ...
+# Subtest: charge is reserved through a response window and paid once resolution resumes
+ok 74 - charge is reserved through a response window and paid once resolution resumes
+  ---
+  duration_ms: 1.11825
+  type: 'test'
+  ...
+# Subtest: stun prevents attacks and counterattacks through the shared unit status
+ok 75 - stun prevents attacks and counterattacks through the shared unit status
+  ---
+  duration_ms: 0.300708
+  type: 'test'
+  ...
+# Subtest: fortune uses deterministic RNG and only resolves its success steps after the threshold
+ok 76 - fortune uses deterministic RNG and only resolves its success steps after the threshold
+  ---
+  duration_ms: 0.743875
+  type: 'test'
+  ...
+# Subtest: divination pauses resolution, survives serialization, and places the selected card on top
+ok 77 - divination pauses resolution, survives serialization, and places the selected card on top
+  ---
+  duration_ms: 0.805958
+  type: 'test'
+  ...
+# Subtest: incarnation automatically plays one eligible card for free after the owner draw
+ok 78 - incarnation automatically plays one eligible card for free after the owner draw
+  ---
+  duration_ms: 0.342167
+  type: 'test'
+  ...
+# Subtest: fusion stacks declared bonuses and blocks the same fusion card at its cap
+ok 79 - fusion stacks declared bonuses and blocks the same fusion card at its cap
+  ---
+  duration_ms: 0.936041
+  type: 'test'
+  ...
+# Subtest: coop gains its bonus only after a different ally has attacked this turn
+ok 80 - coop gains its bonus only after a different ally has attacked this turn
+  ---
+  duration_ms: 0.692333
+  type: 'test'
+  ...
+# Subtest: projectile damages the enemy front first and the core only when the front is empty
+ok 81 - projectile damages the enemy front first and the core only when the front is empty
+  ---
+  duration_ms: 1.095375
+  type: 'test'
+  ...
+# Subtest: a countdown realm ticks on owner turns, triggers at zero, and resets
+ok 82 - a countdown realm ticks on owner turns, triggers at zero, and resets
+  ---
+  duration_ms: 2.017417
+  type: 'test'
+  ...
+# Subtest: encourage accumulates, survives non-combat actions, and persists through serialization
+ok 83 - encourage accumulates, survives non-combat actions, and persists through serialization
+  ---
+  duration_ms: 1.091334
+  type: 'test'
+  ...
+# Subtest: the next basic attack consumes encourage before damage and counter damage
+ok 84 - the next basic attack consumes encourage before damage and counter damage
+  ---
+  duration_ms: 0.606583
+  type: 'test'
+  ...
+# Subtest: an encouraged attack into an empty front hits the core and preserves its shield
+ok 85 - an encouraged attack into an empty front hits the core and preserves its shield
+  ---
+  duration_ms: 0.539209
+  type: 'test'
+  ...
+# Subtest: combat and remote cards both consume encourage without card-specific branches
+ok 86 - combat and remote cards both consume encourage without card-specific branches
+  ---
+  duration_ms: 1.449125
+  type: 'test'
+  ...
+# Subtest: multi-step area damage resolves units before the enemy avatar
+ok 87 - multi-step area damage resolves units before the enemy avatar
+  ---
+  duration_ms: 0.470291
+  type: 'test'
+  ...
+# Subtest: multi-step draw and avatar healing preserve their ordered values
+ok 88 - multi-step draw and avatar healing preserve their ordered values
+  ---
+  duration_ms: 0.257667
+  type: 'test'
+  ...
+# Subtest: conditional follow-up only applies brittle while the damaged target survives
+ok 89 - conditional follow-up only applies brittle while the damaged target survives
+  ---
+  duration_ms: 0.423625
+  type: 'test'
+  ...
+# Subtest: a reserve unit moves into the front line when it attacks
+ok 90 - a reserve unit moves into the front line when it attacks
+  ---
+  duration_ms: 0.272541
+  type: 'test'
+  ...
+# Subtest: level-ups advance in lockstep and unlock higher-level cards
+ok 91 - level-ups advance in lockstep and unlock higher-level cards
+  ---
+  duration_ms: 0.306916
+  type: 'test'
+  ...
+# Subtest: knocked out units return after two owner turns
+ok 92 - knocked out units return after two owner turns
+  ---
+  duration_ms: 0.499208
+  type: 'test'
+  ...
+# Subtest: a card cannot be played while its source unit is knocked out
+ok 93 - a card cannot be played while its source unit is knocked out
+  ---
+  duration_ms: 0.142792
+  type: 'test'
+  ...
+# Subtest: a deployed realm triggers at the start of its owner turn
+ok 94 - a deployed realm triggers at the start of its owner turn
+  ---
+  duration_ms: 0.368625
+  type: 'test'
+  ...
+# Subtest: drawing from an empty deck immediately loses the match
+ok 95 - drawing from an empty deck immediately loses the match
+  ---
+  duration_ms: 0.111917
+  type: 'test'
+  ...
+# Subtest: core damage ends the match and records the winner
+ok 96 - core damage ends the match and records the winner
+  ---
+  duration_ms: 0.172583
+  type: 'test'
+  ...
+# Subtest: ember passive damages the enemy front once when entering from reserve
+ok 97 - ember passive damages the enemy front once when entering from reserve
+  ---
+  duration_ms: 0.252458
+  type: 'test'
+  ...
+# Subtest: basalt passive grants shield only while it owns the front line
+ok 98 - basalt passive grants shield only while it owns the front line
+  ---
+  duration_ms: 0.37
+  type: 'test'
+  ...
+# Subtest: lumen passive heals the core once per owner turn
+ok 99 - lumen passive heals the core once per owner turn
+  ---
+  duration_ms: 0.600167
+  type: 'test'
+  ...
+# Subtest: rime passive freezes a surviving combat defender
+ok 100 - rime passive freezes a surviving combat defender
+  ---
+  duration_ms: 0.230917
+  type: 'test'
+  ...
+# Subtest: storm passive damages the enemy core only after a reserve attack
+ok 101 - storm passive damages the enemy core only after a reserve attack
+  ---
+  duration_ms: 0.406625
+  type: 'test'
+  ...
+# Subtest: ink passive shields the front when its owner deploys a realm
+ok 102 - ink passive shields the front when its owner deploys a realm
+  ---
+  duration_ms: 0.207375
+  type: 'test'
+  ...
+# Subtest: a finished match leaves no pending passive events
+ok 103 - a finished match leaves no pending passive events
+  ---
+  duration_ms: 0.205208
+  type: 'test'
+  ...
+# Subtest: serializes and restores a deterministic game state
+ok 104 - serializes and restores a deterministic game state
+  ---
+  duration_ms: 0.575958
+  type: 'test'
+  ...
+# Subtest: restoring a game discards runtime event queue state
+ok 105 - restoring a game discards runtime event queue state
+  ---
+  duration_ms: 0.427542
+  type: 'test'
+  ...
+# Subtest: rejects invalid serialized JSON
+ok 106 - rejects invalid serialized JSON
+  ---
+  duration_ms: 0.057
+  type: 'test'
+  ...
+# Subtest: rejects unknown save versions and malformed game structures
+ok 107 - rejects unknown save versions and malformed game structures
+  ---
+  duration_ms: 0.719
+  type: 'test'
+  ...
+# Subtest: realm deployment creates unique runtime identities and replaces the same definition at full durability
+ok 108 - realm deployment creates unique runtime identities and replaces the same definition at full durability
+  ---
+  duration_ms: 0.307208
+  type: 'test'
+  ...
+# Subtest: a basic attack can target a realm without damaging the front or taking counter damage
+ok 109 - a basic attack can target a realm without damaging the front or taking counter damage
+  ---
+  duration_ms: 0.387583
+  type: 'test'
+  ...
+# Subtest: destroying a realm removes it immediately and records damage before destruction
+ok 110 - destroying a realm removes it immediately and records damage before destruction
+  ---
+  duration_ms: 0.32175
+  type: 'test'
+  ...
+# Subtest: a combat card can explicitly attack a realm
+ok 111 - a combat card can explicitly attack a realm
+  ---
+  duration_ms: 0.430792
+  type: 'test'
+  ...
+# Subtest: serialization preserves damaged realms and rejects forged realm identity or durability
+ok 112 - serialization preserves damaged realms and rejects forged realm identity or durability
+  ---
+  duration_ms: 0.967333
+  type: 'test'
+  ...
+# Subtest: battle zone starts empty and a knockout leaves it empty without auto replacement
+ok 113 - battle zone starts empty and a knockout leaves it empty without auto replacement
+  ---
+  duration_ms: 0.180458
+  type: 'test'
+  ...
+# Subtest: battle-zone unit returns to reserve at the start of its owner turn
+ok 114 - battle-zone unit returns to reserve at the start of its owner turn
+  ---
+  duration_ms: 0.25325
+  type: 'test'
+  ...
+# Subtest: attacking into an empty battle zone hits the core directly
+ok 115 - attacking into an empty battle zone hits the core directly
+  ---
+  duration_ms: 0.152083
+  type: 'test'
+  ...
+# Subtest: attacking with a second unit replaces the battle-zone occupant back to reserve
+ok 116 - attacking with a second unit replaces the battle-zone occupant back to reserve
+  ---
+  duration_ms: 0.224584
+  type: 'test'
+  ...
+# Subtest: upgrade phase is enforced before playing cards or attacking
+ok 117 - upgrade phase is enforced before playing cards or attacking
+  ---
+  duration_ms: 0.4235
+  type: 'test'
+  ...
+# Subtest: the first player gains a bonus upgrade on their seventh turn
+ok 118 - the first player gains a bonus upgrade on their seventh turn
+  ---
+  duration_ms: 2.512875
+  type: 'test'
+  ...
+# Subtest: combo deals an extra combat damage instance
+ok 119 - combo deals an extra combat damage instance
+  ---
+  duration_ms: 0.424917
+  type: 'test'
+  ...
+# Subtest: first strike avoids counter damage when the first hit kills
+ok 120 - first strike avoids counter damage when the first hit kills
+  ---
+  duration_ms: 0.525083
+  type: 'test'
+  ...
+# Subtest: crit doubles the combat damage of the attack
+ok 121 - crit doubles the combat damage of the attack
+  ---
+  duration_ms: 0.257708
+  type: 'test'
+  ...
+# Subtest: unyielding keeps a unit at 1 hp instead of dying
+ok 122 - unyielding keeps a unit at 1 hp instead of dying
+  ---
+  duration_ms: 0.556167
+  type: 'test'
+  ...
+# Subtest: response cards can answer healing, revival, and freeze
+ok 123 - response cards can answer healing, revival, and freeze
+  ---
+  duration_ms: 0.736166
+  type: 'test'
+  ...
+# Subtest: focus draws an extra card only as the first card of the turn
+ok 124 - focus draws an extra card only as the first card of the turn
+  ---
+  duration_ms: 2.144292
+  type: 'test'
+  ...
+# Subtest: chain pulls the next same-unit card from the deck into the hand
+ok 125 - chain pulls the next same-unit card from the deck into the hand
+  ---
+  duration_ms: 0.82775
+  type: 'test'
+  ...
+# Subtest: origin shuffles a copy of itself back into the deck
+ok 126 - origin shuffles a copy of itself back into the deck
+  ---
+  duration_ms: 0.791208
+  type: 'test'
+  ...
+# Subtest: cooking collects three ingredients and buffs the whole team once
+ok 127 - cooking collects three ingredients and buffs the whole team once
+  ---
+  duration_ms: 2.631166
+  type: 'test'
+  ...
+# Subtest: charge-up ticks on owner turn start and resolves at the threshold
+ok 128 - charge-up ticks on owner turn start and resolves at the threshold
+  ---
+  duration_ms: 1.135416
+  type: 'test'
+  ...
+# Subtest: nightfall registers a delayed effect that fires on the scheduled round
+ok 129 - nightfall registers a delayed effect that fires on the scheduled round
+  ---
+  duration_ms: 1.873125
+  type: 'test'
+  ...
+# Subtest: bestow consumes storm charge to unlock the empowered damage step
+ok 130 - bestow consumes storm charge to unlock the empowered damage step
+  ---
+  duration_ms: 0.8585
+  type: 'test'
+  ...
+# Subtest: expansion state serializes with the bumped game version
+ok 131 - expansion state serializes with the bumped game version
+  ---
+  duration_ms: 1.988041
+  type: 'test'
+  ...
+# Subtest: new expansion cards are absent from starter decks and the catalog stays valid
+ok 132 - new expansion cards are absent from starter decks and the catalog stays valid
+  ---
+  duration_ms: 0.97675
+  type: 'test'
+  ...
+# Subtest: keyword registry exposes immutable reusable definitions
+ok 133 - keyword registry exposes immutable reusable definitions
+  ---
+  duration_ms: 1.223417
+  type: 'test'
+  ...
+# Subtest: instant uses the shared turn state and card cost lifecycle
+ok 134 - instant uses the shared turn state and card cost lifecycle
+  ---
+  duration_ms: 0.241583
+  type: 'test'
+  ...
+# Subtest: keyword cost queries do not mutate missing usage state
+ok 135 - keyword cost queries do not mutate missing usage state
+  ---
+  duration_ms: 0.051167
+  type: 'test'
+  ...
+# Subtest: combat keywords contribute composable options without coupling to card ids
+ok 136 - combat keywords contribute composable options without coupling to card ids
+  ---
+  duration_ms: 10.020833
+  type: 'test'
+  ...
+# Subtest: encourage accumulates as player state and is consumed only after combat
+ok 137 - encourage accumulates as player state and is consumed only after combat
+  ---
+  duration_ms: 1.133833
+  type: 'test'
+  ...
+# Subtest: charge grows per unit, gates cards, and is paid through the resolution hook
+ok 138 - charge grows per unit, gates cards, and is paid through the resolution hook
+  ---
+  duration_ms: 0.530916
+  type: 'test'
+  ...
+# Subtest: countdown owns its realm trigger lifecycle and resets after resolution
+ok 139 - countdown owns its realm trigger lifecycle and resets after resolution
+  ---
+  duration_ms: 0.133875
+  type: 'test'
+  ...
+# Subtest: keyword validation rejects unknown, duplicate, and incompatible declarations
+ok 140 - keyword validation rejects unknown, duplicate, and incompatible declarations
+  ---
+  duration_ms: 0.247875
+  type: 'test'
+  ...
+# Subtest: unyielding status exposes its active and one-hp conditions
+ok 141 - unyielding status exposes its active and one-hp conditions
+  ---
+  duration_ms: 0.217041
+  type: 'test'
+  ...
+# Subtest: derives attacker and defender impacts from a combat
+ok 142 - derives attacker and defender impacts from a combat
+  ---
+  duration_ms: 3.523959
+  type: 'test'
+  ...
+# Subtest: distinguishes a remote attacker that remains in reserve and takes no counter damage
+ok 143 - distinguishes a remote attacker that remains in reserve and takes no counter damage
+  ---
+  duration_ms: 8.318209
+  type: 'test'
+  ...
+# Subtest: shows keyword readiness and marks the next attacker as empowered
+ok 144 - shows keyword readiness and marks the next attacker as empowered
+  ---
+  duration_ms: 0.722
+  type: 'test'
+  ...
+# Subtest: gives level-up feedback priority and reports its delta
+ok 145 - gives level-up feedback priority and reports its delta
+  ---
+  duration_ms: 0.334958
+  type: 'test'
+  ...
+# Subtest: gives knockout feedback priority over combat
+ok 146 - gives knockout feedback priority over combat
+  ---
+  duration_ms: 0.349459
+  type: 'test'
+  ...
+# Subtest: derives core damage without requiring a combat event
+ok 147 - derives core damage without requiring a combat event
+  ---
+  duration_ms: 0.319417
+  type: 'test'
+  ...
+# Subtest: reports returned units and shield changes as unit impacts
+ok 148 - reports returned units and shield changes as unit impacts
+  ---
+  duration_ms: 0.674625
+  type: 'test'
+  ...
+# Subtest: returns empty feedback for the first frame and unchanged states without mutations
+ok 149 - returns empty feedback for the first frame and unchanged states without mutations
+  ---
+  duration_ms: 1.505791
+  type: 'test'
+  ...
+# Subtest: passes a holo card variant through battle feedback
+ok 150 - passes a holo card variant through battle feedback
+  ---
+  duration_ms: 1.215
+  type: 'test'
+  ...
+# Subtest: derives a visible realm impact when durability is lost
+ok 151 - derives a visible realm impact when durability is lost
+  ---
+  duration_ms: 2.532667
+  type: 'test'
+  ...
+# Subtest: gives realm destruction a high-priority central cue
+ok 152 - gives realm destruction a high-priority central cue
+  ---
+  duration_ms: 1.24475
+  type: 'test'
+  ...
+# Subtest: UI upgrade availability includes a knocked-out lowest-level unit without mutating state
+ok 153 - UI upgrade availability includes a knocked-out lowest-level unit without mutating state
+  ---
+  duration_ms: 1.186
+  type: 'test'
+  ...
+# Subtest: replays a mixed player and AI command journal to the exact deterministic state
+ok 154 - replays a mixed player and AI command journal to the exact deterministic state
+  ---
+  duration_ms: 5.404875
+  type: 'test'
+  ...
+# Subtest: builds immutable replay frames from the initial state through every command
+ok 155 - builds immutable replay frames from the initial state through every command
+  ---
+  duration_ms: 3.767083
+  type: 'test'
+  ...
+# Subtest: lazily replays from bounded frame caches and reusable checkpoints
+ok 156 - lazily replays from bounded frame caches and reusable checkpoints
+  ---
+  duration_ms: 32.341667
+  type: 'test'
+  ...
+# Subtest: accepts a validated final-state seed without eagerly replaying the journal
+ok 157 - accepts a validated final-state seed without eagerly replaying the journal
+  ---
+  duration_ms: 1.304917
+  type: 'test'
+  ...
+# Subtest: round-trips a session save with current state, initial snapshot, and command journal
+ok 158 - round-trips a session save with current state, initial snapshot, and command journal
+  ---
+  duration_ms: 1.850917
+  type: 'test'
+  ...
+# Subtest: rejects malformed commands and state-journal mismatches
+ok 159 - rejects malformed commands and state-journal mismatches
+  ---
+  duration_ms: 2.790292
+  type: 'test'
+  ...
+1..159
+# tests 159
+# suites 0
+# pass 159
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 206.567041

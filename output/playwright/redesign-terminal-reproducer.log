@@ -1,0 +1,6 @@
+### Result
+{"turn":47,"command":{"type":"end-turn","score":0,"reason":"没有剩余的有效行动，结束回合。"},"winner":null,"realms":[[],[]]}
+### Ran Playwright code
+```js
+await (async page => { await page.screenshot({path:"output/playwright/redesign-before-terminal-lock.png",fullPage:true}); return await page.evaluate(async()=> {const build=document.querySelector("meta[name=build]").content;const core=await import(`./game-core.js?v=${build}`);const save=JSON.parse(localStorage.getItem("nexus-front:session-slot-1"));const state=core.deserializeGame(save.game); const ai=await import(`./game-ai.js?v=${build}`);return {turn:state.turnCounter,command:ai.chooseAiCommand(state,0),winner:state.winner,realms:state.players.map(p=>p.realms.map(r=>r.name))};}); })(page);
+```

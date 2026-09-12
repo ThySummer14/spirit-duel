@@ -1,0 +1,137 @@
+async (page) => {
+  // Run from the formation screen or an active fresh match. All mutations use UI clicks.
+  // Read-only AI decisions deserialize only the save created through the session dialog.
+  page.setDefaultTimeout(30000);
+  const viewport = page.viewportSize();
+  const mode = await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : localStorage.getItem('nexus-front:3d') === 'off' ? '2d' : 'three');
+  const suffix = `${viewport.width}x${viewport.height}${mode === 'three' ? '' : '-' + mode}`;
+  const counts = {};
+  const errors = [];
+  const consoleErrors = [];
+  const onError = (error) => errors.push(error.message);
+  const onConsole = (message) => { if (message.type() === 'error') consoleErrors.push(message.text()); };
+  page.on('pageerror', onError);
+  page.on('console', onConsole);
+  let midgame = false;
+  let lastJournalLength = -1;
+  let previousCommand = null;
+  const count = (type) => { counts[type] = (counts[type] ?? 0) + 1; };
+  const unit = (id) => page.locator(`.unit-card[data-unit-id="${id}"]`);
+  const realm = (id) => page.locator(`.realm-chip[data-realm-id="${id}"]`);
+  const assertLayout = async () => {
+    // Wait for transient hit/entry animations rather than judging their intentional motion.
+    await page.mouse.move(1, 1);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(2400);
+    const problems = await page.evaluate(() => {
+      const issues = [];
+      if (document.documentElement.scrollWidth > innerWidth + 1) issues.push('document horizontal overflow');
+      const cards = [...document.querySelectorAll('#battle-stage .unit-card')]
+        .map((card) => ({ id: card.dataset.unitId, box: card.getBoundingClientRect() }))
+        .filter(({ box }) => box.width > 0 && box.height > 0);
+      for (let i = 0; i < cards.length; i += 1) {
+        for (let j = i + 1; j < cards.length; j += 1) {
+          const a = cards[i].box;
+          const b = cards[j].box;
+          if (Math.min(a.right, b.right) - Math.max(a.left, b.left) > 2
+            && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 2) {
+            issues.push(`unit overlap: ${cards[i].id} / ${cards[j].id}`);
+          }
+        }
+      }
+      return issues;
+    });
+    if (problems.length) throw new Error(problems.join('; '));
+  };
+  const snapshotAndChoose = async () => {
+    await page.locator('#menu-button').click();
+    await page.locator('#session-button').click();
+    await page.locator('#session-save-button').click();
+    const data = await page.evaluate(async () => {
+      const build = document.querySelector('meta[name="build"]').content;
+      const [{ deserializeGame, getCardDefinition }, { chooseAiCommand }] = await Promise.all([
+        import(`./game-core.js?v=${build}`), import(`./game-ai.js?v=${build}`),
+      ]);
+      const save = JSON.parse(localStorage.getItem('nexus-front:session-slot-1'));
+      const state = deserializeGame(save.game);
+      const command = chooseAiCommand(state, 0, { aggressive: state.turnCounter > 30 });
+      return { command, journalLength: save.journal.commands.length, turn: state.turnCounter };
+    });
+    const status = await page.locator('#session-status').getAttribute('data-state');
+    if (status === 'error') throw new Error(await page.locator('#session-status').innerText());
+    await page.locator('#session-close-button').click();
+    return data;
+  };
+  try {
+    for (let step = 0; step < 2 && await page.locator('#formation-start-button').isVisible(); step += 1) {
+      await page.locator('#formation-start-button').click();
+    }
+    if (await page.locator('#mulligan-done-button').isVisible()) await page.locator('#mulligan-done-button').click();
+    await assertLayout();
+    await page.screenshot({ path: `output/playwright/redesign-${suffix}-opening.png`, fullPage: true });
+    for (let step = 0; step < 250; step += 1) {
+      await page.waitForFunction(() => document.querySelector('#result-dialog').open
+        || document.querySelector('#divination-dialog').open
+        || ['player', 'response', 'over'].includes(document.querySelector('#battle-stage').dataset.turn), null, { timeout: 30000 });
+      if (await page.locator('#result-dialog').evaluate((dialog) => dialog.open)
+        || await page.locator('#battle-stage').getAttribute('data-turn') === 'over') {
+        await page.locator('#result-dialog').waitFor({ state: 'visible', timeout: 30000 });
+        count('settlement');
+        await page.screenshot({ path: `output/playwright/redesign-${suffix}-result.png`, fullPage: true });
+        if (!counts['level-up'] || !counts['play-card'] || !counts.attack) throw new Error(`Required gameplay missing: ${JSON.stringify(counts)}`);
+        if (errors.length || consoleErrors.length) throw new Error(`Browser errors: ${JSON.stringify({ errors, consoleErrors })}`);
+        return { viewport, counts, result: await page.locator('#result-dialog').innerText(), errors, consoleErrors };
+      }
+      if (await page.locator('#divination-dialog').evaluate((dialog) => dialog.open)) {
+        await page.locator('#divination-options .divination-option').first().click();
+        count('divination-choice');
+        continue;
+      }
+      if (await page.locator('#battle-stage').getAttribute('data-turn') === 'response') {
+        await page.locator('#end-turn-button').click();
+        count('pass-response');
+        continue;
+      }
+      const { command, journalLength } = await snapshotAndChoose();
+      if (journalLength === lastJournalLength) throw new Error(`UI command did not change journal: ${JSON.stringify(previousCommand)}`);
+      lastJournalLength = journalLength;
+      previousCommand = command;
+      if (command.type === 'level-up') {
+        const before = await unit(command.unitId).getAttribute('aria-label');
+        await unit(command.unitId).click();
+        if (await unit(command.unitId).getAttribute('aria-label') === before) await page.locator('#level-button').click();
+      } else if (command.type === 'play-card') {
+        await page.locator(`.hand-card[data-instance-id="${command.instanceId}"]`).click();
+        if (await page.locator('.hand-card.is-selected').count()) {
+          if (!command.targetId) {
+            const front = page.locator('#enemy-battle .unit-card');
+            await (await front.count() ? front : page.locator('#enemy-battle .empty-front-slot')).click();
+          }
+          else await (command.targetId.startsWith('realm-') ? realm(command.targetId) : unit(command.targetId)).click();
+        }
+      } else if (command.type === 'attack') {
+        await unit(command.unitId).click();
+        if (command.targetId?.startsWith('realm-')) await realm(command.targetId).click();
+        else await page.locator('#attack-button').click();
+      } else if (command.type === 'end-turn' || command.type === 'pass-response') {
+        await page.locator('#end-turn-button').click();
+      } else {
+        throw new Error(`Unsupported UI command: ${JSON.stringify(command)}`);
+      }
+      count(command.type);
+      if (!midgame && counts.attack >= 4 && counts['play-card'] >= 4) {
+        await assertLayout();
+        await page.screenshot({ path: `output/playwright/redesign-${suffix}-midgame.png`, fullPage: true });
+        midgame = true;
+      }
+      if (errors.length) throw new Error(`Page errors: ${JSON.stringify(errors)}`);
+    }
+    throw new Error(`Match exceeded 250 UI commands: ${JSON.stringify(counts)}`);
+  } catch (error) {
+    await page.screenshot({ path: `output/playwright/redesign-${suffix}-failure.png`, fullPage: true });
+    throw error;
+  } finally {
+    page.off('pageerror', onError);
+    page.off('console', onConsole);
+  }
+}

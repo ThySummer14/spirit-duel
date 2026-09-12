@@ -1,0 +1,166 @@
+TAP version 13
+# Subtest: every unit carries exactly one awakening card and two SSRs, catalog stays valid
+ok 1 - every unit carries exactly one awakening card and two SSRs, catalog stays valid
+  ---
+  duration_ms: 1.416125
+  type: 'test'
+  ...
+# Subtest: default decks pick up the awakening card while SSRs stay collectible-only
+ok 2 - default decks pick up the awakening card while SSRs stay collectible-only
+  ---
+  duration_ms: 0.458334
+  type: 'test'
+  ...
+# Subtest: deck validation enforces per-card deckLimit for awakening cards
+ok 3 - deck validation enforces per-card deckLimit for awakening cards
+  ---
+  duration_ms: 1.163833
+  type: 'test'
+  ...
+# Subtest: awakening swaps the passive, grants +1/+1 and cannot be repeated
+ok 4 - awakening swaps the passive, grants +1/+1 and cannot be repeated
+  ---
+  duration_ms: 4.806875
+  type: 'test'
+  ...
+# Subtest: awakened ember burns the enemy core when the enemy lane is empty
+ok 5 - awakened ember burns the enemy core when the enemy lane is empty
+  ---
+  duration_ms: 1.166
+  type: 'test'
+  ...
+# Subtest: form switching preserves awakening growth (attack pipeline fix)
+ok 6 - form switching preserves awakening growth (attack pipeline fix)
+  ---
+  duration_ms: 0.724208
+  type: 'test'
+  ...
+# Subtest: awakened state survives serialization; forged passive is rejected
+ok 7 - awakened state survives serialization; forged passive is rejected
+  ---
+  duration_ms: 2.193166
+  type: 'test'
+  ...
+# Subtest: form card fully heals its source only, not allies or the fallen
+ok 8 - form card fully heals its source only, not allies or the fallen
+  ---
+  duration_ms: 0.437916
+  type: 'test'
+  ...
+# Subtest: kongo awakening grants permanent unyielding
+ok 9 - kongo awakening grants permanent unyielding
+  ---
+  duration_ms: 0.882416
+  type: 'test'
+  ...
+# Subtest: awakened lumen heals and draws on the first spell of the turn only
+ok 10 - awakened lumen heals and draws on the first spell of the turn only
+  ---
+  duration_ms: 1.288459
+  type: 'test'
+  ...
+# Subtest: burst dumps all charge into one pierce strike (storm)
+ok 11 - burst dumps all charge into one pierce strike (storm)
+  ---
+  duration_ms: 9.380084
+  type: 'test'
+  ...
+# Subtest: lone wolf flash returns to reserve with a shield after the kill (frostblade)
+ok 12 - lone wolf flash returns to reserve with a shield after the kill (frostblade)
+  ---
+  duration_ms: 0.744292
+  type: 'test'
+  ...
+# Subtest: wrath arhat smashes harder with a shield wall (kongo threshold)
+ok 13 - wrath arhat smashes harder with a shield wall (kongo threshold)
+  ---
+  duration_ms: 0.679125
+  type: 'test'
+  ...
+# Subtest: absolute zero spends both fires to lock the enemy board
+ok 14 - absolute zero spends both fires to lock the enemy board
+  ---
+  duration_ms: 0.457666
+  type: 'test'
+  ...
+# Subtest: mountain resonance answers an incoming damage step with a shield wall (basalt)
+ok 15 - mountain resonance answers an incoming damage step with a shield wall (basalt)
+  ---
+  duration_ms: 0.477083
+  type: 'test'
+  ...
+# Subtest: moonlit aria chains draws with an explicit one-fire cost (lumen)
+ok 16 - moonlit aria chains draws with an explicit one-fire cost (lumen)
+  ---
+  duration_ms: 0.8655
+  type: 'test'
+  ...
+# Subtest: verdict brush divines, maims with brittle and recycles via origin (ink)
+ok 17 - verdict brush divines, maims with brittle and recycles via origin (ink)
+  ---
+  duration_ms: 0.727834
+  type: 'test'
+  ...
+# Subtest: immovable fudou-myoo ward shields every ally each turn
+ok 18 - immovable fudou-myoo ward shields every ally each turn
+  ---
+  duration_ms: 0.646125
+  type: 'test'
+  ...
+# Subtest: boundless inksea explodes with a three-part countdown burst
+ok 19 - boundless inksea explodes with a three-part countdown burst
+  ---
+  duration_ms: 0.74125
+  type: 'test'
+  ...
+# Subtest: benevolent king trades a full turn for team protection (kongo)
+ok 20 - benevolent king trades a full turn for team protection (kongo)
+  ---
+  duration_ms: 0.258542
+  type: 'test'
+  ...
+# Subtest: awakened storm banks charge from every combat (gale fury)
+ok 21 - awakened storm banks charge from every combat (gale fury)
+  ---
+  duration_ms: 0.455208
+  type: 'test'
+  ...
+# Subtest: form hooks amplify identity, survive save/load, and stop after switching
+ok 22 - form hooks amplify identity, survive save/load, and stop after switching
+  ---
+  duration_ms: 1.116708
+  type: 'test'
+  ...
+# Subtest: switching out of wolf king removes its shield amplifier
+ok 23 - switching out of wolf king removes its shield amplifier
+  ---
+  duration_ms: 0.501125
+  type: 'test'
+  ...
+# Subtest: shattered mirror removes armor and rewards a surviving frozen target
+ok 24 - shattered mirror removes armor and rewards a surviving frozen target
+  ---
+  duration_ms: 0.540792
+  type: 'test'
+  ...
+# Subtest: spell form triggers once per owner turn and ignores another character spells
+ok 25 - spell form triggers once per owner turn and ignores another character spells
+  ---
+  duration_ms: 1.131333
+  type: 'test'
+  ...
+# Subtest: SSR definitions allow a pair while awakenings stay unique
+ok 26 - SSR definitions allow a pair while awakenings stay unique
+  ---
+  duration_ms: 0.133458
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 107.7075

@@ -1,0 +1,6 @@
+### Result
+{"active":true,"enabled":true,"reducedMotion":false,"unavailable":false,"ready":true,"pendingFrame":false,"contextCount":1,"contextCreations":1,"rendererCreations":1,"renderCount":19,"effectsPlayed":0,"effects":0,"resources":10,"geometries":2,"textures":0,"programs":3,"pixelRatio":1}
+### Ran Playwright code
+```js
+await (async page => { await page.setViewportSize({width:1440,height:1000}); await page.locator("#formation-start-button").click(); await page.locator("#formation-start-button").click(); await page.locator("#mulligan-done-button").click(); await page.locator("#menu-button").click(); await page.locator("#battle-3d-toggle").check(); await page.locator("#menu-close-button").click(); await page.waitForFunction(()=>document.querySelector("#battle-stage").dataset.fx==="three"); await page.locator(".hand-card").first().hover(); await page.waitForTimeout(500); await page.screenshot({path:"output/playwright/redesign-three-preview.png",fullPage:true}); return await page.evaluate(async()=> (await import(document.querySelector("script[type=module]").src)).getBattleFxDiagnostics()); })(page);
+```

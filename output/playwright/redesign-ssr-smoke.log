@@ -1,0 +1,20 @@
+{
+  "completed": 16,
+  "ssrPlayed": [
+    "ssr-basalt-fudou",
+    "ssr-basalt-resonance",
+    "ssr-ember-blaze",
+    "ssr-ember-meteorfall",
+    "ssr-frostblade-flash",
+    "ssr-frostblade-king",
+    "ssr-ink-verdict",
+    "ssr-kongo-arhat",
+    "ssr-lumen-aria",
+    "ssr-lumen-tide",
+    "ssr-rime-slash",
+    "ssr-rime-zero",
+    "ssr-storm-hive",
+    "ssr-storm-jolt"
+  ],
+  "roundTrip": "every action"
+}

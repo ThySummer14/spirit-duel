@@ -1,0 +1,61 @@
+### Result
+{"cycles":[{"active":true,"enabled":true,"reducedMotion":false,"unavailable":false,"ready":true,"pendingFrame":false,"contextCount":1,"contextCreations":1,"rendererCreations":1,"renderCount":3,"effectsPlayed":0,"effects":0,"resources":10,"geometries":1,"textures":0,"programs":1,"pixelRatio":1,"actualContexts":1,"heap":5078072},{"active":true,"enabled":true,"reducedMotion":false,"unavailable":false,"ready":true,"pendingFrame":false,"contextCount":1,"contextCreations":1,"rendererCreations":2,"renderCount":6,"effectsPlayed":0,"effects":0,"resources":10,"geometries":1,"textures":0,"programs":1,"pixelRatio":1,"actualContexts":1,"heap":5216908},{"active":true,"enabled":true,"reducedMotion":false,"unavailable":false,"ready":true,"pendingFrame":false,"contextCount":1,"contextCreations":1,"rendererCreations":3,"renderCount":9,"effectsPlayed":0,"effects":0,"resources":10,"geometries":1,"textures":0,"programs":1,"pixelRatio":1,"actualContexts":1,"heap":5451296},{"active":true,"enabled":true,"reducedMotion":false,"unavailable":false,"ready":true,"pendingFrame":false,"contextCount":1,"contextCreations":1,"rendererCreations":4,"renderCount":12,"effectsPlayed":0,"effects":0,"resources":10,"geometries":1,"textures":0,"programs":1,"pixelRatio":1,"actualContexts":1,"heap":5461616}],"idle":{"active":true,"enabled":true,"reducedMotion":false,"unavailable":false,"ready":true,"pendingFrame":false,"contextCount":1,"contextCreations":1,"rendererCreations":4,"renderCount":12,"effectsPlayed":0,"effects":0,"resources":10,"geometries":1,"textures":0,"programs":1,"pixelRatio":1,"actualContexts":1},"disabled":{"active":true,"enabled":false,"reducedMotion":false,"unavailable":false,"ready":false,"pendingFrame":false,"contextCount":1,"contextCreations":1,"rendererCreations":4,"renderCount":13,"effectsPlayed":0,"effects":0,"resources":0,"geometries":0,"textures":0,"programs":0,"pixelRatio":1,"actualContexts":1},"reduced":{"active":true,"enabled":true,"reducedMotion":true,"unavailable":false,"ready":false,"pendingFrame":false,"contextCount":1,"contextCreations":1,"rendererCreations":5,"renderCount":14,"effectsPlayed":0,"effects":0,"resources":0,"geometries":0,"textures":0,"programs":0,"pixelRatio":1,"actualContexts":1},"errors":[],"levelButton":"passed","mulliganReset":"passed"}
+### Ran Playwright code
+```js
+await (async (page) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.addInitScript(() => {
+    if (window.__webglInstrumented) return;
+    window.__webglInstrumented = true;
+    const original = HTMLCanvasElement.prototype.getContext;
+    const contexts = new Set();
+    window.__webglAllocations = 0;
+    HTMLCanvasElement.prototype.getContext = function (type, ...args) {
+      const context = original.call(this, type, ...args);
+      if (context && /webgl/.test(type) && !contexts.has(context)) { contexts.add(context); window.__webglAllocations++; }
+      return context;
+    };
+  });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.reload();
+  await page.locator('#formation-start-button').click();
+  await page.locator('#formation-start-button').click();
+  await page.locator('#mulligan-done-button').click();
+  await page.waitForFunction(() => document.querySelector('#battle-stage').dataset.fx === 'three');
+  const diagnostics = () => page.evaluate(async () => ({... (await import(document.querySelector('script[type=module]').src)).getBattleFxDiagnostics(), actualContexts: window.__webglAllocations}));
+  const cdp = await page.context().newCDPSession(page);
+  const sample = async () => { await cdp.send('HeapProfiler.collectGarbage'); return {...await diagnostics(), heap: (await cdp.send('Runtime.getHeapUsage')).usedSize}; };
+  const cycles = [await sample()];
+  for (let i = 0; i < 3; i++) {
+    await page.locator('#menu-button').click(); await page.locator('#formation-button').click();
+    const off = await diagnostics();
+    if (off.ready || off.resources || off.pendingFrame) throw new Error('Leaving did not dispose GPU resources');
+    await page.locator('#formation-cancel-button').click();
+    await page.waitForFunction(() => document.querySelector('#battle-stage').dataset.fx === 'three');
+    await page.waitForTimeout(200); cycles.push(await sample());
+  }
+  if (cycles.some(c => c.contextCreations !== 1 || c.actualContexts !== 1)) throw new Error('WebGL contexts grew: ' + JSON.stringify(cycles));
+  if (cycles.at(-1).heap > cycles[1].heap + 2000000) throw new Error('Heap grew beyond warm-up allowance');
+  await page.waitForTimeout(2000);
+  const rest = await diagnostics(); await page.waitForTimeout(500); const settled = await diagnostics();
+  if (settled.renderCount !== rest.renderCount || settled.pendingFrame) throw new Error('Idle renderer still loops');
+  await page.locator('#menu-button').click(); await page.locator('#battle-3d-toggle').uncheck();
+  const disabled = await diagnostics();
+  if (disabled.ready || disabled.resources) throw new Error('3D toggle did not release resources');
+  await page.locator('#battle-3d-toggle').check(); await page.locator('#menu-close-button').click();
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.waitForFunction(() => document.querySelector('#battle-stage').dataset.fx === 'reduced-motion');
+  const reduced = await diagnostics();
+  if (reduced.ready || !reduced.reducedMotion) throw new Error('Reduced motion did not downgrade');
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.waitForFunction(() => document.querySelector('#battle-stage').dataset.fx === 'three');
+  // Regression: button click must not pass MouseEvent as a unit id.
+  await page.locator('#level-button').click();
+  if (await page.locator('#attack-button').isDisabled()) throw new Error('Level button did not unlock action phase');
+  await page.locator('#restart-button').click();
+  if (!await page.locator('#mulligan-done-button').isVisible()) throw new Error('New match did not reset mulligan');
+  if (errors.length) throw new Error(errors.join('; '));
+  return {cycles, idle: settled, disabled, reduced, errors, levelButton: 'passed', mulliganReset: 'passed'};
+})(page);
+```

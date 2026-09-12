@@ -1,0 +1,38 @@
+async page => {
+  // Inspect the actual completed match; load its recorded commands into the existing read-only replay UI.
+  if (await page.locator('#result-dialog').evaluate(e => e.open)) await page.locator('#inspect-button').click();
+  await page.locator('#menu-button').click();
+  await page.locator('#session-button').click();
+  await page.locator('#session-replay-current-button').click();
+  const max = Number(await page.locator('#replay-scrubber').getAttribute('max'));
+  await page.locator('#replay-scrubber').evaluate((el, value) => { el.value = value; el.dispatchEvent(new Event('input', {bubbles:true})); }, Math.floor(max * 0.55));
+  await page.evaluate(() => {
+    const link = [...document.querySelectorAll('link[rel=stylesheet]')].find(e => e.href.includes('styles.css'));
+    link.href = 'styles.css?acceptance=' + Date.now();
+  });
+  await page.mouse.move(1, 1); await page.waitForTimeout(2600);
+  const reports = [];
+  for (const [name,width,height] of [['desktop',1440,1000],['tablet',820,1180],['mobile',390,844]]) {
+    await page.setViewportSize({width,height});
+    await page.evaluate(() => scrollTo(0,0)); await page.waitForTimeout(300);
+    const report = await page.evaluate(() => {
+      const issues=[]; const rect=e=>e.getBoundingClientRect();
+      const intersects=(a,b)=>Math.min(a.right,b.right)-Math.max(a.left,b.left)>2&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>2;
+      const units=[...document.querySelectorAll('.battle-stage .unit-card')];
+      const barriers=[...document.querySelectorAll('.command-line,.avatar-plate,.deck-column')];
+      for(const u of units)for(const b of barriers)if(intersects(rect(u),rect(b)))issues.push(`${u.dataset.unitId} overlaps ${b.className}`);
+      for(let i=0;i<units.length;i++)for(let j=i+1;j<units.length;j++)if(intersects(rect(units[i]),rect(units[j])))issues.push('units overlap');
+      if(document.documentElement.scrollWidth>innerWidth+1)issues.push('horizontal page overflow');
+      for(const c of document.querySelectorAll('.hand-card')) {
+        const a=rect(c),b=rect(c.querySelector('.card-body'));
+        if(Math.abs(a.width-b.width)>2||Math.abs(a.height-b.height)>2)issues.push('hand body sliced');
+      }
+      const front=document.querySelector('.battle-strip .unit-card'), reserve=document.querySelector('.unit-row .unit-card');
+      if(front&&rect(front).width<rect(reserve).width*.95)issues.push('front card shrank');
+      return {viewport:{width:innerWidth,height:innerHeight},documentWidth:document.documentElement.scrollWidth,unitCount:units.length,issues};
+    });
+    if(report.issues.length)throw new Error(JSON.stringify(report));
+    await page.screenshot({path:`output/playwright/redesign-final-${name}.png`,fullPage:true});reports.push(report);
+  }
+  return reports;
+}
