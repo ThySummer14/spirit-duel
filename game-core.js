@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=0a4691ae';
+} from './game-content.js?v=d8096adc';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=0a4691ae';
+} from './game-keywords.js?v=d8096adc';
 
 export {
   CARD_DEFINITIONS,
@@ -45,7 +45,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=0a4691ae';
+} from './game-content.js?v=d8096adc';
 
 export {
   CARD_KEYWORDS,
@@ -56,7 +56,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=0a4691ae';
+} from './game-keywords.js?v=d8096adc';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -941,8 +941,8 @@ function applyForm(state, playerIndex, sourceIndex, card) {
     attackBonus: bonuses.attack ?? 0,
     hpBonus: bonuses.hp ?? 0,
   };
-  // 被动增幅标记（苍狼王之相）：形态附带，永久生效
-  if (card.passiveAmp) unit.passiveAmp = { ...(unit.passiveAmp ?? {}), ...card.passiveAmp };
+  // 增幅属于当前形态，切换时替换，避免旧形态能力永久残留。
+  unit.passiveAmp = card.passiveAmp ? { ...card.passiveAmp } : null;
   // 形态加成与永久成长叠加；保留当前已损伤势
   unit.attack = unit.baseAttack + (unit.attackBonus ?? 0) + (bonuses.attack ?? 0);
   unit.maxHp = unit.baseMaxHp + (unit.maxHpBonus ?? 0) + (bonuses.hp ?? 0);
@@ -1284,6 +1284,9 @@ const EFFECT_CONDITION_HANDLERS = new Map([
   ['match-active', {
     allows: ({ state }) => state.winner === null,
   }],
+  ['target-frozen', {
+    allows: (context) => { const target = selectedEffectTarget(context); return target?.hp > 0 && target.frozen > 0; },
+  }],
   ['target-alive', {
     allows: (context) => selectedEffectTarget(context)?.hp > 0,
   }],
@@ -1572,6 +1575,14 @@ const EFFECT_HANDLERS = new Map([
       if (target.hp <= 0) return;
       target.brittle = card.id === 'erode-script' ? 1 : 2;
       recordEvent(state, GAME_EVENTS.CARD_PLAYED, { enemyIndex, targetId, effect: 'brittle', stacks: target.brittle }, `${target.name} 进入晶裂状态。`, 'card');
+    },
+  }],
+  ['remove-shield', {
+    resolve: ({ state, enemyIndex, targetUnitIndex }) => {
+      const target = state.players[enemyIndex].units[targetUnitIndex];
+      const removed = target.shield;
+      target.shield = 0;
+      recordEvent(state, GAME_EVENTS.CARD_PLAYED, { enemyIndex, unitId: target.uid, effect: 'remove-shield', removed }, `${target.name} 被碎甲，移除 ${removed} 点护盾。`, 'card');
     },
   }],
   ['form', {
@@ -1940,6 +1951,27 @@ function markPassiveUsage(unit, hook, player) {
 }
 
 const PASSIVE_HANDLERS = new Map([
+  ['form-shield-on-spell', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.CARD_PLAYED
+      && event.payload.playerIndex === playerIndex && event.payload.sourceUnitId === unit.uid
+      && event.payload.cardType === 'spell',
+    resolve: ({ unit, hook }) => { unit.shield += hook.params.amount; },
+  }],
+  ['form-mend-on-spell', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.CARD_PLAYED
+      && event.payload.playerIndex === playerIndex && event.payload.sourceUnitId === unit.uid
+      && event.payload.cardType === 'spell',
+    resolve: ({ state, playerIndex, player, unit, hook }) => healUnit(state, playerIndex, player.units.indexOf(unit), hook.params.amount),
+  }],
+  ['form-brittle-defender', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex === playerIndex && event.payload.attackerUnitId === unit.uid
+      && event.payload.defenderSurvived,
+    resolve: ({ state, event, hook }) => {
+      const defender = state.players[event.payload.defenderPlayerIndex].units.find((unit) => unit.uid === event.payload.defenderUnitId);
+      if (defender?.hp > 0) defender.brittle += hook.params.amount;
+    },
+  }],
   ['passive-damage-enemy-front', {
     canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.UNIT_ENTERED_FRONT
       && event.payload.playerIndex === playerIndex
@@ -2116,7 +2148,8 @@ const PASSIVE_HANDLERS = new Map([
 function dispatchPassiveHooks(state, event) {
   const candidates = state.players.flatMap((player, playerIndex) => player.units.flatMap((unit) => {
     if (unit.hp <= 0 || !unit.passive?.hooks) return [];
-    return unit.passive.hooks
+    const formHooks = getCardDefinition(unit.form?.cardId)?.formHooks ?? [];
+    return [...unit.passive.hooks, ...formHooks]
       .filter((hook) => hook.event === event.type)
       .map((hook) => ({ player, playerIndex, unit, hook }));
   }));
@@ -2137,7 +2170,7 @@ function dispatchPassiveHooks(state, event) {
         state,
         GAME_EVENTS.PASSIVE_TRIGGERED,
         { playerIndex: candidate.playerIndex, unitId: candidate.unit.uid, passiveId: candidate.unit.passive.id, hookId: candidate.hook.id, sourceEventId: event.id },
-        `${candidate.unit.name} 的被动「${candidate.unit.passive.name}」触发。`,
+        `${candidate.unit.name} 的${candidate.hook.id.startsWith('form-') ? `形态「${candidate.unit.form.name}」` : `被动「${candidate.unit.passive.name}」`}触发。`,
         'success',
       );
       checkWinner(state);
@@ -2241,6 +2274,9 @@ export function validateContentCatalog() {
       errors.push(`${card.name} 的眩晕效果必须声明眩晕关键词。`);
     }
     errors.push(...validateCardKeywordConfiguration(card, getUnitDefinition(card.unitId)));
+    for (const hook of card.formHooks ?? []) {
+      if (!PASSIVE_HANDLERS.has(hook.effect) || !knownEvents.has(hook.event)) errors.push(`${card.name} 的形态能力未注册。`);
+    }
     if (card.copies > GAME_RULES.copiesPerCard) errors.push(`${card.name} 的同名上限超出规则。`);
     if (!Number.isInteger(card.deckLimit) || card.deckLimit < 1 || card.deckLimit > card.copies) {
       errors.push(`${card.name} 的牌组同名上限不合法。`);

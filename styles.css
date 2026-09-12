@@ -2584,3 +2584,19 @@ html[data-theme="day"] .realm-chip .realm-mini-hp { color: #4a4130; }
 }
 
 .hand-preview-card:not(.is-holo) { transform: perspective(900px) rotateX(var(--fx-rx, 0deg)) rotateY(var(--fx-ry, 0deg)); transition: transform .18s ease; }
+
+/* 状态置于肖像下方独立区域，数量增加时撑开行高，不遮住角色、勾玉或行动带。 */
+.board-column { grid-template-rows: auto auto auto auto auto; }
+.unit-card { display: flex; flex-direction: column; aspect-ratio: auto; max-height: none; }
+.unit-face { position: relative; display: block; width: 100%; height: calc(var(--unit-w) * 1.3); flex: 0 0 auto; overflow: hidden; border-radius: inherit; }
+.battle-strip { height: auto; min-height: var(--front-row-h); }
+.battle-strip .unit-card { height: auto; }
+.battle-strip .unit-face { height: var(--front-card-h); }
+.unit-statuses { position: relative; inset: auto; display: flex; width: 100%; max-width: none; min-height: 24px; justify-content: center; align-content: start; gap: 3px; padding: 4px 3px; background: #141d29; }
+.unit-statuses:empty { display: none; }
+.unit-statuses span { padding: 2px 3px; font-size: 10px; line-height: 1.3; white-space: normal; border-radius: 3px; }
+.unit-statuses .status-shield { background: #18394d; color: #d4f0ff; }
+.unit-statuses .status-frozen { background: #244968; color: #fff; border-color: #a5dfff; }
+.unit-statuses .status-brittle { background: #552d25; color: #ffd4bd; }
+.unit-card[data-form] { border-color: var(--gold); }
+.unit-card[data-form] .unit-plate em { color: var(--gold-bright); opacity: 1; font-size: 10px; letter-spacing: 0; }

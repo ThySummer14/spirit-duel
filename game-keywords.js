@@ -765,6 +765,7 @@ export const KEYWORD_DEFINITIONS = Object.freeze([
   defineKeyword({
     id: CARD_KEYWORDS.UNYIELDING,
     label: '不屈',
+    formatUnitStatus: ({ unit }) => unit.unyielding ? { id: CARD_KEYWORDS.UNYIELDING, label: '不屈', detail: unit.hp > 1 ? '生效' : '待恢复' } : null,
     description: '生命大于 1 时，至多受到使其生命降为 1 的伤害，不会因伤害气绝。',
     validateCard: (card) => (
       card.effects?.some((effect) => effect.action === 'grant-unyielding')

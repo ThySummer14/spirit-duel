@@ -754,3 +754,62 @@
   .spirit-detail { flex-wrap: wrap; }
   .rules-grid { grid-template-columns: 1fr; }
 }
+
+/* 秘闻阁：以角色为阅读单位；牌面效果常显，收藏操作留在牌底。 */
+.collection-layout { grid-template-columns: 230px minmax(0, 1fr); gap: 28px; }
+.collection-header { max-width: 1460px; margin-inline: auto; }
+.pack-panel { padding: 18px; box-shadow: none; }
+.pack-visual img { width: 90px; }
+.pack-hint { font-size: 12px; }
+.codex { min-width: 0; }
+.codex-roster { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; margin-bottom: 20px; }
+.codex-roster button { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; padding: 8px 2px; border: 1px solid #b9ae92; border-radius: 5px; background: transparent; color: #514632; font: inherit; }
+.codex-roster img { width: 40px; height: 46px; object-fit: cover; object-position: top; border-radius: 3px; }
+.codex-roster button[aria-pressed="true"] { background: #262b30; color: #f6e9c7; border-color: #262b30; }
+.codex-filters { display: grid; grid-template-columns: minmax(140px, 1fr) 115px 115px; gap: 12px; margin-bottom: 22px; }
+.codex-filters label { display: flex; flex-direction: column; gap: 5px; font-size: 12px; color: #574d3a; }
+.codex-filters input, .codex-filters select { width: 100%; min-width: 0; min-height: 40px; padding: 8px 10px; border: 1px solid #b9ae92; border-radius: 4px; background: #fffaf0; color: #302b22; font: inherit; }
+.codex-identity { display: grid; grid-template-columns: 100px minmax(0, 1fr); align-items: center; gap: 20px; padding: 16px 0 22px; margin-bottom: 22px; border-bottom: 1px solid #b9ae92; }
+.codex-identity > img { width: 100px; height: 150px; object-fit: cover; border-radius: 5px; }
+.codex-identity p { margin: 0 0 10px; font-size: 13px; line-height: 1.7; color: #504735; }
+.codex-identity b { display: block; color: #29271f; }
+.codex-unit header { flex-wrap: wrap; }
+.codex-grid { grid-template-columns: repeat(auto-fill, minmax(205px, 1fr)); gap: 16px; }
+.codex-tile { min-width: 0; padding: 0 14px 14px; gap: 9px; border-color: #b7aa8b; background: #fffaf0; border-radius: 7px; }
+.codex-tile[data-owned="0"] { opacity: 1; background: #ede7d9; }
+.codex-tile .tile-art { width: calc(100% + 28px); max-width: none; height: 132px; margin: 0 -14px 4px; object-fit: cover; object-position: 50% 26%; }
+.codex-tile .tile-name { font-size: 18px; line-height: 1.4; letter-spacing: .04em; }
+.codex-tile .tile-type { font-size: 12px; color: #675940; }
+.codex-tile .tile-effect { margin: 0; color: #342f25; font-size: 13px; line-height: 1.7; flex: 1; }
+.codex-tile .tile-pips { align-items: center; margin-top: 6px; }
+.codex-tile .tile-pips small { margin-left: 4px; font-size: 11px; color: #63573e; }
+.codex-tile .tile-craft { position: relative; inset: auto; width: 100%; min-height: 34px; margin-top: 4px; display: flex; justify-content: space-between; padding: 7px 9px; border-radius: 4px; }
+.codex-tile .tile-holo { position: relative; inset: auto; }
+.codex-empty { grid-column: 1 / -1; padding: 24px 0; color: #574d3a; }
+@media (max-width: 1100px) {
+  .collection-layout { grid-template-columns: 1fr; }
+  .pack-panel { position: static; display: grid; grid-template-columns: minmax(150px, 1fr) minmax(160px, 1fr); gap: 12px; }
+  .pack-visual { display: none; }
+  .pack-pity { align-self: center; }
+  .pack-hint { margin: 0; }
+}
+@media (max-width: 600px) {
+  .codex-roster { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .codex-roster button { flex-direction: row; justify-content: center; font-size: 12px; }
+  .codex-roster img { width: 24px; height: 32px; }
+  .codex-filters { grid-template-columns: 1fr 1fr; }
+  .codex-filters label:first-child { grid-column: 1 / -1; }
+  .codex-identity { grid-template-columns: 64px minmax(0, 1fr); gap: 12px; align-items: start; }
+  .codex-identity > img { width: 64px; height: 100px; }
+  .codex-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .codex-tile { padding-inline: 10px; }
+  .codex-tile .tile-art { width: calc(100% + 20px); margin-inline: -10px; height: 110px; }
+  .codex-tile .tile-name { font-size: 16px; }
+  .codex-tile .tile-effect { font-size: 12px; }
+  .codex-tile .tile-pips { flex-wrap: wrap; }
+  .pack-panel { grid-template-columns: 1fr; }
+  .pack-hint { font-size: 11px; }
+}
+.codex-tile .tile-art { height: 96px; object-fit: contain; background: #20242b; }
+.pack-stats dd { font-size: 13px; white-space: nowrap; }
+.codex-tile .tile-craft.is-capped { color: #40644a; opacity: 1; }

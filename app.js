@@ -1,5 +1,5 @@
-import { createBattleRenderer } from './battle-render.js?v=0a4691ae';
-import { createBattleFx } from './battle-fx.js?v=0a4691ae';
+import { createBattleRenderer } from './battle-render.js?v=d8096adc';
+import { createBattleFx } from './battle-fx.js?v=d8096adc';
 import {
   DEFAULT_PLAYER_LINEUP,
   GAME_RULES,
@@ -28,9 +28,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=0a4691ae';
-import { chooseAiCommand } from './game-ai.js?v=0a4691ae';
-import { gameAudio } from './game-audio.js?v=0a4691ae';
+} from './game-core.js?v=d8096adc';
+import { chooseAiCommand } from './game-ai.js?v=d8096adc';
+import { gameAudio } from './game-audio.js?v=d8096adc';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -43,26 +43,26 @@ import {
   ownedCopies,
   ownedHoloCopies,
   serializeCollection,
-} from './game-collection.js?v=0a4691ae';
+} from './game-collection.js?v=d8096adc';
 import {
   canUpgradeUnit,
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=0a4691ae';
+} from './game-presentation.js?v=d8096adc';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=0a4691ae';
+} from './game-session.js?v=d8096adc';
 import {
   holoLayers,
   holoSheenMarkup,
   initCollectionHolo,
   initPreviewHolo,
   initRevealHolo,
-} from './card-holo.js?v=0a4691ae';
+} from './card-holo.js?v=d8096adc';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -379,11 +379,29 @@ function renderCollectionScreen() {
   nodes.codexTotal.textContent = stats.totalCards;
   nodes.codexHolo.textContent = `${stats.distinctHoloOwned} 种闪卡`;
   nodes.packOpenButton.disabled = collection.balance < COLLECTION_RULES.packCost;
+  document.querySelector('.pack-hint').textContent = `胜利 +${COLLECTION_RULES.winReward} 御札，惜败 +${COLLECTION_RULES.lossReward}。开卷概率：${Object.entries(COLLECTION_RULES.rarityWeights).map(([rarity, weight]) => `${RARITY_LABELS[rarity]} ${(weight * 100).toFixed(1)}%`).join(' · ')}。闪卡概率 ${COLLECTION_RULES.holoChance * 100}%。传说保底还需 ${Math.max(0, COLLECTION_RULES.ssrPityLimit - collection.pitySinceSsr)} 包。`;
   renderCodex();
 }
 
+let codexUnitId = UNIT_DEFINITIONS[0].id;
+for (const id of ['codex-search', 'codex-type', 'codex-ownership']) {
+  document.getElementById(id).addEventListener(id === 'codex-search' ? 'input' : 'change', renderCodex);
+}
 function renderCodex() {
-  nodes.codexUnits.replaceChildren(...UNIT_DEFINITIONS.map((unit) => {
+  const roster = document.getElementById('codex-roster');
+  // Preserve keyboard focus on a roster button when only the card list changes.
+  if (!roster.children.length) roster.replaceChildren(...UNIT_DEFINITIONS.map((unit) => {
+    const button = document.createElement('button');
+    button.type = 'button'; button.dataset.unitId = unit.id;
+    button.innerHTML = `<img src="${unit.art}" alt=""><span>${unit.name}</span>`;
+    button.addEventListener('click', () => { codexUnitId = unit.id; renderCodex(); });
+    return button;
+  }));
+  [...roster.children].forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.unitId === codexUnitId)));
+  const query = document.getElementById('codex-search').value.trim();
+  const type = document.getElementById('codex-type').value;
+  const ownership = document.getElementById('codex-ownership').value;
+  nodes.codexUnits.replaceChildren(...UNIT_DEFINITIONS.filter((unit) => unit.id === codexUnitId).map((unit) => {
     const section = document.createElement('section');
     section.className = 'codex-unit';
     section.style.setProperty('--unit-accent', unit.color);
@@ -393,7 +411,17 @@ function renderCodex() {
     head.innerHTML = `<strong>${unit.name}</strong><small>${unit.title} · ${unit.role}</small><em>${ownedKinds} / ${cards.length} 种</em>`;
     const grid = document.createElement('div');
     grid.className = 'codex-grid';
-    cards.forEach((card) => {
+    const identity = document.createElement('div');
+    identity.className = 'codex-identity';
+    identity.innerHTML = `<img src="${unit.art}" alt="${unit.name}"><div><p>${unit.strategy}</p><p><b>被动 · ${unit.passive.name}</b>${unit.passive.text}</p><p><b>觉醒 · ${unit.awakenedPassive.name}</b>${unit.awakenedPassive.text}</p></div>`;
+    const visibleCards = cards.filter((card) => (!type || (type === 'ssr' ? card.rarity === 'ssr' : card.type === type))
+      && (!query || `${card.name} ${card.text} ${card.tags.join(' ')}`.includes(query))
+      && (!ownership || (ownership === 'owned' ? ownedCopies(collection, card.id) > 0 : ownedCopies(collection, card.id) < COLLECTION_RULES.maxCopies)));
+    if (!visibleCards.length) {
+      const empty = document.createElement('p'); empty.className = 'codex-empty';
+      empty.textContent = '当前角色没有符合条件的秘技，请调整筛选。'; grid.append(empty);
+    }
+    visibleCards.forEach((card) => {
       const copies = ownedCopies(collection, card.id);
       const holoCopies = ownedHoloCopies(collection, card.id);
       const tile = document.createElement('article');
@@ -408,10 +436,10 @@ function renderCodex() {
         `<i class="${index < copies ? 'is-filled' : ''}${index < holoCopies ? ' is-holo-copy' : ''}"></i>`
       )).join('');
       tile.innerHTML = `
-        <span class="tile-name">${card.name}</span>
-        <span class="tile-type">${card.typeLabel} · <i>${RARITY_LABELS[card.rarity]}</i> · ${card.level}勾</span>
+        <img class="tile-art" src="${getCardArt(card)}" alt="" loading="lazy"><span class="tile-name">${card.name}</span>
+        <span class="tile-type">${card.typeLabel} · <i>${RARITY_LABELS[card.rarity]}</i> · ${card.level} 勾 · ${card.cost} 鬼火</span>
         ${holoCopies ? `<span class="tile-holo">闪卡 ${holoCopies} / ${copies}</span>` : ''}
-        <span class="tile-pips">${pips}</span>`;
+        <p class="tile-effect">${card.text}</p><span class="tile-pips" aria-label="已拥有 ${copies} 张">${pips}<small>${copies} / 2 · 构筑上限 ${card.deckLimit}</small></span>`;
       tile.append(...holoLayers(holoCopies > 0));
       const cost = COLLECTION_RULES.craftCost[card.rarity];
       const capped = copies >= COLLECTION_RULES.maxCopies;
@@ -420,6 +448,7 @@ function renderCodex() {
       craft.className = 'tile-craft';
       craft.classList.toggle('is-capped', capped);
       craft.disabled = capped || collection.balance < cost;
+      craft.setAttribute('aria-label', `合成${card.name}，消耗 ${cost} 御札`);
       craft.innerHTML = capped ? '<span>已收齐</span><b></b>' : `<span>御札合成</span><b>${cost}</b>`;
       craft.addEventListener('click', () => {
         const outcome = craftCard(collection, card.id);
@@ -436,7 +465,7 @@ function renderCodex() {
       tile.append(craft);
       grid.append(tile);
     });
-    section.append(head, grid);
+    section.append(head, identity, grid);
     return section;
   }));
 }
@@ -1983,7 +2012,12 @@ function aiHasControl() {
 
 async function runAiTurn(session) {
   await wait(1250);
-  if (session !== gameSession || !aiHasControl()) return;
+  if (session !== gameSession) return;
+  if (!aiHasControl()) {
+    aiBusy = false;
+    render();
+    return;
+  }
   let actions = 0;
   try {
     while (session === gameSession && aiHasControl() && actions < 24) {
@@ -2071,9 +2105,10 @@ function handleEndTurn() {
   game = result.state;
   recordCommand({ type: 'end-turn', playerIndex: 0 });
   selectedCardId = null;
-  aiBusy = true;
+  // 换回合触发的幻境或抽牌可能已经结束对局，不能无条件进入 AI 忙碌态。
+  aiBusy = aiHasControl();
   render();
-  runAiTurn(gameSession);
+  if (aiBusy) runAiTurn(gameSession);
 }
 
 function showResultDialogWhenReady(session) {

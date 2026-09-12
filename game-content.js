@@ -1,4 +1,4 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=0a4691ae';
+import { CARD_KEYWORDS } from './game-keywords.js?v=d8096adc';
 
 export const GAME_RULES = Object.freeze({
   lineupSize: 4,
@@ -10,7 +10,6 @@ export const GAME_RULES = Object.freeze({
   openingHandSize: 5,
   mulliganCount: 2,
   maxHandSize: 12,
-  mulliganCount: 2,
   knockoutCountdown: 2,
   maxUnitLevel: 3,
   bonusUpgradeTurn: 7, // 先手玩家在该回合获得一次额外升勾机会
@@ -49,7 +48,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     name: '赤曜',
     title: '焰锋',
     role: '爆发 / 突击',
-    strategy: '以战斗牌快速换入前线，持续压低对方生命。',
+    strategy: '用战斗牌反复入阵触发余烬；赤炼强化清前线，日铸强化压核心，觉醒后空场也能追击。',
     maxHp: 9,
     attack: 3,
     art: 'assets/ember.svg',
@@ -67,7 +66,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     name: '岚岳',
     title: '垒卫',
     role: '护阵 / 站场',
-    strategy: '用护盾和高生命稳固战斗区，为后排争取时间。',
+    strategy: '以镇守入阵积盾；山门强化驻守，磐碑配合幻境护阵，用响应保护队友。',
     maxHp: 12,
     attack: 1,
     art: 'assets/basalt.svg',
@@ -85,7 +84,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     name: '弦月',
     title: '织光',
     role: '恢复 / 调度',
-    strategy: '恢复单位与核心生命，并用抽牌维持手牌质量。',
+    strategy: '把每回合第一张弦月牌留给调度或治疗，觉醒后优先使用法术；两种形态分别保护核心与自身。',
     maxHp: 8,
     attack: 2,
     art: 'assets/lumen.svg',
@@ -103,7 +102,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     name: '白棱',
     title: '霜刃',
     role: '控制 / 破防',
-    strategy: '以眩晕限制出击，用晶裂放大后续伤害。',
+    strategy: '交战留下眩晕，冰镜追加晶裂；凛冬用法术积盾，碎镜裁决将眩晕转成破盾与高伤害。',
     maxHp: 9,
     attack: 2,
     art: 'assets/rime.svg',
@@ -121,7 +120,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     name: '霆鸢',
     title: '鸣羽',
     role: '连击 / 压制',
-    strategy: '用高攻与频繁换位抢占战斗区，擅长快速收束交战。',
+    strategy: '从后场出击触发追风，用惊雷形态与觉醒积蓄充能，再用投射或爆能收束对局。',
     maxHp: 8,
     attack: 3,
     art: 'assets/storm.svg',
@@ -144,7 +143,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     name: '玄砚',
     title: '墨相',
     role: '策略 / 消耗',
-    strategy: '通过护印、晶裂与牌库调度累积长线优势。',
+    strategy: '以幻境部署触发墨护；无相强化前线护盾，墨卷保护施术者，觉醒延长幻境的收益窗口。',
     maxHp: 10,
     attack: 2,
     art: 'assets/ink.svg',
@@ -162,7 +161,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     name: '银狼',
     title: '狼牙',
     role: '狼刃 / 游击 / 连击',
-    strategy: '用连击与先攻贴脸换血，交战后的护盾反哺续航。',
+    strategy: '靠先攻与连击主动换血，交战后刃胄补盾；觉醒奖励击倒，孤狼一闪击倒后撤。',
     maxHp: 8,
     attack: 3,
     art: 'assets/frostblade.svg',
@@ -181,7 +180,7 @@ export const UNIT_DEFINITIONS = Object.freeze([
     name: '金刚',
     title: '不坏',
     role: '石佛 / 铁壁 / 不屈',
-    strategy: '以不屈与护盾死守战斗区，让对手的攻势化为徒劳。',
+    strategy: '用不屈承受一轮进攻，金身与觉醒在前线修复伤势；存下护盾后以怒罗汉反攻。',
     maxHp: 13,
     attack: 2,
     art: 'assets/kongo.svg',
@@ -246,6 +245,17 @@ function createEffectSteps(id, effect, target, value) {
   return [effectStep('always', effect, target, value)];
 }
 
+// 形态能力由当前 form.cardId 查目录取得，不向存档增加第二份规则副本。
+function formTrait(id, text, event, effect, params, oncePerTurn = false) {
+  return {
+    formAbility: text,
+    formHooks: Object.freeze([Object.freeze({
+      id, event, effect, params: Object.freeze(params), priority: 40,
+      ...(oncePerTurn ? { limit: Object.freeze({ scope: 'owner-turn', max: 1 }) } : {}),
+    })]),
+  };
+}
+
 function card(id, unitId, name, type, level, text, target, effect, value = null, extra = {}) {
   const {
     effects: configuredEffects,
@@ -274,7 +284,7 @@ function card(id, unitId, name, type, level, text, target, effect, value = null,
     keywords: Object.freeze([...configuredKeywords]),
     timing: extra.timing ?? 'main',
     responseTo: Object.freeze([...configuredResponseTo]),
-    text,
+    text: type === 'form' ? `${text}结算后自身恢复全部生命。` : text,
     target,
     effect,
     value,
@@ -286,20 +296,20 @@ function card(id, unitId, name, type, level, text, target, effect, value = null,
 export const CARD_DEFINITIONS = Object.freeze([
   card('flash-thrust', 'ember', '焰闪', 'combat', 1, '赤曜出击，本次攻击 +2。', 'auto', 'assault', 2, { starterCopies: 2, rarity: 'common', tags: ['爆发', '出击'] }),
   card('cinder-mark', 'ember', '烬印', 'spell', 1, '对一名敌方角色造成 3 点伤害。', 'enemy-unit', 'damage', 3, { starterCopies: 2, rarity: 'common', tags: ['解场'] }),
-  card('ember-form', 'ember', '赤炼之躯', 'form', 2, '赤曜获得 +1 攻击与 +2 生命上限。', 'auto', 'form', { attack: 1, hp: 2 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
+  card('ember-form', 'ember', '赤炼之躯', 'form', 2, '赤曜获得 +1 攻击与 +2 生命上限。形态能力：入阵时，额外对敌方前线造成 1 点伤害。', 'auto', 'form', { attack: 1, hp: 2 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'], ...formTrait('form-ember-form', '入阵时，额外对敌方前线造成 1 点伤害。', 'unit-entered-front', 'passive-damage-enemy-front', { amount: 1 }) }),
   card('horizon-burn', 'ember', '灼界', 'spell', 3, '敌方全体受到 1 点伤害，敌方核心受到 2 点伤害。', 'auto', 'burn-all', 1, { starterCopies: 1, rarity: 'epic', tags: ['终结'] }),
 
   card('brace', 'basalt', '固阵', 'spell', 1, '一名友方角色获得 4 点护盾。', 'ally-unit', 'shield', 4, { starterCopies: 2, rarity: 'common', tags: ['保护'] }),
   card('iron-vow', 'basalt', '镇守', 'combat', 1, '岚岳进入前线并获得 3 点护盾。', 'auto', 'fortify', 3, { starterCopies: 2, rarity: 'common', tags: ['站场'] }),
   card('unyielding-wall', 'basalt', '不动如山', 'spell', 2, '一名友方角色获得不屈：生命大于 1 时，不会因伤害气绝。', 'ally-unit', 'grant-unyielding', 1, { rarity: 'epic', tags: ['保护'], keywords: [CARD_KEYWORDS.UNYIELDING] }),
-  card('bastion-form', 'basalt', '山门之相', 'form', 2, '岚岳获得 +4 生命上限。', 'auto', 'form', { attack: 0, hp: 4 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
+  card('bastion-form', 'basalt', '山门之相', 'form', 2, '岚岳获得 +4 生命上限。形态能力：己方回合开始时，若在前线，额外获得 1 点护盾。', 'auto', 'form', { attack: 0, hp: 4 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'], ...formTrait('form-bastion-form', '己方回合开始时，若在前线，额外获得 1 点护盾。', 'turn-started', 'passive-shield-self-if-front', { amount: 1 }) }),
   card('wardline', 'basalt', '界碑阵列', 'realm', 3, '幻境：己方回合开始时，前线角色获得 1 点护盾。', 'auto', 'realm', null, {
     starterCopies: 1, rarity: 'epic', tags: ['幻境', '保护'], realm: { hp: 5, trigger: 'owner-turn-start', triggerEffect: 'shield-front', triggerValue: 1 },
   }),
 
   card('mend', 'lumen', '回响疗愈', 'spell', 1, '为一名友方角色恢复 4 点生命。', 'ally-unit', 'heal', 4, { starterCopies: 2, rarity: 'common', tags: ['恢复'] }),
   card('refract', 'lumen', '折光', 'spell', 1, '抽 2 张牌，并为己方核心恢复 1 点生命。', 'auto', 'draw-heal', 2, { starterCopies: 2, rarity: 'common', tags: ['调度'] }),
-  card('prism-form', 'lumen', '月环之相', 'form', 2, '弦月获得 +1 攻击与 +2 生命上限。', 'auto', 'form', { attack: 1, hp: 2 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
+  card('prism-form', 'lumen', '月环之相', 'form', 2, '弦月获得 +1 攻击与 +2 生命上限。形态能力：每个己方回合首次使用弦月牌后，核心额外恢复 1 点生命。', 'auto', 'form', { attack: 1, hp: 2 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'], ...formTrait('form-prism-form', '每个己方回合首次使用弦月牌后，核心额外恢复 1 点生命。', 'card-played', 'passive-heal-avatar-on-own-card', { amount: 1 }, true) }),
   card('recall', 'lumen', '余辉唤回', 'spell', 3, '唤醒一名离场角色，并回复全部生命。', 'knocked-ally', 'revive', 4, { starterCopies: 1, rarity: 'epic', tags: ['复归'] }),
 
   card('ice-cut', 'rime', '冰脉斩', 'combat', 1, '白棱出击，本次攻击 +1。', 'auto', 'assault', 1, { starterCopies: 2, rarity: 'common', tags: ['出击'] }),
@@ -307,30 +317,30 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('hush', 'rime', '静默霜域', 'spell', 1, '眩晕一名敌方角色，使其下回合无法出击或反击。', 'enemy-unit', 'freeze', 1, {
     starterCopies: 2, rarity: 'common', tags: ['控制', '眩晕'], keywords: [CARD_KEYWORDS.STUN],
   }),
-  card('rime-form', 'rime', '冰镜之相', 'form', 2, '白棱获得 +1 攻击与 +1 生命上限。', 'auto', 'form', { attack: 1, hp: 1 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
+  card('rime-form', 'rime', '冰镜之相', 'form', 2, '白棱获得 +1 攻击与 +1 生命上限。形态能力：与敌方角色交战后，若其存活，额外施加 1 层晶裂。', 'auto', 'form', { attack: 1, hp: 1 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'], ...formTrait('form-rime-form', '与敌方角色交战后，若其存活，额外施加 1 层晶裂。', 'combat-resolved', 'form-brittle-defender', { amount: 1 }) }),
   card('fracture', 'rime', '晶裂', 'spell', 3, '造成 2 点伤害；目标后续受到的 2 次伤害各 +1。', 'enemy-unit', 'brittle', 2, { starterCopies: 1, rarity: 'epic', tags: ['破防'] }),
 
   card('thunder-step', 'storm', '雷走', 'combat', 1, '霆鸢出击，本次攻击 +1。', 'auto', 'assault', 1, { starterCopies: 2, rarity: 'common', tags: ['出击'] }),
   card('lightning-pierce', 'storm', '雷光先袭', 'combat', 1, '霆鸢出击，先攻：若首次伤害即气绝目标，则不受反击。', 'auto', 'assault', 0, { rarity: 'rare', tags: ['出击'], keywords: [CARD_KEYWORDS.FIRST_STRIKE] }),
   card('spark-shot', 'storm', '鸣闪', 'spell', 1, '对一名敌方角色造成 2 点伤害。', 'enemy-unit', 'damage', 2, { starterCopies: 2, rarity: 'common', tags: ['压制'] }),
-  card('storm-form', 'storm', '惊雷之翼', 'form', 2, '霆鸢获得 +2 攻击。', 'auto', 'form', { attack: 2, hp: 0 }, { starterCopies: 2, rarity: 'rare', tags: ['爆发'] }),
+  card('storm-form', 'storm', '惊雷之翼', 'form', 2, '霆鸢获得 +2 攻击。形态能力：每次完成交战后获得 1 点充能。', 'auto', 'form', { attack: 2, hp: 0 }, { starterCopies: 2, rarity: 'rare', tags: ['爆发'], ...formTrait('form-storm-form', '每次完成交战后获得 1 点充能。', 'combat-resolved', 'passive-gain-charge-after-combat', { amount: 1 }) }),
   card('sky-net', 'storm', '引雷天网', 'realm', 3, '幻境：己方回合开始时，对敌方前线造成 1 点伤害。', 'auto', 'realm', null, {
     starterCopies: 1, rarity: 'epic', tags: ['幻境', '压制'], realm: { hp: 3, trigger: 'owner-turn-start', triggerEffect: 'damage-enemy-front', triggerValue: 1 },
   }),
 
   card('ink-ward', 'ink', '墨障', 'spell', 1, '一名友方角色获得 3 点护盾。', 'ally-unit', 'shield', 3, { starterCopies: 2, rarity: 'common', tags: ['保护'] }),
   card('erode-script', 'ink', '蚀字', 'spell', 1, '造成 1 点伤害，并使目标进入 1 层晶裂。', 'enemy-unit', 'brittle', 1, { starterCopies: 2, rarity: 'common', tags: ['消耗'] }),
-  card('ink-form', 'ink', '无相墨躯', 'form', 2, '玄砚获得 +3 生命上限。', 'auto', 'form', { attack: 0, hp: 3 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'] }),
+  card('ink-form', 'ink', '无相墨躯', 'form', 2, '玄砚获得 +3 生命上限。形态能力：己方部署幻境后，前线额外获得 2 点护盾。', 'auto', 'form', { attack: 0, hp: 3 }, { starterCopies: 2, rarity: 'rare', tags: ['成长'], ...formTrait('form-ink-form', '己方部署幻境后，前线额外获得 2 点护盾。', 'realm-deployed', 'passive-shield-front-on-realm', { amount: 2 }) }),
   card('living-archive', 'ink', '活页归档', 'realm', 3, '幻境：己方回合开始时，额外抽 1 张牌。', 'auto', 'realm', null, {
     starterCopies: 1, rarity: 'epic', tags: ['幻境', '调度'], realm: { hp: 3, trigger: 'owner-turn-start', triggerEffect: 'draw', triggerValue: 1 },
   }),
 
   // 赤曜：用直接伤害、前线压力与终结牌组织快攻构筑。
   card('coal-step', 'ember', '炽步', 'combat', 1, '赤曜出击，本次攻击 +1。', 'auto', 'assault', 1, { tags: ['出击', '节奏'] }),
-  card('flare-guard', 'ember', '焰幕', 'spell', 1, '一名友方角色获得 2 点护盾。', 'ally-unit', 'shield', 2, { tags: ['保护'] }),
+  card('flare-guard', 'ember', '焰幕突进', 'combat', 1, '赤曜出击；交战后自身获得 2 点护盾。', 'auto', 'assault', 0, { tags: ['出击', '保护'], effects: [{ condition: 'source-ready', action: 'assault', target: 'source', value: 0 }, { condition: 'source-ready', action: 'shield', target: 'source', value: 2 }] }),
   card('ash-bind', 'ember', '灰烬锁', 'spell', 1, '造成 1 点伤害，并使目标进入 1 层晶裂。', 'enemy-unit', 'brittle', 1, { tags: ['破防'] }),
-  card('cinder-return', 'ember', '余火复燃', 'spell', 2, '唤醒一名离场角色，使其恢复 3 点生命。', 'knocked-ally', 'revive', 3, { rarity: 'rare', tags: ['复归'] }),
-  card('sunsteel-form', 'ember', '日铸之相', 'form', 2, '赤曜获得 +2 攻击。', 'auto', 'form', { attack: 2, hp: 0 }, { rarity: 'rare', tags: ['爆发'] }),
+  card('cinder-return', 'ember', '余火复燃', 'combat', 2, '赤曜出击，本次攻击 +1；交战后自身恢复 3 点生命。', 'auto', 'assault', 1, { rarity: 'rare', tags: ['出击', '恢复'], effects: [{ condition: 'source-ready', action: 'assault', target: 'source', value: 1 }, { condition: 'source-ready', action: 'heal', target: 'source', value: 3 }] }),
+  card('sunsteel-form', 'ember', '日铸之相', 'form', 2, '赤曜获得 +2 攻击。形态能力：从后场出击完成交战后，额外对敌方核心造成 1 点伤害。', 'auto', 'form', { attack: 2, hp: 0 }, { rarity: 'rare', tags: ['爆发'], ...formTrait('form-sunsteel-form', '从后场出击完成交战后，额外对敌方核心造成 1 点伤害。', 'combat-resolved', 'passive-damage-avatar-after-reserve-combat', { amount: 1 }) }),
   card('fireline', 'ember', '焚线', 'realm', 2, '倒计时 2：对敌方前线造成 3 点伤害，然后重置。', 'auto', 'realm', null, {
     rarity: 'rare', tags: ['幻境', '压制', '倒计时'], keywords: [CARD_KEYWORDS.COUNTDOWN],
     realm: { hp: 3, trigger: 'owner-turn-start', triggerEffect: 'damage-enemy-front', triggerValue: 3, countdown: 2, countdownReset: 2 },
@@ -346,12 +356,12 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('crag-ward', 'basalt', '岩隙护壁', 'spell', 1, '一名友方角色获得 2 点护盾。', 'ally-unit', 'shield', 2, { tags: ['保护'] }),
   card('faultline', 'basalt', '断层', 'spell', 1, '造成 1 点伤害，并使目标进入 1 层晶裂。', 'enemy-unit', 'brittle', 1, { tags: ['破防'] }),
   card('earth-rest', 'basalt', '地脉休整', 'spell', 2, '为一名友方角色恢复 3 点生命。', 'ally-unit', 'heal', 3, { rarity: 'rare', tags: ['恢复'] }),
-  card('monolith-form', 'basalt', '磐碑之相', 'form', 2, '岚岳获得 +5 生命上限。', 'auto', 'form', { attack: 0, hp: 5 }, { rarity: 'rare', tags: ['成长'] }),
+  card('monolith-form', 'basalt', '磐碑之相', 'form', 2, '岚岳获得 +5 生命上限。形态能力：己方部署幻境后，前线获得 2 点护盾。', 'auto', 'form', { attack: 0, hp: 5 }, { rarity: 'rare', tags: ['成长'], ...formTrait('form-monolith-form', '己方部署幻境后，前线获得 2 点护盾。', 'realm-deployed', 'passive-shield-front-on-realm', { amount: 2 }) }),
   card('granite-oath', 'basalt', '重岩誓约', 'combat', 2, '岚岳进入前线并获得 4 点护盾。', 'auto', 'fortify', 4, { cost: 2, rarity: 'rare', tags: ['站场'] }),
   card('gatehouse', 'basalt', '守界石门', 'realm', 2, '幻境：己方回合开始时，前线角色获得 1 点护盾。', 'auto', 'realm', null, {
     rarity: 'rare', tags: ['幻境', '保护'], realm: { hp: 4, trigger: 'owner-turn-start', triggerEffect: 'shield-front', triggerValue: 1 },
   }),
-  card('last-watch', 'basalt', '不坠守望', 'spell', 3, '唤醒一名离场角色，使其恢复 5 点生命。', 'knocked-ally', 'revive', 5, { cost: 2, rarity: 'epic', tags: ['复归'] }),
+  card('last-watch', 'basalt', '不坠守望', 'spell', 3, '唤醒一名离场角色，恢复全部生命。', 'knocked-ally', 'revive', 5, { cost: 2, rarity: 'epic', tags: ['复归'] }),
 
   // 弦月：恢复、抽牌和低风险攻击构成调度构筑。
   card('light-step', 'lumen', '逐光', 'combat', 1, '协战：弦月出击，本次攻击 +1；若另一名友方角色本回合已攻击，再 +2。', 'auto', 'assault', 1, {
@@ -374,9 +384,9 @@ export const CARD_DEFINITIONS = Object.freeze([
   }, {
     tags: ['鼓舞', '支援'], keywords: [CARD_KEYWORDS.ENCOURAGE],
   }),
-  card('luminous-form', 'lumen', '晓环之相', 'form', 2, '弦月获得 +2 生命上限。', 'auto', 'form', { attack: 0, hp: 2 }, { rarity: 'rare', tags: ['成长'] }),
+  card('luminous-form', 'lumen', '晓环之相', 'form', 2, '弦月获得 +2 生命上限。形态能力：每个己方回合首次使用弦月法术后，自身恢复 2 点生命。', 'auto', 'form', { attack: 0, hp: 2 }, { rarity: 'rare', tags: ['成长'], ...formTrait('form-luminous-form', '每个己方回合首次使用弦月法术后，自身恢复 2 点生命。', 'card-played', 'form-mend-on-spell', { amount: 2 }, true) }),
   card('pale-survey', 'lumen', '微光巡阅', 'spell', 2, '抽 1 张牌，并为己方核心恢复 1 点生命。', 'auto', 'draw-heal', 1, { rarity: 'rare', tags: ['调度'] }),
-  card('soft-revival', 'lumen', '柔光归返', 'spell', 2, '唤醒一名离场角色，使其恢复 3 点生命。', 'knocked-ally', 'revive', 3, { rarity: 'rare', tags: ['复归'] }),
+  card('soft-revival', 'lumen', '柔光归返', 'spell', 2, '唤醒一名离场角色，恢复全部生命。', 'knocked-ally', 'revive', 3, { rarity: 'rare', tags: ['复归'] }),
   card('moonlit-chamber', 'lumen', '月室', 'realm', 3, '幻境：己方回合开始时，额外抽 1 张牌。', 'auto', 'realm', null, {
     cost: 2, rarity: 'epic', tags: ['幻境', '调度'], realm: { hp: 4, trigger: 'owner-turn-start', triggerEffect: 'draw', triggerValue: 1 },
   }),
@@ -397,11 +407,11 @@ export const CARD_DEFINITIONS = Object.freeze([
     timing: 'response', responseTo: ['freeze'], tags: ['响应', '保护'], keywords: [CARD_KEYWORDS.RESPONSE],
   }),
   card('shatterline', 'rime', '裂霜线', 'spell', 2, '造成 1 点伤害，并使目标进入 1 层晶裂。', 'enemy-unit', 'brittle', 1, { rarity: 'rare', tags: ['破防'] }),
-  card('winter-form', 'rime', '凛冬之相', 'form', 2, '白棱获得 +2 攻击。', 'auto', 'form', { attack: 2, hp: 0 }, { rarity: 'rare', tags: ['压制'] }),
+  card('winter-form', 'rime', '凛冬之相', 'form', 2, '白棱获得 +2 攻击。形态能力：每个己方回合首次使用白棱法术后，自身获得 2 点护盾。', 'auto', 'form', { attack: 2, hp: 0 }, { rarity: 'rare', tags: ['压制'], ...formTrait('form-winter-form', '每个己方回合首次使用白棱法术后，自身获得 2 点护盾。', 'card-played', 'form-shield-on-spell', { amount: 2 }, true) }),
   card('cold-snap', 'rime', '寒束', 'spell', 2, '眩晕一名敌方角色，使其下回合无法出击或反击。', 'enemy-unit', 'freeze', 1, {
     rarity: 'rare', tags: ['控制', '眩晕'], keywords: [CARD_KEYWORDS.STUN],
   }),
-  card('rime-return', 'rime', '冰封归途', 'spell', 2, '唤醒一名离场角色，使其恢复 3 点生命。', 'knocked-ally', 'revive', 3, { rarity: 'rare', tags: ['复归'] }),
+  card('rime-return', 'rime', '冰封归途', 'spell', 2, '唤醒一名离场角色，恢复全部生命。', 'knocked-ally', 'revive', 3, { rarity: 'rare', tags: ['复归'] }),
   card('glacial-edge', 'rime', '极霜断', 'combat', 3, '白棱出击，本次攻击 +3。', 'auto', 'assault', 3, { cost: 2, rarity: 'epic', tags: ['终结', '出击'] }),
 
   // 霆鸢：高频换位、精准伤害和幻境压制。
@@ -439,7 +449,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   }),
   card('redline-script', 'ink', '朱批', 'spell', 1, '造成 1 点伤害，并使目标进入 1 层晶裂。', 'enemy-unit', 'brittle', 1, { tags: ['破防'] }),
   card('archival-mend', 'ink', '归档修补', 'spell', 2, '为一名友方角色恢复 3 点生命。', 'ally-unit', 'heal', 3, { rarity: 'rare', tags: ['恢复'] }),
-  card('paper-form', 'ink', '墨卷之相', 'form', 2, '玄砚获得 +1 攻击与 +2 生命上限。', 'auto', 'form', { attack: 1, hp: 2 }, { rarity: 'rare', tags: ['成长'] }),
+  card('paper-form', 'ink', '墨卷之相', 'form', 2, '玄砚获得 +1 攻击与 +2 生命上限。形态能力：每个己方回合首次使用玄砚法术后，自身获得 2 点护盾。', 'auto', 'form', { attack: 1, hp: 2 }, { rarity: 'rare', tags: ['成长'], ...formTrait('form-paper-form', '每个己方回合首次使用玄砚法术后，自身获得 2 点护盾。', 'card-played', 'form-shield-on-spell', { amount: 2 }, true) }),
   card('index-page', 'ink', '索引页', 'spell', 2, '占卜 3：检视牌库顶 3 张牌，选择一张置于牌库顶。', 'auto', 'divination', 3, {
     rarity: 'rare', tags: ['调度', '占卜'], keywords: [CARD_KEYWORDS.DIVINATION], divination: { count: 3 },
     effects: [{ condition: 'always', action: 'divination', target: 'ally-player', value: 3 }],
@@ -543,7 +553,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('twin-gale', 'frostblade', '连霜双击', 'combat', 2, '银狼出击，并追加一次连击伤害。', 'auto', 'assault', 0, { starterCopies: 2, rarity: 'rare', tags: ['出击'], keywords: [CARD_KEYWORDS.COMBO] }),
   card('wolf-pounce', 'frostblade', '狼袭', 'combat', 1, '银狼出击，先攻：若首次伤害即气绝目标，则不受反击。', 'auto', 'assault', 0, { starterCopies: 2, rarity: 'rare', tags: ['出击'], keywords: [CARD_KEYWORDS.FIRST_STRIKE] }),
   card('frost-armor', 'frostblade', '刃胄', 'spell', 1, '一名友方角色获得 2 点护盾。', 'ally-unit', 'shield', 2, { starterCopies: 1, rarity: 'common', tags: ['保护'] }),
-  card('moon-fang-form', 'frostblade', '月牙之相', 'form', 2, '银狼获得 +2 攻击与 +1 生命上限。', 'auto', 'form', { attack: 2, hp: 1 }, { rarity: 'rare', tags: ['成长'] }),
+  card('moon-fang-form', 'frostblade', '月牙之相', 'form', 2, '银狼获得 +2 攻击与 +1 生命上限。形态能力：每次完成近战交战后，额外获得 1 点护盾。', 'auto', 'form', { attack: 2, hp: 1 }, { rarity: 'rare', tags: ['成长'], ...formTrait('form-moon-fang-form', '每次完成近战交战后，额外获得 1 点护盾。', 'combat-resolved', 'passive-shield-self-after-combat', { amount: 1 }) }),
   card('blizzard-step', 'frostblade', '踏雪', 'spell', 1, '眩晕一名敌方角色，使其下回合无法出击或反击。', 'enemy-unit', 'freeze', 1, { rarity: 'rare', tags: ['控制', '眩晕'], keywords: [CARD_KEYWORDS.STUN] }),
   card('silver-fang', 'frostblade', '银牙', 'combat', 3, '银狼出击，本次攻击 +2。', 'auto', 'assault', 2, { rarity: 'common', tags: ['出击'] }),
   card('war-howl', 'frostblade', '战嚎', 'spell', 2, '鼓舞：下一次出击获得 +2 攻击与 1 点护盾。', 'auto', 'apply-keyword', {
@@ -560,7 +570,7 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('stone-fist', 'kongo', '岩拳', 'combat', 1, '金刚出击，本次攻击 +1。', 'auto', 'assault', 1, { starterCopies: 2, rarity: 'common', tags: ['出击'] }),
   card('mountain-vow', 'kongo', '山岳之誓', 'combat', 2, '金刚进入前线并获得 3 点护盾。', 'auto', 'fortify', 3, { starterCopies: 2, rarity: 'common', tags: ['站场'] }),
   card('kongo-guard', 'kongo', '金刚不坏', 'spell', 2, '一名友方角色获得不屈：生命大于 1 时，不会因伤害气绝。', 'ally-unit', 'grant-unyielding', 1, { starterCopies: 1, rarity: 'epic', tags: ['保护'], keywords: [CARD_KEYWORDS.UNYIELDING] }),
-  card('guardian-form', 'kongo', '金身之相', 'form', 2, '金刚获得 +4 生命上限。', 'auto', 'form', { attack: 0, hp: 4 }, { starterCopies: 1, rarity: 'rare', tags: ['成长'] }),
+  card('guardian-form', 'kongo', '金身之相', 'form', 2, '金刚获得 +4 生命上限。形态能力：己方回合开始时，若在前线，额外恢复 2 点生命。', 'auto', 'form', { attack: 0, hp: 4 }, { starterCopies: 1, rarity: 'rare', tags: ['成长'], ...formTrait('form-guardian-form', '己方回合开始时，若在前线，额外恢复 2 点生命。', 'turn-started', 'passive-heal-self-if-front', { amount: 2 }) }),
   card('quake-stomp', 'kongo', '震地踏', 'spell', 2, '敌方全体受到 1 点伤害，敌方核心受到 2 点伤害。', 'auto', 'burn-all', 1, { starterCopies: 1, rarity: 'rare', tags: ['压制'] }),
   card('iron-aegis', 'kongo', '铁楯', 'spell', 1, '一名友方角色获得 3 点护盾。', 'ally-unit', 'shield', 3, { rarity: 'common', tags: ['保护'] }),
   card('counter-stance', 'kongo', '待月架', 'combat', 2, '金刚出击，先攻：若首次伤害即气绝目标，则不受反击。', 'auto', 'assault', 0, { rarity: 'rare', tags: ['出击'], keywords: [CARD_KEYWORDS.FIRST_STRIKE] }),
@@ -588,26 +598,25 @@ export const CARD_DEFINITIONS = Object.freeze([
   card('awaken-kongo', 'kongo', '不坏金身', 'awakening', 2, '觉醒：金刚获得 +1/+1 与不屈，被动「石肤」升级为「不坏金身」——己方回合开始时若位于前线，恢复 2 点生命并获得 1 点护盾。', 'auto', 'awaken', { attack: 1, hp: 1, grantUnyielding: true }, { cost: 1, rarity: 'rare', deckLimit: 1, starterCopies: 1, tags: ['觉醒'] }),
 
   // ---- 赤曜 SSR ----
-  card('ssr-ember-meteorfall', 'ember', '绯天陨火', 'spell', 3, '瞬发：敌方全体角色受到 2 点伤害，敌方核心受到 3 点伤害；起源：将一张「绯天陨火」洗回牌库。', 'auto', 'damage', 2, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['终结', '瞬发', '起源'], keywords: [CARD_KEYWORDS.INSTANT, CARD_KEYWORDS.ORIGIN],
+  card('ssr-ember-meteorfall', 'ember', '绯天陨火', 'spell', 3, '敌方全体角色受到 2 点伤害，敌方核心受到 3 点伤害。', 'auto', 'damage', 2, {
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['终结'], keywords: [],
     effects: [
       { condition: 'always', action: 'damage', target: 'all-enemy-units', value: 2 },
       { condition: 'match-active', action: 'damage', target: 'enemy-avatar', value: 3 },
-      { condition: 'always', action: 'origin-shuffle', target: 'ally-player' },
     ],
   }),
   card('ssr-ember-blaze', 'ember', '烈焰无间', 'combat', 3, '先攻：赤曜出击，本次攻击 +2，连击且贯通。', 'auto', 'assault', 2, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['终结', '出击', '先攻', '连击', '贯通'],
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['终结', '出击', '先攻', '连击', '贯通'],
     keywords: [CARD_KEYWORDS.FIRST_STRIKE, CARD_KEYWORDS.COMBO, CARD_KEYWORDS.PIERCE],
   }),
 
   // ---- 岚岳 SSR ----
   card('ssr-basalt-fudou', 'basalt', '不动明王阵', 'realm', 3, '幻境：己方回合开始时，所有己方存活角色获得 1 点护盾。', 'auto', 'realm', null, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['幻境', '保护'],
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['幻境', '保护'],
     realm: { hp: 8, trigger: 'owner-turn-start', triggerEffect: 'shield-all-allies', triggerValue: 1 },
   }),
   card('ssr-basalt-resonance', 'basalt', '山陵共鸣', 'spell', 3, '响应伤害、出击或护盾：岚岳获得 4 点护盾与不屈，己方其他存活角色各获得 2 点护盾。', 'auto', 'shield', 4, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, timing: 'response', responseTo: ['damage', 'assault', 'shield'],
+    cost: 1, rarity: 'ssr', deckLimit: 2, timing: 'response', responseTo: ['damage', 'assault', 'shield'],
     tags: ['响应', '保护', '不屈'], keywords: [CARD_KEYWORDS.RESPONSE, CARD_KEYWORDS.UNYIELDING],
     effects: [
       { condition: 'always', action: 'shield', target: 'source', value: 4 },
@@ -617,19 +626,18 @@ export const CARD_DEFINITIONS = Object.freeze([
   }),
 
   // ---- 弦月 SSR ----
-  card('ssr-lumen-aria', 'lumen', '织月长歌', 'spell', 3, '瞬发：抽 1 张牌，己方核心恢复 2 点生命；专注：若这是本回合第一张牌，再抽 1 张；连引：抽取牌库中下一张弦月的牌。', 'auto', 'draw', 1, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['调度', '瞬发', '专注', '连引'],
-    keywords: [CARD_KEYWORDS.INSTANT, CARD_KEYWORDS.FOCUS, CARD_KEYWORDS.CHAIN],
+  card('ssr-lumen-aria', 'lumen', '织月长歌', 'spell', 3, '抽 2 张牌，己方核心恢复 2 点生命；连引：抽取牌库中下一张弦月的牌。', 'auto', 'draw', 2, {
+    cost: 1, rarity: 'ssr', deckLimit: 2, tags: ['调度', '连引'],
+    keywords: [CARD_KEYWORDS.CHAIN],
     effects: [
-      { condition: 'always', action: 'draw', target: 'ally-player', value: 1 },
+      { condition: 'always', action: 'draw', target: 'ally-player', value: 2 },
       { condition: 'always', action: 'heal-avatar', target: 'ally-avatar', value: 2 },
-      { condition: 'always', action: 'focus-draw', target: 'ally-player', value: 1 },
       { condition: 'always', action: 'chain-draw', target: 'ally-player' },
     ],
   }),
-  card('ssr-lumen-tide', 'lumen', '永夜潮汐', 'spell', 3, '瞬发：唤醒一名离场角色；己方全体存活角色恢复 2 点生命，己方核心恢复 3 点生命；连引：抽取牌库中下一张弦月的牌。', 'knocked-ally', 'revive', 4, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['复归', '恢复', '瞬发', '连引'],
-    keywords: [CARD_KEYWORDS.INSTANT, CARD_KEYWORDS.CHAIN],
+  card('ssr-lumen-tide', 'lumen', '永夜潮汐', 'spell', 3, '唤醒一名离场角色；己方全体存活角色恢复 2 点生命，己方核心恢复 3 点生命；连引：抽取牌库中下一张弦月的牌。', 'knocked-ally', 'revive', 4, {
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['复归', '恢复', '连引'],
+    keywords: [CARD_KEYWORDS.CHAIN],
     effects: [
       { condition: 'always', action: 'revive', target: 'selected-ally', value: 4 },
       { condition: 'always', action: 'heal', target: 'all-ally-units', value: 2 },
@@ -639,21 +647,24 @@ export const CARD_DEFINITIONS = Object.freeze([
   }),
 
   // ---- 白棱 SSR ----
-  card('ssr-rime-zero', 'rime', '绝对零度', 'spell', 3, '瞬发：眩晕敌方全体存活角色，并对每名敌方角色造成 1 点伤害。', 'auto', 'freeze', 1, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['控制', '眩晕', '瞬发'], keywords: [CARD_KEYWORDS.INSTANT, CARD_KEYWORDS.STUN],
+  card('ssr-rime-zero', 'rime', '绝对零度', 'spell', 3, '眩晕敌方全体存活角色，并对每名敌方角色造成 1 点伤害。', 'auto', 'freeze', 1, {
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['控制', '眩晕'], keywords: [CARD_KEYWORDS.STUN],
     effects: [
       { condition: 'always', action: 'freeze', target: 'all-enemy-units', value: 1 },
       { condition: 'always', action: 'damage', target: 'all-enemy-units', value: 1 },
     ],
   }),
-  card('ssr-rime-slash', 'rime', '霜神一刀', 'combat', 3, '先攻：白棱出击，本次攻击 +1，暴击。', 'auto', 'assault', 1, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['爆发', '出击', '先攻', '暴击'],
-    keywords: [CARD_KEYWORDS.FIRST_STRIKE, CARD_KEYWORDS.CRIT],
+  card('ssr-rime-slash', 'rime', '碎镜裁决', 'spell', 3, '碎甲：移除一名敌方角色的全部护盾，造成 3 点伤害；若目标仍存活且眩晕，再造成 3 点伤害。', 'enemy-unit', 'damage', 3, {
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['解场', '碎甲', '眩晕'],
+    effects: [
+      { condition: 'always', action: 'remove-shield', target: 'selected-enemy' },
+      { condition: 'always', action: 'damage', target: 'selected-enemy', value: 3 },
+      { condition: 'target-frozen', action: 'damage', target: 'selected-enemy', value: 3 },
+    ],
   }),
-
   // ---- 霆鸢 SSR ----
   card('ssr-storm-hive', 'storm', '万雷天引', 'spell', 3, '投射：对敌方前线造成 3 点伤害，前线空缺时改为核心；赐能 3：若霆鸢充能不小于 3，消耗 3 点追加 3 点投射伤害并抽 1 张牌。', 'auto', 'damage', 3, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['压制', '投射', '赐能'],
+    cost: 1, rarity: 'ssr', deckLimit: 2, tags: ['压制', '投射', '赐能'],
     keywords: [CARD_KEYWORDS.PROJECTILE, CARD_KEYWORDS.BESTOW], bestow: { cost: 3 },
     effects: [
       { condition: 'always', action: 'damage', target: 'selected-enemy', value: 3 },
@@ -662,13 +673,13 @@ export const CARD_DEFINITIONS = Object.freeze([
     ],
   }),
   card('ssr-storm-jolt', 'storm', '雷神一击', 'combat', 3, '先攻：霆鸢出击，本次攻击 +1、贯通；爆能：消耗当前全部充能，每点充能本次攻击再 +1。', 'auto', 'assault', 1, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['终结', '出击', '先攻', '贯通', '爆能'],
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['终结', '出击', '先攻', '贯通', '爆能'],
     keywords: [CARD_KEYWORDS.FIRST_STRIKE, CARD_KEYWORDS.PIERCE, CARD_KEYWORDS.BURST], burst: { perCharge: 1 },
   }),
 
   // ---- 玄砚 SSR ----
   card('ssr-ink-sea', 'ink', '墨海无量', 'realm', 3, '倒计时 2：归零时抽 2 张牌、对敌方前线造成 2 点伤害、己方前线获得 2 点护盾，然后重置。', 'auto', 'realm', null, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['幻境', '倒计时', '调度'], keywords: [CARD_KEYWORDS.COUNTDOWN],
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['幻境', '倒计时', '调度'], keywords: [CARD_KEYWORDS.COUNTDOWN],
     realm: {
       hp: 6, trigger: 'owner-turn-start', countdown: 2, countdownReset: 2,
       triggerEffects: [
@@ -679,7 +690,7 @@ export const CARD_DEFINITIONS = Object.freeze([
     },
   }),
   card('ssr-ink-verdict', 'ink', '朱笔断罪', 'spell', 3, '占卜 3：检视牌库顶 3 张牌并将一张置于牌库顶；对一名敌方角色造成 3 点伤害，若其存活则进入 2 层晶裂；起源：将一张「朱笔断罪」洗回牌库。', 'enemy-unit', 'damage', 3, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['解场', '占卜', '起源'],
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['解场', '占卜', '起源'],
     keywords: [CARD_KEYWORDS.DIVINATION, CARD_KEYWORDS.ORIGIN], divination: { count: 3 },
     effects: [
       { condition: 'always', action: 'divination', target: 'ally-player', value: 3 },
@@ -691,18 +702,18 @@ export const CARD_DEFINITIONS = Object.freeze([
 
   // ---- 银狼 SSR ----
   card('ssr-frostblade-flash', 'frostblade', '孤狼一闪', 'combat', 3, '先攻：银狼出击，本次攻击 +2、贯通；若击倒目标，银狼返回准备区并获得 2 点护盾。', 'auto', 'assault', 2, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['出击', '先攻', '贯通'],
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['出击', '先攻', '贯通'],
     keywords: [CARD_KEYWORDS.FIRST_STRIKE, CARD_KEYWORDS.PIERCE],
     afterCombat: { onKill: 'return-to-reserve', shield: 2 },
   }),
-  card('ssr-frostblade-king', 'frostblade', '苍狼王之相', 'form', 3, '瞬发：银狼获得 +3/+3；此后银狼完成交战后获得的护盾 +1（与刃胄、狼王胄叠加）。', 'auto', 'form', { attack: 3, hp: 3 }, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['成长', '瞬发'], keywords: [CARD_KEYWORDS.INSTANT],
+  card('ssr-frostblade-king', 'frostblade', '苍狼王之相', 'form', 3, '银狼获得 +3/+3；此后银狼完成交战后获得的护盾 +1（与刃胄、狼王胄叠加）。', 'auto', 'form', { attack: 3, hp: 3 }, {
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['成长'], keywords: [],
     passiveAmp: { aegisBonus: 1 },
   }),
 
   // ---- 金刚 SSR ----
-  card('ssr-kongo-nioh', 'kongo', '仁王无双', 'spell', 3, '瞬发：己方全体存活角色获得不屈；金刚获得 4 点护盾并恢复 3 点生命。', 'auto', 'grant-unyielding', 1, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['保护', '不屈', '瞬发'], keywords: [CARD_KEYWORDS.INSTANT, CARD_KEYWORDS.UNYIELDING],
+  card('ssr-kongo-nioh', 'kongo', '仁王无双', 'spell', 3, '己方全体存活角色获得不屈；金刚获得 4 点护盾并恢复 3 点生命。', 'auto', 'grant-unyielding', 1, {
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['保护', '不屈'], keywords: [CARD_KEYWORDS.UNYIELDING],
     effects: [
       { condition: 'always', action: 'grant-unyielding', target: 'all-ally-units', value: 1 },
       { condition: 'always', action: 'shield', target: 'source', value: 4 },
@@ -710,7 +721,7 @@ export const CARD_DEFINITIONS = Object.freeze([
     ],
   }),
   card('ssr-kongo-arhat', 'kongo', '怒罗汉崩山', 'combat', 3, '金刚出击，本次攻击 +1、贯通且暴击；若金刚护盾不小于 3 点，本次攻击额外 +2。', 'auto', 'assault', 1, {
-    cost: 1, rarity: 'ssr', deckLimit: 1, tags: ['爆发', '出击', '暴击', '贯通'],
+    cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['爆发', '出击', '暴击', '贯通'],
     keywords: [CARD_KEYWORDS.CRIT, CARD_KEYWORDS.PIERCE], combatOption: { shieldThreshold: 3, bonusAttack: 2 },
   }),
 ]);

@@ -10,11 +10,11 @@
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <meta name="build" content="0a4691ae" />
-    <link rel="stylesheet" href="styles.css?v=0a4691ae" />
-    <link rel="stylesheet" href="formation.css?v=0a4691ae" />
-    <link rel="stylesheet" href="card-holo.css?v=0a4691ae" />
-    <script type="module" src="app.js?v=0a4691ae"></script>
+    <meta name="build" content="d8096adc" />
+    <link rel="stylesheet" href="styles.css?v=d8096adc" />
+    <link rel="stylesheet" href="formation.css?v=d8096adc" />
+    <link rel="stylesheet" href="card-holo.css?v=d8096adc" />
+    <script type="module" src="app.js?v=d8096adc"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -129,6 +129,12 @@
             <div><p class="micro-label">卡牌图鉴</p><h2>秘技收录</h2></div>
             <strong class="codex-progress"><b id="codex-owned">0</b> / <span id="codex-total">0</span> 种<small id="codex-holo">0 种闪卡</small></strong>
           </header>
+          <nav class="codex-roster" id="codex-roster" aria-label="选择角色"></nav>
+          <div class="codex-filters">
+            <label>查找秘技<input id="codex-search" type="search" placeholder="牌名、关键词或效果"></label>
+            <label>牌型<select id="codex-type"><option value="">全部牌型</option><option value="combat">战斗</option><option value="spell">法术</option><option value="form">形态</option><option value="awakening">觉醒</option><option value="realm">幻境</option><option value="ssr">SSR</option></select></label>
+            <label>收藏<select id="codex-ownership"><option value="">全部</option><option value="owned">已拥有</option><option value="missing">未收齐</option></select></label>
+          </div>
           <div class="codex-units" id="codex-units"></div>
         </section>
       </div>

@@ -1,11 +1,11 @@
-import { canUpgradeUnit } from './game-presentation.js?v=0a4691ae';
+import { canUpgradeUnit } from './game-presentation.js?v=d8096adc';
 /** 战斗 DOM 表现层；状态由 ctx 动态读取，操作继续委托现有 app/game-core 路径。 */
 import { GAME_RULES, getCardDefinition, getValidTargets, getValidCombatTargets,
   isUpgradePending, getUnitKeywordStatuses, getKeywordStatusText, getFormation,
   getUnitDefinition, getCardPlayability, getEffectiveCardCost, getCardArt,
-  getKeywordCostReductionLabel, canMulligan, canPlayCard } from './game-core.js?v=0a4691ae';
-import { gameAudio } from './game-audio.js?v=0a4691ae';
-import { holoLayers } from './card-holo.js?v=0a4691ae';
+  getKeywordCostReductionLabel, canMulligan, canPlayCard } from './game-core.js?v=d8096adc';
+import { gameAudio } from './game-audio.js?v=d8096adc';
+import { holoLayers } from './card-holo.js?v=d8096adc';
 
 export function createBattleRenderer(ctx) {
   const { nodes, selectionTarget, currentSelectedCard, frontUidOf, unitByUid, makeStatus, handleUnitClick, startCardTargeting, markDropZones, endTargeting, clearDropZones, performBasicAttack, openRealmPreview, handleRealmClick, getDragTargetMode, markCardDropZones, handleCardClick } = ctx;
@@ -94,7 +94,7 @@ export function createBattleRenderer(ctx) {
     card.classList.toggle('is-returned', Boolean(impact?.returned));
     card.disabled = !isInteractive;
     card.draggable = canDragToFront;
-    card.setAttribute('aria-label', `${unit.name}，${placement === 'front' ? '战斗区' : '准备区'}，${unit.level < 1 ? '未激活' : `${unit.level} 勾玉`}，攻击 ${unit.attack}，生命 ${unit.hp}/${unit.maxHp}${unit.shield ? `，护盾 ${unit.shield}` : ''}${unit.frozen ? `，眩晕 ${unit.frozen} 回合` : ''}，${getUnitKeywordStatuses(owner, unit).map((status) => `${status.label} ${status.detail}`).join('，')}`);
+    card.setAttribute('aria-label', `${unit.name}，${placement === 'front' ? '战斗区' : '准备区'}，${unit.level < 1 ? '未激活' : `${unit.level} 勾玉`}，攻击 ${unit.attack}，生命 ${unit.hp}/${unit.maxHp}${unit.shield ? `，护盾 ${unit.shield}` : ''}${unit.frozen ? `，眩晕 ${unit.frozen} 回合` : ''}${unit.brittle ? `，晶裂 ${unit.brittle} 次增伤` : ''}${unit.form ? `，形态 ${unit.form.name}，${getCardDefinition(unit.form.cardId)?.formAbility ?? ''}` : ''}，${getUnitKeywordStatuses(owner, unit).map((status) => `${status.label} ${status.detail}`).join('，')}`);
     card.title = `${unit.awakened === true ? '【已觉醒】' : ''}${unit.passive.name}：${unit.passive.text}`;
 
     const art = document.createElement('span');
@@ -115,6 +115,7 @@ export function createBattleRenderer(ctx) {
     if (unit.form) {
       const formName = document.createElement('em');
       formName.textContent = unit.form.name;
+      card.dataset.form = unit.form.cardId;
       plate.append(formName);
     }
 
@@ -144,13 +145,13 @@ export function createBattleRenderer(ctx) {
     // 检视层状态签：{ cls, text }
     const inspectTags = [];
     if (unit.level < 1) {
-      statuses.append(makeStatus('眠', 'status-dormant', '未激活：提升勾玉后才可出击、被选中或使用其卡牌'));
+      statuses.append(makeStatus('未激活', 'status-dormant', '未激活：提升勾玉后才可出击、被选中或使用其卡牌'));
       inspectTags.push({ cls: 'status-dormant', text: '未激活 · 0 勾' });
     }
     // 关键词效果：完整说明单独成节
     const keywordNotes = [];
     if (isPlayer && viewAttackUnitId === unit.uid && !viewSelectedCardId && !ctx.replaySession && unit.hp > 0) {
-      statuses.append(makeStatus('出', 'status-selected', '待出击'));
+      statuses.append(makeStatus('待出击', 'status-selected', '待出击'));
       inspectTags.push({ cls: 'chip-ready', text: '待出击' });
     }
     if (isValidTarget) {
@@ -159,20 +160,21 @@ export function createBattleRenderer(ctx) {
     if (willBeHit) {
       inspectTags.push({ cls: 'chip-danger', text: '将受击' });
     }
+    if (unit.awakened) statuses.append(makeStatus('已觉醒', 'status-form', `觉醒被动：${unit.passive.text}`));
     if (unit.form) {
-      statuses.append(makeStatus('形', 'status-form', `形态：${unit.form.name}`));
+      statuses.append(makeStatus('形态', 'status-form', `形态：${unit.form.name}`));
       inspectTags.push({ cls: 'status-form', text: `形态 · ${unit.form.name}` });
     }
     if (unit.shield > 0) {
-      statuses.append(makeStatus(`盾${unit.shield}`, 'status-shield', `护盾 ${unit.shield}`));
+      statuses.append(makeStatus(`护盾 ${unit.shield}`, 'status-shield', `护盾 ${unit.shield}`));
       inspectTags.push({ cls: 'status-shield', text: `护盾 ${unit.shield}` });
     }
     if (unit.frozen > 0) {
-      statuses.append(makeStatus(`眩${unit.frozen}`,  'status-frozen', `眩晕 ${unit.frozen} 回合`));
+      statuses.append(makeStatus(`眩晕 ${unit.frozen}`,  'status-frozen', `眩晕 ${unit.frozen} 回合`));
       inspectTags.push({ cls: 'status-frozen', text: `眩晕 ${unit.frozen} 回合` });
     }
     if (unit.brittle > 0) {
-      statuses.append(makeStatus(`裂${unit.brittle}`, 'status-brittle', `晶裂 ${unit.brittle}`));
+      statuses.append(makeStatus(`晶裂 ${unit.brittle}`, 'status-brittle', `晶裂 ${unit.brittle}`));
       inspectTags.push({ cls: 'status-brittle', text: `晶裂 ${unit.brittle}` });
     }
     getUnitKeywordStatuses(owner, unit).forEach((status) => {
@@ -180,7 +182,7 @@ export function createBattleRenderer(ctx) {
       keywordNotes.push({ label: status.label, detail: status.detail });
     });
     if (unit.hp <= 0) {
-      statuses.append(makeStatus(`归${unit.knockout}`, 'status-away', `气绝，${unit.knockout} 回合后归队`));
+      statuses.append(makeStatus(`气绝 ${unit.knockout}`, 'status-away', `气绝，${unit.knockout} 回合后归队`));
       inspectTags.push({ cls: 'status-away', text: `气绝 · ${unit.knockout} 回合后归队` });
     }
 
@@ -230,6 +232,14 @@ export function createBattleRenderer(ctx) {
       body.append(chips);
     }
     body.append(inspectPassive);
+    const formAbility = getCardDefinition(unit.form?.cardId)?.formAbility;
+    if (formAbility) {
+      const formNote = document.createElement('blockquote');
+      formNote.className = 'inspect-passive';
+      const name = document.createElement('b'); name.textContent = `形态 · ${unit.form.name}`;
+      formNote.append(name, document.createTextNode(formAbility));
+      body.append(formNote);
+    }
     if (keywordNotes.length) {
       const notes = document.createElement('ul');
       notes.className = 'inspect-notes';
@@ -243,7 +253,10 @@ export function createBattleRenderer(ctx) {
 
     inspect.append(inspectHead, body);
 
-    card.append(art, plate, pips, stats, health, statuses);
+    const face = document.createElement('span');
+    face.className = 'unit-face';
+    face.append(art, plate, pips, stats, health);
+    card.append(face, statuses);
     const inspectDock = document.querySelector('#unit-inspect-dock');
     const showInspect = () => {
       if (!inspectDock || document.body.classList.contains('is-dragging')) return;
