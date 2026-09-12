@@ -281,20 +281,21 @@ test('wrath arhat smashes harder with a shield wall (kongo threshold)', () => {
   unit(state, 1, 'basalt').hp = 20;
   state.players[0].energy = 2;
   state = play(state, 0, 'iron-aegis', kongoUid);
+  state.players[0].energy = 2; // 终结牌需要完整的两点鬼火
   state = play(state, 0, 'ssr-kongo-arhat', victimUid);
   assert.equal(unit(state, 1, 'basalt').hp, 20 - 10, '护盾门槛应额外 +2 攻击再翻倍');
 });
 
 // ============ SSR：法术与关键词经济 ============
 
-test('absolute zero is free as the first instant and locks the whole enemy board', () => {
+test('absolute zero spends both fires to lock the enemy board', () => {
   let state = createGame({ seed: 910 });
   setLevel(state, 0, 'rime', 3);
   const energiesBefore = state.players[0].energy;
   const hpsBefore = state.players[1].units.map((item) => item.hp);
   state = play(state, 0, 'ssr-rime-zero');
 
-  assert.equal(state.players[0].energy, energiesBefore, '首张瞬发应免火');
+  assert.equal(state.players[0].energy, energiesBefore - 2, '全体控制必须消耗完整行动资源');
   state.players[1].units.forEach((item, index) => {
     assert.ok(item.frozen >= 1, `${item.name} 应被眩晕`);
     assert.equal(item.hp, hpsBefore[index] - 1);
@@ -326,7 +327,7 @@ test('mountain resonance answers an incoming damage step with a shield wall (bas
   assert.ok(unit(state2, 1, 'storm').hp > 0);
 });
 
-test('moonlit aria chains draws as a free opener (lumen)', () => {
+test('moonlit aria chains draws with an explicit one-fire cost (lumen)', () => {
   let state = createGame({ seed: 912 });
   setLevel(state, 0, 'lumen', 3);
   // 确保牌库里有弦月牌供连引
@@ -337,8 +338,8 @@ test('moonlit aria chains draws as a free opener (lumen)', () => {
   const handBefore = state.players[0].hand.length;
   state = play(state, 0, 'ssr-lumen-aria');
 
-  assert.equal(state.players[0].energy, energyBefore, '首张瞬发免火');
-  // 塞入测试牌 +1：打出 -1 + 抽 1 + 专注 1 + 连引 1 = 相对 handBefore +3
+  assert.equal(state.players[0].energy, energyBefore - 1, '调度牌消耗一点鬼火');
+  // 塞入测试牌 +1：打出 -1 + 抽 2 + 连引 1 = 相对 handBefore +3
   assert.equal(state.players[0].hand.length, handBefore + 3);
 });
 
@@ -406,13 +407,13 @@ test('boundless inksea explodes with a three-part countdown burst', () => {
   assert.ok(hasLog(state, '翻开一页'), '应触发抽牌子效果');
 });
 
-test('benevolent king unyielding covers the whole team for free (kongo)', () => {
+test('benevolent king trades a full turn for team protection (kongo)', () => {
   let state = createGame({ seed: 916, playerUnitIds: ['kongo', 'ember', 'lumen', 'rime'] });
   setLevel(state, 0, 'kongo', 3);
   const energyBefore = state.players[0].energy;
   state = play(state, 0, 'ssr-kongo-nioh');
 
-  assert.equal(state.players[0].energy, energyBefore, '首张瞬发免火');
+  assert.equal(state.players[0].energy, energyBefore - 2, '全队保护消耗两点鬼火');
   state.players[0].units.forEach((item) => {
     if (item.hp > 0) assert.equal(item.unyielding, true, `${item.name} 应获得不屈`);
   });
@@ -433,4 +434,73 @@ test('awakened storm banks charge from every combat (gale fury)', () => {
   state = play(state, 0, 'thunder-step');
   const after = state.players[0].keywordUsage.charge.units[storm.uid].current;
   assert.equal(after, Math.min(3, before + 1));
+});
+
+test('form hooks amplify identity, survive save/load, and stop after switching', () => {
+  let state = createGame({ seed: 931 });
+  setLevel(state, 0, 'ember', 3);
+  state = play(state, 0, 'ember-form');
+  state = deserializeGame(serializeGame(state));
+  const victim = unit(state, 1, 'basalt');
+  deployToFront(state, 1, victim.uid);
+  const hp = victim.hp;
+  state = play(state, 0, 'flash-thrust', victim.uid);
+  assert.equal(unit(state, 1, 'basalt').hp, hp - 8, '基础入阵1 + 形态1 + 本次攻击6');
+  assert.ok(hasLog(state, '形态「赤炼之躯」'));
+  state.players[0].energy = 2;
+  state = play(state, 0, 'sunsteel-form');
+  assert.equal(unit(state, 0, 'ember').form.cardId, 'sunsteel-form');
+  assert.equal(unit(state, 0, 'ember').attack, 5, '替换形态而非累加旧形态攻击');
+});
+
+test('switching out of wolf king removes its shield amplifier', () => {
+  let state = createGame({ seed: 932, playerUnitIds: ['frostblade', 'ember', 'lumen', 'rime'] });
+  setLevel(state, 0, 'frostblade', 3);
+  state = play(state, 0, 'ssr-frostblade-king');
+  assert.equal(unit(state, 0, 'frostblade').passiveAmp.aegisBonus, 1);
+  state.players[0].energy = 2;
+  state = play(state, 0, 'moon-fang-form');
+  assert.equal(unit(state, 0, 'frostblade').passiveAmp, null);
+  state = play(state, 0, 'frost-bite');
+  assert.equal(unit(state, 0, 'frostblade').shield, 2, '刃胄1 + 当前月牙形态1，不残留苍狼王增幅');
+});
+
+test('shattered mirror removes armor and rewards a surviving frozen target', () => {
+  for (const frozen of [0, 1]) {
+    let state = createGame({ seed: 933 });
+    setLevel(state, 0, 'rime', 3);
+    const victim = unit(state, 1, 'basalt');
+    victim.shield = 8; victim.frozen = frozen;
+    state = play(state, 0, 'ssr-rime-slash', victim.uid);
+    assert.equal(unit(state, 1, 'basalt').shield, 0);
+    assert.equal(unit(state, 1, 'basalt').hp, 12 - (frozen ? 6 : 3));
+    assert.equal(state.players[0].energy, 0);
+    assert.ok(hasLog(state, '被碎甲'));
+  }
+});
+
+test('spell form triggers once per owner turn and ignores another character spells', () => {
+  let state = createGame({ seed: 934 });
+  setLevel(state, 0, 'rime', 3);
+  state = play(state, 0, 'winter-form');
+  state.players[0].energy = 2;
+  state = play(state, 0, 'hush', unit(state, 1, 'basalt').uid);
+  assert.equal(unit(state, 0, 'rime').shield, 2);
+  state = play(state, 0, 'hush', unit(state, 1, 'basalt').uid);
+  assert.equal(unit(state, 0, 'rime').shield, 2);
+  state.players[0].energy = 2;
+  state = play(state, 0, 'mend', unit(state, 0, 'lumen').uid);
+  assert.equal(unit(state, 0, 'rime').shield, 2);
+  state = end(state, 0); state = end(state, 1);
+  state.players[0].levelUpUsed = true;
+  state = play(state, 0, 'hush', unit(state, 1, 'basalt').uid);
+  assert.equal(unit(state, 0, 'rime').shield, 4);
+});
+
+test('SSR definitions allow a pair while awakenings stay unique', () => {
+  for (const card of CARD_DEFINITIONS.filter((card) => card.rarity === 'ssr')) assert.equal(card.deckLimit, 2);
+  const deck = createDefaultDeckDefinition(['ember', 'basalt', 'lumen', 'rime']);
+  let replaced = 0;
+  deck.cardIds = deck.cardIds.map((id) => getCardDefinition(id).unitId === 'ember' && replaced++ < 2 ? 'ssr-ember-blaze' : id);
+  assert.equal(validateDeckDefinition(deck).valid, true);
 });

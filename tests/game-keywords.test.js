@@ -259,3 +259,10 @@ test('keyword validation rejects unknown, duplicate, and incompatible declaratio
     /倒计时幻境配置无效/,
   );
 });
+
+test('unyielding status exposes its active and one-hp conditions', () => {
+  const status = getKeywordDefinition(CARD_KEYWORDS.UNYIELDING).formatUnitStatus;
+  assert.equal(status({unit:{unyielding:false,hp:8}}),null);
+  assert.equal(status({unit:{unyielding:true,hp:8}}).detail,'生效');
+  assert.equal(status({unit:{unyielding:true,hp:1}}).detail,'待恢复');
+});
