@@ -16,9 +16,10 @@ var _pack_btns: ButtonGroup = ButtonGroup.new()
 
 
 func _ready() -> void:
+	theme = ThemeBuilder.build_washi_theme()
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	var bg := ColorRect.new()
-	bg.color = ThemeBuilder.INK_1
+	bg.color = ThemeBuilder.WASHI_BG
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
 
@@ -74,7 +75,7 @@ func _ready() -> void:
 	lp.custom_minimum_size = Vector2(240, 0)
 	lp.size_flags_stretch_ratio = 0.9
 	lp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	lp.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 8, 1))
+	lp.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(12, false))
 	split.add_child(lp)
 	var ls := ScrollContainer.new()
 	lp.add_child(ls)
@@ -86,7 +87,7 @@ func _ready() -> void:
 	var mp := PanelContainer.new()
 	mp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	mp.size_flags_stretch_ratio = 1.1
-	mp.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 8, 1))
+	mp.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(12, false))
 	split.add_child(mp)
 	var ms := ScrollContainer.new()
 	mp.add_child(ms)

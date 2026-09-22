@@ -93,6 +93,7 @@ func _make_stamp() -> Control:
 	var color := ThemeBuilder.DANGER if _victory else ThemeBuilder.FOE
 	var ring := PanelContainer.new()
 	ring.custom_minimum_size = Vector2(120, 120)
+	ring.pivot_offset = Vector2(60, 60)
 	ring.rotation_degrees = -8.0
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = Color(color.r, color.g, color.b, 0.12)

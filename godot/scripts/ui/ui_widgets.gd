@@ -10,38 +10,50 @@ static func make_unit_panel(unit: Dictionary, on_click: Callable, compact: bool 
 	var accent := ThemeBuilder.unit_color_of(unit)
 	var pc := PanelContainer.new()
 	pc.set_meta("unit_uid", unit.get("uid", ""))
-	var border := ThemeBuilder.GOLD_BRIGHT if highlight else accent.lerp(ThemeBuilder.RULE, 0.55)
-	var sb := ThemeBuilder.panel(Color("2c2413") if highlight else Color("0f1524"), border, 10, 2 if highlight else 1)
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color("1a2236") if highlight else Color("101624")
+	sb.border_color = ThemeBuilder.GOLD_BRIGHT if highlight else accent.lerp(ThemeBuilder.RULE, 0.45)
+	sb.set_border_width_all(2 if highlight else 1)
+	sb.set_corner_radius_all(12)
+	sb.content_margin_left = 8
+	sb.content_margin_right = 8
+	sb.content_margin_top = 8
+	sb.content_margin_bottom = 8
+	if highlight:
+		sb.shadow_color = Color(ThemeBuilder.GOLD.r, ThemeBuilder.GOLD.g, ThemeBuilder.GOLD.b, 0.25)
+		sb.shadow_size = 10
+	else:
+		sb.shadow_color = Color(0, 0, 0, 0.35)
+		sb.shadow_size = 4
 	pc.add_theme_stylebox_override("panel", sb)
-	pc.custom_minimum_size = Vector2(148, 168) if compact else Vector2(160, 190)
+	pc.custom_minimum_size = Vector2(128, 148) if compact else Vector2(140, 168)
 	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 4)
+	vbox.add_theme_constant_override("separation", 3)
 	pc.add_child(vbox)
 
 	var top := HBoxContainer.new()
-	top.add_theme_constant_override("separation", 6)
+	top.add_theme_constant_override("separation", 4)
 	vbox.add_child(top)
-	var name_l := ThemeBuilder.label(str(unit.get("name", "?")), 15, ThemeBuilder.TEXT)
+	var name_l := ThemeBuilder.label(str(unit.get("name", "?")), 13, ThemeBuilder.PAPER if not highlight else ThemeBuilder.GOLD_BRIGHT)
 	name_l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_l.clip_text = true
 	top.add_child(name_l)
-	var lv := ThemeBuilder.chip("%d勾" % int(unit.get("level", 0)), ThemeBuilder.GOLD)
-	top.add_child(lv)
+	top.add_child(ThemeBuilder.chip("%d勾" % int(unit.get("level", 0)), ThemeBuilder.GOLD if int(unit.get("level", 0)) > 0 else ThemeBuilder.TEXT_FAINT))
 
-	if not compact:
-		var title := ThemeBuilder.dim_label(str(unit.get("title", "")))
-		vbox.add_child(title)
-
-	var art := _art_rect(unit, Vector2(56, 56) if compact else Vector2(72, 72))
+	var art := _art_rect(unit, Vector2(52, 52) if compact else Vector2(64, 64))
+	art.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	vbox.add_child(art)
 
 	var hp_atk := HBoxContainer.new()
-	hp_atk.add_theme_constant_override("separation", 8)
+	hp_atk.alignment = BoxContainer.ALIGNMENT_CENTER
+	hp_atk.add_theme_constant_override("separation", 4)
 	vbox.add_child(hp_atk)
-	hp_atk.add_child(ThemeBuilder.chip("攻 %d" % int(unit.get("attack", 0)), ThemeBuilder.DANGER_SOFT))
-	hp_atk.add_child(ThemeBuilder.chip("命 %d/%d" % [int(unit.get("hp", 0)), int(unit.get("maxHp", 0))], ThemeBuilder.OK))
+	hp_atk.add_child(ThemeBuilder.chip("攻%d" % int(unit.get("attack", 0)), ThemeBuilder.DANGER_SOFT))
+	hp_atk.add_child(ThemeBuilder.chip("命%d/%d" % [int(unit.get("hp", 0)), int(unit.get("maxHp", 0))], ThemeBuilder.OK))
 
 	var status := HBoxContainer.new()
-	status.add_theme_constant_override("separation", 4)
+	status.alignment = BoxContainer.ALIGNMENT_CENTER
+	status.add_theme_constant_override("separation", 3)
 	vbox.add_child(status)
 	if int(unit.get("shield", 0)) > 0:
 		status.add_child(ThemeBuilder.chip("盾%d" % int(unit.shield), ThemeBuilder.INFO))
@@ -62,21 +74,15 @@ static func make_unit_panel(unit: Dictionary, on_click: Callable, compact: bool 
 
 	if int(unit.get("hp", 0)) <= 0:
 		pc.modulate = Color(1, 1, 1, 0.45)
-	if int(unit.get("front", 0)) == 1:
-		sb.border_color = ThemeBuilder.GOLD_BRIGHT
-		sb.set_border_width_all(2)
-
-	var btn := Button.new()
-	btn.flat = true
-	btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	btn.set_anchors_preset(Control.PRESET_FULL_RECT)
-	btn.focus_mode = Control.FOCUS_NONE
-	btn.pressed.connect(func(): on_click.call(unit))
-	btn.mouse_entered.connect(func(): pc.self_modulate = Color(1.08, 1.06, 1.02))
-	btn.mouse_exited.connect(func(): pc.self_modulate = Color.WHITE)
-	pc.add_child(btn)
-	if btn.get_parent() != null:
-		btn.get_parent().move_child(btn, -1)
+	var click := Button.new()
+	click.flat = true
+	click.focus_mode = Control.FOCUS_NONE
+	click.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	click.set_anchors_preset(Control.PRESET_FULL_RECT)
+	click.pressed.connect(func(): on_click.call())
+	pc.add_child(click)
+	if click.get_parent() != null:
+		click.get_parent().move_child(click, -1)
 	return pc
 
 
@@ -107,47 +113,89 @@ static func make_hand_card(card: Dictionary, affordable: bool, on_click: Callabl
 	var rarity := ThemeBuilder.rarity_color_of(str(card.get("rarity", "common")))
 	var tcolor := ThemeBuilder.type_color_of(str(card.get("type", "spell")))
 	var pc := PanelContainer.new()
-	var bg := Color("1a2133")
+	var bg := Color("151c2e")
 	if not affordable:
-		bg = Color("12161f")
-	var sb := ThemeBuilder.panel(bg, rarity if affordable else ThemeBuilder.RULE_SOFT, 10, 1)
+		bg = Color("0f141f")
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = bg
+	sb.border_color = rarity if affordable else ThemeBuilder.RULE_SOFT
+	sb.set_border_width_all(1)
+	sb.set_corner_radius_all(12)
+	sb.content_margin_left = 0
+	sb.content_margin_right = 0
+	sb.content_margin_top = 0
+	sb.content_margin_bottom = 0
+	if affordable:
+		sb.shadow_color = Color(0, 0, 0, 0.45)
+		sb.shadow_size = 6
 	pc.add_theme_stylebox_override("panel", sb)
-	pc.custom_minimum_size = Vector2(128, 188)
-	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 3)
-	pc.add_child(vbox)
+	pc.custom_minimum_size = Vector2(118, 176)
+	var outer := VBoxContainer.new()
+	outer.add_theme_constant_override("separation", 0)
+	pc.add_child(outer)
 
+	# 顶栏：费用印 + 序号 + 类型
 	var top := HBoxContainer.new()
-	vbox.add_child(top)
-	var cost_sb := ThemeBuilder.panel(Color("2f2712") if affordable else Color("23273a"), ThemeBuilder.GOLD if affordable else ThemeBuilder.RULE_SOFT, 6, 1)
+	top.add_theme_constant_override("separation", 4)
+	var top_pad := MarginContainer.new()
+	top_pad.add_theme_constant_override("margin_left", 8)
+	top_pad.add_theme_constant_override("margin_right", 8)
+	top_pad.add_theme_constant_override("margin_top", 8)
+	top_pad.add_child(top)
+	outer.add_child(top_pad)
+
 	var cost_p := PanelContainer.new()
+	var cost_sb := StyleBoxFlat.new()
+	cost_sb.bg_color = Color("3a2d12") if affordable else Color("23273a")
+	cost_sb.border_color = ThemeBuilder.GOLD if affordable else ThemeBuilder.RULE_SOFT
+	cost_sb.set_border_width_all(1)
+	cost_sb.set_corner_radius_all(999)
+	cost_sb.content_margin_left = 8
+	cost_sb.content_margin_right = 8
+	cost_sb.content_margin_top = 2
+	cost_sb.content_margin_bottom = 2
 	cost_p.add_theme_stylebox_override("panel", cost_sb)
-	var cost_l := ThemeBuilder.label(str(int(card.get("cost", 0))), 14, ThemeBuilder.GOLD_BRIGHT if affordable else ThemeBuilder.TEXT_FAINT)
-	cost_p.add_child(cost_l)
+	cost_p.add_child(ThemeBuilder.label(str(int(card.get("cost", 0))), 13, ThemeBuilder.GOLD_BRIGHT if affordable else ThemeBuilder.TEXT_FAINT))
 	top.add_child(cost_p)
 	if index >= 0:
-		top.add_child(ThemeBuilder.dim_label("[%d]" % (index + 1), 11))
-	var type_l := ThemeBuilder.label(str(card.get("typeLabel", "")), 11, tcolor)
+		top.add_child(ThemeBuilder.dim_label("[%d]" % (index + 1), 10))
+	var type_l := ThemeBuilder.label(str(card.get("typeLabel", "")), 10, tcolor)
 	type_l.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	type_l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(type_l)
 
+	var body := VBoxContainer.new()
+	body.add_theme_constant_override("separation", 3)
+	var body_pad := MarginContainer.new()
+	body_pad.add_theme_constant_override("margin_left", 10)
+	body_pad.add_theme_constant_override("margin_right", 10)
+	body_pad.add_child(body)
+	outer.add_child(body_pad)
+	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+
 	var name_l := ThemeBuilder.label(str(card.get("name", "?")), 14, ThemeBuilder.PAPER)
 	name_l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	vbox.add_child(name_l)
+	body.add_child(name_l)
 	if block_reason != "":
-		var why := ThemeBuilder.label(block_reason, 11, ThemeBuilder.WARN)
+		var why := ThemeBuilder.label(block_reason, 10, ThemeBuilder.WARN)
 		why.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		vbox.add_child(why)
-
-	var lv := ThemeBuilder.dim_label("Lv.%d" % int(card.get("level", 1)), 11)
-	vbox.add_child(lv)
-
-	var text := ThemeBuilder.dim_label(str(card.get("text", "")), 12)
+		body.add_child(why)
+	var lv := ThemeBuilder.dim_label("Lv.%d" % int(card.get("level", 1)), 10)
+	body.add_child(lv)
+	var text := ThemeBuilder.dim_label(str(card.get("text", "")), 11)
 	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	text.custom_minimum_size = Vector2(0, 64)
-	vbox.add_child(text)
+	text.custom_minimum_size = Vector2(0, 56)
+	text.max_lines_visible = 5
+	body.add_child(text)
+
+	# 底部稀有度条
+	var bar := Panel.new()
+	bar.custom_minimum_size = Vector2(0, 4)
+	var bar_sb := StyleBoxFlat.new()
+	bar_sb.bg_color = rarity if affordable else ThemeBuilder.RULE_SOFT
+	bar.add_theme_stylebox_override("panel", bar_sb)
+	outer.add_child(bar)
 
 	var btn := Button.new()
 	btn.flat = true

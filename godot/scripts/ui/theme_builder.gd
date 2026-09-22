@@ -1,9 +1,11 @@
 class_name ThemeBuilder
 extends RefCounted
+## 视觉系统对齐浏览器版 styles.css / formation.css
+## 墨夜和风（战局） + 宣纸画册（编成/图鉴/秘闻阁）
 
 const ContentLoader := preload("res://scripts/content_loader.gd")
-## 墨夜和风 palette from styles.css / formation.css
 
+# —— 墨色阶（战局） ——
 const INK_0 := Color("06080d")
 const INK_1 := Color("0a0e17")
 const INK_2 := Color("10151f")
@@ -39,6 +41,36 @@ const RARITY_RARE := Color("5fa8d6")
 const RARITY_EPIC := Color("c98fe8")
 const RARITY_SSR := Color("f0c869")
 
+# —— 宣纸（编成/图鉴） ——
+const WASHI_BG := Color("f1ead8")
+const WASHI_CARD := Color("fdfaf1")
+const WASHI_CARD_2 := Color("f4eedd")
+const WASHI_INK := Color("3c3524")
+const WASHI_INK_DEEP := Color("33291a")
+const WASHI_DIM := Color("6b6250")
+const WASHI_FAINT := Color("8d8264")
+const WASHI_RULE := Color("cfc3a4")
+const WASHI_RULE_2 := Color("c5b896")
+const WASHI_GOLD := Color("8a6f34")
+const WASHI_GOLD_2 := Color("a8863c")
+const WASHI_MICRO := Color("8a6f34")
+
+
+static func sys_font() -> SystemFont:
+	var f := SystemFont.new()
+	f.font_names = PackedStringArray([
+		"PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "Noto Sans CJK SC", "sans-serif",
+	])
+	return f
+
+
+static func display_font() -> Font:
+	var f := SystemFont.new()
+	f.font_names = PackedStringArray([
+		"Songti SC", "STSong", "Noto Serif SC", "SimSun", "PingFang SC", "serif",
+	])
+	return f
+
 
 static func panel(bg: Color, border: Color = RULE, radius: int = 10, border_w: int = 1) -> StyleBoxFlat:
 	var sb := StyleBoxFlat.new()
@@ -53,6 +85,21 @@ static func panel(bg: Color, border: Color = RULE, radius: int = 10, border_w: i
 	return sb
 
 
+static func washi_panel(radius: int = 12, selected: bool = false) -> StyleBoxFlat:
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = WASHI_CARD
+	sb.border_color = WASHI_GOLD_2 if selected else WASHI_RULE
+	sb.set_border_width_all(2 if selected else 1)
+	sb.set_corner_radius_all(radius)
+	sb.content_margin_left = 14
+	sb.content_margin_right = 14
+	sb.content_margin_top = 12
+	sb.content_margin_bottom = 12
+	sb.shadow_color = Color(0.35, 0.3, 0.18, 0.12)
+	sb.shadow_size = 8
+	return sb
+
+
 static func button_style(bg: Color, border: Color, radius: int = 8) -> StyleBoxFlat:
 	var sb := panel(bg, border, radius, 1)
 	sb.content_margin_left = 18
@@ -63,14 +110,13 @@ static func button_style(bg: Color, border: Color, radius: int = 8) -> StyleBoxF
 
 
 static func build_theme() -> Theme:
+	return build_night_theme()
+
+
+static func build_night_theme() -> Theme:
 	var theme := Theme.new()
+	theme.default_font = sys_font()
 	theme.default_font_size = 15
-	# 系统中文字体，避免默认字体缺字变成方框
-	var sys_font := SystemFont.new()
-	sys_font.font_names = PackedStringArray([
-		"PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "Noto Sans CJK SC", "sans-serif",
-	])
-	theme.default_font = sys_font
 	var normal := button_style(INK_3, RULE, 8)
 	var hover := button_style(INK_4, GOLD, 8)
 	var pressed := button_style(Color("2c2413"), GOLD_DEEP, 8)
@@ -94,6 +140,35 @@ static func build_theme() -> Theme:
 	return theme
 
 
+static func build_washi_theme() -> Theme:
+	var theme := Theme.new()
+	theme.default_font = sys_font()
+	theme.default_font_size = 15
+	var normal := button_style(Color("fffcf2"), WASHI_RULE_2, 10)
+	normal.border_width_bottom = 1
+	var hover := button_style(Color("f8f1de"), WASHI_GOLD_2, 10)
+	var pressed := button_style(Color("efe6cc"), WASHI_GOLD, 10)
+	var disabled := button_style(Color("ebe4d2"), WASHI_RULE, 10)
+	theme.set_stylebox("normal", "Button", normal)
+	theme.set_stylebox("hover", "Button", hover)
+	theme.set_stylebox("pressed", "Button", pressed)
+	theme.set_stylebox("disabled", "Button", disabled)
+	theme.set_stylebox("focus", "Button", hover)
+	theme.set_color("font_color", "Button", WASHI_DIM)
+	theme.set_color("font_hover_color", "Button", WASHI_INK_DEEP)
+	theme.set_color("font_pressed_color", "Button", WASHI_GOLD)
+	theme.set_color("font_disabled_color", "Button", WASHI_FAINT)
+	theme.set_color("font_color", "Label", WASHI_INK)
+	theme.set_color("font_color", "RichTextLabel", WASHI_INK)
+	theme.set_stylebox("panel", "PanelContainer", washi_panel(12, false))
+	theme.set_stylebox("panel", "Panel", washi_panel(12, false))
+	var le := button_style(Color("fffcf2"), WASHI_RULE_2, 8)
+	theme.set_stylebox("normal", "LineEdit", le)
+	theme.set_color("font_color", "LineEdit", WASHI_INK)
+	theme.set_color("default_color", "RichTextLabel", WASHI_INK)
+	return theme
+
+
 static func label(text: String, size: int = 15, color: Color = TEXT) -> Label:
 	var l := Label.new()
 	l.text = text
@@ -105,11 +180,29 @@ static func label(text: String, size: int = 15, color: Color = TEXT) -> Label:
 static func title_label(text: String, size: int = 28) -> Label:
 	var l := label(text, size, GOLD_BRIGHT)
 	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	l.add_theme_font_override("font", display_font())
+	return l
+
+
+static func washi_title(text: String, size: int = 34) -> Label:
+	var l := label(text, size, WASHI_INK_DEEP)
+	l.add_theme_font_override("font", display_font())
+	l.add_theme_constant_override("letter_spacing", 6)
 	return l
 
 
 static func dim_label(text: String, size: int = 13) -> Label:
 	return label(text, size, TEXT_DIM)
+
+
+static func washi_dim(text: String, size: int = 13) -> Label:
+	return label(text, size, WASHI_DIM)
+
+
+static func micro_label(text: String) -> Label:
+	var l := label(text, 11, WASHI_GOLD)
+	l.add_theme_font_override("font", display_font())
+	return l
 
 
 static func hline() -> Control:
@@ -133,9 +226,12 @@ static func chip(text: String, color: Color, bg_alpha: float = 0.18) -> PanelCon
 	sb.content_margin_top = 2
 	sb.content_margin_bottom = 2
 	pc.add_theme_stylebox_override("panel", sb)
-	var l := label(text, 12, color)
-	pc.add_child(l)
+	pc.add_child(label(text, 12, color))
 	return pc
+
+
+static func washi_chip(text: String, color: Color = WASHI_GOLD) -> PanelContainer:
+	return chip(text, color, 0.12)
 
 
 static func rounded_rect_button(text: String, min_size: Vector2 = Vector2(220, 48)) -> Button:

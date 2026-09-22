@@ -23,11 +23,18 @@ var _pack_buttons: ButtonGroup = ButtonGroup.new()
 
 
 func _ready() -> void:
+	theme = ThemeBuilder.build_washi_theme()
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	var bg := ColorRect.new()
-	bg.color = ThemeBuilder.INK_1
+	bg.color = ThemeBuilder.WASHI_BG
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
+	# 和纸微光
+	var glow := ColorRect.new()
+	glow.color = Color(1, 0.98, 0.93, 0.35)
+	glow.set_anchors_preset(Control.PRESET_FULL_RECT)
+	glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(glow)
 
 	var root := VBoxContainer.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -40,7 +47,7 @@ func _ready() -> void:
 
 	var header := HBoxContainer.new()
 	root.add_child(header)
-	header.add_child(ThemeBuilder.title_label("编成", 28))
+	header.add_child(ThemeBuilder.washi_title("编 成", 36))
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(spacer)
@@ -73,7 +80,7 @@ func _ready() -> void:
 		)
 		tools.add_child(b)
 
-	_status_l = ThemeBuilder.dim_label("已选 0/%d · 请选择四名角色" % PICK_COUNT)
+	_status_l = ThemeBuilder.washi_dim("已选 0/%d · 请选择四名角色" % PICK_COUNT)
 	root.add_child(_status_l)
 
 	var split := HBoxContainer.new()
@@ -85,7 +92,7 @@ func _ready() -> void:
 	var left_panel := PanelContainer.new()
 	left_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	left_panel.size_flags_stretch_ratio = 1.35
-	left_panel.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 12, 1))
+	left_panel.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(14, false))
 	split.add_child(left_panel)
 	var scroll := ScrollContainer.new()
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -101,12 +108,12 @@ func _ready() -> void:
 	var mid := PanelContainer.new()
 	mid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	mid.size_flags_stretch_ratio = 1.0
-	mid.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 12, 1))
+	mid.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(14, false))
 	split.add_child(mid)
 	var mid_v := VBoxContainer.new()
 	mid_v.add_theme_constant_override("separation", 6)
 	mid.add_child(mid_v)
-	mid_v.add_child(ThemeBuilder.label("角色详情", 16, ThemeBuilder.GOLD))
+	mid_v.add_child(ThemeBuilder.micro_label("角色详情"))
 	var dscroll := ScrollContainer.new()
 	dscroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	mid_v.add_child(dscroll)
@@ -119,12 +126,12 @@ func _ready() -> void:
 	var right := PanelContainer.new()
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	right.size_flags_stretch_ratio = 1.25
-	right.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 12, 1))
+	right.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(14, false))
 	split.add_child(right)
 	var r_v := VBoxContainer.new()
 	r_v.add_theme_constant_override("separation", 6)
 	right.add_child(r_v)
-	r_v.add_child(ThemeBuilder.label("卡牌一览（不含衍生）", 16, ThemeBuilder.GOLD))
+	r_v.add_child(ThemeBuilder.micro_label("卡牌一览（不含衍生）"))
 	var cscroll := ScrollContainer.new()
 	cscroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	r_v.add_child(cscroll)
@@ -213,21 +220,21 @@ func _rebuild_unit_list() -> void:
 		card.text = "%s\n%s · %s" % [str(unit.get("name", "?")), pack_tag, str(unit.get("title", ""))]
 		if picked:
 			card.text = "★ " + card.text
-		var sb := ThemeBuilder.panel(
-			Color("2c2413") if picked else Color("161d2c"),
-			ThemeBuilder.GOLD if picked else accent.lerp(ThemeBuilder.RULE, 0.4),
-			10, 1
-		)
+		var sb := ThemeBuilder.washi_panel(16, picked)
+		if picked:
+			sb.border_color = ThemeBuilder.WASHI_GOLD_2
 		card.add_theme_stylebox_override("normal", sb)
-		card.add_theme_stylebox_override("hover", ThemeBuilder.panel(Color("243044"), ThemeBuilder.GOLD_BRIGHT, 10, 1))
-		card.add_theme_stylebox_override("pressed", ThemeBuilder.panel(Color("3a3018"), ThemeBuilder.GOLD, 10, 1))
+		var hov := ThemeBuilder.washi_panel(16, true)
+		hov.bg_color = Color("fffaf0")
+		card.add_theme_stylebox_override("hover", hov)
+		card.add_theme_stylebox_override("pressed", ThemeBuilder.washi_panel(16, true))
 		card.pressed.connect(func():
 			_show_unit(unit)
 			_toggle(unit)
 		)
 		_unit_list.add_child(card)
 	if units.is_empty():
-		_unit_list.add_child(ThemeBuilder.dim_label("没有匹配的角色", 13))
+		_unit_list.add_child(ThemeBuilder.washi_dim("没有匹配的角色", 13))
 	_status_l.text = "已选 %d/%d · 显示 %d 名 · 请点选角色" % [_selected.size(), PICK_COUNT, units.size()]
 	_confirm_btn.disabled = _selected.size() != PICK_COUNT
 
@@ -250,19 +257,21 @@ func _show_unit(unit: Dictionary) -> void:
 		return
 	for c in _detail_box.get_children():
 		c.queue_free()
-	_detail_box.add_child(ThemeBuilder.label("%s · %s" % [unit.get("name", "?"), unit.get("title", "")], 18, ThemeBuilder.PAPER))
+	_detail_box.add_child(ThemeBuilder.washi_title("%s · %s" % [str(unit.get("name", "?")), str(unit.get("title", ""))], 22))
 	_detail_box.add_child(ThemeBuilder.chip(_pack_label(str(unit.get("pack", "origin"))), ThemeBuilder.GOLD))
-	_detail_box.add_child(ThemeBuilder.dim_label(str(unit.get("role", "")) + " · " + str(unit.get("strategy", "")), 12))
-	_detail_box.add_child(ThemeBuilder.label("生命 %d　攻击 %d" % [int(unit.get("maxHp", 0)), int(unit.get("attack", 0))], 14, ThemeBuilder.TEXT))
+	_detail_box.add_child(ThemeBuilder.washi_dim(str(unit.get("role", "")) + " · " + str(unit.get("strategy", "")), 12))
+	_detail_box.add_child(ThemeBuilder.washi_dim("生命 %d　攻击 %d" % [int(unit.get("maxHp", 0)), int(unit.get("attack", 0))], 14))
 	var deck_btn := Button.new()
 	deck_btn.text = "构筑卡组（8 张）"
+	deck_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	deck_btn.custom_minimum_size = Vector2(0, 40)
 	deck_btn.pressed.connect(func(): edit_deck.emit(str(unit.get("id", ""))))
 	_detail_box.add_child(deck_btn)
-	_detail_box.add_child(ThemeBuilder.label("被动 · " + ContentLoader.passive_text(unit), 13, ThemeBuilder.GOLD))
-	_detail_box.add_child(ThemeBuilder.label("觉醒 · " + ContentLoader.passive_text(unit, true), 13, ThemeBuilder.GOLD_BRIGHT))
+	_detail_box.add_child(ThemeBuilder.label("被动 · " + ContentLoader.passive_text(unit), 13, ThemeBuilder.WASHI_INK))
+	_detail_box.add_child(ThemeBuilder.label("觉醒 · " + ContentLoader.passive_text(unit, true), 13, ThemeBuilder.WASHI_GOLD))
 	var official := str(unit.get("officialAbility", unit.get("officialText", "")))
 	if official != "":
-		_detail_box.add_child(ThemeBuilder.dim_label("原案：" + official, 11))
+		_detail_box.add_child(ThemeBuilder.washi_dim("原案：" + official, 11))
 
 	for c in _card_box.get_children():
 		c.queue_free()
@@ -283,15 +292,15 @@ func _show_unit(unit: Dictionary) -> void:
 		head.add_theme_constant_override("separation", 6)
 		row.add_child(head)
 		head.add_child(ThemeBuilder.chip(str(card.get("rarity", "")), rarity))
-		head.add_child(ThemeBuilder.label(str(card.get("name", "?")), 13, rarity))
-		head.add_child(ThemeBuilder.dim_label(str(card.get("typeLabel", "")) + " Lv" + str(int(card.get("level", 1))) + " 费" + str(int(card.get("cost", 0))), 11))
-		var tip := ThemeBuilder.label(str(card.get("text", "")), 12, ThemeBuilder.TEXT_DIM)
+		head.add_child(ThemeBuilder.label(str(card.get("name", "?")), 13, ThemeBuilder.WASHI_INK))
+		head.add_child(ThemeBuilder.washi_dim(str(card.get("typeLabel", "")) + " Lv" + str(int(card.get("level", 1))) + " 费" + str(int(card.get("cost", 0))), 11))
+		var tip := ThemeBuilder.label(str(card.get("text", "")), 12, ThemeBuilder.WASHI_DIM)
 		tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		tip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(tip)
 		var official_c := str(card.get("officialText", ""))
 		if official_c != "" and official_c != str(card.get("text", "")):
-			var o := ThemeBuilder.dim_label("原案：" + official_c, 10)
+			var o := ThemeBuilder.washi_dim("原案：" + official_c, 10)
 			o.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			row.add_child(o)
 		_card_box.add_child(row)

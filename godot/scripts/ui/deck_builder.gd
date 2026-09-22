@@ -29,9 +29,10 @@ func setup(unit_id: String) -> void:
 
 
 func _ready() -> void:
+	theme = ThemeBuilder.build_washi_theme()
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	var bg := ColorRect.new()
-	bg.color = ThemeBuilder.INK_1
+	bg.color = ThemeBuilder.WASHI_BG
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
 
@@ -47,7 +48,7 @@ func _ready() -> void:
 	var unit := ContentLoader.unit_def(_unit_id)
 	var header := HBoxContainer.new()
 	root.add_child(header)
-	header.add_child(ThemeBuilder.title_label("构筑 · %s" % str(unit.get("name", _unit_id)), 26))
+	header.add_child(ThemeBuilder.washi_title("构筑 · %s" % str(unit.get("name", _unit_id)), 28))
 	var sp := Control.new()
 	sp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(sp)
@@ -73,7 +74,7 @@ func _ready() -> void:
 
 	var left := PanelContainer.new()
 	left.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	left.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 10, 1))
+	left.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(12, false))
 	split.add_child(left)
 	_list_scroll = ScrollContainer.new()
 	left.add_child(_list_scroll)
@@ -84,13 +85,13 @@ func _ready() -> void:
 
 	var side := PanelContainer.new()
 	side.custom_minimum_size = Vector2(280, 0)
-	side.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 10, 1))
+	side.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(12, false))
 	split.add_child(side)
 	var side_v := VBoxContainer.new()
 	side_v.add_theme_constant_override("separation", 8)
 	side.add_child(side_v)
-	side_v.add_child(ThemeBuilder.label("角色档案", 15, ThemeBuilder.GOLD))
-	var tip := ThemeBuilder.label(ContentLoader.passive_text(unit), 12, ThemeBuilder.TEXT_DIM)
+	side_v.add_child(ThemeBuilder.micro_label("角色档案"))
+	var tip := ThemeBuilder.label(ContentLoader.passive_text(unit), 12, ThemeBuilder.WASHI_DIM)
 	tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	side_v.add_child(tip)
 	_confirm_btn = ThemeBuilder.rounded_rect_button("确认卡组", Vector2(220, 44))
@@ -137,13 +138,12 @@ func _rebuild() -> void:
 		var limit := _limit_of(card)
 		var row := PanelContainer.new()
 		var rarity := ThemeBuilder.rarity_color_of(str(card.get("rarity", "common")))
-		row.add_theme_stylebox_override("panel", ThemeBuilder.panel(
-			Color("2c2413") if have > 0 else Color("161d2c"), rarity, 8, 1))
+		row.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(10, have > 0))
 		var h := HBoxContainer.new()
 		h.add_theme_constant_override("separation", 8)
 		row.add_child(h)
 		h.add_child(ThemeBuilder.chip("%d×" % have, ThemeBuilder.GOLD if have > 0 else ThemeBuilder.TEXT_FAINT))
-		var name_l := ThemeBuilder.label(str(card.get("name", "?")), 14, rarity)
+		var name_l := ThemeBuilder.label(str(card.get("name", "?")), 14, ThemeBuilder.WASHI_INK)
 		name_l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		h.add_child(name_l)
 		h.add_child(ThemeBuilder.dim_label("Lv%d 费%d /%d" % [int(card.get("level", 1)), int(card.get("cost", 0)), limit], 11))

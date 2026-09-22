@@ -18,9 +18,10 @@ var _pack_seed := 0
 
 
 func _ready() -> void:
+	theme = ThemeBuilder.build_washi_theme()
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	var bg := ColorRect.new()
-	bg.color = ThemeBuilder.INK_1
+	bg.color = ThemeBuilder.WASHI_BG
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
 
@@ -35,7 +36,7 @@ func _ready() -> void:
 
 	var header := HBoxContainer.new()
 	root.add_child(header)
-	header.add_child(ThemeBuilder.title_label("秘闻阁", 28))
+	header.add_child(ThemeBuilder.washi_title("秘闻阁", 34))
 	var sp := Control.new()
 	sp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(sp)
@@ -65,7 +66,7 @@ func _ready() -> void:
 
 	var panel := PanelContainer.new()
 	panel.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	panel.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 10, 1))
+	panel.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(12, false))
 	root.add_child(panel)
 	var scroll := ScrollContainer.new()
 	panel.add_child(scroll)
