@@ -233,7 +233,10 @@ func _fill_units(box: HBoxContainer, p_idx: int, front_only: bool) -> void:
 		var is_front := int(u.get("front", 0)) == 1
 		if front_only != is_front:
 			continue
-		var panel := UIWidgets.make_unit_panel(u, _on_unit_clicked.bind(p_idx, i), true)
+		var highlight := false
+		if p_idx == PLAYER and gs.current_player == PLAYER and gs.is_upgrade_pending(PLAYER) and gs.can_level_up(PLAYER, i):
+			highlight = true
+		var panel := UIWidgets.make_unit_panel(u, _on_unit_clicked.bind(p_idx, i), true, highlight)
 		panel.custom_minimum_size = Vector2(138, 132)
 		if p_idx == AI:
 			panel.self_modulate = Color(0.94, 0.9, 1.0)
@@ -254,7 +257,20 @@ func _fill_hand() -> void:
 			and not gs.is_upgrade_pending(PLAYER)
 			and int(p.energy) >= int(card.get("cost", 0))
 		)
-		var widget := UIWidgets.make_hand_card(card, affordable, _on_hand_clicked, i)
+		var block_reason := ""
+		if gs.current_player == PLAYER and gs.is_upgrade_pending(PLAYER):
+			block_reason = "先升勾"
+		elif gs.current_player != PLAYER:
+			block_reason = "对手回合"
+		elif not gs.response_window.is_empty():
+			block_reason = "响应中"
+		elif not gs.pending_choice.is_empty():
+			block_reason = "占卜中"
+		else:
+			var chk := gs.can_play_card(PLAYER, i, null)
+			if not chk.ok:
+				block_reason = str(chk.get("reason", "")).left(18)
+		var widget := UIWidgets.make_hand_card(card, affordable, _on_hand_clicked, i, block_reason)
 		widget.mouse_entered.connect(func(): _show_tooltip(UIWidgets.make_tooltip(card)))
 		widget.mouse_exited.connect(func():
 			if _tooltip != null and _tooltip.get_meta("kind", "") == "card":
@@ -272,7 +288,14 @@ func _fill_command_bar() -> void:
 	if gs == null:
 		return
 	if gs.is_upgrade_pending(PLAYER) and gs.current_player == PLAYER:
-		_cmd_bar.add_child(ThemeBuilder.label("升勾阶段：点击己方角色提升勾玉（齐头并进）", 14, ThemeBuilder.GOLD_BRIGHT))
+		var names: PackedStringArray = PackedStringArray()
+		for i in gs.player(PLAYER).units.size():
+			if gs.can_level_up(PLAYER, i):
+				names.append(str(gs.player(PLAYER).units[i].get("name", "?")))
+		var prompt := "升勾阶段：请提升勾玉（齐头并进）"
+		if names.size() > 0:
+			prompt = "升勾阶段：点金色角色（%s）· 齐头并进" % "、".join(names)
+		_cmd_bar.add_child(ThemeBuilder.label(prompt, 14, ThemeBuilder.GOLD_BRIGHT))
 	else:
 		_cmd_bar.add_child(ThemeBuilder.label("指令条 · 鬼火 %d · 回合 %d · %s" % [
 			int(gs.player(PLAYER).energy), gs.turn_counter,
@@ -482,6 +505,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		var k := event as InputEventKey
+		if k.keycode == KEY_P and not gs.response_window.is_empty():
+			_on_pass_response()
+			return
+		if k.keycode == KEY_ESCAPE and _pending_target_card >= 0:
+			_pending_target_card = -1
+			_pending_target_card_def = {}
+			_fill_command_bar()
+			return
 		if k.keycode == KEY_ENTER or k.keycode == KEY_KP_ENTER:
 			if gs.current_player == PLAYER and not gs.is_upgrade_pending(PLAYER):
 				_on_end_turn()

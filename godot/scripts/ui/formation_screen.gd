@@ -11,11 +11,14 @@ signal back_requested
 const PICK_COUNT := 4
 
 var _selected: Array = []
-var _unit_list: VBoxContainer
+var _unit_list: GridContainer
 var _detail_box: VBoxContainer
 var _card_box: VBoxContainer
 var _confirm_btn: Button
 var _status_l: Label
+var _search: LineEdit
+var _pack_filter := "all"
+var _pack_buttons: ButtonGroup = ButtonGroup.new()
 
 
 func _ready() -> void:
@@ -27,16 +30,16 @@ func _ready() -> void:
 
 	var root := VBoxContainer.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.offset_left = 24
-	root.offset_top = 16
-	root.offset_right = -24
-	root.offset_bottom = -16
-	root.add_theme_constant_override("separation", 12)
+	root.offset_left = 20
+	root.offset_top = 12
+	root.offset_right = -20
+	root.offset_bottom = -12
+	root.add_theme_constant_override("separation", 10)
 	add_child(root)
 
 	var header := HBoxContainer.new()
 	root.add_child(header)
-	header.add_child(ThemeBuilder.title_label("编成", 30))
+	header.add_child(ThemeBuilder.title_label("编成", 28))
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(spacer)
@@ -45,24 +48,49 @@ func _ready() -> void:
 	back.pressed.connect(func(): back_requested.emit())
 	header.add_child(back)
 
+	var tools := HBoxContainer.new()
+	tools.add_theme_constant_override("separation", 8)
+	root.add_child(tools)
+	_search = LineEdit.new()
+	_search.placeholder_text = "搜索式者 / 定位…"
+	_search.clear_button_enabled = true
+	_search.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_search.text_changed.connect(func(_t): _rebuild_unit_list())
+	tools.add_child(_search)
+	for pack_id in ["all", "origin", "classic", "wave2"]:
+		var b := Button.new()
+		b.text = _pack_label(pack_id)
+		b.toggle_mode = true
+		b.button_group = _pack_buttons
+		b.button_pressed = pack_id == "all"
+		b.set_meta("pack", pack_id)
+		b.pressed.connect(func():
+			_pack_filter = pack_id
+			_rebuild_unit_list()
+		)
+		tools.add_child(b)
+
 	_status_l = ThemeBuilder.dim_label("已选 0/%d · 请选择四名角色" % PICK_COUNT)
 	root.add_child(_status_l)
 
 	var split := HBoxContainer.new()
 	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	split.add_theme_constant_override("separation", 16)
+	split.add_theme_constant_override("separation", 12)
 	root.add_child(split)
 
 	# left: unit grid
 	var left_panel := PanelContainer.new()
 	left_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	left_panel.size_flags_stretch_ratio = 1.2
+	left_panel.size_flags_stretch_ratio = 1.35
 	left_panel.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 12, 1))
 	split.add_child(left_panel)
 	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	left_panel.add_child(scroll)
-	_unit_list = VBoxContainer.new()
-	_unit_list.add_theme_constant_override("separation", 8)
+	_unit_list = GridContainer.new()
+	_unit_list.columns = 3
+	_unit_list.add_theme_constant_override("h_separation", 8)
+	_unit_list.add_theme_constant_override("v_separation", 8)
 	_unit_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(_unit_list)
 
@@ -87,13 +115,13 @@ func _ready() -> void:
 	# right: cards
 	var right := PanelContainer.new()
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	right.size_flags_stretch_ratio = 1.3
+	right.size_flags_stretch_ratio = 1.25
 	right.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 12, 1))
 	split.add_child(right)
 	var r_v := VBoxContainer.new()
 	r_v.add_theme_constant_override("separation", 6)
 	right.add_child(r_v)
-	r_v.add_child(ThemeBuilder.label("卡牌一览（按稀有度着色）", 16, ThemeBuilder.GOLD))
+	r_v.add_child(ThemeBuilder.label("卡牌一览（不含衍生）", 16, ThemeBuilder.GOLD))
 	var cscroll := ScrollContainer.new()
 	cscroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	r_v.add_child(cscroll)
@@ -116,34 +144,66 @@ func _ready() -> void:
 	_show_unit(ContentLoader.playable_units()[0] if not ContentLoader.playable_units().is_empty() else {})
 
 
+func _pack_label(pack_id: String) -> String:
+	match pack_id:
+		"origin":
+			return "灵枢原创"
+		"classic":
+			return "经典包"
+		"wave2":
+			return "不夜之火"
+		_:
+			return "全部"
+
+
+func _filtered_units() -> Array:
+	var q := _search.text.strip_edges().to_lower()
+	var out: Array = []
+	for unit in ContentLoader.playable_units():
+		var pack := str(unit.get("pack", "origin"))
+		if _pack_filter != "all" and pack != _pack_filter:
+			continue
+		if q != "":
+			var hay := ("%s %s %s %s" % [
+				str(unit.get("name", "")), str(unit.get("title", "")),
+				str(unit.get("role", "")), str(unit.get("strategy", "")),
+			]).to_lower()
+			if not hay.contains(q):
+				continue
+		out.append(unit)
+	return out
+
+
 func _rebuild_unit_list() -> void:
 	for c in _unit_list.get_children():
 		c.queue_free()
-	for unit in ContentLoader.playable_units():
-		var row := PanelContainer.new()
+	var units := _filtered_units()
+	for unit in units:
+		var picked: bool = _selected.has(unit.get("id", ""))
 		var accent := ThemeBuilder.unit_color_of(unit)
-		var picked: bool = _selected.has(unit.id)
-		var sb := ThemeBuilder.panel(Color("161d2c") if not picked else Color("2c2413"), ThemeBuilder.GOLD if picked else ThemeBuilder.RULE, 8, 1)
-		row.add_theme_stylebox_override("panel", sb)
-		var h := HBoxContainer.new()
-		h.add_theme_constant_override("separation", 8)
-		row.add_child(h)
-		h.add_child(ThemeBuilder.chip("选" if picked else "　", ThemeBuilder.GOLD if picked else ThemeBuilder.TEXT_FAINT))
-		var name_l := ThemeBuilder.label(str(unit.get("name", "?")), 15, ThemeBuilder.PAPER)
-		name_l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		h.add_child(name_l)
-		h.add_child(ThemeBuilder.dim_label(str(unit.get("title", "")), 12))
-		h.add_child(ThemeBuilder.chip(str(unit.get("role", "")), accent))
-		var info := Button.new()
-		info.text = "详情"
-		info.pressed.connect(func(): _show_unit(unit))
-		h.add_child(info)
-		var pick := Button.new()
-		pick.text = "选用" if not picked else "移出"
-		pick.pressed.connect(func(): _toggle(unit))
-		h.add_child(pick)
-		_unit_list.add_child(row)
-	_status_l.text = "已选 %d/%d · 请点选角色" % [_selected.size(), PICK_COUNT]
+		var card := Button.new()
+		card.custom_minimum_size = Vector2(150, 88)
+		card.clip_text = true
+		var pack_tag := _pack_label(str(unit.get("pack", "origin")))
+		card.text = "%s\n%s · %s" % [str(unit.get("name", "?")), pack_tag, str(unit.get("title", ""))]
+		if picked:
+			card.text = "★ " + card.text
+		var sb := ThemeBuilder.panel(
+			Color("2c2413") if picked else Color("161d2c"),
+			ThemeBuilder.GOLD if picked else accent.lerp(ThemeBuilder.RULE, 0.4),
+			10, 1
+		)
+		card.add_theme_stylebox_override("normal", sb)
+		card.add_theme_stylebox_override("hover", ThemeBuilder.panel(Color("243044"), ThemeBuilder.GOLD_BRIGHT, 10, 1))
+		card.add_theme_stylebox_override("pressed", ThemeBuilder.panel(Color("3a3018"), ThemeBuilder.GOLD, 10, 1))
+		card.pressed.connect(func():
+			_show_unit(unit)
+			_toggle(unit)
+		)
+		_unit_list.add_child(card)
+	if units.is_empty():
+		_unit_list.add_child(ThemeBuilder.dim_label("没有匹配的角色", 13))
+	_status_l.text = "已选 %d/%d · 显示 %d 名 · 请点选角色" % [_selected.size(), PICK_COUNT, units.size()]
 	_confirm_btn.disabled = _selected.size() != PICK_COUNT
 
 
@@ -153,6 +213,7 @@ func _toggle(unit: Dictionary) -> void:
 		_selected.erase(uid)
 	else:
 		if _selected.size() >= PICK_COUNT:
+			_status_l.text = "已满 4 人，先移出再选新角色"
 			return
 		_selected.append(uid)
 	_rebuild_unit_list()
@@ -165,15 +226,19 @@ func _show_unit(unit: Dictionary) -> void:
 	for c in _detail_box.get_children():
 		c.queue_free()
 	_detail_box.add_child(ThemeBuilder.label("%s · %s" % [unit.get("name", "?"), unit.get("title", "")], 18, ThemeBuilder.PAPER))
+	_detail_box.add_child(ThemeBuilder.chip(_pack_label(str(unit.get("pack", "origin"))), ThemeBuilder.GOLD))
 	_detail_box.add_child(ThemeBuilder.dim_label(str(unit.get("role", "")) + " · " + str(unit.get("strategy", "")), 12))
 	_detail_box.add_child(ThemeBuilder.label("生命 %d　攻击 %d" % [int(unit.get("maxHp", 0)), int(unit.get("attack", 0))], 14, ThemeBuilder.TEXT))
-	_detail_box.add_child(ThemeBuilder.label(ContentLoader.passive_text(unit), 13, ThemeBuilder.GOLD))
-	_detail_box.add_child(ThemeBuilder.label(ContentLoader.passive_text(unit, true), 13, ThemeBuilder.GOLD_BRIGHT))
-	_detail_box.add_child(ThemeBuilder.dim_label("色标 %s" % str(unit.get("color", "")), 11))
+	_detail_box.add_child(ThemeBuilder.label("被动 · " + ContentLoader.passive_text(unit), 13, ThemeBuilder.GOLD))
+	_detail_box.add_child(ThemeBuilder.label("觉醒 · " + ContentLoader.passive_text(unit, true), 13, ThemeBuilder.GOLD_BRIGHT))
+	var official := str(unit.get("officialAbility", unit.get("officialText", "")))
+	if official != "":
+		_detail_box.add_child(ThemeBuilder.dim_label("原案：" + official, 11))
 
 	for c in _card_box.get_children():
 		c.queue_free()
 	var cards := ContentLoader.cards_for_unit(str(unit.get("id", "")))
+	cards = cards.filter(func(card): return not bool(card.get("token", false)))
 	cards.sort_custom(func(a, b):
 		var ra := _rarity_rank(str(a.get("rarity", "")))
 		var rb := _rarity_rank(str(b.get("rarity", "")))
@@ -183,16 +248,23 @@ func _show_unit(unit: Dictionary) -> void:
 	)
 	for card in cards:
 		var rarity := ThemeBuilder.rarity_color_of(str(card.get("rarity", "common")))
-		var row := HBoxContainer.new()
-		row.add_theme_constant_override("separation", 6)
-		var rar := ThemeBuilder.chip(str(card.get("rarity", "")), rarity)
-		row.add_child(rar)
-		row.add_child(ThemeBuilder.label(str(card.get("name", "?")), 13, rarity))
-		row.add_child(ThemeBuilder.dim_label(str(card.get("typeLabel", "")) + " Lv" + str(int(card.get("level", 1))) + " 费" + str(int(card.get("cost", 0))), 11))
+		var row := VBoxContainer.new()
+		row.add_theme_constant_override("separation", 2)
+		var head := HBoxContainer.new()
+		head.add_theme_constant_override("separation", 6)
+		row.add_child(head)
+		head.add_child(ThemeBuilder.chip(str(card.get("rarity", "")), rarity))
+		head.add_child(ThemeBuilder.label(str(card.get("name", "?")), 13, rarity))
+		head.add_child(ThemeBuilder.dim_label(str(card.get("typeLabel", "")) + " Lv" + str(int(card.get("level", 1))) + " 费" + str(int(card.get("cost", 0))), 11))
 		var tip := ThemeBuilder.label(str(card.get("text", "")), 12, ThemeBuilder.TEXT_DIM)
 		tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		tip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(tip)
+		var official_c := str(card.get("officialText", ""))
+		if official_c != "" and official_c != str(card.get("text", "")):
+			var o := ThemeBuilder.dim_label("原案：" + official_c, 10)
+			o.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			row.add_child(o)
 		_card_box.add_child(row)
 
 

@@ -6,11 +6,12 @@ const ContentLoader := preload("res://scripts/content_loader.gd")
 ## Reusable control factories for unit panels, hand cards, tooltips.
 
 
-static func make_unit_panel(unit: Dictionary, on_click: Callable, compact: bool = false) -> PanelContainer:
+static func make_unit_panel(unit: Dictionary, on_click: Callable, compact: bool = false, highlight: bool = false) -> PanelContainer:
 	var accent := ThemeBuilder.unit_color_of(unit)
 	var pc := PanelContainer.new()
 	pc.set_meta("unit_uid", unit.get("uid", ""))
-	var sb := ThemeBuilder.panel(Color("0f1524"), accent.lerp(ThemeBuilder.RULE, 0.55), 10, 1)
+	var border := ThemeBuilder.GOLD_BRIGHT if highlight else accent.lerp(ThemeBuilder.RULE, 0.55)
+	var sb := ThemeBuilder.panel(Color("2c2413") if highlight else Color("0f1524"), border, 10, 2 if highlight else 1)
 	pc.add_theme_stylebox_override("panel", sb)
 	pc.custom_minimum_size = Vector2(148, 168) if compact else Vector2(160, 190)
 	var vbox := VBoxContainer.new()
@@ -52,6 +53,12 @@ static func make_unit_panel(unit: Dictionary, on_click: Callable, compact: bool 
 		status.add_child(ThemeBuilder.chip("不屈", ThemeBuilder.GOLD))
 	if int(unit.get("knockout", 0)) > 0:
 		status.add_child(ThemeBuilder.chip("气绝%d" % int(unit.knockout), ThemeBuilder.DANGER))
+	if int(unit.get("armorBreak", 0)) > 0:
+		status.add_child(ThemeBuilder.chip("破甲%d" % int(unit.armorBreak), ThemeBuilder.WARN))
+	if int(unit.get("charge", 0)) > 0:
+		status.add_child(ThemeBuilder.chip("充%d" % int(unit.charge), ThemeBuilder.INFO))
+	if unit.get("form") is Dictionary and not (unit.form as Dictionary).is_empty():
+		status.add_child(ThemeBuilder.chip("形态", ThemeBuilder.TYPE_FORM))
 
 	if int(unit.get("hp", 0)) <= 0:
 		pc.modulate = Color(1, 1, 1, 0.45)
@@ -95,7 +102,7 @@ static func _art_rect(unit: Dictionary, size: Vector2) -> Control:
 	return holder
 
 
-static func make_hand_card(card: Dictionary, affordable: bool, on_click: Callable, index: int = -1) -> Control:
+static func make_hand_card(card: Dictionary, affordable: bool, on_click: Callable, index: int = -1, block_reason: String = "") -> Control:
 	var rarity := ThemeBuilder.rarity_color_of(str(card.get("rarity", "common")))
 	var tcolor := ThemeBuilder.type_color_of(str(card.get("type", "spell")))
 	var pc := PanelContainer.new()
@@ -127,6 +134,10 @@ static func make_hand_card(card: Dictionary, affordable: bool, on_click: Callabl
 	var name_l := ThemeBuilder.label(str(card.get("name", "?")), 14, ThemeBuilder.PAPER)
 	name_l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	vbox.add_child(name_l)
+	if block_reason != "":
+		var why := ThemeBuilder.label(block_reason, 11, ThemeBuilder.WARN)
+		why.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		vbox.add_child(why)
 
 	var lv := ThemeBuilder.dim_label("Lv.%d" % int(card.get("level", 1)), 11)
 	vbox.add_child(lv)
@@ -203,8 +214,24 @@ static func make_unit_popover(unit: Dictionary) -> PanelContainer:
 		vbox.add_child(ThemeBuilder.label("形态：%s" % unit.formAbility, 13, ThemeBuilder.GOLD))
 	if unit.get("form") is Dictionary and not (unit.form as Dictionary).is_empty():
 		vbox.add_child(ThemeBuilder.dim_label("当前形态：%s" % unit.form.get("name", "—"), 12))
+	if int(unit.get("knockout", 0)) > 0:
+		vbox.add_child(ThemeBuilder.chip("气绝剩 %d 回合" % int(unit.knockout), ThemeBuilder.DANGER))
+	if int(unit.get("armorBreak", 0)) > 0:
+		vbox.add_child(ThemeBuilder.chip("破甲 %d" % int(unit.armorBreak), ThemeBuilder.WARN))
+	if int(unit.get("charge", 0)) > 0:
+		vbox.add_child(ThemeBuilder.chip("充能 %d" % int(unit.charge), ThemeBuilder.INFO))
 	if unit.get("awakened", false):
 		vbox.add_child(ThemeBuilder.chip("已觉醒", ThemeBuilder.TYPE_AWAKEN))
+	var passive_data = unit.get("passive", {})
+	if passive_data is Dictionary and passive_data.get("text"):
+		var pt := ThemeBuilder.label("被动 · %s：%s" % [passive_data.get("name", ""), passive_data.get("text", "")], 12, ThemeBuilder.GOLD)
+		pt.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		vbox.add_child(pt)
+	var awake_data = unit.get("awakenedPassive", {})
+	if unit.get("awakened", false) and awake_data is Dictionary and awake_data.get("text"):
+		var at := ThemeBuilder.label("觉醒 · %s：%s" % [awake_data.get("name", ""), awake_data.get("text", "")], 12, ThemeBuilder.GOLD_BRIGHT)
+		at.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		vbox.add_child(at)
 	var status_parts: Array = []
 	if int(unit.get("frozen", 0)) > 0:
 		status_parts.append("眩晕×%d" % int(unit.frozen))
