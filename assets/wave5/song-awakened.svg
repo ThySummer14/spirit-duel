@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">松 · 觉醒相</title>
+  <desc id="desc">松：松枝与词章笔，针叶对生。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="song-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c140c"/>
+      <stop offset=".55" stop-color="#142014"/>
+      <stop offset="1" stop-color="#0a0e08"/>
+    </linearGradient>
+    <radialGradient id="song-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#80b070" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#50a040" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#50a040" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="song-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#d0e0c0"/>
+      <stop offset=".55" stop-color="#88a868"/>
+      <stop offset="1" stop-color="#50a040"/>
+    </linearGradient>
+    <linearGradient id="song-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#50a040"/>
+      <stop offset="1" stop-color="#204818"/>
+    </linearGradient>
+    <linearGradient id="song-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#song-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#song-halo)"/>
+  <g fill="none" stroke="url(#song-acc)" stroke-width="2.2" stroke-linecap="round">
+    <path d="M70 190V95"/>
+    <path d="M70 115c-14-8-24-6-34 2M70 145c14-8 24-6 34 2"/>
+    <path d="M130 185V110"/>
+    <path d="M130 130c14-8 24-6 32 2"/>
+  </g>
+  <g>
+    <rect x="92" y="75" width="16" height="70" rx="3" fill="url(#song-body)" stroke="#2a3020" stroke-width="1.5"/>
+    <path d="M96 75c2-10 6-14 8-18 2 4 6 8 8 18" fill="url(#song-gold)"/>
+  </g>
+<g fill="url(#song-acc)">
+    <circle cx="42" cy="85" r="2" opacity=".6"/>
+    <circle cx="160" cy="88" r="1.8" opacity=".55"/>
+    <circle cx="38" cy="165" r="1.6" opacity=".5"/>
+    <circle cx="164" cy="168" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="32" r="1.5" opacity=".5"/>
+    <circle cx="72" cy="210" r="1.4" opacity=".5"/>
+    <circle cx="128" cy="210" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#song-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#song-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#song-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#song-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#song-gold)"/>
+    <g stroke="url(#song-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#50a040" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">蝴蝶精</title>
+  <desc id="desc">蝴蝶精：蝶翅醉春风，战技飞花</desc>
+  <defs>
+    <linearGradient id="hudiejing-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140c18"/>
+      <stop offset=".55" stop-color="#201430"/>
+      <stop offset="1" stop-color="#0c0814"/>
+    </linearGradient>
+    <radialGradient id="hudiejing-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e0a0f0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c050d0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c050d0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hudiejing-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0d0f8"/>
+      <stop offset=".55" stop-color="#c088d0"/>
+      <stop offset="1" stop-color="#c050d0"/>
+    </linearGradient>
+    <linearGradient id="hudiejing-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c050d0"/>
+      <stop offset="1" stop-color="#602080"/>
+    </linearGradient>
+    <linearGradient id="hudiejing-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#hudiejing-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#hudiejing-halo)"/>
+  <g>
+    <path d="M100 120c-30-35-55-30-55-5 0 22 22 35 45 25" fill="url(#hudiejing-acc)" opacity=".8"/>
+    <path d="M100 120c30-35 55-30 55-5 0 22-22 35-45 25" fill="url(#hudiejing-acc)" opacity=".8"/>
+    <path d="M100 120c-18 15-28 35-18 50 14-4 24-18 25-38" fill="url(#hudiejing-body)" opacity=".7"/>
+    <path d="M100 120c18 15 28 35 18 50-14-4-24-18-25-38" fill="url(#hudiejing-body)" opacity=".7"/>
+    <circle cx="100" cy="115" r="8" fill="url(#hudiejing-body)"/>
+    <path d="M95 100c-2-12-8-18-14-22M105 100c2-12 8-18 14-22" stroke="url(#hudiejing-gold)" stroke-width="1.5" fill="none"/>
+  </g>
+<g fill="url(#hudiejing-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#c050d0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

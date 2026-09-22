@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">五丸</title>
+  <desc id="desc">五丸：猫碗与肉垫，料理生香</desc>
+  <defs>
+    <linearGradient id="wuwu-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#180e08"/>
+      <stop offset=".55" stop-color="#281810"/>
+      <stop offset="1" stop-color="#100a06"/>
+    </linearGradient>
+    <radialGradient id="wuwu-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#f0b070" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#e08030" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#e08030" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wuwu-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8e0c0"/>
+      <stop offset=".55" stop-color="#e0a070"/>
+      <stop offset="1" stop-color="#e08030"/>
+    </linearGradient>
+    <linearGradient id="wuwu-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e08030"/>
+      <stop offset="1" stop-color="#704010"/>
+    </linearGradient>
+    <linearGradient id="wuwu-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#wuwu-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#wuwu-halo)"/>
+  <g>
+    <path d="M65 140h70l-8 35H73Z" fill="url(#wuwu-body)" stroke="#4a3020" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="35" ry="10" fill="url(#wuwu-acc)" opacity=".75"/>
+    <circle cx="100" cy="95" r="16" fill="url(#wuwu-acc)"/>
+    <path d="M88 88l-6-12 12 6M112 88l6-12-12 6" fill="url(#wuwu-acc)"/>
+    <circle cx="94" cy="94" r="2" fill="#1a1010"/><circle cx="106" cy="94" r="2" fill="#1a1010"/>
+  </g>
+<g fill="url(#wuwu-acc)">
+    <circle cx="42" cy="85" r="2" opacity=".6"/>
+    <circle cx="160" cy="88" r="1.8" opacity=".55"/>
+    <circle cx="38" cy="165" r="1.6" opacity=".5"/>
+    <circle cx="164" cy="168" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="32" r="1.5" opacity=".5"/>
+    <circle cx="72" cy="210" r="1.4" opacity=".5"/>
+    <circle cx="128" cy="210" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#e08030" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

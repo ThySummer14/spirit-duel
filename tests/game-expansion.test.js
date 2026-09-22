@@ -197,4 +197,5 @@ test('new expansion cards are absent from starter decks and the catalog stays va
   assert.ok(CARD_DEFINITIONS.length >= 72 + 11 + 7 + 24 + 24, '卡池应不少于机制深化与扩展牌总量');
   assert.equal(CARD_DEFINITIONS.filter((card) => card.pack === 'classic').length >= 200, true);
   assert.equal(CARD_DEFINITIONS.filter((card) => card.pack === 'wave2').length >= 72, true);
+  assert.equal(CARD_DEFINITIONS.filter((card) => card.pack === 'wave3').length >= 152, true);
 });

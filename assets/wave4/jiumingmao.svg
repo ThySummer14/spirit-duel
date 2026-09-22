@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">九命猫</title>
+  <desc id="desc">九命猫：猫爪与九命环，九环绕身</desc>
+  <defs>
+    <linearGradient id="jiumingmao-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140e0a"/>
+      <stop offset=".55" stop-color="#201810"/>
+      <stop offset="1" stop-color="#0c0a08"/>
+    </linearGradient>
+    <radialGradient id="jiumingmao-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e0a060" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c07030" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c07030" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="jiumingmao-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0d0a8"/>
+      <stop offset=".55" stop-color="#c09060"/>
+      <stop offset="1" stop-color="#c07030"/>
+    </linearGradient>
+    <linearGradient id="jiumingmao-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c07030"/>
+      <stop offset="1" stop-color="#603810"/>
+    </linearGradient>
+    <linearGradient id="jiumingmao-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#jiumingmao-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#jiumingmao-halo)"/>
+  <g>
+    <ellipse cx="100" cy="130" rx="28" ry="32" fill="url(#jiumingmao-body)" stroke="#3a2818" stroke-width="2"/>
+    <circle cx="88" cy="122" r="4" fill="#1a1008"/><circle cx="112" cy="122" r="4" fill="#1a1008"/>
+    <path d="M85 95l-8-18 18 8M115 95l8-18-18 8" fill="url(#jiumingmao-acc)"/>
+    <path d="M94 145c4 3 8 3 12 0" stroke="#3a2818" stroke-width="1.4" fill="none"/>
+  </g>
+  <g fill="none" stroke="url(#jiumingmao-gold)" stroke-width="1.6" opacity=".8">
+    <circle cx="100" cy="130" r="48" stroke-dasharray="8 6"/>
+  </g>
+<g fill="url(#jiumingmao-acc)">
+    <circle cx="36" cy="85" r="2" opacity=".6"/>
+    <circle cx="164" cy="87" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="165" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="167" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="36" r="1.5" opacity=".5"/>
+    <circle cx="70" cy="205" r="1.4" opacity=".5"/>
+    <circle cx="130" cy="205" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#c07030" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">樱雪姬</title>
+  <desc id="desc">樱雪姬：雪樱五瓣与画笔，樱雪纷飞</desc>
+  <defs>
+    <linearGradient id="yingxueji-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140c12"/>
+      <stop offset=".55" stop-color="#24141c"/>
+      <stop offset="1" stop-color="#0c080c"/>
+    </linearGradient>
+    <radialGradient id="yingxueji-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#f0a0c0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#d06090" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#d06090" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="yingxueji-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8d8e8"/>
+      <stop offset=".55" stop-color="#e090b0"/>
+      <stop offset="1" stop-color="#d06090"/>
+    </linearGradient>
+    <linearGradient id="yingxueji-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d06090"/>
+      <stop offset="1" stop-color="#702040"/>
+    </linearGradient>
+    <linearGradient id="yingxueji-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#yingxueji-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#yingxueji-halo)"/>
+  <g fill="url(#yingxueji-acc)" opacity=".85">
+    <circle cx="85" cy="95" r="9"/><circle cx="115" cy="95" r="9"/>
+    <circle cx="100" cy="82" r="9"/><circle cx="100" cy="108" r="9"/>
+    <circle cx="100" cy="95" r="4" fill="url(#yingxueji-gold)"/>
+  </g>
+  <g fill="#e8f0ff" opacity=".75">
+    <circle cx="55" cy="130" r="2"/><circle cx="145" cy="140" r="2.2"/>
+    <circle cx="70" cy="170" r="1.6"/><circle cx="130" cy="175" r="1.8"/>
+    <circle cx="100" cy="155" r="2"/>
+  </g>
+  <path d="M100 125v55" stroke="url(#yingxueji-body)" stroke-width="2" fill="none" opacity=".55"/>
+  <path d="M85 195c15-8 30-8 45 0" fill="none" stroke="url(#yingxueji-body)" stroke-width="1.6" opacity=".5"/>
+<g fill="url(#yingxueji-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="82" r="1.8" opacity=".55"/>
+    <circle cx="36" cy="160" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="162" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="36" r="1.8" opacity=".55"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#d06090" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">巫蛊师</title>
+  <desc id="desc">巫蛊师：蛊蛾与蛊罐，双翼展开</desc>
+  <defs>
+    <linearGradient id="wuguishi-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1408"/>
+      <stop offset=".55" stop-color="#142010"/>
+      <stop offset="1" stop-color="#080c06"/>
+    </linearGradient>
+    <radialGradient id="wuguishi-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#90c060" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#50a030" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#50a030" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wuguishi-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#d0e8b0"/>
+      <stop offset=".55" stop-color="#88a860"/>
+      <stop offset="1" stop-color="#50a030"/>
+    </linearGradient>
+    <linearGradient id="wuguishi-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#50a030"/>
+      <stop offset="1" stop-color="#204810"/>
+    </linearGradient>
+    <linearGradient id="wuguishi-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#wuguishi-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#wuguishi-halo)"/>
+  <g>
+    <path d="M100 90c-24-20-48-18-58-2 16 4 30 14 38 28-12-4-24 0-32 10 18 0 34 6 44 16Z" fill="url(#wuguishi-body)" opacity=".85"/>
+    <path d="M100 90c24-20 48-18 58-2-16 4-30 14-38 28 12-4 24 0 32 10-18 0-34 6-44 16Z" fill="url(#wuguishi-body)" opacity=".85"/>
+    <ellipse cx="100" cy="115" rx="12" ry="28" fill="url(#wuguishi-acc)" stroke="#203018" stroke-width="1.4"/>
+  </g>
+  <g>
+    <ellipse cx="100" cy="175" rx="22" ry="18" fill="url(#wuguishi-body)" stroke="#203018" stroke-width="1.5"/>
+    <path d="M88 160h24v-8c0-4-4-6-12-6s-12 2-12 6Z" fill="url(#wuguishi-acc)"/>
+  </g>
+<g fill="url(#wuguishi-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="82" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="145" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="147" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="32" r="1.5" opacity=".5"/>
+    <circle cx="66" cy="210" r="1.4" opacity=".5"/>
+    <circle cx="134" cy="210" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#50a030" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

@@ -33,6 +33,19 @@
 - 原创风格立绘位于 `assets/classic/`（`scripts/gen-classic-art.py` 可再生）；**不含网易官方美术**。
 - 与原创 8 角色可混编。原创角色仍保持「1 觉醒 + 2 SSR 且 SSR 不进默认构筑」；经典包按官方结构允许 1 张 SSR 进默认构筑。
 
+## 资料片内容波次
+
+| 包 | 式神 | 说明 |
+| --- | --- | --- |
+| 经典（基础包） | 29 | 首发式神 |
+| Wave2 | 9 | 妖狐 / 跳跳妹妹 / 不夜之火 |
+| Wave3 | 19 | 月夜幻响 / 沧海刀鸣 |
+| Wave4 | 26 | 吉运缘结 / 四相琉璃 / 善恶无明 |
+| Wave5 | 24 | 繁花入梦 / 浮生方醒 / 喧哗烩战 |
+| Wave6 | 32 | 空弦绮话 / 振剑归川 / 远山遥泽 / 鸣雷启蛰 |
+
+全库 **147 式神 / 1278 卡**。生成脚本 `scripts/gen-waveN-content.py` / `gen-waveN-art.py`。
+
 ## Godot 纵向切片
 
 可玩切片在 `godot/`：菜单 / 编成 / 对战 / 结果，纯 GDScript 规则 + 种子命令日志 + 贪心 AI。内容由 `scripts/export-godot-content.mjs` 导出到 `godot/content/content.json`（当前 37 角色 / 380 卡）。验收：`./scripts/godot-verify.sh`（内容契约 + 模拟对局 + 启动冒烟）。详见 [godot/README.md](godot/README.md) 与 [ENGINE_DIRECTION.md](ENGINE_DIRECTION.md)。

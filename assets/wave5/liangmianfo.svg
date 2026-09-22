@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">两面佛</title>
+  <desc id="desc">两面佛：风雷双面，左风右雷</desc>
+  <defs>
+    <linearGradient id="liangmianfo-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140c08"/>
+      <stop offset=".55" stop-color="#241410"/>
+      <stop offset="1" stop-color="#0c0806"/>
+    </linearGradient>
+    <radialGradient id="liangmianfo-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#d09070" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c05030" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c05030" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="liangmianfo-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0d0b0"/>
+      <stop offset=".55" stop-color="#b08070"/>
+      <stop offset="1" stop-color="#c05030"/>
+    </linearGradient>
+    <linearGradient id="liangmianfo-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c05030"/>
+      <stop offset="1" stop-color="#602010"/>
+    </linearGradient>
+    <linearGradient id="liangmianfo-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#liangmianfo-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#liangmianfo-halo)"/>
+  <g>
+    <ellipse cx="72" cy="115" rx="24" ry="30" fill="url(#liangmianfo-body)" stroke="#4a3020" stroke-width="1.8"/>
+    <ellipse cx="128" cy="115" rx="24" ry="30" fill="url(#liangmianfo-acc)" stroke="#3a2030" stroke-width="1.8"/>
+    <circle cx="64" cy="108" r="3" fill="#1a1010"/><circle cx="80" cy="108" r="3" fill="#1a1010"/>
+    <circle cx="120" cy="108" r="3" fill="#1a1010"/><circle cx="136" cy="108" r="3" fill="#1a1010"/>
+    <path d="M64 128c6 5 12 5 18 0M120 128c6 5 12 5 18 0" stroke="#2a1810" stroke-width="1.3" fill="none"/>
+    <path d="M100 70l-6 20h10l-8 22" fill="none" stroke="url(#liangmianfo-gold)" stroke-width="2"/>
+  </g>
+<g fill="url(#liangmianfo-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="162" cy="82" r="1.8" opacity=".55"/>
+    <circle cx="36" cy="160" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="162" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="32" r="1.5" opacity=".5"/>
+    <circle cx="68" cy="205" r="1.4" opacity=".5"/>
+    <circle cx="132" cy="205" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#c05030" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

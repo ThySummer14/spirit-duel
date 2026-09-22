@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">跳跳哥哥</title>
+  <desc id="desc">跳跳哥哥：棺木与封印，棺盖金印</desc>
+  <defs>
+    <linearGradient id="tiaotiaogege-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#120e0a"/>
+      <stop offset=".55" stop-color="#1c1610"/>
+      <stop offset="1" stop-color="#0c0a08"/>
+    </linearGradient>
+    <radialGradient id="tiaotiaogege-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#c0a070" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#a07030" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#a07030" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tiaotiaogege-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e0d0a8"/>
+      <stop offset=".55" stop-color="#a08860"/>
+      <stop offset="1" stop-color="#a07030"/>
+    </linearGradient>
+    <linearGradient id="tiaotiaogege-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a07030"/>
+      <stop offset="1" stop-color="#503010"/>
+    </linearGradient>
+    <linearGradient id="tiaotiaogege-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#tiaotiaogege-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#tiaotiaogege-halo)"/>
+  <g>
+    <path d="M75 70h50l12 40v70H63v-70Z" fill="url(#tiaotiaogege-body)" stroke="#3a2818" stroke-width="2"/>
+    <path d="M85 100h30v20H85Z" fill="url(#tiaotiaogege-gold)" opacity=".65"/>
+    <path d="M100 100v20M85 110h30" stroke="#3a2818" stroke-width="1.2"/>
+    <path d="M75 70c5-12 45-12 50 0" fill="url(#tiaotiaogege-acc)" stroke="#3a2818" stroke-width="1.4"/>
+  </g>
+  <path d="M55 195h90" stroke="url(#tiaotiaogege-acc)" stroke-width="2" opacity=".6"/>
+<g fill="url(#tiaotiaogege-acc)">
+    <circle cx="40" cy="85" r="2" opacity=".6"/>
+    <circle cx="160" cy="87" r="1.8" opacity=".55"/>
+    <circle cx="36" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="152" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="32" r="1.5" opacity=".5"/>
+    <circle cx="68" cy="210" r="1.4" opacity=".5"/>
+    <circle cx="132" cy="210" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#a07030" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

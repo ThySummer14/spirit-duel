@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">黑童子</title>
+  <desc id="desc">黑童子：墨刃与暗影，双影并立</desc>
+  <defs>
+    <linearGradient id="heitongzi-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c0a14"/>
+      <stop offset=".55" stop-color="#141020"/>
+      <stop offset="1" stop-color="#080810"/>
+    </linearGradient>
+    <radialGradient id="heitongzi-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#8080b0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#505080" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#505080" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="heitongzi-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c8c8e0"/>
+      <stop offset=".55" stop-color="#8080a0"/>
+      <stop offset="1" stop-color="#505080"/>
+    </linearGradient>
+    <linearGradient id="heitongzi-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#505080"/>
+      <stop offset="1" stop-color="#202040"/>
+    </linearGradient>
+    <linearGradient id="heitongzi-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#heitongzi-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#heitongzi-halo)"/>
+  <g>
+    <path d="M100 55v100" stroke="url(#heitongzi-body)" stroke-width="4"/>
+    <path d="M85 70h30" stroke="url(#heitongzi-gold)" stroke-width="2"/>
+    <path d="M100 55c-8-8-8-16 0-22 8 6 8 14 0 22z" fill="url(#heitongzi-acc)"/>
+  </g>
+  <g fill="url(#heitongzi-acc)" opacity=".55">
+    <circle cx="70" cy="140" r="14"/>
+    <circle cx="130" cy="155" r="10"/>
+  </g>
+<g fill="url(#heitongzi-acc)">
+    <circle cx="42" cy="85" r="2" opacity=".6"/>
+    <circle cx="160" cy="88" r="1.8" opacity=".55"/>
+    <circle cx="38" cy="165" r="1.6" opacity=".5"/>
+    <circle cx="164" cy="168" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="32" r="1.5" opacity=".5"/>
+    <circle cx="72" cy="205" r="1.4" opacity=".5"/>
+    <circle cx="128" cy="205" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#505080" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

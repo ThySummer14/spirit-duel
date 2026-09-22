@@ -11,8 +11,41 @@ import {
   WAVE2_PACK_NAME,
   WAVE2_UNIT_DEFINITIONS,
 } from './game-content-wave2.js?v=1';
+import {
+  WAVE3_CARD_DEFINITIONS,
+  WAVE3_PACK_ID,
+  WAVE3_PACK_NAME,
+  WAVE3_SUBPACKS,
+  WAVE3_UNIT_DEFINITIONS,
+} from './game-content-wave3.js?v=1';
 
+import {
+  WAVE4_PACK_ID,
+  WAVE4_PACK_NAME,
+  WAVE4_UNIT_DEFINITIONS,
+  WAVE4_CARD_DEFINITIONS,
+  WAVE4_SUBPACKS,
+} from './game-content-wave4.js?v=1';
+import {
+  WAVE5_PACK_ID,
+  WAVE5_PACK_NAME,
+  WAVE5_UNIT_DEFINITIONS,
+  WAVE5_CARD_DEFINITIONS,
+  WAVE5_SUBPACKS,
+} from './game-content-wave5.js?v=1';
+import {
+  WAVE6_PACK_ID,
+  WAVE6_PACK_NAME,
+  WAVE6_UNIT_DEFINITIONS,
+  WAVE6_CARD_DEFINITIONS,
+  WAVE6_SUBPACKS,
+} from './game-content-wave6.js?v=1';
 export {
+  WAVE4_PACK_ID,
+  WAVE4_PACK_NAME,
+  WAVE4_UNIT_DEFINITIONS,
+  WAVE4_CARD_DEFINITIONS,
+  WAVE4_SUBPACKS,
   CLASSIC_CARD_DEFINITIONS,
   CLASSIC_PACK_ID,
   CLASSIC_PACK_NAME,
@@ -21,6 +54,11 @@ export {
   WAVE2_PACK_ID,
   WAVE2_PACK_NAME,
   WAVE2_UNIT_DEFINITIONS,
+  WAVE3_CARD_DEFINITIONS,
+  WAVE3_PACK_ID,
+  WAVE3_PACK_NAME,
+  WAVE3_SUBPACKS,
+  WAVE3_UNIT_DEFINITIONS,
 };
 
 export const GAME_RULES = Object.freeze({
@@ -46,6 +84,10 @@ export const CONTENT_PACKS = Object.freeze([
   Object.freeze({ id: 'origin', name: '灵枢原创', pack: 'origin' }),
   Object.freeze({ id: CLASSIC_PACK_ID, name: CLASSIC_PACK_NAME, pack: CLASSIC_PACK_ID }),
   Object.freeze({ id: WAVE2_PACK_ID, name: WAVE2_PACK_NAME, pack: WAVE2_PACK_ID }),
+  Object.freeze({ id: WAVE3_PACK_ID, name: WAVE3_PACK_NAME, pack: WAVE3_PACK_ID, subpacks: WAVE3_SUBPACKS }),
+  Object.freeze({ id: WAVE4_PACK_ID, name: WAVE4_PACK_NAME, pack: WAVE4_PACK_ID, subpacks: WAVE4_SUBPACKS }),
+  Object.freeze({ id: WAVE5_PACK_ID, name: WAVE5_PACK_NAME, pack: WAVE5_PACK_ID, subpacks: WAVE5_SUBPACKS }),
+  Object.freeze({ id: WAVE6_PACK_ID, name: WAVE6_PACK_NAME, pack: WAVE6_PACK_ID, subpacks: WAVE6_SUBPACKS }),
 ]);
 
 export function getAllUnitIds() {
@@ -222,10 +264,17 @@ export const UNIT_DEFINITIONS = Object.freeze([
       { id: 'turn-heal-awakened', event: 'turn-started', effect: 'passive-heal-shield-self-if-front', params: { amount: 2, shield: 1 } },
     ]),
   },
+  // wave4
+  ...WAVE4_UNIT_DEFINITIONS,
+  // wave5
+  ...WAVE5_UNIT_DEFINITIONS,
+  // wave6
+  ...WAVE6_UNIT_DEFINITIONS,
   // 经典基础包 29 式神
   ...CLASSIC_UNIT_DEFINITIONS,
   // 妖狐·怪谈·不夜之火（wave2）9 式神
   ...WAVE2_UNIT_DEFINITIONS,
+  ...WAVE3_UNIT_DEFINITIONS,
 ]);
 
 export const CARD_TYPE_LABELS = Object.freeze({
@@ -757,10 +806,17 @@ export const CARD_DEFINITIONS = Object.freeze([
     cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['爆发', '出击', '暴击', '贯通'],
     keywords: [CARD_KEYWORDS.CRIT, CARD_KEYWORDS.PIERCE], combatOption: { shieldThreshold: 3, bonusAttack: 2 },
   }),
+  // wave4 cards
+  ...WAVE4_CARD_DEFINITIONS,
+  // wave5 cards
+  ...WAVE5_CARD_DEFINITIONS,
+  // wave6 cards
+  ...WAVE6_CARD_DEFINITIONS,
   // 经典基础包卡牌与 token
   ...CLASSIC_CARD_DEFINITIONS,
   // wave2 卡牌与 token
   ...WAVE2_CARD_DEFINITIONS,
+  ...WAVE3_CARD_DEFINITIONS,
 ]);
 
 const UNIT_MAP = new Map(UNIT_DEFINITIONS.map((unit) => [unit.id, unit]));

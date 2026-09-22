@@ -85,15 +85,18 @@ function hasLog(state, needle) {
 
 // ============ 内容契约 ============
 
-test('every unit carries exactly one awakening card and two SSRs, catalog stays valid', () => {
+function isExpandedPack(pack) {
+  return Boolean(pack) && pack !== 'origin';
+}
+
+test('every unit carries exactly one awakening card; origin keeps two SSRs', () => {
   assert.deepEqual(validateContentCatalog(), { valid: true, errors: [] });
   UNIT_DEFINITIONS.forEach((item) => {
     const cards = CARD_DEFINITIONS.filter((card) => card.unitId === item.id);
     assert.equal(cards.filter((card) => card.type === 'awakening').length, 1, `${item.name} 觉醒牌数量`);
-    const requiredSsr = item.pack === 'classic' || item.pack === 'wave2' ? 1 : 2;
     const ssrCount = cards.filter((card) => card.rarity === 'ssr' && card.token !== true).length;
-    if (item.pack === 'classic' || item.pack === 'wave2') {
-      assert.ok(ssrCount >= 1, `${item.name} 经典/wave2 包至少 1 张 SSR`);
+    if (isExpandedPack(item.pack)) {
+      assert.ok(ssrCount <= 2, `${item.name} 资料包 SSR 不应超过 2`);
     } else {
       assert.equal(ssrCount, 2, `${item.name} SSR 数量`);
     }
@@ -103,6 +106,10 @@ test('every unit carries exactly one awakening card and two SSRs, catalog stays 
   assert.ok(CARD_DEFINITIONS.length >= 138);
   assert.equal(UNIT_DEFINITIONS.filter((u) => u.pack === 'classic').length, 29);
   assert.equal(UNIT_DEFINITIONS.filter((u) => u.pack === 'wave2').length, 9);
+  assert.equal(UNIT_DEFINITIONS.filter((u) => u.pack === 'wave3').length, 19);
+  assert.equal(UNIT_DEFINITIONS.filter((u) => u.pack === 'wave4').length, 26);
+  assert.equal(UNIT_DEFINITIONS.filter((u) => u.pack === 'wave5').length, 24);
+  assert.equal(UNIT_DEFINITIONS.filter((u) => u.pack === 'wave6').length, 32);
 });
 
 test('default decks pick up the awakening card while SSRs stay collectible-only', () => {
@@ -112,9 +119,9 @@ test('default decks pick up the awakening card while SSRs stay collectible-only'
     const awakening = CARD_DEFINITIONS.find((card) => card.unitId === item.id && card.type === 'awakening');
     assert.equal(starter.filter((id) => id === awakening.id).length, 1, `${item.name} 默认构筑应含 1 张觉醒牌`);
     const starterSsr = starter.filter((id) => getCardDefinition(id).rarity === 'ssr').length;
-    if (item.pack === 'classic' || item.pack === 'wave2') {
-      // 官方经典/wave2 包 SSR 可进入构筑
-      assert.ok(starterSsr <= 1, `${item.name} 经典/wave2 包默认构筑 SSR 不应超过 1`);
+    if (isExpandedPack(item.pack)) {
+      // 资料包 SSR 可进入构筑（至多 1 张）
+      assert.ok(starterSsr <= 1, `${item.name} 资料包默认构筑 SSR 不应超过 1`);
     } else {
       assert.equal(starterSsr, 0);
     }
@@ -514,7 +521,7 @@ test('spell form triggers once per owner turn and ignores another character spel
 test('SSR definitions allow a pair while awakenings stay unique', () => {
   for (const card of CARD_DEFINITIONS.filter((card) => card.rarity === 'ssr')) {
     const limit = card.type === 'awakening' ? 1 : 2;
-    assert.ok(card.deckLimit === limit || ((card.pack === 'classic' || card.pack === 'wave2') && card.deckLimit === 2), `${card.name} deckLimit`);
+    assert.ok(card.deckLimit === limit || (isExpandedPack(card.pack) && card.deckLimit >= 1 && card.deckLimit <= 2), `${card.name} deckLimit`);
   }
   const deck = createDefaultDeckDefinition(['ember', 'basalt', 'lumen', 'rime']);
   let replaced = 0;

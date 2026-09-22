@@ -2589,6 +2589,7 @@ export function validateContentCatalog() {
     'enemy-avatar',
     'ally-player',
     'ally-avatar',
+    'knocked-ally',
   ]);
   const knownEvents = new Set(Object.values(GAME_EVENTS));
   const knownRarities = new Set(['common', 'rare', 'epic', 'ssr']);
@@ -2599,7 +2600,7 @@ export function validateContentCatalog() {
   UNIT_DEFINITIONS.forEach((unit) => {
     const unitCards = CARD_DEFINITIONS.filter((card) => card.unitId === unit.id);
     const starterCards = getStarterCardIdsForUnit(unit.id);
-    const isClassic = unit.pack === 'classic' || unit.pack === 'wave2';
+    const isClassic = Boolean(unit.pack) && unit.pack !== 'origin';
     const minCards = isClassic ? 8 : GAME_RULES.minCardDefinitionsPerUnit;
     const playableCards = unitCards.filter((candidate) => candidate.token !== true);
     if (playableCards.length < minCards) {
@@ -2629,9 +2630,8 @@ export function validateContentCatalog() {
     }
     const awakeningCards = unitCards.filter((candidate) => candidate.type === 'awakening');
     if (awakeningCards.length !== 1) errors.push(`${unit.name} 必须恰好有 1 张觉醒牌，当前 ${awakeningCards.length} 张。`);
-    const ssrCards = unitCards.filter((candidate) => candidate.rarity === 'ssr');
-    const requiredSsr = isClassic ? 1 : 2;
-    if (ssrCards.length < requiredSsr) errors.push(`${unit.name} 至少需要 ${requiredSsr} 张 SSR，当前 ${ssrCards.length} 张。`);
+    const ssrCards = unitCards.filter((candidate) => candidate.rarity === 'ssr' && candidate.token !== true);
+    // 原创角色：固定 2 张 SSR；资料包：允许 0–2 张（觉醒可为 SSR）
     if (!isClassic && ssrCards.length !== 2) errors.push(`${unit.name} 必须恰好有 2 张 SSR，当前 ${ssrCards.length} 张。`);
   });
   CARD_DEFINITIONS.forEach((card) => {
@@ -2671,7 +2671,7 @@ export function validateContentCatalog() {
         if (!Number.isFinite(card.realm?.triggerValue) || card.realm.triggerValue < 0) errors.push(`${card.name} 的幻境触发数值无效。`);
       }
     }
-    const cardIsClassic = card.pack === 'classic' || card.pack === 'wave2';
+    const cardIsClassic = Boolean(card.pack) && card.pack !== 'origin';
     if (card.timing === 'response' && !card.keywords.includes(CARD_KEYWORDS.RESPONSE)) {
       errors.push(`${card.name} 的响应牌必须声明响应关键词。`);
     }
@@ -2693,9 +2693,9 @@ export function validateContentCatalog() {
     if (card.type === 'awakening') {
       const hasAwaken = card.effects?.some((effect) => effect.action === 'awaken') || card.effect === 'awaken';
       if (!hasAwaken) errors.push(`${card.name} 觉醒牌必须包含 awaken 动作。`);
-      if (card.rarity === 'ssr' && card.pack !== 'classic' && card.pack !== 'wave2') errors.push(`${card.name} 觉醒牌不应使用传说稀有度。`);
+      if (card.rarity === 'ssr' && !(card.pack && card.pack !== 'origin')) errors.push(`${card.name} 觉醒牌不应使用传说稀有度。`);
     }
-    if (card.rarity === 'ssr' && card.starterCopies > 0 && card.pack !== 'classic' && card.pack !== 'wave2') {
+    if (card.rarity === 'ssr' && card.starterCopies > 0 && !(card.pack && card.pack !== 'origin')) {
       errors.push(`${card.name} 的 SSR 不应进入默认构筑。`);
     }
   });

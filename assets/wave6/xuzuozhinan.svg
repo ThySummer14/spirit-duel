@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">须佐之男</title>
+  <desc id="desc">须佐之男：天雷万象，雷冢神威</desc>
+  <defs>
+    <linearGradient id="xuzuozhinan-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#100c18"/>
+      <stop offset=".55" stop-color="#1c1430"/>
+      <stop offset="1" stop-color="#0a0810"/>
+    </linearGradient>
+    <radialGradient id="xuzuozhinan-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#d0a0f0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#9060e0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#9060e0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="xuzuozhinan-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e8d0f8"/>
+      <stop offset=".55" stop-color="#a888d0"/>
+      <stop offset="1" stop-color="#9060e0"/>
+    </linearGradient>
+    <linearGradient id="xuzuozhinan-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9060e0"/>
+      <stop offset="1" stop-color="#402080"/>
+    </linearGradient>
+    <linearGradient id="xuzuozhinan-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#xuzuozhinan-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#xuzuozhinan-halo)"/>
+  <g>
+    <path d="M110 55L75 120h25L90 175l50-80h-28L135 55Z" fill="url(#xuzuozhinan-gold)" opacity=".9" stroke="#5a3010" stroke-width="1"/>
+    <g fill="none" stroke="url(#xuzuozhinan-acc)" stroke-width="1.6" opacity=".7">
+      <path d="M45 80c20-15 40-15 55 0"/>
+      <path d="M100 80c20-15 40-15 55 0"/>
+      <path d="M55 160c15-12 35-12 50 0"/>
+      <path d="M105 160c15-12 35-12 50 0"/>
+    </g>
+    <circle cx="100" cy="112" r="8" fill="url(#xuzuozhinan-body)" opacity=".5"/>
+  </g>
+<g fill="url(#xuzuozhinan-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#9060e0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

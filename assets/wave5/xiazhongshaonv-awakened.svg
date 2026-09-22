@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">匣中少女 · 觉醒相</title>
+  <desc id="desc">匣中少女：藏珍之匣与骰子，光华内蕴。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="xiazhongshaonv-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140c1c"/>
+      <stop offset=".55" stop-color="#201430"/>
+      <stop offset="1" stop-color="#0c0814"/>
+    </linearGradient>
+    <radialGradient id="xiazhongshaonv-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#c080e0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#9040c0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#9040c0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="xiazhongshaonv-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e8d0f8"/>
+      <stop offset=".55" stop-color="#a080c0"/>
+      <stop offset="1" stop-color="#9040c0"/>
+    </linearGradient>
+    <linearGradient id="xiazhongshaonv-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9040c0"/>
+      <stop offset="1" stop-color="#381860"/>
+    </linearGradient>
+    <linearGradient id="xiazhongshaonv-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#xiazhongshaonv-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#xiazhongshaonv-halo)"/>
+  <g>
+    <rect x="60" y="95" width="80" height="70" rx="6" fill="url(#xiazhongshaonv-body)" stroke="#3a2040" stroke-width="2"/>
+    <path d="M60 115h80" stroke="url(#xiazhongshaonv-gold)" stroke-width="1.4"/>
+    <rect x="88" y="125" width="24" height="24" rx="3" fill="url(#xiazhongshaonv-acc)" stroke="#2a1030" stroke-width="1.2"/>
+    <circle cx="96" cy="133" r="2.5" fill="#1a1020"/><circle cx="104" cy="141" r="2.5" fill="#1a1020"/>
+  </g>
+  <g fill="url(#xiazhongshaonv-gold)" opacity=".8">
+    <polygon points="112.0,70.0 103.2,72.4 103.7,81.4 98.8,73.8 90.3,77.1 96.0,70.0 90.3,62.9 98.8,66.2 103.7,58.6 103.2,67.6"/>
+  </g>
+<g fill="url(#xiazhongshaonv-acc)">
+    <circle cx="42" cy="85" r="2" opacity=".6"/>
+    <circle cx="160" cy="88" r="1.8" opacity=".55"/>
+    <circle cx="38" cy="165" r="1.6" opacity=".5"/>
+    <circle cx="164" cy="168" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="32" r="1.5" opacity=".5"/>
+    <circle cx="70" cy="205" r="1.4" opacity=".5"/>
+    <circle cx="130" cy="205" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#xiazhongshaonv-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#xiazhongshaonv-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#xiazhongshaonv-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#xiazhongshaonv-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#xiazhongshaonv-gold)"/>
+    <g stroke="url(#xiazhongshaonv-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#9040c0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

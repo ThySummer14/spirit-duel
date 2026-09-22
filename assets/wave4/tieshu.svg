@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">铁鼠</title>
+  <desc id="desc">铁鼠：钱币叠垒与鼠耳，金光聚宝</desc>
+  <defs>
+    <linearGradient id="tieshu-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141008"/>
+      <stop offset=".55" stop-color="#201810"/>
+      <stop offset="1" stop-color="#0c0a06"/>
+    </linearGradient>
+    <radialGradient id="tieshu-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e0c070" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c09030" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c09030" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tieshu-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0e0b0"/>
+      <stop offset=".55" stop-color="#c0a060"/>
+      <stop offset="1" stop-color="#c09030"/>
+    </linearGradient>
+    <linearGradient id="tieshu-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c09030"/>
+      <stop offset="1" stop-color="#604010"/>
+    </linearGradient>
+    <linearGradient id="tieshu-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#tieshu-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#tieshu-halo)"/>
+  <g>
+    <ellipse cx="100" cy="175" rx="34" ry="10" fill="url(#tieshu-gold)" stroke="#4a3010" stroke-width="1.4"/>
+    <ellipse cx="100" cy="162" rx="30" ry="9" fill="url(#tieshu-gold)" stroke="#4a3010" stroke-width="1.2"/>
+    <ellipse cx="100" cy="150" rx="26" ry="8" fill="url(#tieshu-gold)" stroke="#4a3010" stroke-width="1.2"/>
+    <circle cx="100" cy="150" r="4" fill="#2a1808"/>
+    <path d="M78 85c-8-18-6-30 4-36 4 12 6 24 4 36M122 85c8-18 6-30-4-36-4 12-6 24-4 36" fill="url(#tieshu-body)"/>
+    <ellipse cx="100" cy="115" rx="24" ry="22" fill="url(#tieshu-body)" stroke="#4a3010" stroke-width="1.6"/>
+    <circle cx="90" cy="112" r="3.5" fill="#1a1008"/><circle cx="110" cy="112" r="3.5" fill="#1a1008"/>
+  </g>
+<g fill="url(#tieshu-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="82" r="1.8" opacity=".55"/>
+    <circle cx="36" cy="140" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="142" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="36" r="1.5" opacity=".5"/>
+    <circle cx="70" cy="205" r="1.4" opacity=".5"/>
+    <circle cx="130" cy="205" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#c09030" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

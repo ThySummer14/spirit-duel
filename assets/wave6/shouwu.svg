@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">首无</title>
+  <desc id="desc">首无：飞首与妖刀，首断刀鸣</desc>
+  <defs>
+    <linearGradient id="shouwu-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140c12"/>
+      <stop offset=".55" stop-color="#20141c"/>
+      <stop offset="1" stop-color="#0c080c"/>
+    </linearGradient>
+    <radialGradient id="shouwu-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e08090" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c04060" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c04060" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shouwu-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0c8d0"/>
+      <stop offset=".55" stop-color="#c07080"/>
+      <stop offset="1" stop-color="#c04060"/>
+    </linearGradient>
+    <linearGradient id="shouwu-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c04060"/>
+      <stop offset="1" stop-color="#601830"/>
+    </linearGradient>
+    <linearGradient id="shouwu-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#shouwu-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#shouwu-halo)"/>
+  <g>
+    <circle cx="100" cy="100" r="32" fill="url(#shouwu-body)" stroke="#2a1820" stroke-width="1.8"/>
+    <path d="M85 95c2-6 8-8 12-2M115 95c-2-6-8-8-12-2" stroke="#2a1820" stroke-width="1.4" fill="none"/>
+    <path d="M90 115c6 6 14 6 20 0" stroke="#2a1820" stroke-width="1.4" fill="none"/>
+    <path d="M145 60v100" stroke="url(#shouwu-gold)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M138 60h14M138 70h14" stroke="url(#shouwu-acc)" stroke-width="2"/>
+    <path d="M70 175c20-10 40-10 60 0" stroke="url(#shouwu-body)" stroke-width="2" fill="none" opacity=".6"/>
+  </g>
+<g fill="url(#shouwu-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#c04060" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>
