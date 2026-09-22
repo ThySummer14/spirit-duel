@@ -49,8 +49,9 @@
 | Wave10 | 2 | 鬼灭联动 · 炭治郎 / 祢豆子 |
 | Wave11 | 10 | 衍生式神（番茄 / 冰墙 / 纸人 等召唤物） |
 | Wave12 | 8 | 灵枢原创·二弹 |
+| Wave13 | 6 | 命运抉择（时曜泷夜叉姬 / 白泽·缘起 / 神启荒 / 璇 / 御怨般若 / 罗睺）+ 4 张 SKIN 变体卡 |
 
-全库 **244 式神 / 2062 卡**。生成脚本 `scripts/gen-waveN-content.py` / `gen-waveN-art.py`。
+全库 **250 式神 / 2114 卡**（含 4 张皮肤变体）。生成脚本 `scripts/gen-waveN-content.py` / `gen-waveN-art.py`。
 
 ## Godot 纵向切片
 

@@ -81,6 +81,12 @@ import {
   WAVE12_UNIT_DEFINITIONS,
   WAVE12_CARD_DEFINITIONS,
 } from './game-content-wave12.js?v=1';
+import {
+  WAVE13_PACK_ID,
+  WAVE13_PACK_NAME,
+  WAVE13_UNIT_DEFINITIONS,
+  WAVE13_CARD_DEFINITIONS,
+} from './game-content-wave13.js?v=1';
 export {
   WAVE4_PACK_ID,
   WAVE4_PACK_NAME,
@@ -131,6 +137,7 @@ export const CONTENT_PACKS = Object.freeze([
   Object.freeze({ id: WAVE6_PACK_ID, name: WAVE6_PACK_NAME, pack: WAVE6_PACK_ID, subpacks: WAVE6_SUBPACKS }),
   Object.freeze({ id: WAVE9_PACK_ID, name: WAVE9_PACK_NAME, pack: WAVE9_PACK_ID, subpacks: WAVE9_SUBPACKS }),
   Object.freeze({ id: WAVE12_PACK_ID, name: WAVE12_PACK_NAME, pack: WAVE12_PACK_ID }),
+  Object.freeze({ id: WAVE13_PACK_ID, name: WAVE13_PACK_NAME, pack: WAVE13_PACK_ID }),
   Object.freeze({ id: WAVE11_PACK_ID, name: WAVE11_PACK_NAME, pack: WAVE11_PACK_ID, subpacks: WAVE11_SUBPACKS }),
   Object.freeze({ id: WAVE10_PACK_ID, name: WAVE10_PACK_NAME, pack: WAVE10_PACK_ID, subpacks: WAVE10_SUBPACKS }),
   Object.freeze({ id: WAVE8_PACK_ID, name: WAVE8_PACK_NAME, pack: WAVE8_PACK_ID, subpacks: WAVE8_SUBPACKS }),
@@ -329,6 +336,8 @@ export const UNIT_DEFINITIONS = Object.freeze([
   ...WAVE11_UNIT_DEFINITIONS,
   // wave12
   ...WAVE12_UNIT_DEFINITIONS,
+  // wave13
+  ...WAVE13_UNIT_DEFINITIONS,
   // 经典基础包 29 式神
   ...CLASSIC_UNIT_DEFINITIONS,
   // 妖狐·怪谈·不夜之火（wave2）9 式神
@@ -883,6 +892,8 @@ export const CARD_DEFINITIONS = Object.freeze([
   ...WAVE11_CARD_DEFINITIONS,
   // wave12 cards
   ...WAVE12_CARD_DEFINITIONS,
+  // wave13 cards
+  ...WAVE13_CARD_DEFINITIONS,
   // 经典基础包卡牌与 token
   ...CLASSIC_CARD_DEFINITIONS,
   // wave2 卡牌与 token

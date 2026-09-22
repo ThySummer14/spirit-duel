@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img">
+  <title>觉醒·缘起</title>
+  <defs>
+    <linearGradient id="baize_yuanqi_a-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2c24"/><stop offset="1" stop-color="#284038"/>
+    </linearGradient>
+    <radialGradient id="baize_yuanqi_a-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#d0f0d8" stop-opacity=".4"/><stop offset="1" stop-color="#a0c8b0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="baize_yuanqi_a-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d0f0d8"/><stop offset="1" stop-color="#a0c8b0"/>
+    </linearGradient>
+    <linearGradient id="baize_yuanqi_a-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d0f0d8"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#baize_yuanqi_a-bg)"/>
+  <rect width="200" height="260" fill="url(#baize_yuanqi_a-halo)"/>
+  <circle cx="100" cy="115" r="72" fill="none" stroke="#c9762c" stroke-width="3" opacity=".7"/>
+  <g><ellipse cx="100" cy="120" rx="40" ry="48" fill="url(#p-body)"/><circle cx="100" cy="95" r="16" fill="#f0e8d0"/><path d="M60 150 Q100 120 140 150" stroke="url(#p-accent)" stroke-width="6" fill="none"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#f0e8d0">缘起</text>
+</svg>

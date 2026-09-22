@@ -9701,6 +9701,297 @@
       }
     },
     {
+      "id": "shiyao-longyechaji",
+      "name": "时曜泷夜叉姬",
+      "title": "时曜",
+      "role": "时序 / 爆发",
+      "strategy": "时曜回响，叉影连斩。",
+      "maxHp": 5,
+      "attack": 3,
+      "art": "assets/wave13/shiyao-longyechaji.svg",
+      "awakenedArt": "assets/wave13/shiyao-longyechaji-awakened.svg",
+      "color": "#7a8ab8",
+      "pack": "wave13",
+      "officialRole": "destiny-shiyao-longyechaji",
+      "officialAbility": "命运抉择·时曜泷夜叉姬（卡库快照后式神，按公开设定简化）。",
+      "passive": {
+        "id": "shiyao-tide",
+        "name": "时曜",
+        "text": "使用战斗牌后，对敌方前线造成 1 点伤害。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "tide-zap",
+            "event": "card-played",
+            "effect": "passive-damage-enemy-front-on-spell",
+            "params": {
+              "amount": 1
+            }
+          }
+        ]
+      },
+      "awakenedPassive": {
+        "id": "shiyao-tide-a",
+        "name": "永恒时曜",
+        "text": "使用战斗牌后，对敌方前线造成 2 点伤害。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "tide-zap-a",
+            "event": "card-played",
+            "effect": "passive-damage-enemy-front-on-spell",
+            "params": {
+              "amount": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "baize-yuanqi",
+      "name": "白泽·缘起",
+      "title": "缘起",
+      "role": "占卜 / 支援",
+      "strategy": "缘起星轨，白泽渡厄。",
+      "maxHp": 6,
+      "attack": 2,
+      "art": "assets/wave13/baize-yuanqi.svg",
+      "awakenedArt": "assets/wave13/baize-yuanqi-awakened.svg",
+      "color": "#a0c8b0",
+      "pack": "wave13",
+      "officialRole": "destiny-baize-yuanqi",
+      "officialAbility": "命运抉择·白泽·缘起（白泽重制位，按公开设定简化）。",
+      "passive": {
+        "id": "baize-seed",
+        "name": "缘起",
+        "text": "己方回合开始时，抽一张牌。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "seed-draw",
+            "event": "turn-started",
+            "effect": "passive-draw-self",
+            "params": {
+              "amount": 1
+            }
+          }
+        ]
+      },
+      "awakenedPassive": {
+        "id": "baize-seed-a",
+        "name": "万缘归一",
+        "text": "己方回合开始时，抽一张牌并恢复 1 点生命。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "seed-draw-a",
+            "event": "turn-started",
+            "effect": "passive-draw-self",
+            "params": {
+              "amount": 1
+            }
+          },
+          {
+            "priority": 50,
+            "id": "seed-heal-a",
+            "event": "turn-started",
+            "effect": "passive-heal-self-if-front",
+            "params": {
+              "amount": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "shenqi-huang",
+      "name": "神启荒",
+      "title": "神启",
+      "role": "星辰 / 法术",
+      "strategy": "神启星陨，荒原裁决。",
+      "maxHp": 5,
+      "attack": 2,
+      "art": "assets/wave13/shenqi-huang.svg",
+      "awakenedArt": "assets/wave13/shenqi-huang-awakened.svg",
+      "color": "#8898c8",
+      "pack": "wave13",
+      "officialRole": "destiny-shenqi-huang",
+      "officialAbility": "命运抉择·神启荒（荒变体，按公开设定简化）。",
+      "passive": {
+        "id": "shenqi-star",
+        "name": "神启",
+        "text": "使用法术牌后，对敌方前线造成 1 点伤害。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "star-burn",
+            "event": "card-played",
+            "effect": "passive-damage-enemy-front-on-spell",
+            "params": {
+              "amount": 1
+            }
+          }
+        ]
+      },
+      "awakenedPassive": {
+        "id": "shenqi-star-a",
+        "name": "星神再临",
+        "text": "使用法术牌后，对敌方前线造成 2 点伤害。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "star-burn-a",
+            "event": "card-played",
+            "effect": "passive-damage-enemy-front-on-spell",
+            "params": {
+              "amount": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "xuan",
+      "name": "璇",
+      "title": "璇玑",
+      "role": "平衡 / 光暗",
+      "strategy": "璇玑双衡，光暗相济。",
+      "maxHp": 6,
+      "attack": 2,
+      "art": "assets/wave13/xuan.svg",
+      "awakenedArt": "assets/wave13/xuan-awakened.svg",
+      "color": "#c8b8d8",
+      "pack": "wave13",
+      "officialRole": "destiny-xuan",
+      "officialAbility": "命运抉择·璇（卡库快照后式神，按公开设定简化）。",
+      "passive": {
+        "id": "xuan-balance",
+        "name": "璇玑",
+        "text": "己方回合开始时，随机为一个己方受伤式神恢复 2 点生命。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "bal-heal",
+            "event": "turn-started",
+            "effect": "passive-heal-ally-if-front-or-any",
+            "params": {
+              "amount": 2
+            }
+          }
+        ]
+      },
+      "awakenedPassive": {
+        "id": "xuan-balance-a",
+        "name": "天璇",
+        "text": "己方回合开始时，为所有己方恢复 2 点生命。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "bal-heal-a",
+            "event": "turn-started",
+            "effect": "passive-heal-all-allies",
+            "params": {
+              "amount": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "yuyuan-banruo",
+      "name": "御怨般若",
+      "title": "御怨",
+      "role": "怨念 / 破甲",
+      "strategy": "御怨蚀心，般若笑面。",
+      "maxHp": 5,
+      "attack": 3,
+      "art": "assets/wave13/yuyuan-banruo.svg",
+      "awakenedArt": "assets/wave13/yuyuan-banruo-awakened.svg",
+      "color": "#c06070",
+      "pack": "wave13",
+      "officialRole": "destiny-yuyuan-banruo",
+      "officialAbility": "命运抉择·御怨般若（般若重制位，按公开设定简化）。",
+      "passive": {
+        "id": "yuyuan-grudge",
+        "name": "御怨",
+        "text": "对敌方式神造成战斗伤害后，使其获得 1 破甲。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "grudge-break",
+            "event": "combat-resolved",
+            "effect": "passive-armor-break-defender",
+            "params": {
+              "amount": 1
+            }
+          }
+        ]
+      },
+      "awakenedPassive": {
+        "id": "yuyuan-grudge-a",
+        "name": "百怨般若",
+        "text": "对敌方式神造成战斗伤害后，使其获得 2 破甲。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "grudge-break-a",
+            "event": "combat-resolved",
+            "effect": "passive-armor-break-defender",
+            "params": {
+              "amount": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "luohou",
+      "name": "罗睺",
+      "title": "蚀日",
+      "role": "暗蚀 / 压制",
+      "strategy": "蚀日吞光，罗睺压境。",
+      "maxHp": 7,
+      "attack": 2,
+      "art": "assets/wave13/luohou.svg",
+      "awakenedArt": "assets/wave13/luohou-awakened.svg",
+      "color": "#6a5060",
+      "pack": "wave13",
+      "officialRole": "destiny-luohou",
+      "officialAbility": "命运抉择·罗睺（卡库快照后式神，按公开设定简化）。",
+      "passive": {
+        "id": "luohou-eclipse",
+        "name": "蚀日",
+        "text": "己方回合开始时，随机对一个敌方式神造成 1 点伤害。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "eclipse-zap",
+            "event": "turn-started",
+            "effect": "passive-damage-random-enemy",
+            "params": {
+              "amount": 1
+            }
+          }
+        ]
+      },
+      "awakenedPassive": {
+        "id": "luohou-eclipse-a",
+        "name": "吞日",
+        "text": "己方回合开始时，随机对一个敌方式神造成 2 点伤害。",
+        "hooks": [
+          {
+            "priority": 50,
+            "id": "eclipse-zap-a",
+            "event": "turn-started",
+            "effect": "passive-damage-random-enemy",
+            "params": {
+              "amount": 2
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "yaodaoji",
       "name": "妖刀姬",
       "title": "呪刃",
@@ -85507,6 +85798,2033 @@
       "pack": "wave12",
       "subpack": "origin2",
       "token": false
+    },
+    {
+      "id": "w13-shiyao-longyechaji-93101",
+      "unitId": "shiyao-longyechaji",
+      "name": "时斩",
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "combat"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "出击 +2。",
+      "officialText": "出击 +2。",
+      "target": "auto",
+      "effect": "assault",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shiyao-longyechaji-93102",
+      "unitId": "shiyao-longyechaji",
+      "name": "曜光",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "抽一张牌。",
+      "officialText": "抽一张牌。",
+      "target": "auto",
+      "effect": "draw",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "draw",
+          "target": "ally-player",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shiyao-longyechaji-93103",
+      "unitId": "shiyao-longyechaji",
+      "name": "叉影",
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "combat"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "出击 +3。",
+      "officialText": "出击 +3。",
+      "target": "auto",
+      "effect": "assault",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shiyao-longyechaji-93104",
+      "unitId": "shiyao-longyechaji",
+      "name": "时序之相",
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "form"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 +2/+4。",
+      "officialText": "获得 +2/+4。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 4
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 4
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shiyao-longyechaji-93105",
+      "unitId": "shiyao-longyechaji",
+      "name": "时停",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "stun"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "眩晕一个敌方式神。",
+      "officialText": "眩晕一个敌方式神。",
+      "target": "enemy-unit",
+      "effect": "freeze",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "freeze",
+          "target": "selected-enemy",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shiyao-longyechaji-93106",
+      "unitId": "shiyao-longyechaji",
+      "name": "永恒一击",
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "combat"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "出击 +4。",
+      "officialText": "出击 +4。",
+      "target": "auto",
+      "effect": "assault",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 4
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shiyao-longyechaji-93107",
+      "unitId": "shiyao-longyechaji",
+      "name": "曜盾",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "response"
+      ],
+      "timing": "response",
+      "responseTo": [
+        "assault"
+      ],
+      "text": "获得 3 点护甲。",
+      "officialText": "获得 3 点护甲。",
+      "target": "auto",
+      "effect": "shield",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shield",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shiyao-longyechaji-93108",
+      "unitId": "shiyao-longyechaji",
+      "name": "觉醒·时曜泷夜叉姬",
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 1,
+      "deckLimit": 1,
+      "starterCopies": 1,
+      "rarity": "ssr",
+      "tags": [
+        "命运",
+        "awakening"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "觉醒：时曜升级，获得 +1/+1。",
+      "officialText": "觉醒：时曜升级，获得 +1/+1。",
+      "target": "auto",
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-baize-yuanqi-93109",
+      "unitId": "baize-yuanqi",
+      "name": "缘起",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "抽一张牌。",
+      "officialText": "抽一张牌。",
+      "target": "auto",
+      "effect": "draw",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "draw",
+          "target": "ally-player",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-baize-yuanqi-93110",
+      "unitId": "baize-yuanqi",
+      "name": "白泽佑",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "恢复 4 点生命。",
+      "officialText": "恢复 4 点生命。",
+      "target": "ally-unit",
+      "effect": "heal",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "heal",
+          "target": "selected-ally",
+          "value": 4
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-baize-yuanqi-93111",
+      "unitId": "baize-yuanqi",
+      "name": "渡厄",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "一名友方角色获得 3 点护甲。",
+      "officialText": "一名友方角色获得 3 点护甲。",
+      "target": "ally-unit",
+      "effect": "shield",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shield",
+          "target": "selected-ally",
+          "value": 3
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-baize-yuanqi-93112",
+      "unitId": "baize-yuanqi",
+      "name": "缘起之相",
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "form"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 +2/+5。",
+      "officialText": "获得 +2/+5。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-baize-yuanqi-93113",
+      "unitId": "baize-yuanqi",
+      "name": "卜缘",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "divination"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "占卜 3，然后抽一张牌。",
+      "officialText": "占卜 3，然后抽一张牌。",
+      "target": "auto",
+      "effect": "divination",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "divination",
+          "target": "ally-player",
+          "value": 3
+        },
+        {
+          "condition": "always",
+          "action": "draw",
+          "target": "ally-player",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false,
+      "divination": {
+        "count": 3
+      }
+    },
+    {
+      "id": "w13-baize-yuanqi-93114",
+      "unitId": "baize-yuanqi",
+      "name": "万缘",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "为所有己方式神恢复 2 点生命。",
+      "officialText": "为所有己方式神恢复 2 点生命。",
+      "target": "auto",
+      "effect": "heal",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "heal",
+          "target": "all-ally-units",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-baize-yuanqi-93115",
+      "unitId": "baize-yuanqi",
+      "name": "缘灭",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对敌方前线造成 4 点伤害。",
+      "officialText": "对敌方前线造成 4 点伤害。",
+      "target": "auto",
+      "effect": "damage-enemy-front",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage-enemy-front",
+          "target": "auto",
+          "value": 4
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-baize-yuanqi-93116",
+      "unitId": "baize-yuanqi",
+      "name": "觉醒·白泽·缘起",
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 1,
+      "deckLimit": 1,
+      "starterCopies": 1,
+      "rarity": "ssr",
+      "tags": [
+        "命运",
+        "awakening"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "觉醒：缘起升级，获得 +1/+1。",
+      "officialText": "觉醒：缘起升级，获得 +1/+1。",
+      "target": "auto",
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shenqi-huang-93117",
+      "unitId": "shenqi-huang",
+      "name": "星陨",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对一个式神造成 2 点伤害。",
+      "officialText": "对一个式神造成 2 点伤害。",
+      "target": "enemy-unit",
+      "effect": "damage",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "selected-enemy",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shenqi-huang-93118",
+      "unitId": "shenqi-huang",
+      "name": "神启",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "抽一张牌。",
+      "officialText": "抽一张牌。",
+      "target": "auto",
+      "effect": "draw",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "draw",
+          "target": "ally-player",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shenqi-huang-93119",
+      "unitId": "shenqi-huang",
+      "name": "荒原裁决",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对敌方前线造成 3 点伤害。",
+      "officialText": "对敌方前线造成 3 点伤害。",
+      "target": "auto",
+      "effect": "damage-enemy-front",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage-enemy-front",
+          "target": "auto",
+          "value": 3
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shenqi-huang-93120",
+      "unitId": "shenqi-huang",
+      "name": "神启之相",
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "form"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 +2/+4。",
+      "officialText": "获得 +2/+4。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 4
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 4
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shenqi-huang-93121",
+      "unitId": "shenqi-huang",
+      "name": "星辰海",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对所有敌方式神造成 2 点伤害。",
+      "officialText": "对所有敌方式神造成 2 点伤害。",
+      "target": "auto",
+      "effect": "damage",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "all-enemy-units",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shenqi-huang-93122",
+      "unitId": "shenqi-huang",
+      "name": "星盾",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 3 点护甲。",
+      "officialText": "获得 3 点护甲。",
+      "target": "auto",
+      "effect": "shield",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shield",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shenqi-huang-93123",
+      "unitId": "shenqi-huang",
+      "name": "启明",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "所有友方 +1 力量。",
+      "officialText": "所有友方 +1 力量。",
+      "target": "auto",
+      "effect": "buff-stats",
+      "value": {
+        "attack": 1,
+        "hp": 0
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "buff-stats",
+          "target": "all-ally-units",
+          "value": {
+            "attack": 1,
+            "hp": 0
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-shenqi-huang-93124",
+      "unitId": "shenqi-huang",
+      "name": "觉醒·神启荒",
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 1,
+      "deckLimit": 1,
+      "starterCopies": 1,
+      "rarity": "ssr",
+      "tags": [
+        "命运",
+        "awakening"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "觉醒：神启升级，获得 +1/+1。",
+      "officialText": "觉醒：神启升级，获得 +1/+1。",
+      "target": "auto",
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-xuan-93125",
+      "unitId": "xuan",
+      "name": "璇光",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "恢复 4 点生命。",
+      "officialText": "恢复 4 点生命。",
+      "target": "ally-unit",
+      "effect": "heal",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "heal",
+          "target": "selected-ally",
+          "value": 4
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-xuan-93126",
+      "unitId": "xuan",
+      "name": "玑衡",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "一名友方角色获得 +1/+1。",
+      "officialText": "一名友方角色获得 +1/+1。",
+      "target": "ally-unit",
+      "effect": "buff-stats",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "buff-stats",
+          "target": "selected-ally",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-xuan-93127",
+      "unitId": "xuan",
+      "name": "双衡",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 2 点护甲。",
+      "officialText": "获得 2 点护甲。",
+      "target": "auto",
+      "effect": "shield",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shield",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-xuan-93128",
+      "unitId": "xuan",
+      "name": "璇玑之相",
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "form"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 +2/+5。",
+      "officialText": "获得 +2/+5。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-xuan-93129",
+      "unitId": "xuan",
+      "name": "光暗",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对一个式神造成 3 点伤害并恢复 3 点生命。",
+      "officialText": "对一个式神造成 3 点伤害并恢复 3 点生命。",
+      "target": "enemy-unit",
+      "effect": "damage",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "selected-enemy",
+          "value": 3
+        },
+        {
+          "condition": "always",
+          "action": "heal",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-xuan-93130",
+      "unitId": "xuan",
+      "name": "天衡",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "为所有己方式神恢复 2 点生命。",
+      "officialText": "为所有己方式神恢复 2 点生命。",
+      "target": "auto",
+      "effect": "heal",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "heal",
+          "target": "all-ally-units",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-xuan-93131",
+      "unitId": "xuan",
+      "name": "归一",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "复活一个己方式神。",
+      "officialText": "复活一个己方式神。",
+      "target": "knocked-ally",
+      "effect": "revive",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "revive",
+          "target": "selected-ally",
+          "value": 4
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-xuan-93132",
+      "unitId": "xuan",
+      "name": "觉醒·璇",
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 1,
+      "deckLimit": 1,
+      "starterCopies": 1,
+      "rarity": "ssr",
+      "tags": [
+        "命运",
+        "awakening"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "觉醒：璇玑升级，获得 +1/+2。",
+      "officialText": "觉醒：璇玑升级，获得 +1/+2。",
+      "target": "auto",
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 2
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-yuyuan-banruo-93133",
+      "unitId": "yuyuan-banruo",
+      "name": "怨爪",
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "combat"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "出击 +2，并施加 1 破甲。",
+      "officialText": "出击 +2，并施加 1 破甲。",
+      "target": "auto",
+      "effect": "assault",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        },
+        {
+          "condition": "target-alive",
+          "action": "apply-armor-break",
+          "target": "selected-enemy",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-yuyuan-banruo-93134",
+      "unitId": "yuyuan-banruo",
+      "name": "御怨",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "使一个敌方角色获得 2 破甲。",
+      "officialText": "使一个敌方角色获得 2 破甲。",
+      "target": "enemy-unit",
+      "effect": "apply-armor-break",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "apply-armor-break",
+          "target": "selected-enemy",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-yuyuan-banruo-93135",
+      "unitId": "yuyuan-banruo",
+      "name": "笑面",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 2 点护甲。",
+      "officialText": "获得 2 点护甲。",
+      "target": "auto",
+      "effect": "shield",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shield",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-yuyuan-banruo-93136",
+      "unitId": "yuyuan-banruo",
+      "name": "般若之相",
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "form"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 +2/+4。",
+      "officialText": "获得 +2/+4。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 4
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 4
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-yuyuan-banruo-93137",
+      "unitId": "yuyuan-banruo",
+      "name": "百怨蚀心",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对一个式神造成 3 点伤害并施加 2 破甲。",
+      "officialText": "对一个式神造成 3 点伤害并施加 2 破甲。",
+      "target": "enemy-unit",
+      "effect": "damage",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "selected-enemy",
+          "value": 3
+        },
+        {
+          "condition": "target-alive",
+          "action": "apply-armor-break",
+          "target": "selected-enemy",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-yuyuan-banruo-93138",
+      "unitId": "yuyuan-banruo",
+      "name": "怨缚",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "stun"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "眩晕一个敌方式神。",
+      "officialText": "眩晕一个敌方式神。",
+      "target": "enemy-unit",
+      "effect": "freeze",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "freeze",
+          "target": "selected-enemy",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-yuyuan-banruo-93139",
+      "unitId": "yuyuan-banruo",
+      "name": "御怨斩",
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "combat"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "出击 +3。",
+      "officialText": "出击 +3。",
+      "target": "auto",
+      "effect": "assault",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-yuyuan-banruo-93140",
+      "unitId": "yuyuan-banruo",
+      "name": "觉醒·御怨般若",
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 1,
+      "deckLimit": 1,
+      "starterCopies": 1,
+      "rarity": "ssr",
+      "tags": [
+        "命运",
+        "awakening"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "觉醒：御怨升级，获得 +1/+1。",
+      "officialText": "觉醒：御怨升级，获得 +1/+1。",
+      "target": "auto",
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-luohou-93141",
+      "unitId": "luohou",
+      "name": "蚀日爪",
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "combat"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "出击 +2。",
+      "officialText": "出击 +2。",
+      "target": "auto",
+      "effect": "assault",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-luohou-93142",
+      "unitId": "luohou",
+      "name": "吞光",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对一个式神造成 2 点伤害。",
+      "officialText": "对一个式神造成 2 点伤害。",
+      "target": "enemy-unit",
+      "effect": "damage",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "selected-enemy",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-luohou-93143",
+      "unitId": "luohou",
+      "name": "暗蚀",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "使一个敌方角色获得 1 破甲。",
+      "officialText": "使一个敌方角色获得 1 破甲。",
+      "target": "enemy-unit",
+      "effect": "apply-armor-break",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "apply-armor-break",
+          "target": "selected-enemy",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-luohou-93144",
+      "unitId": "luohou",
+      "name": "罗睺之相",
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "form"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 +2/+5。",
+      "officialText": "获得 +2/+5。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-luohou-93145",
+      "unitId": "luohou",
+      "name": "蚀界",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对敌方前线造成 3 点伤害。",
+      "officialText": "对敌方前线造成 3 点伤害。",
+      "target": "auto",
+      "effect": "damage-enemy-front",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage-enemy-front",
+          "target": "auto",
+          "value": 3
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-luohou-93146",
+      "unitId": "luohou",
+      "name": "黑日",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "rare",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对所有敌方式神造成 2 点伤害。",
+      "officialText": "对所有敌方式神造成 2 点伤害。",
+      "target": "auto",
+      "effect": "damage",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "all-enemy-units",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-luohou-93147",
+      "unitId": "luohou",
+      "name": "蚀盾",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 1,
+      "rarity": "common",
+      "tags": [
+        "命运",
+        "spell"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 3 点护甲并施加 1 破甲给敌方前线。",
+      "officialText": "获得 3 点护甲并施加 1 破甲给敌方前线。",
+      "target": "auto",
+      "effect": "shield",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shield",
+          "target": "source",
+          "value": 3
+        },
+        {
+          "condition": "always",
+          "action": "apply-armor-break",
+          "target": "selected-enemy",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "w13-luohou-93148",
+      "unitId": "luohou",
+      "name": "觉醒·罗睺",
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 1,
+      "deckLimit": 1,
+      "starterCopies": 1,
+      "rarity": "ssr",
+      "tags": [
+        "命运",
+        "awakening"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "觉醒：蚀日升级，获得 +1/+2。",
+      "officialText": "觉醒：蚀日升级，获得 +1/+2。",
+      "target": "auto",
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 2
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": false
+    },
+    {
+      "id": "skin-yaodaoji-93149",
+      "unitId": "yaodaoji",
+      "name": "妖刀万华·幻",
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 0,
+      "rarity": "common",
+      "tags": [
+        "皮肤",
+        "变体"
+      ],
+      "keywords": [
+        "combo"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "妖刀姬获得 +3/+8。形态：战斗时额外先击中对手一次。（皮肤变体）",
+      "officialText": "妖刀姬获得 +3/+8。形态：战斗时额外先击中对手一次。（皮肤变体）",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 8
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 8
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": true
+    },
+    {
+      "id": "skin-datiangou-93150",
+      "unitId": "datiangou",
+      "name": "天狗风乱·幻",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 0,
+      "rarity": "common",
+      "tags": [
+        "皮肤",
+        "变体"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "对所有敌方式神造成 2 点伤害。（皮肤变体）",
+      "officialText": "对所有敌方式神造成 2 点伤害。（皮肤变体）",
+      "target": "auto",
+      "effect": "damage",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "all-enemy-units",
+          "value": 2
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": true
+    },
+    {
+      "id": "skin-yijin-zhentian-93151",
+      "unitId": "yijin-zhentian",
+      "name": "流浪之羽·幻",
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 0,
+      "rarity": "common",
+      "tags": [
+        "皮肤",
+        "变体"
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "text": "获得 +4/+8。（皮肤变体）",
+      "officialText": "获得 +4/+8。（皮肤变体）",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 8
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 8
+          }
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": true
+    },
+    {
+      "id": "skin-yaohu-93152",
+      "unitId": "yaohu",
+      "name": "聚气·幻",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "starterCopies": 0,
+      "rarity": "common",
+      "tags": [
+        "皮肤",
+        "变体"
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "text": "抽一张牌。（皮肤变体）",
+      "officialText": "抽一张牌。（皮肤变体）",
+      "target": "auto",
+      "effect": "draw",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "draw",
+          "target": "ally-player",
+          "value": 1
+        }
+      ],
+      "pack": "wave13",
+      "token": false,
+      "skin": true
     },
     {
       "id": "c10101",
