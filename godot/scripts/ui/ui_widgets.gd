@@ -75,7 +75,8 @@ static func make_unit_panel(unit: Dictionary, on_click: Callable, compact: bool 
 	btn.mouse_entered.connect(func(): pc.self_modulate = Color(1.08, 1.06, 1.02))
 	btn.mouse_exited.connect(func(): pc.self_modulate = Color.WHITE)
 	pc.add_child(btn)
-	btn.raise()
+	if btn.get_parent() != null:
+		btn.get_parent().move_child(btn, -1)
 	return pc
 
 
@@ -158,7 +159,8 @@ static func make_hand_card(card: Dictionary, affordable: bool, on_click: Callabl
 		pc.modulate = Color(0.85, 0.85, 0.9)
 	btn.pressed.connect(func(): on_click.call(index if index >= 0 else 0, card))
 	pc.add_child(btn)
-	btn.raise()
+	if btn.get_parent() != null:
+		btn.get_parent().move_child(btn, -1)
 	return pc
 
 

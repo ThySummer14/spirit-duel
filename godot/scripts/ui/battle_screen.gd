@@ -6,7 +6,7 @@ const GameState := preload("res://scripts/game_state.gd")
 const GameAI := preload("res://scripts/game_ai.gd")
 const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
 const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
-## 5-row duel board: 敌方准备 / 敌方前线 / 指令条 / 己方前线 / 己方准备 + hand + log
+## 5-row duel board: 对方准备 / 对方前线 / 指令条 / 己方前线 / 己方准备 + hand + log
 
 signal match_over(winner: int, gs: Dictionary)
 
@@ -39,6 +39,9 @@ func setup(lineup_a: Array, lineup_b: Array, p_seed: int, deck_a: Dictionary = {
 	gs.log_emitted.connect(_on_log)
 	gs.state_changed.connect(_refresh)
 	gs.match_finished.connect(_on_finished)
+	# 节点已入树时必须立刻刷一次，否则战场上/手牌空白
+	if is_node_ready():
+		_refresh()
 
 
 func _ready() -> void:
@@ -66,8 +69,8 @@ func _ready() -> void:
 	root.add_child(mid)
 
 	# 5 rows + command in middle
-	mid.add_child(_row_panel("敌方准备", ThemeBuilder.FOE))
-	mid.add_child(_row_panel("敌方前线", ThemeBuilder.FOE))
+	mid.add_child(_row_panel("对方准备", ThemeBuilder.FOE))
+	mid.add_child(_row_panel("对方前线", ThemeBuilder.FOE))
 	mid.add_child(_build_command_bar())
 	mid.add_child(_row_panel("己方前线", ThemeBuilder.ALLY))
 	mid.add_child(_row_panel("己方准备", ThemeBuilder.ALLY))
@@ -95,9 +98,9 @@ func _row_panel(title: String, color: Color) -> PanelContainer:
 	v.add_child(row)
 	# assign by reference via setter object
 	match title:
-		"敌方准备":
+		"对方准备":
 			_enemy_reserve = row
-		"敌方前线":
+		"对方前线":
 			_enemy_front = row
 		"己方前线":
 			_ally_front = row
@@ -234,9 +237,10 @@ func _refresh() -> void:
 
 func _fill_units(box: HBoxContainer, p_idx: int, front_only: bool) -> void:
 	_clear_box(box)
-	if box == null:
+	if box == null or gs == null:
 		return
 	var p := gs.player(p_idx)
+	var filled := 0
 	for i in p.units.size():
 		var u: Dictionary = p.units[i]
 		var is_front := int(u.get("front", 0)) == 1
@@ -250,6 +254,11 @@ func _fill_units(box: HBoxContainer, p_idx: int, front_only: bool) -> void:
 		if p_idx == AI:
 			panel.self_modulate = Color(0.94, 0.9, 1.0)
 		box.add_child(panel)
+		filled += 1
+	if filled == 0:
+		var empty := ThemeBuilder.dim_label("（空）" if front_only else "—", 12)
+		empty.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		box.add_child(empty)
 
 
 func _fill_hand() -> void:

@@ -42,8 +42,10 @@ func _ready() -> void:
 	back.pressed.connect(func(): back_requested.emit())
 	header.add_child(back)
 
-	var tools := HBoxContainer.new()
-	tools.add_theme_constant_override("separation", 6)
+	var tools := HFlowContainer.new()
+	tools.add_theme_constant_override("h_separation", 6)
+	tools.add_theme_constant_override("v_separation", 6)
+	tools.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	root.add_child(tools)
 	_search = LineEdit.new()
 	_search.placeholder_text = "搜索式神 / 卡牌…"

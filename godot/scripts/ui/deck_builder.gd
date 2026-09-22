@@ -16,6 +16,7 @@ var _picked: Array = []
 var _pool_box: VBoxContainer
 var _status: Label
 var _list_scroll: ScrollContainer
+var _confirm_btn: Button
 
 
 func setup(unit_id: String) -> void:
@@ -92,14 +93,13 @@ func _ready() -> void:
 	var tip := ThemeBuilder.label(ContentLoader.passive_text(unit), 12, ThemeBuilder.TEXT_DIM)
 	tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	side_v.add_child(tip)
-	var confirm := ThemeBuilder.rounded_rect_button("确认卡组", Vector2(220, 44))
-	confirm.disabled = true
-	confirm.pressed.connect(func():
+	_confirm_btn = ThemeBuilder.rounded_rect_button("确认卡组", Vector2(220, 44))
+	_confirm_btn.disabled = true
+	_confirm_btn.pressed.connect(func():
 		if _picked.size() == PICK_COUNT:
 			deck_confirmed.emit(_unit_id, _picked.duplicate())
 	)
-	side_v.add_child(confirm)
-	set_meta("confirm_btn", confirm)
+	side_v.add_child(_confirm_btn)
 
 	_rebuild()
 
@@ -169,5 +169,4 @@ func _rebuild() -> void:
 		_pool_box.add_child(row)
 
 	_status.text = "%s · 已选 %d/%d" % [str(unit.get("name", _unit_id)), _picked.size(), PICK_COUNT]
-	var confirm: Button = get_meta("confirm_btn")
-	confirm.disabled = _picked.size() != PICK_COUNT
+	_confirm_btn.disabled = _picked.size() != PICK_COUNT

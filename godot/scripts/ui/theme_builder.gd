@@ -65,6 +65,12 @@ static func button_style(bg: Color, border: Color, radius: int = 8) -> StyleBoxF
 static func build_theme() -> Theme:
 	var theme := Theme.new()
 	theme.default_font_size = 15
+	# 系统中文字体，避免默认字体缺字变成方框
+	var sys_font := SystemFont.new()
+	sys_font.font_names = PackedStringArray([
+		"PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "Noto Sans CJK SC", "sans-serif",
+	])
+	theme.default_font = sys_font
 	var normal := button_style(INK_3, RULE, 8)
 	var hover := button_style(INK_4, GOLD, 8)
 	var pressed := button_style(Color("2c2413"), GOLD_DEEP, 8)
@@ -107,11 +113,6 @@ static func dim_label(text: String, size: int = 13) -> Label:
 
 
 static func hline() -> Control:
-	var c := Control.new()
-	c.custom_minimum_size = Vector2(0, 1)
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = RULE
-	c.draw.connect(func(): pass)
 	var p := Panel.new()
 	p.custom_minimum_size = Vector2(0, 1)
 	var s := StyleBoxFlat.new()

@@ -34,8 +34,10 @@ func _ready() -> void:
 	col.alignment = BoxContainer.ALIGNMENT_CENTER
 	center.add_child(col)
 
+	var stamp_wrap := CenterContainer.new()
 	var stamp := _make_stamp()
-	col.add_child(stamp)
+	stamp_wrap.add_child(stamp)
+	col.add_child(stamp_wrap)
 
 	var title := ThemeBuilder.title_label("胜 利" if _victory else "败 北", 40)
 	title.add_theme_color_override("font_color", ThemeBuilder.GOLD_BRIGHT if _victory else ThemeBuilder.DANGER_SOFT)
@@ -88,24 +90,23 @@ func _ready() -> void:
 
 
 func _make_stamp() -> Control:
-	var box := Control.new()
-	box.custom_minimum_size = Vector2(160, 160)
 	var color := ThemeBuilder.DANGER if _victory else ThemeBuilder.FOE
 	var ring := PanelContainer.new()
-	ring.custom_minimum_size = Vector2(150, 150)
-	ring.set_anchors_preset(Control.PRESET_CENTER)
+	ring.custom_minimum_size = Vector2(120, 120)
+	ring.rotation_degrees = -8.0
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = Color(color.r, color.g, color.b, 0.12)
 	sb.border_color = color
 	sb.set_border_width_all(3)
-	sb.set_corner_radius_all(75)
+	sb.set_corner_radius_all(60)
+	sb.content_margin_left = 18
+	sb.content_margin_right = 18
+	sb.content_margin_top = 18
+	sb.content_margin_bottom = 18
 	ring.add_theme_stylebox_override("panel", sb)
-	box.add_child(ring)
-	var l := ThemeBuilder.label("胜" if _victory else "负", 56, color)
+	var center := CenterContainer.new()
+	var l := ThemeBuilder.label("胜" if _victory else "负", 48, color)
 	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	l.set_anchors_preset(Control.PRESET_FULL_RECT)
-	box.add_child(l)
-	# rotated stamp feel
-	box.rotation_degrees = -8.0
-	return box
+	center.add_child(l)
+	ring.add_child(center)
+	return ring
