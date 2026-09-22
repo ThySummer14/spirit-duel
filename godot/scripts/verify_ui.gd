@@ -10,6 +10,11 @@ func _init() -> void:
 		"res://scripts/ui/main.gd",
 		"res://scripts/ui/main_menu.gd",
 		"res://scripts/ui/result_screen.gd",
+		"res://scripts/ui/deck_builder.gd",
+		"res://scripts/ui/codex_screen.gd",
+		"res://scripts/save_store.gd",
+		"res://scripts/collection_store.gd",
+		"res://scripts/ui/collection_screen.gd",
 	]
 	for path in paths:
 		var script = load(path)

@@ -6,6 +6,8 @@ const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
 
 signal start_quick_match
 signal open_formation
+signal open_codex
+signal open_collection
 signal open_settings
 signal quit_requested
 
@@ -34,7 +36,7 @@ func _ready() -> void:
 	title.add_theme_color_override("font_color", ThemeBuilder.GOLD_BRIGHT)
 	col.add_child(title)
 
-	var subtitle := ThemeBuilder.dim_label("Hyakumonogatari-style duel · 纵向切片", 14)
+	var subtitle := ThemeBuilder.dim_label("Hyakumonogatari-style duel · 完整迁移", 14)
 	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	col.add_child(subtitle)
 
@@ -52,6 +54,8 @@ func _ready() -> void:
 	for pair in [
 		["快速对战", start_quick_match],
 		["编成", open_formation],
+		["图鉴", open_codex],
+		["秘闻阁", open_collection],
 		["设置", open_settings],
 		["退出", quit_requested],
 	]:

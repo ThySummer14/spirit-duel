@@ -34,8 +34,8 @@ var _tab_index := 0
 var _ai_thinking := false
 
 
-func setup(lineup_a: Array, lineup_b: Array, p_seed: int) -> void:
-	gs = GameState.create(lineup_a, lineup_b, p_seed)
+func setup(lineup_a: Array, lineup_b: Array, p_seed: int, deck_a: Dictionary = {}, deck_b: Dictionary = {}) -> void:
+	gs = GameState.create(lineup_a, lineup_b, p_seed, deck_a, deck_b)
 	gs.log_emitted.connect(_on_log)
 	gs.state_changed.connect(_refresh)
 	gs.match_finished.connect(_on_finished)
@@ -172,7 +172,16 @@ func _build_side_panel() -> PanelContainer:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 6)
 	p.add_child(v)
-	v.add_child(ThemeBuilder.label("对局日志", 14, ThemeBuilder.GOLD))
+	var log_head := HBoxContainer.new()
+	log_head.add_theme_constant_override("separation", 8)
+	v.add_child(log_head)
+	var log_title := ThemeBuilder.label("对局日志", 14, ThemeBuilder.GOLD)
+	log_title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	log_head.add_child(log_title)
+	var cmd_btn := Button.new()
+	cmd_btn.text = "命令"
+	cmd_btn.pressed.connect(_show_command_log)
+	log_head.add_child(cmd_btn)
 	_log_label = RichTextLabel.new()
 	_log_label.bbcode_enabled = true
 	_log_label.scroll_following = true
@@ -541,3 +550,14 @@ func _tween_flash(color: Color) -> void:
 
 func _tween_lunge() -> void:
 	_tween_flash(Color(1, 0.5, 0.3, 0.1))
+
+
+func _show_command_log() -> void:
+	if gs == null:
+		return
+	var dialog := AcceptDialog.new()
+	dialog.title = "命令日志"
+	dialog.dialog_text = JSON.stringify(gs.command_log)
+	dialog.min_size = Vector2(640, 400)
+	add_child(dialog)
+	dialog.popup_centered()

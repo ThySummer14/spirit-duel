@@ -72,3 +72,13 @@ Godot 官方支持 GDScript、C#，以及通过 GDExtension 使用 C/C++；JavaS
 - Godot 占卜：`pending_choice` 暂停栈、展示顶 N 张、选择置顶后 `resolve_resolution_stack` 续排；战局 UI 可点选。
 - 运势骰（fortune-success）、鼓舞池（出击消耗）、充能（回合成长 + chargeCost）与 JS 对齐。
 - `sample-divination.json` / `sample-fortune.json` **PARITY_MATCH 5/5**。
+
+
+### 2026-09-22（续 4）：整体迁入 Godot
+
+主流程已含图鉴、卡组构筑、本地存档；对局吃自定义 8 张构筑。浏览器版仍作规则对拍基准（scripts/godot-parity.sh）。下一步：秘闻阁经济/开包，或命令日志回放 UI。
+
+
+### 2026-09-22（续 5）：秘闻阁与回放摘要迁入 Godot
+
+收藏/开包/御札/合成与胜负奖励已进引擎；战局与结果页可查看命令日志。浏览器版保留为规则对拍基准。

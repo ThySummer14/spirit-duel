@@ -7,6 +7,7 @@ const ContentLoader := preload("res://scripts/content_loader.gd")
 
 signal confirmed(unit_ids: Array)
 signal back_requested
+signal edit_deck(unit_id: String)
 
 const PICK_COUNT := 4
 
@@ -251,6 +252,10 @@ func _show_unit(unit: Dictionary) -> void:
 	_detail_box.add_child(ThemeBuilder.chip(_pack_label(str(unit.get("pack", "origin"))), ThemeBuilder.GOLD))
 	_detail_box.add_child(ThemeBuilder.dim_label(str(unit.get("role", "")) + " · " + str(unit.get("strategy", "")), 12))
 	_detail_box.add_child(ThemeBuilder.label("生命 %d　攻击 %d" % [int(unit.get("maxHp", 0)), int(unit.get("attack", 0))], 14, ThemeBuilder.TEXT))
+	var deck_btn := Button.new()
+	deck_btn.text = "构筑卡组（8 张）"
+	deck_btn.pressed.connect(func(): edit_deck.emit(str(unit.get("id", ""))))
+	_detail_box.add_child(deck_btn)
 	_detail_box.add_child(ThemeBuilder.label("被动 · " + ContentLoader.passive_text(unit), 13, ThemeBuilder.GOLD))
 	_detail_box.add_child(ThemeBuilder.label("觉醒 · " + ContentLoader.passive_text(unit, true), 13, ThemeBuilder.GOLD_BRIGHT))
 	var official := str(unit.get("officialAbility", unit.get("officialText", "")))

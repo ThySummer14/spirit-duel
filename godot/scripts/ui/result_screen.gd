@@ -9,11 +9,13 @@ signal back_to_menu
 
 var _victory := true
 var _summary := ""
+var _commands: Array = []
 
 
-func setup(victory: bool, summary: String) -> void:
+func setup(victory: bool, summary: String, commands: Array = []) -> void:
 	_victory = victory
 	_summary = summary
+	_commands = commands
 
 
 func _ready() -> void:
@@ -44,6 +46,26 @@ func _ready() -> void:
 	summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	summary.custom_minimum_size = Vector2(480, 0)
 	col.add_child(summary)
+
+	if not _commands.is_empty():
+		var cmd_box := PanelContainer.new()
+		cmd_box.custom_minimum_size = Vector2(520, 140)
+		cmd_box.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 8, 1))
+		var cv := VBoxContainer.new()
+		cmd_box.add_child(cv)
+		cv.add_child(ThemeBuilder.label("命令日志（%d）" % _commands.size(), 12, ThemeBuilder.GOLD))
+		var rl := RichTextLabel.new()
+		rl.bbcode_enabled = true
+		rl.fit_content = false
+		rl.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		rl.custom_minimum_size = Vector2(0, 110)
+		var lines := PackedStringArray()
+		for i in mini(_commands.size(), 80):
+			var c = _commands[i]
+			lines.append("#%d %s p%s" % [i + 1, str(c.get("c", "?")), str(c.get("p", ""))])
+		rl.text = "\n".join(lines)
+		cv.add_child(rl)
+		col.add_child(cmd_box)
 
 	var h := HBoxContainer.new()
 	h.add_theme_constant_override("separation", 16)

@@ -6,6 +6,11 @@ const MainMenuScreen := preload("res://scripts/ui/main_menu.gd")
 const FormationScreen := preload("res://scripts/ui/formation_screen.gd")
 const BattleScreen := preload("res://scripts/ui/battle_screen.gd")
 const ResultScreen := preload("res://scripts/ui/result_screen.gd")
+const CodexScreen := preload("res://scripts/ui/codex_screen.gd")
+const DeckBuilderScreen := preload("res://scripts/ui/deck_builder.gd")
+const SaveStore := preload("res://scripts/save_store.gd")
+const CollectionScreen := preload("res://scripts/ui/collection_screen.gd")
+const CollectionStore := preload("res://scripts/collection_store.gd")
 ## Screen router: menu ↔ formation ↔ battle ↔ result
 
 const DEFAULT_PLAYER := ["ember", "basalt", "lumen", "rime"]
@@ -21,7 +26,11 @@ var _quick := false
 
 func _ready() -> void:
 	self.theme = ThemeBuilder.build_theme()
-	_lineup = _default_lineup()
+	var saved_lineup: Array = SaveStore.get_lineup()
+	if saved_lineup.size() >= 4:
+		_lineup = saved_lineup.slice(0, 4)
+	else:
+		_lineup = _default_lineup()
 	_show_menu()
 
 
@@ -55,6 +64,8 @@ func _show_menu() -> void:
 		_start_battle()
 	)
 	menu.open_formation.connect(_show_formation)
+	menu.open_codex.connect(_show_codex)
+	menu.open_collection.connect(_show_collection)
 	menu.open_settings.connect(_show_settings)
 	menu.quit_requested.connect(func(): get_tree().quit())
 	_swap(menu)
@@ -63,13 +74,38 @@ func _show_menu() -> void:
 func _show_formation() -> void:
 	var form := FormationScreen.new()
 	form.back_requested.connect(_show_menu)
+	form.edit_deck.connect(_show_deck_builder)
 	form.confirmed.connect(func(unit_ids: Array):
 		_lineup = unit_ids
+		SaveStore.set_lineup(unit_ids)
 		_quick = false
 		_start_battle()
 	)
 	_swap(form)
 	form.set_preselect(_lineup)
+
+
+func _show_collection() -> void:
+	var col := CollectionScreen.new()
+	col.back_requested.connect(_show_menu)
+	_swap(col)
+
+
+func _show_codex() -> void:
+	var codex := CodexScreen.new()
+	codex.back_requested.connect(_show_menu)
+	_swap(codex)
+
+
+func _show_deck_builder(unit_id: String) -> void:
+	var deck := DeckBuilderScreen.new()
+	deck.setup(unit_id)
+	deck.back_requested.connect(_show_formation)
+	deck.deck_confirmed.connect(func(uid: String, card_ids: Array):
+		SaveStore.set_deck(uid, card_ids)
+		_show_formation()
+	)
+	_swap(deck)
 
 
 func _show_settings() -> void:
@@ -118,7 +154,9 @@ func _start_battle() -> void:
 		lineup_a = _lineup.duplicate()
 		lineup_b = _enemy_lineup(lineup_a)
 	var battle := BattleScreen.new()
-	battle.setup(lineup_a, lineup_b, _seed)
+	var deck_a := SaveStore.deck_definition(lineup_a)
+	var deck_b := SaveStore.deck_definition(lineup_b)
+	battle.setup(lineup_a, lineup_b, _seed, deck_a, deck_b)
 	battle.match_over.connect(_on_match_over)
 	_swap(battle)
 
@@ -152,8 +190,10 @@ func _on_match_over(winner: int, snapshot: Dictionary) -> void:
 		summary += " · 快速对战（精选 2 名/侧）"
 	else:
 		summary += " · 完整四对四编成"
+	var reward := CollectionStore.grant_match_reward(victory)
+	summary += " · 获得 %d 御札" % reward
 	var result := ResultScreen.new()
-	result.setup(victory, summary)
+	result.setup(victory, summary, snapshot.get("commandLog", []) if snapshot.get("commandLog") is Array else [])
 	result.rematch.connect(_start_battle)
 	result.back_to_menu.connect(_show_menu)
 	_swap(result)

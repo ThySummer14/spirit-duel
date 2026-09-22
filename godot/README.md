@@ -81,3 +81,26 @@ Godot --headless --path godot --script res://scripts/playtest_focus.gd -- 20
 ```
 
 `PLAYTEST_OK` / `FOCUS_OK` 表示无卡死、均有胜负。AI 会自动处理响应 pass 与占卜置顶。
+
+
+## 整体迁移（本轮）
+
+- **图鉴**：主菜单进入，按资料包筛选/搜索，浏览 250 式神被动/觉醒与卡表（含皮肤标记）。
+- **卡组构筑**：编成详情「构筑卡组」→ 每角色自选 8 张（同名 ≤2、觉醒限 1、隐藏衍生/皮肤）。
+- **本地存档**：`user://spirit_duel/save.json` 持久化阵容与各角色卡组；对局使用 `SaveStore.deck_definition`。
+- 快速对战仍用精选阵容+默认牌；编成出战走自定义卡组。
+
+冒烟：`Godot --headless --path godot --script res://scripts/verify_save.gd`
+
+
+## 秘闻阁与命令回放
+
+- 主菜单 **秘闻阁**：御札、开包（5 张/100 御札，保底与重复折算）、按角色浏览收藏与合成。
+- 对局胜利 +300 / 失败 +150 御札（结果页显示获得量）。
+- 战局侧栏「命令」弹窗；结果页展示命令日志摘要。
+
+冒烟：
+```sh
+Godot --headless --path godot --script res://scripts/verify_collection.gd
+Godot --headless --path godot --script res://scripts/verify_save.gd
+```

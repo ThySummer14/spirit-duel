@@ -1616,6 +1616,7 @@ func snapshot() -> Dictionary:
 		"players": players,
 		"log_size": log.size(),
 		"commands": command_log.size(),
+		"commandLog": command_log.duplicate(),
 	}
 
 
