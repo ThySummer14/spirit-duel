@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">心魔</title>
+  <desc id="desc">心魔：觉般若执念，蚀心削志</desc>
+  <defs>
+    <linearGradient id="xinmo-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140810"/>
+      <stop offset=".55" stop-color="#201018"/>
+      <stop offset="1" stop-color="#0c060c"/>
+    </linearGradient>
+    <radialGradient id="xinmo-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#c07090" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#a03058" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#a03058" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="xinmo-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e0b0c0"/>
+      <stop offset=".55" stop-color="#a05878"/>
+      <stop offset="1" stop-color="#a03058"/>
+    </linearGradient>
+    <linearGradient id="xinmo-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a03058"/>
+      <stop offset="1" stop-color="#501830"/>
+    </linearGradient>
+    <linearGradient id="xinmo-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#xinmo-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#xinmo-halo)"/>
+  <g>
+    <path d="M70 100c8-32 22-50 30-50s22 18 30 50c-10 22-20 35-30 35s-20-13-30-35Z" fill="url(#xinmo-body)" stroke="#301828" stroke-width="1.6"/>
+    <path d="M78 90l-10-22M122 90l10-22" stroke="url(#xinmo-acc)" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="88" cy="105" r="4" fill="#f0d0a0"/><circle cx="112" cy="105" r="4" fill="#f0d0a0"/>
+    <circle cx="88" cy="105" r="1.5" fill="#301018"/><circle cx="112" cy="105" r="1.5" fill="#301018"/>
+    <path d="M90 125c5 8 15 8 20 0" stroke="#301828" stroke-width="1.5" fill="none"/>
+    <path d="M85 160c10 12 20 12 30 0" stroke="url(#xinmo-acc)" stroke-width="2" fill="none"/>
+    <polygon points="111.0,55.0 103.2,57.4 103.4,65.5 98.8,58.8 91.1,61.5 96.0,55.0 91.1,48.5 98.8,51.2 103.4,44.5 103.2,52.6" fill="url(#xinmo-gold)" opacity=".7"/>
+  </g>
+<g fill="url(#xinmo-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#a03058" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

@@ -57,7 +57,7 @@ func _ready() -> void:
 	_search.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_search.text_changed.connect(func(_t): _rebuild_unit_list())
 	tools.add_child(_search)
-	for pack_id in ["all", "origin", "classic", "wave2", "wave3", "wave4", "wave5", "wave6"]:
+	for pack_id in ["all", "origin", "classic", "wave2", "wave3", "wave4", "wave5", "wave6", "wave7", "wave8", "wave9", "wave10", "wave11", "wave12"]:
 		var b := Button.new()
 		b.text = _pack_label(pack_id)
 		b.toggle_mode = true
@@ -160,6 +160,18 @@ func _pack_label(pack_id: String) -> String:
 			return "繁花喧哗"
 		"wave6":
 			return "空弦鸣雷"
+		"wave7":
+			return "燃灯桃源"
+		"wave8":
+			return "祝星千录"
+		"wave9":
+			return "龙渊花札"
+		"wave10":
+			return "鬼灭联动"
+		"wave11":
+			return "衍生式神"
+		"wave12":
+			return "灵枢二弹"
 		_:
 			return "全部"
 

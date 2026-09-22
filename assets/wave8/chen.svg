@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">辰</title>
+  <desc id="desc">辰：行度星轨，祝星启悟</desc>
+  <defs>
+    <linearGradient id="chen-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141008"/>
+      <stop offset=".55" stop-color="#201810"/>
+      <stop offset="1" stop-color="#0c0a06"/>
+    </linearGradient>
+    <radialGradient id="chen-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#f0d070" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#d0a020" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#d0a020" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="chen-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8e8a8"/>
+      <stop offset=".55" stop-color="#d0b050"/>
+      <stop offset="1" stop-color="#d0a020"/>
+    </linearGradient>
+    <linearGradient id="chen-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d0a020"/>
+      <stop offset="1" stop-color="#705010"/>
+    </linearGradient>
+    <linearGradient id="chen-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#chen-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#chen-halo)"/>
+  <g>
+    <polygon points="148.0,100.0 116.2,111.8 114.8,145.7 93.8,119.0 61.2,128.2 80.0,100.0 61.2,71.8 93.8,81.0 114.8,54.3 116.2,88.2" fill="url(#chen-body)" opacity=".55" stroke="#2a2040" stroke-width="1.4"/>
+    <circle cx="100" cy="100" r="18" fill="none" stroke="url(#chen-gold)" stroke-width="1.4"/>
+    <path d="M100 52v-12M100 160v12M52 100H40M160 100h12" stroke="url(#chen-acc)" stroke-width="1.6"/>
+  </g>
+<g fill="url(#chen-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#d0a020" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

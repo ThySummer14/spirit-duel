@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">鬼金羊</title>
+  <desc id="desc">鬼金羊：金角预告信，鬼宿奇惊</desc>
+  <defs>
+    <linearGradient id="guijinyang-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140c18"/>
+      <stop offset=".55" stop-color="#201428"/>
+      <stop offset="1" stop-color="#0c0812"/>
+    </linearGradient>
+    <radialGradient id="guijinyang-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#b0a0e0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#7050c0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#7050c0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="guijinyang-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e0d8f8"/>
+      <stop offset=".55" stop-color="#9080c0"/>
+      <stop offset="1" stop-color="#7050c0"/>
+    </linearGradient>
+    <linearGradient id="guijinyang-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7050c0"/>
+      <stop offset="1" stop-color="#302060"/>
+    </linearGradient>
+    <linearGradient id="guijinyang-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#guijinyang-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#guijinyang-halo)"/>
+  <g>
+    <path d="M78 150c0-30 10-55 22-55s22 25 22 55Z" fill="url(#guijinyang-body)" stroke="#281838" stroke-width="1.8"/>
+    <path d="M78 110c-14-8-18-24-8-34 4 14 10 22 18 26M122 110c14-8 18-24 8-34-4 14-10 22-18 26" fill="url(#guijinyang-acc)"/>
+    <rect x="86" y="155" width="28" height="36" rx="2" fill="url(#guijinyang-gold)" opacity=".85" transform="rotate(-8 100 170)"/>
+    <path d="M92 168h16M92 178h12" stroke="#3a2810" stroke-width="1.2"/>
+  </g>
+<g fill="url(#guijinyang-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#7050c0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

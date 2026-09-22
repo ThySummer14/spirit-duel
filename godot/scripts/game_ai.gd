@@ -8,12 +8,41 @@ const ContentLoader := preload("res://scripts/content_loader.gd")
 static func take_turn(gs: GameState, p_idx: int) -> Array:
 	## Returns list of commands performed (already applied).
 	var actions: Array = []
+	if gs.winner >= 0:
+		return actions
+	# 先处理中断型窗口（响应/占卜），避免对局卡死
+	var stall := 0
+	while stall < 32 and gs.winner < 0:
+		stall += 1
+		if not gs.pending_choice.is_empty():
+			var want_p := int(gs.pending_choice.get("playerIndex", -1))
+			if want_p == p_idx and _resolve_choice(gs, p_idx):
+				actions.append({"cmd": "divination-choice"})
+				continue
+			# 对手选择中：不应发生在纯 AI 对刷；保险起见放行第一项
+			if _resolve_choice_any(gs):
+				actions.append({"cmd": "divination-choice"})
+				continue
+			break
+		if not gs.response_window.is_empty():
+			var rp := int(gs.response_window.get("playerIndex", -1))
+			if rp == p_idx and _try_response(gs, p_idx, actions):
+				continue
+			if gs.pass_response(rp):
+				actions.append({"cmd": "pass_response", "player": rp})
+				continue
+			break
+		break
 	if gs.winner >= 0 or gs.current_player != p_idx:
 		return actions
 	var guard := 0
-	while guard < 24:
+	while guard < 32:
 		guard += 1
 		if gs.winner >= 0 or gs.current_player != p_idx:
+			break
+		if not gs.pending_choice.is_empty() or not gs.response_window.is_empty():
+			var extra := take_turn(gs, p_idx)
+			actions.append_array(extra)
 			break
 		if gs.is_upgrade_pending(p_idx):
 			var uidx := _best_level_up(gs, p_idx)
@@ -145,3 +174,36 @@ static func _num(v) -> int:
 	if v is Dictionary:
 		return 1
 	return 0
+
+
+static func _resolve_choice(gs: GameState, p_idx: int) -> bool:
+	var ids: Array = gs.pending_choice.get("instanceIds", [])
+	if ids.is_empty():
+		return false
+	# 优先选费用/等级更高、或名字非衍生的展示牌；这里取最后一张（更接近牌库顶）
+	return gs.resolve_divination_choice(p_idx, str(ids[ids.size() - 1]))
+
+
+static func _resolve_choice_any(gs: GameState) -> bool:
+	if gs.pending_choice.is_empty():
+		return false
+	var p_idx := int(gs.pending_choice.get("playerIndex", 0))
+	return _resolve_choice(gs, p_idx)
+
+
+static func _try_response(gs: GameState, p_idx: int, actions: Array) -> bool:
+	if gs.response_window.is_empty() or int(gs.response_window.get("playerIndex", -1)) != p_idx:
+		return false
+	var p := gs.player(p_idx)
+	for h in p.hand.size():
+		var card := ContentLoader.card_def(p.hand[h].definitionId)
+		if not gs.card_matches_response_window(card):
+			continue
+		var targets: Array = [null]
+		if card.get("target", "auto") != "auto":
+			targets = gs.valid_targets(p_idx, card)
+		for t in targets:
+			if gs.play_card(p_idx, h, t):
+				actions.append({"cmd": "play_card", "hand": h, "target": t, "card": card.get("id")})
+				return true
+	return false

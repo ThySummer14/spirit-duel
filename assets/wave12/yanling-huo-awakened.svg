@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="yanling_huo_a-t yanling_huo_a-d">
+  <title id="yanling_huo_a-t">觉醒·焰铃</title>
+  <desc id="yanling_huo_a-d">灵枢原创式神立绘</desc>
+  <defs>
+    <linearGradient id="yanling_huo_a-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#301818"/><stop offset="1" stop-color="#4a2020"/>
+    </linearGradient>
+    <radialGradient id="yanling_huo_a-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#ffb060" stop-opacity=".4"/><stop offset="1" stop-color="#e07040" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="yanling_huo_a-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb060"/><stop offset="1" stop-color="#e07040"/>
+    </linearGradient>
+    <linearGradient id="yanling_huo_a-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb060"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#yanling_huo_a-bg)"/>
+  <rect width="200" height="260" fill="url(#yanling_huo_a-halo)"/>
+  <circle cx="100" cy="115" r="72" fill="none" stroke="#c9762c" stroke-width="3" opacity=".7"/>
+  <g filter="url(#p-glow)"><circle cx="100" cy="115" r="40" fill="url(#p-body)"/><path d="M100 55 Q130 90 100 130 Q70 90 100 55" fill="url(#p-accent)"/><rect x="92" y="145" width="16" height="30" rx="4" fill="#c0a060"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#f0e8d0">焰铃</text>
+</svg>

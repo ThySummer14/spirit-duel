@@ -40,6 +40,47 @@ import {
   WAVE6_CARD_DEFINITIONS,
   WAVE6_SUBPACKS,
 } from './game-content-wave6.js?v=1';
+import {
+  WAVE7_PACK_ID,
+  WAVE7_PACK_NAME,
+  WAVE7_UNIT_DEFINITIONS,
+  WAVE7_CARD_DEFINITIONS,
+  WAVE7_SUBPACKS,
+} from './game-content-wave7.js?v=1';
+import {
+  WAVE8_PACK_ID,
+  WAVE8_PACK_NAME,
+  WAVE8_UNIT_DEFINITIONS,
+  WAVE8_CARD_DEFINITIONS,
+  WAVE8_SUBPACKS,
+} from './game-content-wave8.js?v=1';
+import {
+  WAVE9_PACK_ID,
+  WAVE9_PACK_NAME,
+  WAVE9_UNIT_DEFINITIONS,
+  WAVE9_CARD_DEFINITIONS,
+  WAVE9_SUBPACKS,
+} from './game-content-wave9.js?v=1';
+import {
+  WAVE10_PACK_ID,
+  WAVE10_PACK_NAME,
+  WAVE10_UNIT_DEFINITIONS,
+  WAVE10_CARD_DEFINITIONS,
+  WAVE10_SUBPACKS,
+} from './game-content-wave10.js?v=1';
+import {
+  WAVE11_PACK_ID,
+  WAVE11_PACK_NAME,
+  WAVE11_UNIT_DEFINITIONS,
+  WAVE11_CARD_DEFINITIONS,
+  WAVE11_SUBPACKS,
+} from './game-content-wave11.js?v=1';
+import {
+  WAVE12_PACK_ID,
+  WAVE12_PACK_NAME,
+  WAVE12_UNIT_DEFINITIONS,
+  WAVE12_CARD_DEFINITIONS,
+} from './game-content-wave12.js?v=1';
 export {
   WAVE4_PACK_ID,
   WAVE4_PACK_NAME,
@@ -88,6 +129,12 @@ export const CONTENT_PACKS = Object.freeze([
   Object.freeze({ id: WAVE4_PACK_ID, name: WAVE4_PACK_NAME, pack: WAVE4_PACK_ID, subpacks: WAVE4_SUBPACKS }),
   Object.freeze({ id: WAVE5_PACK_ID, name: WAVE5_PACK_NAME, pack: WAVE5_PACK_ID, subpacks: WAVE5_SUBPACKS }),
   Object.freeze({ id: WAVE6_PACK_ID, name: WAVE6_PACK_NAME, pack: WAVE6_PACK_ID, subpacks: WAVE6_SUBPACKS }),
+  Object.freeze({ id: WAVE9_PACK_ID, name: WAVE9_PACK_NAME, pack: WAVE9_PACK_ID, subpacks: WAVE9_SUBPACKS }),
+  Object.freeze({ id: WAVE12_PACK_ID, name: WAVE12_PACK_NAME, pack: WAVE12_PACK_ID }),
+  Object.freeze({ id: WAVE11_PACK_ID, name: WAVE11_PACK_NAME, pack: WAVE11_PACK_ID, subpacks: WAVE11_SUBPACKS }),
+  Object.freeze({ id: WAVE10_PACK_ID, name: WAVE10_PACK_NAME, pack: WAVE10_PACK_ID, subpacks: WAVE10_SUBPACKS }),
+  Object.freeze({ id: WAVE8_PACK_ID, name: WAVE8_PACK_NAME, pack: WAVE8_PACK_ID, subpacks: WAVE8_SUBPACKS }),
+  Object.freeze({ id: WAVE7_PACK_ID, name: WAVE7_PACK_NAME, pack: WAVE7_PACK_ID, subpacks: WAVE7_SUBPACKS }),
 ]);
 
 export function getAllUnitIds() {
@@ -270,6 +317,18 @@ export const UNIT_DEFINITIONS = Object.freeze([
   ...WAVE5_UNIT_DEFINITIONS,
   // wave6
   ...WAVE6_UNIT_DEFINITIONS,
+  // wave7
+  ...WAVE7_UNIT_DEFINITIONS,
+  // wave8
+  ...WAVE8_UNIT_DEFINITIONS,
+  // wave9
+  ...WAVE9_UNIT_DEFINITIONS,
+  // wave10
+  ...WAVE10_UNIT_DEFINITIONS,
+  // wave11
+  ...WAVE11_UNIT_DEFINITIONS,
+  // wave12
+  ...WAVE12_UNIT_DEFINITIONS,
   // 经典基础包 29 式神
   ...CLASSIC_UNIT_DEFINITIONS,
   // 妖狐·怪谈·不夜之火（wave2）9 式神
@@ -812,6 +871,18 @@ export const CARD_DEFINITIONS = Object.freeze([
   ...WAVE5_CARD_DEFINITIONS,
   // wave6 cards
   ...WAVE6_CARD_DEFINITIONS,
+  // wave7 cards
+  ...WAVE7_CARD_DEFINITIONS,
+  // wave8 cards
+  ...WAVE8_CARD_DEFINITIONS,
+  // wave9 cards
+  ...WAVE9_CARD_DEFINITIONS,
+  // wave10 cards
+  ...WAVE10_CARD_DEFINITIONS,
+  // wave11 cards
+  ...WAVE11_CARD_DEFINITIONS,
+  // wave12 cards
+  ...WAVE12_CARD_DEFINITIONS,
   // 经典基础包卡牌与 token
   ...CLASSIC_CARD_DEFINITIONS,
   // wave2 卡牌与 token

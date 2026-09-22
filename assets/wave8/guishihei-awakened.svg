@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">鬼使黑 · 觉醒相</title>
+  <desc id="desc">鬼使黑：黑刃索魂，天下太平。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="guishihei-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c0c12"/>
+      <stop offset=".55" stop-color="#14141c"/>
+      <stop offset="1" stop-color="#08080c"/>
+    </linearGradient>
+    <radialGradient id="guishihei-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#606080" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#404058" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#404058" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="guishihei-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#a0a0b8"/>
+      <stop offset=".55" stop-color="#707088"/>
+      <stop offset="1" stop-color="#404058"/>
+    </linearGradient>
+    <linearGradient id="guishihei-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#404058"/>
+      <stop offset="1" stop-color="#202030"/>
+    </linearGradient>
+    <linearGradient id="guishihei-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#guishihei-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#guishihei-halo)"/>
+  <g>
+    <path d="M55 175L145 55" stroke="url(#guishihei-acc)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M65 165l-8 20 20-8z" fill="url(#guishihei-gold)" opacity=".75"/>
+    <circle cx="130" cy="75" r="16" fill="url(#guishihei-body)" opacity=".5"/>
+  </g>
+<g fill="url(#guishihei-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#guishihei-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#guishihei-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#guishihei-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#guishihei-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#guishihei-gold)"/>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#404058" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

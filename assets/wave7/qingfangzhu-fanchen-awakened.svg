@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">青坊主·凡尘 · 觉醒相</title>
+  <desc id="desc">青坊主·凡尘：佛心渡魂，垢去明存。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="qingfangzhufanchen-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14120c"/>
+      <stop offset=".55" stop-color="#201c14"/>
+      <stop offset="1" stop-color="#0c0a08"/>
+    </linearGradient>
+    <radialGradient id="qingfangzhufanchen-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#c0b080" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#a08040" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#a08040" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="qingfangzhufanchen-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e8e0b8"/>
+      <stop offset=".55" stop-color="#a89870"/>
+      <stop offset="1" stop-color="#a08040"/>
+    </linearGradient>
+    <linearGradient id="qingfangzhufanchen-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a08040"/>
+      <stop offset="1" stop-color="#504020"/>
+    </linearGradient>
+    <linearGradient id="qingfangzhufanchen-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#qingfangzhufanchen-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#qingfangzhufanchen-halo)"/>
+  <path d="M100 48c22 18 34 40 34 64 0 28-16 48-34 62-18-14-34-34-34-62 0-24 12-46 34-64z" fill="url(#qingfangzhufanchen-body)" stroke="url(#qingfangzhufanchen-acc)" stroke-width="1.4"/>
+
+  <rect x="72" y="60" width="56" height="90" rx="3" fill="url(#qingfangzhufanchen-body)" stroke="url(#qingfangzhufanchen-acc)"/>
+  <path d="M84 80h32M84 96h32M84 112h24M84 128h28" stroke="url(#qingfangzhufanchen-acc)" stroke-width="1.8"/>
+  <path d="M72 60c-8 0-8 8 0 8M128 150c8 0 8-8 0-8" stroke="url(#qingfangzhufanchen-acc)" stroke-width="2" fill="none"/>
+
+  <g fill="url(#qingfangzhufanchen-acc)">
+    <circle cx="40" cy="80" r="1.8" opacity=".55"/>
+    <circle cx="160" cy="84" r="1.6" opacity=".5"/>
+    <circle cx="48" cy="160" r="1.5" opacity=".45"/>
+    <circle cx="152" cy="164" r="1.8" opacity=".5"/>
+    <circle cx="100" cy="36" r="1.4" opacity=".4"/>
+    <circle cx="100" cy="190" r="1.6" opacity=".45"/>
+  </g>  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#qingfangzhufanchen-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#qingfangzhufanchen-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#qingfangzhufanchen-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#qingfangzhufanchen-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#qingfangzhufanchen-gold)"/>
+    <g stroke="url(#qingfangzhufanchen-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#a08040" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

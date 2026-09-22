@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">番茄 · 觉醒相</title>
+  <desc id="desc">番茄：跳跳妹妹的忠犬，赤心护主。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="fanqie-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#180c0c"/>
+      <stop offset=".55" stop-color="#281414"/>
+      <stop offset="1" stop-color="#100808"/>
+    </linearGradient>
+    <radialGradient id="fanqie-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e06040" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c03820" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c03820" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fanqie-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0c0b0"/>
+      <stop offset=".55" stop-color="#c05038"/>
+      <stop offset="1" stop-color="#c03820"/>
+    </linearGradient>
+    <linearGradient id="fanqie-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c03820"/>
+      <stop offset="1" stop-color="#601810"/>
+    </linearGradient>
+    <linearGradient id="fanqie-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#fanqie-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#fanqie-halo)"/>
+  <g>
+    <ellipse cx="100" cy="130" rx="36" ry="32" fill="url(#fanqie-body)" stroke="#3a2018" stroke-width="1.8"/>
+    <path d="M72 112c-10-16-4-28 8-22M128 112c10-16 4-28-8-22" fill="url(#fanqie-acc)" stroke="#3a2018" stroke-width="1.4"/>
+    <circle cx="88" cy="124" r="4" fill="#2a1010"/><circle cx="112" cy="124" r="4" fill="#2a1010"/>
+    <path d="M94 142c4 5 8 5 12 0" stroke="#2a1010" stroke-width="1.5" fill="none"/>
+    <ellipse cx="100" cy="136" rx="5" ry="3" fill="#401010"/>
+    <path d="M100 78c-4 8-4 16 0 22 4-6 4-14 0-22Z" fill="url(#fanqie-gold)"/>
+    <path d="M55 175c20 10 70 10 90 0" stroke="url(#fanqie-body)" stroke-width="2.5" fill="none" opacity=".55"/>
+  </g>
+<g fill="url(#fanqie-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#fanqie-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#fanqie-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#fanqie-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#fanqie-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#fanqie-gold)"/>
+    <g stroke="url(#fanqie-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#c03820" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

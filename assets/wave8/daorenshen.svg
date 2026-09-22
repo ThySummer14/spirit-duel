@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">盗人神</title>
+  <desc id="desc">盗人神：财宝日行，断予夜偷</desc>
+  <defs>
+    <linearGradient id="daorenshen-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141008"/>
+      <stop offset=".55" stop-color="#201810"/>
+      <stop offset="1" stop-color="#0c0a04"/>
+    </linearGradient>
+    <radialGradient id="daorenshen-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#d0a060" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#a06020" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#a06020" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="daorenshen-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0d0a0"/>
+      <stop offset=".55" stop-color="#b08040"/>
+      <stop offset="1" stop-color="#a06020"/>
+    </linearGradient>
+    <linearGradient id="daorenshen-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a06020"/>
+      <stop offset="1" stop-color="#503010"/>
+    </linearGradient>
+    <linearGradient id="daorenshen-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#daorenshen-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#daorenshen-halo)"/>
+  <g>
+    <rect x="70" y="85" width="60" height="45" rx="6" fill="url(#daorenshen-body)" opacity=".55" stroke="#2a2040" stroke-width="1.4"/>
+    <path d="M70 100h60M85 85v-8h30v8" stroke="url(#daorenshen-gold)" stroke-width="1.6"/>
+    <polygon points="114.0,108.0 104.2,112.2 100.0,122.0 95.8,112.2 86.0,108.0 95.8,103.8 100.0,94.0 104.2,103.8" fill="url(#daorenshen-gold)" opacity=".8"/>
+  </g>
+<g fill="url(#daorenshen-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#a06020" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

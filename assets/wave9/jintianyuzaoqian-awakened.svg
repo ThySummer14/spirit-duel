@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">烬天玉藻前 · 觉醒相</title>
+  <desc id="desc">烬天玉藻前：九尾狐火与烬羽，浮世悲歌。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="jintianyuzaoqian-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#180c0c"/>
+      <stop offset=".55" stop-color="#281414"/>
+      <stop offset="1" stop-color="#100808"/>
+    </linearGradient>
+    <radialGradient id="jintianyuzaoqian-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e06050" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#d03020" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#d03020" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="jintianyuzaoqian-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8c0b0"/>
+      <stop offset=".55" stop-color="#c05040"/>
+      <stop offset="1" stop-color="#d03020"/>
+    </linearGradient>
+    <linearGradient id="jintianyuzaoqian-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d03020"/>
+      <stop offset="1" stop-color="#501008"/>
+    </linearGradient>
+    <linearGradient id="jintianyuzaoqian-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#jintianyuzaoqian-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#jintianyuzaoqian-halo)"/>
+  <g>
+    <path d="M100 155c-8-20-8-40 0-58 8 18 8 38 0 58Z" fill="url(#jintianyuzaoqian-body)"/>
+    <path d="M85 155c-12-16-18-36-14-54 12 12 18 30 18 50M115 155c12-16 18-36 14-54-12 12-18 30-18 50" fill="url(#jintianyuzaoqian-acc)" opacity=".85"/>
+    <path d="M70 155c-14-12-24-30-24-48 16 10 26 26 30 44M130 155c14-12 24-30 24-48-16 10-26 26-30 44" fill="url(#jintianyuzaoqian-acc)" opacity=".65"/>
+    <polygon points="116.0,70.0 104.9,73.5 104.9,85.2 98.1,75.7 87.1,79.4 94.0,70.0 87.1,60.6 98.1,64.3 104.9,54.8 104.9,66.5" fill="url(#jintianyuzaoqian-gold)" opacity=".85"/>
+  </g>
+<g fill="url(#jintianyuzaoqian-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#jintianyuzaoqian-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#jintianyuzaoqian-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#jintianyuzaoqian-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#jintianyuzaoqian-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#jintianyuzaoqian-gold)"/>
+    <g stroke="url(#jintianyuzaoqian-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#d03020" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

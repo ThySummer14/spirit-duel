@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">龙珏</title>
+  <desc id="desc">龙珏：龙珠与乾坤两仪，飞龙行道</desc>
+  <defs>
+    <linearGradient id="longjue-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1418"/>
+      <stop offset=".55" stop-color="#142430"/>
+      <stop offset="1" stop-color="#080c12"/>
+    </linearGradient>
+    <radialGradient id="longjue-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#50a0c0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#2080b0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#2080b0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="longjue-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#a8d0e8"/>
+      <stop offset=".55" stop-color="#4088a8"/>
+      <stop offset="1" stop-color="#2080b0"/>
+    </linearGradient>
+    <linearGradient id="longjue-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2080b0"/>
+      <stop offset="1" stop-color="#103850"/>
+    </linearGradient>
+    <linearGradient id="longjue-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#longjue-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#longjue-halo)"/>
+  <g>
+    <circle cx="100" cy="125" r="28" fill="url(#longjue-body)" stroke="#103040" stroke-width="1.8"/>
+    <circle cx="100" cy="125" r="12" fill="url(#longjue-gold)" opacity=".85"/>
+    <path d="M60 100c20-25 60-25 80 0" fill="none" stroke="url(#longjue-acc)" stroke-width="2.5"/>
+    <path d="M60 150c20 25 60 25 80 0" fill="none" stroke="url(#longjue-acc)" stroke-width="2.5"/>
+    <polygon points="114.0,70.0 104.0,72.9 104.3,83.3 98.5,74.8 88.7,78.2 95.0,70.0 88.7,61.8 98.5,65.2 104.3,56.7 104.0,67.1" fill="url(#longjue-gold)" opacity=".8"/>
+  </g>
+<g fill="url(#longjue-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#2080b0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

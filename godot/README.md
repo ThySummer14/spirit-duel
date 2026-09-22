@@ -68,3 +68,16 @@ scripts/godot-verify.sh
 - 编成：资料包筛选（全部/灵枢原创/经典包/不夜之火）+ 名称搜索；三列卡片点选即选用；卡表隐藏衍生牌并显示原案。
 - 战局：升勾阶段金色高亮可升角色并列出名字；手牌底部显示不可用原因（先升勾/对手回合/费用等）；检视浮层含被动/觉醒全文与破甲/充能/气绝倒计时。
 - 快捷键：`P` 放弃响应，`Esc` 取消选目标，`Enter` 结束回合，`1-9` 出牌，`Tab` 切换角色。
+
+
+## 多局游玩压测
+
+```sh
+# 随机编成 AI vs AI
+Godot --headless --path godot --script res://scripts/playtest_burst.gd -- 60
+
+# 固定阵容 + 注入响应/占卜牌
+Godot --headless --path godot --script res://scripts/playtest_focus.gd -- 20
+```
+
+`PLAYTEST_OK` / `FOCUS_OK` 表示无卡死、均有胜负。AI 会自动处理响应 pass 与占卜置顶。

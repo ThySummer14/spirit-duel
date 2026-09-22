@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="xingchen_a-t xingchen_a-d">
+  <title id="xingchen_a-t">觉醒·尘轨</title>
+  <desc id="xingchen_a-d">灵枢原创式神立绘</desc>
+  <defs>
+    <linearGradient id="xingchen_a-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2c2818"/><stop offset="1" stop-color="#443c20"/>
+    </linearGradient>
+    <radialGradient id="xingchen_a-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#f0e8b0" stop-opacity=".4"/><stop offset="1" stop-color="#d0c080" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="xingchen_a-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0e8b0"/><stop offset="1" stop-color="#d0c080"/>
+    </linearGradient>
+    <linearGradient id="xingchen_a-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0e8b0"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#xingchen_a-bg)"/>
+  <rect width="200" height="260" fill="url(#xingchen_a-halo)"/>
+  <circle cx="100" cy="115" r="72" fill="none" stroke="#c9762c" stroke-width="3" opacity=".7"/>
+  <g filter="url(#p-glow)"><circle cx="100" cy="115" r="38" fill="url(#p-body)"/><circle cx="100" cy="115" r="22" fill="none" stroke="url(#p-accent)" stroke-width="4"/><circle cx="130" cy="85" r="6" fill="#f8f0c0"/><circle cx="70" cy="145" r="4" fill="#f8f0c0"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#f0e8d0">尘轨</text>
+</svg>

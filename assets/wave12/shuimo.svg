@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="shuimo-t shuimo-d">
+  <title id="shuimo-t">潮语</title>
+  <desc id="shuimo-d">灵枢原创式神立绘</desc>
+  <defs>
+    <linearGradient id="shuimo-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#142828"/><stop offset="1" stop-color="#1e3c3c"/>
+    </linearGradient>
+    <radialGradient id="shuimo-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#a0d8e0" stop-opacity=".4"/><stop offset="1" stop-color="#5a9aaa" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shuimo-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a0d8e0"/><stop offset="1" stop-color="#5a9aaa"/>
+    </linearGradient>
+    <linearGradient id="shuimo-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a0d8e0"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#shuimo-bg)"/>
+  <rect width="200" height="260" fill="url(#shuimo-halo)"/>
+  
+  <g><ellipse cx="100" cy="120" rx="45" ry="50" fill="url(#p-body)"/><path d="M55 140 Q100 100 145 140" stroke="url(#p-accent)" stroke-width="8" fill="none"/><circle cx="85" cy="110" r="8" fill="#e8f4f8"/><circle cx="115" cy="110" r="8" fill="#e8f4f8"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#f0e8d0">潮语</text>
+</svg>
