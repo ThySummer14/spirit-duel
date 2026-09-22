@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "name": "divination-choice",
+  "seed": 888001,
+  "lineupA": [
+    "ink",
+    "ember",
+    "basalt",
+    "lumen"
+  ],
+  "lineupB": [
+    "storm",
+    "kongo",
+    "frostblade",
+    "rime"
+  ],
+  "notes": "占卜：打出 index-page 展示顶 3 张，选择 flash-thrust 置顶后恢复结算栈。",
+  "injectHand": [
+    {
+      "player": 0,
+      "card": "index-page"
+    }
+  ],
+  "injectDeckTop": [
+    {
+      "player": 0,
+      "card": "flash-thrust"
+    },
+    {
+      "player": 0,
+      "card": "brace"
+    },
+    {
+      "player": 0,
+      "card": "mend"
+    }
+  ],
+  "commands": [
+    {
+      "seq": 1,
+      "type": "level-up",
+      "player": 0,
+      "unit": 1
+    },
+    {
+      "seq": 2,
+      "type": "play-card",
+      "player": 0,
+      "card": "index-page"
+    },
+    {
+      "seq": 3,
+      "type": "divination-choice",
+      "player": 0,
+      "card": "flash-thrust"
+    },
+    {
+      "seq": 4,
+      "type": "end-turn",
+      "player": 0
+    },
+    {
+      "seq": 5,
+      "type": "end-turn",
+      "player": 1
+    }
+  ],
+  "injectLevels": [
+    {
+      "player": 0,
+      "unit": 0,
+      "level": 2
+    },
+    {
+      "player": 0,
+      "unit": 1,
+      "level": 1
+    },
+    {
+      "player": 0,
+      "unit": 2,
+      "level": 1
+    },
+    {
+      "player": 0,
+      "unit": 3,
+      "level": 1
+    }
+  ]
+}

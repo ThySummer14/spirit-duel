@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "name": "response-play-nest",
+  "seed": 777002,
+  "lineupA": ["ember", "basalt", "lumen", "rime"],
+  "lineupB": ["yaodaoji", "jutun-tongzi", "bingyong", "taohuayao"],
+  "notes": "响应打出连锁：assault 窗口 → p1 打出见切（嵌套）→ 双方 pass 结算见切 → 原 assault 再开窗 → 双方 pass 结算。",
+  "injectHand": [
+    { "player": 0, "card": "flash-thrust" },
+    { "player": 1, "card": "c10102" }
+  ],
+  "injectEnergy": [{ "player": 1, "amount": 2 }],
+  "commands": [
+    { "seq": 1, "type": "level-up", "player": 0, "unit": 1 },
+    { "seq": 2, "type": "play-card", "player": 0, "card": "flash-thrust" },
+    { "seq": 3, "type": "play-card", "player": 1, "card": "c10102" },
+    { "seq": 4, "type": "pass-response", "player": 0 },
+    { "seq": 5, "type": "pass-response", "player": 1 },
+    { "seq": 6, "type": "pass-response", "player": 1 },
+    { "seq": 7, "type": "pass-response", "player": 0 },
+    { "seq": 8, "type": "end-turn", "player": 0 }
+  ]
+}

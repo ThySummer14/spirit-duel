@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "name": "combat-keywords",
+  "seed": 424242,
+  "lineupA": ["storm", "frostblade", "kongo", "ember"],
+  "lineupB": ["basalt", "lumen", "rime", "ink"],
+  "notes": "贯通/连击/先攻/远程/暴击出击牌。若手中无对应牌则该步失败，报告会列出。",
+  "commands": [
+    { "seq": 1, "type": "level-up", "player": 0, "unit": 0 },
+    { "seq": 2, "type": "level-up", "player": 0, "unit": 1 },
+    { "seq": 3, "type": "play-card", "player": 0, "card": "lightning-pierce" },
+    { "seq": 4, "type": "play-card", "player": 0, "card": "twin-flame" },
+    { "seq": 5, "type": "play-card", "player": 0, "card": "static-dash" },
+    { "seq": 6, "type": "play-card", "player": 0, "card": "glacier-crack" },
+    { "seq": 7, "type": "end-turn", "player": 0 },
+    { "seq": 8, "type": "level-up", "player": 1, "unit": 0 },
+    { "seq": 9, "type": "attack", "player": 1, "unit": 0 },
+    { "seq": 10, "type": "end-turn", "player": 1 },
+    { "seq": 11, "type": "play-card", "player": 0, "card": "combustion-edge" },
+    { "seq": 12, "type": "end-turn", "player": 0 },
+    { "seq": 13, "type": "end-turn", "player": 1 }
+  ]
+}

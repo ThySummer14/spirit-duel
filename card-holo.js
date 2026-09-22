@@ -60,7 +60,7 @@ let lastTime = 0;
 
 
 const POINTER_PROPERTIES = ['--pointer-x', '--pointer-y', '--holo-near', '--holo-rx',
-  '--holo-ry', '--holo-bg-x', '--holo-bg-y', '--holo-opacity'];
+  '--holo-ry', '--holo-bg-x', '--holo-bg-y', '--holo-opacity', '--holo-depth-x', '--holo-depth-y'];
 
 function clearActiveCards() {
   if (rafId) cancelAnimationFrame(rafId);
@@ -96,6 +96,8 @@ function writeVars(el, state) {
   const style = el.style;
   style.setProperty('--pointer-x', `${state.px.value.toFixed(2)}%`);
   style.setProperty('--pointer-y', `${state.py.value.toFixed(2)}%`);
+  style.setProperty('--holo-depth-x', `${((state.px.value - 50) * 0.06).toFixed(2)}px`);
+  style.setProperty('--holo-depth-y', `${((state.py.value - 50) * 0.06).toFixed(2)}px`);
   style.setProperty('--holo-near', state.near.value.toFixed(3));
   style.setProperty('--holo-rx', `${state.rx.value.toFixed(2)}deg`);
   style.setProperty('--holo-ry', `${state.ry.value.toFixed(2)}deg`);

@@ -1,0 +1,1317 @@
+{
+  "side": "js",
+  "sample": "response-play-nest",
+  "seed": 777002,
+  "snapshot": {
+    "turn": 2,
+    "current": 1,
+    "winner": -1,
+    "phase": "main",
+    "responseWindow": false,
+    "stackDepth": 0,
+    "pendingChoice": false,
+    "encourage": {
+      "attack": 0,
+      "shield": 0
+    },
+    "players": [
+      {
+        "avatarHp": 26,
+        "energy": 1,
+        "handCount": 5,
+        "deckCount": 27,
+        "attackUsed": false,
+        "levelUpUsed": true,
+        "frontUnitId": "player:ember",
+        "units": [
+          {
+            "id": "ember",
+            "hp": 6,
+            "maxHp": 9,
+            "attack": 3,
+            "shield": 0,
+            "knockout": 0,
+            "frozen": 0,
+            "level": 1,
+            "awakened": false,
+            "formId": null,
+            "front": true
+          },
+          {
+            "id": "basalt",
+            "hp": 12,
+            "maxHp": 12,
+            "attack": 1,
+            "shield": 0,
+            "knockout": 0,
+            "frozen": 0,
+            "level": 1,
+            "awakened": false,
+            "formId": null,
+            "front": false
+          },
+          {
+            "id": "lumen",
+            "hp": 8,
+            "maxHp": 8,
+            "attack": 2,
+            "shield": 0,
+            "knockout": 0,
+            "frozen": 0,
+            "level": 0,
+            "awakened": false,
+            "formId": null,
+            "front": false
+          },
+          {
+            "id": "rime",
+            "hp": 9,
+            "maxHp": 9,
+            "attack": 2,
+            "shield": 0,
+            "knockout": 0,
+            "frozen": 0,
+            "level": 0,
+            "awakened": false,
+            "formId": null,
+            "front": false
+          }
+        ]
+      },
+      {
+        "avatarHp": 29,
+        "energy": 2,
+        "handCount": 5,
+        "deckCount": 27,
+        "attackUsed": false,
+        "levelUpUsed": false,
+        "frontUnitId": null,
+        "units": [
+          {
+            "id": "yaodaoji",
+            "hp": 0,
+            "maxHp": 4,
+            "attack": 3,
+            "shield": 0,
+            "knockout": 1,
+            "frozen": 0,
+            "level": 1,
+            "awakened": false,
+            "formId": null,
+            "front": false
+          },
+          {
+            "id": "jutun-tongzi",
+            "hp": 5,
+            "maxHp": 5,
+            "attack": 2,
+            "shield": 0,
+            "knockout": 0,
+            "frozen": 0,
+            "level": 0,
+            "awakened": false,
+            "formId": null,
+            "front": false
+          },
+          {
+            "id": "bingyong",
+            "hp": 6,
+            "maxHp": 6,
+            "attack": 1,
+            "shield": 2,
+            "knockout": 0,
+            "frozen": 0,
+            "level": 0,
+            "awakened": false,
+            "formId": null,
+            "front": false
+          },
+          {
+            "id": "taohuayao",
+            "hp": 6,
+            "maxHp": 6,
+            "attack": 1,
+            "shield": 0,
+            "knockout": 0,
+            "frozen": 0,
+            "level": 0,
+            "awakened": false,
+            "formId": null,
+            "front": false
+          }
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "seq": 1,
+      "type": "level-up",
+      "ok": true,
+      "after": {
+        "turn": 1,
+        "current": 0,
+        "winner": -1,
+        "phase": "main",
+        "responseWindow": false,
+        "stackDepth": 0,
+        "pendingChoice": false,
+        "encourage": {
+          "attack": 0,
+          "shield": 0
+        },
+        "players": [
+          {
+            "avatarHp": 30,
+            "energy": 2,
+            "handCount": 6,
+            "deckCount": 27,
+            "attackUsed": false,
+            "levelUpUsed": true,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "ember",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "basalt",
+                "hp": 12,
+                "maxHp": 12,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "lumen",
+                "hp": 8,
+                "maxHp": 8,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "rime",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          },
+          {
+            "avatarHp": 30,
+            "energy": 2,
+            "handCount": 5,
+            "deckCount": 28,
+            "attackUsed": false,
+            "levelUpUsed": false,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "yaodaoji",
+                "hp": 4,
+                "maxHp": 4,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "jutun-tongzi",
+                "hp": 5,
+                "maxHp": 5,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "bingyong",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "taohuayao",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "seq": 2,
+      "type": "play-card",
+      "ok": true,
+      "after": {
+        "turn": 1,
+        "current": 0,
+        "winner": -1,
+        "phase": "response",
+        "responseWindow": true,
+        "stackDepth": 2,
+        "pendingChoice": false,
+        "encourage": {
+          "attack": 0,
+          "shield": 0
+        },
+        "players": [
+          {
+            "avatarHp": 30,
+            "energy": 1,
+            "handCount": 5,
+            "deckCount": 27,
+            "attackUsed": false,
+            "levelUpUsed": true,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "ember",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "basalt",
+                "hp": 12,
+                "maxHp": 12,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "lumen",
+                "hp": 8,
+                "maxHp": 8,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "rime",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          },
+          {
+            "avatarHp": 30,
+            "energy": 2,
+            "handCount": 5,
+            "deckCount": 28,
+            "attackUsed": false,
+            "levelUpUsed": false,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "yaodaoji",
+                "hp": 4,
+                "maxHp": 4,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "jutun-tongzi",
+                "hp": 5,
+                "maxHp": 5,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "bingyong",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "taohuayao",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "seq": 3,
+      "type": "play-card",
+      "ok": true,
+      "after": {
+        "turn": 1,
+        "current": 0,
+        "winner": -1,
+        "phase": "response",
+        "responseWindow": true,
+        "stackDepth": 4,
+        "pendingChoice": false,
+        "encourage": {
+          "attack": 0,
+          "shield": 0
+        },
+        "players": [
+          {
+            "avatarHp": 30,
+            "energy": 1,
+            "handCount": 5,
+            "deckCount": 27,
+            "attackUsed": false,
+            "levelUpUsed": true,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "ember",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "basalt",
+                "hp": 12,
+                "maxHp": 12,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "lumen",
+                "hp": 8,
+                "maxHp": 8,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "rime",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          },
+          {
+            "avatarHp": 30,
+            "energy": 1,
+            "handCount": 4,
+            "deckCount": 28,
+            "attackUsed": false,
+            "levelUpUsed": false,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "yaodaoji",
+                "hp": 4,
+                "maxHp": 4,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "jutun-tongzi",
+                "hp": 5,
+                "maxHp": 5,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "bingyong",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "taohuayao",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "seq": 4,
+      "type": "pass-response",
+      "ok": true,
+      "after": {
+        "turn": 1,
+        "current": 0,
+        "winner": -1,
+        "phase": "response",
+        "responseWindow": true,
+        "stackDepth": 4,
+        "pendingChoice": false,
+        "encourage": {
+          "attack": 0,
+          "shield": 0
+        },
+        "players": [
+          {
+            "avatarHp": 30,
+            "energy": 1,
+            "handCount": 5,
+            "deckCount": 27,
+            "attackUsed": false,
+            "levelUpUsed": true,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "ember",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "basalt",
+                "hp": 12,
+                "maxHp": 12,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "lumen",
+                "hp": 8,
+                "maxHp": 8,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "rime",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          },
+          {
+            "avatarHp": 30,
+            "energy": 1,
+            "handCount": 4,
+            "deckCount": 28,
+            "attackUsed": false,
+            "levelUpUsed": false,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "yaodaoji",
+                "hp": 4,
+                "maxHp": 4,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "jutun-tongzi",
+                "hp": 5,
+                "maxHp": 5,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "bingyong",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "taohuayao",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "seq": 5,
+      "type": "pass-response",
+      "ok": true,
+      "after": {
+        "turn": 1,
+        "current": 0,
+        "winner": -1,
+        "phase": "response",
+        "responseWindow": true,
+        "stackDepth": 2,
+        "pendingChoice": false,
+        "encourage": {
+          "attack": 0,
+          "shield": 0
+        },
+        "players": [
+          {
+            "avatarHp": 26,
+            "energy": 1,
+            "handCount": 5,
+            "deckCount": 27,
+            "attackUsed": false,
+            "levelUpUsed": true,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "ember",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "basalt",
+                "hp": 12,
+                "maxHp": 12,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "lumen",
+                "hp": 8,
+                "maxHp": 8,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "rime",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          },
+          {
+            "avatarHp": 30,
+            "energy": 1,
+            "handCount": 4,
+            "deckCount": 28,
+            "attackUsed": false,
+            "levelUpUsed": false,
+            "frontUnitId": "ai:yaodaoji",
+            "units": [
+              {
+                "id": "yaodaoji",
+                "hp": 4,
+                "maxHp": 4,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": true
+              },
+              {
+                "id": "jutun-tongzi",
+                "hp": 5,
+                "maxHp": 5,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "bingyong",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "taohuayao",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "seq": 6,
+      "type": "pass-response",
+      "ok": true,
+      "after": {
+        "turn": 1,
+        "current": 0,
+        "winner": -1,
+        "phase": "response",
+        "responseWindow": true,
+        "stackDepth": 2,
+        "pendingChoice": false,
+        "encourage": {
+          "attack": 0,
+          "shield": 0
+        },
+        "players": [
+          {
+            "avatarHp": 26,
+            "energy": 1,
+            "handCount": 5,
+            "deckCount": 27,
+            "attackUsed": false,
+            "levelUpUsed": true,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "ember",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "basalt",
+                "hp": 12,
+                "maxHp": 12,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "lumen",
+                "hp": 8,
+                "maxHp": 8,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "rime",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          },
+          {
+            "avatarHp": 30,
+            "energy": 1,
+            "handCount": 4,
+            "deckCount": 28,
+            "attackUsed": false,
+            "levelUpUsed": false,
+            "frontUnitId": "ai:yaodaoji",
+            "units": [
+              {
+                "id": "yaodaoji",
+                "hp": 4,
+                "maxHp": 4,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": true
+              },
+              {
+                "id": "jutun-tongzi",
+                "hp": 5,
+                "maxHp": 5,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "bingyong",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "taohuayao",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "seq": 7,
+      "type": "pass-response",
+      "ok": true,
+      "after": {
+        "turn": 1,
+        "current": 0,
+        "winner": -1,
+        "phase": "main",
+        "responseWindow": false,
+        "stackDepth": 0,
+        "pendingChoice": false,
+        "encourage": {
+          "attack": 0,
+          "shield": 0
+        },
+        "players": [
+          {
+            "avatarHp": 26,
+            "energy": 1,
+            "handCount": 5,
+            "deckCount": 27,
+            "attackUsed": false,
+            "levelUpUsed": true,
+            "frontUnitId": "player:ember",
+            "units": [
+              {
+                "id": "ember",
+                "hp": 6,
+                "maxHp": 9,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": true
+              },
+              {
+                "id": "basalt",
+                "hp": 12,
+                "maxHp": 12,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "lumen",
+                "hp": 8,
+                "maxHp": 8,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "rime",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          },
+          {
+            "avatarHp": 29,
+            "energy": 1,
+            "handCount": 4,
+            "deckCount": 28,
+            "attackUsed": false,
+            "levelUpUsed": false,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "yaodaoji",
+                "hp": 0,
+                "maxHp": 4,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 2,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "jutun-tongzi",
+                "hp": 5,
+                "maxHp": 5,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "bingyong",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "taohuayao",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "seq": 8,
+      "type": "end-turn",
+      "ok": true,
+      "after": {
+        "turn": 2,
+        "current": 1,
+        "winner": -1,
+        "phase": "main",
+        "responseWindow": false,
+        "stackDepth": 0,
+        "pendingChoice": false,
+        "encourage": {
+          "attack": 0,
+          "shield": 0
+        },
+        "players": [
+          {
+            "avatarHp": 26,
+            "energy": 1,
+            "handCount": 5,
+            "deckCount": 27,
+            "attackUsed": false,
+            "levelUpUsed": true,
+            "frontUnitId": "player:ember",
+            "units": [
+              {
+                "id": "ember",
+                "hp": 6,
+                "maxHp": 9,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": true
+              },
+              {
+                "id": "basalt",
+                "hp": 12,
+                "maxHp": 12,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "lumen",
+                "hp": 8,
+                "maxHp": 8,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "rime",
+                "hp": 9,
+                "maxHp": 9,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          },
+          {
+            "avatarHp": 29,
+            "energy": 2,
+            "handCount": 5,
+            "deckCount": 27,
+            "attackUsed": false,
+            "levelUpUsed": false,
+            "frontUnitId": null,
+            "units": [
+              {
+                "id": "yaodaoji",
+                "hp": 0,
+                "maxHp": 4,
+                "attack": 3,
+                "shield": 0,
+                "knockout": 1,
+                "frozen": 0,
+                "level": 1,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "jutun-tongzi",
+                "hp": 5,
+                "maxHp": 5,
+                "attack": 2,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "bingyong",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 2,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              },
+              {
+                "id": "taohuayao",
+                "hp": 6,
+                "maxHp": 6,
+                "attack": 1,
+                "shield": 0,
+                "knockout": 0,
+                "frozen": 0,
+                "level": 0,
+                "awakened": false,
+                "formId": null,
+                "front": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "initialStateHash": 14128
+}

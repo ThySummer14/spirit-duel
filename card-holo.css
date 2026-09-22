@@ -347,3 +347,10 @@ html[data-theme="day"] .reveal-card.is-holo .card-holo-sheen { mix-blend-mode: s
   .reveal-card.is-holo-epic::after { animation: none; opacity: 0.25; }
   .card-reveal.is-holo .card-holo-sheen { animation: none; opacity: 0.28; }
 }
+
+/* 借鉴 Holo Card Studio 的分层深度思路；文字留在稳定的信息平面。 */
+@media (prefers-reduced-motion: no-preference) {
+  .is-holo .card-art { overflow:hidden; }
+  .is-holo .card-art img { transform:translate(var(--holo-depth-x, 0px), var(--holo-depth-y, 0px)) scale(1.04); }
+}
+.hand-preview-card.is-holo > :is(.card-name, .card-text, .card-tags, .card-meta, .card-cost, .card-level) { z-index:8; }

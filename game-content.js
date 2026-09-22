@@ -1,10 +1,33 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=d8096adc';
+import { CARD_KEYWORDS } from './game-keywords.js?v=9d3113fe';
+import {
+  CLASSIC_CARD_DEFINITIONS,
+  CLASSIC_PACK_ID,
+  CLASSIC_PACK_NAME,
+  CLASSIC_UNIT_DEFINITIONS,
+} from './game-content-classic.js?v=1';
+import {
+  WAVE2_CARD_DEFINITIONS,
+  WAVE2_PACK_ID,
+  WAVE2_PACK_NAME,
+  WAVE2_UNIT_DEFINITIONS,
+} from './game-content-wave2.js?v=1';
+
+export {
+  CLASSIC_CARD_DEFINITIONS,
+  CLASSIC_PACK_ID,
+  CLASSIC_PACK_NAME,
+  CLASSIC_UNIT_DEFINITIONS,
+  WAVE2_CARD_DEFINITIONS,
+  WAVE2_PACK_ID,
+  WAVE2_PACK_NAME,
+  WAVE2_UNIT_DEFINITIONS,
+};
 
 export const GAME_RULES = Object.freeze({
   lineupSize: 4,
   cardsPerUnit: 8,
   copiesPerCard: 2,
-  minCardDefinitionsPerUnit: 12,
+  minCardDefinitionsPerUnit: 8,
   startingAvatarHp: 30,
   maxEnergy: 2,
   openingHandSize: 5,
@@ -18,6 +41,12 @@ export const GAME_RULES = Object.freeze({
 
 export const DEFAULT_PLAYER_LINEUP = Object.freeze(['ember', 'basalt', 'lumen', 'rime']);
 export const DEFAULT_ENEMY_LINEUP = Object.freeze(['storm', 'basalt', 'lumen', 'ink']);
+
+export const CONTENT_PACKS = Object.freeze([
+  Object.freeze({ id: 'origin', name: '灵枢原创', pack: 'origin' }),
+  Object.freeze({ id: CLASSIC_PACK_ID, name: CLASSIC_PACK_NAME, pack: CLASSIC_PACK_ID }),
+  Object.freeze({ id: WAVE2_PACK_ID, name: WAVE2_PACK_NAME, pack: WAVE2_PACK_ID }),
+]);
 
 export function getAllUnitIds() {
   return UNIT_DEFINITIONS.map((unit) => unit.id);
@@ -193,6 +222,10 @@ export const UNIT_DEFINITIONS = Object.freeze([
       { id: 'turn-heal-awakened', event: 'turn-started', effect: 'passive-heal-shield-self-if-front', params: { amount: 2, shield: 1 } },
     ]),
   },
+  // 经典基础包 29 式神
+  ...CLASSIC_UNIT_DEFINITIONS,
+  // 妖狐·怪谈·不夜之火（wave2）9 式神
+  ...WAVE2_UNIT_DEFINITIONS,
 ]);
 
 export const CARD_TYPE_LABELS = Object.freeze({
@@ -724,10 +757,18 @@ export const CARD_DEFINITIONS = Object.freeze([
     cost: 2, rarity: 'ssr', deckLimit: 2, tags: ['爆发', '出击', '暴击', '贯通'],
     keywords: [CARD_KEYWORDS.CRIT, CARD_KEYWORDS.PIERCE], combatOption: { shieldThreshold: 3, bonusAttack: 2 },
   }),
+  // 经典基础包卡牌与 token
+  ...CLASSIC_CARD_DEFINITIONS,
+  // wave2 卡牌与 token
+  ...WAVE2_CARD_DEFINITIONS,
 ]);
 
 const UNIT_MAP = new Map(UNIT_DEFINITIONS.map((unit) => [unit.id, unit]));
 const CARD_MAP = new Map(CARD_DEFINITIONS.map((definition) => [definition.id, definition]));
+
+export function getPackOfUnit(unitId) {
+  return getUnitDefinition(unitId)?.pack ?? 'origin';
+}
 
 export function getUnitDefinition(unitId) {
   return UNIT_MAP.get(unitId);

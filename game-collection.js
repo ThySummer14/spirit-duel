@@ -9,7 +9,7 @@
  * - 偏好由 app.js 负责持久化到 localStorage
  */
 
-import { CARD_DEFINITIONS } from './game-content.js?v=d8096adc';
+import { CARD_DEFINITIONS } from './game-content.js?v=9d3113fe';
 
 export const COLLECTION_RULES = Object.freeze({
   version: 3,
@@ -22,8 +22,8 @@ export const COLLECTION_RULES = Object.freeze({
   pityLimit: 25,
   ssrPityLimit: 40,
   maxCopies: 2,
-  winReward: 50,
-  lossReward: 20,
+  winReward: 300,
+  lossReward: 150,
   dupeValue: Object.freeze({ common: 5, rare: 25, epic: 100, ssr: 400 }),
   craftCost: Object.freeze({ common: 40, rare: 200, epic: 600, ssr: 2400 }),
 });
@@ -58,6 +58,27 @@ export function createInitialCollection() {
 
 export function ownedCopies(collection, cardId) {
   return collection?.owned?.[cardId] ?? 0;
+}
+
+/** 试用只改变构筑可用数量，不写入收藏或闪卡权益。 */
+export function availableDeckCopies(collection, cardId, trial = false) {
+  const card = CARD_DEFINITIONS.find((candidate) => candidate.id === cardId);
+  if (!card) return 0;
+  const limit = card.deckLimit ?? COLLECTION_RULES.maxCopies;
+  return Math.min(limit, trial ? limit : ownedCopies(collection, cardId));
+}
+
+export function validateCollectionDeck(collection, deck, trial = false) {
+  const counts = new Map();
+  for (const id of deck.cardIds) counts.set(id, (counts.get(id) ?? 0) + 1);
+  const errors = [];
+  for (const [id, count] of counts) {
+    if (count > availableDeckCopies(collection, id, trial)) {
+      const card = CARD_DEFINITIONS.find((candidate) => candidate.id === id);
+      errors.push(trial ? `「${card?.name ?? id}」超过同名上限。` : `「${card?.name ?? id}」收藏不足，请开启全卡试用或调整构筑。`);
+    }
+  }
+  return { valid: errors.length === 0, errors };
 }
 
 export function ownedHoloCopies(collection, cardId) {

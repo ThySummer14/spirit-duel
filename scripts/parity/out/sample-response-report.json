@@ -1,0 +1,13 @@
+{
+  "sample": "response-pass-chain",
+  "seed": 777001,
+  "match": true,
+  "finalDiffs": [],
+  "stepDiffs": [],
+  "summary": {
+    "finalDiffCount": 0,
+    "stepDiffCount": 0,
+    "jsSteps": 8,
+    "godotSteps": 8
+  }
+}

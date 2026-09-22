@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">跳跳弟弟</title>
+  <desc id="desc">跳跃与毒泡：尖耳少年腾跃，毒泡浮游</desc>
+  <defs>
+    <linearGradient id="tiaotiaodidi-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e140c"/>
+      <stop offset=".55" stop-color="#182018"/>
+      <stop offset="1" stop-color="#0a0e0a"/>
+    </linearGradient>
+    <radialGradient id="tiaotiaodidi-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#90c060" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#70a830" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#70a830" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tiaotiaodidi-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c8e0b0"/>
+      <stop offset=".55" stop-color="#80a860"/>
+      <stop offset="1" stop-color="#70a830"/>
+    </linearGradient>
+    <linearGradient id="tiaotiaodidi-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#70a830"/>
+      <stop offset="1" stop-color="#305010"/>
+    </linearGradient>
+    <linearGradient id="tiaotiaodidi-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#tiaotiaodidi-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#tiaotiaodidi-halo)"/>
+  <circle cx="56" cy="70" r="12" fill="url(#tiaotiaodidi-acc)" opacity=".35" stroke="url(#tiaotiaodidi-acc)" stroke-width="1.2"/>
+  <circle cx="56" cy="70" r="4" fill="url(#tiaotiaodidi-acc)" opacity=".6"/>
+  <circle cx="150" cy="55" r="16" fill="url(#tiaotiaodidi-acc)" opacity=".3" stroke="url(#tiaotiaodidi-acc)" stroke-width="1.2"/>
+  <circle cx="150" cy="55" r="5" fill="url(#tiaotiaodidi-acc)" opacity=".55"/>
+  <circle cx="168" cy="100" r="9" fill="url(#tiaotiaodidi-acc)" opacity=".35"/>
+  <circle cx="38" cy="110" r="7" fill="url(#tiaotiaodidi-acc)" opacity=".3"/>
+  <ellipse cx="100" cy="130" rx="32" ry="36" fill="url(#tiaotiaodidi-body)" opacity=".8" stroke="#2a3820" stroke-width="1.8"/>
+  <path d="M84 78 78 58l18 12M116 78l6-20-18 12" fill="none" stroke="#2a3820" stroke-width="2.2" stroke-linecap="round"/>
+  <ellipse cx="86" cy="124" rx="7" ry="8" fill="#1a2810"/><ellipse cx="114" cy="124" rx="7" ry="8" fill="#1a2810"/>
+  <circle cx="88" cy="122" r="2.5" fill="#b0e040"/><circle cx="116" cy="122" r="2.5" fill="#b0e040"/>
+  <path d="M90 148c6 8 14 8 20 0" stroke="#2a3820" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M88 158c4 4 20 4 24 0" stroke="#6a8830" stroke-width="1.2" fill="none" opacity=".6"/>
+  <path d="M78 172c-6 10-8 22-6 32h56c2-10 0-22-6-32-8 6-36 6-44 0Z" fill="url(#tiaotiaodidi-body)" opacity=".55"/>
+  <path d="M82 200c-4 6-4 12 0 16M118 200c4 6 4 12 0 16" stroke="#2a3820" stroke-width="2" fill="none" stroke-linecap="round"/>
+<g fill="url(#tiaotiaodidi-acc)">
+    <circle cx="70" cy="90" r="2" opacity=".5"/>
+    <circle cx="134" cy="85" r="1.8" opacity=".5"/>
+    <circle cx="160" cy="150" r="2" opacity=".6"/>
+    <circle cx="44" cy="160" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.5" opacity=".45"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#70a830" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

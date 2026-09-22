@@ -1,0 +1,878 @@
+{
+	"sample": "fortune-encourage",
+	"seed": 888002,
+	"side": "godot",
+	"snapshot": {
+		"current": 1,
+		"encourage": {
+			"attack": 0,
+			"shield": 0
+		},
+		"pendingChoice": false,
+		"phase": "main",
+		"players": [
+			{
+				"attackUsed": true,
+				"avatarHp": 30,
+				"deckCount": 27,
+				"energy": 1,
+				"frontUnitId": "player:frostblade",
+				"handCount": 5,
+				"levelUpUsed": true,
+				"units": [
+					{
+						"attack": 2,
+						"awakened": false,
+						"formId": null,
+						"front": false,
+						"frozen": 0,
+						"hp": 8,
+						"id": "lumen",
+						"knockout": 0,
+						"level": 1,
+						"maxHp": 8,
+						"shield": 0
+					},
+					{
+						"attack": 3,
+						"awakened": false,
+						"formId": null,
+						"front": false,
+						"frozen": 0,
+						"hp": 9,
+						"id": "ember",
+						"knockout": 0,
+						"level": 1,
+						"maxHp": 9,
+						"shield": 0
+					},
+					{
+						"attack": 3,
+						"awakened": false,
+						"formId": null,
+						"front": true,
+						"frozen": 0,
+						"hp": 8,
+						"id": "frostblade",
+						"knockout": 0,
+						"level": 2,
+						"maxHp": 8,
+						"shield": 2
+					},
+					{
+						"attack": 1,
+						"awakened": false,
+						"formId": null,
+						"front": false,
+						"frozen": 0,
+						"hp": 12,
+						"id": "basalt",
+						"knockout": 0,
+						"level": 1,
+						"maxHp": 12,
+						"shield": 0
+					}
+				]
+			},
+			{
+				"attackUsed": false,
+				"avatarHp": 25,
+				"deckCount": 27,
+				"energy": 2,
+				"frontUnitId": null,
+				"handCount": 5,
+				"levelUpUsed": false,
+				"units": [
+					{
+						"attack": 3,
+						"awakened": false,
+						"formId": null,
+						"front": false,
+						"frozen": 0,
+						"hp": 6,
+						"id": "storm",
+						"knockout": 0,
+						"level": 1,
+						"maxHp": 8,
+						"shield": 0
+					},
+					{
+						"attack": 2,
+						"awakened": false,
+						"formId": null,
+						"front": false,
+						"frozen": 0,
+						"hp": 13,
+						"id": "kongo",
+						"knockout": 0,
+						"level": 0,
+						"maxHp": 13,
+						"shield": 0
+					},
+					{
+						"attack": 2,
+						"awakened": false,
+						"formId": null,
+						"front": false,
+						"frozen": 0,
+						"hp": 9,
+						"id": "rime",
+						"knockout": 0,
+						"level": 0,
+						"maxHp": 9,
+						"shield": 0
+					},
+					{
+						"attack": 2,
+						"awakened": false,
+						"formId": null,
+						"front": false,
+						"frozen": 0,
+						"hp": 10,
+						"id": "ink",
+						"knockout": 0,
+						"level": 0,
+						"maxHp": 10,
+						"shield": 0
+					}
+				]
+			}
+		],
+		"responseWindow": false,
+		"stackDepth": 0,
+		"turn": 2,
+		"winner": -1
+	},
+	"steps": [
+		{
+			"after": {
+				"current": 0,
+				"encourage": {
+					"attack": 0,
+					"shield": 0
+				},
+				"pendingChoice": false,
+				"phase": "main",
+				"players": [
+					{
+						"attackUsed": false,
+						"avatarHp": 30,
+						"deckCount": 27,
+						"energy": 4,
+						"frontUnitId": null,
+						"handCount": 7,
+						"levelUpUsed": true,
+						"units": [
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "lumen",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "ember",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "frostblade",
+								"knockout": 0,
+								"level": 2,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 1,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 12,
+								"id": "basalt",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 12,
+								"shield": 0
+							}
+						]
+					},
+					{
+						"attackUsed": false,
+						"avatarHp": 30,
+						"deckCount": 28,
+						"energy": 0,
+						"frontUnitId": null,
+						"handCount": 4,
+						"levelUpUsed": false,
+						"units": [
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "storm",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 13,
+								"id": "kongo",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 13,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "rime",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 10,
+								"id": "ink",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 10,
+								"shield": 0
+							}
+						]
+					}
+				],
+				"responseWindow": false,
+				"stackDepth": 0,
+				"turn": 1,
+				"winner": -1
+			},
+			"ok": true,
+			"seq": 1,
+			"type": "level-up"
+		},
+		{
+			"after": {
+				"current": 0,
+				"encourage": {
+					"attack": 2,
+					"shield": 1
+				},
+				"pendingChoice": false,
+				"phase": "main",
+				"players": [
+					{
+						"attackUsed": false,
+						"avatarHp": 30,
+						"deckCount": 27,
+						"energy": 3,
+						"frontUnitId": null,
+						"handCount": 6,
+						"levelUpUsed": true,
+						"units": [
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "lumen",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "ember",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "frostblade",
+								"knockout": 0,
+								"level": 2,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 1,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 12,
+								"id": "basalt",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 12,
+								"shield": 0
+							}
+						]
+					},
+					{
+						"attackUsed": false,
+						"avatarHp": 30,
+						"deckCount": 28,
+						"energy": 0,
+						"frontUnitId": null,
+						"handCount": 4,
+						"levelUpUsed": false,
+						"units": [
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "storm",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 13,
+								"id": "kongo",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 13,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "rime",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 10,
+								"id": "ink",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 10,
+								"shield": 0
+							}
+						]
+					}
+				],
+				"responseWindow": false,
+				"stackDepth": 0,
+				"turn": 1,
+				"winner": -1
+			},
+			"ok": true,
+			"seq": 2,
+			"type": "play-card"
+		},
+		{
+			"after": {
+				"current": 0,
+				"encourage": {
+					"attack": 2,
+					"shield": 1
+				},
+				"pendingChoice": false,
+				"phase": "main",
+				"players": [
+					{
+						"attackUsed": false,
+						"avatarHp": 30,
+						"deckCount": 27,
+						"energy": 2,
+						"frontUnitId": null,
+						"handCount": 5,
+						"levelUpUsed": true,
+						"units": [
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "lumen",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "ember",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "frostblade",
+								"knockout": 0,
+								"level": 2,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 1,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 12,
+								"id": "basalt",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 12,
+								"shield": 0
+							}
+						]
+					},
+					{
+						"attackUsed": false,
+						"avatarHp": 30,
+						"deckCount": 28,
+						"energy": 0,
+						"frontUnitId": null,
+						"handCount": 4,
+						"levelUpUsed": false,
+						"units": [
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 6,
+								"id": "storm",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 13,
+								"id": "kongo",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 13,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "rime",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 10,
+								"id": "ink",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 10,
+								"shield": 0
+							}
+						]
+					}
+				],
+				"responseWindow": false,
+				"stackDepth": 0,
+				"turn": 1,
+				"winner": -1
+			},
+			"ok": true,
+			"seq": 3,
+			"type": "play-card"
+		},
+		{
+			"after": {
+				"current": 0,
+				"encourage": {
+					"attack": 0,
+					"shield": 0
+				},
+				"pendingChoice": false,
+				"phase": "main",
+				"players": [
+					{
+						"attackUsed": true,
+						"avatarHp": 30,
+						"deckCount": 27,
+						"energy": 1,
+						"frontUnitId": "player:frostblade",
+						"handCount": 5,
+						"levelUpUsed": true,
+						"units": [
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "lumen",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "ember",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": true,
+								"frozen": 0,
+								"hp": 8,
+								"id": "frostblade",
+								"knockout": 0,
+								"level": 2,
+								"maxHp": 8,
+								"shield": 2
+							},
+							{
+								"attack": 1,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 12,
+								"id": "basalt",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 12,
+								"shield": 0
+							}
+						]
+					},
+					{
+						"attackUsed": false,
+						"avatarHp": 25,
+						"deckCount": 28,
+						"energy": 0,
+						"frontUnitId": null,
+						"handCount": 4,
+						"levelUpUsed": false,
+						"units": [
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 6,
+								"id": "storm",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 13,
+								"id": "kongo",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 13,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "rime",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 10,
+								"id": "ink",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 10,
+								"shield": 0
+							}
+						]
+					}
+				],
+				"responseWindow": false,
+				"stackDepth": 0,
+				"turn": 1,
+				"winner": -1
+			},
+			"ok": true,
+			"seq": 4,
+			"type": "attack"
+		},
+		{
+			"after": {
+				"current": 1,
+				"encourage": {
+					"attack": 0,
+					"shield": 0
+				},
+				"pendingChoice": false,
+				"phase": "main",
+				"players": [
+					{
+						"attackUsed": true,
+						"avatarHp": 30,
+						"deckCount": 27,
+						"energy": 1,
+						"frontUnitId": "player:frostblade",
+						"handCount": 5,
+						"levelUpUsed": true,
+						"units": [
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 8,
+								"id": "lumen",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "ember",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": true,
+								"frozen": 0,
+								"hp": 8,
+								"id": "frostblade",
+								"knockout": 0,
+								"level": 2,
+								"maxHp": 8,
+								"shield": 2
+							},
+							{
+								"attack": 1,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 12,
+								"id": "basalt",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 12,
+								"shield": 0
+							}
+						]
+					},
+					{
+						"attackUsed": false,
+						"avatarHp": 25,
+						"deckCount": 27,
+						"energy": 2,
+						"frontUnitId": null,
+						"handCount": 5,
+						"levelUpUsed": false,
+						"units": [
+							{
+								"attack": 3,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 6,
+								"id": "storm",
+								"knockout": 0,
+								"level": 1,
+								"maxHp": 8,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 13,
+								"id": "kongo",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 13,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 9,
+								"id": "rime",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 9,
+								"shield": 0
+							},
+							{
+								"attack": 2,
+								"awakened": false,
+								"formId": null,
+								"front": false,
+								"frozen": 0,
+								"hp": 10,
+								"id": "ink",
+								"knockout": 0,
+								"level": 0,
+								"maxHp": 10,
+								"shield": 0
+							}
+						]
+					}
+				],
+				"responseWindow": false,
+				"stackDepth": 0,
+				"turn": 2,
+				"winner": -1
+			},
+			"ok": true,
+			"seq": 5,
+			"type": "end-turn"
+		}
+	]
+}

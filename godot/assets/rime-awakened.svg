@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">白棱 · 霜刃 · 觉醒相</title>
+  <desc id="desc">霜晶之灵：六棱冰晶悬浮于青蓝寒雾，棱面折光如刃，碎冰环绕，冷青主调。觉醒相：${motif.desc}</desc>
+  <defs>
+    <linearGradient id="r-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1418"/>
+      <stop offset=".55" stop-color="#122028"/>
+      <stop offset="1" stop-color="#0a1014"/>
+    </linearGradient>
+    <radialGradient id="r-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#dff6ff" stop-opacity=".5"/>
+      <stop offset=".5" stop-color="#5d8797" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#5d8797" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="r-ice" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eefaff"/>
+      <stop offset=".5" stop-color="#a8d4e6"/>
+      <stop offset="1" stop-color="#5d8797"/>
+    </linearGradient>
+    <linearGradient id="r-ice-deep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9cc6dc"/>
+      <stop offset="1" stop-color="#40606e"/>
+    </linearGradient>
+    <linearGradient id="r-blade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2fbff"/>
+      <stop offset="1" stop-color="#7fb2c8"/>
+    </linearGradient>
+      <radialGradient id="awk-bloom" cx=".5" cy=".43" r=".62">
+      <stop offset="0" stop-color="#ffe9b2" stop-opacity=".20"/>
+      <stop offset=".55" stop-color="#e8b45a" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#e8b45a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="awk-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe6a8"/>
+      <stop offset=".5" stop-color="#e8b45a"/>
+      <stop offset="1" stop-color="#b9772e"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#r-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#r-halo)"/>
+  <!-- 寒雾 -->
+  <g fill="#a8d4e6" opacity=".14">
+    <ellipse cx="60" cy="180" rx="60" ry="18"/>
+    <ellipse cx="140" cy="196" rx="70" ry="16"/>
+  </g>
+  <!-- 六棱主晶 -->
+  <g transform="translate(100 112)">
+    <path d="M0-70 24-38 18 34 0 66-18 34-24-38Z" fill="url(#r-ice)" stroke="#e8f7ff" stroke-width="1.6" stroke-opacity=".8"/>
+    <path d="M0-70 24-38 0-14Z" fill="#f2fbff" opacity=".85"/>
+    <path d="M24-38 18 34 0-14Z" fill="url(#r-ice-deep)" opacity=".8"/>
+    <path d="M0 66-18 34 0-14Z" fill="url(#r-ice-deep)" opacity=".6"/>
+    <path d="M0-70-24-38 0-14Z" fill="url(#r-ice)" opacity=".9"/>
+    <path d="M-24-38-18 34 0-14Z" fill="#c3e2f0" opacity=".7"/>
+    <path d="M0-70v136" stroke="#f2fbff" stroke-opacity=".6" stroke-width="1.2"/>
+  </g>
+  <!-- 环绕碎晶 -->
+  <g stroke="#dff2fb" stroke-opacity=".7" stroke-width="1">
+    <path d="M148 66l14 10-6 16-16-8Z" fill="url(#r-ice)"/>
+    <path d="M44 84l12-14 12 10-10 14Z" fill="url(#r-ice)" opacity=".9"/>
+    <path d="M160 152l10 12-12 8-8-14Z" fill="url(#r-ice)" opacity=".85"/>
+    <path d="M36 156l14 6-4 14-14-6Z" fill="url(#r-ice)" opacity=".8"/>
+    <path d="M100 26l8 10-8 8-8-8Z" fill="#eefaff" opacity=".9"/>
+  </g>
+  <!-- 霜刃 -->
+  <path d="M100 96 88 150l12 34 12-34Z" fill="url(#r-blade)" opacity=".55"/>
+  <!-- 飘雪 -->
+  <g fill="#e8f7ff">
+    <circle cx="56" cy="52" r="1.6" opacity=".8"/>
+    <circle cx="152" cy="42" r="1.2" opacity=".6"/>
+    <circle cx="170" cy="108" r="1.8" opacity=".7"/>
+    <circle cx="30" cy="118" r="1.3" opacity=".5"/>
+    <circle cx="140" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="70" cy="212" r="1.8" opacity=".6"/>
+    <circle cx="112" cy="56" r="1" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="226" rx="52" ry="8" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="url(#awk-bloom)"/>
+    <g fill="none" stroke="url(#awk-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g><circle cx="24.7" cy="68.5" r="6" fill="url(#awk-gold)" stroke="#59371b" stroke-width="1"/><circle cx="24.7" cy="68.5" r="1.8" fill="#9fd4e8"/></g>
+    <g><circle cx="175.3" cy="68.5" r="6" fill="url(#awk-gold)" stroke="#59371b" stroke-width="1"/><circle cx="175.3" cy="68.5" r="1.8" fill="#9fd4e8"/></g>
+    <g><circle cx="100.0" cy="199.0" r="6" fill="url(#awk-gold)" stroke="#59371b" stroke-width="1"/><circle cx="100.0" cy="199.0" r="1.8" fill="#9fd4e8"/></g>
+    <g stroke="url(#awk-gold)" stroke-width="1.6" opacity=".95"><path d="M100 13v24M90.5 19.5l19 11M109.5 19.5l-19 11"/></g><circle cx="100" cy="25" r="3" fill="#cfeef7" stroke="#59371b" stroke-width=".7"/>
+    <g fill="#cfeef7" opacity=".7"><circle cx="42" cy="82" r="2"/><circle cx="158" cy="86" r="1.7"/><circle cx="58" cy="182" r="1.6"/><circle cx="142" cy="186" r="1.9"/></g>
+    <g fill="#ffe6a8" opacity=".7"><circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/><circle cx="100" cy="208" r="1.4"/></g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="url(#awk-gold)" stroke-opacity=".4" stroke-width="1.5" rx="10"/>
+</svg>

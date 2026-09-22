@@ -1,0 +1,5 @@
+config_version=5
+[application]
+config/name="灵枢战线 · 内容契约验证"
+[rendering]
+renderer/rendering_method="gl_compatibility"

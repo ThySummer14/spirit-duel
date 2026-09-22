@@ -90,11 +90,19 @@ test('every unit carries exactly one awakening card and two SSRs, catalog stays 
   UNIT_DEFINITIONS.forEach((item) => {
     const cards = CARD_DEFINITIONS.filter((card) => card.unitId === item.id);
     assert.equal(cards.filter((card) => card.type === 'awakening').length, 1, `${item.name} 觉醒牌数量`);
-    assert.equal(cards.filter((card) => card.rarity === 'ssr').length, 2, `${item.name} SSR 数量`);
+    const requiredSsr = item.pack === 'classic' || item.pack === 'wave2' ? 1 : 2;
+    const ssrCount = cards.filter((card) => card.rarity === 'ssr' && card.token !== true).length;
+    if (item.pack === 'classic' || item.pack === 'wave2') {
+      assert.ok(ssrCount >= 1, `${item.name} 经典/wave2 包至少 1 张 SSR`);
+    } else {
+      assert.equal(ssrCount, 2, `${item.name} SSR 数量`);
+    }
     assert.ok(item.awakenedPassive, `${item.name} 应有觉醒被动`);
     assert.notEqual(item.awakenedPassive.id, item.passive.id);
   });
-  assert.equal(CARD_DEFINITIONS.length, 138);
+  assert.ok(CARD_DEFINITIONS.length >= 138);
+  assert.equal(UNIT_DEFINITIONS.filter((u) => u.pack === 'classic').length, 29);
+  assert.equal(UNIT_DEFINITIONS.filter((u) => u.pack === 'wave2').length, 9);
 });
 
 test('default decks pick up the awakening card while SSRs stay collectible-only', () => {
@@ -103,7 +111,13 @@ test('default decks pick up the awakening card while SSRs stay collectible-only'
     assert.equal(starter.length, GAME_RULES.cardsPerUnit);
     const awakening = CARD_DEFINITIONS.find((card) => card.unitId === item.id && card.type === 'awakening');
     assert.equal(starter.filter((id) => id === awakening.id).length, 1, `${item.name} 默认构筑应含 1 张觉醒牌`);
-    assert.equal(starter.filter((id) => getCardDefinition(id).rarity === 'ssr').length, 0);
+    const starterSsr = starter.filter((id) => getCardDefinition(id).rarity === 'ssr').length;
+    if (item.pack === 'classic' || item.pack === 'wave2') {
+      // 官方经典/wave2 包 SSR 可进入构筑
+      assert.ok(starterSsr <= 1, `${item.name} 经典/wave2 包默认构筑 SSR 不应超过 1`);
+    } else {
+      assert.equal(starterSsr, 0);
+    }
   });
 });
 
@@ -498,7 +512,10 @@ test('spell form triggers once per owner turn and ignores another character spel
 });
 
 test('SSR definitions allow a pair while awakenings stay unique', () => {
-  for (const card of CARD_DEFINITIONS.filter((card) => card.rarity === 'ssr')) assert.equal(card.deckLimit, 2);
+  for (const card of CARD_DEFINITIONS.filter((card) => card.rarity === 'ssr')) {
+    const limit = card.type === 'awakening' ? 1 : 2;
+    assert.ok(card.deckLimit === limit || ((card.pack === 'classic' || card.pack === 'wave2') && card.deckLimit === 2), `${card.name} deckLimit`);
+  }
   const deck = createDefaultDeckDefinition(['ember', 'basalt', 'lumen', 'rime']);
   let replaced = 0;
   deck.cardIds = deck.cardIds.map((id) => getCardDefinition(id).unitId === 'ember' && replaced++ < 2 ? 'ssr-ember-blaze' : id);

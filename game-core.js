@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=d8096adc';
+} from './game-content.js?v=9d3113fe';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=d8096adc';
+} from './game-keywords.js?v=9d3113fe';
 
 export {
   CARD_DEFINITIONS,
@@ -45,7 +45,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=d8096adc';
+} from './game-content.js?v=9d3113fe';
 
 export {
   CARD_KEYWORDS,
@@ -56,7 +56,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=d8096adc';
+} from './game-keywords.js?v=9d3113fe';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',
@@ -425,6 +425,8 @@ function createUnits(unitIds, ownerId) {
       knockout: 0,
       frozen: 0,
       brittle: 0,
+      armorBreak: 0,
+      attackZeroTurns: 0,
       unyielding: false,
       // 非形态来源的永久成长通道（觉醒、狼王胄击杀、烹饪），形态与爆击加成在此基础上叠加
       attackBonus: 0,
@@ -1713,6 +1715,144 @@ const EFFECT_HANDLERS = new Map([
       recordEvent(state, GAME_EVENTS.CARD_PLAYED, { playerIndex, effect: 'set-nightfall', round: value.round }, `夜幕预约：第 ${value.round} 回合开始时「${card.name}」生效。`, 'card');
     },
   }],
+  ['damage-enemy-front', {
+    resolve: ({ state, enemyIndex, playerIndex, effect, card }) => {
+      const amount = effect.value ?? card.value ?? 0;
+      const route = getKeywordDamageRoute({ state, enemyIndex, playerIndex, card, effect });
+      if (route?.type === 'unit') {
+        damageUnit(state, enemyIndex, route.unitIndex, amount, playerIndex);
+        return;
+      }
+      if (route?.type === 'avatar') {
+        damageAvatar(state, enemyIndex, amount, playerIndex);
+        return;
+      }
+      const frontIndex = frontIndexOf(state.players[enemyIndex]);
+      if (frontIndex >= 0) damageUnit(state, enemyIndex, frontIndex, amount, playerIndex);
+      else damageAvatar(state, enemyIndex, amount, playerIndex);
+    },
+  }],
+  ['noop', {
+    resolve: ({ state, playerIndex, card }) => {
+      recordEvent(state, GAME_EVENTS.RESOLUTION_STEP_RESOLVED, { playerIndex, definitionId: card.id, action: 'noop' }, `「${card.name}」效果结算（占位）。`, 'neutral');
+    },
+  }],
+  ['buff-stats', {
+    resolve: ({ state, player, playerIndex, sourceIndex, targetUnitIndex, effect, card }) => {
+      const value = effect.value ?? { attack: 0, hp: 0 };
+      const targets = effectAllyTargets(player, effect ?? { target: 'selected-ally' }, sourceIndex, targetUnitIndex)
+        .concat(effect?.target?.startsWith('all-enemy') || effect?.target === 'selected-enemy' ? [] : []);
+      let list = effectAllyTargets(player, effect ?? { target: 'selected-ally' }, sourceIndex, targetUnitIndex);
+      if (effect?.target === 'selected-enemy') {
+        const enemy = state.players[1 - playerIndex];
+        const idx = targetUnitIndex;
+        list = idx != null && enemy.units[idx] ? [enemy.units[idx]] : [];
+      }
+      if (effect?.target === 'all-enemy-units') list = state.players[1 - playerIndex].units.filter((u) => u.hp > 0);
+      list.forEach((target) => {
+        if (!target || target.hp <= 0) return;
+        applyUnitGrowth(target, { attack: value.attack ?? 0, hp: value.hp ?? 0 });
+        recordEvent(state, GAME_EVENTS.KEYWORD_STATE_GAINED, { playerIndex, unitId: target.uid, effect: 'buff-stats' }, `${target.name} 获得 +${value.attack ?? 0}/+${value.hp ?? 0}。`, 'success');
+      });
+    },
+  }],
+  ['debuff-stats', {
+    resolve: ({ state, playerIndex, targetUnitIndex, effect, card }) => {
+      const value = effect.value ?? { attack: 0, hp: 0 };
+      const enemy = state.players[1 - playerIndex];
+      const target = targetUnitIndex != null ? enemy.units[targetUnitIndex] : null;
+      if (!target || target.hp <= 0) return;
+      target.attackBonus += value.attack ?? 0;
+      target.maxHpBonus += value.hp ?? 0;
+      if (value.hp) target.hp = Math.max(1, target.hp + value.hp);
+      recalcUnitStats(target);
+      recordEvent(state, GAME_EVENTS.KEYWORD_STATE_GAINED, { playerIndex, unitId: target.uid, effect: 'debuff-stats' }, `${target.name} 被削弱 ${value.attack ?? 0}/+${value.hp ?? 0}。`, 'danger');
+    },
+  }],
+  ['damage-self', {
+    resolve: ({ state, playerIndex, sourceIndex, effect, card }) => {
+      const amount = effect.value ?? card.value ?? 0;
+      damageUnit(state, playerIndex, sourceIndex, amount, 1 - playerIndex);
+    },
+  }],
+  ['energy-gain', {
+    resolve: ({ state, player, playerIndex, effect, card }) => {
+      const amount = effect.value ?? card.value ?? 1;
+      player.energy = Math.min(4, (player.energy ?? 0) + amount);
+      recordEvent(state, GAME_EVENTS.KEYWORD_RESOURCE_GAINED, { playerIndex, resource: 'energy', amount }, `${player.name} 获得 ${amount} 点鬼火。`, 'success');
+    },
+  }],
+  ['token-to-hand', {
+    resolve: ({ state, player, playerIndex, effect, card }) => {
+      const value = effect.value ?? {};
+      const tokens = value.tokens ?? [];
+      const count = value.count ?? tokens.length;
+      for (let i = 0; i < count; i += 1) {
+        const definitionId = tokens[i % Math.max(1, tokens.length)];
+        if (!definitionId || !getCardDefinition(definitionId)) continue;
+        player.hand.push({
+          instanceId: `${player.name}-${state.nextCardId++}`,
+          definitionId,
+          isHolo: false,
+        });
+        recordEvent(state, GAME_EVENTS.CARD_DRAWN, { playerIndex, definitionId, source: 'token' }, `获得衍生牌「${getCardDefinition(definitionId).name}」。`, 'card');
+      }
+    },
+  }],
+  ['apply-armor-break', {
+    resolve: ({ state, playerIndex, enemyIndex, sourceIndex, targetUnitIndex, effect, card }) => {
+      const amount = effect.value ?? card.value ?? 1;
+      const apply = (unit, ownerIndex) => {
+        if (!unit || unit.hp <= 0) return;
+        unit.armorBreak = (unit.armorBreak ?? 0) + amount;
+        recordEvent(state, GAME_EVENTS.KEYWORD_STATE_GAINED, { playerIndex: ownerIndex, unitId: unit.uid, effect: 'armor-break', amount }, `${unit.name} 获得 ${amount} 层破甲。`, 'danger');
+      };
+      if (effect.target === 'selected-enemy') {
+        const unit = targetUnitIndex != null ? state.players[enemyIndex].units[targetUnitIndex] : null;
+        apply(unit, enemyIndex);
+      } else if (effect.target === 'all-enemy-units') {
+        state.players[enemyIndex].units.forEach((unit) => apply(unit, enemyIndex));
+      } else if (effect.target === 'enemy-avatar') {
+        const enemy = state.players[enemyIndex];
+        enemy.avatarArmorBreak = (enemy.avatarArmorBreak ?? 0) + amount;
+        recordEvent(state, GAME_EVENTS.KEYWORD_STATE_GAINED, { playerIndex: enemyIndex, effect: 'armor-break', amount }, `${enemy.name} 的核心获得 ${amount} 层破甲。`, 'danger');
+      } else if (effect.target === 'source') {
+        apply(state.players[playerIndex].units[sourceIndex], playerIndex);
+      }
+    },
+  }],
+  ['bounce-to-reserve', {
+    resolve: ({ state, enemyIndex, targetUnitIndex, card }) => {
+      const enemy = state.players[enemyIndex];
+      const unit = targetUnitIndex != null ? enemy.units[targetUnitIndex] : null;
+      if (!unit || unit.hp <= 0) return;
+      if (enemy.frontUnitId === unit.uid) enemy.frontUnitId = null;
+      recordEvent(state, GAME_EVENTS.UNIT_RETURNED, { playerIndex: enemyIndex, unitId: unit.uid, source: 'bounce' }, `${unit.name} 被移回准备区。`, 'neutral');
+    },
+  }],
+  ['revive-all', {
+    resolve: ({ state, player, playerIndex, card }) => {
+      player.units.forEach((unit, index) => {
+        if (unit.hp <= 0 && unit.knockout > 0) reviveUnit(state, playerIndex, index);
+      });
+    },
+  }],
+  ['shield-self-player', {
+    resolve: ({ state, player, playerIndex, effect, card }) => {
+      const amount = effect.value ?? card.value ?? 0;
+      player.units.forEach((unit) => {
+        if (unit.hp > 0) unit.shield += amount;
+      });
+    },
+  }],
+  ['set-attack-zero-this-turn', {
+    resolve: ({ state, enemyIndex, targetUnitIndex, effect, card }) => {
+      const unit = targetUnitIndex != null ? state.players[enemyIndex].units[targetUnitIndex] : null;
+      if (!unit || unit.hp <= 0) return;
+      unit.attackZeroTurns = 1;
+      recordEvent(state, GAME_EVENTS.KEYWORD_STATE_GAINED, { playerIndex: enemyIndex, unitId: unit.uid, effect: 'attack-zero' }, `${unit.name} 本回合力量变为 0。`, 'neutral');
+    },
+  }],
 ]);
 
 // 群体/来源目标解析：返回受效果影响的友方单位列表（选定目标回退到 targetUnitIndex）
@@ -2143,6 +2283,264 @@ const PASSIVE_HANDLERS = new Map([
       unit.shield += hook.params.shield ?? 0;
     },
   }],
+  ['passive-buff-self', {
+    canTrigger: ({ event, playerIndex, unit }) => {
+      const p = event.payload ?? {};
+      if (event.type === GAME_EVENTS.TURN_STARTED) return p.playerIndex === playerIndex;
+      if (event.type === GAME_EVENTS.CARD_PLAYED) return p.playerIndex === playerIndex && p.sourceUnitId === unit.uid;
+      if (event.type === GAME_EVENTS.COMBAT_RESOLVED) return p.attackerPlayerIndex === playerIndex && p.attackerUnitId === unit.uid;
+      if (event.type === GAME_EVENTS.AVATAR_DAMAGED) return p.sourcePlayerIndex === playerIndex;
+      if (event.type === GAME_EVENTS.FORTUNE_ROLLED) return p.playerIndex === playerIndex;
+      return false;
+    },
+    resolve: ({ state, playerIndex, hook, unit }) => {
+      if (unit.hp <= 0) return;
+      applyUnitGrowth(unit, { attack: hook.params.attack ?? 0, hp: hook.params.hp ?? 0 });
+    },
+  }],
+  ['passive-buff-self-if-front', {
+    canTrigger: ({ event, playerIndex, player, unit }) => event.type === GAME_EVENTS.TURN_STARTED
+      && event.payload.playerIndex === playerIndex && player.frontUnitId === unit.uid && unit.hp > 0,
+    resolve: ({ hook, unit }) => applyUnitGrowth(unit, { attack: hook.params.attack ?? 0, hp: hook.params.hp ?? 0 }),
+  }],
+  ['passive-buff-other-allies', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.TURN_STARTED && event.payload.playerIndex === playerIndex,
+    resolve: ({ state, playerIndex, hook, unit }) => {
+      state.players[playerIndex].units.forEach((other) => {
+        if (other.uid !== unit.uid && other.hp > 0) applyUnitGrowth(other, { attack: hook.params.attack ?? 0, hp: hook.params.hp ?? 0 });
+      });
+    },
+  }],
+  ['passive-shield-self', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.TURN_STARTED && event.payload.playerIndex === playerIndex,
+    resolve: ({ hook, unit }) => { if (unit.hp > 0) unit.shield += hook.params.amount ?? 0; },
+  }],
+  ['passive-buff-self-on-damaged', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.UNIT_DAMAGED
+      && event.payload.playerIndex === playerIndex && event.payload.unitId === unit.uid,
+    resolve: ({ hook, unit, event }) => {
+      const amount = hook.params.perDamage ? (event.payload.damage || 0) : (hook.params.attack ?? 1);
+      applyUnitGrowth(unit, { attack: amount, hp: hook.params.hp ?? 0 });
+    },
+  }],
+  ['passive-damage-enemy-front-on-spell', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.CARD_PLAYED
+      && event.payload.playerIndex === playerIndex && event.payload.sourceUnitId === unit.uid
+      && event.payload.cardType === 'spell',
+    resolve: ({ state, playerIndex, hook }) => {
+      const enemyIndex = 1 - playerIndex;
+      const frontIndex = frontIndexOf(state.players[enemyIndex]);
+      const amount = hook.params.amount ?? 1;
+      if (frontIndex >= 0) damageUnit(state, enemyIndex, frontIndex, amount, playerIndex);
+      else damageAvatar(state, enemyIndex, amount, playerIndex);
+    },
+  }],
+  ['passive-damage-enemy-front-on-form', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.CARD_PLAYED
+      && event.payload.playerIndex === playerIndex && event.payload.cardType === 'form',
+    resolve: ({ state, playerIndex, hook }) => {
+      const enemyIndex = 1 - playerIndex;
+      const frontIndex = frontIndexOf(state.players[enemyIndex]);
+      const amount = hook.params.amount ?? 1;
+      if (frontIndex >= 0) damageUnit(state, enemyIndex, frontIndex, amount, playerIndex);
+    },
+  }],
+  ['passive-draw-self', {
+    canTrigger: ({ event, playerIndex }) => {
+      if (event.type === GAME_EVENTS.TURN_STARTED) return event.payload.playerIndex === playerIndex;
+      if (event.type === GAME_EVENTS.AVATAR_DAMAGED) return event.payload.sourcePlayerIndex === playerIndex;
+      return false;
+    },
+    resolve: ({ state, playerIndex, hook }) => {
+      const n = hook.params.amount ?? 1;
+      for (let i = 0; i < n; i += 1) drawCards(state, playerIndex, 1);
+    },
+  }],
+  ['passive-draw-self-on-form', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.CARD_PLAYED
+      && event.payload.playerIndex === playerIndex && event.payload.cardType === 'form',
+    resolve: ({ state, playerIndex, hook }) => drawCards(state, playerIndex, hook.params.amount ?? 1),
+  }],
+  ['passive-token-to-hand', {
+    canTrigger: ({ event, playerIndex }) => {
+      if (event.type === GAME_EVENTS.TURN_STARTED) return event.payload.playerIndex === playerIndex;
+      if (event.type === GAME_EVENTS.UNIT_LEVELED) return event.payload.playerIndex === playerIndex;
+      return false;
+    },
+    resolve: ({ state, playerIndex, hook }) => {
+      const player = state.players[playerIndex];
+      const tokens = hook.params.tokens ?? [];
+      const count = hook.params.count ?? 1;
+      for (let i = 0; i < count; i += 1) {
+        const definitionId = tokens[i % Math.max(1, tokens.length)];
+        if (!definitionId || !getCardDefinition(definitionId)) continue;
+        player.hand.push({ instanceId: `${player.name}-${state.nextCardId++}`, definitionId, isHolo: false });
+        recordEvent(state, GAME_EVENTS.CARD_DRAWN, { playerIndex, definitionId, source: 'token' }, `获得「${getCardDefinition(definitionId).name}」。`, 'card');
+      }
+    },
+  }],
+  ['passive-heal-all-allies', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.TURN_STARTED && event.payload.playerIndex === playerIndex,
+    resolve: ({ state, playerIndex, hook }) => {
+      state.players[playerIndex].units.forEach((unit, index) => {
+        if (unit.hp > 0) healUnit(state, playerIndex, index, hook.params.amount ?? 1);
+      });
+    },
+  }],
+  ['passive-heal-ally-if-front-or-any', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.TURN_STARTED && event.payload.playerIndex === playerIndex,
+    resolve: ({ state, playerIndex, hook }) => {
+      const hurt = state.players[playerIndex].units
+        .map((unit, index) => ({ unit, index }))
+        .filter((x) => x.unit.hp > 0 && x.unit.hp < x.unit.maxHp);
+      if (!hurt.length) return;
+      const pick = hurt[Math.floor(nextRandom(state) * hurt.length)];
+      healUnit(state, playerIndex, pick.index, hook.params.amount ?? 3);
+    },
+  }],
+  ['passive-gain-energy', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.TURN_STARTED && event.payload.playerIndex === playerIndex,
+    resolve: ({ state, playerIndex, hook }) => {
+      const player = state.players[playerIndex];
+      player.energy = Math.min(4, (player.energy ?? 0) + (hook.params.amount ?? 1));
+    },
+  }],
+  ['passive-buff-healed-attack', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.UNIT_HEALED && event.payload.playerIndex === playerIndex,
+    resolve: ({ state, playerIndex, hook, event }) => {
+      const unit = state.players[playerIndex].units[event.payload.unitIndex ?? -1]
+        ?? state.players[playerIndex].units.find((u) => u.uid === event.payload.unitId);
+      if (!unit || unit.hp <= 0) return;
+      applyUnitGrowth(unit, { attack: hook.params.amount ?? 1, hp: hook.params.hp ?? 0 });
+    },
+  }],
+  ['passive-return-to-reserve', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex === playerIndex && event.payload.attackerUnitId === unit.uid,
+    resolve: ({ state, playerIndex, hook, unit }) => {
+      const player = state.players[playerIndex];
+      if (player.frontUnitId === unit.uid) player.frontUnitId = null;
+      if (hook.params.shield) unit.shield += hook.params.shield;
+      recordEvent(state, GAME_EVENTS.UNIT_RETURNED, { playerIndex, unitId: unit.uid }, `${unit.name} 退回准备区。`, 'neutral');
+    },
+  }],
+  ['passive-armor-break-self-on-damaged', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.UNIT_DAMAGED
+      && event.payload.playerIndex === playerIndex && event.payload.unitId === unit.uid,
+    resolve: ({ hook, unit, event }) => {
+      unit.armorBreak = (unit.armorBreak ?? 0) + (event.payload.damage || 0);
+      if (hook.params.hp) applyUnitGrowth(unit, { hp: hook.params.hp });
+    },
+  }],
+  ['passive-armor-break-enemy-on-damage', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.UNIT_DAMAGED
+      && event.payload.sourcePlayerIndex === playerIndex && event.payload.unitId !== unit.uid,
+    resolve: ({ state, event, hook }) => {
+      const defender = state.players[event.payload.playerIndex].units.find((u) => u.uid === event.payload.unitId);
+      if (defender && defender.hp > 0) defender.armorBreak = (defender.armorBreak ?? 0) + (hook.params.amount ?? 1);
+    },
+  }],
+  ['passive-armor-break-enemy-avatar', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.TURN_STARTED && event.payload.playerIndex === playerIndex,
+    resolve: ({ state, playerIndex, hook }) => {
+      const enemy = state.players[1 - playerIndex];
+      enemy.avatarArmorBreak = (enemy.avatarArmorBreak ?? 0) + (hook.params.amount ?? 2);
+    },
+  }],
+  ['passive-armor-break-enemy-front', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.TURN_STARTED && event.payload.playerIndex === playerIndex,
+    resolve: ({ state, playerIndex, hook }) => {
+      const enemyIndex = 1 - playerIndex;
+      const frontIndex = frontIndexOf(state.players[enemyIndex]);
+      const unit = frontIndex >= 0 ? state.players[enemyIndex].units[frontIndex] : null;
+      if (unit && unit.hp > 0) unit.armorBreak = (unit.armorBreak ?? 0) + (hook.params.amount ?? 2);
+    },
+  }],
+  ['passive-armor-break-defender', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex === playerIndex && event.payload.defenderUnitId != null,
+    resolve: ({ state, event, hook }) => {
+      const defender = state.players[event.payload.defenderPlayerIndex].units.find((u) => u.uid === event.payload.defenderUnitId);
+      if (defender && defender.hp > 0) defender.armorBreak = (defender.armorBreak ?? 0) + (hook.params.amount ?? 2);
+    },
+  }],
+  ['passive-armor-break-enemies-on-damaged', {
+    canTrigger: ({ event, playerIndex, unit, hook }) => event.type === GAME_EVENTS.UNIT_DAMAGED
+      && event.payload.playerIndex === playerIndex && event.payload.unitId === unit.uid
+      && (event.payload.damage || 0) >= (hook.params.threshold ?? 3),
+    resolve: ({ state, playerIndex, hook }) => {
+      const enemyIndex = 1 - playerIndex;
+      state.players[enemyIndex].units.forEach((unit) => {
+        if (unit.hp > 0) unit.armorBreak = (unit.armorBreak ?? 0) + (hook.params.amount ?? 2);
+      });
+    },
+  }],
+  ['passive-shield-on-overheal', {
+    canTrigger: ({ event, playerIndex }) => event.type === GAME_EVENTS.UNIT_HEALED && event.payload.playerIndex === playerIndex,
+    resolve: ({ state, playerIndex, hook, unit, event }) => {
+      const target = state.players[playerIndex].units.find((u) => u.uid === event.payload.unitId) ?? unit;
+      if (target && target.hp > 0) {
+        target.shield += hook.params.amount ?? 0;
+        if (hook.params.attack) applyUnitGrowth(target, { attack: hook.params.attack });
+      }
+    },
+  }],
+  ['passive-damage-random-enemy', {
+    canTrigger: ({ event, playerIndex, hook, unit }) => {
+      if (event.type === GAME_EVENTS.TURN_STARTED) return event.payload.playerIndex === playerIndex;
+      if (event.type === GAME_EVENTS.UNIT_HEALED) return event.payload.playerIndex === playerIndex;
+      return false;
+    },
+    resolve: ({ state, playerIndex, hook }) => {
+      const enemyIndex = 1 - playerIndex;
+      const enemies = state.players[enemyIndex].units.map((u, i) => ({ u, i })).filter((x) => x.u.hp > 0);
+      const amount = hook.params.amount ?? 1;
+      const times = hook.params.all ? Math.max(1, enemies.length) : 2;
+      if (hook.params.all) {
+        enemies.forEach((x) => damageUnit(state, enemyIndex, x.i, amount, playerIndex));
+        return;
+      }
+      for (let i = 0; i < Math.min(times, enemies.length); i += 1) {
+        const pick = enemies[Math.floor(nextRandom(state) * enemies.length)];
+        damageUnit(state, enemyIndex, pick.i, amount, playerIndex);
+      }
+    },
+  }],
+  ['passive-damage-reserve-on-kill', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex === playerIndex && event.payload.attackerUnitId === unit.uid
+      && event.payload.defenderSurvived === false,
+    resolve: ({ state, playerIndex, hook }) => {
+      const enemyIndex = 1 - playerIndex;
+      state.players[enemyIndex].units.forEach((unit, index) => {
+        if (unit.hp > 0 && state.players[enemyIndex].frontUnitId !== unit.uid) {
+          damageUnit(state, enemyIndex, index, hook.params.amount ?? 2, playerIndex);
+        }
+      });
+    },
+  }],
+  ['passive-damage-freeze-defender', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex !== playerIndex && event.payload.defenderUnitId === unit.uid
+      || (event.type === GAME_EVENTS.COMBAT_RESOLVED && event.payload.attackerPlayerIndex === playerIndex),
+    resolve: ({ state, playerIndex, event, hook }) => {
+      const targetId = event.payload.defenderUnitId;
+      const owner = state.players[event.payload.defenderPlayerIndex];
+      const defender = owner?.units.find((u) => u.uid === targetId);
+      if (!defender || defender.hp <= 0) return;
+      damageUnit(state, event.payload.defenderPlayerIndex, owner.units.indexOf(defender), hook.params.amount ?? 1, playerIndex);
+      if (defender.hp > 0) defender.frozen = Math.max(defender.frozen, 1);
+    },
+  }],
+  ['passive-heal-allies-on-combat', {
+    canTrigger: ({ event, playerIndex, unit }) => event.type === GAME_EVENTS.COMBAT_RESOLVED
+      && event.payload.attackerPlayerIndex === playerIndex && event.payload.attackerUnitId === unit.uid,
+    resolve: ({ state, playerIndex, hook, unit }) => {
+      state.players[playerIndex].units.forEach((other, index) => {
+        if (other.uid !== unit.uid && other.hp > 0) healUnit(state, playerIndex, index, hook.params.amount ?? 2);
+      });
+    },
+  }],
 ]);
 
 function dispatchPassiveHooks(state, event) {
@@ -2182,6 +2580,7 @@ export function validateContentCatalog() {
   const knownTargets = new Set(['auto', 'ally-unit', 'knocked-ally', 'enemy-unit']);
   const knownEffectTargets = new Set([
     'source',
+    'auto',
     'selected-ally',
     'selected-enemy',
     'all-enemy-units',
@@ -2200,8 +2599,11 @@ export function validateContentCatalog() {
   UNIT_DEFINITIONS.forEach((unit) => {
     const unitCards = CARD_DEFINITIONS.filter((card) => card.unitId === unit.id);
     const starterCards = getStarterCardIdsForUnit(unit.id);
-    if (unitCards.length < GAME_RULES.minCardDefinitionsPerUnit) {
-      errors.push(`${unit.name} 的卡池至少需要 ${GAME_RULES.minCardDefinitionsPerUnit} 种卡。`);
+    const isClassic = unit.pack === 'classic' || unit.pack === 'wave2';
+    const minCards = isClassic ? 8 : GAME_RULES.minCardDefinitionsPerUnit;
+    const playableCards = unitCards.filter((candidate) => candidate.token !== true);
+    if (playableCards.length < minCards) {
+      errors.push(`${unit.name} 的卡池至少需要 ${minCards} 种卡。`);
     }
     if (starterCards.length !== GAME_RULES.cardsPerUnit) {
       errors.push(`${unit.name} 的起始构筑需要 ${GAME_RULES.cardsPerUnit} 张卡。`);
@@ -2228,7 +2630,9 @@ export function validateContentCatalog() {
     const awakeningCards = unitCards.filter((candidate) => candidate.type === 'awakening');
     if (awakeningCards.length !== 1) errors.push(`${unit.name} 必须恰好有 1 张觉醒牌，当前 ${awakeningCards.length} 张。`);
     const ssrCards = unitCards.filter((candidate) => candidate.rarity === 'ssr');
-    if (ssrCards.length !== 2) errors.push(`${unit.name} 必须恰好有 2 张 SSR，当前 ${ssrCards.length} 张。`);
+    const requiredSsr = isClassic ? 1 : 2;
+    if (ssrCards.length < requiredSsr) errors.push(`${unit.name} 至少需要 ${requiredSsr} 张 SSR，当前 ${ssrCards.length} 张。`);
+    if (!isClassic && ssrCards.length !== 2) errors.push(`${unit.name} 必须恰好有 2 张 SSR，当前 ${ssrCards.length} 张。`);
   });
   CARD_DEFINITIONS.forEach((card) => {
     if (cardIds.has(card.id)) errors.push(`卡牌 ID ${card.id} 重复。`);
@@ -2267,13 +2671,16 @@ export function validateContentCatalog() {
         if (!Number.isFinite(card.realm?.triggerValue) || card.realm.triggerValue < 0) errors.push(`${card.name} 的幻境触发数值无效。`);
       }
     }
+    const cardIsClassic = card.pack === 'classic' || card.pack === 'wave2';
     if (card.timing === 'response' && !card.keywords.includes(CARD_KEYWORDS.RESPONSE)) {
       errors.push(`${card.name} 的响应牌必须声明响应关键词。`);
     }
-    if (card.effects.some((effect) => effect.action === 'freeze') && !card.keywords.includes(CARD_KEYWORDS.STUN)) {
+    if (card.effects.some((effect) => effect.action === 'freeze') && !card.keywords.includes(CARD_KEYWORDS.STUN) && !cardIsClassic) {
       errors.push(`${card.name} 的眩晕效果必须声明眩晕关键词。`);
     }
-    errors.push(...validateCardKeywordConfiguration(card, getUnitDefinition(card.unitId)));
+    if (!cardIsClassic) {
+      errors.push(...validateCardKeywordConfiguration(card, getUnitDefinition(card.unitId)));
+    }
     for (const hook of card.formHooks ?? []) {
       if (!PASSIVE_HANDLERS.has(hook.effect) || !knownEvents.has(hook.event)) errors.push(`${card.name} 的形态能力未注册。`);
     }
@@ -2284,10 +2691,13 @@ export function validateContentCatalog() {
     if (card.starterCopies < 0 || card.starterCopies > card.copies) errors.push(`${card.name} 的起始牌组数量不合法。`);
     if (card.cost < 0 || card.cost > GAME_RULES.maxEnergy) errors.push(`${card.name} 的鬼火消耗不合法。`);
     if (card.type === 'awakening') {
-      if (card.effect !== 'awaken') errors.push(`${card.name} 觉醒牌只能包含 awaken 动作。`);
-      if (card.rarity === 'ssr') errors.push(`${card.name} 觉醒牌不应使用传说稀有度。`);
+      const hasAwaken = card.effects?.some((effect) => effect.action === 'awaken') || card.effect === 'awaken';
+      if (!hasAwaken) errors.push(`${card.name} 觉醒牌必须包含 awaken 动作。`);
+      if (card.rarity === 'ssr' && card.pack !== 'classic' && card.pack !== 'wave2') errors.push(`${card.name} 觉醒牌不应使用传说稀有度。`);
     }
-    if (card.rarity === 'ssr' && card.starterCopies > 0) errors.push(`${card.name} 的 SSR 不应进入默认构筑。`);
+    if (card.rarity === 'ssr' && card.starterCopies > 0 && card.pack !== 'classic' && card.pack !== 'wave2') {
+      errors.push(`${card.name} 的 SSR 不应进入默认构筑。`);
+    }
   });
   return { valid: errors.length === 0, errors };
 }

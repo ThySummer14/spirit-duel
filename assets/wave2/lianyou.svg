@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">镰鼬</title>
+  <desc id="desc">三太郎兵器：斧、棒、戟三器并立</desc>
+  <defs>
+    <linearGradient id="lianyou-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14100c"/>
+      <stop offset=".55" stop-color="#201814"/>
+      <stop offset="1" stop-color="#0e0a08"/>
+    </linearGradient>
+    <radialGradient id="lianyou-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#d0a860" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c08830" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c08830" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lianyou-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e8d0a0"/>
+      <stop offset=".55" stop-color="#b08850"/>
+      <stop offset="1" stop-color="#c08830"/>
+    </linearGradient>
+    <linearGradient id="lianyou-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c08830"/>
+      <stop offset="1" stop-color="#603810"/>
+    </linearGradient>
+    <linearGradient id="lianyou-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#lianyou-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#lianyou-halo)"/>
+  <g>
+    <path d="M58 200l20-120 8 2-8 118Z" fill="url(#lianyou-body)" stroke="#3a2810" stroke-width="1.4"/>
+    <ellipse cx="72" cy="72" rx="16" ry="12" fill="url(#lianyou-acc)" stroke="#3a2810" stroke-width="1.4"/>
+    <path d="M100 205l4-130 10 0-2 130Z" fill="url(#lianyou-body)" stroke="#3a2810" stroke-width="1.4"/>
+    <path d="M96 78h20l-4 18H100Z" fill="url(#lianyou-acc)" stroke="#3a2810" stroke-width="1.2"/>
+    <path d="M142 200l-18-115 8-2 14 117Z" fill="url(#lianyou-body)" stroke="#3a2810" stroke-width="1.4"/>
+    <path d="M128 70c12-16 30-18 42-6-14 4-28 8-42 6Z" fill="url(#lianyou-acc)"/>
+    <path d="M128 70c8 10 22 14 36 10-12 8-26 6-36-10Z" fill="url(#lianyou-acc)" opacity=".8"/>
+  </g>
+  <ellipse cx="100" cy="128" rx="22" ry="18" fill="url(#lianyou-body)" opacity=".45" stroke="url(#lianyou-gold)" stroke-width="1"/>
+<g fill="url(#lianyou-acc)">
+    <circle cx="42" cy="90" r="2" opacity=".6"/>
+    <circle cx="162" cy="96" r="1.8" opacity=".55"/>
+    <circle cx="38" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="30" r="1.5" opacity=".5"/>
+    <circle cx="60" cy="198" r="1.5" opacity=".5"/>
+    <circle cx="140" cy="198" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#c08830" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

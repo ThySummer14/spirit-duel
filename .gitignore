@@ -2,3 +2,11 @@
 node_modules/
 .playwright-cli/
 npm-debug.log*
+
+# 官方美术镜像（网易版权素材，仅本地参考，勿提交）
+/art-reference-official/
+# 官网卡库原文镜像（含网易卡面文本，默认仅本地参考；如需入库请自行删除本条）
+/research-data/
+
+# Godot 编辑器缓存
+godot/.godot/

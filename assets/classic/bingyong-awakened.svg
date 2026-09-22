@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">兵俑 · 觉醒相</title>
+  <desc id="desc">甲胄与方盾：层叠甲片如阵，中央鎏金盾徽，铁壁之姿。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="bingyong-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#121218"/>
+      <stop offset=".55" stop-color="#1c1c24"/>
+      <stop offset="1" stop-color="#0c0c10"/>
+    </linearGradient>
+    <radialGradient id="bingyong-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#8a90a0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#6a7080" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#6a7080" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bingyong-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c8ccd4"/>
+      <stop offset=".55" stop-color="#8a90a0"/>
+      <stop offset="1" stop-color="#6a7080"/>
+    </linearGradient>
+    <linearGradient id="bingyong-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6a7080"/>
+      <stop offset="1" stop-color="#3a4050"/>
+    </linearGradient>
+    <linearGradient id="bingyong-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#bingyong-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#bingyong-halo)"/>
+  <g>
+    <rect x="62" y="70" width="36" height="22" rx="3" fill="url(#bingyong-body)" stroke="#2a2a32" stroke-width="1.6"/>
+    <rect x="65" y="73" width="30" height="16" rx="2" fill="none" stroke="url(#bingyong-gold)" stroke-width=".8" opacity=".55"/>
+    <rect x="102" y="62" width="36" height="22" rx="3" fill="url(#bingyong-body)" stroke="#2a2a32" stroke-width="1.6"/>
+    <rect x="105" y="65" width="30" height="16" rx="2" fill="none" stroke="url(#bingyong-gold)" stroke-width=".8" opacity=".55"/>
+    <rect x="54" y="98" width="40" height="24" rx="3" fill="url(#bingyong-body)" stroke="#2a2a32" stroke-width="1.6"/>
+    <rect x="57" y="101" width="34" height="18" rx="2" fill="none" stroke="url(#bingyong-gold)" stroke-width=".8" opacity=".55"/>
+    <rect x="106" y="98" width="40" height="24" rx="3" fill="url(#bingyong-body)" stroke="#2a2a32" stroke-width="1.6"/>
+    <rect x="109" y="101" width="34" height="18" rx="2" fill="none" stroke="url(#bingyong-gold)" stroke-width=".8" opacity=".55"/>
+    <rect x="62" y="128" width="36" height="22" rx="3" fill="url(#bingyong-body)" stroke="#2a2a32" stroke-width="1.6"/>
+    <rect x="65" y="131" width="30" height="16" rx="2" fill="none" stroke="url(#bingyong-gold)" stroke-width=".8" opacity=".55"/>
+    <rect x="102" y="128" width="36" height="22" rx="3" fill="url(#bingyong-body)" stroke="#2a2a32" stroke-width="1.6"/>
+    <rect x="105" y="131" width="30" height="16" rx="2" fill="none" stroke="url(#bingyong-gold)" stroke-width=".8" opacity=".55"/>
+    <rect x="72" y="156" width="56" height="20" rx="3" fill="url(#bingyong-body)" stroke="#2a2a32" stroke-width="1.6"/>
+    <rect x="75" y="159" width="50" height="14" rx="2" fill="none" stroke="url(#bingyong-gold)" stroke-width=".8" opacity=".55"/>
+  </g>
+  <path d="M100 58c-22 4-34 18-34 34 0 28 16 48 34 58 18-10 34-30 34-58 0-16-12-30-34-34Z" fill="url(#bingyong-acc)" opacity=".35" stroke="url(#bingyong-gold)" stroke-width="1.5"/>
+  <path d="M100 78v52M82 100h36" stroke="url(#bingyong-gold)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M70 188h60l-6 18H76Z" fill="url(#bingyong-body)" opacity=".5"/>
+  <path d="M88 48h24l-4 14H92Z" fill="url(#bingyong-acc)"/>
+<g fill="url(#bingyong-acc)">
+    <circle cx="40" cy="80" r="1.8" opacity=".55"/>
+    <circle cx="164" cy="90" r="2" opacity=".6"/>
+    <circle cx="36" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="160" r="1.8" opacity=".55"/>
+    <circle cx="100" cy="28" r="1.6" opacity=".5"/>
+    <circle cx="56" cy="200" r="1.4" opacity=".45"/>
+    <circle cx="148" cy="200" r="1.6" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#bingyong-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#bingyong-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#bingyong-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#bingyong-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#bingyong-gold)"/>
+    <g stroke="url(#bingyong-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#6a7080" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

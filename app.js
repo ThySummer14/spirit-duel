@@ -1,5 +1,5 @@
-import { createBattleRenderer } from './battle-render.js?v=d8096adc';
-import { createBattleFx } from './battle-fx.js?v=d8096adc';
+import { createBattleRenderer } from './battle-render.js?v=9d3113fe';
+import { createBattleFx } from './battle-fx.js?v=9d3113fe';
 import {
   DEFAULT_PLAYER_LINEUP,
   GAME_RULES,
@@ -28,9 +28,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=d8096adc';
-import { chooseAiCommand } from './game-ai.js?v=d8096adc';
-import { gameAudio } from './game-audio.js?v=d8096adc';
+} from './game-core.js?v=9d3113fe';
+import { chooseAiCommand } from './game-ai.js?v=9d3113fe';
+import { gameAudio } from './game-audio.js?v=9d3113fe';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -41,28 +41,30 @@ import {
   grantMatchReward,
   openPack,
   ownedCopies,
+  availableDeckCopies,
+  validateCollectionDeck,
   ownedHoloCopies,
   serializeCollection,
-} from './game-collection.js?v=d8096adc';
+} from './game-collection.js?v=9d3113fe';
 import {
   canUpgradeUnit,
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=d8096adc';
+} from './game-presentation.js?v=9d3113fe';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=d8096adc';
+} from './game-session.js?v=9d3113fe';
 import {
   holoLayers,
   holoSheenMarkup,
   initCollectionHolo,
   initPreviewHolo,
   initRevealHolo,
-} from './card-holo.js?v=d8096adc';
+} from './card-holo.js?v=9d3113fe';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -77,6 +79,7 @@ const nodes = {
   gameShell: document.querySelector('#game-shell'),
   formationScreen: document.querySelector('#formation-screen'),
   formationRoster: document.querySelector('#formation-roster'),
+  rosterFilters: document.querySelector('.roster-filters'),
   rosterLibrary: document.querySelector('#roster-library'),
   deckBuilder: document.querySelector('#deck-builder'),
   lineupStepButton: document.querySelector('#lineup-step-button'),
@@ -354,6 +357,21 @@ function saveCollection() {
 }
 
 let collection = loadCollection();
+const trialToggle = document.querySelector('#trial-cards-toggle');
+let trialCardsEnabled = false;
+try { trialCardsEnabled = localStorage.getItem('nexus-front:trial-cards') === 'true'; } catch { /* 本地存储不可用仍可试用。 */ }
+trialToggle.checked = trialCardsEnabled;
+trialToggle.addEventListener('change', () => {
+  trialCardsEnabled = trialToggle.checked;
+  try { localStorage.setItem('nexus-front:trial-cards', String(trialCardsEnabled)); } catch { /* 偏好无需阻塞游戏。 */ }
+  renderFormationEditor();
+});
+
+function validatePlayableDeck(deck) {
+  const rules = validateDeckDefinition(deck);
+  const ownership = validateCollectionDeck(collection, deck, trialCardsEnabled);
+  return { valid: rules.valid && ownership.valid, errors: [...rules.errors, ...ownership.errors] };
+}
 
 function showCollection() {
   nodes.formationScreen.hidden = true;
@@ -383,6 +401,8 @@ function renderCollectionScreen() {
   renderCodex();
 }
 
+let rosterPackFilter = 'all';
+let rosterQuery = '';
 let codexUnitId = UNIT_DEFINITIONS[0].id;
 for (const id of ['codex-search', 'codex-type', 'codex-ownership']) {
   document.getElementById(id).addEventListener(id === 'codex-search' ? 'input' : 'change', renderCodex);
@@ -405,7 +425,7 @@ function renderCodex() {
     const section = document.createElement('section');
     section.className = 'codex-unit';
     section.style.setProperty('--unit-accent', unit.color);
-    const cards = getCardsForUnit(unit.id);
+    const cards = getCardsForUnit(unit.id).filter((card) => card.token !== true);
     const ownedKinds = cards.filter((card) => ownedCopies(collection, card.id) > 0).length;
     const head = document.createElement('header');
     head.innerHTML = `<strong>${unit.name}</strong><small>${unit.title} · ${unit.role}</small><em>${ownedKinds} / ${cards.length} 种</em>`;
@@ -1002,8 +1022,26 @@ function addOwnedHoloVariants(deckDefinition) {
   return { ...deckDefinition, holoCardIds };
 }
 
+function unitsForRosterFilter() {
+  let list = UNIT_DEFINITIONS;
+  if (rosterPackFilter !== 'all') {
+    list = list.filter((unit) => (unit.pack ?? 'origin') === rosterPackFilter);
+  }
+  const q = rosterQuery.trim().toLowerCase();
+  if (q) {
+    list = list.filter((unit) => (
+      unit.name.toLowerCase().includes(q)
+      || (unit.title ?? '').toLowerCase().includes(q)
+      || (unit.role ?? '').toLowerCase().includes(q)
+      || (unit.strategy ?? '').toLowerCase().includes(q)
+    ));
+  }
+  return list;
+}
+
 function renderFormationRoster() {
-  nodes.formationRoster.replaceChildren(...UNIT_DEFINITIONS.map((unit, index) => {
+  const rosterUnits = unitsForRosterFilter();
+  nodes.formationRoster.replaceChildren(...rosterUnits.map((unit, index) => {
     const selectedIndex = selectedLineup.indexOf(unit.id);
     const selected = selectedIndex >= 0;
     const button = document.createElement('button');
@@ -1022,10 +1060,15 @@ function renderFormationRoster() {
     image.width = 200;
     image.height = 260;
     art.append(image);
+    art.append(packBadge);
 
     const order = document.createElement('span');
     order.className = 'roster-order';
     order.textContent = selected ? String(selectedIndex + 1).padStart(2, '0') : String(index + 1).padStart(2, '0');
+
+    const packBadge = document.createElement('span');
+    packBadge.className = 'roster-pack-badge';
+    packBadge.textContent = (unit.pack ?? 'origin') === 'classic' ? '经典' : '原创';
 
     const identity = document.createElement('span');
     identity.className = 'roster-identity';
@@ -1094,7 +1137,7 @@ function adjustCardCount(unitId, cardId, delta) {
   const currentCount = selected.filter((candidate) => candidate === cardId).length;
   if (delta > 0) {
     if (currentCount >= deckLimit) return;
-    const owned = ownedCopies(collection, cardId);
+    const owned = availableDeckCopies(collection, cardId, trialCardsEnabled);
     if (currentCount >= owned) {
       announce(`收藏不足：「${getCardDefinition(cardId).name}」仅持有 ${owned} 张，可到秘闻阁开卷收集。`, 'danger');
       return;
@@ -1127,7 +1170,7 @@ function renderCardPool() {
   nodes.passiveDossier.style.setProperty('--unit-accent', unit.color);
   nodes.passiveDossier.innerHTML = `<span>被动 / PASSIVE</span><strong>${unit.passive.name}</strong><p>${unit.passive.text}</p>`;
 
-  nodes.cardPool.replaceChildren(...getCardsForUnit(unit.id).map((card) => {
+  nodes.cardPool.replaceChildren(...getCardsForUnit(unit.id).filter((card) => card.token !== true).map((card) => {
     const count = selectedCardCount(unit.id, card.id);
     const article = document.createElement('article');
     article.className = 'pool-card';
@@ -1157,7 +1200,7 @@ function renderCardPool() {
     add.textContent = '+';
     add.title = `增加一张${card.name}`;
     add.setAttribute('aria-label', `增加一张${card.name}`);
-    const owned = ownedCopies(collection, card.id);
+    const owned = availableDeckCopies(collection, card.id, trialCardsEnabled);
     const cardLimit = card.deckLimit ?? GAME_RULES.copiesPerCard;
     add.disabled = count >= cardLimit
       || count >= owned
@@ -1223,12 +1266,12 @@ function renderFormationSlots() {
 
 function renderFormationEditor() {
   const deckDefinition = currentDeckDefinition();
-  const validation = validateDeckDefinition(deckDefinition);
+  const validation = validatePlayableDeck(deckDefinition);
   const lineupComplete = selectedLineup.length === GAME_RULES.lineupSize;
   nodes.formationCount.textContent = selectedLineup.length;
   nodes.formationUnitCount.textContent = selectedLineup.length;
   nodes.formationDeckCount.textContent = deckDefinition.cardIds.length;
-  nodes.formationError.textContent = validation.valid ? '编成合法，可以进入对局。' : validation.errors[0];
+  nodes.formationError.textContent = validation.valid ? (trialCardsEnabled ? '全卡试用已开启 · 编成合法，收藏数量保持不变。' : '编成合法，可以进入对局。') : validation.errors[0];
   nodes.formationError.dataset.valid = String(validation.valid);
   nodes.rosterLibrary.hidden = formationStep !== 'lineup';
   nodes.deckBuilder.hidden = formationStep !== 'deck';
@@ -1286,7 +1329,7 @@ function startBattle() {
     return;
   }
   const deckDefinition = currentDeckDefinition();
-  const validation = validateDeckDefinition(deckDefinition);
+  const validation = validatePlayableDeck(deckDefinition);
   if (!validation.valid) {
     nodes.formationError.textContent = validation.errors[0];
     announce(validation.errors[0], 'danger');
@@ -2172,6 +2215,21 @@ function restartGame() {
 document.querySelector('#battle-log-shortcut').addEventListener('click', () => nodes.battleLogDialog.showModal());
 
 nodes.formationStartButton.addEventListener('click', startBattle);
+document.querySelector('#roster-search')?.addEventListener('input', (event) => {
+  rosterQuery = event.target.value ?? '';
+  renderFormationRoster();
+});
+nodes.rosterFilters?.addEventListener('click', (event) => {
+  const chip = event.target instanceof Element ? event.target.closest('.pack-chip') : null;
+  if (!chip) return;
+  rosterPackFilter = chip.dataset.pack ?? 'all';
+  nodes.rosterFilters.querySelectorAll('.pack-chip').forEach((btn) => {
+    btn.classList.toggle('is-active', btn === chip);
+    btn.setAttribute('aria-pressed', String(btn === chip));
+  });
+  renderFormationRoster();
+  gameAudio.uiTap();
+});
 nodes.lineupStepButton.addEventListener('click', () => setFormationStep('lineup'));
 nodes.deckStepButton.addEventListener('click', () => setFormationStep('deck'));
 nodes.deckAutofillButton.addEventListener('click', autofillActiveDeck);

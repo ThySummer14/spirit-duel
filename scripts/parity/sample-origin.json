@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "origin-core-loop",
+  "seed": 20260920,
+  "lineupA": ["ember", "basalt", "lumen", "rime"],
+  "lineupB": ["storm", "kongo", "frostblade", "ink"],
+  "notes": "原创四人编成核心环：升勾→出牌→出击→形态→结束回合。命令按 definitionId 解析，不依赖 instanceId。",
+  "commands": [
+    { "seq": 1, "type": "level-up", "player": 0, "unit": 1 },
+    { "seq": 2, "type": "level-up", "player": 0, "unit": 0 },
+    { "seq": 3, "type": "play-card", "player": 0, "card": "flash-thrust" },
+    { "seq": 4, "type": "attack", "player": 0, "unit": 0 },
+    { "seq": 5, "type": "play-card", "player": 0, "card": "brace" },
+    { "seq": 6, "type": "play-card", "player": 0, "card": "mend" },
+    { "seq": 7, "type": "end-turn", "player": 0 },
+    { "seq": 8, "type": "level-up", "player": 1, "unit": 0 },
+    { "seq": 9, "type": "level-up", "player": 1, "unit": 1 },
+    { "seq": 10, "type": "attack", "player": 1, "unit": 0 },
+    { "seq": 11, "type": "end-turn", "player": 1 },
+    { "seq": 12, "type": "level-up", "player": 0, "unit": 2 },
+    { "seq": 13, "type": "play-card", "player": 0, "card": "ember-form" },
+    { "seq": 14, "type": "end-turn", "player": 0 },
+    { "seq": 15, "type": "end-turn", "player": 1 },
+    { "seq": 16, "type": "attack", "player": 0, "unit": 0 }
+  ]
+}

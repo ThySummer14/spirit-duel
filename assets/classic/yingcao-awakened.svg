@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">萤草 · 觉醒相</title>
+  <desc id="desc">萤火与草叶：柔光草叶生辉，萤点浮游如星。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="yingcao-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e140c"/>
+      <stop offset=".55" stop-color="#182014"/>
+      <stop offset="1" stop-color="#0a0e08"/>
+    </linearGradient>
+    <radialGradient id="yingcao-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#c8e070" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#b0d040" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#b0d040" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="yingcao-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e8f0c0"/>
+      <stop offset=".55" stop-color="#a0c060"/>
+      <stop offset="1" stop-color="#b0d040"/>
+    </linearGradient>
+    <linearGradient id="yingcao-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b0d040"/>
+      <stop offset="1" stop-color="#507020"/>
+    </linearGradient>
+    <linearGradient id="yingcao-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#yingcao-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#yingcao-halo)"/>
+  <g>
+    <path d="M70 200 Q100 120 55 55" fill="none" stroke="url(#yingcao-acc)" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+    <path d="M85 200 Q105 120 80 40" fill="none" stroke="url(#yingcao-acc)" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+    <path d="M100 200 Q100 120 100 32" fill="none" stroke="url(#yingcao-acc)" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+    <path d="M115 200 Q97 120 122 38" fill="none" stroke="url(#yingcao-acc)" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+    <path d="M130 200 Q102 120 148 52" fill="none" stroke="url(#yingcao-acc)" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+    <path d="M78 200c-10-30-8-55 4-72 4 24 8 44 18 58" fill="none" stroke="url(#yingcao-body)" stroke-width="1.8" opacity=".7"/>
+    <path d="M122 200c10-28 10-52 0-70-2 22-6 42-14 56" fill="none" stroke="url(#yingcao-body)" stroke-width="1.8" opacity=".7"/>
+  </g>
+  <circle cx="100" cy="92" r="22" fill="url(#yingcao-halo)" opacity=".9"/>
+  <circle cx="100" cy="92" r="8" fill="url(#yingcao-acc)" opacity=".75"/>
+  <circle cx="100" cy="92" r="3" fill="#e8ff9a"/>
+  <path d="M88 120c8 10 16 10 24 0-2 16-8 26-12 32-4-6-10-16-12-32Z" fill="url(#yingcao-body)" opacity=".7"/>
+  <ellipse cx="68" cy="130" rx="7" ry="10" fill="url(#yingcao-acc)" opacity=".55" transform="rotate(-20 68 130)"/>
+  <ellipse cx="136" cy="140" rx="6" ry="9" fill="url(#yingcao-acc)" opacity=".5" transform="rotate(25 136 140)"/>
+  <ellipse cx="52" cy="160" rx="5" ry="8" fill="url(#yingcao-acc)" opacity=".4" transform="rotate(-30 52 160)"/>
+  <ellipse cx="150" cy="168" rx="5" ry="7" fill="url(#yingcao-acc)" opacity=".4" transform="rotate(20 150 168)"/>
+<g fill="url(#yingcao-acc)">
+    <circle cx="50" cy="70" r="2.2" opacity=".8"/>
+    <circle cx="154" cy="78" r="2" opacity=".75"/>
+    <circle cx="40" cy="110" r="1.8" opacity=".6"/>
+    <circle cx="164" cy="120" r="2.4" opacity=".7"/>
+    <circle cx="86" cy="50" r="1.5" opacity=".55"/>
+    <circle cx="118" cy="48" r="1.5" opacity=".55"/>
+    <circle cx="72" cy="180" r="1.6" opacity=".5"/>
+    <circle cx="132" cy="188" r="1.8" opacity=".55"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#yingcao-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#yingcao-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#yingcao-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#yingcao-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#yingcao-gold)"/>
+    <g stroke="url(#yingcao-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#a0c050" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

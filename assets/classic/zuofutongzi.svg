@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">座敷童子</title>
+  <desc id="desc">童子与福禄吉样：福字挂件、钱袋式神，喜庆夜色</desc>
+  <defs>
+    <linearGradient id="zuofutongzi-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#180c0c"/>
+      <stop offset=".55" stop-color="#281414"/>
+      <stop offset="1" stop-color="#100808"/>
+    </linearGradient>
+    <radialGradient id="zuofutongzi-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#f0b060" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#e07840" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#e07840" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="zuofutongzi-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8e0c0"/>
+      <stop offset=".55" stop-color="#e0a070"/>
+      <stop offset="1" stop-color="#e07840"/>
+    </linearGradient>
+    <linearGradient id="zuofutongzi-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e07840"/>
+      <stop offset="1" stop-color="#902820"/>
+    </linearGradient>
+    <linearGradient id="zuofutongzi-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#zuofutongzi-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#zuofutongzi-halo)"/>
+  <ellipse cx="100" cy="88" rx="30" ry="34" fill="url(#zuofutongzi-body)" opacity=".8" stroke="#3a2818" stroke-width="1.8"/>
+  <path d="M80 72c6-14 12-22 20-22s14 8 20 22" fill="url(#zuofutongzi-acc)" opacity=".7"/>
+  <ellipse cx="88" cy="88" rx="5" ry="4" fill="#2a1808"/><ellipse cx="112" cy="88" rx="5" ry="4" fill="#2a1808"/>
+  <circle cx="89" cy="87" r="1.6" fill="#ffb060"/><circle cx="113" cy="87" r="1.6" fill="#ffb060"/>
+  <path d="M94 104c4 4 8 4 12 0" stroke="#5c3820" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <path d="M82 118c-8 12-12 30-10 50h56c2-20-2-38-10-50-8 6-28 6-36 0Z" fill="url(#zuofutongzi-body)" opacity=".55"/>
+  <g>
+    <rect x="42" y="120" width="22" height="30" rx="3" fill="#e8c848" stroke="#8a6020" stroke-width="1.2"/>
+    <text x="53" y="140" text-anchor="middle" font-size="12" fill="#8a3020" font-family="serif">福</text>
+    <rect x="136" y="115" width="22" height="30" rx="3" fill="#e8c848" stroke="#8a6020" stroke-width="1.2"/>
+    <text x="147" y="135" text-anchor="middle" font-size="12" fill="#8a3020" font-family="serif">禄</text>
+  </g>
+  <circle cx="55" cy="175" r="12" fill="url(#zuofutongzi-acc)" opacity=".7" stroke="#8a3020" stroke-width="1.2"/>
+  <text x="55" y="180" text-anchor="middle" font-size="12" fill="#fff0c0" font-family="serif">吉</text>
+  <circle cx="148" cy="175" r="12" fill="url(#zuofutongzi-acc)" opacity=".7" stroke="#8a3020" stroke-width="1.2"/>
+  <text x="148" y="180" text-anchor="middle" font-size="12" fill="#fff0c0" font-family="serif">祥</text>
+  <path d="M100 50c-4-12 0-20 4-24 2 8 2 16-4 24Z" fill="url(#zuofutongzi-acc)" opacity=".8"/>
+<g fill="url(#zuofutongzi-acc)">
+    <circle cx="36" cy="70" r="2" opacity=".55"/>
+    <circle cx="166" cy="65" r="1.8" opacity=".55"/>
+    <circle cx="30" cy="145" r="1.8" opacity=".5"/>
+    <circle cx="172" cy="145" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="28" r="1.5" opacity=".45"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="134" cy="200" r="1.6" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#e07840" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

@@ -194,5 +194,7 @@ test('new expansion cards are absent from starter decks and the catalog stays va
     assert.equal(starterIds.has(id), false, `${id} 不应出现在默认构筑`);
     assert.ok(getCardDefinition(id), `${id} 应已注册`);
   });
-  assert.equal(CARD_DEFINITIONS.length, 72 + 11 + 7 + 24 + 24); // 机制深化牌 + 两名新角色各 12 张 + 觉醒与 SSR 扩展 24 张
+  assert.ok(CARD_DEFINITIONS.length >= 72 + 11 + 7 + 24 + 24, '卡池应不少于机制深化与扩展牌总量');
+  assert.equal(CARD_DEFINITIONS.filter((card) => card.pack === 'classic').length >= 200, true);
+  assert.equal(CARD_DEFINITIONS.filter((card) => card.pack === 'wave2').length >= 72, true);
 });

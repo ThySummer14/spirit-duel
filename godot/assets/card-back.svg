@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 168" role="img" aria-label="灵枢卡背">
+  <defs>
+    <linearGradient id="cb-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2032"/>
+      <stop offset="1" stop-color="#10131f"/>
+    </linearGradient>
+    <linearGradient id="cb-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8cf8e"/>
+      <stop offset="1" stop-color="#9d7c2e"/>
+    </linearGradient>
+    <pattern id="cb-seigaiha" width="24" height="12" patternUnits="userSpaceOnUse">
+      <path d="M0 12a12 12 0 0 1 24 0 12 12 0 0 1 24 0" fill="none" stroke="#8b93b8" stroke-opacity=".22" stroke-width="1.2"/>
+      <path d="M6 12a6 6 0 0 1 12 0 6 6 0 0 1 12 0" fill="none" stroke="#8b93b8" stroke-opacity=".16" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="120" height="168" rx="12" fill="url(#cb-bg)"/>
+  <rect x="5" y="5" width="110" height="158" rx="9" fill="none" stroke="url(#cb-gold)" stroke-width="1.6" opacity=".8"/>
+  <rect x="12" y="12" width="96" height="144" rx="6" fill="url(#cb-seigaiha)"/>
+  <!-- 中央勾玉纹章 -->
+  <circle cx="60" cy="84" r="27" fill="#151a2c" stroke="url(#cb-gold)" stroke-width="2" opacity=".95"/>
+  <path d="M60 62c10 0 17 7 17 15 0 9-6 16-11 18-2-4-6-7-9-10-5-4-8-9-6-14 1-5 5-9 9-9Z" fill="url(#cb-gold)"/>
+  <circle cx="55" cy="74" r="3" fill="#151a2c"/>
+  <path d="M60 36l4 8h-8ZM60 132l4-8h-8Z" fill="url(#cb-gold)" opacity=".9"/>
+</svg>

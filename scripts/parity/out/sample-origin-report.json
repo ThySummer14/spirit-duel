@@ -1,0 +1,13 @@
+{
+  "sample": "origin-core-loop",
+  "seed": 20260920,
+  "match": true,
+  "finalDiffs": [],
+  "stepDiffs": [],
+  "summary": {
+    "finalDiffCount": 0,
+    "stepDiffCount": 0,
+    "jsSteps": 16,
+    "godotSteps": 16
+  }
+}

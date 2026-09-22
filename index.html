@@ -10,11 +10,11 @@
     <meta name="theme-color" content="#0d1220" />
     <title>灵枢战线 · 和风对局</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <meta name="build" content="d8096adc" />
-    <link rel="stylesheet" href="styles.css?v=d8096adc" />
-    <link rel="stylesheet" href="formation.css?v=d8096adc" />
-    <link rel="stylesheet" href="card-holo.css?v=d8096adc" />
-    <script type="module" src="app.js?v=d8096adc"></script>
+    <meta name="build" content="9d3113fe" />
+    <link rel="stylesheet" href="styles.css?v=9d3113fe" />
+    <link rel="stylesheet" href="formation.css?v=9d3113fe" />
+    <link rel="stylesheet" href="card-holo.css?v=9d3113fe" />
+    <script type="module" src="app.js?v=9d3113fe"></script>
   </head>
   <body>
     <a class="skip-link" href="#battlefield">跳到战场</a>
@@ -41,6 +41,10 @@
         <button id="deck-step-button" type="button"><b>弐</b><span>卡组构筑</span></button>
       </nav>
 
+      <label class="trial-cards-control">
+        <input id="trial-cards-toggle" type="checkbox" aria-describedby="trial-cards-hint">
+        <span><strong>全卡试用</strong><small id="trial-cards-hint">立即构筑未收藏的觉醒、形态和 SSR；不增加收藏，同名上限照常生效。</small></span>
+      </label>
       <div class="formation-layout">
         <!-- 步骤壱：角色名录 -->
         <section class="roster-library" id="roster-library" aria-labelledby="roster-title">
@@ -48,6 +52,15 @@
             <div><p class="micro-label">式者名录</p><h2 id="roster-title">角色名录</h2></div>
             <p>点击立绘加入或移出编成，悬停查看详情。</p>
           </header>
+          <div class="roster-filters" role="toolbar" aria-label="检索与资料包筛选">
+            <label class="roster-search">
+              <span class="visually-hidden">搜索式者</span>
+              <input type="search" id="roster-search" placeholder="搜索式者 / 定位…" autocomplete="off">
+            </label>
+            <button type="button" class="pack-chip is-active" data-pack="all" aria-pressed="true">全部</button>
+            <button type="button" class="pack-chip" data-pack="origin" aria-pressed="false">灵枢原创</button>
+            <button type="button" class="pack-chip" data-pack="classic" aria-pressed="false">经典包 · 29</button>
+          </div>
           <div class="formation-roster" id="formation-roster"></div>
           <aside class="spirit-detail" id="spirit-detail" aria-live="polite">
             <span class="spirit-detail-empty">悬停任意式者，检视被动与牌库构成。</span>
@@ -121,7 +134,7 @@
             <div><dt>已开卷</dt><dd id="collection-packs">0</dd></div>
             <div><dt>战绩</dt><dd id="collection-record">0胜 0败</dd></div>
           </dl>
-          <p class="pack-hint">对局胜利 +50 御札，惜败 +20；稀有度分布：常见 60% · 稀有 34.5% · 史诗 5.5%。每张牌有 8% 概率为闪卡。</p>
+          <p class="pack-hint">对局胜利 +300 御札，惜败 +150；稀有度分布：常见 60% · 稀有 34.5% · 史诗 5.5%。每张牌有 8% 概率为闪卡。</p>
         </aside>
 
         <section class="codex" aria-label="卡牌图鉴">
@@ -372,7 +385,7 @@
             <section><span>参</span><h3>战斗区交战</h3><p>开局战斗区为空，角色从准备区出击后进入战斗区并留场穿越对手回合。对方战斗区有人时互相交战，空缺时直击核心；己方回合开始时战斗区角色自动归位，气绝角色立即离场且不自动补位。</p></section>
             <section><span>肆</span><h3>勾玉与气绝</h3><p>每回合可免费提升一名角色的勾玉等级。角色生命归零后气绝，两个己方回合后自动归队。</p></section>
             <section><span>伍</span><h3>形态共鸣</h3><p>打出形态牌时，该角色恢复全部生命（融合形态每次使用均生效）。把形态牌当作节点的续航与变身回合来规划。</p></section>
-            <section><span>陆</span><h3>觉醒与传说</h3><p>每名角色拥有 1 张觉醒牌：2 勾打出后永久升级被动并点亮觉醒相，气绝不消退。传说（SSR）牌每角色 2 张，牌组同名限 1，仅能从秘闻阁收集。</p></section>
+            <section><span>陆</span><h3>觉醒与传说</h3><p>每名角色拥有 1 张觉醒牌：2 勾打出后永久升级被动并点亮觉醒相，气绝不消退。传说（SSR）牌每角色 2 张，牌组同名限 2，可从秘闻阁收集，或开启全卡试用体验。</p></section>
           </div>
           <button class="dialog-primary" value="close">返回对局</button>
         </form>

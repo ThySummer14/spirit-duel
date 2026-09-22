@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "name": "response-pass-chain",
+  "seed": 777001,
+  "lineupA": ["ember", "basalt", "lumen", "rime"],
+  "lineupB": ["yaodaoji", "jutun-tongzi", "bingyong", "taohuayao"],
+  "notes": "响应窗口：战斗牌 assault → p1 有鬼火与见切可响应 → 双方 pass → 原效果结算。",
+  "injectHand": [
+    { "player": 0, "card": "flash-thrust" },
+    { "player": 1, "card": "c10102" }
+  ],
+  "injectEnergy": [{ "player": 1, "amount": 2 }],
+  "commands": [
+    { "seq": 1, "type": "level-up", "player": 0, "unit": 1 },
+    { "seq": 2, "type": "play-card", "player": 0, "card": "flash-thrust" },
+    { "seq": 3, "type": "pass-response", "player": 1 },
+    { "seq": 4, "type": "pass-response", "player": 0 },
+    { "seq": 5, "type": "end-turn", "player": 0 },
+    { "seq": 6, "type": "level-up", "player": 1, "unit": 1 },
+    { "seq": 7, "type": "attack", "player": 1, "unit": 0 },
+    { "seq": 8, "type": "end-turn", "player": 1 }
+  ]
+}

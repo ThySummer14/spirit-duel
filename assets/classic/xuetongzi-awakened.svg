@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">雪童子 · 觉醒相</title>
+  <desc id="desc">童子与飘雪：圆面童子，雪点与冰晶环绕。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="xuetongzi-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c141a"/>
+      <stop offset=".55" stop-color="#142028"/>
+      <stop offset="1" stop-color="#0a1014"/>
+    </linearGradient>
+    <radialGradient id="xuetongzi-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#b0d8f0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#80b8d0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#80b8d0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="xuetongzi-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e4f0f8"/>
+      <stop offset=".55" stop-color="#a0c0d8"/>
+      <stop offset="1" stop-color="#80b8d0"/>
+    </linearGradient>
+    <linearGradient id="xuetongzi-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#80b8d0"/>
+      <stop offset="1" stop-color="#407088"/>
+    </linearGradient>
+    <linearGradient id="xuetongzi-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#xuetongzi-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#xuetongzi-halo)"/>
+  <g fill="none" stroke="url(#xuetongzi-body)" stroke-width="1.5" stroke-linecap="round" opacity=".8">
+    <path d="M40 70l10 0M45 65l0 10M160 80l8 0M164 76l0 8"/>
+    <path d="M48 140l8 0M52 136l0 8M155 150l8 0M159 146l0 8"/>
+  </g>
+  <circle cx="100" cy="88" r="32" fill="url(#xuetongzi-body)" opacity=".7" stroke="#c0d8e8" stroke-width="1.6"/>
+  <path d="M78 72c6-14 14-22 22-22s16 8 22 22" fill="url(#xuetongzi-acc)" opacity=".75"/>
+  <ellipse cx="88" cy="88" rx="5" ry="4" fill="#1a3040"/><ellipse cx="112" cy="88" rx="5" ry="4" fill="#1a3040"/>
+  <circle cx="89" cy="87" r="1.5" fill="#e8f8ff"/><circle cx="113" cy="87" r="1.5" fill="#e8f8ff"/>
+  <path d="M94 102c4 4 8 4 12 0" stroke="#4a7088" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M82 118c-8 10-12 28-10 48h56c2-20-2-38-10-48-8 6-28 6-36 0Z" fill="url(#xuetongzi-body)" opacity=".55"/>
+  <path d="M70 150h60M75 165h50" stroke="#a0c8e0" stroke-width="1" opacity=".5"/>
+  <circle cx="100" cy="48" r="10" fill="url(#xuetongzi-acc)" opacity=".55"/>
+  <circle cx="100" cy="48" r="4" fill="#e8f8ff" opacity=".7"/>
+<g fill="url(#xuetongzi-body)">
+    <circle cx="42" cy="60" r="2" opacity=".75"/>
+    <circle cx="160" cy="55" r="1.8" opacity=".7"/>
+    <circle cx="36" cy="120" r="2.4" opacity=".8"/>
+    <circle cx="166" cy="125" r="1.6" opacity=".55"/>
+    <circle cx="100" cy="28" r="1.5" opacity=".5"/>
+    <circle cx="62" cy="188" r="1.6" opacity=".55"/>
+    <circle cx="140" cy="192" r="2" opacity=".65"/>
+    <circle cx="78" cy="42" r="1.2" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#xuetongzi-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#xuetongzi-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#xuetongzi-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#xuetongzi-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#xuetongzi-gold)"/>
+    <g stroke="url(#xuetongzi-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#80b8d0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

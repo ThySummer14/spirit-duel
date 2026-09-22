@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "name": "fortune-encourage",
+  "seed": 888002,
+  "lineupA": [
+    "lumen",
+    "ember",
+    "frostblade",
+    "basalt"
+  ],
+  "lineupB": [
+    "storm",
+    "kongo",
+    "rime",
+    "ink"
+  ],
+  "notes": "鼓舞 war-howl → 运势 dawn-needle（fortune-success 追伤）→ 吃鼓舞出击。",
+  "injectHand": [
+    {
+      "player": 0,
+      "card": "war-howl"
+    },
+    {
+      "player": 0,
+      "card": "dawn-needle"
+    }
+  ],
+  "injectEnergy": [
+    {
+      "player": 0,
+      "amount": 2
+    }
+  ],
+  "commands": [
+    {
+      "seq": 1,
+      "type": "level-up",
+      "player": 0,
+      "unit": 2
+    },
+    {
+      "seq": 2,
+      "type": "play-card",
+      "player": 0,
+      "card": "war-howl"
+    },
+    {
+      "seq": 3,
+      "type": "play-card",
+      "player": 0,
+      "card": "dawn-needle",
+      "target": "ai:storm"
+    },
+    {
+      "seq": 4,
+      "type": "attack",
+      "player": 0,
+      "unit": 2
+    },
+    {
+      "seq": 5,
+      "type": "end-turn",
+      "player": 0
+    }
+  ],
+  "injectLevels": [
+    {
+      "player": 0,
+      "unit": 0,
+      "level": 1
+    },
+    {
+      "player": 0,
+      "unit": 1,
+      "level": 1
+    },
+    {
+      "player": 0,
+      "unit": 2,
+      "level": 1
+    },
+    {
+      "player": 0,
+      "unit": 3,
+      "level": 1
+    }
+  ]
+}

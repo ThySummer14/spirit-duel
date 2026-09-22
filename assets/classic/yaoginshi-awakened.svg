@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">妖琴师 · 觉醒相</title>
+  <desc id="desc">琴弦与琴身：琴弦斜贯，琴身横陈，弦上音尘。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="yaoginshi-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#120c16"/>
+      <stop offset=".55" stop-color="#1c1424"/>
+      <stop offset="1" stop-color="#0c0810"/>
+    </linearGradient>
+    <radialGradient id="yaoginshi-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#a088c8" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#7050a8" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#7050a8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="yaoginshi-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#d0c0e0"/>
+      <stop offset=".55" stop-color="#8878a8"/>
+      <stop offset="1" stop-color="#7050a8"/>
+    </linearGradient>
+    <linearGradient id="yaoginshi-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7050a8"/>
+      <stop offset="1" stop-color="#382050"/>
+    </linearGradient>
+    <linearGradient id="yaoginshi-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#yaoginshi-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#yaoginshi-halo)"/>
+  <g fill="none" stroke="url(#yaoginshi-body)" stroke-width="1.4" stroke-linecap="round" opacity=".75">
+    <path d="M40 150 155 95"/>
+    <path d="M42 158 157 103"/>
+    <path d="M44 166 159 111"/>
+    <path d="M46 174 161 119"/>
+  </g>
+  <path d="M35 145c30-8 60-8 85 5 20 10 35 8 50-2l6 12c-18 12-38 14-58 4-22-12-52-12-82-2Z" fill="url(#yaoginshi-body)" opacity=".8" stroke="#2a2038" stroke-width="1.5"/>
+  <path d="M50 155c20-4 40-2 55 6" stroke="url(#yaoginshi-gold)" stroke-width="1" opacity=".5"/>
+  <ellipse cx="100" cy="85" rx="28" ry="32" fill="url(#yaoginshi-body)" opacity=".75" stroke="#2a2038" stroke-width="1.6"/>
+  <path d="M80 72c8-8 14-8 20-2 6-6 12-6 20 2" stroke="#5a4070" stroke-width="1.4" fill="none"/>
+  <ellipse cx="88" cy="85" rx="5" ry="3.5" fill="#1a0820"/><ellipse cx="112" cy="85" rx="5" ry="3.5" fill="#1a0820"/>
+  <circle cx="89" cy="84" r="1.5" fill="#d0a0f0"/><circle cx="113" cy="84" r="1.5" fill="#d0a0f0"/>
+  <path d="M94 100c4 3 8 3 12 0" stroke="#5a4070" stroke-width="1.3" fill="none"/>
+  <path d="M100 55c-6-4-6-12 0-16 6 4 6 12 0 16Z" fill="url(#yaoginshi-acc)" opacity=".8"/>
+  <g fill="url(#yaoginshi-acc)" opacity=".5">
+    <circle cx="60" cy="90" r="3"/><circle cx="145" cy="75" r="2.5"/><circle cx="55" cy="120" r="2"/>
+  </g>
+<g fill="url(#yaoginshi-acc)">
+    <circle cx="32" cy="70" r="1.8" opacity=".5"/>
+    <circle cx="170" cy="65" r="1.6" opacity=".5"/>
+    <circle cx="28" cy="130" r="1.8" opacity=".55"/>
+    <circle cx="174" cy="145" r="1.5" opacity=".45"/>
+    <circle cx="100" cy="30" r="1.4" opacity=".45"/>
+    <circle cx="48" cy="196" r="1.4" opacity=".45"/>
+    <circle cx="152" cy="190" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#yaoginshi-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#yaoginshi-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#yaoginshi-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#yaoginshi-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#yaoginshi-gold)"/>
+    <g stroke="url(#yaoginshi-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#7050a8" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

@@ -188,3 +188,29 @@ test('version 1 collections migrate without losing progress', () => {
   assert.deepEqual(restored.holoOwned, {});
   assert.equal(restored.owned['flash-thrust'], 2);
 });
+
+test('trial availability never grants ownership and respects individual limits', async () => {
+  const { availableDeckCopies, validateCollectionDeck } = await import('../game-collection.js');
+  const collection = createInitialCollection();
+  const before = structuredClone(collection);
+  const ssr = CARD_DEFINITIONS.find(card => card.rarity === 'ssr' && !ownedCopies(collection, card.id));
+  const awakening = CARD_DEFINITIONS.find(card => card.deckLimit === 1);
+  assert.equal(availableDeckCopies(collection, ssr.id), 0);
+  assert.equal(availableDeckCopies(collection, ssr.id, true), 2);
+  assert.equal(validateCollectionDeck(collection, { cardIds: [ssr.id, ssr.id] }, true).valid, true);
+  assert.equal(validateCollectionDeck(collection, { cardIds: [ssr.id] }).valid, false);
+  assert.equal(validateCollectionDeck(collection, { cardIds: [awakening.id, awakening.id] }, true).valid, false);
+  assert.equal(validateCollectionDeck(collection, { cardIds: ['unknown-card'] }, true).valid, false);
+  assert.deepEqual(collection, before);
+});
+
+test('testing rewards grant three packs per win and one and a half per loss without unlocking cards', () => {
+  const original = createInitialCollection();
+  const win = grantMatchReward(original, true);
+  const loss = grantMatchReward(win.collection, false);
+  assert.equal(win.reward, 300);
+  assert.equal(loss.reward, 150);
+  assert.equal(loss.collection.balance, original.balance + 450);
+  assert.deepEqual(loss.collection.owned, original.owned);
+  assert.equal(original.wins, 0);
+});
