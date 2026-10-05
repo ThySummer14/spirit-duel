@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">土御门胡桃</title>
+  <desc id="desc">土御门胡桃：阴阳桔梗印，净天地</desc>
+  <defs>
+    <linearGradient id="tayumenhutao-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101018"/>
+      <stop offset=".55" stop-color="#181828"/>
+      <stop offset="1" stop-color="#0a0a12"/>
+    </linearGradient>
+    <radialGradient id="tayumenhutao-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#a0a0e0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#6050b0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#6050b0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tayumenhutao-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#d8d0f0"/>
+      <stop offset=".55" stop-color="#9088c0"/>
+      <stop offset="1" stop-color="#6050b0"/>
+    </linearGradient>
+    <linearGradient id="tayumenhutao-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6050b0"/>
+      <stop offset="1" stop-color="#282060"/>
+    </linearGradient>
+    <linearGradient id="tayumenhutao-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#tayumenhutao-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#tayumenhutao-halo)"/>
+  <g>
+    <circle cx="100" cy="120" r="38" fill="url(#tayumenhutao-body)" opacity=".55" stroke="#2a2838" stroke-width="1.6"/>
+    <polygon points="100.0,86.0 105.9,111.9 132.3,109.5 109.5,123.1 120.0,147.5 100.0,130.0 80.0,147.5 90.5,123.1 67.7,109.5 94.1,111.9" fill="none" stroke="url(#tayumenhutao-gold)" stroke-width="1.4" opacity=".85"/>
+    <path d="M100 95c-8 8-8 22 0 30 8-8 8-22 0-30Z" fill="url(#tayumenhutao-acc)" opacity=".75"/>
+  </g>
+<g fill="url(#tayumenhutao-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#6050b0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

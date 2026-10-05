@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">青行灯</title>
+  <desc id="desc">青灯提行：幽蓝灯笼高悬，灯芯冷光，面影在灯后</desc>
+  <defs>
+    <linearGradient id="qingxingdeng-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1218"/>
+      <stop offset=".55" stop-color="#12202c"/>
+      <stop offset="1" stop-color="#080c12"/>
+    </linearGradient>
+    <radialGradient id="qingxingdeng-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#60b0e0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#4090d0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#4090d0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="qingxingdeng-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c0d8f0"/>
+      <stop offset=".55" stop-color="#7090b0"/>
+      <stop offset="1" stop-color="#4090d0"/>
+    </linearGradient>
+    <linearGradient id="qingxingdeng-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4090d0"/>
+      <stop offset="1" stop-color="#184068"/>
+    </linearGradient>
+    <linearGradient id="qingxingdeng-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#qingxingdeng-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#qingxingdeng-halo)"/>
+  <path d="M100 30v20" stroke="url(#qingxingdeng-gold)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M88 50h24l6 8H82Z" fill="url(#qingxingdeng-body)" stroke="#1a2840" stroke-width="1.3"/>
+  <path d="M78 58h44v70H78Z" fill="url(#qingxingdeng-acc)" opacity=".55" stroke="#1a2840" stroke-width="1.6"/>
+  <path d="M78 75h44M78 95h44M78 115h44" stroke="#2a4868" stroke-width="1" opacity=".6"/>
+  <path d="M90 70v50M110 70v50" stroke="#2a4868" stroke-width="1" opacity=".5"/>
+  <path d="M82 128h36l-4 10H86Z" fill="url(#qingxingdeng-body)" stroke="#1a2840" stroke-width="1.3"/>
+  <ellipse cx="100" cy="92" rx="14" ry="20" fill="#80c8ff" opacity=".55"/>
+  <ellipse cx="100" cy="92" rx="6" ry="10" fill="#c8e8ff" opacity=".7"/>
+  <ellipse cx="100" cy="165" rx="28" ry="34" fill="url(#qingxingdeng-body)" opacity=".55" stroke="#1a2840" stroke-width="1.5"/>
+  <ellipse cx="88" cy="160" rx="5" ry="3.5" fill="#0a1828"/><ellipse cx="112" cy="160" rx="5" ry="3.5" fill="#0a1828"/>
+  <path d="M94 178c4 3 8 3 12 0" stroke="#2a4868" stroke-width="1.3" fill="none"/>
+  <path d="M70 185c8 18 16 28 30 36 14-8 22-18 30-36" fill="url(#qingxingdeng-body)" opacity=".4"/>
+  <g fill="none" stroke="url(#qingxingdeng-acc)" stroke-width="1" opacity=".4">
+    <circle cx="100" cy="92" r="50"/><circle cx="100" cy="92" r="62"/>
+  </g>
+<g fill="url(#qingxingdeng-body)">
+    <circle cx="42" cy="70" r="2.2" opacity=".7"/>
+    <circle cx="160" cy="65" r="2" opacity=".65"/>
+    <circle cx="34" cy="130" r="2.4" opacity=".75"/>
+    <circle cx="168" cy="135" r="1.8" opacity=".55"/>
+    <circle cx="100" cy="24" r="1.5" opacity=".5"/>
+    <circle cx="56" cy="190" r="1.6" opacity=".5"/>
+    <circle cx="148" cy="194" r="2" opacity=".6"/>
+    <circle cx="70" cy="48" r="1.3" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#4090d0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

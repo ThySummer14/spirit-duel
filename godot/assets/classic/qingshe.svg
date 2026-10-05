@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">清姬</title>
+  <desc id="desc">青蛇盘绕：蛇身环抱，信子吐出，鳞光隐隐</desc>
+  <defs>
+    <linearGradient id="qingshe-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1412"/>
+      <stop offset=".55" stop-color="#14201c"/>
+      <stop offset="1" stop-color="#0a0e0c"/>
+    </linearGradient>
+    <radialGradient id="qingshe-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#70c0a0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#40a878" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#40a878" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="qingshe-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c0e0d0"/>
+      <stop offset=".55" stop-color="#70a890"/>
+      <stop offset="1" stop-color="#40a878"/>
+    </linearGradient>
+    <linearGradient id="qingshe-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#40a878"/>
+      <stop offset="1" stop-color="#185838"/>
+    </linearGradient>
+    <linearGradient id="qingshe-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#qingshe-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#qingshe-halo)"/>
+  <path d="M60 200c20-20 20-50 0-70 24-24 60-24 80 0 16 20 12 50-10 70" fill="none" stroke="url(#qingshe-acc)" stroke-width="10" stroke-linecap="round" opacity=".85"/>
+  <path d="M60 200c20-20 20-50 0-70 24-24 60-24 80 0 16 20 12 50-10 70" fill="none" stroke="#2a4838" stroke-width="2" stroke-dasharray="4 6" opacity=".5"/>
+  <ellipse cx="100" cy="88" rx="28" ry="32" fill="url(#qingshe-body)" opacity=".8" stroke="#1a3828" stroke-width="1.8"/>
+  <path d="M82 72c8-6 14-6 20-2 6-4 12-4 20 2" stroke="#3a6850" stroke-width="1.5" fill="none"/>
+  <ellipse cx="88" cy="88" rx="6" ry="4" fill="#0a2010" transform="rotate(-15 88 88)"/>
+  <ellipse cx="112" cy="88" rx="6" ry="4" fill="#0a2010" transform="rotate(15 112 88)"/>
+  <circle cx="89" cy="87" r="1.8" fill="#c0f060"/><circle cx="113" cy="87" r="1.8" fill="#c0f060"/>
+  <path d="M100 100v8M96 112h8" stroke="#1a3828" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M100 120c-4 8 4 12 0 20 6-2 10-10 8-18Z" fill="url(#qingshe-acc)" opacity=".8"/>
+  <path d="M72 55c12-8 24-8 28 0-8 4-18 4-28 0ZM100 55c4-8 16-8 28 0-10 4-20 4-28 0Z" fill="url(#qingshe-acc)" opacity=".55"/>
+<g fill="url(#qingshe-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".55"/>
+    <circle cx="164" cy="75" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="140" r="2" opacity=".6"/>
+    <circle cx="170" cy="145" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="30" r="1.5" opacity=".45"/>
+    <circle cx="56" cy="188" r="1.5" opacity=".5"/>
+    <circle cx="148" cy="190" r="1.8" opacity=".55"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#40a878" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

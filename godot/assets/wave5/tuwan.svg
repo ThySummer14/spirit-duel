@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">兔丸</title>
+  <desc id="desc">兔丸：长耳与食材，软萌可掬</desc>
+  <defs>
+    <linearGradient id="tuwan-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14100c"/>
+      <stop offset=".55" stop-color="#201814"/>
+      <stop offset="1" stop-color="#0c0a08"/>
+    </linearGradient>
+    <radialGradient id="tuwan-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e0b090" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#d08060" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#d08060" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tuwan-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8e8d8"/>
+      <stop offset=".55" stop-color="#d0b098"/>
+      <stop offset="1" stop-color="#d08060"/>
+    </linearGradient>
+    <linearGradient id="tuwan-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d08060"/>
+      <stop offset="1" stop-color="#604030"/>
+    </linearGradient>
+    <linearGradient id="tuwan-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#tuwan-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#tuwan-halo)"/>
+  <g>
+    <path d="M82 85c-8-28-6-48 2-55 8 12 12 32 10 55M118 85c8-28 6-48-2-55-8 12-12 32-10 55" fill="url(#tuwan-acc)" opacity=".85"/>
+    <ellipse cx="100" cy="135" rx="30" ry="32" fill="url(#tuwan-body)" stroke="#4a3020" stroke-width="2"/>
+    <circle cx="90" cy="128" r="3.5" fill="#1a1008"/><circle cx="110" cy="128" r="3.5" fill="#1a1008"/>
+    <ellipse cx="100" cy="142" rx="5" ry="3.5" fill="#2a1808"/>
+    <path d="M130 165c12 4 18 14 14 24-10-2-18-12-14-24z" fill="url(#tuwan-gold)" opacity=".75"/>
+  </g>
+<g fill="url(#tuwan-acc)">
+    <circle cx="42" cy="90" r="2" opacity=".6"/>
+    <circle cx="160" cy="92" r="1.8" opacity=".55"/>
+    <circle cx="38" cy="165" r="1.6" opacity=".5"/>
+    <circle cx="164" cy="168" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="36" r="1.5" opacity=".5"/>
+    <circle cx="70" cy="210" r="1.4" opacity=".5"/>
+    <circle cx="130" cy="210" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#d08060" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

@@ -11,24 +11,24 @@ const DeckBuilderScreen := preload("res://scripts/ui/deck_builder.gd")
 const SaveStore := preload("res://scripts/save_store.gd")
 const CollectionScreen := preload("res://scripts/ui/collection_screen.gd")
 const CollectionStore := preload("res://scripts/collection_store.gd")
+const Sfx := preload("res://scripts/ui/sfx.gd")
+const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
 ## Screen router: menu ↔ formation ↔ battle ↔ result
-
-const DEFAULT_PLAYER := ["ember", "basalt", "lumen", "rime"]
-const DEFAULT_ENEMY := ["storm", "basalt", "lumen", "ink"]
-const FEATURED_PLAYER := ["ember", "lumen"]
-const FEATURED_ENEMY := ["storm", "basalt"]
 
 var _current: Control
 var _lineup: Array = []
 var _seed: int = 0
 var _quick := false
+var _formation_slot := 0
+var _deck_return_codex := false
 
 
 func _ready() -> void:
+	get_window().min_size = Vector2i(1280, 800)
 	self.theme = ThemeBuilder.build_theme()
 	var saved_lineup: Array = SaveStore.get_lineup()
-	if saved_lineup.size() >= 4:
-		_lineup = saved_lineup.slice(0, 4)
+	if ContentLoader.valid_lineup(saved_lineup):
+		_lineup = saved_lineup.duplicate()
 	else:
 		_lineup = _default_lineup()
 	_show_menu()
@@ -44,21 +44,20 @@ func _swap(node: Control) -> void:
 	_clear()
 	_current = node
 	add_child(_current)
+	_current.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 
 func _default_lineup() -> Array:
-	var ids: Array = []
-	for u in ContentLoader.playable_units():
-		ids.append(u.id)
-		if ids.size() >= 4:
-			break
-	if ids.size() < 4:
-		ids = DEFAULT_PLAYER.duplicate()
-	return ids
+	return ContentLoader.recommended_lineup("classic")
 
 
 func _show_menu() -> void:
 	var menu := MainMenuScreen.new()
+	menu.lineup = _lineup.duplicate()
+	menu.lineup_selected.connect(func(ids: Array):
+		_lineup = ids.duplicate()
+		SaveStore.set_lineup(ids)
+	)
 	menu.start_quick_match.connect(func():
 		_quick = true
 		_start_battle()
@@ -72,9 +71,15 @@ func _show_menu() -> void:
 
 
 func _show_formation() -> void:
+	_deck_return_codex = false
 	var form := FormationScreen.new()
+	form.formation_slot = _formation_slot
 	form.back_requested.connect(_show_menu)
-	form.edit_deck.connect(_show_deck_builder)
+	form.edit_deck.connect(func(unit_id: String):
+		_lineup = form.selected_units()
+		_formation_slot = form.formation_slot
+		_show_deck_builder(unit_id)
+	)
 	form.confirmed.connect(func(unit_ids: Array):
 		_lineup = unit_ids
 		SaveStore.set_lineup(unit_ids)
@@ -92,91 +97,104 @@ func _show_collection() -> void:
 
 
 func _show_codex() -> void:
+	_deck_return_codex = true
 	var codex := CodexScreen.new()
 	codex.back_requested.connect(_show_menu)
+	codex.edit_deck.connect(_show_deck_builder)
 	_swap(codex)
 
 
 func _show_deck_builder(unit_id: String) -> void:
 	var deck := DeckBuilderScreen.new()
 	deck.setup(unit_id)
-	deck.back_requested.connect(_show_formation)
+	deck.back_requested.connect(_return_from_deck)
 	deck.deck_confirmed.connect(func(uid: String, card_ids: Array):
 		SaveStore.set_deck(uid, card_ids)
-		_show_formation()
+		_return_from_deck()
 	)
 	_swap(deck)
+
+
+func _return_from_deck() -> void:
+	if _deck_return_codex: _show_codex()
+	else: _show_formation()
 
 
 func _show_settings() -> void:
 	var holder := Control.new()
 	holder.set_anchors_preset(Control.PRESET_FULL_RECT)
-	var bg := ColorRect.new()
-	bg.color = ThemeBuilder.INK_1
+	var bg := Backdrop.new()
+	bg.scene = "port"
+	bg.dim = 0.55
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	holder.add_child(bg)
 	var center := CenterContainer.new()
 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
 	holder.add_child(center)
 	var card := PanelContainer.new()
-	card.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 12, 1))
+	card.custom_minimum_size = Vector2(520, 0)
+	card.add_theme_stylebox_override("panel", ThemeBuilder.glass(0.94))
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 12)
 	card.add_child(v)
 	v.add_child(ThemeBuilder.title_label("设置", 24))
-	v.add_child(ThemeBuilder.dim_label("主题：墨夜和风（深墨底 / 暖纸 / 金与朱）", 13))
-	v.add_child(ThemeBuilder.dim_label("分辨率 1280×800 · GL Compatibility", 13))
-	v.add_child(ThemeBuilder.dim_label("键盘：Enter 结束回合 · 1-9 出牌 · Tab 查看角色", 13))
-	v.add_child(ThemeBuilder.dim_label("内容：content/content.json（编成 4 · 核心 30 · 鬼火 2）", 13))
+	v.add_child(ThemeBuilder.section_label("音量"))
+	v.add_child(_volume_control("music", "背景音乐"))
+	v.add_child(_volume_control("sfx", "操作与战斗音效"))
+	v.add_child(ThemeBuilder.hline())
+	v.add_child(ThemeBuilder.section_label("操作提示"))
+	v.add_child(ThemeBuilder.dim_label("Enter 结束回合 · 1–9 出牌 · Tab 查看角色", 13))
+	v.add_child(ThemeBuilder.dim_label("P 放弃响应 · Esc 取消目标或关闭检视", 13))
+	v.add_child(ThemeBuilder.dim_label("悬停查看完整牌文，拖动手牌或式神执行行动。", 13))
 	var back := ThemeBuilder.rounded_rect_button("返回", Vector2(200, 44))
 	back.pressed.connect(_show_menu)
 	v.add_child(back)
 	center.add_child(card)
 	_swap(holder)
+	Sfx.music("bgm_menu")
+
+
+func _volume_control(channel: String, title: String) -> Control:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 14)
+	var label := ThemeBuilder.label(title, 14)
+	label.custom_minimum_size.x = 144
+	row.add_child(label)
+	var slider := HSlider.new()
+	slider.min_value = 0
+	slider.max_value = 100
+	slider.step = 1
+	slider.value = float(Sfx.settings()[channel]) * 100
+	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	slider.custom_minimum_size = Vector2(210, 34)
+	slider.set_meta("channel", channel)
+	row.add_child(slider)
+	var value := ThemeBuilder.label("%d%%" % int(slider.value), 14, ThemeBuilder.GOLD_BRIGHT)
+	value.custom_minimum_size.x = 45
+	row.add_child(value)
+	slider.value_changed.connect(func(amount):
+		Sfx.set_volume(channel, amount / 100.0)
+		value.text = "%d%%" % int(amount)
+	)
+	return row
 
 
 func _start_battle() -> void:
 	_seed = int(Time.get_ticks_msec()) & 0x7fffffff
 	var lineup_a: Array
-	var lineup_b: Array
-	if _quick:
-		lineup_a = FEATURED_PLAYER.duplicate()
-		lineup_b = FEATURED_ENEMY.duplicate()
-		# fall back if content lacks featured ids
-		var have := {}
-		for u in ContentLoader.playable_units():
-			have[u.id] = true
-		if not have.has("ember") or not have.has("lumen"):
-			lineup_a = [_default_lineup()[0], _default_lineup()[1]]
-		if not have.has("storm") or not have.has("basalt"):
-			lineup_b = _enemy_lineup(lineup_a).slice(0, 2)
-	else:
-		lineup_a = _lineup.duplicate()
-		lineup_b = _enemy_lineup(lineup_a)
+	lineup_a = _lineup.duplicate() if ContentLoader.valid_lineup(_lineup) else _default_lineup()
+	var lineup_b := _enemy_lineup(lineup_a)
 	var battle := BattleScreen.new()
-	var deck_a := SaveStore.deck_definition(lineup_a)
-	var deck_b := SaveStore.deck_definition(lineup_b)
-	battle.setup(lineup_a, lineup_b, _seed, deck_a, deck_b)
+	var deck_a := ContentLoader.default_deck(lineup_a) if _quick else SaveStore.deck_definition(lineup_a)
+	var deck_b := ContentLoader.default_deck(lineup_b)
+	battle.setup(lineup_a, lineup_b, _seed, deck_a, deck_b, true)
+	battle.back_requested.connect(_show_menu)
 	battle.match_over.connect(_on_match_over)
 	_swap(battle)
 
 
 func _enemy_lineup(ally: Array) -> Array:
-	var ids: Array = []
-	for u in ContentLoader.playable_units():
-		if not ally.has(u.id):
-			ids.append(u.id)
-		if ids.size() >= 4:
-			break
-	if ids.size() < 4:
-		for u in ContentLoader.playable_units():
-			if not ids.has(u.id):
-				ids.append(u.id)
-			if ids.size() >= 4:
-				break
-	if ids.size() < 2:
-		ids = DEFAULT_ENEMY.duplicate()
-	return ids
+	return ContentLoader.opponent_lineup(ally, _seed)
 
 
 func _on_match_over(winner: int, snapshot: Dictionary) -> void:
@@ -187,7 +205,7 @@ func _on_match_over(winner: int, snapshot: Dictionary) -> void:
 		int(snapshot.get("commands", 0)),
 	]
 	if _quick:
-		summary += " · 快速对战（精选 2 名/侧）"
+		summary += " · 快速对战（完整四式神阵容）"
 	else:
 		summary += " · 完整四对四编成"
 	var reward := CollectionStore.grant_match_reward(victory)

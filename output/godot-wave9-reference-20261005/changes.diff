@@ -1,0 +1,588 @@
+--- a/README.md
++++ b/README.md
+@@ -226,3 +226,5 @@
+ 同日补齐第四资料包（吉运善恶）全部 26 位原版参照重绘，Godot 重绘覆盖增至 83 位。逐张设置头像焦点，扩展完整资料包美术检查与按资料包截图采集；此前 57 张图片与映射保持一致。19 张实际游戏截图、原版对照及完整运行结果见 [第四资料包验收](output/godot-wave4-20261005/acceptance.md)。
+ 
+ 同日继续完成第五至第八资料包全部 106 位重绘并接入 Godot，累计 189 位，剩余 61 位仍使用 SVG。每位保存对应原版、提示词、最终生成文件和裁切焦点，保留双人、坐骑与衣装变体；伊邪那美采用完整衣装版并记录差异。75 张游戏截图、3989 项美术检查、完整 Godot 验收和 JS 测试结果见 [第五至第八资料包验收](output/godot-wave5-wave8-20261005/acceptance.md)。
++
++随后补齐最后 61 位并接入 Godot，全部 250 位可玩角色均有插画。本轮 30 位使用对应原版，31 位按用户授权依据现有设定补画，保持统一墨线、矿物色与纸面纹理。保存每位来源、提示词、最终选图、裁切焦点和原版重试记录；此前 189 张 PNG、映射与焦点保持一致。实际游戏截图与完整运行结果见 [全部 250 位插画验收](output/godot-wave9-reference-20261005/acceptance.md)。
+--- a/godot/README.md
++++ b/godot/README.md
+@@ -50,7 +50,7 @@
+   project.godot
+   content/content.json
+   assets/**/*.svg       # 既有角色占位与缺图回退
+-  assets/redrawn/       # 经典与 Wave2–8 共 189 位重绘 PNG、裁切焦点与完整提示词
++  assets/redrawn/       # 全部 250 位插画 PNG、裁切焦点、来源与完整提示词
+   assets/scenery/*.png  # Botcf Image 生成的四张环境背景
+   assets/fonts/*.ttf    # Noto SC 字体子集，许可见 fonts/OFL.txt
+   assets/audio/*.wav    # 程序化生成的音乐与音效
+@@ -69,7 +69,7 @@
+ - 响应优先权、指定目标的响应牌、占卜选牌已接入；烹饪集齐 / 夜幕预约 / 蓄力树等仍有单步近似或未实现效果
+ - 连击/先攻/贯通/远程/暴击已接入交战；鼓舞池支持累积和出击消耗；融合等其余资源链仍有简化
+ - AI 为贪心打分，不搜索
+-- 环境背景由 Botcf Image 生成；经典基础与 Wave2–8 共 189 位式神已按原版参考重绘，余下 61 位使用既有 SVG 占位
++- 环境背景由 Botcf Image 生成；全部 250 位角色已接入插画，其中 219 位依据原版参考、31 位经用户授权按项目设定补画。普通、觉醒与所属技能牌共用各角色插画
+ 
+ 
+ ## 游玩舒适度（2026-09-22）
+@@ -188,3 +188,9 @@
+ 第五、六、七、八资料包的 24 + 32 + 25 + 25 位角色全部接入 1024×1536 PNG 与独立裁切焦点，新增 106 位，累计 189 位。对应原版、完整提示词与最终选图见 `assets/redrawn/prompts-wave5.json` 至 `prompts-wave8.json`。重试仍只输入对应原版，已去除生成图中的残留元素标记；双人、坐骑与衣装变体按原版分别处理。伊邪那美因首次输出被图像服务拦截，最终采用完整不透明礼服，衣装调整单独记录。普通、觉醒与所属技能牌继续共用主人立绘。
+ 
+ `verify_art.gd` 要求经典至第八资料包完整覆盖，检查全部 189 位的真实控件纹理、五种尺寸裁切、归属与回退。本轮美术 3989 项、完整 Godot 验收、163 项 JS 测试及 385 项 UI audit 全部通过；75 张实际游戏截图覆盖四包全部角色。此前 83 张图片、映射和焦点保持一致，测试和截图使用隔离存档。[本轮验收与截图](../output/godot-wave5-wave8-20261005/acceptance.md)。
++
++## 2026-10-05 最后 61 位与全部插画覆盖
++
++第九至第十三资料包与原创基础包的最后 61 位全部接入 1024×1536 PNG 和独立裁切焦点，累计 250 位。30 位继续按各自原版重绘，31 位按用户“允许按现有设定补画，统一画风”的授权创作，逐位标记来源。祢豆子不使用实际为炭治郎的原版条目；龙珏、吸血姬·曦忆、樱花妖·璃景重新参考原版去除残留卡面元素徽章。
++
++`verify_art.gd` 现在要求全部 250 位覆盖，仍检查普通/觉醒与技能牌归属、五种裁切和 SVG 回退。5283 项美术检查、完整 Godot 验收、163 项 JS 测试和 385 项 UI audit 全部通过。52 张实际游戏截图覆盖六包所有新增角色；小资料包使用不同的经典式神补齐 4v4，并各自展示联动角色构筑页。此前 189 张 PNG、映射与焦点保持一致。普通、觉醒与所属技能牌仍共用各角色插画。[全部插画覆盖验收与图片索引](../output/godot-wave9-reference-20261005/acceptance.md)。
+--- a/godot/assets/redrawn/README.md
++++ b/godot/assets/redrawn/README.md
+@@ -1,6 +1,8 @@
+ # 式神重绘 · 2026-10-05
+ 
+-使用内置 `image_gen`，参照本地 `art-reference-official/卡面/01_式神/` 的原版角色卡面重绘经典基础包与第二至第八资料包，共 189 位式神（29 + 9 + 19 + 26 + 24 + 32 + 25 + 25）。原版卡面仅作为角色外貌与画风参考；本目录 PNG 为生成的无框插画。服饰、发型、武器和配色尽量贴近对应参考，纹样与纸感保持同一方向。原版素材不复制到 Godot。
++使用内置 `image_gen`，现已覆盖全部 250 位可玩角色：219 位依据对应本地原版卡面重绘，31 位按用户授权依据项目现有设定补画。原版参考来自 `art-reference-official/卡面/`；本目录 PNG 为生成的无框插画。服饰、发型、武器和配色尽量贴近各自来源，墨线、矿物色与纸感保持同一方向。原版素材不复制到 Godot。
++
++GitHub 提交范围包括生成插画、提示词、来源路径、游戏截图与验收记录。对应原版卡面、含原版卡面的对照拼版及用户录像帧保留本地，继续由 `.gitignore` 排除；验收文档中的这些本地参考链接需要在原工作区打开。
+ 
+ `prompts.json` 保存第一批八张的完整提示词；`prompts-classic-completion.json` 保存本批 21 张的提示词、参考路径和输出路径，并记录用户指出茨木童子面部问题后的修正提示词与最终选择。茨木童子的运行资源已经采用修正版，旧版没有接入游戏。
+ 
+@@ -8,7 +10,7 @@
+ 
+ `portraits.json` 只管理 Godot 的角色插画路径与裁切焦点。主城、名录、编组、卡牌和战场共用此映射。普通与觉醒状态使用同一张重绘，觉醒边框仍由 UI 绘制；本批没有独立觉醒插画或每张技能牌的插画。
+ 
+-新增重绘时添加 PNG 和角色 ID 对应映射即可，不需改动 JS 规则内容或导出脚本。缺少映射或纹理无法导入时回退到角色现有 SVG；现有 SVG 保留。余下 61 位角色仍使用原占位美术。
++新增重绘时添加 PNG 和角色 ID 对应映射即可，不需改动 JS 规则内容或导出脚本。缺少映射或纹理无法导入时回退到角色现有 SVG；现有 SVG 保留。当前 250 位均有重绘映射，SVG 回退仍有专项验证。
+ 
+ 本批新增：白狼、茨木童子、雪童子、山童、跳跳弟弟、清姬、鸩、海坊主、一目连、书翁、觉、犬神、判官、以津真天、凤凰火、青坊主、青蛙瓷器、山兔、妖琴师、青行灯、座敷童子。每位一张 1024×1536 PNG，路径为 `classic/<角色 ID>.png`。
+ 
+@@ -27,3 +29,9 @@
+ 童男童女、山兔/座敷童子等保留原版双人组合；小鹿男·千守保留鹿身。第八资料包的鬼使黑、鬼使白分别使用各自原版独立重绘。伊邪那美首次输出被图像服务拦截，最终采用不透明高领长袖礼服，保留黑红配色、羽披、长发与银蛇；这是明确记录的衣装调整。
+ 
+ [第五至第八资料包验收](../../../output/godot-wave5-wave8-20261005/acceptance.md)包含 106 位逐张复核、28 页最终原版对照、75 张游戏截图、3989 项美术检查及完整验证。
++
++第九至第十三资料包与原创基础包新增最后 61 张 1024×1536 PNG，位于 `wave9/`（27）、`wave10/`（2）、`wave11/`（10）、`wave12/`（8）、`wave13/`（6）和 `origin/`（8）。六份对应 `prompts-*.json` 保存来源、完整提示词、最终选图与裁切焦点；30 张有对应原版，31 张明确标为 `project-setting`。用户授权原话与缺少原版的原因保存在本轮验收目录。
++
++原版条目 `18200` 实为炭治郎，祢豆子使用现有设定单独补画。番茄采用对应衍生牌的鬼犬组合，冰墙采用对应法术牌的冰墙场景。龙珏、吸血姬·曦忆、樱花妖·璃景针对脚下残留的卡面元素标记重新输入各自原版生成，最终选择不含这些印刷徽章。普通、觉醒与所属技能牌仍共用每位角色的一张插画。
++
++[最后 61 位与全部 250 位验收](../../../output/godot-wave9-reference-20261005/acceptance.md)记录全部选图、来源对照、游戏截图及验证结果；此前 189 张 PNG、映射与焦点保持一致。
+--- a/godot/assets/redrawn/portraits.json
++++ b/godot/assets/redrawn/portraits.json
+@@ -1323,6 +1323,433 @@
+         0.488,
+         0.27
+       ]
++    },
++    "yatiangou-qiuye": {
++      "path": "assets/redrawn/wave9/yatiangou-qiuye.png",
++      "focus": [
++        0.481,
++        0.254
++      ]
++    },
++    "shuweng-zhixing": {
++      "path": "assets/redrawn/wave9/shuweng-zhixing.png",
++      "focus": [
++        0.683,
++        0.237
++      ]
++    },
++    "huojinshen": {
++      "path": "assets/redrawn/wave9/huojinshen.png",
++      "focus": [
++        0.517,
++        0.253
++      ]
++    },
++    "sibing": {
++      "path": "assets/redrawn/wave9/sibing.png",
++      "focus": [
++        0.485,
++        0.218
++      ]
++    },
++    "dayueling-yuxin": {
++      "path": "assets/redrawn/wave9/dayueling-yuxin.png",
++      "focus": [
++        0.512,
++        0.218
++      ]
++    },
++    "chili": {
++      "path": "assets/redrawn/wave9/chili.png",
++      "focus": [
++        0.478,
++        0.184
++      ]
++    },
++    "jieshen-suiyuan": {
++      "path": "assets/redrawn/wave9/jieshen-suiyuan.png",
++      "focus": [
++        0.549,
++        0.198
++      ]
++    },
++    "tieshu-haojia": {
++      "path": "assets/redrawn/wave9/tieshu-haojia.png",
++      "focus": [
++        0.532,
++        0.224
++      ]
++    },
++    "yijin-qianxun": {
++      "path": "assets/redrawn/wave9/yijin-qianxun.png",
++      "focus": [
++        0.452,
++        0.201
++      ]
++    },
++    "baizangzhu-lixin": {
++      "path": "assets/redrawn/wave9/baizangzhu-lixin.png",
++      "focus": [
++        0.619,
++        0.223
++      ]
++    },
++    "guijinyang": {
++      "path": "assets/redrawn/wave9/guijinyang.png",
++      "focus": [
++        0.613,
++        0.198
++      ]
++    },
++    "longche": {
++      "path": "assets/redrawn/wave9/longche.png",
++      "focus": [
++        0.478,
++        0.381
++      ]
++    },
++    "pinfashen": {
++      "path": "assets/redrawn/wave9/pinfashen.png",
++      "focus": [
++        0.588,
++        0.214
++      ]
++    },
++    "longjue": {
++      "path": "assets/redrawn/wave9/longjue.png",
++      "focus": [
++        0.507,
++        0.125
++      ]
++    },
++    "fengyangjun": {
++      "path": "assets/redrawn/wave9/fengyangjun.png",
++      "focus": [
++        0.446,
++        0.231
++      ]
++    },
++    "jintianyuzaoqian": {
++      "path": "assets/redrawn/wave9/jintianyuzaoqian.png",
++      "focus": [
++        0.506,
++        0.176
++      ]
++    },
++    "chanxinyunwaijing": {
++      "path": "assets/redrawn/wave9/chanxinyunwaijing.png",
++      "focus": [
++        0.506,
++        0.119
++      ]
++    },
++    "zhaocaimao": {
++      "path": "assets/redrawn/wave9/zhaocaimao.png",
++      "focus": [
++        0.484,
++        0.214
++      ]
++    },
++    "maozhanggui-huanyan": {
++      "path": "assets/redrawn/wave9/maozhanggui-huanyan.png",
++      "focus": [
++        0.464,
++        0.181
++      ]
++    },
++    "geluoduo": {
++      "path": "assets/redrawn/wave9/geluoduo.png",
++      "focus": [
++        0.617,
++        0.208
++      ]
++    },
++    "yinfanhuiyeji": {
++      "path": "assets/redrawn/wave9/yinfanhuiyeji.png",
++      "focus": [
++        0.59,
++        0.246
++      ]
++    },
++    "daixiaoguhuoniao": {
++      "path": "assets/redrawn/wave9/daixiaoguhuoniao.png",
++      "focus": [
++        0.541,
++        0.202
++      ]
++    },
++    "chulingshanfeng": {
++      "path": "assets/redrawn/wave9/chulingshanfeng.png",
++      "focus": [
++        0.439,
++        0.326
++      ]
++    },
++    "fenghuanghuo-jingyu": {
++      "path": "assets/redrawn/wave9/fenghuanghuo-jingyu.png",
++      "focus": [
++        0.46,
++        0.16
++      ]
++    },
++    "xixueji-xiyi": {
++      "path": "assets/redrawn/wave9/xixueji-xiyi.png",
++      "focus": [
++        0.599,
++        0.134
++      ]
++    },
++    "yinghuayao-lijing": {
++      "path": "assets/redrawn/wave9/yinghuayao-lijing.png",
++      "focus": [
++        0.508,
++        0.195
++      ]
++    },
++    "shenqilou": {
++      "path": "assets/redrawn/wave9/shenqilou.png",
++      "focus": [
++        0.535,
++        0.19
++      ]
++    },
++    "tanjirou": {
++      "path": "assets/redrawn/wave10/tanjirou.png",
++      "focus": [
++        0.526,
++        0.186
++      ]
++    },
++    "nezuko": {
++      "path": "assets/redrawn/wave10/nezuko.png",
++      "focus": [
++        0.489,
++        0.218
++      ]
++    },
++    "fanqie": {
++      "path": "assets/redrawn/wave11/fanqie.png",
++      "focus": [
++        0.531,
++        0.469
++      ]
++    },
++    "bingqiang": {
++      "path": "assets/redrawn/wave11/bingqiang.png",
++      "focus": [
++        0.502,
++        0.338
++      ]
++    },
++    "zhiren": {
++      "path": "assets/redrawn/wave11/zhiren.png",
++      "focus": [
++        0.545,
++        0.374
++      ]
++    },
++    "yanyanluo-fenshen": {
++      "path": "assets/redrawn/wave11/yanyanluo-fenshen.png",
++      "focus": [
++        0.538,
++        0.151
++      ]
++    },
++    "jinran-buye": {
++      "path": "assets/redrawn/wave11/jinran-buye.png",
++      "focus": [
++        0.554,
++        0.287
++      ]
++    },
++    "xueqiu-jingling": {
++      "path": "assets/redrawn/wave11/xueqiu-jingling.png",
++      "focus": [
++        0.572,
++        0.285
++      ]
++    },
++    "huangjinyu-ling": {
++      "path": "assets/redrawn/wave11/huangjinyu-ling.png",
++      "focus": [
++        0.659,
++        0.313
++      ]
++    },
++    "mingdeng-shou": {
++      "path": "assets/redrawn/wave11/mingdeng-shou.png",
++      "focus": [
++        0.52,
++        0.292
++      ]
++    },
++    "xinmo": {
++      "path": "assets/redrawn/wave11/xinmo.png",
++      "focus": [
++        0.529,
++        0.215
++      ]
++    },
++    "shouhu-ling": {
++      "path": "assets/redrawn/wave11/shouhu-ling.png",
++      "focus": [
++        0.518,
++        0.155
++      ]
++    },
++    "yueying": {
++      "path": "assets/redrawn/wave12/yueying.png",
++      "focus": [
++        0.564,
++        0.161
++      ]
++    },
++    "shizhu": {
++      "path": "assets/redrawn/wave12/shizhu.png",
++      "focus": [
++        0.566,
++        0.123
++      ]
++    },
++    "yanling-huo": {
++      "path": "assets/redrawn/wave12/yanling-huo.png",
++      "focus": [
++        0.52,
++        0.16
++      ]
++    },
++    "shuimo": {
++      "path": "assets/redrawn/wave12/shuimo.png",
++      "focus": [
++        0.471,
++        0.175
++      ]
++    },
++    "leiyin": {
++      "path": "assets/redrawn/wave12/leiyin.png",
++      "focus": [
++        0.521,
++        0.142
++      ]
++    },
++    "xingchen": {
++      "path": "assets/redrawn/wave12/xingchen.png",
++      "focus": [
++        0.488,
++        0.174
++      ]
++    },
++    "momo": {
++      "path": "assets/redrawn/wave12/momo.png",
++      "focus": [
++        0.655,
++        0.355
++      ]
++    },
++    "jinguang": {
++      "path": "assets/redrawn/wave12/jinguang.png",
++      "focus": [
++        0.512,
++        0.184
++      ]
++    },
++    "shiyao-longyechaji": {
++      "path": "assets/redrawn/wave13/shiyao-longyechaji.png",
++      "focus": [
++        0.476,
++        0.155
++      ]
++    },
++    "baize-yuanqi": {
++      "path": "assets/redrawn/wave13/baize-yuanqi.png",
++      "focus": [
++        0.598,
++        0.199
++      ]
++    },
++    "shenqi-huang": {
++      "path": "assets/redrawn/wave13/shenqi-huang.png",
++      "focus": [
++        0.507,
++        0.161
++      ]
++    },
++    "xuan": {
++      "path": "assets/redrawn/wave13/xuan.png",
++      "focus": [
++        0.49,
++        0.163
++      ]
++    },
++    "yuyuan-banruo": {
++      "path": "assets/redrawn/wave13/yuyuan-banruo.png",
++      "focus": [
++        0.566,
++        0.218
++      ]
++    },
++    "luohou": {
++      "path": "assets/redrawn/wave13/luohou.png",
++      "focus": [
++        0.588,
++        0.366
++      ]
++    },
++    "ember": {
++      "path": "assets/redrawn/origin/ember.png",
++      "focus": [
++        0.512,
++        0.47
++      ]
++    },
++    "basalt": {
++      "path": "assets/redrawn/origin/basalt.png",
++      "focus": [
++        0.508,
++        0.349
++      ]
++    },
++    "lumen": {
++      "path": "assets/redrawn/origin/lumen.png",
++      "focus": [
++        0.753,
++        0.313
++      ]
++    },
++    "rime": {
++      "path": "assets/redrawn/origin/rime.png",
++      "focus": [
++        0.504,
++        0.347
++      ]
++    },
++    "storm": {
++      "path": "assets/redrawn/origin/storm.png",
++      "focus": [
++        0.655,
++        0.494
++      ]
++    },
++    "ink": {
++      "path": "assets/redrawn/origin/ink.png",
++      "focus": [
++        0.43,
++        0.575
++      ]
++    },
++    "frostblade": {
++      "path": "assets/redrawn/origin/frostblade.png",
++      "focus": [
++        0.503,
++        0.336
++      ]
++    },
++    "kongo": {
++      "path": "assets/redrawn/origin/kongo.png",
++      "focus": [
++        0.499,
++        0.195
++      ]
+     }
+   }
+ }
+--- a/godot/scripts/verify_art.gd
++++ b/godot/scripts/verify_art.gd
+@@ -27,11 +27,13 @@
+ 	var expected_rosters := {
+ 		"wave2": 9, "wave3": 19, "wave4": 26,
+ 		"wave5": 24, "wave6": 32, "wave7": 25, "wave8": 25,
++		"wave9": 27, "wave10": 2, "wave11": 10, "wave12": 8, "wave13": 6, "origin": 8,
+ 	}
+ 	for pack in expected_rosters:
+ 		var units := ContentLoader.units_in_pack(pack)
+ 		_check(units.size() == expected_rosters[pack], "%s contains its expected complete roster" % pack)
+ 		_check(units.all(func(unit): return entries.has(unit.id)), "every %s unit has a redrawn portrait" % pack)
++	_check(entries.size() == 250, "all 250 playable units have a redrawn portrait")
+ 	var seen := {}
+ 	for uid in entries:
+ 		var unit := ContentLoader.unit_def(uid)
+@@ -66,8 +68,11 @@
+ 		face.free()
+ 	# 内容导出继续保留原路径；无映射和资源缺失的回退仍可使用。
+ 	var unmapped := ContentLoader.unit_def("ember")
++	var unmapped_entry: Dictionary = PortraitLibrary._units.ember
++	PortraitLibrary._units.erase("ember")
+ 	_check(PortraitLibrary.artwork(unmapped).path == "res://" + str(unmapped.art), "unmapped units retain existing art")
+ 	_check(PortraitLibrary.artwork(unmapped, true).path == "res://" + str(unmapped.awakenedArt), "unmapped awakening retains its original variant")
++	PortraitLibrary._units.ember = unmapped_entry
+ 	var unit := ContentLoader.unit_def("yaodaoji")
+ 	var entry: Dictionary = PortraitLibrary._units.yaodaoji
+ 	PortraitLibrary._units.yaodaoji = {"path": "assets/redrawn/missing-test.png"}
+--- a/godot/scripts/capture_redrawn.gd
++++ b/godot/scripts/capture_redrawn.gd
+@@ -6,6 +6,7 @@
+ const DeckBuilder := preload("res://scripts/ui/deck_builder.gd")
+ const BattleScreen := preload("res://scripts/ui/battle_screen.gd")
+ const ContentLoader := preload("res://scripts/content_loader.gd")
++const SaveStore := preload("res://scripts/save_store.gd")
+ const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
+ const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
+ const VerifySupport := preload("res://scripts/verify_support.gd")
+@@ -212,26 +213,37 @@
+ 
+ func _run_pack(pack: String) -> void:
+ 	var ids: Array = ContentLoader.units_in_pack(pack).map(func(unit): return unit.id)
++	var battle_ids := ids.duplicate()
++	# 小资料包补入既有式神，保持每队四个不同角色，截图仍只列本包重绘。
++	if battle_ids.size() < 8:
++		for uid in FIRST + SECOND:
++			if not battle_ids.has(uid): battle_ids.append(uid)
+ 	for offset in range(0, ids.size(), 8):
+ 		_gallery(ids.slice(offset, mini(offset + 8, ids.size())), "%s · %d 位重绘 · 第 %d 页" % [ContentLoader.pack_label(pack), ids.size(), offset / 8 + 1])
+ 		await _shot("01-%s-portraits-%02d" % [pack, offset / 8 + 1])
++	if pack == "origin":
++		SaveStore.set_lineup(ids.slice(0, 4))
++		_mount(MainScene.instantiate())
++		await _shot("00-origin-menu")
+ 	var form := FormationScreen.new()
+ 	_mount(form)
+-	form.set_preselect(ids.slice(0, 4))
++	form.set_preselect(battle_ids.slice(0, 4))
+ 	form._pack_picker.select(ContentLoader.pack_ids().find(pack))
+ 	form._pack_picker.item_selected.emit(form._pack_picker.selected)
+ 	form._show_unit(ContentLoader.unit_def(ids[0]))
+ 	await _shot("02-%s-formation" % pack)
+ 	for offset in range(0, ids.size(), 4):
+-		var deck := DeckBuilder.new()
+-		deck.setup(ids[offset])
+-		_mount(deck)
+-		await _shot("03-%s-deck-%02d" % [pack, offset / 4 + 1])
++		var deck_ids: Array = ids.slice(offset, mini(offset + 4, ids.size())) if ids.size() < 4 else [ids[offset]]
++		for uid in deck_ids:
++			var deck := DeckBuilder.new()
++			deck.setup(uid)
++			_mount(deck)
++			await _shot("03-%s-deck-%s" % [pack, uid])
+ 		var ally: Array = []
+ 		var foe: Array = []
+ 		for i in 4:
+-			ally.append(ids[(offset + i) % ids.size()])
+-			foe.append(ids[(offset + i + 4) % ids.size()])
++			ally.append(battle_ids[(offset + i) % battle_ids.size()])
++			foe.append(battle_ids[(offset + i + 4) % battle_ids.size()])
+ 		var battle := BattleScreen.new()
+ 		battle.setup(ally, foe, 20261005 + offset)
+ 		battle._ai_thinking = true

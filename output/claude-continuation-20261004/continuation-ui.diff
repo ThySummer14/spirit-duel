@@ -1,0 +1,860 @@
+--- baseline/ui/battle_screen.gd
++++ godot/scripts/ui/battle_screen.gd
+@@ -86,6 +86,8 @@
+ 	gs.log_emitted.connect(_on_log)
+ 	gs.state_changed.connect(_refresh)
+ 	gs.match_finished.connect(_on_finished)
++	_ai_thinking = false
++	_ai_delay = 0.35
+ 	_reset_view_cache()
+ 	# 节点已入树时必须立刻刷一次，否则战场上/手牌空白
+ 	if is_node_ready():
+@@ -96,10 +98,28 @@
+ 
+ 
+ func _reset_view_cache() -> void:
++	if _choice_layer != null and is_instance_valid(_choice_layer): _choice_layer.queue_free()
++	_choice_layer = null
++	if _banner != null and is_instance_valid(_banner): _banner.queue_free()
++	_banner = null
++	if _effects != null:
++		for effect in _effects.get_children():
++			_effects.remove_child(effect)
++			effect.queue_free()
++	if _hand_row != null: _hand_row.reset()
+ 	for w in _hand_widgets.values():
+-		if is_instance_valid(w): w.queue_free()
++		if is_instance_valid(w):
++			if w.get_parent() != null: w.get_parent().remove_child(w)
++			w.queue_free()
+ 	_hand_widgets.clear()
++	for w in _unit_widgets.values():
++		if is_instance_valid(w):
++			if w.get_parent() != null: w.get_parent().remove_child(w)
++			w.queue_free()
++	_unit_widgets.clear()
+ 	_hand_rects.clear()
++	_hide_tooltip()
++	_mulligan_selected.clear()
+ 	_last_view = {}
+ 	_last_command_count = gs.command_log.size() if gs != null else 0
+ 
+@@ -161,7 +181,7 @@
+ 	_board.add_child(_build_prompt())
+ 	body.add_child(_build_right_column())
+ 	_hand_scroll = Control.new()
+-	_hand_scroll.custom_minimum_size = Vector2(0, 196)
++	_hand_scroll.custom_minimum_size = Vector2(0, 232)
+ 	_hand_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ 	root.add_child(_hand_scroll)
+ 	_hand_row = HandFan.new()
+@@ -602,7 +622,7 @@
+ 		_show_turn_banner(gs.current_player == PLAYER)
+ 	var commands: Array = gs.command_log.slice(_last_command_count)
+ 	_last_command_count = gs.command_log.size()
+-	if not previous.is_empty(): _present_changes.call_deferred(previous, _last_view, commands)
++	if not previous.is_empty(): _present_changes.call_deferred(previous, _last_view, commands, gs)
+ 
+ 
+ func _fill_realms(box: HFlowContainer, p: Dictionary) -> void:
+@@ -647,19 +667,22 @@
+ 			box.remove_child(child)
+ 			child.queue_free()
+ 		elif not wanted.has(int(child.get_meta("unit_index", -1))) or int(child.get_meta("player", -1)) != p_idx:
++			child.set_meta("flip_from", child.global_position)
+ 			box.remove_child(child)
+ 	for order in wanted.size():
+ 		var i: int = wanted[order]
+ 		var u: Dictionary = p.units[i]
+ 		var uid := str(u.uid)
+ 		var panel: Control = _unit_widgets.get(uid)
+-		if panel == null or not is_instance_valid(panel) or panel.data != u:
++		if panel == null or not is_instance_valid(panel):
+ 			panel = UIWidgets.make_unit_panel(u, _on_unit_clicked.bind(p_idx, i), true, false)
+ 			panel.side = p_idx
+ 			panel.set_meta("player", p_idx)
+ 			panel.set_meta("unit_index", i)
+ 			panel.hover_changed.connect(func(on): _on_unit_hover(on, p_idx, i))
+ 			_unit_widgets[uid] = panel
++		panel.data = u
++		panel.refresh_art()
+ 		if panel.get_parent() != box:
+ 			if panel.get_parent() != null:
+ 				panel.set_meta("flip_from", panel.global_position)
+@@ -669,6 +692,7 @@
+ 			box.add_child(panel)
+ 		box.move_child(panel, order)
+ 		panel.custom_minimum_size = FRONT_SIZE if front_only else UNIT_SIZE
++		panel.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+ 		panel.drag_payload = {"kind": "unit", "unit": i} if p_idx == PLAYER and gs.can_basic_attack(PLAYER, i).ok and gs.pending_choice.is_empty() and gs.response_window.is_empty() else {}
+ 		var highlight := p_idx == PLAYER and gs.current_player == PLAYER and gs.is_upgrade_pending(PLAYER) and gs.can_level_up(PLAYER, i) and gs.response_window.is_empty() and gs.pending_choice.is_empty()
+ 		panel.selected = highlight
+@@ -1120,7 +1144,11 @@
+ 
+ 
+ func _run_ai() -> void:
++	var state := gs
++	# 刷新后的演出在 deferred 回调中计算时长，先让该帧完成再开始计时。
++	await get_tree().process_frame
+ 	await get_tree().create_timer(_ai_delay).timeout
++	if gs != state: return
+ 	if gs == null or is_queued_for_deletion() or gs.action_player() != AI:
+ 		_ai_thinking = false
+ 		return
+@@ -1131,8 +1159,11 @@
+ 
+ 
+ func _on_finished(winner: int) -> void:
++	var state := gs
+ 	Sfx.play("victory" if winner == PLAYER else "defeat")
+-	await get_tree().create_timer(0.45).timeout
++	await get_tree().process_frame
++	await get_tree().create_timer(maxf(0.45, _ai_delay)).timeout
++	if gs != state or is_queued_for_deletion(): return
+ 	match_over.emit(winner, gs.snapshot())
+ 
+ 
+@@ -1339,7 +1370,8 @@
+ 	return node.get_global_rect().get_center() - global_position
+ 
+ 
+-func _present_changes(before: Dictionary, after: Dictionary, commands: Array = []) -> void:
++func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [], state: GameState = null) -> void:
++	if state != null and state != gs: return
+ 	if not is_inside_tree() or _effects == null: return
+ 	# 1. 位置变化：从旧位置平滑滑入新位置
+ 	for uid in _unit_widgets:
+--- baseline/ui/card_face.gd
++++ godot/scripts/ui/card_face.gd
+@@ -55,6 +55,14 @@
+ 	_font = ThemeBuilder.sys_font()
+ 	_bold = ThemeBuilder.bold_font()
+ 	_display = ThemeBuilder.display_font()
++	refresh_art()
++	resized.connect(queue_redraw)
++	mouse_entered.connect(_set_hover.bind(true))
++	mouse_exited.connect(_set_hover.bind(false))
++	set_process(playable or selected)
++
++
++func refresh_art() -> void:
+ 	var unit := data if unit_mode else ContentLoader.unit_def(str(data.get("unitId", "")))
+ 	if unit_mode and not unit.has("art"):
+ 		unit = ContentLoader.unit_def(str(data.get("id", "")))
+@@ -64,10 +72,7 @@
+ 	if not _textures.has(path) and ResourceLoader.exists(path):
+ 		_textures[path] = load(path)
+ 	_texture = _textures.get(path)
+-	resized.connect(queue_redraw)
+-	mouse_entered.connect(_set_hover.bind(true))
+-	mouse_exited.connect(_set_hover.bind(false))
+-	set_process(playable)
++	queue_redraw()
+ 
+ 
+ func _process(_delta: float) -> void:
+@@ -113,6 +118,18 @@
+ 	if flash > 0.01:
+ 		draw_style_box(_box(Color(1, 0.96, 0.9, flash * 0.65), Color.TRANSPARENT, _radius(), 0), Rect2(Vector2.ZERO, size))
+ 	draw_set_transform(Vector2.ZERO)
++
++
++func hit_test(point: Vector2) -> bool:
++	var lift := hover_lift * _hover_t
++	var factor := visual_scale * (1.0 + 0.04 * _hover_t * signf(hover_lift))
++	var offset := visual_offset + Vector2(0, -lift) + size * (1.0 - factor) * 0.5
++	# 原位置保留在范围中，让指针停在下缘时不会因牌面抬起而反复退出。
++	return Rect2(Vector2.ZERO, size).has_point(point) or Rect2(offset, size * factor).has_point(point)
++
++
++func _has_point(point: Vector2) -> bool:
++	return hit_test(point)
+ 
+ 
+ func _radius() -> int:
+--- baseline/ui/collection_screen.gd
++++ godot/scripts/ui/collection_screen.gd
+@@ -8,6 +8,7 @@
+ const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
+ const CardFace := preload("res://scripts/ui/card_face.gd")
+ const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
++const Sfx := preload("res://scripts/ui/sfx.gd")
+ signal back_requested
+ 
+ var _balance_l: Label
+@@ -34,7 +35,9 @@
+ 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ 	var bg := Backdrop.new()
+ 	bg.scene = "table"
++	bg.dim = 0.22
+ 	add_child(bg)
++	Sfx.music("bgm_menu")
+ 	var root := VBoxContainer.new()
+ 	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ 	root.offset_left = 24
+@@ -123,7 +126,7 @@
+ 		_refresh_header()
+ 	)
+ 	v.add_child(quantity)
+-	_buy_btn = ThemeBuilder.rounded_rect_button("", Vector2(270, 46))
++	_buy_btn = ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("", Vector2(270, 46)), 16)
+ 	_buy_btn.set_meta("action", "purchase_pack")
+ 	_buy_btn.pressed.connect(_on_purchase)
+ 	v.add_child(_buy_btn)
+@@ -171,6 +174,7 @@
+ 
+ func _on_purchase() -> void:
+ 	var result := CollectionStore.purchase_packs(_pack_id, _quantity)
++	Sfx.play("purchase" if result.ok else "error")
+ 	_refresh_header()
+ 	_stats_l.text = "已购入 %d 卷，前往开启即可翻牌" % _quantity if result.ok else str(result.error)
+ 
+@@ -187,6 +191,8 @@
+ 	add_child(_reveal_layer)
+ 	var bg := Backdrop.new()
+ 	bg.scene = "summon"
++	bg.dim = 0.24
++	bg.motes = 16
+ 	_reveal_layer.add_child(bg)
+ 	var center := CenterContainer.new()
+ 	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+@@ -209,7 +215,7 @@
+ 	_reveal_all_btn.text = "全部翻开"
+ 	_reveal_all_btn.pressed.connect(_reveal_all)
+ 	actions.add_child(_reveal_all_btn)
+-	_finish_btn = ThemeBuilder.rounded_rect_button("收下秘闻", Vector2(220, 46))
++	_finish_btn = ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("收下秘闻", Vector2(220, 46)))
+ 	_finish_btn.pressed.connect(func():
+ 		if CollectionStore.finish_reveal():
+ 			_reveal_layer.queue_free()
+@@ -258,6 +264,7 @@
+ 		if CollectionStore.reveal_card(index):
+ 			tile.face_down = false
+ 			tile.queue_redraw()
++			Sfx.play("reveal_ssr" if tile.data.get("rarity") == "ssr" else "reveal")
+ 	)
+ 	tween.tween_property(tile, "scale:x", 1.0, 0.2)
+ 	tween.tween_callback(func():
+@@ -268,6 +275,7 @@
+ func _reveal_all() -> void:
+ 	if _reveal_busy: return
+ 	for i in 5: CollectionStore.reveal_card(i)
++	Sfx.play("reveal")
+ 	_render_reveal()
+ 
+ func _rebuild_cards() -> void:
+@@ -283,14 +291,7 @@
+ 		var v := VBoxContainer.new()
+ 		_card_box.add_child(v)
+ 		v.add_child(UIWidgets.make_card_tile(card, func():
+-			var dialog := AcceptDialog.new()
+-			dialog.title = str(card.name)
+-			dialog.dialog_text = str(card.get("text", ""))
+-			dialog.min_size = Vector2(500, 190)
+-			add_child(dialog)
+-			dialog.confirmed.connect(dialog.queue_free)
+-			dialog.canceled.connect(dialog.queue_free)
+-			dialog.popup_centered()
++			UIWidgets.show_card_modal(self, card)
+ 		, Vector2(174, 252), false, "持有 %d / 2" % owned))
+ 		var cost := int(CollectionStore.RULES.craftCost.get(str(card.get("rarity", "common")), 40))
+ 		var craft := Button.new()
+@@ -298,6 +299,7 @@
+ 		craft.disabled = owned >= 2 or int(data.balance) < cost
+ 		craft.pressed.connect(func():
+ 			var result := CollectionStore.craft_card(str(card.id))
++			Sfx.play("reveal" if result.ok else "error", 0.7)
+ 			_refresh_header()
+ 			_rebuild_cards()
+ 			if not result.ok: _stats_l.text = str(result.error)
+--- baseline/ui/deck_builder.gd
++++ godot/scripts/ui/deck_builder.gd
+@@ -7,6 +7,7 @@
+ const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
+ const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
+ const SaveStore := preload("res://scripts/save_store.gd")
++const Sfx := preload("res://scripts/ui/sfx.gd")
+ 
+ signal deck_confirmed(unit_id: String, card_ids: Array)
+ signal back_requested
+@@ -35,7 +36,9 @@
+ 	set_anchors_preset(Control.PRESET_FULL_RECT)
+ 	var bg := Backdrop.new()
+ 	bg.scene = "table"
++	bg.dim = 0.22
+ 	add_child(bg)
++	Sfx.music("bgm_menu")
+ 
+ 	var root := VBoxContainer.new()
+ 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
+@@ -99,7 +102,7 @@
+ 	var tip := ThemeBuilder.label(ContentLoader.passive_text(unit), 12, ThemeBuilder.PAPER_DIM)
+ 	tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ 	side_v.add_child(tip)
+-	_confirm_btn = ThemeBuilder.rounded_rect_button("确认卡组", Vector2(220, 44))
++	_confirm_btn = ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("确认卡组", Vector2(220, 44)))
+ 	_confirm_btn.disabled = true
+ 	_confirm_btn.pressed.connect(func():
+ 		if _picked.size() == PICK_COUNT:
+@@ -145,14 +148,7 @@
+ 		var row := VBoxContainer.new()
+ 		row.add_theme_constant_override("separation", 4)
+ 		var face := UIWidgets.make_card_tile(card, func():
+-			var dialog := AcceptDialog.new()
+-			dialog.title = str(card.name)
+-			dialog.dialog_text = str(card.get("text", ""))
+-			dialog.min_size = Vector2(480, 190)
+-			add_child(dialog)
+-			dialog.confirmed.connect(dialog.queue_free)
+-			dialog.canceled.connect(dialog.queue_free)
+-			dialog.popup_centered()
++			UIWidgets.show_card_modal(self, card)
+ 		, Vector2(164, 248), have > 0, "已选 %d / %d" % [have, limit])
+ 		row.add_child(face)
+ 		var actions := HBoxContainer.new()
+@@ -167,6 +163,7 @@
+ 			var idx := _picked.find(cid)
+ 			if idx >= 0:
+ 				_picked.remove_at(idx)
++				Sfx.play("ui_click", 0.7)
+ 				_rebuild()
+ 		)
+ 		actions.add_child(minus)
+@@ -179,6 +176,7 @@
+ 		plus.pressed.connect(func():
+ 			if _picked.size() < PICK_COUNT and _count_of(cid) < limit:
+ 				_picked.append(cid)
++				Sfx.play("ui_click", 0.7)
+ 				_rebuild()
+ 		)
+ 		actions.add_child(plus)
+--- baseline/ui/formation_screen.gd
++++ godot/scripts/ui/formation_screen.gd
+@@ -6,6 +6,7 @@
+ const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
+ const SaveStore := preload("res://scripts/save_store.gd")
+ const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
++const Sfx := preload("res://scripts/ui/sfx.gd")
+ 
+ signal confirmed(unit_ids: Array)
+ signal back_requested
+@@ -33,7 +34,9 @@
+ 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ 	var bg := Backdrop.new()
+ 	bg.scene = "table"
++	bg.dim = 0.22
+ 	add_child(bg)
++	Sfx.music("bgm_menu")
+ 	var root := VBoxContainer.new()
+ 	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ 	root.offset_left = 22
+@@ -66,7 +69,7 @@
+ 		_status_l.text = "阵容已保存" if SaveStore.save_formation(formation_slot, _selected) else "请先选满四名不同式神"
+ 	)
+ 	header.add_child(save)
+-	_confirm_btn = ThemeBuilder.rounded_rect_button("出 战", Vector2(136, 44))
++	_confirm_btn = ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("出 战", Vector2(136, 44)))
+ 	_confirm_btn.visible = not browse_only
+ 	_confirm_btn.pressed.connect(_on_confirm)
+ 	header.add_child(_confirm_btn)
+@@ -180,6 +183,7 @@
+ 			_selected_row.add_child(empty)
+ 
+ func _toggle(unit: Dictionary) -> void:
++	Sfx.play("ui_click", 0.7)
+ 	var uid := str(unit.id)
+ 	if _selected.has(uid): _selected.erase(uid)
+ 	elif _selected.size() < PICK_COUNT: _selected.append(uid)
+@@ -219,14 +223,8 @@
+ 		_deck_row.add_child(UIWidgets.make_card_tile(ContentLoader.card_def(id), func(): edit_deck.emit(_focused), Vector2(62, 92)))
+ 
+ func _inspect_card(card: Dictionary) -> void:
+-	var dialog := AcceptDialog.new()
+-	dialog.title = str(card.name)
+-	dialog.dialog_text = "%s · %d勾 · %d鬼火\n\n%s" % [str(card.get("typeLabel", "")), int(card.get("level", 1)), int(card.get("cost", 0)), str(card.get("text", ""))]
+-	dialog.min_size = Vector2(520, 200)
+-	add_child(dialog)
+-	dialog.confirmed.connect(dialog.queue_free)
+-	dialog.canceled.connect(dialog.queue_free)
+-	dialog.popup_centered()
++	Sfx.play("ui_click", 0.7)
++	UIWidgets.show_card_modal(self, card)
+ 
+ func _switch_slot(slot: int) -> void:
+ 	_drafts[formation_slot] = _selected.duplicate()
+--- baseline/ui/hand_fan.gd
++++ godot/scripts/ui/hand_fan.gd
+@@ -13,6 +13,14 @@
+ func _ready() -> void:
+ 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+ 	resized.connect(relayout)
++	set_process(false)
++
++
++func reset() -> void:
++	_hovered = null
++	for tw in _tweens.values():
++		if is_instance_valid(tw): tw.kill()
++	_tweens.clear()
+ 
+ 
+ func add_card(card: Control, at_index: int, from_global: Variant = null) -> void:
+@@ -50,13 +58,19 @@
+ 	var total := step * (n - 1) + CARD_SIZE.x
+ 	var start := (w - total) * 0.5
+ 	var hover_index := cards.find(_hovered)
++	if hover_index < 0: _hovered = null
++	for old_card in _tweens.keys():
++		if not is_instance_valid(old_card) or not cards.has(old_card):
++			if is_instance_valid(_tweens[old_card]): _tweens[old_card].kill()
++			_tweens.erase(old_card)
+ 	var spread := maxf(0.0, (CARD_SIZE.x * HOVER_SCALE - step) * 0.55) if hover_index >= 0 else 0.0
+ 	for i in n:
+ 		var card: Control = cards[i]
+ 		var centered := (i - (n - 1) * 0.5)
+ 		var arc := minf(1.0, 7.0 / maxf(n, 1))
+ 		var rot := deg_to_rad(centered * 2.6 * arc)
+-		var y := size.y - CARD_SIZE.y + 6.0 + absf(centered) * absf(centered) * 1.6 * arc
++		# 留出底边与倾斜后的角点空间，十二张手牌也完整落在窗口内。
++		var y := size.y - CARD_SIZE.y - 36.0 + absf(centered) * absf(centered) * 0.65 * arc
+ 		var x := start + i * step
+ 		if hover_index >= 0 and i != hover_index:
+ 			x += spread * signf(i - hover_index)
+--- baseline/ui/main.gd
++++ godot/scripts/ui/main.gd
+@@ -11,6 +11,8 @@
+ const SaveStore := preload("res://scripts/save_store.gd")
+ const CollectionScreen := preload("res://scripts/ui/collection_screen.gd")
+ const CollectionStore := preload("res://scripts/collection_store.gd")
++const Sfx := preload("res://scripts/ui/sfx.gd")
++const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
+ ## Screen router: menu ↔ formation ↔ battle ↔ result
+ 
+ const DEFAULT_PLAYER := ["ember", "basalt", "lumen", "rime"]
+@@ -128,28 +130,60 @@
+ func _show_settings() -> void:
+ 	var holder := Control.new()
+ 	holder.set_anchors_preset(Control.PRESET_FULL_RECT)
+-	var bg := ColorRect.new()
+-	bg.color = ThemeBuilder.INK_1
++	var bg := Backdrop.new()
++	bg.scene = "port"
++	bg.dim = 0.55
+ 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+ 	holder.add_child(bg)
+ 	var center := CenterContainer.new()
+ 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+ 	holder.add_child(center)
+ 	var card := PanelContainer.new()
+-	card.add_theme_stylebox_override("panel", ThemeBuilder.panel(ThemeBuilder.INK_2, ThemeBuilder.RULE, 12, 1))
++	card.custom_minimum_size = Vector2(520, 0)
++	card.add_theme_stylebox_override("panel", ThemeBuilder.glass(0.94))
+ 	var v := VBoxContainer.new()
+ 	v.add_theme_constant_override("separation", 12)
+ 	card.add_child(v)
+ 	v.add_child(ThemeBuilder.title_label("设置", 24))
+-	v.add_child(ThemeBuilder.dim_label("主题：墨夜和风（深墨底 / 暖纸 / 金与朱）", 13))
+-	v.add_child(ThemeBuilder.dim_label("分辨率 1280×800 · GL Compatibility", 13))
+-	v.add_child(ThemeBuilder.dim_label("键盘：Enter 结束回合 · 1-9 出牌 · Tab 查看角色", 13))
+-	v.add_child(ThemeBuilder.dim_label("内容：content/content.json（编成 4 · 核心 30 · 鬼火 2）", 13))
++	v.add_child(ThemeBuilder.section_label("音量"))
++	v.add_child(_volume_control("music", "背景音乐"))
++	v.add_child(_volume_control("sfx", "操作与战斗音效"))
++	v.add_child(ThemeBuilder.hline())
++	v.add_child(ThemeBuilder.section_label("操作提示"))
++	v.add_child(ThemeBuilder.dim_label("Enter 结束回合 · 1–9 出牌 · Tab 查看角色", 13))
++	v.add_child(ThemeBuilder.dim_label("P 放弃响应 · Esc 取消目标或关闭检视", 13))
++	v.add_child(ThemeBuilder.dim_label("悬停查看完整牌文，拖动手牌或式神执行行动。", 13))
+ 	var back := ThemeBuilder.rounded_rect_button("返回", Vector2(200, 44))
+ 	back.pressed.connect(_show_menu)
+ 	v.add_child(back)
+ 	center.add_child(card)
+ 	_swap(holder)
++	Sfx.music("bgm_menu")
++
++
++func _volume_control(channel: String, title: String) -> Control:
++	var row := HBoxContainer.new()
++	row.add_theme_constant_override("separation", 14)
++	var label := ThemeBuilder.label(title, 14)
++	label.custom_minimum_size.x = 144
++	row.add_child(label)
++	var slider := HSlider.new()
++	slider.min_value = 0
++	slider.max_value = 100
++	slider.step = 1
++	slider.value = float(Sfx.settings()[channel]) * 100
++	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
++	slider.custom_minimum_size = Vector2(210, 34)
++	slider.set_meta("channel", channel)
++	row.add_child(slider)
++	var value := ThemeBuilder.label("%d%%" % int(slider.value), 14, ThemeBuilder.GOLD_BRIGHT)
++	value.custom_minimum_size.x = 45
++	row.add_child(value)
++	slider.value_changed.connect(func(amount):
++		Sfx.set_volume(channel, amount / 100.0)
++		value.text = "%d%%" % int(amount)
++	)
++	return row
+ 
+ 
+ func _start_battle() -> void:
+--- baseline/ui/main_menu.gd
++++ godot/scripts/ui/main_menu.gd
+@@ -4,6 +4,7 @@
+ const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
+ const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
+ const CollectionStore := preload("res://scripts/collection_store.gd")
++const Sfx := preload("res://scripts/ui/sfx.gd")
+ signal start_quick_match
+ signal open_formation
+ signal open_codex
+@@ -15,7 +16,10 @@
+ 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ 	var bg := Backdrop.new()
+ 	bg.scene = "port"
++	bg.dim = 0.08
++	bg.motes = 14
+ 	add_child(bg)
++	Sfx.music("bgm_menu")
+ 	var shade := ColorRect.new()
+ 	shade.color = Color(0.015, 0.025, 0.06, 0.18)
+ 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+@@ -28,30 +32,34 @@
+ 	top.offset_top = 22
+ 	top.add_theme_constant_override("separation", 12)
+ 	add_child(top)
+-	top.add_child(ThemeBuilder.title_label("灵 枢 战 线", 36))
++	var brand := VBoxContainer.new()
++	brand.add_theme_constant_override("separation", 2)
++	top.add_child(brand)
++	brand.add_child(ThemeBuilder.outline(ThemeBuilder.title_label("灵 枢 战 线", 34)))
++	brand.add_child(ThemeBuilder.outline(ThemeBuilder.dim_label("月汐港  /  灯火下的灵契对弈", 12)))
+ 	var space := Control.new()
+ 	space.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ 	top.add_child(space)
+ 	var balance := ThemeBuilder.label("御札 %d" % int(CollectionStore.load_collection().balance), 16, ThemeBuilder.GOLD_BRIGHT)
+ 	top.add_child(balance)
+-	var settings := Button.new()
++	var settings := ThemeBuilder.ghost(Button.new())
+ 	settings.text = "设置"
+ 	settings.pressed.connect(func(): open_settings.emit())
+ 	top.add_child(settings)
+-	var quit_button := Button.new()
++	var quit_button := ThemeBuilder.ghost(Button.new())
+ 	quit_button.text = "退出"
+ 	quit_button.pressed.connect(func(): quit_requested.emit())
+ 	top.add_child(quit_button)
+-	_hotspot("灵契编组", "四式神 · 三十二张牌", Vector2(0.16, 0.47), open_formation)
+-	_hotspot("秘闻阁", "购入秘闻 · 揭晓新卡", Vector2(0.72, 0.39), open_collection)
+-	_hotspot("式神录", "角色档案 · 专属卡牌", Vector2(0.77, 0.63), open_codex)
++	_hotspot("阵", "灵契编组", "四式神 · 三十二张牌", Vector2(0.17, 0.47), open_formation)
++	_hotspot("卷", "秘闻阁", "购入秘闻 · 揭晓新卡", Vector2(0.73, 0.39), open_collection)
++	_hotspot("录", "式神录", "角色档案 · 专属卡牌", Vector2(0.77, 0.63), open_codex)
+ 	var footer := PanelContainer.new()
+ 	footer.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+ 	footer.offset_top = -114
+ 	footer.offset_bottom = -22
+ 	footer.offset_left = 30
+ 	footer.offset_right = -30
+-	footer.add_theme_stylebox_override("panel", ThemeBuilder.panel(Color(0.04, 0.07, 0.12, 0.9), Color("6b6661"), 4, 1))
++	footer.add_theme_stylebox_override("panel", ThemeBuilder.glass(0.86))
+ 	add_child(footer)
+ 	var row := HBoxContainer.new()
+ 	row.add_theme_constant_override("separation", 20)
+@@ -62,21 +70,58 @@
+ 	row.add_child(copy)
+ 	copy.add_child(ThemeBuilder.label("灯火不息，灵契再续。", 22, ThemeBuilder.PAPER))
+ 	copy.add_child(ThemeBuilder.dim_label("选择你的四位式神，在月汐之间展开一局对弈。", 13))
+-	var match_button := ThemeBuilder.rounded_rect_button("开 始 对 弈", Vector2(242, 64))
+-	match_button.pressed.connect(func(): start_quick_match.emit())
++	var match_button := ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("开 始 对 弈", Vector2(242, 64)), 22)
++	match_button.pressed.connect(func():
++		Sfx.play("ui_click")
++		start_quick_match.emit()
++	)
+ 	row.add_child(match_button)
+ 
+-func _hotspot(title: String, hint: String, at: Vector2, action: Signal) -> void:
+-	var button := ThemeBuilder.rounded_rect_button(title + "\n" + hint, Vector2(218, 76))
+-	button.add_theme_font_override("font", ThemeBuilder.display_font())
+-	button.add_theme_font_size_override("font_size", 20)
++func _hotspot(glyph: String, title: String, hint: String, at: Vector2, action: Signal) -> void:
++	var button := ThemeBuilder.rounded_rect_button("", Vector2(254, 82))
++	button.tooltip_text = title + " · " + hint
++	var normal := ThemeBuilder.glass(0.88, Color(ThemeBuilder.GOLD, 0.4), 10)
++	var hover := ThemeBuilder.glass(0.96, ThemeBuilder.GOLD, 10)
++	button.add_theme_stylebox_override("normal", normal)
++	button.add_theme_stylebox_override("hover", hover)
++	button.add_theme_stylebox_override("pressed", normal)
+ 	add_child(button)
+ 	button.anchor_left = at.x
+ 	button.anchor_top = at.y
+ 	button.anchor_right = at.x
+ 	button.anchor_bottom = at.y
+-	button.offset_left = -109
+-	button.offset_right = 109
+-	button.offset_top = -38
+-	button.offset_bottom = 38
+-	button.pressed.connect(func(): action.emit())
++	button.offset_left = -127
++	button.offset_right = 127
++	button.offset_top = -41
++	button.offset_bottom = 41
++	var row := HBoxContainer.new()
++	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
++	button.add_child(row)
++	row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
++	row.offset_left = 16
++	row.offset_right = -12
++	row.offset_top = 12
++	row.offset_bottom = -12
++	row.add_theme_constant_override("separation", 12)
++	var mark := ThemeBuilder.title_label(glyph, 28)
++	mark.custom_minimum_size = Vector2(40, 0)
++	mark.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
++	mark.mouse_filter = Control.MOUSE_FILTER_IGNORE
++	row.add_child(mark)
++	var copy := VBoxContainer.new()
++	copy.mouse_filter = Control.MOUSE_FILTER_IGNORE
++	copy.alignment = BoxContainer.ALIGNMENT_CENTER
++	copy.add_theme_constant_override("separation", 5)
++	row.add_child(copy)
++	var title_l := ThemeBuilder.title_label(title, 20)
++	title_l.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
++	title_l.mouse_filter = Control.MOUSE_FILTER_IGNORE
++	copy.add_child(title_l)
++	var hint_l := ThemeBuilder.dim_label(hint, 12)
++	hint_l.mouse_filter = Control.MOUSE_FILTER_IGNORE
++	copy.add_child(hint_l)
++	button.mouse_entered.connect(func(): Sfx.play("ui_hover", 0.4))
++	button.pressed.connect(func():
++		Sfx.play("ui_click", 0.7)
++		action.emit()
++	)
+--- baseline/ui/result_screen.gd
++++ godot/scripts/ui/result_screen.gd
+@@ -2,6 +2,9 @@
+ extends Control
+ 
+ const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
++const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
++const BattleScreen := preload("res://scripts/ui/battle_screen.gd")
++const Sfx := preload("res://scripts/ui/sfx.gd")
+ ## Victory / defeat with seal-like stamp.
+ 
+ signal rematch
+@@ -20,10 +23,12 @@
+ 
+ func _ready() -> void:
+ 	set_anchors_preset(Control.PRESET_FULL_RECT)
+-	var bg := ColorRect.new()
+-	bg.color = ThemeBuilder.INK_0
++	var bg := Backdrop.new()
++	bg.scene = "port"
++	bg.dim = 0.75
+ 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+ 	add_child(bg)
++	Sfx.music("bgm_menu")
+ 
+ 	var center := CenterContainer.new()
+ 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+@@ -63,8 +68,7 @@
+ 		rl.custom_minimum_size = Vector2(0, 110)
+ 		var lines := PackedStringArray()
+ 		for i in mini(_commands.size(), 80):
+-			var c = _commands[i]
+-			lines.append("#%d %s p%s" % [i + 1, str(c.get("c", "?")), str(c.get("p", ""))])
++			lines.append(BattleScreen.describe_command(_commands[i], i))
+ 		rl.text = "\n".join(lines)
+ 		cv.add_child(rl)
+ 		col.add_child(cmd_box)
+@@ -72,7 +76,7 @@
+ 	var h := HBoxContainer.new()
+ 	h.add_theme_constant_override("separation", 16)
+ 	col.add_child(h)
+-	var again := ThemeBuilder.rounded_rect_button("再战一局", Vector2(200, 48))
++	var again := ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("再战一局", Vector2(200, 48)))
+ 	again.pressed.connect(func(): rematch.emit())
+ 	h.add_child(again)
+ 	var menu := ThemeBuilder.rounded_rect_button("回到主菜单", Vector2(200, 48))
+--- baseline/ui/sfx.gd
++++ godot/scripts/ui/sfx.gd
+@@ -13,26 +13,40 @@
+ static var _streams: Dictionary = {}
+ static var _settings: Dictionary = {}
+ static var _last_played: Dictionary = {}
++static var storage_path: String = SETTINGS_PATH
++static var _music_tween: Tween
+ 
+ 
+ static func settings() -> Dictionary:
+ 	if _settings.is_empty():
+ 		_settings = {"music": 0.6, "sfx": 0.8}
+-		if FileAccess.file_exists(SETTINGS_PATH):
+-			var data = JSON.parse_string(FileAccess.get_file_as_string(SETTINGS_PATH))
++		if FileAccess.file_exists(storage_path):
++			var data = JSON.parse_string(FileAccess.get_file_as_string(storage_path))
+ 			if data is Dictionary:
+-				for key in data: _settings[key] = data[key]
++				for key in ["music", "sfx"]:
++					var value = data.get(key)
++					if (value is float or value is int) and is_finite(float(value)):
++						_settings[key] = clampf(float(value), 0.0, 1.0)
+ 	return _settings
+ 
+ 
+ static func set_volume(channel: String, value: float) -> void:
++	if channel not in ["music", "sfx"] or not is_finite(value): return
+ 	settings()[channel] = clampf(value, 0.0, 1.0)
+-	DirAccess.make_dir_recursive_absolute(SETTINGS_PATH.get_base_dir())
+-	var f := FileAccess.open(SETTINGS_PATH, FileAccess.WRITE)
++	DirAccess.make_dir_recursive_absolute(storage_path.get_base_dir())
++	var f := FileAccess.open(storage_path, FileAccess.WRITE)
+ 	if f != null:
+ 		f.store_string(JSON.stringify(_settings))
+-	if _music != null and is_instance_valid(_music):
++	if channel == "music" and _music != null and is_instance_valid(_music):
++		if _music_tween != null and is_instance_valid(_music_tween): _music_tween.kill()
++		var desired := _stream(_music_name) if _music_name != "" else null
++		if desired != null and _music.stream != desired:
++			_music.stream = desired
++			_music.play()
+ 		_music.volume_db = _db(float(_settings.music)) - 6.0
++	if channel == "sfx":
++		for voice in _voices:
++			if is_instance_valid(voice): voice.volume_db = _db(float(_settings.sfx) * float(voice.get_meta("volume", 1.0)))
+ 
+ 
+ static func _db(linear: float) -> float:
+@@ -66,6 +80,10 @@
+ 	if _streams.has(name): return _streams[name]
+ 	var path := "res://assets/audio/%s.wav" % name
+ 	var s: AudioStream = load(path) if ResourceLoader.exists(path) else null
++	if s is AudioStreamWAV and name.begins_with("bgm_"):
++		s.loop_mode = AudioStreamWAV.LOOP_FORWARD
++		s.loop_begin = 0
++		s.loop_end = int(round(s.get_length() * s.mix_rate))
+ 	_streams[name] = s
+ 	return s
+ 
+@@ -86,6 +104,7 @@
+ 	if player == null: player = _voices[0]
+ 	if not player.is_inside_tree(): return
+ 	player.stream = stream
++	player.set_meta("volume", volume)
+ 	player.volume_db = _db(float(settings().sfx) * volume)
+ 	player.pitch_scale = pitch * (1.0 + randf_range(-pitch_jitter, pitch_jitter))
+ 	player.play()
+@@ -103,8 +122,10 @@
+ 		_music_name = ""
+ 		return
+ 	var target := _db(float(settings().music)) - 6.0
++	if _music_tween != null and is_instance_valid(_music_tween): _music_tween.kill()
+ 	if player.playing:
+ 		var tw := player.create_tween()
++		_music_tween = tw
+ 		tw.tween_property(player, "volume_db", -40.0, 0.5)
+ 		tw.tween_callback(func():
+ 			player.stream = stream
+@@ -115,4 +136,5 @@
+ 		player.stream = stream
+ 		player.volume_db = -40.0
+ 		player.play()
+-		player.create_tween().tween_property(player, "volume_db", target, 1.2)
++		_music_tween = player.create_tween()
++		_music_tween.tween_property(player, "volume_db", target, 1.2)
+--- baseline/ui/theme_builder.gd
++++ godot/scripts/ui/theme_builder.gd
+@@ -81,7 +81,7 @@
+ 		(base as FontFile).fallbacks = [_fallback()]
+ 	var v := FontVariation.new()
+ 	v.base_font = base
+-	v.variation_opentype = {TextServer.name_to_tag("wght"): weight}
++	v.variation_opentype = {TextServerManager.get_primary_interface().name_to_tag("wght"): weight}
+ 	_fonts[key] = v
+ 	return v
+ 
+--- baseline/ui/ui_widgets.gd
++++ godot/scripts/ui/ui_widgets.gd
+@@ -5,10 +5,12 @@
+ const ContentLoader := preload("res://scripts/content_loader.gd")
+ const KeywordGlossary := preload("res://scripts/ui/keyword_glossary.gd")
+ const Sfx := preload("res://scripts/ui/sfx.gd")
++const ModalLayer := preload("res://scripts/ui/modal_layer.gd")
+ ## Reusable control factories for unit panels, hand cards, inspectors and modals.
+ 
+ 
+ const CardFace := preload("res://scripts/ui/card_face.gd")
++const CardHitArea := preload("res://scripts/ui/card_hit_area.gd")
+ 
+ static func make_unit_panel(unit: Dictionary, on_click: Callable, compact: bool = false, highlight: bool = false) -> Control:
+ 	var face := CardFace.new()
+@@ -41,7 +43,7 @@
+ 
+ 
+ static func attach_click(face: Control, action: Callable, disabled: bool = false) -> Button:
+-	var click := Button.new()
++	var click := CardHitArea.new()
+ 	click.flat = true
+ 	click.focus_mode = Control.FOCUS_NONE
+ 	click.disabled = disabled
+@@ -202,7 +204,8 @@
+ 
+ ## 全屏遮罩弹层：点击遮罩或按 Esc 关闭。返回内容容器。
+ static func show_modal(host: Control, content: Control, on_close: Callable = Callable()) -> Control:
+-	var layer := Control.new()
++	var layer := ModalLayer.new()
++	layer.on_close = on_close
+ 	layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ 	layer.mouse_filter = Control.MOUSE_FILTER_STOP
+ 	layer.set_meta("modal", true)
+@@ -216,17 +219,8 @@
+ 	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ 	layer.add_child(center)
+ 	center.add_child(content)
+-	var close := func():
+-		if not is_instance_valid(layer) or layer.is_queued_for_deletion(): return
+-		Sfx.play("ui_click", 0.6)
+-		var tw := layer.create_tween()
+-		tw.tween_property(layer, "modulate:a", 0.0, 0.12)
+-		tw.tween_callback(layer.queue_free)
+-		if on_close.is_valid(): on_close.call()
+-	shade.gui_input.connect(func(event):
+-		if event is InputEventMouseButton and event.pressed: close.call()
+-	)
+-	layer.set_meta("close", close)
++	shade.gui_input.connect(layer._on_shade_input)
++	layer.set_meta("close", layer.close)
+ 	layer.modulate.a = 0.0
+ 	content.pivot_offset = content.get_combined_minimum_size() * 0.5
+ 	content.scale = Vector2(0.94, 0.94)
+@@ -248,10 +242,15 @@
+ 	var big := make_card_tile(card, Callable(), Vector2(260, 404))
+ 	big.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ 	row.add_child(big)
++	var scroll := ScrollContainer.new()
++	scroll.custom_minimum_size = Vector2(330, 440)
++	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
++	row.add_child(scroll)
+ 	var info := VBoxContainer.new()
+ 	info.custom_minimum_size = Vector2(300, 0)
++	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ 	info.add_theme_constant_override("separation", 10)
+-	row.add_child(info)
++	scroll.add_child(info)
+ 	var title := ThemeBuilder.label(str(card.get("name", "?")), 28, ThemeBuilder.PAPER)
+ 	title.add_theme_font_override("font", ThemeBuilder.display_font())
+ 	info.add_child(title)
+@@ -278,5 +277,9 @@
+ 	var spacer := Control.new()
+ 	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ 	info.add_child(spacer)
+-	info.add_child(ThemeBuilder.label("点击空白处关闭", 12, ThemeBuilder.TEXT_FAINT))
+-	return show_modal(host, panel)
++	var close := ThemeBuilder.ghost(Button.new())
++	close.text = "关闭检视 · Esc"
++	info.add_child(close)
++	var layer := show_modal(host, panel)
++	close.pressed.connect(layer.close)
++	return layer

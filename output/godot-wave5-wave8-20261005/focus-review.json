@@ -1,0 +1,426 @@
+{
+  "tengji": [
+    0.49,
+    0.143
+  ],
+  "huaniajuan": [
+    0.504,
+    0.18
+  ],
+  "yanmo": [
+    0.53,
+    0.172
+  ],
+  "kuileishi": [
+    0.66,
+    0.217
+  ],
+  "baizangzhu": [
+    0.592,
+    0.174
+  ],
+  "rulianshi": [
+    0.663,
+    0.204
+  ],
+  "fengli": [
+    0.435,
+    0.22
+  ],
+  "guanhu": [
+    0.57,
+    0.28
+  ],
+  "song": [
+    0.57,
+    0.165
+  ],
+  "yunwaijing": [
+    0.5,
+    0.32
+  ],
+  "liangmianfo": [
+    0.52,
+    0.335
+  ],
+  "heitongzi": [
+    0.625,
+    0.315
+  ],
+  "baitongzi": [
+    0.61,
+    0.34
+  ],
+  "xiazhongshaonv": [
+    0.5,
+    0.273
+  ],
+  "yi": [
+    0.5,
+    0.12
+  ],
+  "xiaosongwan": [
+    0.4,
+    0.24
+  ],
+  "wuwu": [
+    0.43,
+    0.274
+  ],
+  "qianji": [
+    0.38,
+    0.1
+  ],
+  "shiling": [
+    0.5,
+    0.161
+  ],
+  "maozhanggui": [
+    0.48,
+    0.18
+  ],
+  "xingxiongtongzi": [
+    0.325,
+    0.135
+  ],
+  "yixigong": [
+    0.4,
+    0.285
+  ],
+  "limao": [
+    0.5,
+    0.24
+  ],
+  "tuwan": [
+    0.48,
+    0.24
+  ],
+  "jinnaluo": [
+    0.655,
+    0.165
+  ],
+  "lingyanji": [
+    0.405,
+    0.18
+  ],
+  "rurineque": [
+    0.595,
+    0.257
+  ],
+  "shouwu": [
+    0.56,
+    0.185
+  ],
+  "gunvhongye": [
+    0.383,
+    0.139
+  ],
+  "choushizhinv": [
+    0.33,
+    0.244
+  ],
+  "yifanmumian": [
+    0.697,
+    0.117
+  ],
+  "yecha": [
+    0.44,
+    0.196
+  ],
+  "huangchuanzhizhu": [
+    0.61,
+    0.14
+  ],
+  "wannianzhu": [
+    0.58,
+    0.14
+  ],
+  "shuzhu": [
+    0.49,
+    0.235
+  ],
+  "sanweihu": [
+    0.575,
+    0.155
+  ],
+  "jicanghai": [
+    0.42,
+    0.18
+  ],
+  "wuchen": [
+    0.34,
+    0.175
+  ],
+  "ninghongye": [
+    0.71,
+    0.165
+  ],
+  "tayumenhutao": [
+    0.365,
+    0.145
+  ],
+  "baize": [
+    0.53,
+    0.142
+  ],
+  "hudiejing": [
+    0.52,
+    0.172
+  ],
+  "luoxinfu": [
+    0.433,
+    0.202
+  ],
+  "yitiao": [
+    0.475,
+    0.215
+  ],
+  "jialouluo": [
+    0.626,
+    0.167
+  ],
+  "huajing": [
+    0.68,
+    0.248
+  ],
+  "yinge": [
+    0.51,
+    0.323
+  ],
+  "bujianyue": [
+    0.538,
+    0.157
+  ],
+  "xuzuozhinan": [
+    0.447,
+    0.177
+  ],
+  "liyujing": [
+    0.695,
+    0.208
+  ],
+  "chongshi": [
+    0.559,
+    0.164
+  ],
+  "xieenv": [
+    0.512,
+    0.12
+  ],
+  "xunxiangxing": [
+    0.49,
+    0.22
+  ],
+  "linghaidie": [
+    0.574,
+    0.245
+  ],
+  "yujuchong": [
+    0.59,
+    0.214
+  ],
+  "hainren": [
+    0.556,
+    0.178
+  ],
+  "gulonghuo": [
+    0.59,
+    0.178
+  ],
+  "chuanyuan": [
+    0.5,
+    0.277
+  ],
+  "erkounv": [
+    0.53,
+    0.246
+  ],
+  "xiaoxiuzhishou": [
+    0.5,
+    0.17
+  ],
+  "quanshen-lizhan": [
+    0.434,
+    0.288
+  ],
+  "yaodaoji-zhuren": [
+    0.518,
+    0.184
+  ],
+  "datiangou-gangfeng": [
+    0.598,
+    0.226
+  ],
+  "qingxingdeng-huihuo": [
+    0.591,
+    0.22
+  ],
+  "kongquemingwang": [
+    0.568,
+    0.161
+  ],
+  "fenpopo": [
+    0.52,
+    0.276
+  ],
+  "jiao": [
+    0.55,
+    0.248
+  ],
+  "ji": [
+    0.54,
+    0.151
+  ],
+  "jutun-wangkong": [
+    0.63,
+    0.137
+  ],
+  "caitong-lvli": [
+    0.432,
+    0.229
+  ],
+  "qingfangzhu-fanchen": [
+    0.55,
+    0.131
+  ],
+  "panguan-xuanmo": [
+    0.367,
+    0.245
+  ],
+  "langyazi": [
+    0.53,
+    0.201
+  ],
+  "yanling": [
+    0.552,
+    0.278
+  ],
+  "huimingdeng": [
+    0.469,
+    0.266
+  ],
+  "shifagui": [
+    0.49,
+    0.124
+  ],
+  "tiannimei": [
+    0.525,
+    0.18
+  ],
+  "guniao-yuxiang": [
+    0.595,
+    0.219
+  ],
+  "taohua-luoying": [
+    0.401,
+    0.157
+  ],
+  "yimulian-linglai": [
+    0.561,
+    0.146
+  ],
+  "shantu-zuofu": [
+    0.56,
+    0.255
+  ],
+  "chen": [
+    0.514,
+    0.128
+  ],
+  "tianzhao": [
+    0.585,
+    0.135
+  ],
+  "yuedu": [
+    0.547,
+    0.152
+  ],
+  "gunv": [
+    0.638,
+    0.188
+  ],
+  "yunv": [
+    0.581,
+    0.21
+  ],
+  "huang-qiming": [
+    0.456,
+    0.134
+  ],
+  "zhuiyueshen-shuiyue": [
+    0.424,
+    0.155
+  ],
+  "wushi-maoshi": [
+    0.522,
+    0.146
+  ],
+  "guishibai": [
+    0.522,
+    0.203
+  ],
+  "guishihei": [
+    0.431,
+    0.204
+  ],
+  "tongnantongnv": [
+    0.548,
+    0.415
+  ],
+  "zhiwu": [
+    0.523,
+    0.172
+  ],
+  "daorenshen": [
+    0.509,
+    0.181
+  ],
+  "ertong": [
+    0.59,
+    0.185
+  ],
+  "mianqiling-xinsu": [
+    0.504,
+    0.244
+  ],
+  "yingcao-pupu": [
+    0.537,
+    0.212
+  ],
+  "fansi": [
+    0.661,
+    0.205
+  ],
+  "longzi": [
+    0.494,
+    0.116
+  ],
+  "maochuan": [
+    0.518,
+    0.223
+  ],
+  "alaina": [
+    0.565,
+    0.154
+  ],
+  "youning": [
+    0.544,
+    0.208
+  ],
+  "xiaolunan-qianshou": [
+    0.618,
+    0.178
+  ],
+  "yixienamei": [
+    0.492,
+    0.168
+  ],
+  "rihefang-qingyang": [
+    0.621,
+    0.21
+  ],
+  "yanyanluo-fumiao": [
+    0.488,
+    0.27
+  ]
+}

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">炭治郎</title>
+  <desc id="desc">炭治郎：水之型刀光与水面斩，兄妹之绊</desc>
+  <defs>
+    <linearGradient id="tanjirou-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1820"/>
+      <stop offset=".55" stop-color="#123040"/>
+      <stop offset="1" stop-color="#081018"/>
+    </linearGradient>
+    <radialGradient id="tanjirou-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#2a6f8e" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#2a8ab0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#2a8ab0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tanjirou-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c0e8f0"/>
+      <stop offset=".55" stop-color="#5088a0"/>
+      <stop offset="1" stop-color="#2a8ab0"/>
+    </linearGradient>
+    <linearGradient id="tanjirou-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a8ab0"/>
+      <stop offset="1" stop-color="#103848"/>
+    </linearGradient>
+    <linearGradient id="tanjirou-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#tanjirou-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#tanjirou-halo)"/>
+  <g>
+    <path d="M55 165c18-28 35-28 50 0 15-28 32-28 50 0" fill="none" stroke="url(#tanjirou-body)" stroke-width="3"/>
+    <path d="M55 180c18-22 35-22 50 0 15-22 32-22 50 0" fill="none" stroke="url(#tanjirou-acc)" stroke-width="2" opacity=".85"/>
+    <path d="M62 55L145 155" stroke="url(#tanjirou-body)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M145 155l-8 14-12-6Z" fill="url(#tanjirou-gold)"/>
+    <path d="M70 48h18l-9-14Z" fill="url(#tanjirou-gold)" opacity=".85"/>
+    <path d="M88 95c8-18 16-28 24-34-2 16-2 30 2 44" fill="url(#tanjirou-acc)" opacity=".65"/>
+    <path d="M100 70c10-8 22-10 34-6-12 6-22 12-30 22" fill="url(#tanjirou-body)" opacity=".5"/>
+  </g>
+<g fill="url(#tanjirou-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#2a8ab0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

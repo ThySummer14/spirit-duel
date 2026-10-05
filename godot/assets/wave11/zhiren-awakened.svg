@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">纸人 · 觉醒相</title>
+  <desc id="desc">纸人：山兔戏谑套索，纸舞捣乱。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="zhiren-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141008"/>
+      <stop offset=".55" stop-color="#201810"/>
+      <stop offset="1" stop-color="#0c0a06"/>
+    </linearGradient>
+    <radialGradient id="zhiren-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e8c888" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c09040" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c09040" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="zhiren-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0e0c0"/>
+      <stop offset=".55" stop-color="#c0a070"/>
+      <stop offset="1" stop-color="#c09040"/>
+    </linearGradient>
+    <linearGradient id="zhiren-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c09040"/>
+      <stop offset="1" stop-color="#604018"/>
+    </linearGradient>
+    <linearGradient id="zhiren-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#zhiren-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#zhiren-halo)"/>
+  <g>
+    <rect x="88" y="105" width="24" height="48" rx="3" fill="url(#zhiren-body)" stroke="#3a3020" stroke-width="1.5"/>
+    <circle cx="100" cy="92" r="13" fill="url(#zhiren-body)" stroke="#3a3020" stroke-width="1.4"/>
+    <path d="M88 120h-20M112 120h20M90 150l-12 18M110 150l12 18" stroke="url(#zhiren-acc)" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="95" cy="90" r="2" fill="#2a2010"/><circle cx="105" cy="90" r="2" fill="#2a2010"/>
+    <path d="M96 98c2 3 6 3 8 0" stroke="#2a2010" stroke-width="1.2" fill="none"/>
+    <path d="M100 55c-2 8 0 14 4 18" stroke="url(#zhiren-gold)" stroke-width="1.8" fill="none"/>
+    <circle cx="104" cy="52" r="4" fill="url(#zhiren-gold)"/>
+  </g>
+<g fill="url(#zhiren-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#zhiren-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#zhiren-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#zhiren-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#zhiren-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#zhiren-gold)"/>
+    <g stroke="url(#zhiren-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#c09040" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

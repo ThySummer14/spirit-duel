@@ -1,0 +1,1814 @@
+{
+  "date": "2026-10-05",
+  "newUnits": 106,
+  "totalRedrawnUnits": 189,
+  "method": "Visual inspection of original reference sheets, generated images, final comparison sheets and actual Godot viewport captures. This is not an automated similarity score.",
+  "inputPolicy": "original-reference-only for every redraw/retry; rejected generated art never used as image input",
+  "reviewedComparisons": 28,
+  "gameScreenshots": 75,
+  "units": [
+    {
+      "id": "tengji",
+      "name": "藤姬",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/22800_藤姬.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ec227d52-fe37-4ff3-a742-70e25561bf8d.png",
+      "runtime": "godot/assets/redrawn/wave5/tengji.png",
+      "focus": [
+        0.49,
+        0.143
+      ],
+      "observedReferenceFeatures": "Long pale gray hair, violet and white robes, yellow-green obi and purple wisteria vines; retain graceful suspended pose and ribbonlike sleeves.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "huaniajuan",
+      "name": "花鸟卷",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/22900_花鸟卷.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ebe8eaa3-832c-47c1-bf31-cde73b49a5d9.png",
+      "runtime": "godot/assets/redrawn/wave5/huaniajuan.png",
+      "focus": [
+        0.504,
+        0.18
+      ],
+      "observedReferenceFeatures": "Long dark hair, white and purple floral kimono with red ties, seated floating pose among white scroll ribbons, blue birds and flowering branches.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "yanmo",
+      "name": "阎魔",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/23000_阎魔.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c99891f8-b7cb-4fe6-960b-6c1834462b81.png",
+      "runtime": "godot/assets/redrawn/wave5/yanmo.png",
+      "focus": [
+        0.53,
+        0.172
+      ],
+      "observedReferenceFeatures": "Black hair with ornate gold-black headpiece, red and white robes, seated crossed-leg pose and pale cloud spirits; retain the red demon decoration.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "kuileishi",
+      "name": "傀儡师",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/23100_傀儡师.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-75364ad5-b886-4d22-a5fb-e7aa41bd9015.png",
+      "runtime": "godot/assets/redrawn/wave5/kuileishi.png",
+      "focus": [
+        0.66,
+        0.217
+      ],
+      "observedReferenceFeatures": "Black-haired girl in black-red outfit beside a large white jointed doll; preserve both the human girl and the much larger wooden puppet as distinct figures, with thin red control strings.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "baizangzhu",
+      "name": "白藏主",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/23300_白藏主.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-3948bf13-67eb-4df9-826e-ba3717b3c240.png",
+      "runtime": "godot/assets/redrawn/wave5/baizangzhu.png",
+      "focus": [
+        0.592,
+        0.174
+      ],
+      "observedReferenceFeatures": "White fox face and red ears, white robes with red swirls, red-white fur collar and enormous brown fluffy tail; keep visibly nonhuman fox identity.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "rulianshi",
+      "name": "入殓师",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/23600_入殓师.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-dd588b67-15b6-4b66-a501-39e31bfd086a.png",
+      "runtime": "godot/assets/redrawn/wave5/rulianshi.png",
+      "focus": [
+        0.663,
+        0.204
+      ],
+      "observedReferenceFeatures": "Dark long-haired man in white flowing robes and blue-gold coat, carrying the upright coffin with the original visible female-shaped figure; preserve grouping and restrained purple palette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "fengli",
+      "name": "风狸",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/23200_风狸.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-6463ad5f-7c0e-41e9-a4b3-dae516d801e5.png",
+      "runtime": "godot/assets/redrawn/wave5/fengli.png",
+      "focus": [
+        0.435,
+        0.22
+      ],
+      "observedReferenceFeatures": "White long-snouted masked animal ninja, black-red clothing, purple rope coils and red string with curved blades; preserve animal muzzle and long white tail.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "guanhu",
+      "name": "管狐",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/23500_管狐.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d9a9906b-977f-4d2d-be58-b0f65303c32c.png",
+      "runtime": "godot/assets/redrawn/wave5/guanhu.png",
+      "focus": [
+        0.57,
+        0.28
+      ],
+      "observedReferenceFeatures": "White foxlike creature with long purple-tipped ears and fluffy tails, emerging from an oversized green bamboo tube tied with red cord; keep the tube and fox separate.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "song",
+      "name": "松",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24400_松.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-f5afb2d0-4978-49d5-8cdd-2c14fe309c33.png",
+      "runtime": "godot/assets/redrawn/wave5/song.png",
+      "focus": [
+        0.57,
+        0.165
+      ],
+      "observedReferenceFeatures": "Green-haired youthful male, green yellow robes with black-red sleeves, holding the long wooden string instrument beneath a pine tree; preserve leafy hair ornaments.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yunwaijing",
+      "name": "云外镜",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24200_云外镜.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-cf454462-3943-4aee-bf18-4d0902bce528.png",
+      "runtime": "godot/assets/redrawn/wave5/yunwaijing.png",
+      "focus": [
+        0.5,
+        0.32
+      ],
+      "observedReferenceFeatures": "The original black-white mirrored pair divided by a tall fractured mirror, one dark and one pale figure, stormlike smoke below; preserve two visible figures and the asymmetrical monochrome composition.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "liangmianfo",
+      "name": "两面佛",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/23800_两面佛.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-6cd1967b-5f9e-408e-af05-7e5d216589e4.png",
+      "runtime": "godot/assets/redrawn/wave5/liangmianfo.png",
+      "focus": [
+        0.52,
+        0.335
+      ],
+      "observedReferenceFeatures": "Red and blue two-faced deity with pale wild mane, gold ornaments, circular drum motifs and ceremonial weapon; preserve the reference two-faced supernatural design rather than a generic human.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "heitongzi",
+      "name": "黑童子",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24000_黑童子.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2616ed6e-2edf-4acc-8a78-92f2976779ba.png",
+      "runtime": "godot/assets/redrawn/wave5/heitongzi.png",
+      "focus": [
+        0.625,
+        0.315
+      ],
+      "observedReferenceFeatures": "Long white hair, narrow tall black-red hat, black white red robes, seated pose with very large dark curved scythe; retain red eyes and youthful proportions.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "baitongzi",
+      "name": "白童子",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24100_白童子.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d6103760-783d-4ea1-a8da-57564b197d1e.png",
+      "runtime": "godot/assets/redrawn/wave5/baitongzi.png",
+      "focus": [
+        0.61,
+        0.34
+      ],
+      "observedReferenceFeatures": "Short dark hair, small gold-white hat, white and red clothes, seated pose with huge white-red ceremonial paddle; keep the distinctive paddle glyph ornament but omit card text.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "xiazhongshaonv",
+      "name": "匣中少女",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24300_匣中少女.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-57e93206-131b-4572-bd0c-f5ef88a58a38.png",
+      "runtime": "godot/assets/redrawn/wave5/xiazhongshaonv.png",
+      "focus": [
+        0.5,
+        0.273
+      ],
+      "observedReferenceFeatures": "Long flowing lavender hair with red flowers, red blue-white outfit, seated on open lacquered box amid peacock eye-feather patterns; preserve box, hair and pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "yi",
+      "name": "弈",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/23900_弈.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-eb804601-5921-4439-887a-48a97a82a6f2.png",
+      "runtime": "godot/assets/redrawn/wave5/yi.png",
+      "focus": [
+        0.5,
+        0.12
+      ],
+      "observedReferenceFeatures": "Long white-haired man in lavender-blue layered kimono, seated above a black Go board with floating black and white stones; preserve pale hair and quiet expression.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "xiaosongwan",
+      "name": "小松丸",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24500_小松丸.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-30138638-f48a-4b83-82b4-554d7f547a51.png",
+      "runtime": "godot/assets/redrawn/wave5/xiaosongwan.png",
+      "focus": [
+        0.4,
+        0.24
+      ],
+      "observedReferenceFeatures": "Red-brown squirrel-eared child in green checks and white fur hood, holding a pinecone and acorn, seated against enormous brown squirrel tail; retain child and squirrel design.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "wuwu",
+      "name": "五丸",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/25200_五丸.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b163d748-f510-45c8-8418-60deac1676f5.png",
+      "runtime": "godot/assets/redrawn/wave5/wuwu.png",
+      "focus": [
+        0.43,
+        0.274
+      ],
+      "observedReferenceFeatures": "Short pale-haired animal-eared child with red scarf, blue shorts, white clothes and large brown tail, standing on orange paper planes; keep original small proportions.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "qianji",
+      "name": "千姬",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24700_千姬.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-8ee132b0-b95a-4b82-a063-154d591a7ac2.png",
+      "runtime": "godot/assets/redrawn/wave5/qianji.png",
+      "focus": [
+        0.38,
+        0.1
+      ],
+      "observedReferenceFeatures": "Long pale blue-haired woman with red ornament, blue orange white flowing robes and elaborate branching sea weapon; preserve the dark blue sleeves and ocean motifs.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "shiling",
+      "name": "食灵",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/25300_食灵.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-88c7e723-20bb-4f0e-8e35-c9231baee796.png",
+      "runtime": "godot/assets/redrawn/wave5/shiling.png",
+      "focus": [
+        0.5,
+        0.161
+      ],
+      "observedReferenceFeatures": "Orange-haired male cook in white-red kimono and dark trousers with cooking vessels and a small red-hatted companion; preserve both visible figures and cookware.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "maozhanggui",
+      "name": "猫掌柜",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24600_猫掌柜.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b4dd65ba-2790-49ad-acc6-9f9f3b71788b.png",
+      "runtime": "godot/assets/redrawn/wave5/maozhanggui.png",
+      "focus": [
+        0.48,
+        0.18
+      ],
+      "observedReferenceFeatures": "Gray-haired cat-eared girl with black green yellow robes, red sandals, merchant ornaments and small white cats; preserve the fan of large sleeves.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "xingxiongtongzi",
+      "name": "星熊童子",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/25100_星熊童子.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-6af54a7c-b564-464f-9cac-e9f67edf6321.png",
+      "runtime": "godot/assets/redrawn/wave5/xingxiongtongzi.png",
+      "focus": [
+        0.325,
+        0.135
+      ],
+      "observedReferenceFeatures": "White-haired oni with small horns, white black robes, red accents and oversized red demon-face mask or paddle; keep supernatural ear shapes and cup.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "yixigong",
+      "name": "饴细工",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24900_饴细工.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-361ca927-ede9-4c7c-a89a-a70fbd999891.png",
+      "runtime": "godot/assets/redrawn/wave5/yixigong.png",
+      "focus": [
+        0.4,
+        0.285
+      ],
+      "observedReferenceFeatures": "Bearded elderly confectioner in blue-green white clothes, seated on tall wooden chair with tiny sweets mascots and orange sugar dragon above; preserve old face and all visible companion shapes.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "limao",
+      "name": "狸猫",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/24800_狸猫.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-56954e6e-3022-4522-af3d-fbcfc696f88d.png",
+      "runtime": "godot/assets/redrawn/wave5/limao.png",
+      "focus": [
+        0.5,
+        0.24
+      ],
+      "observedReferenceFeatures": "Brown tanuki with dark eye patches and very large bushy tail, green-yellow clothes, sake jug and bowl; preserve fully animal face and seated pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "tuwan",
+      "name": "兔丸",
+      "pack": "wave5",
+      "original": "art-reference-official/卡面/01_式神/25000_兔丸.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0624f6dc-c1f6-4027-a6e9-680d77cb9101.png",
+      "runtime": "godot/assets/redrawn/wave5/tuwan.png",
+      "focus": [
+        0.48,
+        0.24
+      ],
+      "observedReferenceFeatures": "Pale-haired red-eyed rabbit-eared boy in white blue robes with orange ties, seated with a black patterned ball and long pole ornament; retain long rabbit ears.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave5-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "jinnaluo",
+      "name": "紧那罗",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/25600_紧那罗.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4dfa1192-6353-4ce9-967c-f5607b671460.png",
+      "runtime": "godot/assets/redrawn/wave6/jinnaluo.png",
+      "focus": [
+        0.655,
+        0.165
+      ],
+      "observedReferenceFeatures": "Long mint-green-haired woman in white-red kimono with teal details, holding a long pale string instrument, flowing fabric and delicate crystal motifs; preserve her pale green hair.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "lingyanji",
+      "name": "铃彦姬",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26300_铃彦姬.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c0d3c4f2-8df6-4b58-b0dc-0beea0d98969.png",
+      "runtime": "godot/assets/redrawn/wave6/lingyanji.png",
+      "focus": [
+        0.405,
+        0.18
+      ],
+      "observedReferenceFeatures": "Dark teal-haired dancer with high ornament, short white-black outfit with red-gold ties, bell ornaments and large dark green flame shapes; preserve bent-leg dancing pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "rurineque",
+      "name": "入内雀",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/25700_入内雀.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7de5cd32-e355-41a4-946d-48d31c1242a0.png",
+      "runtime": "godot/assets/redrawn/wave6/rurineque.png",
+      "focus": [
+        0.595,
+        0.257
+      ],
+      "observedReferenceFeatures": "Straw hat obscuring the face, dark purple tattered garments, floating bones in a circular halo and blue-black birds; preserve the eerie wrapped figure rather than inventing a visible face.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "shouwu",
+      "name": "首无",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26000_首无.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-dc93cd8d-3076-4fd4-8efb-f9d1b92d8eb3.png",
+      "runtime": "godot/assets/redrawn/wave6/shouwu.png",
+      "focus": [
+        0.56,
+        0.185
+      ],
+      "observedReferenceFeatures": "Pale-haired boy in blue black clothes with yellow large beads, red rope and small red ball; preserve intentionally detached floating head above the neck gap, do not reattach it.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "gunvhongye",
+      "name": "鬼女红叶",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/25900_鬼女红叶.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-20875cdf-8803-4f34-9b7a-7861636045ca.png",
+      "runtime": "godot/assets/redrawn/wave6/gunvhongye.png",
+      "focus": [
+        0.383,
+        0.139
+      ],
+      "observedReferenceFeatures": "Long black-haired woman with gold antlerlike headdress, blue-red floral kimono, autumn maple leaves and small pale ghost faces; preserve red obi and dark flowing sleeves.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "choushizhinv",
+      "name": "丑时之女",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/25800_丑时之女.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-6cf4006c-df0e-4da6-a438-054b59d328d8.png",
+      "runtime": "godot/assets/redrawn/wave6/choushizhinv.png",
+      "focus": [
+        0.33,
+        0.244
+      ],
+      "observedReferenceFeatures": "Pale blue-haired horned girl with white-red garments, green face markings, giant straw doll behind her and needles; preserve the straw effigy as separate object.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yifanmumian",
+      "name": "一反木绵",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26100_一反木绵.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a7315335-5a63-4810-ac6d-fe7e87784fb2.png",
+      "runtime": "godot/assets/redrawn/wave6/yifanmumian.png",
+      "focus": [
+        0.697,
+        0.117
+      ],
+      "observedReferenceFeatures": "Pale-faced long dark-haired woman in red black robes wrapped in flowing white cloth strips; preserve cloth spirit ribbons and tied ankles.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yecha",
+      "name": "夜叉",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26200_夜叉.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-55f59487-cf44-450b-b760-78b7c1777ebd.png",
+      "runtime": "godot/assets/redrawn/wave6/yecha.png",
+      "focus": [
+        0.44,
+        0.196
+      ],
+      "observedReferenceFeatures": "Long red-haired male oni, pale muscular upper body with purple markings, black trousers, red-gold waist cloth and curved dark weapon; preserve sharp expression and acrobatic pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "huangchuanzhizhu",
+      "name": "荒川之主",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/27100_荒川之主.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-49d5e12c-43e7-41bb-9c1b-5d2320e43c2c.png",
+      "runtime": "godot/assets/redrawn/wave6/huangchuanzhizhu.png",
+      "focus": [
+        0.61,
+        0.14
+      ],
+      "observedReferenceFeatures": "White-haired blue-skinned ruler in teal patterned robes with dark purple mantle and broad pink-blue collar, surrounded by stylized water and fish shadows.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "wannianzhu",
+      "name": "万年竹",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26800_万年竹.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0da1f10e-60ab-4bb0-b68f-88ac2a8a3f5b.png",
+      "runtime": "godot/assets/redrawn/wave6/wannianzhu.png",
+      "focus": [
+        0.58,
+        0.14
+      ],
+      "observedReferenceFeatures": "Long black-haired man in green white robes and purple obi holding a bamboo flute at his lips; preserve tall bamboo backdrop and light restrained palette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "shuzhu",
+      "name": "数珠",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26900_数珠.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7c2b59da-9e79-4279-a0b5-f488e1c92d2a.png",
+      "runtime": "godot/assets/redrawn/wave6/shuzhu.png",
+      "focus": [
+        0.49,
+        0.235
+      ],
+      "observedReferenceFeatures": "Brown-haired small monk in white-gold robes and wide hat, holding long staff, seated above large gold bell and red green prayer beads; preserve playful small scale.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "sanweihu",
+      "name": "三尾狐",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/27200_三尾狐.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5e67f8d4-1867-49f3-a692-6dbbf7c9584e.png",
+      "runtime": "godot/assets/redrawn/wave6/sanweihu.png",
+      "focus": [
+        0.575,
+        0.155
+      ],
+      "observedReferenceFeatures": "Black-haired fox woman with red ears, black-red kimono, white face makeup and three distinct large dark red tails; retain fox identity and original sleeve shapes.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "jicanghai",
+      "name": "季沧海",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26400_季沧海.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d762a990-1a3b-4648-ae0d-9d8dbd32d4d0.png",
+      "runtime": "godot/assets/redrawn/wave6/jicanghai.png",
+      "focus": [
+        0.42,
+        0.18
+      ],
+      "observedReferenceFeatures": "Dark-haired martial artist in white shirt, black trousers and white leg wraps, swinging broad engraved sword in original dynamic pose; preserve human warrior design.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "wuchen",
+      "name": "无尘",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26500_无尘.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-13e83b47-3c62-49d9-a544-d4f4787b46d9.png",
+      "runtime": "godot/assets/redrawn/wave6/wuchen.png",
+      "focus": [
+        0.34,
+        0.175
+      ],
+      "observedReferenceFeatures": "Black-haired topknot martial artist in pale blue-white robes, dark trousers, white boots and gold waist fittings, holding original sword; preserve youthful male face.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "ninghongye",
+      "name": "宁红夜",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26600_宁红夜.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-58ef40fa-cb9f-47c9-9c9d-4fc3db5112c8.png",
+      "runtime": "godot/assets/redrawn/wave6/ninghongye.png",
+      "focus": [
+        0.71,
+        0.165
+      ],
+      "observedReferenceFeatures": "Long dark ponytail, red blindfold covering both eyes, red and black fitted warrior clothing and curved weapon; preserve blindfold instead of drawing uncovered eyes.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "tayumenhutao",
+      "name": "土御门胡桃",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/26700_土御门胡桃.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e03b5c30-4fee-4977-b9b7-60ce72ec776d.png",
+      "runtime": "godot/assets/redrawn/wave6/tayumenhutao.png",
+      "focus": [
+        0.365,
+        0.145
+      ],
+      "observedReferenceFeatures": "Long dark-haired young woman in white pink teal clothing with red sword handle, umbrella shapes and paper cranes; preserve the original modest short dress and gentle face.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "baize",
+      "name": "白泽",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/27300_白泽.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7bdee720-062c-4f04-a00f-5b9c2a8fe5ed.png",
+      "runtime": "godot/assets/redrawn/wave6/baize.png",
+      "focus": [
+        0.53,
+        0.142
+      ],
+      "observedReferenceFeatures": "Long white-haired pale deity in white silver-blue layered robes, delicate hornlike head ornament and white winglike fur forms; preserve ivory and navy motifs.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "hudiejing",
+      "name": "蝴蝶精",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/27400_蝴蝶精.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-28cfed80-fef8-4465-ad14-b379e22fc128.png",
+      "runtime": "godot/assets/redrawn/wave6/hudiejing.png",
+      "focus": [
+        0.52,
+        0.172
+      ],
+      "observedReferenceFeatures": "Purple-haired butterfly girl in red purple kimono, prominent lavender butterfly wings and gold ornament held near her face; preserve clear insect wing identity.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "luoxinfu",
+      "name": "络新妇",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/27500_络新妇.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-531c9517-4f4c-4081-822a-722d53c79e61.png",
+      "runtime": "godot/assets/redrawn/wave6/luoxinfu.png",
+      "focus": [
+        0.433,
+        0.202
+      ],
+      "observedReferenceFeatures": "Black-haired horned woman in red-black armor, seated atop a large black-red spider body with separate curved legs; keep human upper body and spider lower grouping as in reference.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yitiao",
+      "name": "一条",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/27600_一条.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c76c50f8-8b87-42ca-b006-6e086c63c20b.png",
+      "runtime": "godot/assets/redrawn/wave6/yitiao.png",
+      "focus": [
+        0.475,
+        0.215
+      ],
+      "observedReferenceFeatures": "Brown-haired dog-eared courier with golden animal muzzle, purple short coat and dark trousers, red sandals, a shoulder pole carrying red fish basket; preserve animal face.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "jialouluo",
+      "name": "迦楼罗",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/27700_迦楼罗.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e171ebd5-b658-4583-9b6e-6d11d568e746.png",
+      "runtime": "godot/assets/redrawn/wave6/jialouluo.png",
+      "focus": [
+        0.626,
+        0.167
+      ],
+      "observedReferenceFeatures": "Bird-masked winged warrior with black feathers, gold-white body armor, purple waist cords and a tall dark staff; keep bird beak mask and large black wings.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "huajing",
+      "name": "化鲸",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/27800_化鲸.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-541dca02-609f-49aa-b1ae-f84323957c37.png",
+      "runtime": "godot/assets/redrawn/wave6/huajing.png",
+      "focus": [
+        0.68,
+        0.248
+      ],
+      "observedReferenceFeatures": "Pale blue-gray-haired girl in deep blue clothes with oversized dark blue armored sleeves, seated on curving blue whale tail; preserve whale and child separation.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yinge",
+      "name": "影鳄",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/27900_影鳄.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-73894f43-851a-435b-979c-28a5e9a3cef7.png",
+      "runtime": "godot/assets/redrawn/wave6/yinge.png",
+      "focus": [
+        0.51,
+        0.323
+      ],
+      "observedReferenceFeatures": "Small red-haired boy in white clothes beside a much larger dark brown horned crocodile shadow with circular eye and blue mouth; preserve both subjects and relative scale.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "bujianyue",
+      "name": "不见岳",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/28000_不见岳.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-01bda00e-73a8-4da8-9ebf-a1466808fc70.png",
+      "runtime": "godot/assets/redrawn/wave6/bujianyue.png",
+      "focus": [
+        0.538,
+        0.157
+      ],
+      "observedReferenceFeatures": "Black-haired man with gold-black headdress, white kimono and black pants, seated amid green-gold mountain shapes and birds; preserve calm pose and long dark mantle.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "xuzuozhinan",
+      "name": "须佐之男",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/28100_须佐之男.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fdb15347-5d61-46e6-9f0b-e78272952f1a.png",
+      "runtime": "godot/assets/redrawn/wave6/xuzuozhinan.png",
+      "focus": [
+        0.447,
+        0.177
+      ],
+      "observedReferenceFeatures": "White-haired armored deity in black gray gold lightning armor, large gold horned crown and long dark weapon; preserve angular armor and lightning motifs.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-07.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "liyujing",
+      "name": "鲤鱼精",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/28200_鲤鱼精.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-899a3471-d5f4-4cfe-8d1e-9995d2a3d426.png",
+      "runtime": "godot/assets/redrawn/wave6/liyujing.png",
+      "focus": [
+        0.695,
+        0.208
+      ],
+      "observedReferenceFeatures": "Black-haired fish girl with orange pink flower headpiece, orange gold flowing sleeves and pink fish tail, aquatic round background; preserve mermaid silhouette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-07.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "chongshi",
+      "name": "虫师",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/28300_虫师.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-87a022d0-0f87-4dd7-9456-8e40bc6fd7c7.png",
+      "runtime": "godot/assets/redrawn/wave6/chongshi.png",
+      "focus": [
+        0.559,
+        0.164
+      ],
+      "observedReferenceFeatures": "Brown-haired insect girl in teal white orange robes with petal-like sleeves, large orange obi and small butterflies; preserve the layered light wing forms.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-07.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "xieenv",
+      "name": "蝎女",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/28400_蝎女.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bb24342d-66fb-4448-bc7d-e7b0cd29117a.png",
+      "runtime": "godot/assets/redrawn/wave6/xieenv.png",
+      "focus": [
+        0.512,
+        0.12
+      ],
+      "observedReferenceFeatures": "Short gray-black-haired pale woman in white and navy robe with red patterns, long black-red scorpion claws and segmented tail; preserve separate scorpion anatomy.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-07.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "xunxiangxing",
+      "name": "寻香行",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/28800_寻香行.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1cd346ef-3f93-4dc4-a0a8-2482c4b1c29f.png",
+      "runtime": "godot/assets/redrawn/wave6/xunxiangxing.png",
+      "focus": [
+        0.49,
+        0.22
+      ],
+      "observedReferenceFeatures": "White-haired figure in white blue robes, dark red ties, broad mask-decorated floating canopy and thin suspended strings with bells; preserve original elegant tall silhouette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-08.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "linghaidie",
+      "name": "灵海蝶",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/28700_灵海蝶.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ea1de737-3968-4011-ae52-36225449b230.png",
+      "runtime": "godot/assets/redrawn/wave6/linghaidie.png",
+      "focus": [
+        0.574,
+        0.245
+      ],
+      "observedReferenceFeatures": "White pink-haired girl with white-red shelllike butterfly wing head ornaments, white black yellow dress and pale orange translucent wing shapes; preserve aquatic butterfly motifs.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-08.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yujuchong",
+      "name": "於菊虫",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/28500_於菊虫.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e65630d5-ea16-4cf0-9b23-22a30661fea6.png",
+      "runtime": "godot/assets/redrawn/wave6/yujuchong.png",
+      "focus": [
+        0.59,
+        0.214
+      ],
+      "observedReferenceFeatures": "Long dark-haired woman in white purple green robe, gold mothlike tall hat and ringed insect markings, seated atop segmented green-white caterpillar body; preserve insect lower body.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-08.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "hainren",
+      "name": "海忍",
+      "pack": "wave6",
+      "original": "art-reference-official/卡面/01_式神/28600_海忍.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c73149e9-e838-42b6-a799-d5025c0ee2fe.png",
+      "runtime": "godot/assets/redrawn/wave6/hainren.png",
+      "focus": [
+        0.556,
+        0.178
+      ],
+      "observedReferenceFeatures": "Long black-haired ninja woman in white black red outfit, pale mask over the eyes and curved katana behind her; preserve straps, long red sash and restrained ocean blue background.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave6-comparison-08.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "gulonghuo",
+      "name": "古笼火",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/29300_古笼火.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ae99b81e-babe-4e44-bd57-bc282da5545b.png",
+      "runtime": "godot/assets/redrawn/wave7/gulonghuo.png",
+      "focus": [
+        0.59,
+        0.178
+      ],
+      "observedReferenceFeatures": "Orange-haired small child with green cape and black-red clothes hovering above a red square lantern; preserve both lantern and child silhouette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "chuanyuan",
+      "name": "川猿",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/29400_川猿.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1d17df85-f2dd-48c4-9717-faf4e3eb46bf.png",
+      "runtime": "godot/assets/redrawn/wave7/chuanyuan.png",
+      "focus": [
+        0.5,
+        0.277
+      ],
+      "observedReferenceFeatures": "Blond small monkey-like boy in white blue gold robes with a black-gold tall hat, fur boots and smoke charms; preserve animal ears and ceremonial hat.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "erkounv",
+      "name": "二口女",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/29500_二口女.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-757b9552-9d8c-4ba9-8aea-48251bdf807d.png",
+      "runtime": "godot/assets/redrawn/wave7/erkounv.png",
+      "focus": [
+        0.53,
+        0.246
+      ],
+      "observedReferenceFeatures": "Teal twin-tailed girl with small hat, red-orange white clothing, huge brown supernatural hands extending from the hair on either side; preserve the original monstrous hand grouping.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "xiaoxiuzhishou",
+      "name": "小袖之手",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/29600_小袖之手.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7af8897e-a292-4dfa-91d4-277116bc98ae.png",
+      "runtime": "godot/assets/redrawn/wave7/xiaoxiuzhishou.png",
+      "focus": [
+        0.5,
+        0.17
+      ],
+      "observedReferenceFeatures": "Dark-haired girl in white red kimono with large gold scissors behind the head, red threads and flowing red sleeves; preserve scissors, woven strings and young face.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "quanshen-lizhan",
+      "name": "犬神·历战",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/29200_犬神·历战.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1576aad8-cf9b-4e43-a610-a6436a641f0f.png",
+      "runtime": "godot/assets/redrawn/wave7/quanshen-lizhan.png",
+      "focus": [
+        0.434,
+        0.288
+      ],
+      "observedReferenceFeatures": "Dog-masked long white-haired swordsman in white brown gold layered armor, long pale scarf and sheathed blade; preserve this battleworn costume variant, not the classic dog unit.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yaodaoji-zhuren",
+      "name": "妖刀姬·呪刃",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/28900_妖刀姬·呪刃.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a978b827-8669-4eb3-88f5-3636938be79a.png",
+      "runtime": "godot/assets/redrawn/wave7/yaodaoji-zhuren.png",
+      "focus": [
+        0.518,
+        0.184
+      ],
+      "observedReferenceFeatures": "Long black-haired swordswoman with magenta hair accents, black teal blue-purple outfit and very large dark sword; retain this specific curse-blade costume rather than classic skin.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "datiangou-gangfeng",
+      "name": "大天狗·钢风",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/29000_大天狗·钢风.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-76f7fab9-ccb2-4c01-bba6-3ca60305ad75.png",
+      "runtime": "godot/assets/redrawn/wave7/datiangou-gangfeng.png",
+      "focus": [
+        0.598,
+        0.226
+      ],
+      "observedReferenceFeatures": "White-haired male in black blue armor with large black feathered wings, ceremonial hand gesture and dark curved weapon; preserve specific steelwind variant.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "qingxingdeng-huihuo",
+      "name": "青行灯·辉火",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/29100_青行灯·辉火.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-063756b8-ec28-4f89-99a6-0af0d7774c8b.png",
+      "runtime": "godot/assets/redrawn/wave7/qingxingdeng-huihuo.png",
+      "focus": [
+        0.591,
+        0.22
+      ],
+      "observedReferenceFeatures": "Pale blue-haired woman in white blue black short dress seated on a long dark lantern staff amid floating blue paper slips; preserve this specific variant and icy palette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "kongquemingwang",
+      "name": "孔雀明王",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/60500_孔雀明王.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-398007f1-88a3-4c2f-9740-3887ba56c611.png",
+      "runtime": "godot/assets/redrawn/wave7/kongquemingwang.png",
+      "focus": [
+        0.568,
+        0.161
+      ],
+      "observedReferenceFeatures": "Long dark blue-haired crowned woman in white teal robes with extensive blue turquoise peacock tail feathers, gold jewelry and original floating pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "fenpopo",
+      "name": "粉婆婆",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/60300_粉婆婆.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a6305ac5-27f8-4ac4-becc-501e92e0e5e6.png",
+      "runtime": "godot/assets/redrawn/wave7/fenpopo.png",
+      "focus": [
+        0.52,
+        0.276
+      ],
+      "observedReferenceFeatures": "Pale gray-haired short elderly figure in cream black clothes beneath very wide black umbrella-like hat, dark central mask decoration and a pale face-shaped accessory on the side; preserve elderly design.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "jiao",
+      "name": "椒图",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/60600_椒图.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-363d506a-a391-44c1-8989-b4a7c807ff5b.png",
+      "runtime": "godot/assets/redrawn/wave7/jiao.png",
+      "focus": [
+        0.55,
+        0.248
+      ],
+      "observedReferenceFeatures": "Blue-black-haired aquatic girl in teal red kimono, purple blue mermaid tail and a large decorated shell-shaped canopy with beads; preserve shell and tail.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "ji",
+      "name": "季",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/60400_季.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-8fe5463e-861e-43ec-b5f5-5c9b3ae04cdf.png",
+      "runtime": "godot/assets/redrawn/wave7/ji.png",
+      "focus": [
+        0.54,
+        0.151
+      ],
+      "observedReferenceFeatures": "Long white-pink-haired woman in pale pink robes encircled by flowing red pink seasonal ribbon and birdlike forms; preserve delicate pink silhouette and original seated pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 2
+    },
+    {
+      "id": "jutun-wangkong",
+      "name": "酒吞童子·忘空",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/60200_酒吞童子·忘空.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-6df80c3c-6e10-442b-9420-93e6cd1aeb89.png",
+      "runtime": "godot/assets/redrawn/wave7/jutun-wangkong.png",
+      "focus": [
+        0.63,
+        0.137
+      ],
+      "observedReferenceFeatures": "Long red-haired muscular male in white black robes with red gold accents and large red supernatural arm swirl; preserve this specific variant, face markings and dark wide trousers.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "caitong-lvli",
+      "name": "茨木童子·旅立",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/60700_茨木童子·旅立.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-f63816f2-546c-4049-b4c4-6f41f3f52e28.png",
+      "runtime": "godot/assets/redrawn/wave7/caitong-lvli.png",
+      "focus": [
+        0.432,
+        0.229
+      ],
+      "observedReferenceFeatures": "White-haired small horned oni in red black white robes with gold beads, white demon limb and long red ribbons; preserve youthful traveler variant and coherent face.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "qingfangzhu-fanchen",
+      "name": "青坊主·凡尘",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/29900_青坊主·凡尘.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-f895246b-2c66-4b2d-8a1c-2a74891aff32.png",
+      "runtime": "godot/assets/redrawn/wave7/qingfangzhu-fanchen.png",
+      "focus": [
+        0.55,
+        0.131
+      ],
+      "observedReferenceFeatures": "Long white-haired male in teal white gold robes holding long gold ceremonial staff horizontally, with layered pale sleeves; preserve this exact mortal-world variant.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "panguan-xuanmo",
+      "name": "判官·悬墨",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/60100_判官·悬墨.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a434a913-d1d5-441a-a100-d9dacbf25ce7.png",
+      "runtime": "godot/assets/redrawn/wave7/panguan-xuanmo.png",
+      "focus": [
+        0.367,
+        0.245
+      ],
+      "observedReferenceFeatures": "White-haired male in purple red teal robes holding gigantic calligraphy brush over shoulder; preserve the broad brush, ink-cloud background and suspended pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "langyazi",
+      "name": "琅琊子",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/61500_琅琊子.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b7c990ad-e0ca-4755-9e63-3e81b91a816c.png",
+      "runtime": "godot/assets/redrawn/wave7/langyazi.png",
+      "focus": [
+        0.53,
+        0.201
+      ],
+      "observedReferenceFeatures": "Pale-faced figure in long black gray robes, black hair with white front streaks, red-purple obi, beads and ghostly pale cyan orb; preserve narrow solemn face.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yanling",
+      "name": "言灵",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/61400_言灵.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-263626b7-5d57-44c0-8a5f-1f9f487061f5.png",
+      "runtime": "godot/assets/redrawn/wave7/yanling.png",
+      "focus": [
+        0.552,
+        0.278
+      ],
+      "observedReferenceFeatures": "Long white-haired figure in white red black robes beside large swirling black beastly word-cloud with gold circular eye motif and flying paper slips; preserve figure and separate shadow shape.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "huimingdeng",
+      "name": "慧明灯",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/60800_慧明灯.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-79ef690b-aeb3-4cd1-b6f1-dec8672882c6.png",
+      "runtime": "godot/assets/redrawn/wave7/huimingdeng.png",
+      "focus": [
+        0.469,
+        0.266
+      ],
+      "observedReferenceFeatures": "Pale youthful figure with black-gold hat and black white gold robes, antlerlike decorative lines and hanging golden lanterns; preserve warm lantern motifs.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "shifagui",
+      "name": "食发鬼",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/60900_食发鬼.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-98070df2-d8bb-4361-95dc-65a10f51d3d6.png",
+      "runtime": "godot/assets/redrawn/wave7/shifagui.png",
+      "focus": [
+        0.49,
+        0.124
+      ],
+      "observedReferenceFeatures": "Long purple-black-haired youthful male in white pink purple robes with gold cords and mirrorlike small object; preserve enormous flowing dark hair and elegant pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "tiannimei",
+      "name": "天逆每",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/61100_天逆每.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-aacf4bec-5547-4c25-85d7-73023e9c2558.png",
+      "runtime": "godot/assets/redrawn/wave7/tiannimei.png",
+      "focus": [
+        0.525,
+        0.18
+      ],
+      "observedReferenceFeatures": "Black-haired winged woman with horned gold headdress, white black orange robes, very large black wings, gold ornaments and bowlike staff; preserve wings and commanding pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "guniao-yuxiang",
+      "name": "姑获鸟·玉响",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/61000_姑获鸟·玉响.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-170abc59-ec3b-435d-99ed-56bbfe9030f8.png",
+      "runtime": "godot/assets/redrawn/wave7/guniao-yuxiang.png",
+      "focus": [
+        0.595,
+        0.219
+      ],
+      "observedReferenceFeatures": "Long black-haired bird woman in white black gray robes, wide pale hat or umbrella, red teal trim and black feathered sleeves; preserve this specific variant and weapon.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "taohua-luoying",
+      "name": "桃花妖·落英",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/61200_桃花妖·落英.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ed1eff95-db19-4b58-88e2-d87fba3864fe.png",
+      "runtime": "godot/assets/redrawn/wave7/taohua-luoying.png",
+      "focus": [
+        0.401,
+        0.157
+      ],
+      "observedReferenceFeatures": "Brown twin-bun-haired woman in white pink green robes with flowing pink ribbons and purple floral obi, flowering branches and original floating dance pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yimulian-linglai",
+      "name": "一目连·灵籁",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/61300_一目连·灵籁.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0a08a883-180b-459f-8621-8aebd74c6a3a.png",
+      "runtime": "godot/assets/redrawn/wave7/yimulian-linglai.png",
+      "focus": [
+        0.561,
+        0.146
+      ],
+      "observedReferenceFeatures": "Pink white-haired male in pale white pink gold clothes holding a straight pale flute, long pink spirit ribbons and crescentlike purple background; preserve this variant.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "shantu-zuofu",
+      "name": "山兔/座敷童子",
+      "pack": "wave7",
+      "original": "art-reference-official/卡面/01_式神/61600_山兔_座敷童子.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-686bbbab-8c89-4365-b9ce-f252f17a676a.png",
+      "runtime": "godot/assets/redrawn/wave7/shantu-zuofu.png",
+      "focus": [
+        0.56,
+        0.255
+      ],
+      "observedReferenceFeatures": "TWO distinct original figures: white-haired rabbit-eared child in teal cream robes riding giant green frog, and black-haired red-dressed child seated beside the rider; preserve both visible characters and frog.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave7-comparison-07.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "chen",
+      "name": "辰",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62100_辰.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-f64631a8-468d-44a3-b9cb-e8818b4267bf.png",
+      "runtime": "godot/assets/redrawn/wave8/chen.png",
+      "focus": [
+        0.514,
+        0.128
+      ],
+      "observedReferenceFeatures": "Gray-haired youthful character in black white yellow robes with angular star decorations, short layered garment and gold hair ornaments; preserve original pose and palette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "tianzhao",
+      "name": "天照",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62300_天照.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e10ae5de-dc90-48c4-9302-4c88810bf229.png",
+      "runtime": "godot/assets/redrawn/wave8/tianzhao.png",
+      "focus": [
+        0.585,
+        0.135
+      ],
+      "observedReferenceFeatures": "Long pale gold-haired crowned goddess with white orange flowing fabric and long deep indigo-gold ceremonial skirt, radiant gold ring; preserve sun crown and graceful narrow silhouette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yuedu",
+      "name": "月读",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62200_月读.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a4f43c80-22e8-4bcd-b2c8-d17a138c5b88.png",
+      "runtime": "godot/assets/redrawn/wave8/yuedu.png",
+      "focus": [
+        0.547,
+        0.152
+      ],
+      "observedReferenceFeatures": "White-haired pale male in black white layered robes seated amid faceted silver mirror spheres, crescent and lunar lines; preserve geometric monochrome moon motifs.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 1
+    },
+    {
+      "id": "gunv",
+      "name": "骨女",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/61900_骨女.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7d1c37ef-4462-410d-a9a0-73304a5ffd6f.png",
+      "runtime": "godot/assets/redrawn/wave8/gunv.png",
+      "focus": [
+        0.638,
+        0.188
+      ],
+      "observedReferenceFeatures": "Black-haired pale woman with skull-decorated high headdress, purple red black kimono, red rope and bone weapons; preserve skeletal motifs and original elegant pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-01.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yunv",
+      "name": "雨女",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62000_雨女.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-32a82ecc-0549-42cc-8c84-e9ee444e816d.png",
+      "runtime": "godot/assets/redrawn/wave8/yunv.png",
+      "focus": [
+        0.581,
+        0.21
+      ],
+      "observedReferenceFeatures": "Long dark-haired woman in green yellow teal robes holding a large green paper umbrella, blue raindrops and water ripples; preserve umbrella and sorrowful face.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "huang-qiming",
+      "name": "荒·启命",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/61700_荒·启命.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e3aaf497-fffe-4f27-bfc2-e2280508dbc8.png",
+      "runtime": "godot/assets/redrawn/wave8/huang-qiming.png",
+      "focus": [
+        0.456,
+        0.134
+      ],
+      "observedReferenceFeatures": "Long pale-haired male in black gray robes with purple gold celestial accents holding star-tipped scepter, angular dark halo; preserve specific awakening-costume reference.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "zhuiyueshen-shuiyue",
+      "name": "追月神·水月",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/61800_追月神·水月.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e518560e-1a8c-4910-b1d3-20ff1faace2b.png",
+      "runtime": "godot/assets/redrawn/wave8/zhuiyueshen-shuiyue.png",
+      "focus": [
+        0.424,
+        0.155
+      ],
+      "observedReferenceFeatures": "Long white-haired rabbit-eared goddess in silver white pale blue flowing robes and watery moon motif, jellyfishlike decorations; preserve this aquatic variant.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "wushi-maoshi",
+      "name": "武士之灵·猫侍",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62400_武士之灵·猫侍.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7aa39782-ffbe-4933-ba9c-e7aefd0af077.png",
+      "runtime": "godot/assets/redrawn/wave8/wushi-maoshi.png",
+      "focus": [
+        0.522,
+        0.146
+      ],
+      "observedReferenceFeatures": "White-haired bearded ghost warrior wearing dark green red armor and flowing teal spirit fire, carrying original sword; preserve masked elderly face and cat-samurai variant.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-02.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yixienamei",
+      "name": "伊邪那美",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62500_伊邪那美.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2418fdea-3de5-41bf-950f-4b1fc6fd839c.png",
+      "runtime": "godot/assets/redrawn/wave8/yixienamei.png",
+      "focus": [
+        0.492,
+        0.168
+      ],
+      "observedReferenceFeatures": "Black-haired pale female deity in black red garments encircled by huge silver snake and small red black snake heads; preserve original snake grouping, avoid human limb duplication.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-03.jpg",
+      "review": "Original hair, red-black palette, feathered mantle and silver serpentine scene retained. Fully opaque ceremonial gown is an explicit deviation from source clothing after an output safety rejection. Final face, hands and actual card rendering reviewed.",
+      "originalOnlyRevisionCount": 0,
+      "designException": "For general-audience output, fully opaque covered ceremonial gown replaces source body styling. Hairstyle, red mantle, palette, serpentine composition preserved."
+    },
+    {
+      "id": "guishibai",
+      "name": "鬼使白",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62700_鬼使白.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-20b2ef38-84c2-4981-b57a-ce70cc006f7f.png",
+      "runtime": "godot/assets/redrawn/wave8/guishibai.png",
+      "focus": [
+        0.522,
+        0.203
+      ],
+      "observedReferenceFeatures": "Long white-haired male in white robes with red flame hem, tall white-red hat and pale curved staff or scythe, seated pose; preserve the actual white-reaper reference.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "guishihei",
+      "name": "鬼使黑",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62800_鬼使黑.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-dfdff4b1-20b8-4e89-bf10-6768a0ea16a4.png",
+      "runtime": "godot/assets/redrawn/wave8/guishihei.png",
+      "focus": [
+        0.431,
+        0.204
+      ],
+      "observedReferenceFeatures": "Black-haired male in black dark red robes with tall black-red hat and large scythe, seated pose; preserve this separate black-reaper design rather than wave4 costume.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "tongnantongnv",
+      "name": "童男童女",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63200_童男童女.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e34a9f04-ed95-4ceb-94a1-2f734b2f8652.png",
+      "runtime": "godot/assets/redrawn/wave8/tongnantongnv.png",
+      "focus": [
+        0.548,
+        0.415
+      ],
+      "observedReferenceFeatures": "Original paired winged children: black-haired child in yellow white blue clothes in front and pale white-haired companion beside, surrounded by enormous blue green and gold feather wings; retain both figures.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-03.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "zhiwu",
+      "name": "纸舞",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63300_纸舞.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-3b5a9e2e-8318-4305-9308-3be3b17a9f18.png",
+      "runtime": "godot/assets/redrawn/wave8/zhiwu.png",
+      "focus": [
+        0.523,
+        0.172
+      ],
+      "observedReferenceFeatures": "Black white-haired dancer in white brown gold folded-paper kimono with red geometric motifs, small black gold headpiece and flying papers; preserve papery sleeve construction.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "daorenshen",
+      "name": "盗人神",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62600_盗人神.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-92316d51-e165-4524-ab50-41b7b449bdf5.png",
+      "runtime": "godot/assets/redrawn/wave8/daorenshen.png",
+      "focus": [
+        0.509,
+        0.181
+      ],
+      "observedReferenceFeatures": "Pale-faced sly man beneath large straw hat in navy gray cream robes, burgundy trousers, long curved tail and little gold hanging implements; preserve animal-tail disguise.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "ertong",
+      "name": "二瞳",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63100_二瞳.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b8b35f49-b420-42bf-825d-f2cbe74654b6.png",
+      "runtime": "godot/assets/redrawn/wave8/ertong.png",
+      "focus": [
+        0.59,
+        0.185
+      ],
+      "observedReferenceFeatures": "White pink-haired animal-eared girl in lavender purple kimono, light sleeves, decorated hair flowers, holding brushes or small utensils; preserve purple palette and youthful pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yingcao-pupu",
+      "name": "萤草·蒲蒲",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63000_萤草·蒲蒲.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7b8fc5c8-ab20-4115-b73e-2fbe7c344afe.png",
+      "runtime": "godot/assets/redrawn/wave8/yingcao-pupu.png",
+      "focus": [
+        0.537,
+        0.212
+      ],
+      "observedReferenceFeatures": "Black green-haired girl in green black short robes seated on round white plant spirit, green ribbon ties and tiny white flower motifs; preserve pufflike mount and this variant.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-04.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "mianqiling-xinsu",
+      "name": "面灵气·心宿",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/62900_面灵气·心宿.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c5c4d47e-62c0-4e7b-b14c-bcc76482696e.png",
+      "runtime": "godot/assets/redrawn/wave8/mianqiling-xinsu.png",
+      "focus": [
+        0.504,
+        0.244
+      ],
+      "observedReferenceFeatures": "Long dark green-haired woman in red white black robes, red gold medallion, independent white masks and large black red fabric arcs; preserve specific heart-lodge costume.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "fansi",
+      "name": "饭笥",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63800_饭笥.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-9b6152c5-1b22-40e0-b2b8-d55c4b6aa426.png",
+      "runtime": "godot/assets/redrawn/wave8/fansi.png",
+      "focus": [
+        0.661,
+        0.205
+      ],
+      "observedReferenceFeatures": "Pale blonde twin-loop-haired cook girl in black red white short robe with orange flowers, holding a round tray overhead beside small dark boarlike food companion; preserve both and serving pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "longzi",
+      "name": "泷",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63400_泷.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-6abc3916-96f0-4a94-9819-7a8ff85270ef.png",
+      "runtime": "godot/assets/redrawn/wave8/longzi.png",
+      "focus": [
+        0.494,
+        0.116
+      ],
+      "observedReferenceFeatures": "Long pale-haired antlered male in black teal silver long robes holding aquatic weapon, large dark blue flowing tail or water shapes; preserve distinct horns and cool deep-blue palette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "maochuan",
+      "name": "猫川",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63900_猫川.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b0b2f677-a296-4698-9d36-ab2401e57282.png",
+      "runtime": "godot/assets/redrawn/wave8/maochuan.png",
+      "focus": [
+        0.518,
+        0.223
+      ],
+      "observedReferenceFeatures": "Long dark-haired male in black cream gold robes with small red strings, giant pale blue spectral cat-dragon face behind him; preserve man and spirit cat as separate subjects.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-05.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "alaina",
+      "name": "阿莱娜",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/64100_阿莱娜.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fab0a303-d20d-46f8-bcf5-6aad330c95fe.png",
+      "runtime": "godot/assets/redrawn/wave8/alaina.png",
+      "focus": [
+        0.565,
+        0.154
+      ],
+      "observedReferenceFeatures": "Long white-haired woman in white gold short dress with gold hair ornament, holding large cyan-blue glowing crystal or book with floating blue fragments; preserve original gold-blue palette.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "youning",
+      "name": "攸宁",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/64000_攸宁.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-18c33d95-17fd-4a58-a583-3475744de411.png",
+      "runtime": "godot/assets/redrawn/wave8/youning.png",
+      "focus": [
+        0.544,
+        0.208
+      ],
+      "observedReferenceFeatures": "Long gray-haired woman in white blue black short clothes with cyan ribbons and white striped thigh bands, holding a black instrument and gold blue small ornament; preserve gentle face and seated pose.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "xiaolunan-qianshou",
+      "name": "小鹿男·千守",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63500_小鹿男·千守.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-9e729474-265f-44cf-88a6-6f27654aa330.png",
+      "runtime": "godot/assets/redrawn/wave8/xiaolunan-qianshou.png",
+      "focus": [
+        0.618,
+        0.178
+      ],
+      "observedReferenceFeatures": "Original deer-centaur male: black hair with red antler ornaments, white black orange clothes, black deer lower body and all four deer legs; preserve centaur anatomy and forest spirit branch.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "rihefang-qingyang",
+      "name": "日和坊·晴阳",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63700_日和坊·晴阳.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fbdf482e-390b-48c8-8b92-48b7b460a94b.png",
+      "runtime": "godot/assets/redrawn/wave8/rihefang-qingyang.png",
+      "focus": [
+        0.621,
+        0.21
+      ],
+      "observedReferenceFeatures": "Dark-haired girl with yellow-orange floral hair ties, yellow white kimono with black round motifs, short dark skirt and huge pale sun orb behind; preserve this clear-sky variant.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-06.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    },
+    {
+      "id": "yanyanluo-fumiao",
+      "name": "烟烟罗·浮缈",
+      "pack": "wave8",
+      "original": "art-reference-official/卡面/01_式神/63600_烟烟罗·浮缈.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0aaccf29-1f89-4a4f-988b-131de01a9a0a.png",
+      "runtime": "godot/assets/redrawn/wave8/yanyanluo-fumiao.png",
+      "focus": [
+        0.488,
+        0.27
+      ],
+      "observedReferenceFeatures": "Long pale blue-haired woman in purple black white robes with gold hair ornaments, pipe and large purple smoke beast spirits; preserve this floaty smoke costume and pale curls.",
+      "status": "accepted",
+      "comparisonSheet": "review/wave8-comparison-07.jpg",
+      "review": "Compared original and selected illustration; checked face/limb coherence, costume palette, props, figure grouping and removal of printed card UI. Verified actual in-game card rendering.",
+      "originalOnlyRevisionCount": 0
+    }
+  ]
+}

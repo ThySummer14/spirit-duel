@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img">
+  <title>觉醒·蚀日</title>
+  <defs>
+    <linearGradient id="luohou_a-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#201420"/><stop offset="1" stop-color="#342034"/>
+    </linearGradient>
+    <radialGradient id="luohou_a-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#a08090" stop-opacity=".4"/><stop offset="1" stop-color="#6a5060" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="luohou_a-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a08090"/><stop offset="1" stop-color="#6a5060"/>
+    </linearGradient>
+    <linearGradient id="luohou_a-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a08090"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#luohou_a-bg)"/>
+  <rect width="200" height="260" fill="url(#luohou_a-halo)"/>
+  <circle cx="100" cy="115" r="72" fill="none" stroke="#c9762c" stroke-width="3" opacity=".7"/>
+  <g><circle cx="100" cy="115" r="42" fill="url(#p-body)"/><circle cx="100" cy="115" r="24" fill="#100810"/><circle cx="128" cy="90" r="8" fill="url(#p-accent)" opacity=".8"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#f0e8d0">蚀日</text>
+</svg>

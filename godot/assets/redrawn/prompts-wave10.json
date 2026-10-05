@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "policy": "Follow each unit inputPolicy: original-reference-only redraws and retries use only the corresponding original; project-setting entries are authorized by the user and generated without image input. Never use rejected generated art as image input.",
+  "coverage": "complete-pack",
+  "units": [
+    {
+      "id": "tanjirou",
+      "name": "炭治郎",
+      "role": "182",
+      "pack": "wave10",
+      "reference": "art-reference-official/卡面/01_式神/18200_炭治郎.png",
+      "referenceKind": "original-unit-card",
+      "output": "godot/assets/redrawn/wave10/tanjirou.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Burgundy spiky-haired young swordsman with forehead scar, original white fox mask at the side of his head, BLUE cloud-patterned haori, dark trousers, pale leg wraps and black katana, original active leaping pose. Follow the attached card blue outfit exactly.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 炭治郎: Burgundy spiky-haired young swordsman with forehead scar, original white fox mask at the side of his head, BLUE cloud-patterned haori, dark trousers, pale leg wraps and black katana, original active leaping pose. Follow the attached card blue outfit exactly.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-672b10ac-fca1-46c6-9209-8c30de4fd57e.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-672b10ac-fca1-46c6-9209-8c30de4fd57e.png",
+      "focus": [
+        0.526,
+        0.186
+      ]
+    },
+    {
+      "id": "nezuko",
+      "name": "祢豆子",
+      "role": "182",
+      "pack": "wave10",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave10/nezuko.svg",
+      "setting": {
+        "id": "nezuko",
+        "name": "祢豆子",
+        "title": "妹",
+        "role": "血鬼术 / 守护",
+        "strategy": "妹妹守护睡眠回血，牙踢爆血近身反打。",
+        "color": "#c45c78",
+        "officialAbility": "妹妹守护与睡眠。切换为炭治郎简化：本包为独立可选式神。",
+        "svgDescription": "祢豆子：竹筒与爆血花，妹妹守护睡眠"
+      },
+      "output": "godot/assets/redrawn/wave10/nezuko.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "Nezuko: long black hair with warm orange tips, pink eyes, bamboo cylinder held across her mouth by a tie, pink geometric patterned kimono, dark brown outer robe and pale leg wraps. Protective young demon sister with rose-red blood-art flower flames. Preserve this known identity and bamboo mouthpiece; no Tanjiro scar, sword or blue haori.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 祢豆子: Nezuko: long black hair with warm orange tips, pink eyes, bamboo cylinder held across her mouth by a tie, pink geometric patterned kimono, dark brown outer robe and pale leg wraps. Protective young demon sister with rose-red blood-art flower flames. Preserve this known identity and bamboo mouthpiece; no Tanjiro scar, sword or blue haori.\nProject palette: #c45c78.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4ba6e640-a993-4d9d-80f3-c307684d8c1d.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4ba6e640-a993-4d9d-80f3-c307684d8c1d.png",
+      "focus": [
+        0.489,
+        0.218
+      ]
+    }
+  ],
+  "settingGenerationAuthorization": "用户 2026-10-05：允许按现有设定补画，统一画风。"
+}

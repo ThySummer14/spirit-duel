@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">雪女</title>
+  <desc id="desc">冰晶雪花与雪面：六出冰花悬于额前，冰绡垂落</desc>
+  <defs>
+    <linearGradient id="xuenv-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1418"/>
+      <stop offset=".55" stop-color="#142028"/>
+      <stop offset="1" stop-color="#0a0e12"/>
+    </linearGradient>
+    <radialGradient id="xuenv-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#a8d8f0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#70b0d8" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#70b0d8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="xuenv-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e0f0f8"/>
+      <stop offset=".55" stop-color="#a0c8e0"/>
+      <stop offset="1" stop-color="#70b0d8"/>
+    </linearGradient>
+    <linearGradient id="xuenv-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#70b0d8"/>
+      <stop offset="1" stop-color="#306080"/>
+    </linearGradient>
+    <linearGradient id="xuenv-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#xuenv-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#xuenv-halo)"/>
+  <g fill="none" stroke="url(#xuenv-acc)" stroke-width="1.8" stroke-linecap="round" opacity=".85">
+    <path d="M100 100L142 100" /><path d="M124 100L134 107" /><path d="M124 100L134 93" /><path d="M100 100L121 136" /><path d="M112 121L111 133" /><path d="M112 121L123 126" /><path d="M100 100L79 136" /><path d="M88 121L77 126" /><path d="M88 121L89 133" /><path d="M100 100L58 100" /><path d="M76 100L66 93" /><path d="M76 100L66 107" /><path d="M100 100L79 64" /><path d="M88 79L89 67" /><path d="M88 79L77 74" /><path d="M100 100L121 64" /><path d="M112 79L123 74" /><path d="M112 79L111 67" />
+  </g>
+  <circle cx="100" cy="100" r="5" fill="url(#xuenv-acc)" opacity=".7"/>
+  <ellipse cx="100" cy="120" rx="34" ry="40" fill="url(#xuenv-body)" opacity=".55" stroke="#a8d0e0" stroke-width="1.5"/>
+  <path d="M66 118c8 28 22 44 34 52 12-8 26-24 34-52" fill="url(#xuenv-body)" opacity=".45"/>
+  <path d="M78 96c6 4 14 4 20 0M102 96c6 4 14 4 20 0" stroke="#c8e8f4" stroke-width="1.4" fill="none"/>
+  <ellipse cx="86" cy="112" rx="5" ry="3.5" fill="#1a3040"/><ellipse cx="114" cy="112" rx="5" ry="3.5" fill="#1a3040"/>
+  <circle cx="87" cy="111" r="1.5" fill="#e8f8ff"/><circle cx="115" cy="111" r="1.5" fill="#e8f8ff"/>
+  <path d="M100 150c-18 10-28 30-28 48h56c0-18-10-38-28-48Z" fill="url(#xuenv-body)" opacity=".5"/>
+<g fill="url(#xuenv-body)">
+    <circle cx="44" cy="64" r="2" opacity=".75"/>
+    <circle cx="158" cy="58" r="1.8" opacity=".7"/>
+    <circle cx="36" cy="130" r="2.4" opacity=".8"/>
+    <circle cx="166" cy="140" r="1.6" opacity=".55"/>
+    <circle cx="100" cy="28" r="1.8" opacity=".6"/>
+    <circle cx="62" cy="180" r="1.6" opacity=".55"/>
+    <circle cx="142" cy="186" r="2" opacity=".65"/>
+    <circle cx="80" cy="48" r="1.2" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#70b0d8" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

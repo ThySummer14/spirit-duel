@@ -4,12 +4,13 @@ extends RefCounted
 
 const PATH := "user://spirit_duel/save.json"
 const ContentLoader := preload("res://scripts/content_loader.gd")
+static var storage_path: String = PATH
 
 
 static func load_data() -> Dictionary:
-	if not FileAccess.file_exists(PATH):
+	if not FileAccess.file_exists(storage_path):
 		return {}
-	var text := FileAccess.get_file_as_string(PATH)
+	var text := FileAccess.get_file_as_string(storage_path)
 	var data = JSON.parse_string(text)
 	if data is Dictionary:
 		return data
@@ -17,8 +18,8 @@ static func load_data() -> Dictionary:
 
 
 static func save_data(data: Dictionary) -> bool:
-	DirAccess.make_dir_recursive_absolute("user://spirit_duel")
-	var f := FileAccess.open(PATH, FileAccess.WRITE)
+	DirAccess.make_dir_recursive_absolute(storage_path.get_base_dir())
+	var f := FileAccess.open(storage_path, FileAccess.WRITE)
 	if f == null:
 		return false
 	f.store_string(JSON.stringify(data, "\t"))
@@ -72,3 +73,26 @@ static func deck_definition(unit_ids: Array) -> Dictionary:
 		else:
 			card_ids.append_array(ContentLoader.starter_card_ids(uid))
 	return {"unitIds": unit_ids.duplicate(), "cardIds": card_ids}
+
+
+static func get_formations() -> Array:
+	var stored: Array = load_data().get("formations", [])
+	var out: Array = []
+	for i in 5:
+		out.append(stored[i] if i < stored.size() and stored[i] is Dictionary else {"name": "阵容" + ["一", "二", "三", "四", "五"][i], "lineup": []})
+	return out
+
+
+static func save_formation(slot: int, lineup: Array) -> bool:
+	if slot < 0 or slot >= 5 or lineup.size() != 4:
+		return false
+	var unique := {}
+	for uid in lineup:
+		if ContentLoader.unit_def(str(uid)).is_empty() or unique.has(uid):
+			return false
+		unique[uid] = true
+	var data := load_data()
+	var formations := get_formations()
+	formations[slot].lineup = lineup.duplicate()
+	data.formations = formations
+	return save_data(data)

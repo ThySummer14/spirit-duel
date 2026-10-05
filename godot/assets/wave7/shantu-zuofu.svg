@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">山兔/座敷童子</title>
+  <desc id="desc">山兔/座敷童子：如意骰子，黄金六曜</desc>
+  <defs>
+    <linearGradient id="shantuzuofu-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141008"/>
+      <stop offset=".55" stop-color="#20180c"/>
+      <stop offset="1" stop-color="#0c0a04"/>
+    </linearGradient>
+    <radialGradient id="shantuzuofu-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#f0c070" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#d08820" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#d08820" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shantuzuofu-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8e0a8"/>
+      <stop offset=".55" stop-color="#d0a850"/>
+      <stop offset="1" stop-color="#d08820"/>
+    </linearGradient>
+    <linearGradient id="shantuzuofu-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d08820"/>
+      <stop offset="1" stop-color="#704810"/>
+    </linearGradient>
+    <linearGradient id="shantuzuofu-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#shantuzuofu-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#shantuzuofu-halo)"/>
+  <path d="M100 48c22 18 34 40 34 64 0 28-16 48-34 62-18-14-34-34-34-62 0-24 12-46 34-64z" fill="url(#shantuzuofu-body)" stroke="url(#shantuzuofu-acc)" stroke-width="1.4"/>
+
+  <rect x="74" y="74" width="52" height="52" rx="8" fill="url(#shantuzuofu-acc)" stroke="#f0d080"/>
+  <circle cx="88" cy="88" r="4" fill="#201810"/>
+  <circle cx="112" cy="88" r="4" fill="#201810"/>
+  <circle cx="100" cy="100" r="4" fill="#201810"/>
+  <circle cx="88" cy="112" r="4" fill="#201810"/>
+  <circle cx="112" cy="112" r="4" fill="#201810"/>
+  <path d="M100 48v16M100 148v16" stroke="url(#shantuzuofu-acc)" stroke-width="2"/>
+
+  <g fill="url(#shantuzuofu-acc)">
+    <circle cx="40" cy="80" r="1.8" opacity=".55"/>
+    <circle cx="160" cy="84" r="1.6" opacity=".5"/>
+    <circle cx="48" cy="160" r="1.5" opacity=".45"/>
+    <circle cx="152" cy="164" r="1.8" opacity=".5"/>
+    <circle cx="100" cy="36" r="1.4" opacity=".4"/>
+    <circle cx="100" cy="190" r="1.6" opacity=".45"/>
+  </g>  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#d08820" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

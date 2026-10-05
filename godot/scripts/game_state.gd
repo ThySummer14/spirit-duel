@@ -35,7 +35,7 @@ const MAX_RESOLUTION_STACK_LENGTH := 64
 const MAX_RESPONSE_DEPTH := 8
 
 
-static func create(lineup_a: Array, lineup_b: Array, p_seed: int = 0, deck_a: Dictionary = {}, deck_b: Dictionary = {}) -> GameState:
+static func create(lineup_a: Array, lineup_b: Array, p_seed: int = 0, deck_a: Dictionary = {}, deck_b: Dictionary = {}, opening_choice: bool = false) -> GameState:
 	var gs := GameState.new()
 	gs.rules = ContentLoader.rules()
 	gs.seed = p_seed if p_seed != 0 else (Time.get_unix_time_from_system() as int) & 0x7fffffff
@@ -53,6 +53,8 @@ static func create(lineup_a: Array, lineup_b: Array, p_seed: int = 0, deck_a: Di
 	gs._draw(1, int(gs.rules.openingHandSize) - 1)
 	gs._begin_turn(0)
 	gs._log("灵契编成已锁定，对局开始。", TONE_TURN)
+	if opening_choice:
+		gs.phase = "opening"
 	gs.state_changed.emit()
 	return gs
 
@@ -77,15 +79,15 @@ func _shuffle(arr: Array) -> void:
 
 func _log(text: String, tone: String = TONE_NEUTRAL) -> void:
 	log.append({"text": text, "tone": tone, "turn": turn_counter})
-	if log.size() > 400:
-		log.resize(400)
+	while log.size() > 400:
+		log.pop_front()
 	log_emitted.emit(text, tone)
 
 
-func _record(cmd: String, args: Dictionary) -> void:
+func _record(cmd: String, args: Dictionary, p_idx: int) -> void:
 	command_log.append({
 		"t": turn_counter,
-		"p": current_player,
+		"p": p_idx,
 		"c": cmd,
 		"a": args,
 		"r": rng_state,
@@ -102,6 +104,42 @@ func player(idx: int) -> Dictionary:
 
 func enemy_index(idx: int) -> int:
 	return 1 - idx
+
+
+func action_player() -> int:
+	if winner >= 0 or phase == "opening":
+		return -1
+	if not pending_choice.is_empty():
+		return int(pending_choice.get("playerIndex", -1))
+	if not response_window.is_empty():
+		return int(response_window.get("playerIndex", -1))
+	return current_player
+
+
+func confirm_opening(indices: Array) -> bool:
+	# Draw replacements before returning rejected cards; the same instances cannot return.
+	if phase != "opening" or indices.size() > 3:
+		return false
+	var p := player(0)
+	var seen := {}
+	for index in indices:
+		if not index is int or index < 0 or index >= p.hand.size() or seen.has(index):
+			return false
+		seen[index] = true
+	if p.deck.size() < indices.size():
+		return false
+	_record("mulligan", {"indices": indices.duplicate()}, 0)
+	var returned: Array = []
+	for index in indices:
+		returned.append(p.hand[index])
+		p.hand[index] = p.deck.pop_back()
+	p.deck.append_array(returned)
+	if not returned.is_empty():
+		_shuffle(p.deck)
+	phase = "main"
+	_log("起手已确认 · 更换 %d 张牌。" % indices.size(), TONE_TURN)
+	state_changed.emit()
+	return true
 
 
 func front_index(idx: int) -> int:
@@ -184,6 +222,7 @@ func resolve_divination_choice(p_idx: int, instance_id: String) -> bool:
 		_log("占卜的卡牌已不在牌库中。", TONE_DANGER)
 		return false
 	var selected: Dictionary = p.deck[deck_index]
+	_record("resolve_divination_choice", {"instanceId": chosen_id, "card": selected.definitionId}, p_idx)
 	p.deck.remove_at(deck_index)
 	p.deck.append(selected)
 	var def := ContentLoader.card_def(str(selected.get("definitionId", "")))
@@ -346,7 +385,7 @@ func min_level(p_idx: int) -> int:
 
 
 func can_level_up(p_idx: int, unit_index: int) -> bool:
-	if winner >= 0 or current_player != p_idx:
+	if winner >= 0 or current_player != p_idx or phase == "opening":
 		return false
 	var p := player(p_idx)
 	if unit_index < 0 or unit_index >= p.units.size():
@@ -371,7 +410,7 @@ func level_up(p_idx: int, unit_index: int) -> bool:
 		return false
 	if not can_level_up(p_idx, unit_index):
 		return false
-	_record("level_up", {"unit": unit_index})
+	_record("level_up", {"unit": unit_index}, p_idx)
 	var p := player(p_idx)
 	var u: Dictionary = p.units[unit_index]
 	u.level = int(u.level) + 1
@@ -437,9 +476,10 @@ func has_playable_response(p_idx: int) -> bool:
 		var card := ContentLoader.card_def(player(p_idx).hand[i].definitionId)
 		if card.is_empty() or not card_matches_response_window(card):
 			continue
-		var check := can_play_card(p_idx, i, null)
-		if check.ok:
-			return true
+		var targets: Array = [null] if card.get("target", "auto") == "auto" else valid_targets(p_idx, card)
+		for target in targets:
+			if can_play_card(p_idx, i, target).ok:
+				return true
 	return false
 
 
@@ -454,6 +494,8 @@ func either_player_has_response() -> bool:
 
 
 func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> Dictionary:
+	if phase == "opening":
+		return {"ok": false, "reason": "请先确认起手牌。"}
 	if winner >= 0:
 		return {"ok": false, "reason": "对局已经结束。"}
 	if not pending_choice.is_empty():
@@ -511,7 +553,7 @@ func play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> bool:
 	var response_ctx := response_window.duplicate(true)
 	if is_response:
 		response_depth = int(response_ctx.get("depth", 0)) + 1
-	_record("play_card", {"hand": hand_index, "target": target_id, "card": inst.definitionId})
+	_record("play_card", {"hand": hand_index, "target": target_id, "card": inst.definitionId}, p_idx)
 	p.energy = int(p.energy) - int(card.get("cost", 0))
 	p.hand.remove_at(hand_index)
 	p.cardsPlayedThisTurn = int(p.cardsPlayedThisTurn) + 1
@@ -546,7 +588,7 @@ func pass_response(p_idx: int) -> bool:
 	if response_window.is_empty() or int(response_window.get("playerIndex", -1)) != p_idx:
 		_log("当前没有可由你处理的响应窗口。", TONE_DANGER)
 		return false
-	_record("pass_response", {"player": p_idx})
+	_record("pass_response", {"player": p_idx}, p_idx)
 	var passes := int(response_window.get("consecutivePasses", 0))
 	if passes == 0:
 		response_window.consecutivePasses = 1
@@ -1126,7 +1168,7 @@ func _check_winner() -> void:
 
 
 func can_basic_attack(p_idx: int, unit_index: int) -> Dictionary:
-	if winner >= 0 or current_player != p_idx:
+	if winner >= 0 or current_player != p_idx or phase == "opening":
 		return {"ok": false, "reason": "现在不是你的行动阶段。"}
 	if is_upgrade_pending(p_idx):
 		return {"ok": false, "reason": "升级阶段：请先选择一名角色提升勾玉。"}
@@ -1161,7 +1203,7 @@ func basic_attack(p_idx: int, unit_index: int, target_id = null) -> bool:
 	var p := player(p_idx)
 	p.energy = int(p.energy) - 1
 	p.attackUsed = true
-	_record("basic_attack", {"unit": unit_index, "target": target_id})
+	_record("basic_attack", {"unit": unit_index, "target": target_id}, p_idx)
 	_resolve_combat(p_idx, unit_index, 0, false, false, false, false, target_id)
 	_check_winner()
 	state_changed.emit()
@@ -1174,7 +1216,7 @@ func basic_attack_ex(p_idx: int, unit_index: int, bonus: int, uses_action: bool,
 		return
 	if uses_action:
 		player(p_idx).attackUsed = true
-	_record("assault", {"unit": unit_index, "bonus": bonus, "target": target_id})
+	_record("assault", {"unit": unit_index, "bonus": bonus, "target": target_id}, p_idx)
 	_resolve_combat(p_idx, unit_index, bonus, false, false, false, false, target_id)
 
 
@@ -1363,7 +1405,7 @@ func _run_passive_effect(p_idx: int, unit_index: int, effect: String, params, ct
 				if int(other.hp) > 0 and int(other.hp) < int(other.maxHp):
 					hurt.append(other)
 			if not hurt.is_empty():
-				_heal_unit(hurt[randi() % hurt.size()], amount)
+				_heal_unit(hurt[int(floor(randf01() * hurt.size()))], amount)
 		"passive-heal-allies-on-combat":
 			for i in p.units.size():
 				if i != unit_index and int(p.units[i].hp) > 0:
@@ -1394,7 +1436,7 @@ func _run_passive_effect(p_idx: int, unit_index: int, effect: String, params, ct
 					_damage_unit(e_idx, ei, amount, p_idx)
 			else:
 				for k in mini(2, enemies.size()):
-					_damage_unit(e_idx, enemies[randi() % enemies.size()], amount, p_idx)
+					_damage_unit(e_idx, enemies[int(floor(randf01() * enemies.size()))], amount, p_idx)
 		"passive-damage-reserve-on-kill":
 			if bool(ctx.get("killed", false)):
 				for i in player(e_idx).units.size():
@@ -1480,6 +1522,8 @@ func _run_passive_effect(p_idx: int, unit_index: int, effect: String, params, ct
 
 
 func end_turn(p_idx: int) -> bool:
+	if phase == "opening":
+		return false
 	# 与 JS endTurn 对齐：不强制先升勾（升勾只卡出牌/出击）
 	if not pending_choice.is_empty():
 		_log("请先完成当前的占卜选择。", TONE_DANGER)
@@ -1489,7 +1533,7 @@ func end_turn(p_idx: int) -> bool:
 		return false
 	if winner >= 0 or current_player != p_idx:
 		return false
-	_record("end_turn", {})
+	_record("end_turn", {}, p_idx)
 	var p := player(p_idx)
 	for u in p.units:
 		if int(u.frozen) > 0:

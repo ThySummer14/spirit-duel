@@ -1,0 +1,286 @@
+{
+  "date": "2026-10-05",
+  "method": "Local original/rendered comparisons, then actual Godot card and battlefield screenshots. Human visual review; not an image-similarity score.",
+  "units": [
+    {
+      "id": "yaohu",
+      "name": "妖狐",
+      "reference": "art-reference-official/卡面/01_式神/13400_妖狐.png",
+      "output": "godot/assets/redrawn/wave2/yaohu.png",
+      "sha256": "a4aadac5125c0e85e8d317a2867b573de8afdc72f82113f0f517ac9887d28726",
+      "visualReview": "白发、狐面、白狐与深蓝外袍",
+      "comparisonSheet": "review/comparison-01.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "tiaotiaomeimei",
+      "name": "跳跳妹妹",
+      "reference": "art-reference-official/卡面/01_式神/14600_跳跳妹妹.png",
+      "output": "godot/assets/redrawn/wave2/tiaotiaomeimei.png",
+      "sha256": "dd2af5861f3da4e4000512b92b78ed44758a19a2d2c8af4a45a9a777cb054ec0",
+      "visualReview": "粉色发髻、红衣、黄袜与犬型伙伴",
+      "comparisonSheet": "review/comparison-01.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "buzhinhuo",
+      "name": "不知火",
+      "reference": "art-reference-official/卡面/01_式神/16700_不知火.png",
+      "output": "godot/assets/redrawn/wave2/buzhinhuo.png",
+      "sha256": "0c41f7ddd6662f46663ef4ab489147d3a3024d5df110ccdc98d415334e3cde2f",
+      "visualReview": "金白长发、双扇、火纹裙与月夜",
+      "comparisonSheet": "review/comparison-01.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "xiaolunan",
+      "name": "小鹿男",
+      "reference": "art-reference-official/卡面/01_式神/16300_小鹿男.png",
+      "output": "godot/assets/redrawn/wave2/xiaolunan.png",
+      "sha256": "6130f8fffd002656220b53c65645eba0d58b41897fd03b5f3472fc3586e2132c",
+      "visualReview": "鹿角、红发、围巾与鹿身",
+      "comparisonSheet": "review/comparison-01.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "yanyanluo",
+      "name": "烟烟罗",
+      "reference": "art-reference-official/卡面/01_式神/16400_烟烟罗.png",
+      "output": "godot/assets/redrawn/wave2/yanyanluo.png",
+      "sha256": "c20f0c29b3e0a3e22fc474eb3dedcbc77b5859dbbb3bcc0c56cc363466449139",
+      "visualReview": "黑长发、紫蓝衣与双烟灵",
+      "comparisonSheet": "review/comparison-02.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "rihefang",
+      "name": "日和坊",
+      "reference": "art-reference-official/卡面/01_式神/16600_日和坊.png",
+      "output": "godot/assets/redrawn/wave2/rihefang.png",
+      "sha256": "f6db73113f492171df70ecd8b21de8232aeab515358199872ab575a9dd2fe1ad",
+      "visualReview": "蓝和服、向日葵与晴天娃娃",
+      "comparisonSheet": "review/comparison-02.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "lianyou",
+      "name": "镰鼬",
+      "reference": "art-reference-official/卡面/01_式神/13300_镰鼬.png",
+      "output": "godot/assets/redrawn/wave2/lianyou.png",
+      "sha256": "6b6aa636cdbc688a1d554d9d6dd7805e148b242ae6051ccd63965c17991a3437",
+      "visualReview": "紫衣黄胸襟、细长鼬面与武器，采用原版重试结果",
+      "comparisonSheet": "review/comparison-02.jpg",
+      "originalOnlyRevisions": 1
+    },
+    {
+      "id": "yatiangou",
+      "name": "鸦天狗",
+      "reference": "art-reference-official/卡面/01_式神/13900_鸦天狗.png",
+      "output": "godot/assets/redrawn/wave2/yatiangou.png",
+      "sha256": "150f594d27ec57272804f9c2e848758b305f1c416e0c3d2f7721b1bba0da283c",
+      "visualReview": "黑翅、红色鸟面具与长兵器",
+      "comparisonSheet": "review/comparison-02.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "lingyuyuqian",
+      "name": "铃鹿御前",
+      "reference": "art-reference-official/卡面/01_式神/18000_铃鹿御前.png",
+      "output": "godot/assets/redrawn/wave2/lingyuyuqian.png",
+      "sha256": "376d47649ea20cbc8580ea4310d548ca8607710aa82ff8858b3303d57533fea4",
+      "visualReview": "白色长发、鹿角、橙色衣裙与弓刃",
+      "comparisonSheet": "review/comparison-03.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "biyehua",
+      "name": "彼岸花",
+      "reference": "art-reference-official/卡面/01_式神/17000_彼岸花.png",
+      "output": "godot/assets/redrawn/wave3/biyehua.png",
+      "sha256": "dcc161b42901a9a25c31d765d17d5c80b621d76a87b3f63fd10a32b150d0cf00",
+      "visualReview": "黑长发、黑红裙、彼岸花与纸符",
+      "comparisonSheet": "review/comparison-03.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "huang",
+      "name": "荒",
+      "reference": "art-reference-official/卡面/01_式神/17800_荒.png",
+      "output": "godot/assets/redrawn/wave3/huang.png",
+      "sha256": "c9b7ea17121c6bfea3a09a7ee4b96ca09ae20ab362551f28e3129fdde1bc4405",
+      "visualReview": "蓝发、紫蓝外袍与星象道具",
+      "comparisonSheet": "review/comparison-03.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "jiuciliang",
+      "name": "久次良",
+      "reference": "art-reference-official/卡面/01_式神/17900_久次良.png",
+      "output": "godot/assets/redrawn/wave3/jiuciliang.png",
+      "sha256": "b03778dd36009cab8dde3009155ab3ae21b68b7e9b3d2991ade425969072373d",
+      "visualReview": "白角、面具、骨甲、长枪与白袍",
+      "comparisonSheet": "review/comparison-03.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "huiyeji",
+      "name": "辉夜姬",
+      "reference": "art-reference-official/卡面/01_式神/17600_辉夜姬.png",
+      "output": "godot/assets/redrawn/wave3/huiyeji.png",
+      "sha256": "dddc18a423667c86aa3b4777da1cf7ff8efcdfd7c76c5d10025c4a0b92fb0f52",
+      "visualReview": "月冠、红紫袖、竹枝与浮座",
+      "comparisonSheet": "review/comparison-04.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "xixueji",
+      "name": "吸血姬",
+      "reference": "art-reference-official/卡面/01_式神/17300_吸血姬.png",
+      "output": "godot/assets/redrawn/wave3/xixueji.png",
+      "sha256": "98bcc9db13d483c16db97d229b3fccb635bffb6c7e5231b158476cca35e82634",
+      "visualReview": "黑长发、月轮、浅色裙与红纹",
+      "comparisonSheet": "review/comparison-04.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "tianjingxia",
+      "name": "天井下",
+      "reference": "art-reference-official/卡面/01_式神/16800_天井下.png",
+      "output": "godot/assets/redrawn/wave3/tianjingxia.png",
+      "sha256": "cfc73eb8ca5184ff29dfb617c8f4c24b77e196203aca51880ac8e39cb27dc8f7",
+      "visualReview": "短褐发、橙围巾、绿衣与屋瓦座",
+      "comparisonSheet": "review/comparison-04.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "longyechaji",
+      "name": "泷夜叉姬",
+      "reference": "art-reference-official/卡面/01_式神/17700_泷夜叉姬.png",
+      "output": "godot/assets/redrawn/wave3/longyechaji.png",
+      "sha256": "9b6c7988aa85031cfcc5d4a10905b1605646ebc64f63ef21cf66b1da9a57c4e7",
+      "visualReview": "白长发、黑白衣、紫色大蛇与月轮",
+      "comparisonSheet": "review/comparison-04.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "mengpo",
+      "name": "孟婆",
+      "reference": "art-reference-official/卡面/01_式神/17100_孟婆.png",
+      "output": "godot/assets/redrawn/wave3/mengpo.png",
+      "sha256": "49c1cc58e2d9d4beef5bf2ae4e8c16d8b5a74b3c6a5ac26f948c235ae3553fdc",
+      "visualReview": "紫衣、弦乐器与妖怪锅座",
+      "comparisonSheet": "review/comparison-05.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "shanfeng",
+      "name": "山风",
+      "reference": "art-reference-official/卡面/01_式神/17500_山风.png",
+      "output": "godot/assets/redrawn/wave3/shanfeng.png",
+      "sha256": "cf6b8af7f30bd8494b13580a0285a3f4d116dd66e36be89adc2230b177db4179",
+      "visualReview": "红棕发、兽尾、刀剑、鬼面肩饰与金甲",
+      "comparisonSheet": "review/comparison-05.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "dayueling",
+      "name": "大岳丸",
+      "reference": "art-reference-official/卡面/01_式神/19000_大岳丸.png",
+      "output": "godot/assets/redrawn/wave3/dayueling.png",
+      "sha256": "a16139dd4bfdb924c9d293fba4bfcce988c69ec6a84289909772ee8e4445efd0",
+      "visualReview": "双红角、黑甲、红色兵器与鬼面",
+      "comparisonSheet": "review/comparison-05.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "guiqie",
+      "name": "鬼切",
+      "reference": "art-reference-official/卡面/01_式神/19100_鬼切.png",
+      "output": "godot/assets/redrawn/wave3/guiqie.png",
+      "sha256": "099c25f35c577830faecad3f49f36c2ffaa13f95defea260bbd27dcf9cec8808",
+      "visualReview": "黑长发、红纹刀刃、暗袍与白色鬼影",
+      "comparisonSheet": "review/comparison-05.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "wuguishi",
+      "name": "巫蛊师",
+      "reference": "art-reference-official/卡面/01_式神/19200_巫蛊师.png",
+      "output": "godot/assets/redrawn/wave3/wuguishi.png",
+      "sha256": "3d3e88e330a0f307798a3bb0f540502fad125e7f0364bd270d599ade83ba4bc7",
+      "visualReview": "白发、蓝色纹饰、灯具与巨蜈蚣",
+      "comparisonSheet": "review/comparison-06.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "yinghuayao",
+      "name": "樱花妖",
+      "reference": "art-reference-official/卡面/01_式神/18400_樱花妖.png",
+      "output": "godot/assets/redrawn/wave3/yinghuayao.png",
+      "sha256": "28d1007735ac7be7d8c76597150dda2730e4e9127d50b743aec88bf11575fdd1",
+      "visualReview": "黑发、橙和服、红粉长裙与樱花",
+      "comparisonSheet": "review/comparison-06.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "xun",
+      "name": "薰",
+      "reference": "art-reference-official/卡面/01_式神/18600_薰.png",
+      "output": "godot/assets/redrawn/wave3/xun.png",
+      "sha256": "45c8b7bc743712dfb805c85b057e6a36c36e37dd8aaa7ff0e2fcfa17e40852f7",
+      "visualReview": "紫发、座椅、藤花与戴红披风的巨枭",
+      "comparisonSheet": "review/comparison-06.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "renmianshu",
+      "name": "人面树",
+      "reference": "art-reference-official/卡面/01_式神/18100_人面树.png",
+      "output": "godot/assets/redrawn/wave3/renmianshu.png",
+      "sha256": "2fe9cb08e121e08c4aac3b80d928b86c3c7110b6e71a3907354c7f70c30856a0",
+      "visualReview": "白发人物、树形衣饰、鸟居与红月",
+      "comparisonSheet": "review/comparison-06.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "tiaotiaogege",
+      "name": "跳跳哥哥",
+      "reference": "art-reference-official/卡面/01_式神/18300_跳跳哥哥.png",
+      "output": "godot/assets/redrawn/wave3/tiaotiaogege.png",
+      "sha256": "73093058c07ab04e90892af2a08bea9213285190049025cf53d0a26dfff7de6b",
+      "visualReview": "蓝肤、白长发、纸符与棺木",
+      "comparisonSheet": "review/comparison-07.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "shimengmo",
+      "name": "食梦貘",
+      "reference": "art-reference-official/卡面/01_式神/18700_食梦貘.png",
+      "output": "godot/assets/redrawn/wave3/shimengmo.png",
+      "sha256": "660863795e28978b99ed79b29400367775333234dce412db2c771e74eb5d15a2",
+      "visualReview": "粉红貘、红白绳结与云团",
+      "comparisonSheet": "review/comparison-07.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "yujiazhu",
+      "name": "御馔津",
+      "reference": "art-reference-official/卡面/01_式神/18900_御馔津.png",
+      "output": "godot/assets/redrawn/wave3/yujiazhu.png",
+      "sha256": "414c0a952f351f05fdfc363507089dffa22263b90b2568a2a71f7d631d85fc60",
+      "visualReview": "白金发、狐耳、铃饰、红裙与鸟居",
+      "comparisonSheet": "review/comparison-07.jpg",
+      "originalOnlyRevisions": 0
+    },
+    {
+      "id": "sanmu",
+      "name": "三目",
+      "reference": "art-reference-official/卡面/01_式神/18500_三目.png",
+      "output": "godot/assets/redrawn/wave3/sanmu.png",
+      "sha256": "88bf838aa40e87bfcd60fe0549b29510cc9d452338c9a74e8e10ae17a3fcd338",
+      "visualReview": "三眼猫、紫色服装、长毛尾与金色芦苇",
+      "comparisonSheet": "review/comparison-07.jpg",
+      "originalOnlyRevisions": 0
+    }
+  ]
+}

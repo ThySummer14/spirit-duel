@@ -1,0 +1,1683 @@
+{
+  "date": "2026-10-05",
+  "newUnits": 61,
+  "totalUnits": 250,
+  "originalReference": 30,
+  "authorizedSetting": 31,
+  "units": [
+    {
+      "id": "yatiangou-qiuye",
+      "name": "鸦天狗·秋叶",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/64200_鸦天狗·秋叶.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long white hair, pale feathered cloak, dark teal-black gloves, red-orange braided ornaments and pointed red-beak mask, long black weapon and large crow feathers. Use this autumn variant only.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e00d1907-e58c-45a4-a8eb-fb790f1a6ed9.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e00d1907-e58c-45a4-a8eb-fb790f1a6ed9.png",
+      "runtime": "godot/assets/redrawn/wave9/yatiangou-qiuye.png",
+      "focus": [
+        0.481,
+        0.254
+      ],
+      "sha256": "f210d6830b7b89dfad99677701f09fda41c8e1685363b73c04725317362e11d8",
+      "comparisonPage": "review/wave9-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "shuweng-zhixing",
+      "name": "书翁·志行",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/64300_书翁·志行.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long white-haired scholar in yellow-green and white wide sleeves and black trousers, books or geometric scrolls, seated beside the original large gray long-legged crane-like bird. Preserve both scholar and bird.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4d5a5cd3-5450-4f57-8f67-be183884f7f0.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4d5a5cd3-5450-4f57-8f67-be183884f7f0.png",
+      "runtime": "godot/assets/redrawn/wave9/shuweng-zhixing.png",
+      "focus": [
+        0.683,
+        0.237
+      ],
+      "sha256": "252c4801c9ccad9af7451bdb2d76ebe924da026e2b1a4db1256a6088c3de849d",
+      "comparisonPage": "review/wave9-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "保留原版双人同行组合。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "huojinshen",
+      "name": "祸津神",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/64400_祸津神.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Floating pale long white-haired woman in white gray and light blue snowflake-patterned flowing robe, small red details and blue footwear, pale sigil in hand, blue circular lattice behind. Preserve delicate original silhouette.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1c9df5d7-2fd4-41d7-a19b-e23b4ddb4965.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1c9df5d7-2fd4-41d7-a19b-e23b4ddb4965.png",
+      "runtime": "godot/assets/redrawn/wave9/huojinshen.png",
+      "focus": [
+        0.517,
+        0.253
+      ],
+      "sha256": "7abbeadd0aab959756684ca19f7d6052c556bd8ad441bb970faef773f7d638a4",
+      "comparisonPage": "review/wave9-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "sibing",
+      "name": "四饼",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/64500_四饼.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Anthropomorphic black orange white calico cat with golden eyes, ocher haori and brown lower garment, wooden abacus-like object, with original small white gray feline companion. Keep an actual cat face and both cats.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-11e7e5d0-47eb-4f6c-bea9-cc7670c9f901.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-11e7e5d0-47eb-4f6c-bea9-cc7670c9f901.png",
+      "runtime": "godot/assets/redrawn/wave9/sibing.png",
+      "focus": [
+        0.485,
+        0.218
+      ],
+      "sha256": "a90b87ded4be0edd3031b913b2f944b490cad1868417fcfd7fcf434115cac19a",
+      "comparisonPage": "review/wave9-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "dayueling-yuxin",
+      "name": "大岳丸·渝心",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/64600_大岳丸·渝心.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long black-haired adult male in dark high-collared gray-black cloak and black trousers, red waist cords, long massive black jagged weapon, pale gold-white circular backdrop. Preserve this specific variant.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5c2fa1c5-a7fe-4451-83f3-da1e2d3a3aeb.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5c2fa1c5-a7fe-4451-83f3-da1e2d3a3aeb.png",
+      "runtime": "godot/assets/redrawn/wave9/dayueling-yuxin.png",
+      "focus": [
+        0.512,
+        0.218
+      ],
+      "sha256": "baa861bb68860e28e6ece6ecd559813d1262cc7dea33c68e0680dc4270b899be",
+      "comparisonPage": "review/wave9-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "chili",
+      "name": "螭璃",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/64700_螭璃.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long pink-haired horned dragon woman in black-red upper garment and teal patterned skirt, pale green translucent flaring lower drapery, enormous red dragon tail curling around her. Preserve horns and dragon tail.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4fa5a0b6-1085-40b5-91d7-0847b4a117fa.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4fa5a0b6-1085-40b5-91d7-0847b4a117fa.png",
+      "runtime": "godot/assets/redrawn/wave9/chili.png",
+      "focus": [
+        0.478,
+        0.184
+      ],
+      "sha256": "9fe4cfaf0c614d149327070ba5629f57a060a4c9c0b6759661abd1af855586f2",
+      "comparisonPage": "review/wave9-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "jieshen-suiyuan",
+      "name": "缘结神·遂愿",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/64800_缘结神·遂愿.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Black-haired woman with flower bun in white-red flowing robe seated cross-legged, golden little box, red and gold tying ribbons, bottle and round hanging ornaments, red circular backdrop. Preserve this specific variant.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c22babbd-4d4f-4245-b002-f13946b3d882.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c22babbd-4d4f-4245-b002-f13946b3d882.png",
+      "runtime": "godot/assets/redrawn/wave9/jieshen-suiyuan.png",
+      "focus": [
+        0.549,
+        0.198
+      ],
+      "sha256": "28aeea3a7440e75545e9d3198a6c650786fb5d4e7e7e2e21254885f9c1377187",
+      "comparisonPage": "review/wave9-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "tieshu-haojia",
+      "name": "铁鼠·豪贾",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/64900_铁鼠·豪贾.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Gray-green short-haired mouse-eared youth with green gold and white outfit, short lower garment, brown long mouse tail and dark footwear, holding original green-gold abacus or box. Keep mouse identity and original props.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1c1a49f7-9bbb-44f4-8245-dbed50ede0d4.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1c1a49f7-9bbb-44f4-8245-dbed50ede0d4.png",
+      "runtime": "godot/assets/redrawn/wave9/tieshu-haojia.png",
+      "focus": [
+        0.532,
+        0.224
+      ],
+      "sha256": "ea2895cd29e325aa96599f95f2a38e63bb600854c9f48a28550ce205d224e23c",
+      "comparisonPage": "review/wave9-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "保留树身铠甲与原版两个伴生人物。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "yijin-qianxun",
+      "name": "以津真天·千寻",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65000_以津真天·千寻.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Short violet-haired avian woman in white-gold wide sleeves, pale violet skirt, green floral crown, gold bells, dark purple-black wings and enormous original black-white tail feathers. Preserve feathered legs and avian silhouette.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4937ac05-3f15-4372-8556-a6344e3f40dc.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4937ac05-3f15-4372-8556-a6344e3f40dc.png",
+      "runtime": "godot/assets/redrawn/wave9/yijin-qianxun.png",
+      "focus": [
+        0.452,
+        0.201
+      ],
+      "sha256": "ff509ae0ce241a1361096f6c7cd462a6a47fc55ac09174533a45b4352adc5ab8",
+      "comparisonPage": "review/wave9-comparison-03.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "baizangzhu-lixin",
+      "name": "白藏主·砺心",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65100_白藏主·砺心.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long white pale violet-haired fox-eared figure with red inner ears, black deep-green flowing outer robe and long white drape, silver-gold waist ornament, fan-like black object, huge black-white fox tail and original fox spirit form behind. Use this variant only.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4bb1de6f-57b4-443a-ab98-8178c7256213.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4bb1de6f-57b4-443a-ab98-8178c7256213.png",
+      "runtime": "godot/assets/redrawn/wave9/baizangzhu-lixin.png",
+      "focus": [
+        0.619,
+        0.223
+      ],
+      "sha256": "932540c62eccf3d8294200d5db66bbe06b45fb30cb57f6b598b0e787a1239368",
+      "comparisonPage": "review/wave9-comparison-03.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "guijinyang",
+      "name": "鬼金羊",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65200_鬼金羊.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Dark short-haired adult man with long black goat horns, bare muscular shoulders and torso, black-green broad trousers, colorful tassels, floating cross-legged, original black-green goat spirit heads and gold geometry. Preserve masculine goat deity identity.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-99a6da25-1293-4af0-a224-559c7562eb1b.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-99a6da25-1293-4af0-a224-559c7562eb1b.png",
+      "runtime": "godot/assets/redrawn/wave9/guijinyang.png",
+      "focus": [
+        0.613,
+        0.198
+      ],
+      "sha256": "ab9439b54fc8bf10f50a1941a83ce1ca6faa9d89aa3cf152cb6da5848aa771fc",
+      "comparisonPage": "review/wave9-comparison-03.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "longche",
+      "name": "胧车",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65300_胧车.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "The main subject is the original enormous black wooden gold-trimmed Japanese spirit carriage with a white demon face, gold wheels and bells, red hanging ornaments and numerous small green frogs, blue smoke. Preserve the carriage and its frog grouping; do not replace with a humanoid.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-669407e9-dee2-45b5-a2c2-50fffa3cfa18.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-669407e9-dee2-45b5-a2c2-50fffa3cfa18.png",
+      "runtime": "godot/assets/redrawn/wave9/longche.png",
+      "focus": [
+        0.478,
+        0.381
+      ],
+      "sha256": "44108c5bbdbe946e418771094e33579aa4ec33e76cf73566da58df8efdc5de92",
+      "comparisonPage": "review/wave9-comparison-03.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "保留车辆、建筑与群体组合，焦点设在辨识主体。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "pinfashen",
+      "name": "贫乏神",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65700_贫乏神.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long pink-haired youthful goddess in pale pink lavender and white flowing robe, little dark hat with gold ornaments, large pink circular ornament overhead, original white round mask-like object in her hands, bell and pouch details. Preserve original restrained palette.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0f85e1bb-b563-4b51-8fc6-3273e47be46a.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0f85e1bb-b563-4b51-8fc6-3273e47be46a.png",
+      "runtime": "godot/assets/redrawn/wave9/pinfashen.png",
+      "focus": [
+        0.588,
+        0.214
+      ],
+      "sha256": "2250aa57e56cf507e66b88ffcce49db82fa245b11f66b7b20987b4868d38aba8",
+      "comparisonPage": "review/wave9-comparison-04.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "longjue",
+      "name": "龙珏",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65400_龙珏.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long black-haired horn-crowned woman in white and teal-green wide sleeves and long drapery, original turquoise jade dragon forms flanking her and gold claw-like jade ornaments by hands. Preserve woman and jade dragons.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fecefdf7-d65f-4a07-96c3-f3859e115015.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-219aa0d3-fad4-46da-b634-0766ef294fc8.png",
+      "runtime": "godot/assets/redrawn/wave9/longjue.png",
+      "focus": [
+        0.507,
+        0.125
+      ],
+      "sha256": "fb2d73ac1c4d71d03e2ca7cc2e6b1a8f482657dd76765ff2e9bec9c3364efd8d",
+      "comparisonPage": "review/wave9-comparison-04.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "重新仅输入原版，去除脚下蓝色卡面元素徽章；保留玉龙、角冠与白青衣装。"
+      },
+      "revisions": [
+        {
+          "input": "art-reference-official/卡面/01_式神/65400_龙珏.png",
+          "inputPolicy": "original-reference-only",
+          "reason": "Blue printed element badge copied below feet; regenerate solely from original reference with no floating icon.",
+          "rejected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fecefdf7-d65f-4a07-96c3-f3859e115015.png",
+          "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-219aa0d3-fad4-46da-b634-0766ef294fc8.png",
+          "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 龙珏: Long black-haired horn-crowned woman in white and teal-green wide sleeves and long drapery, original turquoise jade dragon forms flanking her and gold claw-like jade ornaments by hands. Preserve woman and jade dragons.\n\n\nCRITICAL CLEAN ILLUSTRATION REVISION: The tiny colored element glyph below the character in the original reference is printed card UI, not part of this character or scene. Omit it entirely. NO floating diamond, NO blue/red/purple badge, NO tiny colored emblem, NO crystal-shaped icon near feet or lower center. The entire bottom region must instead be continuous natural painted scenery, drapery, mist, or flowers with no isolated central token. Preserve this precise character's original face, hair, costume, pose, palette, and scene companions from the supplied ORIGINAL reference. Paint an independent full-bleed watercolor illustration; no card printing, no level/rarity/type symbols. Use only this original reference; do not interpret previous generated results as reference."
+        }
+      ]
+    },
+    {
+      "id": "fengyangjun",
+      "name": "封阳君",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65500_封阳君.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long white-haired adult swordsman in white black and gold clothing and large white shoulder armor, black drapery, original long sword and white tiger beside him, ink mountains and pale gold moon. Preserve tiger companion.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-dd37d081-5f0a-4b03-8482-7f6cc7832640.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-dd37d081-5f0a-4b03-8482-7f6cc7832640.png",
+      "runtime": "godot/assets/redrawn/wave9/fengyangjun.png",
+      "focus": [
+        0.446,
+        0.231
+      ],
+      "sha256": "6259af6f9a87d7ccfd3e80140f8b1301dfbb95f68802b1bcfe210c4f9d9936a8",
+      "comparisonPage": "review/wave9-comparison-04.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "jintianyuzaoqian",
+      "name": "烬天玉藻前",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/66000_烬天玉藻前.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long dark-red and black-haired fox deity woman in elaborate white-red-black flowing robes with gold round ornaments, original small foxes and fox-mask companions below, original curling cloud and wooden structure shapes. Preserve this precise red-black-white incarnation.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4f5b159d-cbb4-4bfe-901f-36034f03e6f9.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4f5b159d-cbb4-4bfe-901f-36034f03e6f9.png",
+      "runtime": "godot/assets/redrawn/wave9/jintianyuzaoqian.png",
+      "focus": [
+        0.506,
+        0.176
+      ],
+      "sha256": "bda863897b3cb270895d04ffe8f8c848488aff92ab55a2656d4178c487ada096",
+      "comparisonPage": "review/wave9-comparison-04.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "chanxinyunwaijing",
+      "name": "禅心云外镜",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65600_禅心云外镜.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Short white-haired adult male in black-gold long monk robes and white scroll-like inner drape, gold diamond mirror frame behind, original black and white dragon-mirror spirits circling his arms. Keep both opposite spirits and standing pose.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0ecb2dd6-e1f3-4e01-b0ec-c66c9ad812dc.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0ecb2dd6-e1f3-4e01-b0ec-c66c9ad812dc.png",
+      "runtime": "godot/assets/redrawn/wave9/chanxinyunwaijing.png",
+      "focus": [
+        0.506,
+        0.119
+      ],
+      "sha256": "70d588e8453bc09cc92ed6bc76180d89da3c86b355e79b08b35f0c44bc0ba275",
+      "comparisonPage": "review/wave9-comparison-05.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "zhaocaimao",
+      "name": "招财猫",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65900_招财猫.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Orange-and-white cat-eared youthful humanoid, white furry sleeves and collar, red-orange wide trousers, green ties and gold-red coin strings, raised feline hand, smiling cross-legged pose with blue flame. Preserve original youthful proportions.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-029d40bd-b4a0-4446-8718-0bea691596a1.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-029d40bd-b4a0-4446-8718-0bea691596a1.png",
+      "runtime": "godot/assets/redrawn/wave9/zhaocaimao.png",
+      "focus": [
+        0.484,
+        0.214
+      ],
+      "sha256": "5c9d69e883c8d34971e99ddb4485930803de8055407b935149091ed08a820e9e",
+      "comparisonPage": "review/wave9-comparison-05.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "maozhanggui-huanyan",
+      "name": "猫掌柜·焕宴",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/65800_猫掌柜·焕宴.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Pale violet-haired cat-eared young woman in orange-gold wide-sleeved haori, white red-purple details, short skirt and gold ornaments, original small white-gray cat companion carrying objects. Preserve this banquet costume and both figures.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4a6873eb-800f-4e45-91da-425227eb930a.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4a6873eb-800f-4e45-91da-425227eb930a.png",
+      "runtime": "godot/assets/redrawn/wave9/maozhanggui-huanyan.png",
+      "focus": [
+        0.464,
+        0.181
+      ],
+      "sha256": "27d0f298cb095aeb0de975e5b5777a46b1c4e78d055b8a5410f8741c8703ba1d",
+      "comparisonPage": "review/wave9-comparison-05.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "geluoduo",
+      "name": "歌留多",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/66100_歌留多.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Green-haired woman with hair ornaments in white-black-red kimono and broad pale sleeves, seated in the original tall purple-green floral-bird and branch grouping, hanafuda-like pictorial cards and colored flowers. Keep illustrated cards without lettering and original creature silhouette.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ca536208-f261-407a-a3c1-4c0d1f061922.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ca536208-f261-407a-a3c1-4c0d1f061922.png",
+      "runtime": "godot/assets/redrawn/wave9/geluoduo.png",
+      "focus": [
+        0.617,
+        0.208
+      ],
+      "sha256": "985a89e7d69ad1e19114ec580153ebbce52f38a6cd77c3065da5f8ded4c0e39b",
+      "comparisonPage": "review/wave9-comparison-05.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "yinfanhuiyeji",
+      "name": "因幡辉夜姬",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/66600_因幡辉夜姬.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Very long white-haired moon maiden in white-blue flowing robes with enormous pale wings, gold crescent and circular ornament, holding the original colorful golden object, original little rabbit spirits. Preserve luminous white-blue-gold moon composition.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a77a4230-76b0-4562-b3e6-82f684716969.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a77a4230-76b0-4562-b3e6-82f684716969.png",
+      "runtime": "godot/assets/redrawn/wave9/yinfanhuiyeji.png",
+      "focus": [
+        0.59,
+        0.246
+      ],
+      "sha256": "d29401cc292710eb29978b3930248cb7e6d879f8498790df01a6c92450c2c13e",
+      "comparisonPage": "review/wave9-comparison-06.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "daixiaoguhuoniao",
+      "name": "待宵姑获鸟",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/66700_待宵姑获鸟.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long black-haired mature avian woman in white-gray-black long flowing robes with small red accents, original large fan or umbrella, original blade or handle, enormous gray-black feathered wings and surrounding dark birds. Preserve this specific incarnation.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-588c1850-d4c4-45a6-9b34-14faf357e6e1.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-588c1850-d4c4-45a6-9b34-14faf357e6e1.png",
+      "runtime": "godot/assets/redrawn/wave9/daixiaoguhuoniao.png",
+      "focus": [
+        0.541,
+        0.202
+      ],
+      "sha256": "daf8b275e9c92ff7b30d6ca2919eac77d85b89dc05920f7fc0afd0bf46f6e440",
+      "comparisonPage": "review/wave9-comparison-06.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "chulingshanfeng",
+      "name": "初翎山风",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/66200_初翎山风.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Short white-gray-haired red-eyed male fighter in black blue orange outfit with gray fur mantle, original pair of short blades and enormous dark brown-black eagle wings, dynamic raised attack pose. Use this incarnation only.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1e766d57-b47a-4f26-bb5c-75e50180c567.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1e766d57-b47a-4f26-bb5c-75e50180c567.png",
+      "runtime": "godot/assets/redrawn/wave9/chulingshanfeng.png",
+      "focus": [
+        0.439,
+        0.326
+      ],
+      "sha256": "d6be4566f6f01c204faaf8bf706955411f4e06857efbc691116a1a0580675bdb",
+      "comparisonPage": "review/wave9-comparison-06.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "fenghuanghuo-jingyu",
+      "name": "凤凰火·净羽",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/66500_凤凰火·净羽.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long red-haired phoenix woman with white flowing feather robe, golden wings and plume, red ornaments and dark-red footwear, floating bent-leg pose, pale gold-white moonlike atmosphere. Preserve this purified feather costume.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4d8eb73e-c3ae-44ed-a3b9-7a9dfa24620a.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4d8eb73e-c3ae-44ed-a3b9-7a9dfa24620a.png",
+      "runtime": "godot/assets/redrawn/wave9/fenghuanghuo-jingyu.png",
+      "focus": [
+        0.46,
+        0.16
+      ],
+      "sha256": "99c0d66d4d85a61888c454e68aa83c73cda5c702c6d7355b568ea4a382041fc8",
+      "comparisonPage": "review/wave9-comparison-06.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "xixueji-xiyi",
+      "name": "吸血姬·曦忆",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/66300_吸血姬·曦忆.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Short white-haired red-eyed youthful vampire woman in black-red short kimono, large red sleeves and sash, black footwear and stockings, pale fluffy tail and small dark-red head ornaments, suspended bent-leg pose, original red moon and pale blossoms. Preserve this precise costume.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d3914e7e-b99a-4f9b-96ea-80ee9ab51149.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d1830145-8bfb-47b9-966b-cbc39747dca1.png",
+      "runtime": "godot/assets/redrawn/wave9/xixueji-xiyi.png",
+      "focus": [
+        0.599,
+        0.134
+      ],
+      "sha256": "7b6773874cbe57e4ba8bb06506de471fe0d4b7bceafd955fc86555a516957a80",
+      "comparisonPage": "review/wave9-comparison-07.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "重新仅输入原版，去除脚下红色卡面元素徽章；保留曦忆衣装、白发、尾羽、红月与花枝。"
+      },
+      "revisions": [
+        {
+          "input": "art-reference-official/卡面/01_式神/66300_吸血姬·曦忆.png",
+          "inputPolicy": "original-reference-only",
+          "reason": "Red printed element badge copied below character.",
+          "rejected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d3914e7e-b99a-4f9b-96ea-80ee9ab51149.png",
+          "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d1830145-8bfb-47b9-966b-cbc39747dca1.png",
+          "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 吸血姬·曦忆: Short white-haired red-eyed youthful vampire woman in black-red short kimono, large red sleeves and sash, black footwear and stockings, pale fluffy tail and small dark-red head ornaments, suspended bent-leg pose, original red moon and pale blossoms. Preserve this precise costume.\n\n\nCRITICAL CLEAN ILLUSTRATION REVISION: The tiny colored element glyph below the character in the original reference is printed card UI, not part of this character or scene. Omit it entirely. NO floating diamond, NO blue/red/purple badge, NO tiny colored emblem, NO crystal-shaped icon near feet or lower center. The entire bottom region must instead be continuous natural painted scenery, drapery, mist, or flowers with no isolated central token. Preserve this precise character's original face, hair, costume, pose, palette, and scene companions from the supplied ORIGINAL reference. Paint an independent full-bleed watercolor illustration; no card printing, no level/rarity/type symbols. Use only this original reference; do not interpret previous generated results as reference."
+        }
+      ]
+    },
+    {
+      "id": "yinghuayao-lijing",
+      "name": "樱花妖·璃景",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/66400_樱花妖·璃景.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long pale white-violet-haired woman in blue-purple high-waisted long skirt and broad translucent pale pink sleeves, pale blue floral ornaments and enormous original blue-violet flower spheres, ribbons and lunar violet night backdrop. Preserve this specific variant.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b217f1c0-954b-4bea-b0cf-1dc0503d2d73.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d8a4ac59-17fd-4ab2-af38-47d037abdad5.png",
+      "runtime": "godot/assets/redrawn/wave9/yinghuayao-lijing.png",
+      "focus": [
+        0.508,
+        0.195
+      ],
+      "sha256": "a5287c1c7c0d97dfb31d4e6f409b79b78892c707919bbcb0c440bca563878d1b",
+      "comparisonPage": "review/wave9-comparison-07.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "重新仅输入原版，去除脚下紫色卡面元素徽章；保留璃景蓝紫花球、宽袖与长裙。"
+      },
+      "revisions": [
+        {
+          "input": "art-reference-official/卡面/01_式神/66400_樱花妖·璃景.png",
+          "inputPolicy": "original-reference-only",
+          "reason": "Purple printed diamond element badge copied below character.",
+          "rejected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b217f1c0-954b-4bea-b0cf-1dc0503d2d73.png",
+          "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d8a4ac59-17fd-4ab2-af38-47d037abdad5.png",
+          "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 樱花妖·璃景: Long pale white-violet-haired woman in blue-purple high-waisted long skirt and broad translucent pale pink sleeves, pale blue floral ornaments and enormous original blue-violet flower spheres, ribbons and lunar violet night backdrop. Preserve this specific variant.\n\n\nCRITICAL CLEAN ILLUSTRATION REVISION: The tiny colored element glyph below the character in the original reference is printed card UI, not part of this character or scene. Omit it entirely. NO floating diamond, NO blue/red/purple badge, NO tiny colored emblem, NO crystal-shaped icon near feet or lower center. The entire bottom region must instead be continuous natural painted scenery, drapery, mist, or flowers with no isolated central token. Preserve this precise character's original face, hair, costume, pose, palette, and scene companions from the supplied ORIGINAL reference. Paint an independent full-bleed watercolor illustration; no card printing, no level/rarity/type symbols. Use only this original reference; do not interpret previous generated results as reference."
+        }
+      ]
+    },
+    {
+      "id": "shenqilou",
+      "name": "蜃气楼",
+      "pack": "wave9",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/29800_蜃气楼.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Long silver-white-haired youthful figure in black-blue robes over short white inner garment, original black-gold staff, original gray-blue dragon or shell-cloud spirit companions, pale cyan flowing drapery and silver-blue mist. Preserve original companions and identity.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1dc2a118-cbd0-4790-a3fc-fabda2608c90.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1dc2a118-cbd0-4790-a3fc-fabda2608c90.png",
+      "runtime": "godot/assets/redrawn/wave9/shenqilou.png",
+      "focus": [
+        0.535,
+        0.19
+      ],
+      "sha256": "5183808dfa37f150ef4762ececa98684a388b6ee4d163dd11b9e84427eb80f04",
+      "comparisonPage": "review/wave9-comparison-07.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "tanjirou",
+      "name": "炭治郎",
+      "pack": "wave10",
+      "sourceKind": "original-unit-card",
+      "reference": "art-reference-official/卡面/01_式神/18200_炭治郎.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "Burgundy spiky-haired young swordsman with forehead scar, original white fox mask at the side of his head, BLUE cloud-patterned haori, dark trousers, pale leg wraps and black katana, original active leaping pose. Follow the attached card blue outfit exactly.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-672b10ac-fca1-46c6-9209-8c30de4fd57e.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-672b10ac-fca1-46c6-9209-8c30de4fd57e.png",
+      "runtime": "godot/assets/redrawn/wave10/tanjirou.png",
+      "focus": [
+        0.526,
+        0.186
+      ],
+      "sha256": "1991ace7bfdd3bd2093b119ca3baba87ed7cbe750ab48b692a3d7ce5add8c14b",
+      "comparisonPage": "review/wave10-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "最终插画与对应原版对照复核，保留主要角色辨识特征。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "nezuko",
+      "name": "祢豆子",
+      "pack": "wave10",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "officialRole 182 and its local unit/awakening card show Tanjiro, not Nezuko",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "Nezuko: long black hair with warm orange tips, pink eyes, bamboo cylinder held across her mouth by a tie, pink geometric patterned kimono, dark brown outer robe and pale leg wraps. Protective young demon sister with rose-red blood-art flower flames. Preserve this known identity and bamboo mouthpiece; no Tanjiro scar, sword or blue haori.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4ba6e640-a993-4d9d-80f3-c307684d8c1d.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4ba6e640-a993-4d9d-80f3-c307684d8c1d.png",
+      "runtime": "godot/assets/redrawn/wave10/nezuko.png",
+      "focus": [
+        0.489,
+        0.218
+      ],
+      "sha256": "27ad6f84b2ff587623358d83499b168a1ed40d5feceb392f5f31420fdc5e869c",
+      "comparisonPage": "review/wave10-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "原版 role 182 参考条目实为炭治郎，按用户授权单独补画竹筒、粉色和服、黑橙长发与爆血花；不声称对应原版重绘。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "fanqie",
+      "name": "番茄",
+      "pack": "wave11",
+      "sourceKind": "original-derived-card",
+      "reference": "art-reference-official/卡面/07_衍生/146001_番茄_r146.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "The main subject is the original fierce black-and-white spirit DOG with red eyes, enormous blue-white fangs, blue fire about head and ears, thick red bead collar, and original pale-gray looming spirit shape behind, paper talismans and teal-red smoke. This unit name does NOT mean a tomato fruit: preserve the original canine subject.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-8f0f0cb3-e642-4ea9-8a1f-7cbc11d181eb.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-8f0f0cb3-e642-4ea9-8a1f-7cbc11d181eb.png",
+      "runtime": "godot/assets/redrawn/wave11/fanqie.png",
+      "focus": [
+        0.531,
+        0.469
+      ],
+      "sha256": "1a7bfdf6c0daf173869a60a19af572286b7ce3987f706b16e2d105f6206eeead",
+      "comparisonPage": "review/wave11-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "使用对应原版衍生牌，保留前方鬼犬与后方角人组合；没有按字面生成水果。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "bingqiang",
+      "name": "冰墙",
+      "pack": "wave11",
+      "sourceKind": "original-spell-card",
+      "reference": "art-reference-official/卡面/02_法术/10609_冰墙.png",
+      "sourceReason": "对应原版卡面",
+      "inputPolicy": "original-reference-only",
+      "settingSource": null,
+      "identityFeatures": "The main subject is the original enormous angular blue-white crystalline ICE WALL: central pointed diamond-like ice mass, triangular geometric cracks and faceted spires, peripheral sharp ice, original tiny rear-view blue-white figure low in frame. Prioritize recognizable ice wall geometry, not a new humanoid portrait.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c6afb140-d0d8-4a28-a8c5-e8aa5bf83cdc.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c6afb140-d0d8-4a28-a8c5-e8aa5bf83cdc.png",
+      "runtime": "godot/assets/redrawn/wave11/bingqiang.png",
+      "focus": [
+        0.502,
+        0.338
+      ],
+      "sha256": "f8fa59d30248ae12b182b2b75fb98f1aaf0b68d5e83f794bce72d414a64bbdc4",
+      "comparisonPage": "review/wave11-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "使用对应原版法术牌，保留冰晶墙场景与远处小人；裁切焦点放在主体冰墙。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "zhiren",
+      "name": "纸人",
+      "pack": "wave11",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A mischievous small folded washi paper humanoid talisman spirit, warm pale ocher paper, simple expressive face formed from abstract ink marks, loosely curled paper arms and a playful rope loop. Paper dancing and trickster silhouette, no human skin or clothing.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5795b6f2-7a03-4de7-8227-a7f7dcb011c0.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5795b6f2-7a03-4de7-8227-a7f7dcb011c0.png",
+      "runtime": "godot/assets/redrawn/wave11/zhiren.png",
+      "focus": [
+        0.545,
+        0.374
+      ],
+      "sha256": "bb763b3dc5bc885d94e16c5e43064574d59715ba9d4b0302f4f50ad4f3bf9a06",
+      "comparisonPage": "review/wave11-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "yanyanluo-fenshen",
+      "name": "烟烟罗分身",
+      "pack": "wave11",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A female smoke apparition derived from Yanyanluo, pale lavender-gray smoky hair and flowing mist robes, translucent outline, calm distinct face with lower body dissolving into curling lilac smoke. Clear silhouette within the mist.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e6d217a9-4551-4d78-a6a1-764759790e11.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e6d217a9-4551-4d78-a6a1-764759790e11.png",
+      "runtime": "godot/assets/redrawn/wave11/yanyanluo-fenshen.png",
+      "focus": [
+        0.538,
+        0.151
+      ],
+      "sha256": "01a81ad81a135da6470ef2d59f0a9d46a6436e02f894c89999e97c7b124067a8",
+      "comparisonPage": "review/wave11-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "jinran-buye",
+      "name": "烬染不夜",
+      "pack": "wave11",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A small ember-night dancing spirit summoned by a fire dancer: orange-coral flaming ribbons, a pair of flame fans, dark midnight body and distinct glowing face, sparks and a sweeping dance pose. Preserve spirit identity and fire fan motif.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bee3fecf-a2a9-4a47-880b-4640325133d4.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bee3fecf-a2a9-4a47-880b-4640325133d4.png",
+      "runtime": "godot/assets/redrawn/wave11/jinran-buye.png",
+      "focus": [
+        0.554,
+        0.287
+      ],
+      "sha256": "0f0745dabadc218cdbd5ec21525cbdd3f5c4528f76198de282346949db76bb24",
+      "comparisonPage": "review/wave11-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "xueqiu-jingling",
+      "name": "雪球精灵",
+      "pack": "wave11",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A round friendly snowball spirit assembled from stacked loose balls of snow, icy blue-white texture, clear lively eyes and small snow limbs, whirling snowflakes and frosty crystalline fragments. Snow creature rather than an ice maiden.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ce5f5351-c3a0-438e-b373-fb1a84fc884a.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ce5f5351-c3a0-438e-b373-fb1a84fc884a.png",
+      "runtime": "godot/assets/redrawn/wave11/xueqiu-jingling.png",
+      "focus": [
+        0.572,
+        0.285
+      ],
+      "sha256": "da6eed0aa89876d0436090c43ac3eb611463f348ae3e7758f11d1852307c2bba",
+      "comparisonPage": "review/wave11-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "huangjinyu-ling",
+      "name": "黄金羽灵",
+      "pack": "wave11",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A golden feather spirit: a small avian being formed from layered ocher and pale gold feathers, elegant curving wings, bright sharp bird eye, golden feather blades floating through muted green-dark air. No humanoid woman.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff4d8fe2-17c0-4f83-9394-f0c0c0e60125.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff4d8fe2-17c0-4f83-9394-f0c0c0e60125.png",
+      "runtime": "godot/assets/redrawn/wave11/huangjinyu-ling.png",
+      "focus": [
+        0.659,
+        0.313
+      ],
+      "sha256": "3eb46ab91567dfb8e7b786c34f547500de279bff802a31fd82394670f6372fd4",
+      "comparisonPage": "review/wave11-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "mingdeng-shou",
+      "name": "明灯使",
+      "pack": "wave11",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A guiding lantern spirit with a pale gold paper lantern as its central head and body, soft blue-white soul flame shining inside, long paper streamers, floating above a quiet dark path. Abstract floral ink ornament only; no letters on lantern.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-f8c9f486-d21e-4a26-8574-974fe35d8e38.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-f8c9f486-d21e-4a26-8574-974fe35d8e38.png",
+      "runtime": "godot/assets/redrawn/wave11/mingdeng-shou.png",
+      "focus": [
+        0.52,
+        0.292
+      ],
+      "sha256": "9719bb5377cd713f28f2f8539141c834fdbcbf48be27bc6d5616c1710c5765a7",
+      "comparisonPage": "review/wave11-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "xinmo",
+      "name": "心魔",
+      "pack": "wave11",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A nightmare spirit of obsessive thought, a pale horned hannya-like mask with sorrowful eyes, dark mauve ribbons and shadow tendrils, smoky body, muted crimson-magenta palette. Separate face features, unsettling graceful spirit rather than graphic horror.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5c8efdc6-2456-4275-a219-a01d9dde8d39.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5c8efdc6-2456-4275-a219-a01d9dde8d39.png",
+      "runtime": "godot/assets/redrawn/wave11/xinmo.png",
+      "focus": [
+        0.529,
+        0.215
+      ],
+      "sha256": "162ea85e6e78d383a8687405ea8e2659a071d00d1ef5f524616156ff9734dd6f",
+      "comparisonPage": "review/wave11-comparison-03.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "shouhu-ling",
+      "name": "守护灵",
+      "pack": "wave11",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A loyal guardian spirit blending a canine guardian face with weathered terracotta armor, pale blue-gray shield held across a sturdy spectral body, blue-white protective mist. Canine head and distinct stone armor, firm defensive stance.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-033bb530-06ba-4722-8162-115c11b01c38.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-033bb530-06ba-4722-8162-115c11b01c38.png",
+      "runtime": "godot/assets/redrawn/wave11/shouhu-ling.png",
+      "focus": [
+        0.518,
+        0.155
+      ],
+      "sha256": "aade4fcd52c32c849357efaea3d972375adcd549ad43be8f2d40a86ca06fff39",
+      "comparisonPage": "review/wave11-comparison-03.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "yueying",
+      "name": "月隐",
+      "pack": "wave12",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A moonlit stealth swordsman in layered indigo and pale blue robes, calm adult face partly under a soft hood, one slim curved blade, dark flowing cloak, quiet crescent moon and pale silver shadows. Different from fire and thunder characters.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff34b5a0-d64f-44b0-8948-424f7c071fff.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff34b5a0-d64f-44b0-8948-424f7c071fff.png",
+      "runtime": "godot/assets/redrawn/wave12/yueying.png",
+      "focus": [
+        0.564,
+        0.161
+      ],
+      "sha256": "f6a45361dd104cc296883ec46367de1aba8409a563b060b9750c1dc13f53c34d",
+      "comparisonPage": "review/wave12-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "shizhu",
+      "name": "石主",
+      "pack": "wave12",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A mountain-bone rock spirit, broad blocklike weathered ocher stone torso, sculpted head with two clear warm glowing eyes, huge rocky fists, moss and layered cliff forms, stable protective posture. Keep living stone identity.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a1de6c8c-c483-4f72-b648-40f51c614654.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a1de6c8c-c483-4f72-b648-40f51c614654.png",
+      "runtime": "godot/assets/redrawn/wave12/shizhu.png",
+      "focus": [
+        0.566,
+        0.123
+      ],
+      "sha256": "66fe0d651791614fc03c610153828ec898700ec4a06cc37648a5163bfbb93c50",
+      "comparisonPage": "review/wave12-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "yanling-huo",
+      "name": "焰铃",
+      "pack": "wave12",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A fire-bell caster in muted burnt orange robes, dark tied hair, clear face, holding a polished bronze handbell with flames curling from its rim; hanging bells and ribbons, orange sparks following a graceful ritual gesture.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-3d1c8a11-9de1-4015-9ff8-c0e64678a838.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-3d1c8a11-9de1-4015-9ff8-c0e64678a838.png",
+      "runtime": "godot/assets/redrawn/wave12/yanling-huo.png",
+      "focus": [
+        0.52,
+        0.16
+      ],
+      "sha256": "48c2a93a6d3b13821bf967ae2c5b579b84dd7aa8b11bf93cddeec0db7723f3a2",
+      "comparisonPage": "review/wave12-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "shuimo",
+      "name": "水沫",
+      "pack": "wave12",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A tide-foam healer in pale teal and blue-white layered robes, flowing dark teal hair, gentle face, hands forming a bowl of sea foam, translucent water sleeves, curling waves and bubbles. Calm caring posture, teal palette.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d2b17236-bb59-4915-b4d3-74ac5161fefd.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d2b17236-bb59-4915-b4d3-74ac5161fefd.png",
+      "runtime": "godot/assets/redrawn/wave12/shuimo.png",
+      "focus": [
+        0.471,
+        0.175
+      ],
+      "sha256": "38d628af46b1e95cbe61072eabdb690ff20f0a9c5fc6786d1e74143387f7eba7",
+      "comparisonPage": "review/wave12-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "leiyin",
+      "name": "雷音",
+      "pack": "wave12",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A thunder musician in violet-white robes, dark long hair tied neatly, playing a traditional string instrument whose strings emit delicate lavender lightning, clear face and hands, violet thunderclouds. Musician and string instrument must be legible.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-76671ecd-16dd-45e4-ab7b-030b7c3a2045.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-76671ecd-16dd-45e4-ab7b-030b7c3a2045.png",
+      "runtime": "godot/assets/redrawn/wave12/leiyin.png",
+      "focus": [
+        0.521,
+        0.142
+      ],
+      "sha256": "ba84977ffd0498ebbf1cf96e5356b5d8d73f34664f6713998f56076940fe07bf",
+      "comparisonPage": "review/wave12-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "xingchen",
+      "name": "星尘",
+      "pack": "wave12",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A stardust diviner in sand-gold and pale cream robes, dark brown tied hair, serene adult face, holding an orb surrounded by slender orbital rings, falling fine golden dust and muted night sky. Distinct divining instrument.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-01ce0fc6-2072-4494-8891-a1c471974ef2.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-01ce0fc6-2072-4494-8891-a1c471974ef2.png",
+      "runtime": "godot/assets/redrawn/wave12/xingchen.png",
+      "focus": [
+        0.488,
+        0.174
+      ],
+      "sha256": "0bf6ab26257edc9f28a2ef66ac6fce39cfe1cb4a00697f67968a7071cd3ef3ba",
+      "comparisonPage": "review/wave12-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "momo",
+      "name": "墨貘",
+      "pack": "wave12",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A dream-eating ink tapir spirit, rounded dark violet-gray body, short distinct tapir trunk, expressive pale eyes, ink spilling in smoky curls from its mouth and hooves, dreamlike washi backdrop. Creature anatomy with four legs.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b61ab480-353a-440f-be3f-9a3b6dbac1fe.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b61ab480-353a-440f-be3f-9a3b6dbac1fe.png",
+      "runtime": "godot/assets/redrawn/wave12/momo.png",
+      "focus": [
+        0.655,
+        0.355
+      ],
+      "sha256": "991d23f93b6c45ef77aff3896ce7003f9014f10f4f51b8bd16d3bafc4418a28b",
+      "comparisonPage": "review/wave12-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "jinguang",
+      "name": "金光",
+      "pack": "wave12",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A radiant ritual priest in pale gold and ocher ceremonial robes, clear composed adult face, hands forming a coherent ritual mudra, circular golden seal geometry behind and soft cream light. Abstract geometry without written glyphs.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-526f3e74-ad13-4748-ae9a-0102ad9e2466.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-526f3e74-ad13-4748-ae9a-0102ad9e2466.png",
+      "runtime": "godot/assets/redrawn/wave12/jinguang.png",
+      "focus": [
+        0.512,
+        0.184
+      ],
+      "sha256": "9d8ef6473c5ef1f519f80b9e69101f7101a254d1dec4b4087726b7112c880470",
+      "comparisonPage": "review/wave12-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "shiyao-longyechaji",
+      "name": "时曜泷夜叉姬",
+      "pack": "wave13",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A time-and-light battle princess, long silver-blue hair, layered dark indigo and pale blue armor robes, long forked polearm, subtle circular astronomical time rings and silver-blue blade trails. Female adult face clear; austere warrior posture.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-61626039-cf79-4edc-a2df-2b45b741cf35.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-61626039-cf79-4edc-a2df-2b45b741cf35.png",
+      "runtime": "godot/assets/redrawn/wave13/shiyao-longyechaji.png",
+      "focus": [
+        0.476,
+        0.155
+      ],
+      "sha256": "c664ecab4c33020e025d1620c505419a993703debaba5cacccf92197f7b76b61",
+      "comparisonPage": "review/wave13-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "baize-yuanqi",
+      "name": "白泽·缘起",
+      "pack": "wave13",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A wise Baize-inspired auspicious white mythical beast with elegant horns and soft long mane, pale jade and white-gold ornament, benevolent expressive animal face, a few fine green-gold fate threads and divining stars. Creature form, not a generic humanoid.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-68ade598-cfb4-4da3-89cf-620ded927503.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-68ade598-cfb4-4da3-89cf-620ded927503.png",
+      "runtime": "godot/assets/redrawn/wave13/baize-yuanqi.png",
+      "focus": [
+        0.598,
+        0.199
+      ],
+      "sha256": "676986abd04d7ac991093d82c5ece36d6649aa5c5dfe5ac672c664dd92a2e591",
+      "comparisonPage": "review/wave13-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "shenqi-huang",
+      "name": "神启荒",
+      "pack": "wave13",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A star-revelation deity inspired by Huang: tall adult male with long deep indigo hair, white and dark blue celestial robes, pale gold accents, clear calm stern face, floating planets and star orbits in blue night. Distinct dignified celestial silhouette.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2e85e0a7-00aa-4680-b20b-b0d7f4c41255.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2e85e0a7-00aa-4680-b20b-b0d7f4c41255.png",
+      "runtime": "godot/assets/redrawn/wave13/shenqi-huang.png",
+      "focus": [
+        0.507,
+        0.161
+      ],
+      "sha256": "403c75d420636db6bb7fe4134504085cdcd740beaeda90df025b7b67f9584f54",
+      "comparisonPage": "review/wave13-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "xuan",
+      "name": "璇",
+      "pack": "wave13",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A deity of balanced light and shadow, pale lavender long hair, flowing lilac-white and deep violet robes, clear serene adult face, holding two opposed luminous and dark spheres, thin balanced orbital rings, restrained lavender palette.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-249a58a6-3896-4c89-b2a3-2154d6557f39.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-249a58a6-3896-4c89-b2a3-2154d6557f39.png",
+      "runtime": "godot/assets/redrawn/wave13/xuan.png",
+      "focus": [
+        0.49,
+        0.163
+      ],
+      "sha256": "26bf54bc34e131613a677e7f5e4d93840670d9305a5b27eb1542b3fb3ff87a3a",
+      "comparisonPage": "review/wave13-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "yuyuan-banruo",
+      "name": "御怨般若",
+      "pack": "wave13",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A grudge-governing hannya spirit, long pale hair, narrow clear face, dark red-black ceremonial robes, pale horned hannya mask held beside the face, curling crimson resentment cords and ghostly pale masks. Keep real face separate from mask.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5aaf2125-f674-451d-a1d1-5465b5b21908.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5aaf2125-f674-451d-a1d1-5465b5b21908.png",
+      "runtime": "godot/assets/redrawn/wave13/yuyuan-banruo.png",
+      "focus": [
+        0.566,
+        0.218
+      ],
+      "sha256": "d76ba58f2f239f5b8faf22c683374e7fbac92a09f85735d8f8016e87be91cb68",
+      "comparisonPage": "review/wave13-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "luohou",
+      "name": "罗睺",
+      "pack": "wave13",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "An eclipse-eating Rahu spirit: dark plum-black horned celestial dragon-like demon with a readable serpentine head and luminous pale violet eyes, curving clawed body embracing a black sun with a thin silver-violet rim, shadow tendrils. No blank eclipse alone: creature face is clear.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-eada3fa2-e3b5-4956-8a56-a6241b4e5e8e.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-eada3fa2-e3b5-4956-8a56-a6241b4e5e8e.png",
+      "runtime": "godot/assets/redrawn/wave13/luohou.png",
+      "focus": [
+        0.588,
+        0.366
+      ],
+      "sha256": "13e8cc742426ffdc9ceda04d7f2abb723a17e9dcc43965a46e2fe5b94820ca47",
+      "comparisonPage": "review/wave13-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "ember",
+      "name": "赤曜",
+      "pack": "origin",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A vermilion fox-mask flame spirit, gold fox eyes in a red mask suspended within its fiery heart, encircled by curling tongues of flame and drifting embers. The mask and flame ARE the subject, no new human body.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2bd630e6-803e-411b-846a-22e2f49da32b.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2bd630e6-803e-411b-846a-22e2f49da32b.png",
+      "runtime": "godot/assets/redrawn/origin/ember.png",
+      "focus": [
+        0.512,
+        0.47
+      ],
+      "sha256": "e61e19893fe11791dbb405cff85fc79d43a330a8d831823ec640bb88f55f8633",
+      "comparisonPage": "review/origin-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "basalt",
+      "name": "岚岳",
+      "pack": "origin",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A stone guardian spirit shaped as a massive weathered stone torii gate with a warm glowing stone lantern at its center, layered mountains, moss and muted ocher stone. Keep non-humanoid monumental gate silhouette.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fc3844ea-e211-4f58-8f7a-4ca9ec93d9bd.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fc3844ea-e211-4f58-8f7a-4ca9ec93d9bd.png",
+      "runtime": "godot/assets/redrawn/origin/basalt.png",
+      "focus": [
+        0.508,
+        0.349
+      ],
+      "sha256": "1c031c1ab835ffdacb5e2b730c90cd69b6e27f6bd09f8c7b41f279c0486b1d7d",
+      "comparisonPage": "review/origin-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "lumen",
+      "name": "弦月",
+      "pack": "origin",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A moon-weaving spirit: silver crescent moon in indigo night, graceful white crane flying across its face, fine silver light threads weaving a translucent lattice. Keep crane and crescent as the central subject, not a generic human.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5ead3e44-e56e-46be-9b21-8a67c86612f9.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5ead3e44-e56e-46be-9b21-8a67c86612f9.png",
+      "runtime": "godot/assets/redrawn/origin/lumen.png",
+      "focus": [
+        0.753,
+        0.313
+      ],
+      "sha256": "e092c91eeca7fb5570b6cc178cf3269805677f8316ceca4fbc7b25d791a53a3c",
+      "comparisonPage": "review/origin-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "rime",
+      "name": "白棱",
+      "pack": "origin",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A frost crystal spirit: a large floating six-sided ice crystal in cyan cold mist, facets as sharp as blades, surrounding fragments of ice. Main crystal centered high enough for a landscape card crop. No humanoid figure.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-25c58deb-993d-4cd7-927b-8854fce493a9.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-25c58deb-993d-4cd7-927b-8854fce493a9.png",
+      "runtime": "godot/assets/redrawn/origin/rime.png",
+      "focus": [
+        0.504,
+        0.347
+      ],
+      "sha256": "22e7389de5607b1e2d6b407c8cb324e093002368f1e99c130dd3a2c029f35470",
+      "comparisonPage": "review/origin-comparison-01.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "storm",
+      "name": "霆鸢",
+      "pack": "origin",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A majestic kite bird of thunder diving out of storm clouds with spread wings, feather blades carrying cyan lightning across a violet night. Preserve bird anatomy and distinct cyan-blue palette.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bafd4643-5a06-4983-8a9a-19a028fcec0f.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bafd4643-5a06-4983-8a9a-19a028fcec0f.png",
+      "runtime": "godot/assets/redrawn/origin/storm.png",
+      "focus": [
+        0.655,
+        0.494
+      ],
+      "sha256": "67d8935c41538422f977b7a83621da1d94aa8ffe9ffd98afefc281f5a9979701",
+      "comparisonPage": "review/origin-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "ink",
+      "name": "玄砚",
+      "pack": "origin",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A living black ink koi swimming within a circular ink brushstroke, small vermilion seal-like abstract accent, sweeping brush marks over pale washi, deep violet-black ink. No readable calligraphy or actual seal characters.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-07b10b8f-0c51-4cb0-aab6-295d410fbfa8.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-07b10b8f-0c51-4cb0-aab6-295d410fbfa8.png",
+      "runtime": "godot/assets/redrawn/origin/ink.png",
+      "focus": [
+        0.43,
+        0.575
+      ],
+      "sha256": "d93e762ed63f024176222a6ae21dedd53c8edad5dcb746cab461ae721b971982",
+      "comparisonPage": "review/origin-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "frostblade",
+      "name": "银狼",
+      "pack": "origin",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A frost-white wolf with cold blue steel face armor, a pair of crescent blades crossed below its jaw, icy snow dust swirling about it. Wolf muzzle and separate blades must be readable; no humanoid conversion.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ed84b44b-271a-4995-81ad-9f1d8fabcb13.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ed84b44b-271a-4995-81ad-9f1d8fabcb13.png",
+      "runtime": "godot/assets/redrawn/origin/frostblade.png",
+      "focus": [
+        0.503,
+        0.336
+      ],
+      "sha256": "8a027c4bdc3ea03d4f2824235d67210daa902fa37b4c824449b32741be6c74d8",
+      "comparisonPage": "review/origin-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    },
+    {
+      "id": "kongo",
+      "name": "金刚",
+      "pack": "origin",
+      "sourceKind": "project-setting",
+      "reference": null,
+      "sourceReason": "No corresponding original reference in local source set",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "settingSource": "godot/content/content.json",
+      "identityFeatures": "A moss-gray stone Buddha sitting calmly on a lotus pedestal, gilded dharma wheel inset in its chest, great stone ring behind like a mountain gate, weathered moss and fine gold veins. Distinct calm stone face.",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e46c0965-7b34-42bc-8fe4-289e4172e898.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e46c0965-7b34-42bc-8fe4-289e4172e898.png",
+      "runtime": "godot/assets/redrawn/origin/kongo.png",
+      "focus": [
+        0.499,
+        0.195
+      ],
+      "sha256": "525aeaaad8cc1fc4750144d9d67d6662b1ee282102a0c1a56f588bc1b3c69c9d",
+      "comparisonPage": "review/origin-comparison-02.jpg",
+      "visualReview": {
+        "reviewed": true,
+        "scope": "对应来源与最终插画主体、配色、衣装/兽形/场景，运行画册与战场归属；横向裁切由真实控件专项检查验证",
+        "result": "通过",
+        "note": "按现有设定补画并复核主体辨识特征与统一纸绘画风。"
+      },
+      "revisions": []
+    }
+  ]
+}

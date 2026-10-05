@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img">
+  <title>御怨</title>
+  <defs>
+    <linearGradient id="yuyuan_banruo-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#301820"/><stop offset="1" stop-color="#482838"/>
+    </linearGradient>
+    <radialGradient id="yuyuan_banruo-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#f0a0b0" stop-opacity=".4"/><stop offset="1" stop-color="#c06070" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="yuyuan_banruo-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0a0b0"/><stop offset="1" stop-color="#c06070"/>
+    </linearGradient>
+    <linearGradient id="yuyuan_banruo-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0a0b0"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#yuyuan_banruo-bg)"/>
+  <rect width="200" height="260" fill="url(#yuyuan_banruo-halo)"/>
+  
+  <g><ellipse cx="100" cy="120" rx="38" ry="46" fill="url(#p-body)"/><path d="M75 95 Q100 80 125 95" stroke="url(#p-accent)" stroke-width="8" fill="none"/><path d="M80 145 Q100 160 120 145" stroke="#f0d0d8" stroke-width="3" fill="none"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#f0e8d0">御怨</text>
+</svg>

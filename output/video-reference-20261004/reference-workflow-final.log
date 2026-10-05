@@ -1,0 +1,5 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+TARGET_CHECK { "ok": false, "reason": "弦月 勾玉不足，需要 1 勾。" } mend={ "id": "mend", "unitId": "lumen", "name": "回响疗愈", "type": "spell", "typeLabel": "法术牌", "level": 1.0, "cost": 1.0, "copies": 2.0, "deckLimit": 2.0, "starterCopies": 2.0, "rarity": "common", "tags": ["恢复"], "keywords": [], "timing": "main", "responseTo": [], "text": "为一名友方角色恢复 4 点生命。", "target": "ally-unit", "effect": "heal", "value": 4.0, "effects": [{ "condition": "always", "action": "heal", "target": "selected-ally", "value": 4.0 }] }
+REFERENCE_FAIL targeted card highlights legal portrait targets
+REFERENCE_WORKFLOW checks=182 failures=1

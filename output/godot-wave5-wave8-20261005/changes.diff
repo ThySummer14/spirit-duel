@@ -1,0 +1,832 @@
+--- a/README.md
++++ b/README.md
+@@ -224,3 +224,5 @@
+ Godot 可行性验证入口：`scripts/export-godot-content.mjs` 导出原创内容，`prototypes/godot-content-probe/verify.gd` 在隔离工程中验证内容契约；不参与浏览器运行、不执行卡牌规则。详见 [引擎方向](ENGINE_DIRECTION.md)。
+ 
+ 同日补齐第四资料包（吉运善恶）全部 26 位原版参照重绘，Godot 重绘覆盖增至 83 位。逐张设置头像焦点，扩展完整资料包美术检查与按资料包截图采集；此前 57 张图片与映射保持一致。19 张实际游戏截图、原版对照及完整运行结果见 [第四资料包验收](output/godot-wave4-20261005/acceptance.md)。
++
++同日继续完成第五至第八资料包全部 106 位重绘并接入 Godot，累计 189 位，剩余 61 位仍使用 SVG。每位保存对应原版、提示词、最终生成文件和裁切焦点，保留双人、坐骑与衣装变体；伊邪那美采用完整衣装版并记录差异。75 张游戏截图、3989 项美术检查、完整 Godot 验收和 JS 测试结果见 [第五至第八资料包验收](output/godot-wave5-wave8-20261005/acceptance.md)。
+--- a/godot/README.md
++++ b/godot/README.md
+@@ -50,7 +50,7 @@
+   project.godot
+   content/content.json
+   assets/**/*.svg       # 既有角色占位与缺图回退
+-  assets/redrawn/       # 经典 29 + Wave2 9 + Wave3 19 + Wave4 26 位重绘 PNG、裁切焦点与完整提示词
++  assets/redrawn/       # 经典与 Wave2–8 共 189 位重绘 PNG、裁切焦点与完整提示词
+   assets/scenery/*.png  # Botcf Image 生成的四张环境背景
+   assets/fonts/*.ttf    # Noto SC 字体子集，许可见 fonts/OFL.txt
+   assets/audio/*.wav    # 程序化生成的音乐与音效
+@@ -69,7 +69,7 @@
+ - 响应优先权、指定目标的响应牌、占卜选牌已接入；烹饪集齐 / 夜幕预约 / 蓄力树等仍有单步近似或未实现效果
+ - 连击/先攻/贯通/远程/暴击已接入交战；鼓舞池支持累积和出击消耗；融合等其余资源链仍有简化
+ - AI 为贪心打分，不搜索
+-- 环境背景由 Botcf Image 生成；经典基础、Wave2、Wave3、Wave4 共 83 位式神已按原版参考重绘，余下 167 位使用既有 SVG 占位
++- 环境背景由 Botcf Image 生成；经典基础与 Wave2–8 共 189 位式神已按原版参考重绘，余下 61 位使用既有 SVG 占位
+ 
+ 
+ ## 游玩舒适度（2026-09-22）
+@@ -182,3 +182,9 @@
+ ```
+ 
+ [第四资料包验收与游戏截图](../output/godot-wave4-20261005/acceptance.md)包含 1755 项美术检查、完整游戏验收、来源与旧资源校验。
++
++## 2026-10-05 第五至第八资料包重绘
++
++第五、六、七、八资料包的 24 + 32 + 25 + 25 位角色全部接入 1024×1536 PNG 与独立裁切焦点，新增 106 位，累计 189 位。对应原版、完整提示词与最终选图见 `assets/redrawn/prompts-wave5.json` 至 `prompts-wave8.json`。重试仍只输入对应原版，已去除生成图中的残留元素标记；双人、坐骑与衣装变体按原版分别处理。伊邪那美因首次输出被图像服务拦截，最终采用完整不透明礼服，衣装调整单独记录。普通、觉醒与所属技能牌继续共用主人立绘。
++
++`verify_art.gd` 要求经典至第八资料包完整覆盖，检查全部 189 位的真实控件纹理、五种尺寸裁切、归属与回退。本轮美术 3989 项、完整 Godot 验收、163 项 JS 测试及 385 项 UI audit 全部通过；75 张实际游戏截图覆盖四包全部角色。此前 83 张图片、映射和焦点保持一致，测试和截图使用隔离存档。[本轮验收与截图](../output/godot-wave5-wave8-20261005/acceptance.md)。
+--- a/godot/assets/redrawn/README.md
++++ b/godot/assets/redrawn/README.md
+@@ -1,6 +1,6 @@
+ # 式神重绘 · 2026-10-05
+ 
+-使用内置 `image_gen`，参照本地 `art-reference-official/卡面/01_式神/` 的原版角色卡面重新绘制经典基础包 29 位、第二资料包 9 位、第三资料包 19 位、第四资料包 26 位，共 83 位式神。原版卡面仅作为角色外貌与画风参考；本目录 PNG 为生成的无框插画。服饰、发型、武器和配色尽量贴近对应参考，纹样与纸感保持同一方向。原版素材不复制到 Godot。
++使用内置 `image_gen`，参照本地 `art-reference-official/卡面/01_式神/` 的原版角色卡面重绘经典基础包与第二至第八资料包，共 189 位式神（29 + 9 + 19 + 26 + 24 + 32 + 25 + 25）。原版卡面仅作为角色外貌与画风参考；本目录 PNG 为生成的无框插画。服饰、发型、武器和配色尽量贴近对应参考，纹样与纸感保持同一方向。原版素材不复制到 Godot。
+ 
+ `prompts.json` 保存第一批八张的完整提示词；`prompts-classic-completion.json` 保存本批 21 张的提示词、参考路径和输出路径，并记录用户指出茨木童子面部问题后的修正提示词与最终选择。茨木童子的运行资源已经采用修正版，旧版没有接入游戏。
+ 
+@@ -8,7 +8,7 @@
+ 
+ `portraits.json` 只管理 Godot 的角色插画路径与裁切焦点。主城、名录、编组、卡牌和战场共用此映射。普通与觉醒状态使用同一张重绘，觉醒边框仍由 UI 绘制；本批没有独立觉醒插画或每张技能牌的插画。
+ 
+-新增重绘时添加 PNG 和角色 ID 对应映射即可，不需改动 JS 规则内容或导出脚本。缺少映射或纹理无法导入时回退到角色现有 SVG；现有 SVG 保留。余下 167 位角色仍使用原占位美术。
++新增重绘时添加 PNG 和角色 ID 对应映射即可，不需改动 JS 规则内容或导出脚本。缺少映射或纹理无法导入时回退到角色现有 SVG；现有 SVG 保留。余下 61 位角色仍使用原占位美术。
+ 
+ 本批新增：白狼、茨木童子、雪童子、山童、跳跳弟弟、清姬、鸩、海坊主、一目连、书翁、觉、犬神、判官、以津真天、凤凰火、青坊主、青蛙瓷器、山兔、妖琴师、青行灯、座敷童子。每位一张 1024×1536 PNG，路径为 `classic/<角色 ID>.png`。
+ 
+@@ -21,3 +21,9 @@
+ 第四资料包（吉运善恶）26 位为每位一张 1024×1536 PNG，位于 `wave4/<角色 ID>.png`，完整提示词、原版输入、所选生成文件及焦点见 `prompts-wave4.json`。每张只参考对应原版，26 张运行图片与所选生成结果逐字节一致。原版 `19400_鬼使黑_鬼使白.png` 实际显示鬼使黑，本轮沿用黑衣形态；没有凭空补画鬼使白。
+ 
+ [第四资料包验收](../../../output/godot-wave4-20261005/acceptance.md)记录原版对照、逐张特征复核、19 张实际游戏截图与完整验证。此前 57 张图片及其映射、焦点均保留。
++
++第五至第八资料包新增 106 张 1024×1536 PNG，分别位于 `wave5/`（24 位）、`wave6/`（32 位）、`wave7/`（25 位）、`wave8/`（25 位）。四份 `prompts-wave5.json` 至 `prompts-wave8.json` 保存完整提示词、对应原版、最终生成文件、裁切焦点与重试记录。每次只输入对应原版，18 位角色针对残留卡面元素标记重试；季修正了两次。全部运行图片与最终选择逐字节一致，此前 83 张图片、映射与焦点保持一致。
++
++童男童女、山兔/座敷童子等保留原版双人组合；小鹿男·千守保留鹿身。第八资料包的鬼使黑、鬼使白分别使用各自原版独立重绘。伊邪那美首次输出被图像服务拦截，最终采用不透明高领长袖礼服，保留黑红配色、羽披、长发与银蛇；这是明确记录的衣装调整。
++
++[第五至第八资料包验收](../../../output/godot-wave5-wave8-20261005/acceptance.md)包含 106 位逐张复核、28 页最终原版对照、75 张游戏截图、3989 项美术检查及完整验证。
+--- a/godot/assets/redrawn/portraits.json
++++ b/godot/assets/redrawn/portraits.json
+@@ -581,6 +581,748 @@
+         0.525,
+         0.225
+       ]
++    },
++    "tengji": {
++      "path": "assets/redrawn/wave5/tengji.png",
++      "focus": [
++        0.49,
++        0.143
++      ]
++    },
++    "huaniajuan": {
++      "path": "assets/redrawn/wave5/huaniajuan.png",
++      "focus": [
++        0.504,
++        0.18
++      ]
++    },
++    "yanmo": {
++      "path": "assets/redrawn/wave5/yanmo.png",
++      "focus": [
++        0.53,
++        0.172
++      ]
++    },
++    "kuileishi": {
++      "path": "assets/redrawn/wave5/kuileishi.png",
++      "focus": [
++        0.66,
++        0.217
++      ]
++    },
++    "baizangzhu": {
++      "path": "assets/redrawn/wave5/baizangzhu.png",
++      "focus": [
++        0.592,
++        0.174
++      ]
++    },
++    "rulianshi": {
++      "path": "assets/redrawn/wave5/rulianshi.png",
++      "focus": [
++        0.663,
++        0.204
++      ]
++    },
++    "fengli": {
++      "path": "assets/redrawn/wave5/fengli.png",
++      "focus": [
++        0.435,
++        0.22
++      ]
++    },
++    "guanhu": {
++      "path": "assets/redrawn/wave5/guanhu.png",
++      "focus": [
++        0.57,
++        0.28
++      ]
++    },
++    "song": {
++      "path": "assets/redrawn/wave5/song.png",
++      "focus": [
++        0.57,
++        0.165
++      ]
++    },
++    "yunwaijing": {
++      "path": "assets/redrawn/wave5/yunwaijing.png",
++      "focus": [
++        0.5,
++        0.32
++      ]
++    },
++    "liangmianfo": {
++      "path": "assets/redrawn/wave5/liangmianfo.png",
++      "focus": [
++        0.52,
++        0.335
++      ]
++    },
++    "heitongzi": {
++      "path": "assets/redrawn/wave5/heitongzi.png",
++      "focus": [
++        0.625,
++        0.315
++      ]
++    },
++    "baitongzi": {
++      "path": "assets/redrawn/wave5/baitongzi.png",
++      "focus": [
++        0.61,
++        0.34
++      ]
++    },
++    "xiazhongshaonv": {
++      "path": "assets/redrawn/wave5/xiazhongshaonv.png",
++      "focus": [
++        0.5,
++        0.273
++      ]
++    },
++    "yi": {
++      "path": "assets/redrawn/wave5/yi.png",
++      "focus": [
++        0.5,
++        0.12
++      ]
++    },
++    "xiaosongwan": {
++      "path": "assets/redrawn/wave5/xiaosongwan.png",
++      "focus": [
++        0.4,
++        0.24
++      ]
++    },
++    "wuwu": {
++      "path": "assets/redrawn/wave5/wuwu.png",
++      "focus": [
++        0.43,
++        0.274
++      ]
++    },
++    "qianji": {
++      "path": "assets/redrawn/wave5/qianji.png",
++      "focus": [
++        0.38,
++        0.1
++      ]
++    },
++    "shiling": {
++      "path": "assets/redrawn/wave5/shiling.png",
++      "focus": [
++        0.5,
++        0.161
++      ]
++    },
++    "maozhanggui": {
++      "path": "assets/redrawn/wave5/maozhanggui.png",
++      "focus": [
++        0.48,
++        0.18
++      ]
++    },
++    "xingxiongtongzi": {
++      "path": "assets/redrawn/wave5/xingxiongtongzi.png",
++      "focus": [
++        0.325,
++        0.135
++      ]
++    },
++    "yixigong": {
++      "path": "assets/redrawn/wave5/yixigong.png",
++      "focus": [
++        0.4,
++        0.285
++      ]
++    },
++    "limao": {
++      "path": "assets/redrawn/wave5/limao.png",
++      "focus": [
++        0.5,
++        0.24
++      ]
++    },
++    "tuwan": {
++      "path": "assets/redrawn/wave5/tuwan.png",
++      "focus": [
++        0.48,
++        0.24
++      ]
++    },
++    "jinnaluo": {
++      "path": "assets/redrawn/wave6/jinnaluo.png",
++      "focus": [
++        0.655,
++        0.165
++      ]
++    },
++    "lingyanji": {
++      "path": "assets/redrawn/wave6/lingyanji.png",
++      "focus": [
++        0.405,
++        0.18
++      ]
++    },
++    "rurineque": {
++      "path": "assets/redrawn/wave6/rurineque.png",
++      "focus": [
++        0.595,
++        0.257
++      ]
++    },
++    "shouwu": {
++      "path": "assets/redrawn/wave6/shouwu.png",
++      "focus": [
++        0.56,
++        0.185
++      ]
++    },
++    "gunvhongye": {
++      "path": "assets/redrawn/wave6/gunvhongye.png",
++      "focus": [
++        0.383,
++        0.139
++      ]
++    },
++    "choushizhinv": {
++      "path": "assets/redrawn/wave6/choushizhinv.png",
++      "focus": [
++        0.33,
++        0.244
++      ]
++    },
++    "yifanmumian": {
++      "path": "assets/redrawn/wave6/yifanmumian.png",
++      "focus": [
++        0.697,
++        0.117
++      ]
++    },
++    "yecha": {
++      "path": "assets/redrawn/wave6/yecha.png",
++      "focus": [
++        0.44,
++        0.196
++      ]
++    },
++    "huangchuanzhizhu": {
++      "path": "assets/redrawn/wave6/huangchuanzhizhu.png",
++      "focus": [
++        0.61,
++        0.14
++      ]
++    },
++    "wannianzhu": {
++      "path": "assets/redrawn/wave6/wannianzhu.png",
++      "focus": [
++        0.58,
++        0.14
++      ]
++    },
++    "shuzhu": {
++      "path": "assets/redrawn/wave6/shuzhu.png",
++      "focus": [
++        0.49,
++        0.235
++      ]
++    },
++    "sanweihu": {
++      "path": "assets/redrawn/wave6/sanweihu.png",
++      "focus": [
++        0.575,
++        0.155
++      ]
++    },
++    "jicanghai": {
++      "path": "assets/redrawn/wave6/jicanghai.png",
++      "focus": [
++        0.42,
++        0.18
++      ]
++    },
++    "wuchen": {
++      "path": "assets/redrawn/wave6/wuchen.png",
++      "focus": [
++        0.34,
++        0.175
++      ]
++    },
++    "ninghongye": {
++      "path": "assets/redrawn/wave6/ninghongye.png",
++      "focus": [
++        0.71,
++        0.165
++      ]
++    },
++    "tayumenhutao": {
++      "path": "assets/redrawn/wave6/tayumenhutao.png",
++      "focus": [
++        0.365,
++        0.145
++      ]
++    },
++    "baize": {
++      "path": "assets/redrawn/wave6/baize.png",
++      "focus": [
++        0.53,
++        0.142
++      ]
++    },
++    "hudiejing": {
++      "path": "assets/redrawn/wave6/hudiejing.png",
++      "focus": [
++        0.52,
++        0.172
++      ]
++    },
++    "luoxinfu": {
++      "path": "assets/redrawn/wave6/luoxinfu.png",
++      "focus": [
++        0.433,
++        0.202
++      ]
++    },
++    "yitiao": {
++      "path": "assets/redrawn/wave6/yitiao.png",
++      "focus": [
++        0.475,
++        0.215
++      ]
++    },
++    "jialouluo": {
++      "path": "assets/redrawn/wave6/jialouluo.png",
++      "focus": [
++        0.626,
++        0.167
++      ]
++    },
++    "huajing": {
++      "path": "assets/redrawn/wave6/huajing.png",
++      "focus": [
++        0.68,
++        0.248
++      ]
++    },
++    "yinge": {
++      "path": "assets/redrawn/wave6/yinge.png",
++      "focus": [
++        0.51,
++        0.323
++      ]
++    },
++    "bujianyue": {
++      "path": "assets/redrawn/wave6/bujianyue.png",
++      "focus": [
++        0.538,
++        0.157
++      ]
++    },
++    "xuzuozhinan": {
++      "path": "assets/redrawn/wave6/xuzuozhinan.png",
++      "focus": [
++        0.447,
++        0.177
++      ]
++    },
++    "liyujing": {
++      "path": "assets/redrawn/wave6/liyujing.png",
++      "focus": [
++        0.695,
++        0.208
++      ]
++    },
++    "chongshi": {
++      "path": "assets/redrawn/wave6/chongshi.png",
++      "focus": [
++        0.559,
++        0.164
++      ]
++    },
++    "xieenv": {
++      "path": "assets/redrawn/wave6/xieenv.png",
++      "focus": [
++        0.512,
++        0.12
++      ]
++    },
++    "xunxiangxing": {
++      "path": "assets/redrawn/wave6/xunxiangxing.png",
++      "focus": [
++        0.49,
++        0.22
++      ]
++    },
++    "linghaidie": {
++      "path": "assets/redrawn/wave6/linghaidie.png",
++      "focus": [
++        0.574,
++        0.245
++      ]
++    },
++    "yujuchong": {
++      "path": "assets/redrawn/wave6/yujuchong.png",
++      "focus": [
++        0.59,
++        0.214
++      ]
++    },
++    "hainren": {
++      "path": "assets/redrawn/wave6/hainren.png",
++      "focus": [
++        0.556,
++        0.178
++      ]
++    },
++    "gulonghuo": {
++      "path": "assets/redrawn/wave7/gulonghuo.png",
++      "focus": [
++        0.59,
++        0.178
++      ]
++    },
++    "chuanyuan": {
++      "path": "assets/redrawn/wave7/chuanyuan.png",
++      "focus": [
++        0.5,
++        0.277
++      ]
++    },
++    "erkounv": {
++      "path": "assets/redrawn/wave7/erkounv.png",
++      "focus": [
++        0.53,
++        0.246
++      ]
++    },
++    "xiaoxiuzhishou": {
++      "path": "assets/redrawn/wave7/xiaoxiuzhishou.png",
++      "focus": [
++        0.5,
++        0.17
++      ]
++    },
++    "quanshen-lizhan": {
++      "path": "assets/redrawn/wave7/quanshen-lizhan.png",
++      "focus": [
++        0.434,
++        0.288
++      ]
++    },
++    "yaodaoji-zhuren": {
++      "path": "assets/redrawn/wave7/yaodaoji-zhuren.png",
++      "focus": [
++        0.518,
++        0.184
++      ]
++    },
++    "datiangou-gangfeng": {
++      "path": "assets/redrawn/wave7/datiangou-gangfeng.png",
++      "focus": [
++        0.598,
++        0.226
++      ]
++    },
++    "qingxingdeng-huihuo": {
++      "path": "assets/redrawn/wave7/qingxingdeng-huihuo.png",
++      "focus": [
++        0.591,
++        0.22
++      ]
++    },
++    "kongquemingwang": {
++      "path": "assets/redrawn/wave7/kongquemingwang.png",
++      "focus": [
++        0.568,
++        0.161
++      ]
++    },
++    "fenpopo": {
++      "path": "assets/redrawn/wave7/fenpopo.png",
++      "focus": [
++        0.52,
++        0.276
++      ]
++    },
++    "jiao": {
++      "path": "assets/redrawn/wave7/jiao.png",
++      "focus": [
++        0.55,
++        0.248
++      ]
++    },
++    "ji": {
++      "path": "assets/redrawn/wave7/ji.png",
++      "focus": [
++        0.54,
++        0.151
++      ]
++    },
++    "jutun-wangkong": {
++      "path": "assets/redrawn/wave7/jutun-wangkong.png",
++      "focus": [
++        0.63,
++        0.137
++      ]
++    },
++    "caitong-lvli": {
++      "path": "assets/redrawn/wave7/caitong-lvli.png",
++      "focus": [
++        0.432,
++        0.229
++      ]
++    },
++    "qingfangzhu-fanchen": {
++      "path": "assets/redrawn/wave7/qingfangzhu-fanchen.png",
++      "focus": [
++        0.55,
++        0.131
++      ]
++    },
++    "panguan-xuanmo": {
++      "path": "assets/redrawn/wave7/panguan-xuanmo.png",
++      "focus": [
++        0.367,
++        0.245
++      ]
++    },
++    "langyazi": {
++      "path": "assets/redrawn/wave7/langyazi.png",
++      "focus": [
++        0.53,
++        0.201
++      ]
++    },
++    "yanling": {
++      "path": "assets/redrawn/wave7/yanling.png",
++      "focus": [
++        0.552,
++        0.278
++      ]
++    },
++    "huimingdeng": {
++      "path": "assets/redrawn/wave7/huimingdeng.png",
++      "focus": [
++        0.469,
++        0.266
++      ]
++    },
++    "shifagui": {
++      "path": "assets/redrawn/wave7/shifagui.png",
++      "focus": [
++        0.49,
++        0.124
++      ]
++    },
++    "tiannimei": {
++      "path": "assets/redrawn/wave7/tiannimei.png",
++      "focus": [
++        0.525,
++        0.18
++      ]
++    },
++    "guniao-yuxiang": {
++      "path": "assets/redrawn/wave7/guniao-yuxiang.png",
++      "focus": [
++        0.595,
++        0.219
++      ]
++    },
++    "taohua-luoying": {
++      "path": "assets/redrawn/wave7/taohua-luoying.png",
++      "focus": [
++        0.401,
++        0.157
++      ]
++    },
++    "yimulian-linglai": {
++      "path": "assets/redrawn/wave7/yimulian-linglai.png",
++      "focus": [
++        0.561,
++        0.146
++      ]
++    },
++    "shantu-zuofu": {
++      "path": "assets/redrawn/wave7/shantu-zuofu.png",
++      "focus": [
++        0.56,
++        0.255
++      ]
++    },
++    "chen": {
++      "path": "assets/redrawn/wave8/chen.png",
++      "focus": [
++        0.514,
++        0.128
++      ]
++    },
++    "tianzhao": {
++      "path": "assets/redrawn/wave8/tianzhao.png",
++      "focus": [
++        0.585,
++        0.135
++      ]
++    },
++    "yuedu": {
++      "path": "assets/redrawn/wave8/yuedu.png",
++      "focus": [
++        0.547,
++        0.152
++      ]
++    },
++    "gunv": {
++      "path": "assets/redrawn/wave8/gunv.png",
++      "focus": [
++        0.638,
++        0.188
++      ]
++    },
++    "yunv": {
++      "path": "assets/redrawn/wave8/yunv.png",
++      "focus": [
++        0.581,
++        0.21
++      ]
++    },
++    "huang-qiming": {
++      "path": "assets/redrawn/wave8/huang-qiming.png",
++      "focus": [
++        0.456,
++        0.134
++      ]
++    },
++    "zhuiyueshen-shuiyue": {
++      "path": "assets/redrawn/wave8/zhuiyueshen-shuiyue.png",
++      "focus": [
++        0.424,
++        0.155
++      ]
++    },
++    "wushi-maoshi": {
++      "path": "assets/redrawn/wave8/wushi-maoshi.png",
++      "focus": [
++        0.522,
++        0.146
++      ]
++    },
++    "yixienamei": {
++      "path": "assets/redrawn/wave8/yixienamei.png",
++      "focus": [
++        0.492,
++        0.168
++      ]
++    },
++    "guishibai": {
++      "path": "assets/redrawn/wave8/guishibai.png",
++      "focus": [
++        0.522,
++        0.203
++      ]
++    },
++    "guishihei": {
++      "path": "assets/redrawn/wave8/guishihei.png",
++      "focus": [
++        0.431,
++        0.204
++      ]
++    },
++    "tongnantongnv": {
++      "path": "assets/redrawn/wave8/tongnantongnv.png",
++      "focus": [
++        0.548,
++        0.415
++      ]
++    },
++    "zhiwu": {
++      "path": "assets/redrawn/wave8/zhiwu.png",
++      "focus": [
++        0.523,
++        0.172
++      ]
++    },
++    "daorenshen": {
++      "path": "assets/redrawn/wave8/daorenshen.png",
++      "focus": [
++        0.509,
++        0.181
++      ]
++    },
++    "ertong": {
++      "path": "assets/redrawn/wave8/ertong.png",
++      "focus": [
++        0.59,
++        0.185
++      ]
++    },
++    "yingcao-pupu": {
++      "path": "assets/redrawn/wave8/yingcao-pupu.png",
++      "focus": [
++        0.537,
++        0.212
++      ]
++    },
++    "mianqiling-xinsu": {
++      "path": "assets/redrawn/wave8/mianqiling-xinsu.png",
++      "focus": [
++        0.504,
++        0.244
++      ]
++    },
++    "fansi": {
++      "path": "assets/redrawn/wave8/fansi.png",
++      "focus": [
++        0.661,
++        0.205
++      ]
++    },
++    "longzi": {
++      "path": "assets/redrawn/wave8/longzi.png",
++      "focus": [
++        0.494,
++        0.116
++      ]
++    },
++    "maochuan": {
++      "path": "assets/redrawn/wave8/maochuan.png",
++      "focus": [
++        0.518,
++        0.223
++      ]
++    },
++    "alaina": {
++      "path": "assets/redrawn/wave8/alaina.png",
++      "focus": [
++        0.565,
++        0.154
++      ]
++    },
++    "youning": {
++      "path": "assets/redrawn/wave8/youning.png",
++      "focus": [
++        0.544,
++        0.208
++      ]
++    },
++    "xiaolunan-qianshou": {
++      "path": "assets/redrawn/wave8/xiaolunan-qianshou.png",
++      "focus": [
++        0.618,
++        0.178
++      ]
++    },
++    "rihefang-qingyang": {
++      "path": "assets/redrawn/wave8/rihefang-qingyang.png",
++      "focus": [
++        0.621,
++        0.21
++      ]
++    },
++    "yanyanluo-fumiao": {
++      "path": "assets/redrawn/wave8/yanyanluo-fumiao.png",
++      "focus": [
++        0.488,
++        0.27
++      ]
+     }
+   }
+ }
+--- a/godot/scripts/verify_art.gd
++++ b/godot/scripts/verify_art.gd
+@@ -24,7 +24,10 @@
+ 	var classic := ContentLoader.units_in_pack("classic")
+ 	_check(classic.size() == 29, "classic content contains all 29 units")
+ 	_check(classic.all(func(unit): return entries.has(unit.id)), "every classic unit has a redrawn portrait")
+-	var expected_rosters := {"wave2": 9, "wave3": 19, "wave4": 26}
++	var expected_rosters := {
++		"wave2": 9, "wave3": 19, "wave4": 26,
++		"wave5": 24, "wave6": 32, "wave7": 25, "wave8": 25,
++	}
+ 	for pack in expected_rosters:
+ 		var units := ContentLoader.units_in_pack(pack)
+ 		_check(units.size() == expected_rosters[pack], "%s contains its expected complete roster" % pack)

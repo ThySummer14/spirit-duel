@@ -1,0 +1,242 @@
+--- before/README.md
++++ after/README.md
+@@ -67,6 +67,8 @@
+ 
+ 随后补齐经典基础包剩余 21 位，Godot 现已使用全部 29 位经典式神的重绘立绘，其他资料包 221 位仍使用占位资源。茨木童子按用户反馈重新生成清晰面部并替换。完整经典包覆盖、实际卡面和战场截图见 [续批美术验收](output/godot-art-classic-20261005/acceptance.md)。
+ 
++同日继续完成第二、第三资料包全部 28 位原版参照重绘，Godot 重绘覆盖增至 57 位；镰鼬因初版造型偏离，重新只用原版卡面生成并采用修正版。战场增加合法/非法目标连线与右键取消，升勾、出牌和交战演出期间拦截重复输入，攻击按入场、前冲、命中和回位展示；反击伤害浮字在命中时定位到移动中的卡面，并修复空状态检视的节点泄漏。完整检查、原版对照与最终游戏截图见 [批量重绘与手感验收](output/godot-wave23-feel-20261005/acceptance.md)。
++
+ ## 本轮内容与界面
+ 
+ 角色完整设计见 [觉醒与 SSR 蓝图 v3](AWAKENING_SSR_BLUEPRINT.md)。13 张普通形态具有随当前形态生效的事件能力；切换撤销旧增幅，觉醒成长独立保留。形态牌正文说明自身回满。碎镜裁决区分即时碎甲与持续晶裂；不屈状态注明生效或待恢复。
+--- before/godot/README.md
++++ after/godot/README.md
+@@ -29,6 +29,8 @@
+ 
+ 键盘：`Enter` 结束回合 · `1-9` 出手牌 · `Tab` 循环查看己方角色 · `P` 放弃响应 · `Esc` 取消目标或关闭检视。
+ 
++鼠标：点选或拖拽手牌/式神，目标连线以绿色表示合法目标、红色表示非法目标；右键取消目标选择。升勾、出牌与交战的短暂演出结束后自动恢复操作。
++
+ 主城设置可分别调节背景音乐与音效，音量保存在 `user://spirit_duel/settings.json`。字体采用随包内置的 Noto Sans SC / Noto Serif SC（SIL OFL），避免系统字体解析造成简体字缺失；音频由 `scripts/gen-godot-audio.py` 程序化合成，背景音乐使用音频流连续循环。
+ 
+ ## 规则要点（与 JS 对齐的切片）
+@@ -48,7 +50,7 @@
+   project.godot
+   content/content.json
+   assets/**/*.svg       # 既有角色占位与缺图回退
+-  assets/redrawn/       # 全部 29 位经典式神重绘 PNG、裁切焦点与完整提示词
++  assets/redrawn/       # 经典 29 + Wave2 9 + Wave3 19 位重绘 PNG、裁切焦点与完整提示词
+   assets/scenery/*.png  # Botcf Image 生成的四张环境背景
+   assets/fonts/*.ttf    # Noto SC 字体子集，许可见 fonts/OFL.txt
+   assets/audio/*.wav    # 程序化生成的音乐与音效
+@@ -67,7 +69,7 @@
+ - 响应优先权、指定目标的响应牌、占卜选牌已接入；烹饪集齐 / 夜幕预约 / 蓄力树等仍有单步近似或未实现效果
+ - 连击/先攻/贯通/远程/暴击已接入交战；鼓舞池支持累积和出击消耗；融合等其余资源链仍有简化
+ - AI 为贪心打分，不搜索
+-- 环境背景由 Botcf Image 生成；全部 29 位经典式神已按原版参考重绘，其他资料包使用既有 SVG 占位
++- 环境背景由 Botcf Image 生成；经典基础、Wave2、Wave3 共 57 位式神已按原版参考重绘，余下 193 位使用既有 SVG 占位
+ 
+ 
+ ## 游玩舒适度（2026-09-22）
+@@ -158,3 +160,13 @@
+ `portraits.json` 管理 Godot 专用立绘和裁切焦点；横向牌图按焦点保留人物脸部，窄肖像保持比例。内容导出继续保留原数据与 SVG，缺少重绘资源时可回退。普通与觉醒状态共用新立绘，觉醒边框仍单独绘制；本批未包含独立觉醒和各技能牌插画，其他资料包的 221 位角色仍为占位美术。
+ 
+ `verify_art.gd` 通过真实卡面控件检查完整经典包覆盖、纹理导入、角色归属、裁切范围、比例、觉醒和缺图回退，已加入完整验收脚本。`capture_redrawn.gd` 添加 `--full-classic` 参数，逐页展示 29 位并在八组战场中覆盖每位角色。[第一批验收](../output/godot-art-20261005/acceptance.md) · [经典包补齐验收与游戏截图](../output/godot-art-classic-20261005/acceptance.md)。
++
++## 2026-10-05 第二、第三资料包重绘与手感迭代
++
++第二资料包 9 位与第三资料包 19 位全部按各自本地原版卡面重绘，1024×1536 无框插画接入名录、编组、构筑、主城和战场。全部 28 位均记录原版参考、提示词、最终图片与裁切焦点；镰鼬初版偏向猫形，重试仅使用原版卡面，弃图未接入。现共 57 位使用重绘，其余 193 位保留 SVG 回退。普通/觉醒与所属技能牌仍共用角色插画。
++
++战斗加入随指针移动的目标连线、合法目标吸附、非法目标反馈和右键取消。角色进入前线、蓄势、前冲与回位使用连续演出；升勾 0.38 秒、玩家出牌 0.48 秒、基础交战 0.85 秒期间阻止重复点选、拖拽、快捷键或结束回合，动作结束自动恢复。对手出牌仍显示大卡后再继续，重开对局会取消旧演出和输入锁。
++
++命中反馈在触发时读取角色卡面的实际绘制位置，反击伤害不会留在空的回位位置。无状态角色的悬停档案会释放未挂载的空状态容器，避免反复检视累积节点。`verify_presentation.gd` 用真实 viewport 鼠标与 Enter 输入检查出击、输入锁和浮字位置；新增浮字回归在修改前源码上可复现失败。`verify_art.gd` 检查经典与两资料包全覆盖，`verify_ui.gd` 包含新的目标连线脚本。
++
++`capture_redrawn.gd -- <输出目录> --wave23` 可采集 28 位角色、两资料包编组、构筑、七组战场、合法/非法连线及命中/回位帧，使用隔离存档。[本批验收与截图](../output/godot-wave23-feel-20261005/acceptance.md)。
+--- before/godot/assets/redrawn/README.md
++++ after/godot/assets/redrawn/README.md
+@@ -1,13 +1,19 @@
+-# 经典式神重绘 · 2026-10-05
++# 式神重绘 · 2026-10-05
+ 
+-使用内置 `image_gen`，参照本地 `art-reference-official/卡面/01_式神/` 的原版角色卡面重新绘制完整经典基础包的 29 位式神。第一批完成八位，本批补齐余下 21 位。原版卡面仅作为角色外貌与画风参考；本目录 PNG 为生成的无框插画。服饰、发型、武器和配色尽量贴近对应参考，纹样与纸感保持同一方向。原版素材不复制到 Godot。
++使用内置 `image_gen`，参照本地 `art-reference-official/卡面/01_式神/` 的原版角色卡面重新绘制经典基础包 29 位、第二资料包 9 位、第三资料包 19 位，共 57 位式神。原版卡面仅作为角色外貌与画风参考；本目录 PNG 为生成的无框插画。服饰、发型、武器和配色尽量贴近对应参考，纹样与纸感保持同一方向。原版素材不复制到 Godot。
+ 
+ `prompts.json` 保存第一批八张的完整提示词；`prompts-classic-completion.json` 保存本批 21 张的提示词、参考路径和输出路径，并记录用户指出茨木童子面部问题后的修正提示词与最终选择。茨木童子的运行资源已经采用修正版，旧版没有接入游戏。
+ 
++`prompts-wave2-wave3.json` 保存后续 28 张的提示词、原版参考、生成结果与最终资源，包含镰鼬由猫形偏离重试的记录。每次重绘或重试只使用对应原版卡面作为图像输入；不将被拒绝的生成图作为新参考。最终 28 张与所选生成结果逐字节一致，按原版逐张复核后的特征记录见 [art-review.json](../../../output/godot-wave23-feel-20261005/art-review.json)。
++
+ `portraits.json` 只管理 Godot 的角色插画路径与裁切焦点。主城、名录、编组、卡牌和战场共用此映射。普通与觉醒状态使用同一张重绘，觉醒边框仍由 UI 绘制；本批没有独立觉醒插画或每张技能牌的插画。
+ 
+-新增重绘时添加 PNG 和角色 ID 对应映射即可，不需改动 JS 规则内容或导出脚本。缺少映射或纹理无法导入时回退到角色现有 SVG；现有 SVG 保留。其他资料包的 221 位角色仍使用原占位美术。
++新增重绘时添加 PNG 和角色 ID 对应映射即可，不需改动 JS 规则内容或导出脚本。缺少映射或纹理无法导入时回退到角色现有 SVG；现有 SVG 保留。余下 193 位角色仍使用原占位美术。
+ 
+ 本批新增：白狼、茨木童子、雪童子、山童、跳跳弟弟、清姬、鸩、海坊主、一目连、书翁、觉、犬神、判官、以津真天、凤凰火、青坊主、青蛙瓷器、山兔、妖琴师、青行灯、座敷童子。每位一张 1024×1536 PNG，路径为 `classic/<角色 ID>.png`。
+ 
++后续 28 位也为每位一张 1024×1536 PNG：`wave2/<角色 ID>.png` 覆盖妖狐、跳跳妹妹、不知火、小鹿男、烟烟罗、日和坊、镰鼬、鸦天狗、铃鹿御前；`wave3/<角色 ID>.png` 覆盖彼岸花、荒、久次良、辉夜姬、吸血姬、天井下、泷夜叉姬、孟婆、山风、大岳丸、鬼切、巫蛊师、樱花妖、薰、人面树、跳跳哥哥、食梦貘、御馔津、三目。
++
+ 验收：[第一批](../../../output/godot-art-20261005/acceptance.md) · [经典包补齐与茨木面部修正](../../../output/godot-art-classic-20261005/acceptance.md)。
++
++[第二、第三资料包与战斗手感验收](../../../output/godot-wave23-feel-20261005/acceptance.md)包含最终游戏截图、原版对照、素材校验与完整运行结果。
+--- before/godot/scripts/capture_redrawn.gd
++++ after/godot/scripts/capture_redrawn.gd
+@@ -194,7 +194,7 @@
+ 	battle._aim.visible = false
+ 	battle.set_process(true)
+ 	battle._on_unit_clicked(battle.gs.player(1).units[0], 1, 0)
+-	await create_timer(0.4).timeout
++	await create_timer(0.5).timeout
+ 	await _save_frame("07-attack-impact")
+ 	await _shot("08-attack-settled")
+ 
+--- before/godot/scripts/ui/battle_screen.gd
++++ after/godot/scripts/ui/battle_screen.gd
+@@ -1528,7 +1528,7 @@
+ 	_motion_tweens[widget] = tw
+ 	tw.finished.connect(func():
+ 		if _motion_tweens.get(widget) == tw: _motion_tweens.erase(widget)
+-	)
++	, CONNECT_ONE_SHOT)
+ 	return tw
+ 
+ 
+@@ -1607,7 +1607,7 @@
+ 			var delta := int(unit.hp) - int(previous.hp)
+ 			var shield_delta := int(unit.get("shield", 0)) - int(previous.get("shield", 0))
+ 			if delta < 0:
+-				_floating("%d" % delta, at, Color("ff8a72"), 32, impact)
++				_floating_on_unit("%d" % delta, widget, Color("ff8a72"), 32, impact)
+ 				_delay(impact, func():
+ 					if not is_instance_valid(widget): return
+ 					Sfx.play("hit", clampf(0.45 + -delta * 0.12, 0.45, 1.0))
+@@ -1616,20 +1616,20 @@
+ 					if not attackers.has(str(unit.uid)): _jitter(widget, 7.0)
+ 				)
+ 			elif delta > 0 and int(previous.hp) > 0:
+-				_floating("+%d" % delta, at, ThemeBuilder.OK, 28, impact)
++				_floating_on_unit("+%d" % delta, widget, ThemeBuilder.OK, 28, impact)
+ 				_delay(impact, func(): Sfx.play("heal", 0.7))
+ 			if shield_delta > 0:
+-				_floating("+%d 盾" % shield_delta, at + Vector2(0, 24), Color("9fd0ff"), 22, impact)
++				_floating_on_unit("+%d 盾" % shield_delta, widget, Color("9fd0ff"), 22, impact, Vector2(0, 24))
+ 				_delay(impact, func(): Sfx.play("shield", 0.7))
+ 			if int(unit.hp) <= 0 and int(previous.hp) > 0:
+-				_floating("气绝", at + Vector2(0, 30), ThemeBuilder.PAPER, 24, impact + 0.15)
++				_floating_on_unit("气绝", widget, ThemeBuilder.PAPER, 24, impact + 0.15, Vector2(0, 30))
+ 				_delay(impact + 0.15, func(): Sfx.play("knockout", 0.8))
+ 			elif int(unit.hp) > 0 and int(previous.hp) <= 0:
+-				_floating("归队", at, ThemeBuilder.OK, 24, impact)
++				_floating_on_unit("归队", widget, ThemeBuilder.OK, 24, impact)
+ 			if int(unit.level) > int(previous.level) and not commands.any(func(c): return c.c == "level_up"):
+ 				_ring_burst(at, ThemeBuilder.GOLD_BRIGHT, impact)
+ 			if bool(unit.get("awakened", false)) and not bool(previous.get("awakened", false)):
+-				_floating("觉醒", at, ThemeBuilder.TYPE_AWAKEN, 30, impact)
++				_floating_on_unit("觉醒", widget, ThemeBuilder.TYPE_AWAKEN, 30, impact)
+ 				_ring_burst(at, ThemeBuilder.TYPE_AWAKEN, impact)
+ 	if shake > 0.0:
+ 		_delay(impact, func(): _shake_node(_stage, shake))
+@@ -1799,6 +1799,15 @@
+ 	tw.tween_callback(func(): ring.visible = true)
+ 	tw.tween_method(func(v): ring.set_meta("t", v); ring.queue_redraw(), 0.0, 1.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+ 	tw.tween_callback(ring.queue_free)
++
++
++func _floating_on_unit(text: String, widget: Control, color: Color, font_size: int, delay: float, offset: Vector2 = Vector2.ZERO) -> void:
++	# 命中时再取绘制位置；出击者的反击伤害不能留在其回位后的空阵台。
++	_delay(delay, func():
++		if not is_instance_valid(widget) or not widget.is_inside_tree(): return
++		var at: Vector2 = _center_of(widget) + widget.visual_offset + offset
++		_floating(text, at, color, font_size)
++	)
+ 
+ 
+ func _floating(text: String, at: Vector2, color: Color, font_size: int = 27, delay: float = 0.0) -> void:
+--- before/godot/scripts/ui/ui_widgets.gd
++++ after/godot/scripts/ui/ui_widgets.gd
+@@ -178,6 +178,7 @@
+ 	if unit.get("form") is Dictionary and not (unit.form as Dictionary).is_empty():
+ 		chips.add_child(ThemeBuilder.chip("形态 · %s" % unit.form.get("name", "—"), ThemeBuilder.TYPE_FORM))
+ 	if chips.get_child_count() > 0: vbox.add_child(chips)
++	else: chips.free()
+ 	vbox.add_child(ThemeBuilder.hline())
+ 	var def := ContentLoader.unit_def(str(unit.get("id", "")))
+ 	var passive = def.get("passive", {})
+--- before/godot/scripts/verify_presentation.gd
++++ after/godot/scripts/verify_presentation.gd
+@@ -42,6 +42,7 @@
+ 	await _verify_lifted_hit_area()
+ 	await _verify_hand_and_modal()
+ 	await _verify_battle_feel()
++	await _verify_moving_hit_feedback()
+ 	await _verify_ai_lifecycle()
+ 	VerifySupport.cleanup_stores(fixture)
+ 	print("PRESENTATION checks=%d failures=%d" % [checks, failures])
+@@ -193,6 +194,59 @@
+ 	return count
+ 
+ 
++func _verify_moving_hit_feedback() -> void:
++	root.size = Vector2i(1280, 800)
++	var battle := BattleScreen.new()
++	battle.setup(ALLY, FOE, 20261010)
++	battle._ai_thinking = true
++	root.add_child(battle)
++	for player in battle.gs.players:
++		player.hand.clear()
++		player.levelUpUsed = true
++		for unit in player.units: unit.level = 3
++	var attacker: Dictionary = battle.gs.player(0).units[1]
++	var defender: Dictionary = battle.gs.player(1).units[0]
++	for unit in [attacker, defender]:
++		unit.maxHp = 10
++		unit.hp = 10
++		unit.shield = 0
++	attacker.attack = 2
++	defender.attack = 3
++	defender.front = 1
++	battle._refresh()
++	await create_timer(0.35).timeout
++	var source := battle._unit_widget(str(attacker.uid))
++	var target := battle._unit_widget(str(defender.uid))
++	# 通过真实卡面按钮输入，从准备区选中出击者，再点击敌方前线。
++	for face in [source, target]:
++		var point: Vector2 = face.get_global_rect().get_center()
++		var motion := InputEventMouseMotion.new()
++		motion.position = point
++		root.push_input(motion)
++		for pressed in [true, false]:
++			var click := InputEventMouseButton.new()
++			click.position = point
++			click.button_index = MOUSE_BUTTON_LEFT
++			click.pressed = pressed
++			root.push_input(click)
++	_check(battle.gs.command_log.size() == 1 and battle._input_locked(), "viewport clicks select an attacker and execute one attack")
++	var enter := InputEventKey.new()
++	enter.keycode = KEY_ENTER
++	enter.pressed = true
++	root.push_input(enter)
++	_check(battle.gs.current_player == 0 and battle.gs.command_log.size() == 1, "real Enter input cannot skip the active attack")
++	await create_timer(0.48).timeout
++	var labels: Array = battle._effects.get_children().filter(func(node): return node is Label and node.text == "-3" and node.has_meta("anchor"))
++	_check(labels.size() == 1, "counterattack damage appears exactly once at impact")
++	if labels.size() == 1:
++		var anchor: Vector2 = labels[0].get_meta("anchor")
++		_check(anchor.distance_to(battle._center_of(source)) > 50.0, "counterattack damage follows the lunging portrait instead of its empty resting slot")
++	await create_timer(battle._presentation_remaining() + 0.1).timeout
++	_check(attacker.hp == 7 and defender.hp == 8 and source.visual_offset.length() < 0.1 and source.z_index == 0, "the real attack settles with correct damage and a restored portrait")
++	battle.queue_free()
++	await process_frame
++
++
+ func _verify_battle_feel() -> void:
+ 	root.size = Vector2i(1280, 800)
+ 	var battle := BattleScreen.new()
+--- before/godot/scripts/verify_ui.gd
++++ after/godot/scripts/verify_ui.gd
+@@ -8,6 +8,7 @@
+ 		"res://scripts/ui/card_face.gd",
+ 		"res://scripts/ui/card_hit_area.gd",
+ 		"res://scripts/ui/battle_drop_zone.gd",
++		"res://scripts/ui/battle_aim.gd",
+ 		"res://scripts/ui/hand_fan.gd",
+ 		"res://scripts/ui/sfx.gd",
+ 		"res://scripts/ui/keyword_glossary.gd",

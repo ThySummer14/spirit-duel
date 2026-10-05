@@ -8,5 +8,10 @@ npm-debug.log*
 # 官网卡库原文镜像（含网易卡面文本，默认仅本地参考；如需入库请自行删除本条）
 /research-data/
 
+# 原版对照拼版与用户录像帧仅保留本地参考
+/output/godot-*/review/original-*.jpg
+/output/godot-*/review/*comparison*.jpg
+/output/video-reference-20261004/reference/
+
 # Godot 编辑器缓存
 godot/.godot/

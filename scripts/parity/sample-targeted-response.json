@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "name": "targeted-response-opponent-turn",
+  "seed": 777004,
+  "lineupA": ["rime", "ember", "basalt", "lumen"],
+  "lineupB": ["yaodaoji", "jutun-tongzi", "bingyong", "taohuayao"],
+  "notes": "对手回合打出出击牌，仅持有需指定目标的霜障也应打开响应窗口，并允许玩家选择友方角色出牌。",
+  "injectHand": [
+    { "player": 0, "card": "hoar-barrier" },
+    { "player": 1, "card": "c10101" }
+  ],
+  "commands": [
+    { "seq": 1, "type": "end-turn", "player": 0 },
+    { "seq": 2, "type": "level-up", "player": 1, "unit": 1 },
+    { "seq": 3, "type": "play-card", "player": 1, "card": "c10101" },
+    { "seq": 4, "type": "play-card", "player": 0, "card": "hoar-barrier", "target": "player:rime" }
+  ]
+}

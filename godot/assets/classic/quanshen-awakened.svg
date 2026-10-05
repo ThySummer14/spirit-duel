@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">犬神 · 觉醒相</title>
+  <desc id="desc">犬首与太刀：忠犬昂首，太刀立于身侧。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="quanshen-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14100c"/>
+      <stop offset=".55" stop-color="#201814"/>
+      <stop offset="1" stop-color="#0e0a08"/>
+    </linearGradient>
+    <radialGradient id="quanshen-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#d0a060" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c07830" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c07830" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="quanshen-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e8d0b0"/>
+      <stop offset=".55" stop-color="#b08860"/>
+      <stop offset="1" stop-color="#c07830"/>
+    </linearGradient>
+    <linearGradient id="quanshen-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c07830"/>
+      <stop offset="1" stop-color="#603810"/>
+    </linearGradient>
+    <linearGradient id="quanshen-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#quanshen-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#quanshen-halo)"/>
+  <path d="M72 78 55 48l32 20M128 78l17-30-32 20" fill="url(#quanshen-body)" stroke="#3a2818" stroke-width="1.5"/>
+  <ellipse cx="100" cy="112" rx="34" ry="38" fill="url(#quanshen-body)" opacity=".85" stroke="#3a2818" stroke-width="1.8"/>
+  <ellipse cx="84" cy="108" rx="7" ry="5" fill="#2a1808" transform="rotate(-10 84 108)"/>
+  <ellipse cx="116" cy="108" rx="7" ry="5" fill="#2a1808" transform="rotate(10 116 108)"/>
+  <circle cx="86" cy="107" r="2.2" fill="#e8b060"/><circle cx="114" cy="107" r="2.2" fill="#e8b060"/>
+  <path d="M100 118v8M94 128c4 4 8 4 12 0" stroke="#3a2818" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M88 138c8 8 16 8 24 0" stroke="#3a2818" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M148 55 162 48l-2 80-10 4Z" fill="url(#quanshen-acc)" stroke="#3a2818" stroke-width="1.2"/>
+  <path d="M152 55v72" stroke="url(#quanshen-gold)" stroke-width="1" opacity=".6"/>
+  <path d="M144 132h22l-2 10h-18Z" fill="url(#quanshen-gold)" stroke="#3a2818" stroke-width="1"/>
+  <path d="M152 142v22" stroke="#5c3820" stroke-width="3" stroke-linecap="round"/>
+  <path d="M70 160c-8 8-12 20-10 32h80c2-12-2-24-10-32-8 8-52 8-60 0Z" fill="url(#quanshen-body)" opacity=".5"/>
+<g fill="url(#quanshen-acc)">
+    <circle cx="40" cy="72" r="2" opacity=".55"/>
+    <circle cx="168" cy="90" r="1.8" opacity=".5"/>
+    <circle cx="34" cy="140" r="1.8" opacity=".55"/>
+    <circle cx="172" cy="160" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="32" r="1.5" opacity=".45"/>
+    <circle cx="56" cy="192" r="1.5" opacity=".5"/>
+    <circle cx="140" cy="196" r="1.6" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#quanshen-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#quanshen-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#quanshen-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#quanshen-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#quanshen-gold)"/>
+    <g stroke="url(#quanshen-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#c07830" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

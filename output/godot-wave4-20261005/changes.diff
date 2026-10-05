@@ -1,0 +1,348 @@
+--- before/README.md
++++ after/README.md
+@@ -222,3 +222,5 @@
+ ```
+ 
+ Godot 可行性验证入口：`scripts/export-godot-content.mjs` 导出原创内容，`prototypes/godot-content-probe/verify.gd` 在隔离工程中验证内容契约；不参与浏览器运行、不执行卡牌规则。详见 [引擎方向](ENGINE_DIRECTION.md)。
++
++同日补齐第四资料包（吉运善恶）全部 26 位原版参照重绘，Godot 重绘覆盖增至 83 位。逐张设置头像焦点，扩展完整资料包美术检查与按资料包截图采集；此前 57 张图片与映射保持一致。19 张实际游戏截图、原版对照及完整运行结果见 [第四资料包验收](output/godot-wave4-20261005/acceptance.md)。
+--- before/godot/README.md
++++ after/godot/README.md
+@@ -50,7 +50,7 @@
+   project.godot
+   content/content.json
+   assets/**/*.svg       # 既有角色占位与缺图回退
+-  assets/redrawn/       # 经典 29 + Wave2 9 + Wave3 19 位重绘 PNG、裁切焦点与完整提示词
++  assets/redrawn/       # 经典 29 + Wave2 9 + Wave3 19 + Wave4 26 位重绘 PNG、裁切焦点与完整提示词
+   assets/scenery/*.png  # Botcf Image 生成的四张环境背景
+   assets/fonts/*.ttf    # Noto SC 字体子集，许可见 fonts/OFL.txt
+   assets/audio/*.wav    # 程序化生成的音乐与音效
+@@ -69,7 +69,7 @@
+ - 响应优先权、指定目标的响应牌、占卜选牌已接入；烹饪集齐 / 夜幕预约 / 蓄力树等仍有单步近似或未实现效果
+ - 连击/先攻/贯通/远程/暴击已接入交战；鼓舞池支持累积和出击消耗；融合等其余资源链仍有简化
+ - AI 为贪心打分，不搜索
+-- 环境背景由 Botcf Image 生成；经典基础、Wave2、Wave3 共 57 位式神已按原版参考重绘，余下 193 位使用既有 SVG 占位
++- 环境背景由 Botcf Image 生成；经典基础、Wave2、Wave3、Wave4 共 83 位式神已按原版参考重绘，余下 167 位使用既有 SVG 占位
+ 
+ 
+ ## 游玩舒适度（2026-09-22）
+@@ -170,3 +170,15 @@
+ 命中反馈在触发时读取角色卡面的实际绘制位置，反击伤害不会留在空的回位位置。无状态角色的悬停档案会释放未挂载的空状态容器，避免反复检视累积节点。`verify_presentation.gd` 用真实 viewport 鼠标与 Enter 输入检查出击、输入锁和浮字位置；新增浮字回归在修改前源码上可复现失败。`verify_art.gd` 检查经典与两资料包全覆盖，`verify_ui.gd` 包含新的目标连线脚本。
+ 
+ `capture_redrawn.gd -- <输出目录> --wave23` 可采集 28 位角色、两资料包编组、构筑、七组战场、合法/非法连线及命中/回位帧，使用隔离存档。[本批验收与截图](../output/godot-wave23-feel-20261005/acceptance.md)。
++
++## 2026-10-05 第四资料包重绘
++
++第四资料包（吉运善恶）全部 26 位按各自原版卡面参考重绘，1024×1536 PNG 与角色独立焦点接入 Godot，覆盖增至 83 位，余下 167 位保留 SVG。提示词和选图记录在 `assets/redrawn/prompts-wave4.json`；普通、觉醒与所属技能牌继续共用主人立绘。鬼使黑/鬼使白条目按现有原版卡面采用鬼使黑形态，本轮没有独立鬼使白图。
++
++`verify_art.gd` 新增第四资料包完整覆盖检查。`capture_redrawn.gd` 支持 `--pack=<资料包 ID>`，自动采集全部角色画册、一张编组、每四位一张构筑与一组战场；第四资料包输出 19 张，使用隔离存档。
++
++```sh
++/Users/thysummer/apps/Godot.app/Contents/MacOS/Godot --path godot --script res://scripts/capture_redrawn.gd -- /绝对路径/截图目录 --pack=wave4
++```
++
++[第四资料包验收与游戏截图](../output/godot-wave4-20261005/acceptance.md)包含 1755 项美术检查、完整游戏验收、来源与旧资源校验。
+--- before/godot/assets/redrawn/README.md
++++ after/godot/assets/redrawn/README.md
+@@ -1,6 +1,6 @@
+ # 式神重绘 · 2026-10-05
+ 
+-使用内置 `image_gen`，参照本地 `art-reference-official/卡面/01_式神/` 的原版角色卡面重新绘制经典基础包 29 位、第二资料包 9 位、第三资料包 19 位，共 57 位式神。原版卡面仅作为角色外貌与画风参考；本目录 PNG 为生成的无框插画。服饰、发型、武器和配色尽量贴近对应参考，纹样与纸感保持同一方向。原版素材不复制到 Godot。
++使用内置 `image_gen`，参照本地 `art-reference-official/卡面/01_式神/` 的原版角色卡面重新绘制经典基础包 29 位、第二资料包 9 位、第三资料包 19 位、第四资料包 26 位，共 83 位式神。原版卡面仅作为角色外貌与画风参考；本目录 PNG 为生成的无框插画。服饰、发型、武器和配色尽量贴近对应参考，纹样与纸感保持同一方向。原版素材不复制到 Godot。
+ 
+ `prompts.json` 保存第一批八张的完整提示词；`prompts-classic-completion.json` 保存本批 21 张的提示词、参考路径和输出路径，并记录用户指出茨木童子面部问题后的修正提示词与最终选择。茨木童子的运行资源已经采用修正版，旧版没有接入游戏。
+ 
+@@ -8,7 +8,7 @@
+ 
+ `portraits.json` 只管理 Godot 的角色插画路径与裁切焦点。主城、名录、编组、卡牌和战场共用此映射。普通与觉醒状态使用同一张重绘，觉醒边框仍由 UI 绘制；本批没有独立觉醒插画或每张技能牌的插画。
+ 
+-新增重绘时添加 PNG 和角色 ID 对应映射即可，不需改动 JS 规则内容或导出脚本。缺少映射或纹理无法导入时回退到角色现有 SVG；现有 SVG 保留。余下 193 位角色仍使用原占位美术。
++新增重绘时添加 PNG 和角色 ID 对应映射即可，不需改动 JS 规则内容或导出脚本。缺少映射或纹理无法导入时回退到角色现有 SVG；现有 SVG 保留。余下 167 位角色仍使用原占位美术。
+ 
+ 本批新增：白狼、茨木童子、雪童子、山童、跳跳弟弟、清姬、鸩、海坊主、一目连、书翁、觉、犬神、判官、以津真天、凤凰火、青坊主、青蛙瓷器、山兔、妖琴师、青行灯、座敷童子。每位一张 1024×1536 PNG，路径为 `classic/<角色 ID>.png`。
+ 
+@@ -17,3 +17,7 @@
+ 验收：[第一批](../../../output/godot-art-20261005/acceptance.md) · [经典包补齐与茨木面部修正](../../../output/godot-art-classic-20261005/acceptance.md)。
+ 
+ [第二、第三资料包与战斗手感验收](../../../output/godot-wave23-feel-20261005/acceptance.md)包含最终游戏截图、原版对照、素材校验与完整运行结果。
++
++第四资料包（吉运善恶）26 位为每位一张 1024×1536 PNG，位于 `wave4/<角色 ID>.png`，完整提示词、原版输入、所选生成文件及焦点见 `prompts-wave4.json`。每张只参考对应原版，26 张运行图片与所选生成结果逐字节一致。原版 `19400_鬼使黑_鬼使白.png` 实际显示鬼使黑，本轮沿用黑衣形态；没有凭空补画鬼使白。
++
++[第四资料包验收](../../../output/godot-wave4-20261005/acceptance.md)记录原版对照、逐张特征复核、19 张实际游戏截图与完整验证。此前 57 张图片及其映射、焦点均保留。
+--- before/godot/assets/redrawn/portraits.json
++++ after/godot/assets/redrawn/portraits.json
+@@ -399,6 +399,188 @@
+         0.35,
+         0.38
+       ]
++    },
++    "jieshen": {
++      "path": "assets/redrawn/wave4/jieshen.png",
++      "focus": [
++        0.52,
++        0.215
++      ]
++    },
++    "gitongwan": {
++      "path": "assets/redrawn/wave4/gitongwan.png",
++      "focus": [
++        0.52,
++        0.17
++      ]
++    },
++    "banruo": {
++      "path": "assets/redrawn/wave4/banruo.png",
++      "focus": [
++        0.58,
++        0.2
++      ]
++    },
++    "tieshu": {
++      "path": "assets/redrawn/wave4/tieshu.png",
++      "focus": [
++        0.5,
++        0.285
++      ]
++    },
++    "hetong": {
++      "path": "assets/redrawn/wave4/hetong.png",
++      "focus": [
++        0.58,
++        0.265
++      ]
++    },
++    "zhuiyueshen": {
++      "path": "assets/redrawn/wave4/zhuiyueshen.png",
++      "focus": [
++        0.405,
++        0.2
++      ]
++    },
++    "baimugui": {
++      "path": "assets/redrawn/wave4/baimugui.png",
++      "focus": [
++        0.47,
++        0.205
++      ]
++    },
++    "wushizhiling": {
++      "path": "assets/redrawn/wave4/wushizhiling.png",
++      "focus": [
++        0.59,
++        0.17
++      ]
++    },
++    "guishiheibai": {
++      "path": "assets/redrawn/wave4/guishiheibai.png",
++      "focus": [
++        0.38,
++        0.19
++      ]
++    },
++    "huoqumo": {
++      "path": "assets/redrawn/wave4/huoqumo.png",
++      "focus": [
++        0.48,
++        0.23
++      ]
++    },
++    "yuanjiulanghu": {
++      "path": "assets/redrawn/wave4/yuanjiulanghu.png",
++      "focus": [
++        0.6,
++        0.16
++      ]
++    },
++    "yingxueji": {
++      "path": "assets/redrawn/wave4/yingxueji.png",
++      "focus": [
++        0.6,
++        0.15
++      ]
++    },
++    "jingliuliqian": {
++      "path": "assets/redrawn/wave4/jingliuliqian.png",
++      "focus": [
++        0.65,
++        0.15
++      ]
++    },
++    "egui": {
++      "path": "assets/redrawn/wave4/egui.png",
++      "focus": [
++        0.65,
++        0.26
++      ]
++    },
++    "duyanxiaoseng": {
++      "path": "assets/redrawn/wave4/duyanxiaoseng.png",
++      "focus": [
++        0.61,
++        0.17
++      ]
++    },
++    "mianqiling": {
++      "path": "assets/redrawn/wave4/mianqiling.png",
++      "focus": [
++        0.55,
++        0.17
++      ]
++    },
++    "jiumingmao": {
++      "path": "assets/redrawn/wave4/jiumingmao.png",
++      "focus": [
++        0.38,
++        0.19
++      ]
++    },
++    "axiuluo": {
++      "path": "assets/redrawn/wave4/axiuluo.png",
++      "focus": [
++        0.5,
++        0.15
++      ]
++    },
++    "bayiqidashe": {
++      "path": "assets/redrawn/wave4/bayiqidashe.png",
++      "focus": [
++        0.52,
++        0.11
++      ]
++    },
++    "jinyuji": {
++      "path": "assets/redrawn/wave4/jinyuji.png",
++      "focus": [
++        0.57,
++        0.17
++      ]
++    },
++    "huangkulou": {
++      "path": "assets/redrawn/wave4/huangkulou.png",
++      "focus": [
++        0.665,
++        0.335
++      ]
++    },
++    "gouchang": {
++      "path": "assets/redrawn/wave4/gouchang.png",
++      "focus": [
++        0.5,
++        0.4
++      ]
++    },
++    "dishitian": {
++      "path": "assets/redrawn/wave4/dishitian.png",
++      "focus": [
++        0.815,
++        0.165
++      ]
++    },
++    "xieji": {
++      "path": "assets/redrawn/wave4/xieji.png",
++      "focus": [
++        0.58,
++        0.18
++      ]
++    },
++    "yuzaoqian": {
++      "path": "assets/redrawn/wave4/yuzaoqian.png",
++      "focus": [
++        0.53,
++        0.18
++      ]
++    },
++    "huibishou": {
++      "path": "assets/redrawn/wave4/huibishou.png",
++      "focus": [
++        0.525,
++        0.225
++      ]
+     }
+   }
+ }
+--- before/godot/scripts/capture_redrawn.gd
++++ after/godot/scripts/capture_redrawn.gd
+@@ -17,6 +17,7 @@
+ var _current: Control
+ var _full_classic := false
+ var _wave23 := false
++var _pack := ""
+ 
+ func _initialize() -> void:
+ 	_fixture = VerifySupport.isolate_stores()
+@@ -24,6 +25,8 @@
+ 	if not args.is_empty(): _directory = args[0]
+ 	_full_classic = args.size() > 1 and args[1] == "--full-classic"
+ 	_wave23 = args.size() > 1 and args[1] == "--wave23"
++	if args.size() > 1 and args[1].begins_with("--pack="):
++		_pack = args[1].trim_prefix("--pack=")
+ 	DirAccess.make_dir_recursive_absolute(_directory)
+ 	root.size = Vector2i(1280, 800)
+ 	root.theme = ThemeBuilder.build_theme()
+@@ -63,6 +66,15 @@
+ 		face.size = Vector2(220, 320)
+ 
+ func _run() -> void:
++	if _pack != "":
++		if ContentLoader.units_in_pack(_pack).is_empty():
++			printerr("CAPTURE_UNKNOWN_PACK ", _pack)
++			VerifySupport.cleanup_stores(_fixture)
++			quit(1)
++			return
++		await _run_pack(_pack)
++		await _finish()
++		return
+ 	if _wave23:
+ 		await _run_wave23()
+ 		await _finish()
+@@ -198,6 +210,35 @@
+ 	await _save_frame("07-attack-impact")
+ 	await _shot("08-attack-settled")
+ 
++func _run_pack(pack: String) -> void:
++	var ids: Array = ContentLoader.units_in_pack(pack).map(func(unit): return unit.id)
++	for offset in range(0, ids.size(), 8):
++		_gallery(ids.slice(offset, mini(offset + 8, ids.size())), "%s · %d 位重绘 · 第 %d 页" % [ContentLoader.pack_label(pack), ids.size(), offset / 8 + 1])
++		await _shot("01-%s-portraits-%02d" % [pack, offset / 8 + 1])
++	var form := FormationScreen.new()
++	_mount(form)
++	form.set_preselect(ids.slice(0, 4))
++	form._pack_picker.select(ContentLoader.pack_ids().find(pack))
++	form._pack_picker.item_selected.emit(form._pack_picker.selected)
++	form._show_unit(ContentLoader.unit_def(ids[0]))
++	await _shot("02-%s-formation" % pack)
++	for offset in range(0, ids.size(), 4):
++		var deck := DeckBuilder.new()
++		deck.setup(ids[offset])
++		_mount(deck)
++		await _shot("03-%s-deck-%02d" % [pack, offset / 4 + 1])
++		var ally: Array = []
++		var foe: Array = []
++		for i in 4:
++			ally.append(ids[(offset + i) % ids.size()])
++			foe.append(ids[(offset + i + 4) % ids.size()])
++		var battle := BattleScreen.new()
++		battle.setup(ally, foe, 20261005 + offset)
++		battle._ai_thinking = true
++		_mount(battle)
++		await _shot("04-%s-battle-%02d" % [pack, offset / 4 + 1])
++
++
+ func _finish() -> void:
+ 	root.remove_child(_current)
+ 	_current.free()
+--- before/godot/scripts/verify_art.gd
++++ after/godot/scripts/verify_art.gd
+@@ -24,9 +24,10 @@
+ 	var classic := ContentLoader.units_in_pack("classic")
+ 	_check(classic.size() == 29, "classic content contains all 29 units")
+ 	_check(classic.all(func(unit): return entries.has(unit.id)), "every classic unit has a redrawn portrait")
+-	for pack in ["wave2", "wave3"]:
++	var expected_rosters := {"wave2": 9, "wave3": 19, "wave4": 26}
++	for pack in expected_rosters:
+ 		var units := ContentLoader.units_in_pack(pack)
+-		_check(units.size() == (9 if pack == "wave2" else 19), "%s contains its expected complete roster" % pack)
++		_check(units.size() == expected_rosters[pack], "%s contains its expected complete roster" % pack)
+ 		_check(units.all(func(unit): return entries.has(unit.id)), "every %s unit has a redrawn portrait" % pack)
+ 	var seen := {}
+ 	for uid in entries:

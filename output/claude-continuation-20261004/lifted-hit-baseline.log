@@ -1,0 +1,4 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PRESENTATION_FAIL the visibly lifted card can be clicked above its original hit rectangle
+PRESENTATION checks=96 failures=1

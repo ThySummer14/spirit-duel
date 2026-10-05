@@ -1,0 +1,21 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content
+== godot verify ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_CONTENT_OK units=250 playable=250 cards=2114
+GODOT_MATCH_OK commands=17 log=59 turn=5 winner=-1 seed=20260920
+COMMAND_LOG [{"a":{"unit":1},"c":"level_up","p":0,"r":2987955158,"t":1},{"a":{"card":"flash-thrust","hand":1,"target":null},"c":"play_card","p":0,"r":2987955158,"t":1},{"a":{"bonus":2,"target":null,"unit":0},"c":"assault","p":0,"r":2987955158,"t":1},{"
+GODOT_VERT_SLICE_OK
+== godot verify_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Cannot call non-static function "name_to_tag()" on the class "TextServer" directly. Make an instance instead.
+          at: GDScript::reload (res://scripts/ui/theme_builder.gd:84)
+          GDScript backtrace (most recent call first):
+              [0] _init (res://scripts/verify_ui.gd:23)
+ERROR: Failed to load script "res://scripts/ui/theme_builder.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:50)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://scripts/verify_ui.gd:23)
+UI_LOAD_FAIL res://scripts/ui/theme_builder.gd

@@ -1,0 +1,1563 @@
+[
+  {
+    "id": "yatiangou-qiuye",
+    "name": "鸦天狗·秋叶",
+    "role": "642",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64200_鸦天狗·秋叶.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/yatiangou-qiuye.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long white hair, pale feathered cloak, dark teal-black gloves, red-orange braided ornaments and pointed red-beak mask, long black weapon and large crow feathers. Use this autumn variant only.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 鸦天狗·秋叶: Long white hair, pale feathered cloak, dark teal-black gloves, red-orange braided ornaments and pointed red-beak mask, long black weapon and large crow feathers. Use this autumn variant only.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e00d1907-e58c-45a4-a8eb-fb790f1a6ed9.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e00d1907-e58c-45a4-a8eb-fb790f1a6ed9.png",
+    "focus": [
+      0.481,
+      0.254
+    ]
+  },
+  {
+    "id": "shuweng-zhixing",
+    "name": "书翁·志行",
+    "role": "643",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64300_书翁·志行.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/shuweng-zhixing.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long white-haired scholar in yellow-green and white wide sleeves and black trousers, books or geometric scrolls, seated beside the original large gray long-legged crane-like bird. Preserve both scholar and bird.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 书翁·志行: Long white-haired scholar in yellow-green and white wide sleeves and black trousers, books or geometric scrolls, seated beside the original large gray long-legged crane-like bird. Preserve both scholar and bird.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4d5a5cd3-5450-4f57-8f67-be183884f7f0.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4d5a5cd3-5450-4f57-8f67-be183884f7f0.png",
+    "focus": [
+      0.683,
+      0.237
+    ]
+  },
+  {
+    "id": "huojinshen",
+    "name": "祸津神",
+    "role": "644",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64400_祸津神.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/huojinshen.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Floating pale long white-haired woman in white gray and light blue snowflake-patterned flowing robe, small red details and blue footwear, pale sigil in hand, blue circular lattice behind. Preserve delicate original silhouette.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 祸津神: Floating pale long white-haired woman in white gray and light blue snowflake-patterned flowing robe, small red details and blue footwear, pale sigil in hand, blue circular lattice behind. Preserve delicate original silhouette.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1c9df5d7-2fd4-41d7-a19b-e23b4ddb4965.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1c9df5d7-2fd4-41d7-a19b-e23b4ddb4965.png",
+    "focus": [
+      0.517,
+      0.253
+    ]
+  },
+  {
+    "id": "sibing",
+    "name": "四饼",
+    "role": "645",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64500_四饼.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/sibing.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Anthropomorphic black orange white calico cat with golden eyes, ocher haori and brown lower garment, wooden abacus-like object, with original small white gray feline companion. Keep an actual cat face and both cats.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 四饼: Anthropomorphic black orange white calico cat with golden eyes, ocher haori and brown lower garment, wooden abacus-like object, with original small white gray feline companion. Keep an actual cat face and both cats.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-11e7e5d0-47eb-4f6c-bea9-cc7670c9f901.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-11e7e5d0-47eb-4f6c-bea9-cc7670c9f901.png",
+    "focus": [
+      0.485,
+      0.218
+    ]
+  },
+  {
+    "id": "dayueling-yuxin",
+    "name": "大岳丸·渝心",
+    "role": "646",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64600_大岳丸·渝心.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/dayueling-yuxin.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long black-haired adult male in dark high-collared gray-black cloak and black trousers, red waist cords, long massive black jagged weapon, pale gold-white circular backdrop. Preserve this specific variant.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 大岳丸·渝心: Long black-haired adult male in dark high-collared gray-black cloak and black trousers, red waist cords, long massive black jagged weapon, pale gold-white circular backdrop. Preserve this specific variant.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5c2fa1c5-a7fe-4451-83f3-da1e2d3a3aeb.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5c2fa1c5-a7fe-4451-83f3-da1e2d3a3aeb.png",
+    "focus": [
+      0.512,
+      0.218
+    ]
+  },
+  {
+    "id": "chili",
+    "name": "螭璃",
+    "role": "647",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64700_螭璃.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/chili.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long pink-haired horned dragon woman in black-red upper garment and teal patterned skirt, pale green translucent flaring lower drapery, enormous red dragon tail curling around her. Preserve horns and dragon tail.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 螭璃: Long pink-haired horned dragon woman in black-red upper garment and teal patterned skirt, pale green translucent flaring lower drapery, enormous red dragon tail curling around her. Preserve horns and dragon tail.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4fa5a0b6-1085-40b5-91d7-0847b4a117fa.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4fa5a0b6-1085-40b5-91d7-0847b4a117fa.png",
+    "focus": [
+      0.478,
+      0.184
+    ]
+  },
+  {
+    "id": "jieshen-suiyuan",
+    "name": "缘结神·遂愿",
+    "role": "648",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64800_缘结神·遂愿.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/jieshen-suiyuan.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Black-haired woman with flower bun in white-red flowing robe seated cross-legged, golden little box, red and gold tying ribbons, bottle and round hanging ornaments, red circular backdrop. Preserve this specific variant.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 缘结神·遂愿: Black-haired woman with flower bun in white-red flowing robe seated cross-legged, golden little box, red and gold tying ribbons, bottle and round hanging ornaments, red circular backdrop. Preserve this specific variant.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c22babbd-4d4f-4245-b002-f13946b3d882.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c22babbd-4d4f-4245-b002-f13946b3d882.png",
+    "focus": [
+      0.549,
+      0.198
+    ]
+  },
+  {
+    "id": "tieshu-haojia",
+    "name": "铁鼠·豪贾",
+    "role": "649",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64900_铁鼠·豪贾.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/tieshu-haojia.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Gray-green short-haired mouse-eared youth with green gold and white outfit, short lower garment, brown long mouse tail and dark footwear, holding original green-gold abacus or box. Keep mouse identity and original props.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 铁鼠·豪贾: Gray-green short-haired mouse-eared youth with green gold and white outfit, short lower garment, brown long mouse tail and dark footwear, holding original green-gold abacus or box. Keep mouse identity and original props.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1c1a49f7-9bbb-44f4-8245-dbed50ede0d4.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1c1a49f7-9bbb-44f4-8245-dbed50ede0d4.png",
+    "focus": [
+      0.532,
+      0.224
+    ]
+  },
+  {
+    "id": "yijin-qianxun",
+    "name": "以津真天·千寻",
+    "role": "650",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65000_以津真天·千寻.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/yijin-qianxun.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Short violet-haired avian woman in white-gold wide sleeves, pale violet skirt, green floral crown, gold bells, dark purple-black wings and enormous original black-white tail feathers. Preserve feathered legs and avian silhouette.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 以津真天·千寻: Short violet-haired avian woman in white-gold wide sleeves, pale violet skirt, green floral crown, gold bells, dark purple-black wings and enormous original black-white tail feathers. Preserve feathered legs and avian silhouette.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4937ac05-3f15-4372-8556-a6344e3f40dc.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4937ac05-3f15-4372-8556-a6344e3f40dc.png",
+    "focus": [
+      0.452,
+      0.201
+    ]
+  },
+  {
+    "id": "baizangzhu-lixin",
+    "name": "白藏主·砺心",
+    "role": "651",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65100_白藏主·砺心.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/baizangzhu-lixin.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long white pale violet-haired fox-eared figure with red inner ears, black deep-green flowing outer robe and long white drape, silver-gold waist ornament, fan-like black object, huge black-white fox tail and original fox spirit form behind. Use this variant only.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 白藏主·砺心: Long white pale violet-haired fox-eared figure with red inner ears, black deep-green flowing outer robe and long white drape, silver-gold waist ornament, fan-like black object, huge black-white fox tail and original fox spirit form behind. Use this variant only.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4bb1de6f-57b4-443a-ab98-8178c7256213.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4bb1de6f-57b4-443a-ab98-8178c7256213.png",
+    "focus": [
+      0.619,
+      0.223
+    ]
+  },
+  {
+    "id": "guijinyang",
+    "name": "鬼金羊",
+    "role": "652",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65200_鬼金羊.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/guijinyang.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Dark short-haired adult man with long black goat horns, bare muscular shoulders and torso, black-green broad trousers, colorful tassels, floating cross-legged, original black-green goat spirit heads and gold geometry. Preserve masculine goat deity identity.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 鬼金羊: Dark short-haired adult man with long black goat horns, bare muscular shoulders and torso, black-green broad trousers, colorful tassels, floating cross-legged, original black-green goat spirit heads and gold geometry. Preserve masculine goat deity identity.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-99a6da25-1293-4af0-a224-559c7562eb1b.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-99a6da25-1293-4af0-a224-559c7562eb1b.png",
+    "focus": [
+      0.613,
+      0.198
+    ]
+  },
+  {
+    "id": "longche",
+    "name": "胧车",
+    "role": "653",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65300_胧车.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/longche.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "The main subject is the original enormous black wooden gold-trimmed Japanese spirit carriage with a white demon face, gold wheels and bells, red hanging ornaments and numerous small green frogs, blue smoke. Preserve the carriage and its frog grouping; do not replace with a humanoid.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 胧车: The main subject is the original enormous black wooden gold-trimmed Japanese spirit carriage with a white demon face, gold wheels and bells, red hanging ornaments and numerous small green frogs, blue smoke. Preserve the carriage and its frog grouping; do not replace with a humanoid.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-669407e9-dee2-45b5-a2c2-50fffa3cfa18.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-669407e9-dee2-45b5-a2c2-50fffa3cfa18.png",
+    "focus": [
+      0.478,
+      0.381
+    ]
+  },
+  {
+    "id": "pinfashen",
+    "name": "贫乏神",
+    "role": "657",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65700_贫乏神.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/pinfashen.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long pink-haired youthful goddess in pale pink lavender and white flowing robe, little dark hat with gold ornaments, large pink circular ornament overhead, original white round mask-like object in her hands, bell and pouch details. Preserve original restrained palette.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 贫乏神: Long pink-haired youthful goddess in pale pink lavender and white flowing robe, little dark hat with gold ornaments, large pink circular ornament overhead, original white round mask-like object in her hands, bell and pouch details. Preserve original restrained palette.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0f85e1bb-b563-4b51-8fc6-3273e47be46a.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0f85e1bb-b563-4b51-8fc6-3273e47be46a.png",
+    "focus": [
+      0.588,
+      0.214
+    ]
+  },
+  {
+    "id": "longjue",
+    "name": "龙珏",
+    "role": "654",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65400_龙珏.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/longjue.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long black-haired horn-crowned woman in white and teal-green wide sleeves and long drapery, original turquoise jade dragon forms flanking her and gold claw-like jade ornaments by hands. Preserve woman and jade dragons.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 龙珏: Long black-haired horn-crowned woman in white and teal-green wide sleeves and long drapery, original turquoise jade dragon forms flanking her and gold claw-like jade ornaments by hands. Preserve woman and jade dragons.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fecefdf7-d65f-4a07-96c3-f3859e115015.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-219aa0d3-fad4-46da-b634-0766ef294fc8.png",
+    "revisions": [
+      {
+        "input": "art-reference-official/卡面/01_式神/65400_龙珏.png",
+        "inputPolicy": "original-reference-only",
+        "reason": "Blue printed element badge copied below feet; regenerate solely from original reference with no floating icon.",
+        "rejected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fecefdf7-d65f-4a07-96c3-f3859e115015.png",
+        "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-219aa0d3-fad4-46da-b634-0766ef294fc8.png",
+        "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 龙珏: Long black-haired horn-crowned woman in white and teal-green wide sleeves and long drapery, original turquoise jade dragon forms flanking her and gold claw-like jade ornaments by hands. Preserve woman and jade dragons.\n\n\nCRITICAL CLEAN ILLUSTRATION REVISION: The tiny colored element glyph below the character in the original reference is printed card UI, not part of this character or scene. Omit it entirely. NO floating diamond, NO blue/red/purple badge, NO tiny colored emblem, NO crystal-shaped icon near feet or lower center. The entire bottom region must instead be continuous natural painted scenery, drapery, mist, or flowers with no isolated central token. Preserve this precise character's original face, hair, costume, pose, palette, and scene companions from the supplied ORIGINAL reference. Paint an independent full-bleed watercolor illustration; no card printing, no level/rarity/type symbols. Use only this original reference; do not interpret previous generated results as reference."
+      }
+    ],
+    "focus": [
+      0.507,
+      0.125
+    ]
+  },
+  {
+    "id": "fengyangjun",
+    "name": "封阳君",
+    "role": "655",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65500_封阳君.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/fengyangjun.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long white-haired adult swordsman in white black and gold clothing and large white shoulder armor, black drapery, original long sword and white tiger beside him, ink mountains and pale gold moon. Preserve tiger companion.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 封阳君: Long white-haired adult swordsman in white black and gold clothing and large white shoulder armor, black drapery, original long sword and white tiger beside him, ink mountains and pale gold moon. Preserve tiger companion.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-dd37d081-5f0a-4b03-8482-7f6cc7832640.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-dd37d081-5f0a-4b03-8482-7f6cc7832640.png",
+    "focus": [
+      0.446,
+      0.231
+    ]
+  },
+  {
+    "id": "jintianyuzaoqian",
+    "name": "烬天玉藻前",
+    "role": "660",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66000_烬天玉藻前.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/jintianyuzaoqian.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long dark-red and black-haired fox deity woman in elaborate white-red-black flowing robes with gold round ornaments, original small foxes and fox-mask companions below, original curling cloud and wooden structure shapes. Preserve this precise red-black-white incarnation.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 烬天玉藻前: Long dark-red and black-haired fox deity woman in elaborate white-red-black flowing robes with gold round ornaments, original small foxes and fox-mask companions below, original curling cloud and wooden structure shapes. Preserve this precise red-black-white incarnation.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4f5b159d-cbb4-4bfe-901f-36034f03e6f9.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4f5b159d-cbb4-4bfe-901f-36034f03e6f9.png",
+    "focus": [
+      0.506,
+      0.176
+    ]
+  },
+  {
+    "id": "chanxinyunwaijing",
+    "name": "禅心云外镜",
+    "role": "656",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65600_禅心云外镜.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/chanxinyunwaijing.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Short white-haired adult male in black-gold long monk robes and white scroll-like inner drape, gold diamond mirror frame behind, original black and white dragon-mirror spirits circling his arms. Keep both opposite spirits and standing pose.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 禅心云外镜: Short white-haired adult male in black-gold long monk robes and white scroll-like inner drape, gold diamond mirror frame behind, original black and white dragon-mirror spirits circling his arms. Keep both opposite spirits and standing pose.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0ecb2dd6-e1f3-4e01-b0ec-c66c9ad812dc.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0ecb2dd6-e1f3-4e01-b0ec-c66c9ad812dc.png",
+    "focus": [
+      0.506,
+      0.119
+    ]
+  },
+  {
+    "id": "zhaocaimao",
+    "name": "招财猫",
+    "role": "659",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65900_招财猫.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/zhaocaimao.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Orange-and-white cat-eared youthful humanoid, white furry sleeves and collar, red-orange wide trousers, green ties and gold-red coin strings, raised feline hand, smiling cross-legged pose with blue flame. Preserve original youthful proportions.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 招财猫: Orange-and-white cat-eared youthful humanoid, white furry sleeves and collar, red-orange wide trousers, green ties and gold-red coin strings, raised feline hand, smiling cross-legged pose with blue flame. Preserve original youthful proportions.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-029d40bd-b4a0-4446-8718-0bea691596a1.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-029d40bd-b4a0-4446-8718-0bea691596a1.png",
+    "focus": [
+      0.484,
+      0.214
+    ]
+  },
+  {
+    "id": "maozhanggui-huanyan",
+    "name": "猫掌柜·焕宴",
+    "role": "658",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65800_猫掌柜·焕宴.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/maozhanggui-huanyan.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Pale violet-haired cat-eared young woman in orange-gold wide-sleeved haori, white red-purple details, short skirt and gold ornaments, original small white-gray cat companion carrying objects. Preserve this banquet costume and both figures.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 猫掌柜·焕宴: Pale violet-haired cat-eared young woman in orange-gold wide-sleeved haori, white red-purple details, short skirt and gold ornaments, original small white-gray cat companion carrying objects. Preserve this banquet costume and both figures.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4a6873eb-800f-4e45-91da-425227eb930a.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4a6873eb-800f-4e45-91da-425227eb930a.png",
+    "focus": [
+      0.464,
+      0.181
+    ]
+  },
+  {
+    "id": "geluoduo",
+    "name": "歌留多",
+    "role": "661",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66100_歌留多.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/geluoduo.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Green-haired woman with hair ornaments in white-black-red kimono and broad pale sleeves, seated in the original tall purple-green floral-bird and branch grouping, hanafuda-like pictorial cards and colored flowers. Keep illustrated cards without lettering and original creature silhouette.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 歌留多: Green-haired woman with hair ornaments in white-black-red kimono and broad pale sleeves, seated in the original tall purple-green floral-bird and branch grouping, hanafuda-like pictorial cards and colored flowers. Keep illustrated cards without lettering and original creature silhouette.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ca536208-f261-407a-a3c1-4c0d1f061922.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ca536208-f261-407a-a3c1-4c0d1f061922.png",
+    "focus": [
+      0.617,
+      0.208
+    ]
+  },
+  {
+    "id": "yinfanhuiyeji",
+    "name": "因幡辉夜姬",
+    "role": "666",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66600_因幡辉夜姬.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/yinfanhuiyeji.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Very long white-haired moon maiden in white-blue flowing robes with enormous pale wings, gold crescent and circular ornament, holding the original colorful golden object, original little rabbit spirits. Preserve luminous white-blue-gold moon composition.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 因幡辉夜姬: Very long white-haired moon maiden in white-blue flowing robes with enormous pale wings, gold crescent and circular ornament, holding the original colorful golden object, original little rabbit spirits. Preserve luminous white-blue-gold moon composition.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a77a4230-76b0-4562-b3e6-82f684716969.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a77a4230-76b0-4562-b3e6-82f684716969.png",
+    "focus": [
+      0.59,
+      0.246
+    ]
+  },
+  {
+    "id": "daixiaoguhuoniao",
+    "name": "待宵姑获鸟",
+    "role": "667",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66700_待宵姑获鸟.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/daixiaoguhuoniao.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long black-haired mature avian woman in white-gray-black long flowing robes with small red accents, original large fan or umbrella, original blade or handle, enormous gray-black feathered wings and surrounding dark birds. Preserve this specific incarnation.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 待宵姑获鸟: Long black-haired mature avian woman in white-gray-black long flowing robes with small red accents, original large fan or umbrella, original blade or handle, enormous gray-black feathered wings and surrounding dark birds. Preserve this specific incarnation.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-588c1850-d4c4-45a6-9b34-14faf357e6e1.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-588c1850-d4c4-45a6-9b34-14faf357e6e1.png",
+    "focus": [
+      0.541,
+      0.202
+    ]
+  },
+  {
+    "id": "chulingshanfeng",
+    "name": "初翎山风",
+    "role": "662",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66200_初翎山风.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/chulingshanfeng.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Short white-gray-haired red-eyed male fighter in black blue orange outfit with gray fur mantle, original pair of short blades and enormous dark brown-black eagle wings, dynamic raised attack pose. Use this incarnation only.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 初翎山风: Short white-gray-haired red-eyed male fighter in black blue orange outfit with gray fur mantle, original pair of short blades and enormous dark brown-black eagle wings, dynamic raised attack pose. Use this incarnation only.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1e766d57-b47a-4f26-bb5c-75e50180c567.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1e766d57-b47a-4f26-bb5c-75e50180c567.png",
+    "focus": [
+      0.439,
+      0.326
+    ]
+  },
+  {
+    "id": "fenghuanghuo-jingyu",
+    "name": "凤凰火·净羽",
+    "role": "665",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66500_凤凰火·净羽.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/fenghuanghuo-jingyu.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long red-haired phoenix woman with white flowing feather robe, golden wings and plume, red ornaments and dark-red footwear, floating bent-leg pose, pale gold-white moonlike atmosphere. Preserve this purified feather costume.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 凤凰火·净羽: Long red-haired phoenix woman with white flowing feather robe, golden wings and plume, red ornaments and dark-red footwear, floating bent-leg pose, pale gold-white moonlike atmosphere. Preserve this purified feather costume.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4d8eb73e-c3ae-44ed-a3b9-7a9dfa24620a.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4d8eb73e-c3ae-44ed-a3b9-7a9dfa24620a.png",
+    "focus": [
+      0.46,
+      0.16
+    ]
+  },
+  {
+    "id": "xixueji-xiyi",
+    "name": "吸血姬·曦忆",
+    "role": "663",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66300_吸血姬·曦忆.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/xixueji-xiyi.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Short white-haired red-eyed youthful vampire woman in black-red short kimono, large red sleeves and sash, black footwear and stockings, pale fluffy tail and small dark-red head ornaments, suspended bent-leg pose, original red moon and pale blossoms. Preserve this precise costume.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 吸血姬·曦忆: Short white-haired red-eyed youthful vampire woman in black-red short kimono, large red sleeves and sash, black footwear and stockings, pale fluffy tail and small dark-red head ornaments, suspended bent-leg pose, original red moon and pale blossoms. Preserve this precise costume.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d3914e7e-b99a-4f9b-96ea-80ee9ab51149.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d1830145-8bfb-47b9-966b-cbc39747dca1.png",
+    "revisions": [
+      {
+        "input": "art-reference-official/卡面/01_式神/66300_吸血姬·曦忆.png",
+        "inputPolicy": "original-reference-only",
+        "reason": "Red printed element badge copied below character.",
+        "rejected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d3914e7e-b99a-4f9b-96ea-80ee9ab51149.png",
+        "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d1830145-8bfb-47b9-966b-cbc39747dca1.png",
+        "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 吸血姬·曦忆: Short white-haired red-eyed youthful vampire woman in black-red short kimono, large red sleeves and sash, black footwear and stockings, pale fluffy tail and small dark-red head ornaments, suspended bent-leg pose, original red moon and pale blossoms. Preserve this precise costume.\n\n\nCRITICAL CLEAN ILLUSTRATION REVISION: The tiny colored element glyph below the character in the original reference is printed card UI, not part of this character or scene. Omit it entirely. NO floating diamond, NO blue/red/purple badge, NO tiny colored emblem, NO crystal-shaped icon near feet or lower center. The entire bottom region must instead be continuous natural painted scenery, drapery, mist, or flowers with no isolated central token. Preserve this precise character's original face, hair, costume, pose, palette, and scene companions from the supplied ORIGINAL reference. Paint an independent full-bleed watercolor illustration; no card printing, no level/rarity/type symbols. Use only this original reference; do not interpret previous generated results as reference."
+      }
+    ],
+    "focus": [
+      0.599,
+      0.134
+    ]
+  },
+  {
+    "id": "yinghuayao-lijing",
+    "name": "樱花妖·璃景",
+    "role": "664",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66400_樱花妖·璃景.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/yinghuayao-lijing.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long pale white-violet-haired woman in blue-purple high-waisted long skirt and broad translucent pale pink sleeves, pale blue floral ornaments and enormous original blue-violet flower spheres, ribbons and lunar violet night backdrop. Preserve this specific variant.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 樱花妖·璃景: Long pale white-violet-haired woman in blue-purple high-waisted long skirt and broad translucent pale pink sleeves, pale blue floral ornaments and enormous original blue-violet flower spheres, ribbons and lunar violet night backdrop. Preserve this specific variant.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b217f1c0-954b-4bea-b0cf-1dc0503d2d73.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d8a4ac59-17fd-4ab2-af38-47d037abdad5.png",
+    "revisions": [
+      {
+        "input": "art-reference-official/卡面/01_式神/66400_樱花妖·璃景.png",
+        "inputPolicy": "original-reference-only",
+        "reason": "Purple printed diamond element badge copied below character.",
+        "rejected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b217f1c0-954b-4bea-b0cf-1dc0503d2d73.png",
+        "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d8a4ac59-17fd-4ab2-af38-47d037abdad5.png",
+        "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 樱花妖·璃景: Long pale white-violet-haired woman in blue-purple high-waisted long skirt and broad translucent pale pink sleeves, pale blue floral ornaments and enormous original blue-violet flower spheres, ribbons and lunar violet night backdrop. Preserve this specific variant.\n\n\nCRITICAL CLEAN ILLUSTRATION REVISION: The tiny colored element glyph below the character in the original reference is printed card UI, not part of this character or scene. Omit it entirely. NO floating diamond, NO blue/red/purple badge, NO tiny colored emblem, NO crystal-shaped icon near feet or lower center. The entire bottom region must instead be continuous natural painted scenery, drapery, mist, or flowers with no isolated central token. Preserve this precise character's original face, hair, costume, pose, palette, and scene companions from the supplied ORIGINAL reference. Paint an independent full-bleed watercolor illustration; no card printing, no level/rarity/type symbols. Use only this original reference; do not interpret previous generated results as reference."
+      }
+    ],
+    "focus": [
+      0.508,
+      0.195
+    ]
+  },
+  {
+    "id": "shenqilou",
+    "name": "蜃气楼",
+    "role": "298",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/29800_蜃气楼.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/shenqilou.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Long silver-white-haired youthful figure in black-blue robes over short white inner garment, original black-gold staff, original gray-blue dragon or shell-cloud spirit companions, pale cyan flowing drapery and silver-blue mist. Preserve original companions and identity.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 蜃气楼: Long silver-white-haired youthful figure in black-blue robes over short white inner garment, original black-gold staff, original gray-blue dragon or shell-cloud spirit companions, pale cyan flowing drapery and silver-blue mist. Preserve original companions and identity.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1dc2a118-cbd0-4790-a3fc-fabda2608c90.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1dc2a118-cbd0-4790-a3fc-fabda2608c90.png",
+    "focus": [
+      0.535,
+      0.19
+    ]
+  },
+  {
+    "id": "tanjirou",
+    "name": "炭治郎",
+    "role": "182",
+    "pack": "wave10",
+    "reference": "art-reference-official/卡面/01_式神/18200_炭治郎.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave10/tanjirou.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "Burgundy spiky-haired young swordsman with forehead scar, original white fox mask at the side of his head, BLUE cloud-patterned haori, dark trousers, pale leg wraps and black katana, original active leaping pose. Follow the attached card blue outfit exactly.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 炭治郎: Burgundy spiky-haired young swordsman with forehead scar, original white fox mask at the side of his head, BLUE cloud-patterned haori, dark trousers, pale leg wraps and black katana, original active leaping pose. Follow the attached card blue outfit exactly.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-672b10ac-fca1-46c6-9209-8c30de4fd57e.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-672b10ac-fca1-46c6-9209-8c30de4fd57e.png",
+    "focus": [
+      0.526,
+      0.186
+    ]
+  },
+  {
+    "id": "nezuko",
+    "name": "祢豆子",
+    "role": "182",
+    "pack": "wave10",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave10/nezuko.svg",
+    "setting": {
+      "id": "nezuko",
+      "name": "祢豆子",
+      "title": "妹",
+      "role": "血鬼术 / 守护",
+      "strategy": "妹妹守护睡眠回血，牙踢爆血近身反打。",
+      "color": "#c45c78",
+      "officialAbility": "妹妹守护与睡眠。切换为炭治郎简化：本包为独立可选式神。",
+      "svgDescription": "祢豆子：竹筒与爆血花，妹妹守护睡眠"
+    },
+    "output": "godot/assets/redrawn/wave10/nezuko.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "Nezuko: long black hair with warm orange tips, pink eyes, bamboo cylinder held across her mouth by a tie, pink geometric patterned kimono, dark brown outer robe and pale leg wraps. Protective young demon sister with rose-red blood-art flower flames. Preserve this known identity and bamboo mouthpiece; no Tanjiro scar, sword or blue haori.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 祢豆子: Nezuko: long black hair with warm orange tips, pink eyes, bamboo cylinder held across her mouth by a tie, pink geometric patterned kimono, dark brown outer robe and pale leg wraps. Protective young demon sister with rose-red blood-art flower flames. Preserve this known identity and bamboo mouthpiece; no Tanjiro scar, sword or blue haori.\nProject palette: #c45c78.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4ba6e640-a993-4d9d-80f3-c307684d8c1d.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4ba6e640-a993-4d9d-80f3-c307684d8c1d.png",
+    "focus": [
+      0.489,
+      0.218
+    ]
+  },
+  {
+    "id": "fanqie",
+    "name": "番茄",
+    "role": "fanqie",
+    "pack": "wave11",
+    "reference": "art-reference-official/卡面/07_衍生/146001_番茄_r146.png",
+    "referenceKind": "original-derived-card",
+    "output": "godot/assets/redrawn/wave11/fanqie.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "The main subject is the original fierce black-and-white spirit DOG with red eyes, enormous blue-white fangs, blue fire about head and ears, thick red bead collar, and original pale-gray looming spirit shape behind, paper talismans and teal-red smoke. This unit name does NOT mean a tomato fruit: preserve the original canine subject.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 番茄: The main subject is the original fierce black-and-white spirit DOG with red eyes, enormous blue-white fangs, blue fire about head and ears, thick red bead collar, and original pale-gray looming spirit shape behind, paper talismans and teal-red smoke. This unit name does NOT mean a tomato fruit: preserve the original canine subject.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-8f0f0cb3-e642-4ea9-8a1f-7cbc11d181eb.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-8f0f0cb3-e642-4ea9-8a1f-7cbc11d181eb.png",
+    "focus": [
+      0.531,
+      0.469
+    ]
+  },
+  {
+    "id": "bingqiang",
+    "name": "冰墙",
+    "role": "bingqiang",
+    "pack": "wave11",
+    "reference": "art-reference-official/卡面/02_法术/10609_冰墙.png",
+    "referenceKind": "original-spell-card",
+    "output": "godot/assets/redrawn/wave11/bingqiang.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw",
+    "invariants": "The main subject is the original enormous angular blue-white crystalline ICE WALL: central pointed diamond-like ice mass, triangular geometric cracks and faceted spires, peripheral sharp ice, original tiny rear-view blue-white figure low in frame. Prioritize recognizable ice wall geometry, not a new humanoid portrait.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1: the ORIGINAL Onmyoji: The Card Game card. It is the sole authoritative visual reference for this exact unit or variant, costume, species, pose, identifying props, companions and palette. Create a fresh detailed redraw faithfully following what is visible.\nStyle: original fine Japanese fantasy ink outlines, clear cel-painted forms, restrained mineral pigment and subtle washi texture. Preserve original illustrated proportions.\nComposition: preserve the original complete subject grouping, put its main face or defining structure in the upper central portion, readable at small game-portrait size; keep identifying props within the central 75%. Extend only the original backdrop into a frameless vertical painting.\nAnatomy: coherent face perspective, aligned eyes, clear nose and mouth, well-defined hands and separate limbs.\nConstraints: no redesign or additional costume, accessories or characters. NO letters, numbers, card frame, UI, corner badges, cost gems, stats, title plate, logos or watermarks. All printed UI in the reference must be absent. Retain visible forms rather than invent ambiguous details.\nSpecific reference invariants: 冰墙: The main subject is the original enormous angular blue-white crystalline ICE WALL: central pointed diamond-like ice mass, triangular geometric cracks and faceted spires, peripheral sharp ice, original tiny rear-view blue-white figure low in frame. Prioritize recognizable ice wall geometry, not a new humanoid portrait.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c6afb140-d0d8-4a28-a8c5-e8aa5bf83cdc.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c6afb140-d0d8-4a28-a8c5-e8aa5bf83cdc.png",
+    "focus": [
+      0.502,
+      0.338
+    ]
+  },
+  {
+    "id": "zhiren",
+    "name": "纸人",
+    "role": "zhiren",
+    "pack": "wave11",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave11/zhiren.svg",
+    "setting": {
+      "id": "zhiren",
+      "name": "纸人",
+      "title": "戏谑",
+      "role": "纸人 / 运势",
+      "strategy": "戏谑套索扰敌，纸刃连击压制。",
+      "color": "#e8c888",
+      "officialAbility": "山兔戏谑套索变成的纸人，捣乱成性、笑声不断。",
+      "svgDescription": "纸人：山兔戏谑套索，纸舞捣乱"
+    },
+    "output": "godot/assets/redrawn/wave11/zhiren.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A mischievous small folded washi paper humanoid talisman spirit, warm pale ocher paper, simple expressive face formed from abstract ink marks, loosely curled paper arms and a playful rope loop. Paper dancing and trickster silhouette, no human skin or clothing.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 纸人: A mischievous small folded washi paper humanoid talisman spirit, warm pale ocher paper, simple expressive face formed from abstract ink marks, loosely curled paper arms and a playful rope loop. Paper dancing and trickster silhouette, no human skin or clothing.\nProject palette: #e8c888.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5795b6f2-7a03-4de7-8227-a7f7dcb011c0.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5795b6f2-7a03-4de7-8227-a7f7dcb011c0.png",
+    "focus": [
+      0.545,
+      0.374
+    ]
+  },
+  {
+    "id": "yanyanluo-fenshen",
+    "name": "烟烟罗分身",
+    "role": "yanyanluo-fenshen",
+    "pack": "wave11",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave11/yanyanluo-fenshen.svg",
+    "setting": {
+      "id": "yanyanluo-fenshen",
+      "name": "烟烟罗分身",
+      "title": "烟雾",
+      "role": "分身 / 烟雾",
+      "strategy": "烟雾分身闪避，蚀骨烟瘴削弱。",
+      "color": "#b0a0c8",
+      "officialAbility": "烟烟罗的烟雾分身，形散神聚、瘴烟蚀骨。",
+      "svgDescription": "烟烟罗分身：烟雾散形，瘴蚀真形"
+    },
+    "output": "godot/assets/redrawn/wave11/yanyanluo-fenshen.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A female smoke apparition derived from Yanyanluo, pale lavender-gray smoky hair and flowing mist robes, translucent outline, calm distinct face with lower body dissolving into curling lilac smoke. Clear silhouette within the mist.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 烟烟罗分身: A female smoke apparition derived from Yanyanluo, pale lavender-gray smoky hair and flowing mist robes, translucent outline, calm distinct face with lower body dissolving into curling lilac smoke. Clear silhouette within the mist.\nProject palette: #b0a0c8.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e6d217a9-4551-4d78-a6a1-764759790e11.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e6d217a9-4551-4d78-a6a1-764759790e11.png",
+    "focus": [
+      0.538,
+      0.151
+    ]
+  },
+  {
+    "id": "jinran-buye",
+    "name": "烬染不夜",
+    "role": "jinran-buye",
+    "pack": "wave11",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave11/jinran-buye.svg",
+    "setting": {
+      "id": "jinran-buye",
+      "name": "烬染不夜",
+      "title": "星火",
+      "role": "烬染 / 火焰",
+      "strategy": "烬染余火打脸，不夜星火收割。",
+      "color": "#f08850",
+      "officialAbility": "不知火召唤的烬染不夜，星火不灭、夜舞余烬。",
+      "svgDescription": "烬染不夜：不知火星火，夜舞余烬"
+    },
+    "output": "godot/assets/redrawn/wave11/jinran-buye.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A small ember-night dancing spirit summoned by a fire dancer: orange-coral flaming ribbons, a pair of flame fans, dark midnight body and distinct glowing face, sparks and a sweeping dance pose. Preserve spirit identity and fire fan motif.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 烬染不夜: A small ember-night dancing spirit summoned by a fire dancer: orange-coral flaming ribbons, a pair of flame fans, dark midnight body and distinct glowing face, sparks and a sweeping dance pose. Preserve spirit identity and fire fan motif.\nProject palette: #f08850.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bee3fecf-a2a9-4a47-880b-4640325133d4.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bee3fecf-a2a9-4a47-880b-4640325133d4.png",
+    "focus": [
+      0.554,
+      0.287
+    ]
+  },
+  {
+    "id": "xueqiu-jingling",
+    "name": "雪球精灵",
+    "role": "xueqiu-jingling",
+    "pack": "wave11",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave11/xueqiu-jingling.svg",
+    "setting": {
+      "id": "xueqiu-jingling",
+      "name": "雪球精灵",
+      "title": "雪球",
+      "role": "雪球 / 成长",
+      "strategy": "雪球叠力成长，暴雪压境终结。",
+      "color": "#c8e0f0",
+      "officialAbility": "雪球集合而成的精灵，越滚越大、寒意逼人。",
+      "svgDescription": "雪球精灵：雪球集合体，越滚越大"
+    },
+    "output": "godot/assets/redrawn/wave11/xueqiu-jingling.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A round friendly snowball spirit assembled from stacked loose balls of snow, icy blue-white texture, clear lively eyes and small snow limbs, whirling snowflakes and frosty crystalline fragments. Snow creature rather than an ice maiden.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 雪球精灵: A round friendly snowball spirit assembled from stacked loose balls of snow, icy blue-white texture, clear lively eyes and small snow limbs, whirling snowflakes and frosty crystalline fragments. Snow creature rather than an ice maiden.\nProject palette: #c8e0f0.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ce5f5351-c3a0-438e-b373-fb1a84fc884a.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ce5f5351-c3a0-438e-b373-fb1a84fc884a.png",
+    "focus": [
+      0.572,
+      0.285
+    ]
+  },
+  {
+    "id": "huangjinyu-ling",
+    "name": "黄金羽灵",
+    "role": "huangjinyu-ling",
+    "pack": "wave11",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave11/huangjinyu-ling.svg",
+    "setting": {
+      "id": "huangjinyu-ling",
+      "name": "黄金羽灵",
+      "title": "黄金羽",
+      "role": "黄金羽 / 投射",
+      "strategy": "黄金羽落投射，金羽天翔压制。",
+      "color": "#e8c050",
+      "officialAbility": "以津真天黄金羽所化的羽灵，振翅洒金、羽刃破空。",
+      "svgDescription": "黄金羽灵：以津真天金羽，振翅洒金"
+    },
+    "output": "godot/assets/redrawn/wave11/huangjinyu-ling.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A golden feather spirit: a small avian being formed from layered ocher and pale gold feathers, elegant curving wings, bright sharp bird eye, golden feather blades floating through muted green-dark air. No humanoid woman.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 黄金羽灵: A golden feather spirit: a small avian being formed from layered ocher and pale gold feathers, elegant curving wings, bright sharp bird eye, golden feather blades floating through muted green-dark air. No humanoid woman.\nProject palette: #e8c050.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff4d8fe2-17c0-4f83-9394-f0c0c0e60125.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff4d8fe2-17c0-4f83-9394-f0c0c0e60125.png",
+    "focus": [
+      0.659,
+      0.313
+    ]
+  },
+  {
+    "id": "mingdeng-shou",
+    "name": "明灯使",
+    "role": "mingdeng-shou",
+    "pack": "wave11",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave11/mingdeng-shou.svg",
+    "setting": {
+      "id": "mingdeng-shou",
+      "name": "明灯使",
+      "title": "明灯",
+      "role": "明灯 / 过牌",
+      "strategy": "明灯引路过牌，灯火长明续航。",
+      "color": "#f0d890",
+      "officialAbility": "青行灯明灯所化的灯灵，照幽引路、灯火不熄。",
+      "svgDescription": "明灯使：青行灯灯灵，引魂长明"
+    },
+    "output": "godot/assets/redrawn/wave11/mingdeng-shou.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A guiding lantern spirit with a pale gold paper lantern as its central head and body, soft blue-white soul flame shining inside, long paper streamers, floating above a quiet dark path. Abstract floral ink ornament only; no letters on lantern.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 明灯使: A guiding lantern spirit with a pale gold paper lantern as its central head and body, soft blue-white soul flame shining inside, long paper streamers, floating above a quiet dark path. Abstract floral ink ornament only; no letters on lantern.\nProject palette: #f0d890.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-f8c9f486-d21e-4a26-8574-974fe35d8e38.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-f8c9f486-d21e-4a26-8574-974fe35d8e38.png",
+    "focus": [
+      0.52,
+      0.292
+    ]
+  },
+  {
+    "id": "xinmo",
+    "name": "心魔",
+    "role": "xinmo",
+    "pack": "wave11",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave11/xinmo.svg",
+    "setting": {
+      "id": "xinmo",
+      "name": "心魔",
+      "title": "心魔",
+      "role": "心魔 / 削攻",
+      "strategy": "心魔蚀甲削弱，般若真容爆发。",
+      "color": "#c07090",
+      "officialAbility": "觉与般若执念所化的心魔，蚀心削志、梦魇缠身。",
+      "svgDescription": "心魔：觉般若执念，蚀心削志"
+    },
+    "output": "godot/assets/redrawn/wave11/xinmo.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A nightmare spirit of obsessive thought, a pale horned hannya-like mask with sorrowful eyes, dark mauve ribbons and shadow tendrils, smoky body, muted crimson-magenta palette. Separate face features, unsettling graceful spirit rather than graphic horror.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 心魔: A nightmare spirit of obsessive thought, a pale horned hannya-like mask with sorrowful eyes, dark mauve ribbons and shadow tendrils, smoky body, muted crimson-magenta palette. Separate face features, unsettling graceful spirit rather than graphic horror.\nProject palette: #c07090.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5c8efdc6-2456-4275-a219-a01d9dde8d39.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5c8efdc6-2456-4275-a219-a01d9dde8d39.png",
+    "focus": [
+      0.529,
+      0.215
+    ]
+  },
+  {
+    "id": "shouhu-ling",
+    "name": "守护灵",
+    "role": "shouhu-ling",
+    "pack": "wave11",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave11/shouhu-ling.svg",
+    "setting": {
+      "id": "shouhu-ling",
+      "name": "守护灵",
+      "title": "守护",
+      "role": "守护 / 壁垒",
+      "strategy": "守护灵叠甲回血，永世护主站场。",
+      "color": "#90b0c0",
+      "officialAbility": "犬神与兵俑守护信念所化的守护灵，以身作盾、不退半步。",
+      "svgDescription": "守护灵：犬神兵俑信念，永世护主"
+    },
+    "output": "godot/assets/redrawn/wave11/shouhu-ling.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A loyal guardian spirit blending a canine guardian face with weathered terracotta armor, pale blue-gray shield held across a sturdy spectral body, blue-white protective mist. Canine head and distinct stone armor, firm defensive stance.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 守护灵: A loyal guardian spirit blending a canine guardian face with weathered terracotta armor, pale blue-gray shield held across a sturdy spectral body, blue-white protective mist. Canine head and distinct stone armor, firm defensive stance.\nProject palette: #90b0c0.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-033bb530-06ba-4722-8162-115c11b01c38.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-033bb530-06ba-4722-8162-115c11b01c38.png",
+    "focus": [
+      0.518,
+      0.155
+    ]
+  },
+  {
+    "id": "yueying",
+    "name": "月隐",
+    "role": "origin2-yueying",
+    "pack": "wave12",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave12/yueying.svg",
+    "setting": {
+      "id": "yueying",
+      "name": "月隐",
+      "title": "匿影",
+      "role": "潜行 / 连击",
+      "strategy": "匿影避锋，月蚀连斩。",
+      "color": "#8a9bc0",
+      "officialAbility": "原创·月隐：月下潜行的剑客。",
+      "svgDescription": "灵枢原创式神立绘"
+    },
+    "output": "godot/assets/redrawn/wave12/yueying.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A moonlit stealth swordsman in layered indigo and pale blue robes, calm adult face partly under a soft hood, one slim curved blade, dark flowing cloak, quiet crescent moon and pale silver shadows. Different from fire and thunder characters.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 月隐: A moonlit stealth swordsman in layered indigo and pale blue robes, calm adult face partly under a soft hood, one slim curved blade, dark flowing cloak, quiet crescent moon and pale silver shadows. Different from fire and thunder characters.\nProject palette: #8a9bc0.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff34b5a0-d64f-44b0-8948-424f7c071fff.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff34b5a0-d64f-44b0-8948-424f7c071fff.png",
+    "focus": [
+      0.564,
+      0.161
+    ]
+  },
+  {
+    "id": "shizhu",
+    "name": "石主",
+    "role": "origin2-shizhu",
+    "pack": "wave12",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave12/shizhu.svg",
+    "setting": {
+      "id": "shizhu",
+      "name": "石主",
+      "title": "山骨",
+      "role": "壁垒 / 反打",
+      "strategy": "叠甲站场，震地反伤。",
+      "color": "#a89870",
+      "officialAbility": "原创·石主：镇守山骨的岩灵。",
+      "svgDescription": "灵枢原创式神立绘"
+    },
+    "output": "godot/assets/redrawn/wave12/shizhu.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A mountain-bone rock spirit, broad blocklike weathered ocher stone torso, sculpted head with two clear warm glowing eyes, huge rocky fists, moss and layered cliff forms, stable protective posture. Keep living stone identity.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 石主: A mountain-bone rock spirit, broad blocklike weathered ocher stone torso, sculpted head with two clear warm glowing eyes, huge rocky fists, moss and layered cliff forms, stable protective posture. Keep living stone identity.\nProject palette: #a89870.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a1de6c8c-c483-4f72-b648-40f51c614654.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a1de6c8c-c483-4f72-b648-40f51c614654.png",
+    "focus": [
+      0.566,
+      0.123
+    ]
+  },
+  {
+    "id": "yanling-huo",
+    "name": "焰铃",
+    "role": "origin2-yanling-huo",
+    "pack": "wave12",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave12/yanling-huo.svg",
+    "setting": {
+      "id": "yanling-huo",
+      "name": "焰铃",
+      "title": "摇火",
+      "role": "法术 / 投射",
+      "strategy": "摇火投射，铃音灼敌。",
+      "color": "#e07040",
+      "officialAbility": "原创·焰铃：摇火成术的铃使。",
+      "svgDescription": "灵枢原创式神立绘"
+    },
+    "output": "godot/assets/redrawn/wave12/yanling-huo.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A fire-bell caster in muted burnt orange robes, dark tied hair, clear face, holding a polished bronze handbell with flames curling from its rim; hanging bells and ribbons, orange sparks following a graceful ritual gesture.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 焰铃: A fire-bell caster in muted burnt orange robes, dark tied hair, clear face, holding a polished bronze handbell with flames curling from its rim; hanging bells and ribbons, orange sparks following a graceful ritual gesture.\nProject palette: #e07040.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-3d1c8a11-9de1-4015-9ff8-c0e64678a838.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-3d1c8a11-9de1-4015-9ff8-c0e64678a838.png",
+    "focus": [
+      0.52,
+      0.16
+    ]
+  },
+  {
+    "id": "shuimo",
+    "name": "水沫",
+    "role": "origin2-shuimo",
+    "pack": "wave12",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave12/shuimo.svg",
+    "setting": {
+      "id": "shuimo",
+      "name": "水沫",
+      "title": "潮语",
+      "role": "治疗 / 转甲",
+      "strategy": "潮语续命，过疗化甲。",
+      "color": "#5a9aaa",
+      "officialAbility": "原创·水沫：潮声化沫的医者。",
+      "svgDescription": "灵枢原创式神立绘"
+    },
+    "output": "godot/assets/redrawn/wave12/shuimo.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A tide-foam healer in pale teal and blue-white layered robes, flowing dark teal hair, gentle face, hands forming a bowl of sea foam, translucent water sleeves, curling waves and bubbles. Calm caring posture, teal palette.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 水沫: A tide-foam healer in pale teal and blue-white layered robes, flowing dark teal hair, gentle face, hands forming a bowl of sea foam, translucent water sleeves, curling waves and bubbles. Calm caring posture, teal palette.\nProject palette: #5a9aaa.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d2b17236-bb59-4915-b4d3-74ac5161fefd.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d2b17236-bb59-4915-b4d3-74ac5161fefd.png",
+    "focus": [
+      0.471,
+      0.175
+    ]
+  },
+  {
+    "id": "leiyin",
+    "name": "雷音",
+    "role": "origin2-leiyin",
+    "pack": "wave12",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave12/leiyin.svg",
+    "setting": {
+      "id": "leiyin",
+      "name": "雷音",
+      "title": "震弦",
+      "role": "眩晕 / 充能",
+      "strategy": "震弦控场，雷怒充能。",
+      "color": "#c0a0e0",
+      "officialAbility": "原创·雷音：拨弦引雷的乐师。",
+      "svgDescription": "灵枢原创式神立绘"
+    },
+    "output": "godot/assets/redrawn/wave12/leiyin.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A thunder musician in violet-white robes, dark long hair tied neatly, playing a traditional string instrument whose strings emit delicate lavender lightning, clear face and hands, violet thunderclouds. Musician and string instrument must be legible.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 雷音: A thunder musician in violet-white robes, dark long hair tied neatly, playing a traditional string instrument whose strings emit delicate lavender lightning, clear face and hands, violet thunderclouds. Musician and string instrument must be legible.\nProject palette: #c0a0e0.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-76671ecd-16dd-45e4-ab7b-030b7c3a2045.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-76671ecd-16dd-45e4-ab7b-030b7c3a2045.png",
+    "focus": [
+      0.521,
+      0.142
+    ]
+  },
+  {
+    "id": "xingchen",
+    "name": "星尘",
+    "role": "origin2-xingchen",
+    "pack": "wave12",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave12/xingchen.svg",
+    "setting": {
+      "id": "xingchen",
+      "name": "星尘",
+      "title": "尘轨",
+      "role": "运势 / 占卜",
+      "strategy": "星轨卜算，尘光过牌。",
+      "color": "#d0c080",
+      "officialAbility": "原创·星尘：循星尘轨迹的占者。",
+      "svgDescription": "灵枢原创式神立绘"
+    },
+    "output": "godot/assets/redrawn/wave12/xingchen.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A stardust diviner in sand-gold and pale cream robes, dark brown tied hair, serene adult face, holding an orb surrounded by slender orbital rings, falling fine golden dust and muted night sky. Distinct divining instrument.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 星尘: A stardust diviner in sand-gold and pale cream robes, dark brown tied hair, serene adult face, holding an orb surrounded by slender orbital rings, falling fine golden dust and muted night sky. Distinct divining instrument.\nProject palette: #d0c080.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-01ce0fc6-2072-4494-8891-a1c471974ef2.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-01ce0fc6-2072-4494-8891-a1c471974ef2.png",
+    "focus": [
+      0.488,
+      0.174
+    ]
+  },
+  {
+    "id": "momo",
+    "name": "墨貘",
+    "role": "origin2-momo",
+    "pack": "wave12",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave12/momo.svg",
+    "setting": {
+      "id": "momo",
+      "name": "墨貘",
+      "title": "梦蚀",
+      "role": "破甲 / 压制",
+      "strategy": "蚀梦灌甲，墨香困敌。",
+      "color": "#6a5a80",
+      "officialAbility": "原创·墨貘：食梦吐墨的兽灵。",
+      "svgDescription": "灵枢原创式神立绘"
+    },
+    "output": "godot/assets/redrawn/wave12/momo.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A dream-eating ink tapir spirit, rounded dark violet-gray body, short distinct tapir trunk, expressive pale eyes, ink spilling in smoky curls from its mouth and hooves, dreamlike washi backdrop. Creature anatomy with four legs.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 墨貘: A dream-eating ink tapir spirit, rounded dark violet-gray body, short distinct tapir trunk, expressive pale eyes, ink spilling in smoky curls from its mouth and hooves, dreamlike washi backdrop. Creature anatomy with four legs.\nProject palette: #6a5a80.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b61ab480-353a-440f-be3f-9a3b6dbac1fe.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b61ab480-353a-440f-be3f-9a3b6dbac1fe.png",
+    "focus": [
+      0.655,
+      0.355
+    ]
+  },
+  {
+    "id": "jinguang",
+    "name": "金光",
+    "role": "origin2-jinguang",
+    "pack": "wave12",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave12/jinguang.svg",
+    "setting": {
+      "id": "jinguang",
+      "name": "金光",
+      "title": "辉印",
+      "role": "鼓舞 / 觉醒",
+      "strategy": "辉印鼓舞，金身开悟。",
+      "color": "#e0c060",
+      "officialAbility": "原创·金光：结印扬辉的祭官。",
+      "svgDescription": "灵枢原创式神立绘"
+    },
+    "output": "godot/assets/redrawn/wave12/jinguang.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A radiant ritual priest in pale gold and ocher ceremonial robes, clear composed adult face, hands forming a coherent ritual mudra, circular golden seal geometry behind and soft cream light. Abstract geometry without written glyphs.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 金光: A radiant ritual priest in pale gold and ocher ceremonial robes, clear composed adult face, hands forming a coherent ritual mudra, circular golden seal geometry behind and soft cream light. Abstract geometry without written glyphs.\nProject palette: #e0c060.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-526f3e74-ad13-4748-ae9a-0102ad9e2466.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-526f3e74-ad13-4748-ae9a-0102ad9e2466.png",
+    "focus": [
+      0.512,
+      0.184
+    ]
+  },
+  {
+    "id": "shiyao-longyechaji",
+    "name": "时曜泷夜叉姬",
+    "role": "destiny-shiyao-longyechaji",
+    "pack": "wave13",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave13/shiyao-longyechaji.svg",
+    "setting": {
+      "id": "shiyao-longyechaji",
+      "name": "时曜泷夜叉姬",
+      "title": "时曜",
+      "role": "时序 / 爆发",
+      "strategy": "时曜回响，叉影连斩。",
+      "color": "#7a8ab8",
+      "officialAbility": "命运抉择·时曜泷夜叉姬（卡库快照后式神，按公开设定简化）。",
+      "svgDescription": ""
+    },
+    "output": "godot/assets/redrawn/wave13/shiyao-longyechaji.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A time-and-light battle princess, long silver-blue hair, layered dark indigo and pale blue armor robes, long forked polearm, subtle circular astronomical time rings and silver-blue blade trails. Female adult face clear; austere warrior posture.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 时曜泷夜叉姬: A time-and-light battle princess, long silver-blue hair, layered dark indigo and pale blue armor robes, long forked polearm, subtle circular astronomical time rings and silver-blue blade trails. Female adult face clear; austere warrior posture.\nProject palette: #7a8ab8.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-61626039-cf79-4edc-a2df-2b45b741cf35.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-61626039-cf79-4edc-a2df-2b45b741cf35.png",
+    "focus": [
+      0.476,
+      0.155
+    ]
+  },
+  {
+    "id": "baize-yuanqi",
+    "name": "白泽·缘起",
+    "role": "destiny-baize-yuanqi",
+    "pack": "wave13",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave13/baize-yuanqi.svg",
+    "setting": {
+      "id": "baize-yuanqi",
+      "name": "白泽·缘起",
+      "title": "缘起",
+      "role": "占卜 / 支援",
+      "strategy": "缘起星轨，白泽渡厄。",
+      "color": "#a0c8b0",
+      "officialAbility": "命运抉择·白泽·缘起（白泽重制位，按公开设定简化）。",
+      "svgDescription": ""
+    },
+    "output": "godot/assets/redrawn/wave13/baize-yuanqi.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A wise Baize-inspired auspicious white mythical beast with elegant horns and soft long mane, pale jade and white-gold ornament, benevolent expressive animal face, a few fine green-gold fate threads and divining stars. Creature form, not a generic humanoid.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 白泽·缘起: A wise Baize-inspired auspicious white mythical beast with elegant horns and soft long mane, pale jade and white-gold ornament, benevolent expressive animal face, a few fine green-gold fate threads and divining stars. Creature form, not a generic humanoid.\nProject palette: #a0c8b0.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-68ade598-cfb4-4da3-89cf-620ded927503.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-68ade598-cfb4-4da3-89cf-620ded927503.png",
+    "focus": [
+      0.598,
+      0.199
+    ]
+  },
+  {
+    "id": "shenqi-huang",
+    "name": "神启荒",
+    "role": "destiny-shenqi-huang",
+    "pack": "wave13",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave13/shenqi-huang.svg",
+    "setting": {
+      "id": "shenqi-huang",
+      "name": "神启荒",
+      "title": "神启",
+      "role": "星辰 / 法术",
+      "strategy": "神启星陨，荒原裁决。",
+      "color": "#8898c8",
+      "officialAbility": "命运抉择·神启荒（荒变体，按公开设定简化）。",
+      "svgDescription": ""
+    },
+    "output": "godot/assets/redrawn/wave13/shenqi-huang.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A star-revelation deity inspired by Huang: tall adult male with long deep indigo hair, white and dark blue celestial robes, pale gold accents, clear calm stern face, floating planets and star orbits in blue night. Distinct dignified celestial silhouette.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 神启荒: A star-revelation deity inspired by Huang: tall adult male with long deep indigo hair, white and dark blue celestial robes, pale gold accents, clear calm stern face, floating planets and star orbits in blue night. Distinct dignified celestial silhouette.\nProject palette: #8898c8.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2e85e0a7-00aa-4680-b20b-b0d7f4c41255.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2e85e0a7-00aa-4680-b20b-b0d7f4c41255.png",
+    "focus": [
+      0.507,
+      0.161
+    ]
+  },
+  {
+    "id": "xuan",
+    "name": "璇",
+    "role": "destiny-xuan",
+    "pack": "wave13",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave13/xuan.svg",
+    "setting": {
+      "id": "xuan",
+      "name": "璇",
+      "title": "璇玑",
+      "role": "平衡 / 光暗",
+      "strategy": "璇玑双衡，光暗相济。",
+      "color": "#c8b8d8",
+      "officialAbility": "命运抉择·璇（卡库快照后式神，按公开设定简化）。",
+      "svgDescription": ""
+    },
+    "output": "godot/assets/redrawn/wave13/xuan.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A deity of balanced light and shadow, pale lavender long hair, flowing lilac-white and deep violet robes, clear serene adult face, holding two opposed luminous and dark spheres, thin balanced orbital rings, restrained lavender palette.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 璇: A deity of balanced light and shadow, pale lavender long hair, flowing lilac-white and deep violet robes, clear serene adult face, holding two opposed luminous and dark spheres, thin balanced orbital rings, restrained lavender palette.\nProject palette: #c8b8d8.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-249a58a6-3896-4c89-b2a3-2154d6557f39.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-249a58a6-3896-4c89-b2a3-2154d6557f39.png",
+    "focus": [
+      0.49,
+      0.163
+    ]
+  },
+  {
+    "id": "yuyuan-banruo",
+    "name": "御怨般若",
+    "role": "destiny-yuyuan-banruo",
+    "pack": "wave13",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave13/yuyuan-banruo.svg",
+    "setting": {
+      "id": "yuyuan-banruo",
+      "name": "御怨般若",
+      "title": "御怨",
+      "role": "怨念 / 破甲",
+      "strategy": "御怨蚀心，般若笑面。",
+      "color": "#c06070",
+      "officialAbility": "命运抉择·御怨般若（般若重制位，按公开设定简化）。",
+      "svgDescription": ""
+    },
+    "output": "godot/assets/redrawn/wave13/yuyuan-banruo.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A grudge-governing hannya spirit, long pale hair, narrow clear face, dark red-black ceremonial robes, pale horned hannya mask held beside the face, curling crimson resentment cords and ghostly pale masks. Keep real face separate from mask.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 御怨般若: A grudge-governing hannya spirit, long pale hair, narrow clear face, dark red-black ceremonial robes, pale horned hannya mask held beside the face, curling crimson resentment cords and ghostly pale masks. Keep real face separate from mask.\nProject palette: #c06070.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5aaf2125-f674-451d-a1d1-5465b5b21908.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5aaf2125-f674-451d-a1d1-5465b5b21908.png",
+    "focus": [
+      0.566,
+      0.218
+    ]
+  },
+  {
+    "id": "luohou",
+    "name": "罗睺",
+    "role": "destiny-luohou",
+    "pack": "wave13",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/wave13/luohou.svg",
+    "setting": {
+      "id": "luohou",
+      "name": "罗睺",
+      "title": "蚀日",
+      "role": "暗蚀 / 压制",
+      "strategy": "蚀日吞光，罗睺压境。",
+      "color": "#6a5060",
+      "officialAbility": "命运抉择·罗睺（卡库快照后式神，按公开设定简化）。",
+      "svgDescription": ""
+    },
+    "output": "godot/assets/redrawn/wave13/luohou.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "An eclipse-eating Rahu spirit: dark plum-black horned celestial dragon-like demon with a readable serpentine head and luminous pale violet eyes, curving clawed body embracing a black sun with a thin silver-violet rim, shadow tendrils. No blank eclipse alone: creature face is clear.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 罗睺: An eclipse-eating Rahu spirit: dark plum-black horned celestial dragon-like demon with a readable serpentine head and luminous pale violet eyes, curving clawed body embracing a black sun with a thin silver-violet rim, shadow tendrils. No blank eclipse alone: creature face is clear.\nProject palette: #6a5060.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-eada3fa2-e3b5-4956-8a56-a6241b4e5e8e.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-eada3fa2-e3b5-4956-8a56-a6241b4e5e8e.png",
+    "focus": [
+      0.588,
+      0.366
+    ]
+  },
+  {
+    "id": "ember",
+    "name": "赤曜",
+    "role": "ember",
+    "pack": "origin",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/ember.svg",
+    "setting": {
+      "id": "ember",
+      "name": "赤曜",
+      "title": "焰锋",
+      "role": "爆发 / 突击",
+      "strategy": "用战斗牌反复入阵触发余烬；赤炼强化清前线，日铸强化压核心，觉醒后空场也能追击。",
+      "color": "#e75b32",
+      "officialAbility": null,
+      "svgDescription": "狐面焰灵：朱红狐面具栖于焰心，外圈火舌成环，飞舞余烬环绕，鎏金狐瞳"
+    },
+    "output": "godot/assets/redrawn/origin/ember.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A vermilion fox-mask flame spirit, gold fox eyes in a red mask suspended within its fiery heart, encircled by curling tongues of flame and drifting embers. The mask and flame ARE the subject, no new human body.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 赤曜: A vermilion fox-mask flame spirit, gold fox eyes in a red mask suspended within its fiery heart, encircled by curling tongues of flame and drifting embers. The mask and flame ARE the subject, no new human body.\nProject palette: #e75b32.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2bd630e6-803e-411b-846a-22e2f49da32b.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2bd630e6-803e-411b-846a-22e2f49da32b.png",
+    "focus": [
+      0.512,
+      0.47
+    ]
+  },
+  {
+    "id": "basalt",
+    "name": "岚岳",
+    "role": "basalt",
+    "pack": "origin",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/basalt.svg",
+    "setting": {
+      "id": "basalt",
+      "name": "岚岳",
+      "title": "垒卫",
+      "role": "护阵 / 站场",
+      "strategy": "以镇守入阵积盾；山门强化驻守，磐碑配合幻境护阵，用响应保护队友。",
+      "color": "#a98b54",
+      "officialAbility": null,
+      "svgDescription": "石守之灵：层叠远山前的厚重石鸟居，居中石灯笼透出暖芒，苔金主调"
+    },
+    "output": "godot/assets/redrawn/origin/basalt.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A stone guardian spirit shaped as a massive weathered stone torii gate with a warm glowing stone lantern at its center, layered mountains, moss and muted ocher stone. Keep non-humanoid monumental gate silhouette.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 岚岳: A stone guardian spirit shaped as a massive weathered stone torii gate with a warm glowing stone lantern at its center, layered mountains, moss and muted ocher stone. Keep non-humanoid monumental gate silhouette.\nProject palette: #a98b54.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fc3844ea-e211-4f58-8f7a-4ca9ec93d9bd.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fc3844ea-e211-4f58-8f7a-4ca9ec93d9bd.png",
+    "focus": [
+      0.508,
+      0.349
+    ]
+  },
+  {
+    "id": "lumen",
+    "name": "弦月",
+    "role": "lumen",
+    "pack": "origin",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/lumen.svg",
+    "setting": {
+      "id": "lumen",
+      "name": "弦月",
+      "title": "织光",
+      "role": "恢复 / 调度",
+      "strategy": "把每回合第一张弦月牌留给调度或治疗，觉醒后优先使用法术；两种形态分别保护核心与自身。",
+      "color": "#d8bd42",
+      "officialAbility": null,
+      "svgDescription": "月织之灵：弦月悬于靛蓝夜空，白鹤掠过，银线织出光之经纬，流银主调"
+    },
+    "output": "godot/assets/redrawn/origin/lumen.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A moon-weaving spirit: silver crescent moon in indigo night, graceful white crane flying across its face, fine silver light threads weaving a translucent lattice. Keep crane and crescent as the central subject, not a generic human.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 弦月: A moon-weaving spirit: silver crescent moon in indigo night, graceful white crane flying across its face, fine silver light threads weaving a translucent lattice. Keep crane and crescent as the central subject, not a generic human.\nProject palette: #d8bd42.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5ead3e44-e56e-46be-9b21-8a67c86612f9.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5ead3e44-e56e-46be-9b21-8a67c86612f9.png",
+    "focus": [
+      0.753,
+      0.313
+    ]
+  },
+  {
+    "id": "rime",
+    "name": "白棱",
+    "role": "rime",
+    "pack": "origin",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/rime.svg",
+    "setting": {
+      "id": "rime",
+      "name": "白棱",
+      "title": "霜刃",
+      "role": "控制 / 破防",
+      "strategy": "交战留下眩晕，冰镜追加晶裂；凛冬用法术积盾，碎镜裁决将眩晕转成破盾与高伤害。",
+      "color": "#5d8797",
+      "officialAbility": null,
+      "svgDescription": "霜晶之灵：六棱冰晶悬浮于青蓝寒雾，棱面折光如刃，碎冰环绕，冷青主调"
+    },
+    "output": "godot/assets/redrawn/origin/rime.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A frost crystal spirit: a large floating six-sided ice crystal in cyan cold mist, facets as sharp as blades, surrounding fragments of ice. Main crystal centered high enough for a landscape card crop. No humanoid figure.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 白棱: A frost crystal spirit: a large floating six-sided ice crystal in cyan cold mist, facets as sharp as blades, surrounding fragments of ice. Main crystal centered high enough for a landscape card crop. No humanoid figure.\nProject palette: #5d8797.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-25c58deb-993d-4cd7-927b-8854fce493a9.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-25c58deb-993d-4cd7-927b-8854fce493a9.png",
+    "focus": [
+      0.504,
+      0.347
+    ]
+  },
+  {
+    "id": "storm",
+    "name": "霆鸢",
+    "role": "storm",
+    "pack": "origin",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/storm.svg",
+    "setting": {
+      "id": "storm",
+      "name": "霆鸢",
+      "title": "鸣羽",
+      "role": "连击 / 压制",
+      "strategy": "从后场出击触发追风，用惊雷形态与觉醒积蓄充能，再用投射或爆能收束对局。",
+      "color": "#1599b5",
+      "officialAbility": null,
+      "svgDescription": "雷鸣之灵：鸢鸟自雷云俯冲展翼，羽刃携电光划破紫夜，青雷主调"
+    },
+    "output": "godot/assets/redrawn/origin/storm.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A majestic kite bird of thunder diving out of storm clouds with spread wings, feather blades carrying cyan lightning across a violet night. Preserve bird anatomy and distinct cyan-blue palette.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 霆鸢: A majestic kite bird of thunder diving out of storm clouds with spread wings, feather blades carrying cyan lightning across a violet night. Preserve bird anatomy and distinct cyan-blue palette.\nProject palette: #1599b5.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bafd4643-5a06-4983-8a9a-19a028fcec0f.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bafd4643-5a06-4983-8a9a-19a028fcec0f.png",
+    "focus": [
+      0.655,
+      0.494
+    ]
+  },
+  {
+    "id": "ink",
+    "name": "玄砚",
+    "role": "ink",
+    "pack": "origin",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/ink.svg",
+    "setting": {
+      "id": "ink",
+      "name": "玄砚",
+      "title": "墨相",
+      "role": "策略 / 消耗",
+      "strategy": "以幻境部署触发墨护；无相强化前线护盾，墨卷保护施术者，觉醒延长幻境的收益窗口。",
+      "color": "#6f6288",
+      "officialAbility": null,
+      "svgDescription": "墨鲤书灵：圆相墨环中墨鲤回游，朱印点睛，笔锋扫过宣纸留白，玄紫主调"
+    },
+    "output": "godot/assets/redrawn/origin/ink.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A living black ink koi swimming within a circular ink brushstroke, small vermilion seal-like abstract accent, sweeping brush marks over pale washi, deep violet-black ink. No readable calligraphy or actual seal characters.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 玄砚: A living black ink koi swimming within a circular ink brushstroke, small vermilion seal-like abstract accent, sweeping brush marks over pale washi, deep violet-black ink. No readable calligraphy or actual seal characters.\nProject palette: #6f6288.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-07b10b8f-0c51-4cb0-aab6-295d410fbfa8.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-07b10b8f-0c51-4cb0-aab6-295d410fbfa8.png",
+    "focus": [
+      0.43,
+      0.575
+    ]
+  },
+  {
+    "id": "frostblade",
+    "name": "银狼",
+    "role": "frostblade",
+    "pack": "origin",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/frostblade.svg",
+    "setting": {
+      "id": "frostblade",
+      "name": "银狼",
+      "title": "狼牙",
+      "role": "狼刃 / 游击 / 连击",
+      "strategy": "靠先攻与连击主动换血，交战后刃胄补盾；觉醒奖励击倒，孤狼一闪击倒后撤。",
+      "color": "#7fa8c9",
+      "officialAbility": null,
+      "svgDescription": "霜白狼首覆以青钢面甲，双月牙刃交叉于颌前，寒气凝成雪尘环绕"
+    },
+    "output": "godot/assets/redrawn/origin/frostblade.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A frost-white wolf with cold blue steel face armor, a pair of crescent blades crossed below its jaw, icy snow dust swirling about it. Wolf muzzle and separate blades must be readable; no humanoid conversion.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 银狼: A frost-white wolf with cold blue steel face armor, a pair of crescent blades crossed below its jaw, icy snow dust swirling about it. Wolf muzzle and separate blades must be readable; no humanoid conversion.\nProject palette: #7fa8c9.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ed84b44b-271a-4995-81ad-9f1d8fabcb13.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ed84b44b-271a-4995-81ad-9f1d8fabcb13.png",
+    "focus": [
+      0.503,
+      0.336
+    ]
+  },
+  {
+    "id": "kongo",
+    "name": "金刚",
+    "role": "kongo",
+    "pack": "origin",
+    "reference": null,
+    "referenceKind": "project-setting",
+    "settingSource": "godot/content/content.json",
+    "existingArt": "assets/kongo.svg",
+    "setting": {
+      "id": "kongo",
+      "name": "金刚",
+      "title": "不坏",
+      "role": "石佛 / 铁壁 / 不屈",
+      "strategy": "用不屈承受一轮进攻，金身与觉醒在前线修复伤势；存下护盾后以怒罗汉反攻。",
+      "color": "#9aa085",
+      "officialAbility": null,
+      "svgDescription": "青灰石佛端坐于莲台，胸嵌鎏金法轮，身后石环如山门，苔痕与金纹共生"
+    },
+    "output": "godot/assets/redrawn/origin/kongo.png",
+    "inputPolicy": "project-setting; user-authorized 2026-10-05",
+    "mode": "built-in image_gen; setting-based generation",
+    "invariants": "A moss-gray stone Buddha sitting calmly on a lotus pedestal, gilded dharma wheel inset in its chest, great stone ring behind like a mountain gate, weathered moss and fine gold veins. Distinct calm stone face.",
+    "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 金刚: A moss-gray stone Buddha sitting calmly on a lotus pedestal, gilded dharma wheel inset in its chest, great stone ring behind like a mountain gate, weathered moss and fine gold veins. Distinct calm stone face.\nProject palette: #9aa085.\n",
+    "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e46c0965-7b34-42bc-8fe4-289e4172e898.png",
+    "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e46c0965-7b34-42bc-8fe4-289e4172e898.png",
+    "focus": [
+      0.499,
+      0.195
+    ]
+  }
+]

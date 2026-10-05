@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img">
+  <title>神启</title>
+  <defs>
+    <linearGradient id="shenqi_huang-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c2038"/><stop offset="1" stop-color="#2c3458"/>
+    </linearGradient>
+    <radialGradient id="shenqi_huang-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#c0d0ff" stop-opacity=".4"/><stop offset="1" stop-color="#8898c8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shenqi_huang-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c0d0ff"/><stop offset="1" stop-color="#8898c8"/>
+    </linearGradient>
+    <linearGradient id="shenqi_huang-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c0d0ff"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#shenqi_huang-bg)"/>
+  <rect width="200" height="260" fill="url(#shenqi_huang-halo)"/>
+  
+  <g><circle cx="100" cy="110" r="36" fill="url(#p-body)"/><circle cx="100" cy="110" r="18" fill="none" stroke="url(#p-accent)" stroke-width="4"/><circle cx="135" cy="75" r="5" fill="#f0f0ff"/><circle cx="65" cy="150" r="4" fill="#f0f0ff"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#f0e8d0">神启</text>
+</svg>

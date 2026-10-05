@@ -1,0 +1,5 @@
+{
+  "interruption": "A concurrent second generation exec prevented the first exec from completing its queued record writes. The second exec was terminated; the first then persisted all 8 results successfully.",
+  "recovery": "Second group rerun serially. Unselected interrupted outputs remain outside the project; they are never used as reference images or runtime assets.",
+  "execution": "One generation exec at a time; at most 8 returned image results per exec."
+}

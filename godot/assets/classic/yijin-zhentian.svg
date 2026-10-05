@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">以津真天</title>
+  <desc id="desc">金羽层叠：金羽如箭簇排列，夜空流金</desc>
+  <defs>
+    <linearGradient id="yijinzhentian-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14100c"/>
+      <stop offset=".55" stop-color="#201810"/>
+      <stop offset="1" stop-color="#0e0a08"/>
+    </linearGradient>
+    <radialGradient id="yijinzhentian-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e0b050" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#d0a030" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#d0a030" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="yijinzhentian-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0e0b0"/>
+      <stop offset=".55" stop-color="#c0a060"/>
+      <stop offset="1" stop-color="#d0a030"/>
+    </linearGradient>
+    <linearGradient id="yijinzhentian-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d0a030"/>
+      <stop offset="1" stop-color="#704810"/>
+    </linearGradient>
+    <linearGradient id="yijinzhentian-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#yijinzhentian-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#yijinzhentian-halo)"/>
+  <g>
+    <path d="M100 55c-6 25-6 55 0 85 6-30 6-60 0-85Z" fill="url(#yijinzhentian-acc)" opacity=".9"/>
+    <path d="M72 75c-2 25 4 50 16 70 0-28-6-52-16-70Z" fill="url(#yijinzhentian-acc)" opacity=".75"/>
+    <path d="M128 75c2 25-4 50-16 70 0-28 6-52 16-70Z" fill="url(#yijinzhentian-acc)" opacity=".75"/>
+    <path d="M52 95c2 22 10 42 24 56-6-24-14-42-24-56Z" fill="url(#yijinzhentian-body)" opacity=".7"/>
+    <path d="M148 95c-2 22-10 42-24 56 6-24 14-42 24-56Z" fill="url(#yijinzhentian-body)" opacity=".7"/>
+    <path d="M86 50c4 18 4 40 0 58M114 50c-4 18-4 40 0 58" fill="none" stroke="#8a6020" stroke-width="1" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="72" rx="20" ry="24" fill="url(#yijinzhentian-body)" opacity=".85" stroke="#4a3010" stroke-width="1.5"/>
+  <path d="M92 54c2-10 5-15 8-15s6 5 8 15" fill="url(#yijinzhentian-acc)"/>
+  <ellipse cx="92" cy="72" rx="4.5" ry="3.5" fill="#2a1808"/><ellipse cx="108" cy="72" rx="4.5" ry="3.5" fill="#2a1808"/>
+  <circle cx="93" cy="71" r="1.4" fill="#ffe080"/><circle cx="109" cy="71" r="1.4" fill="#ffe080"/>
+  <path d="M96 84h8l-4 5Z" fill="#c07020"/>
+  <path d="M80 175c12-8 28-8 40 0-6 14-14 22-20 26-6-4-14-12-20-26Z" fill="url(#yijinzhentian-acc)" opacity=".55"/>
+<g fill="url(#yijinzhentian-acc)">
+    <circle cx="36" cy="70" r="2.2" opacity=".75"/>
+    <circle cx="164" cy="65" r="2" opacity=".7"/>
+    <circle cx="28" cy="130" r="2.4" opacity=".8"/>
+    <circle cx="172" cy="135" r="1.8" opacity=".55"/>
+    <circle cx="100" cy="30" r="1.6" opacity=".5"/>
+    <circle cx="54" cy="188" r="1.6" opacity=".5"/>
+    <circle cx="148" cy="192" r="2" opacity=".65"/>
+    <circle cx="68" cy="48" r="1.3" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#d0a030" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

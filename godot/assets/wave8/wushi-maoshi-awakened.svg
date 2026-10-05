@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">武士之灵·猫侍 · 觉醒相</title>
+  <desc id="desc">武士之灵·猫侍：武魂默想，初心诛心。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="wushimaoshi-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140c0c"/>
+      <stop offset=".55" stop-color="#201414"/>
+      <stop offset="1" stop-color="#0c0808"/>
+    </linearGradient>
+    <radialGradient id="wushimaoshi-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#c09080" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#904840" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#904840" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wushimaoshi-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e0c0b0"/>
+      <stop offset=".55" stop-color="#a87868"/>
+      <stop offset="1" stop-color="#904840"/>
+    </linearGradient>
+    <linearGradient id="wushimaoshi-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#904840"/>
+      <stop offset="1" stop-color="#482018"/>
+    </linearGradient>
+    <linearGradient id="wushimaoshi-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#wushimaoshi-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#wushimaoshi-halo)"/>
+  <g>
+    <path d="M70 70l12-28 18 18 18-18 12 28v50c0 30-14 50-30 50s-30-20-30-50z" fill="url(#wushimaoshi-body)" opacity=".5" stroke="#2a2040" stroke-width="1.4"/>
+    <path d="M78 110h12M110 110h12" stroke="url(#wushimaoshi-gold)" stroke-width="2"/>
+    <path d="M88 140c8 8 16 8 24 0" fill="none" stroke="url(#wushimaoshi-acc)" stroke-width="1.5"/>
+  </g>
+<g fill="url(#wushimaoshi-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#wushimaoshi-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#wushimaoshi-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#wushimaoshi-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#wushimaoshi-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#wushimaoshi-gold)"/>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#904840" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

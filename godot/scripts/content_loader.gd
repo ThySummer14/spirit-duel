@@ -35,11 +35,10 @@ static func load_content(force: bool = false) -> Dictionary:
 		for key in raw_rules:
 			rules[key] = raw_rules[key]
 	var by_unit := {}
-	var by_id := {}
+	var by_card := {}
 	for unit in units:
 		if unit is Dictionary and unit.has("id"):
 			by_unit[unit.id] = unit
-			by_id[unit.id] = unit
 	var cards_by_unit := {}
 	for card in cards:
 		if not (card is Dictionary) or not card.has("id") or not card.has("unitId"):
@@ -47,7 +46,7 @@ static func load_content(force: bool = false) -> Dictionary:
 		if not cards_by_unit.has(card.unitId):
 			cards_by_unit[card.unitId] = []
 		cards_by_unit[card.unitId].append(card)
-		by_id[card.id] = card
+		by_card[card.id] = card
 	# Playable subset: units that own at least one card. Extra packs can grow freely.
 	var playable: Array = []
 	for unit in units:
@@ -60,7 +59,8 @@ static func load_content(force: bool = false) -> Dictionary:
 		"playable_units": playable,
 		"cards": cards,
 		"cards_by_unit": cards_by_unit,
-		"by_id": by_id,
+		"units_by_id": by_unit,
+		"cards_by_id": by_card,
 		"rules": rules,
 	}
 	return _cache
@@ -78,10 +78,10 @@ static func cards_for_unit(unit_id: String) -> Array:
 	return load_content().get("cards_by_unit", {}).get(unit_id, [])
 
 static func card_def(card_id: String) -> Dictionary:
-	return load_content().get("by_id", {}).get(card_id, {})
+	return load_content().get("cards_by_id", {}).get(card_id, {})
 
 static func unit_def(unit_id: String) -> Dictionary:
-	return load_content().get("by_id", {}).get(unit_id, {})
+	return load_content().get("units_by_id", {}).get(unit_id, {})
 
 static func starter_card_ids(unit_id: String) -> Array:
 	var out: Array = []
@@ -135,3 +135,63 @@ static func passive_text(unit: Dictionary, awakened: bool = false) -> String:
 	if passive is Dictionary:
 		return "%s｜%s" % [passive.get("name", "被动"), passive.get("text", "")]
 	return ""
+
+
+static func pack_label(pack_id: String) -> String:
+	return str({"all": "全部秘闻", "origin": "灵枢原创", "classic": "经典基础", "wave2": "不夜之火", "wave3": "月夜沧海", "wave4": "吉运善恶", "wave5": "繁花喧哗", "wave6": "空弦鸣雷", "wave7": "燃灯桃源", "wave8": "祝星千录", "wave9": "龙渊花札", "wave10": "鬼灭联动", "wave11": "衍生式神", "wave12": "灵枢二弹", "wave13": "命运抉择"}.get(pack_id, pack_id))
+
+
+static func pack_ids() -> Array:
+	var ids: Array = ["all"]
+	for pack in ["origin", "classic", "wave2", "wave3", "wave4", "wave5", "wave6", "wave7", "wave8", "wave9", "wave10", "wave11", "wave12", "wave13"]:
+		if not units_in_pack(pack).is_empty(): ids.append(pack)
+	# 新资料包随内容自动进入入口，不需要再改三个界面的筛选器。
+	for unit in playable_units():
+		var pack := str(unit.get("pack", "origin"))
+		if not ids.has(pack): ids.append(pack)
+	return ids
+
+
+static func units_in_pack(pack_id: String) -> Array:
+	return playable_units().filter(func(unit): return pack_id == "all" or str(unit.get("pack", "origin")) == pack_id)
+
+
+static func valid_lineup(unit_ids: Array) -> bool:
+	if unit_ids.size() != int(rules().get("lineupSize", 4)): return false
+	var seen := {}
+	for uid in unit_ids:
+		if seen.has(uid) or unit_def(str(uid)).is_empty(): return false
+		if starter_card_ids(str(uid)).size() != int(rules().get("cardsPerUnit", 8)): return false
+		seen[uid] = true
+	return true
+
+
+static func recommended_lineup(pack_id: String = "classic") -> Array:
+	var ids: Array = []
+	var candidates := units_in_pack(pack_id)
+	# 鬼灭联动只有两名角色，其余位置由经典式神补齐。
+	candidates.append_array(units_in_pack("classic"))
+	candidates.append_array(playable_units())
+	for unit in candidates:
+		var uid := str(unit.id)
+		if not ids.has(uid) and starter_card_ids(uid).size() == int(rules().get("cardsPerUnit", 8)):
+			ids.append(uid)
+		if ids.size() == int(rules().get("lineupSize", 4)): break
+	return ids
+
+
+static func opponent_lineup(ally: Array, match_seed: int) -> Array:
+	var pool: Array = []
+	for unit in playable_units():
+		if not ally.has(unit.id): pool.append(unit.id)
+	if pool.size() < int(rules().get("lineupSize", 4)):
+		for unit in playable_units():
+			if not pool.has(unit.id): pool.append(unit.id)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = match_seed
+	for i in range(pool.size() - 1, 0, -1):
+		var j := rng.randi_range(0, i)
+		var previous = pool[i]
+		pool[i] = pool[j]
+		pool[j] = previous
+	return pool.slice(0, int(rules().get("lineupSize", 4)))

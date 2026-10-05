@@ -5,57 +5,54 @@ extends RefCounted
 const ContentLoader := preload("res://scripts/content_loader.gd")
 
 
+static func take_action(gs: GameState, p_idx: int) -> bool:
+	## One command per presentation beat; take_turn remains the fast simulation API.
+	if gs.action_player() != p_idx:
+		return false
+	if not gs.pending_choice.is_empty():
+		return _resolve_choice(gs, p_idx)
+	if not gs.response_window.is_empty():
+		var actions: Array = []
+		return _try_response(gs, p_idx, actions) or gs.pass_response(p_idx)
+	if gs.is_upgrade_pending(p_idx):
+		var unit := _best_level_up(gs, p_idx)
+		return unit >= 0 and gs.level_up(p_idx, unit)
+	var play := _best_card(gs, p_idx)
+	if play.ok and gs.play_card(p_idx, play.hand, play.target):
+		return true
+	var attack := _best_attack(gs, p_idx)
+	if attack.ok and gs.basic_attack(p_idx, attack.unit):
+		return true
+	return gs.end_turn(p_idx)
+
+
 static func take_turn(gs: GameState, p_idx: int) -> Array:
 	## Returns list of commands performed (already applied).
 	var actions: Array = []
 	if gs.winner >= 0:
 		return actions
-	# 先处理中断型窗口（响应/占卜），避免对局卡死
-	var stall := 0
-	while stall < 32 and gs.winner < 0:
-		stall += 1
+	# Only control this side. Human responses and choices must remain pending.
+	var guard := 0
+	while guard < 32 and gs.winner < 0 and gs.action_player() == p_idx:
+		guard += 1
 		if not gs.pending_choice.is_empty():
-			var want_p := int(gs.pending_choice.get("playerIndex", -1))
-			if want_p == p_idx and _resolve_choice(gs, p_idx):
-				actions.append({"cmd": "divination-choice"})
-				continue
-			# 对手选择中：不应发生在纯 AI 对刷；保险起见放行第一项
-			if _resolve_choice_any(gs):
+			if _resolve_choice(gs, p_idx):
 				actions.append({"cmd": "divination-choice"})
 				continue
 			break
 		if not gs.response_window.is_empty():
-			var rp := int(gs.response_window.get("playerIndex", -1))
-			if rp == p_idx and _try_response(gs, p_idx, actions):
+			if _try_response(gs, p_idx, actions):
 				continue
-			if gs.pass_response(rp):
-				actions.append({"cmd": "pass_response", "player": rp})
+			if gs.pass_response(p_idx):
+				actions.append({"cmd": "pass_response", "player": p_idx})
 				continue
-			break
-		break
-	if gs.winner >= 0 or gs.current_player != p_idx:
-		return actions
-	var guard := 0
-	while guard < 32:
-		guard += 1
-		if gs.winner >= 0 or gs.current_player != p_idx:
-			break
-		if not gs.pending_choice.is_empty() or not gs.response_window.is_empty():
-			var extra := take_turn(gs, p_idx)
-			actions.append_array(extra)
 			break
 		if gs.is_upgrade_pending(p_idx):
 			var uidx := _best_level_up(gs, p_idx)
 			if uidx >= 0 and gs.level_up(p_idx, uidx):
 				actions.append({"cmd": "level_up", "unit": uidx})
 				continue
-			# force: pick first legal
-			for i in gs.player(p_idx).units.size():
-				if gs.can_level_up(p_idx, i):
-					gs.level_up(p_idx, i)
-					actions.append({"cmd": "level_up", "unit": i})
-					break
-			continue
+			break
 		var play := _best_card(gs, p_idx)
 		if play.ok:
 			if gs.play_card(p_idx, play.hand, play.target):
@@ -67,9 +64,9 @@ static func take_turn(gs: GameState, p_idx: int) -> Array:
 				actions.append({"cmd": "basic_attack", "unit": atk.unit})
 				continue
 		break
-	if gs.current_player == p_idx and gs.winner < 0:
-		gs.end_turn(p_idx)
-		actions.append({"cmd": "end_turn"})
+	if gs.action_player() == p_idx and gs.pending_choice.is_empty() and gs.response_window.is_empty():
+		if gs.end_turn(p_idx):
+			actions.append({"cmd": "end_turn"})
 	return actions
 
 
@@ -182,13 +179,6 @@ static func _resolve_choice(gs: GameState, p_idx: int) -> bool:
 		return false
 	# 优先选费用/等级更高、或名字非衍生的展示牌；这里取最后一张（更接近牌库顶）
 	return gs.resolve_divination_choice(p_idx, str(ids[ids.size() - 1]))
-
-
-static func _resolve_choice_any(gs: GameState) -> bool:
-	if gs.pending_choice.is_empty():
-		return false
-	var p_idx := int(gs.pending_choice.get("playerIndex", 0))
-	return _resolve_choice(gs, p_idx)
 
 
 static func _try_response(gs: GameState, p_idx: int, actions: Array) -> bool:

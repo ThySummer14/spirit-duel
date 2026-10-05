@@ -1,0 +1,261 @@
+{
+  "total": 52,
+  "unique": 52,
+  "packs": {
+    "wave9": {
+      "units": 27,
+      "screenshots": 19,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-wave9-portraits-01.png",
+        "01-wave9-portraits-02.png",
+        "01-wave9-portraits-03.png",
+        "01-wave9-portraits-04.png"
+      ],
+      "deck": [
+        "03-wave9-deck-chanxinyunwaijing.png",
+        "03-wave9-deck-dayueling-yuxin.png",
+        "03-wave9-deck-pinfashen.png",
+        "03-wave9-deck-xixueji-xiyi.png",
+        "03-wave9-deck-yatiangou-qiuye.png",
+        "03-wave9-deck-yijin-qianxun.png",
+        "03-wave9-deck-yinfanhuiyeji.png"
+      ],
+      "battle": [
+        "04-wave9-battle-01.png",
+        "04-wave9-battle-02.png",
+        "04-wave9-battle-03.png",
+        "04-wave9-battle-04.png",
+        "04-wave9-battle-05.png",
+        "04-wave9-battle-06.png",
+        "04-wave9-battle-07.png"
+      ],
+      "allyGroups": [
+        [
+          "yatiangou-qiuye",
+          "shuweng-zhixing",
+          "huojinshen",
+          "sibing"
+        ],
+        [
+          "dayueling-yuxin",
+          "chili",
+          "jieshen-suiyuan",
+          "tieshu-haojia"
+        ],
+        [
+          "yijin-qianxun",
+          "baizangzhu-lixin",
+          "guijinyang",
+          "longche"
+        ],
+        [
+          "pinfashen",
+          "longjue",
+          "fengyangjun",
+          "jintianyuzaoqian"
+        ],
+        [
+          "chanxinyunwaijing",
+          "zhaocaimao",
+          "maozhanggui-huanyan",
+          "geluoduo"
+        ],
+        [
+          "yinfanhuiyeji",
+          "daixiaoguhuoniao",
+          "chulingshanfeng",
+          "fenghuanghuo-jingyu"
+        ],
+        [
+          "xixueji-xiyi",
+          "yinghuayao-lijing",
+          "shenqilou",
+          "yatiangou-qiuye"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack; small packs use distinct classic fillers"
+    },
+    "wave10": {
+      "units": 2,
+      "screenshots": 5,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-wave10-portraits-01.png"
+      ],
+      "deck": [
+        "03-wave10-deck-nezuko.png",
+        "03-wave10-deck-tanjirou.png"
+      ],
+      "battle": [
+        "04-wave10-battle-01.png"
+      ],
+      "allyGroups": [
+        [
+          "tanjirou",
+          "nezuko",
+          "yaodaoji",
+          "jutun-tongzi"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack; small packs use distinct classic fillers"
+    },
+    "wave11": {
+      "units": 10,
+      "screenshots": 9,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-wave11-portraits-01.png",
+        "01-wave11-portraits-02.png"
+      ],
+      "deck": [
+        "03-wave11-deck-fanqie.png",
+        "03-wave11-deck-jinran-buye.png",
+        "03-wave11-deck-xinmo.png"
+      ],
+      "battle": [
+        "04-wave11-battle-01.png",
+        "04-wave11-battle-02.png",
+        "04-wave11-battle-03.png"
+      ],
+      "allyGroups": [
+        [
+          "fanqie",
+          "bingqiang",
+          "zhiren",
+          "yanyanluo-fenshen"
+        ],
+        [
+          "jinran-buye",
+          "xueqiu-jingling",
+          "huangjinyu-ling",
+          "mingdeng-shou"
+        ],
+        [
+          "xinmo",
+          "shouhu-ling",
+          "fanqie",
+          "bingqiang"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack; small packs use distinct classic fillers"
+    },
+    "wave12": {
+      "units": 8,
+      "screenshots": 6,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-wave12-portraits-01.png"
+      ],
+      "deck": [
+        "03-wave12-deck-leiyin.png",
+        "03-wave12-deck-yueying.png"
+      ],
+      "battle": [
+        "04-wave12-battle-01.png",
+        "04-wave12-battle-02.png"
+      ],
+      "allyGroups": [
+        [
+          "yueying",
+          "shizhu",
+          "yanling-huo",
+          "shuimo"
+        ],
+        [
+          "leiyin",
+          "xingchen",
+          "momo",
+          "jinguang"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack; small packs use distinct classic fillers"
+    },
+    "wave13": {
+      "units": 6,
+      "screenshots": 6,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-wave13-portraits-01.png"
+      ],
+      "deck": [
+        "03-wave13-deck-shiyao-longyechaji.png",
+        "03-wave13-deck-yuyuan-banruo.png"
+      ],
+      "battle": [
+        "04-wave13-battle-01.png",
+        "04-wave13-battle-02.png"
+      ],
+      "allyGroups": [
+        [
+          "shiyao-longyechaji",
+          "baize-yuanqi",
+          "shenqi-huang",
+          "xuan"
+        ],
+        [
+          "yuyuan-banruo",
+          "luohou",
+          "yaodaoji",
+          "jutun-tongzi"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack; small packs use distinct classic fillers"
+    },
+    "origin": {
+      "units": 8,
+      "screenshots": 7,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-origin-portraits-01.png"
+      ],
+      "deck": [
+        "03-origin-deck-ember.png",
+        "03-origin-deck-storm.png"
+      ],
+      "battle": [
+        "04-origin-battle-01.png",
+        "04-origin-battle-02.png"
+      ],
+      "allyGroups": [
+        [
+          "ember",
+          "basalt",
+          "lumen",
+          "rime"
+        ],
+        [
+          "storm",
+          "ink",
+          "frostblade",
+          "kongo"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack; small packs use distinct classic fillers"
+    }
+  }
+}

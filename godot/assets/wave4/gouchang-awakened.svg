@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">垢尝 · 觉醒相</title>
+  <desc id="desc">垢尝：澡刷与净泡，阶前净雪。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="gouchang-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1414"/>
+      <stop offset=".55" stop-color="#122424"/>
+      <stop offset="1" stop-color="#080e0e"/>
+    </linearGradient>
+    <radialGradient id="gouchang-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#80c8c8" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#408888" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#408888" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gouchang-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c8e8e8"/>
+      <stop offset=".55" stop-color="#70a8a8"/>
+      <stop offset="1" stop-color="#408888"/>
+    </linearGradient>
+    <linearGradient id="gouchang-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#408888"/>
+      <stop offset="1" stop-color="#184040"/>
+    </linearGradient>
+    <linearGradient id="gouchang-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#gouchang-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#gouchang-halo)"/>
+  <g>
+    <rect x="85" y="100" width="30" height="55" rx="4" fill="url(#gouchang-body)" stroke="#1a3030" stroke-width="1.6"/>
+    <path d="M85 100c0-12 6-20 15-20s15 8 15 20" fill="url(#gouchang-acc)"/>
+    <g fill="#c8f0f0" opacity=".65">
+      <circle cx="60" cy="95" r="8"/><circle cx="145" cy="90" r="6"/>
+      <circle cx="55" cy="145" r="5"/><circle cx="150" cy="140" r="7"/>
+      <circle cx="100" cy="75" r="4"/>
+    </g>
+    <g fill="none" stroke="#8ad0d0" stroke-width="1" opacity=".7">
+      <circle cx="60" cy="95" r="8"/><circle cx="145" cy="90" r="6"/>
+    </g>
+  </g>
+<g fill="url(#gouchang-acc)">
+    <circle cx="36" cy="85" r="2" opacity=".6"/>
+    <circle cx="164" cy="87" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="175" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="177" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.5" opacity=".5"/>
+    <circle cx="70" cy="205" r="1.4" opacity=".5"/>
+    <circle cx="130" cy="205" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#gouchang-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#gouchang-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#gouchang-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#gouchang-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#gouchang-gold)"/>
+    <g stroke="url(#gouchang-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#408888" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

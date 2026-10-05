@@ -1,0 +1,86 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== godot import assets ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 项目初始化 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 正在扫描文件结构……[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 正在加载全局类名……[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | 正在校验 GDExtension……[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 正在创建自动加载脚本……[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 正在初始化插件……[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 正在启动文件扫描……[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 正在注册全局类…… (2 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | BattleScreen[39m[0m
+[  33% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 正在加载编辑器 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 正在加载编辑器布局……[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 正在加载停靠面板……[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 正在重新打开场景……[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 正在加载中央编辑器布局……[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 正在加载插件窗口布局……[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 编辑器布局就绪。[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+== godot verify ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_CONTENT_OK units=250 playable=250 cards=2114
+GODOT_MATCH_OK commands=17 log=59 turn=5 winner=-1 seed=20260920
+COMMAND_LOG [{"a":{"unit":1},"c":"level_up","p":0,"r":2987955158,"t":1},{"a":{"card":"flash-thrust","hand":1,"target":null},"c":"play_card","p":0,"r":2987955158,"t":1},{"a":{"bonus":2,"target":null,"unit":0},"c":"assault","p":0,"r":2987955158,"t":1},{"
+GODOT_VERT_SLICE_OK
+== godot verify_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+UI_LOAD_OK 21
+== godot verify_save ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SAVE_OK lineup=["ember", "basalt", "lumen", "rime"] deck0=8 steps=20
+== godot verify_collection ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+COLLECTION_CHECKS checks=9 failures=0
+COLLECTION_OK pack=5 crafted=true reward=300
+== godot verify_interactions ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+INTERACTIONS checks=30 failures=0
+INTERACTIONS_OK
+== godot verify_reference_workflow ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+REFERENCE_WORKFLOW checks=187 failures=0
+REFERENCE_WORKFLOW_OK
+== godot verify_presentation ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PRESENTATION checks=119 failures=0
+PRESENTATION_OK
+== godot verify_art ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ART checks=1207 failures=0 redrawn_units=57
+ART_OK
+== godot verify_roster ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ROSTER checks=5303 failures=0 units=250 portraits=500 matches=63 covered=250 opponents=117
+ROSTER_OK
+== godot seeded matches ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PLAYTEST matches=60 completed=60 wins=[34, 26] stalls=0 avg_turn=15.5
+PLAYTEST_OK
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FOCUS rounds=20 completed=20 wins=[12, 8] stalls=0 response_games=9 choice_games=1
+FOCUS_OK
+== godot boot smoke ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_VERIFY_ALL_OK

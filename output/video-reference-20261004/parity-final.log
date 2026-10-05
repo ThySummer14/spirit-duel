@@ -1,0 +1,70 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content
+== JS parity: scripts/parity/sample-divination.json ==
+JS_PARITY_OK steps=5 ok=5 → output/video-reference-20261004/parity/sample-divination-js.json
+== Godot parity: scripts/parity/sample-divination.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=5 ok=5 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/video-reference-20261004/parity/sample-divination-godot.json
+== compare ==
+PARITY_MATCH sample=divination-choice steps=5
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content
+== JS parity: scripts/parity/sample-fortune.json ==
+JS_PARITY_OK steps=5 ok=5 → output/video-reference-20261004/parity/sample-fortune-js.json
+== Godot parity: scripts/parity/sample-fortune.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=5 ok=5 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/video-reference-20261004/parity/sample-fortune-godot.json
+== compare ==
+PARITY_MATCH sample=fortune-encourage steps=5
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content
+== JS parity: scripts/parity/sample-keywords.json ==
+JS_PARITY_OK steps=13 ok=5 → output/video-reference-20261004/parity/sample-keywords-js.json
+== Godot parity: scripts/parity/sample-keywords.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=13 ok=5 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/video-reference-20261004/parity/sample-keywords-godot.json
+== compare ==
+PARITY_MATCH sample=combat-keywords steps=13
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content
+== JS parity: scripts/parity/sample-origin.json ==
+JS_PARITY_OK steps=16 ok=10 → output/video-reference-20261004/parity/sample-origin-js.json
+== Godot parity: scripts/parity/sample-origin.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=16 ok=10 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/video-reference-20261004/parity/sample-origin-godot.json
+== compare ==
+PARITY_MATCH sample=origin-core-loop steps=16
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content
+== JS parity: scripts/parity/sample-response-play.json ==
+JS_PARITY_OK steps=8 ok=8 → output/video-reference-20261004/parity/sample-response-play-js.json
+== Godot parity: scripts/parity/sample-response-play.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=8 ok=8 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/video-reference-20261004/parity/sample-response-play-godot.json
+== compare ==
+PARITY_MATCH sample=response-play-nest steps=8
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content
+== JS parity: scripts/parity/sample-response.json ==
+JS_PARITY_OK steps=8 ok=8 → output/video-reference-20261004/parity/sample-response-js.json
+== Godot parity: scripts/parity/sample-response.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=8 ok=8 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/video-reference-20261004/parity/sample-response-godot.json
+== compare ==
+PARITY_MATCH sample=response-pass-chain steps=8
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content
+== JS parity: scripts/parity/sample-targeted-response.json ==
+JS_PARITY_OK steps=4 ok=4 → output/video-reference-20261004/parity/sample-targeted-response-js.json
+== Godot parity: scripts/parity/sample-targeted-response.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=4 ok=4 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/video-reference-20261004/parity/sample-targeted-response-godot.json
+== compare ==
+PARITY_MATCH sample=targeted-response-opponent-turn steps=4

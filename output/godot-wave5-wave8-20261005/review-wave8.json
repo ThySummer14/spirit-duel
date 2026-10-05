@@ -1,0 +1,60 @@
+{
+  "pack": "wave8",
+  "units": 25,
+  "status": "accepted",
+  "originalAndSelectedCompared": true,
+  "comparisonSheets": [
+    "review/wave8-comparison-01.jpg",
+    "review/wave8-comparison-02.jpg",
+    "review/wave8-comparison-03.jpg",
+    "review/wave8-comparison-04.jpg",
+    "review/wave8-comparison-05.jpg",
+    "review/wave8-comparison-06.jpg",
+    "review/wave8-comparison-07.jpg"
+  ],
+  "allGameScreenshotsViewed": true,
+  "screenshots": [
+    "final-shots/wave8/01-wave8-portraits-01.png",
+    "final-shots/wave8/01-wave8-portraits-02.png",
+    "final-shots/wave8/01-wave8-portraits-03.png",
+    "final-shots/wave8/01-wave8-portraits-04.png",
+    "final-shots/wave8/02-wave8-formation.png",
+    "final-shots/wave8/03-wave8-deck-01.png",
+    "final-shots/wave8/03-wave8-deck-02.png",
+    "final-shots/wave8/03-wave8-deck-03.png",
+    "final-shots/wave8/03-wave8-deck-04.png",
+    "final-shots/wave8/03-wave8-deck-05.png",
+    "final-shots/wave8/03-wave8-deck-06.png",
+    "final-shots/wave8/03-wave8-deck-07.png",
+    "final-shots/wave8/04-wave8-battle-01.png",
+    "final-shots/wave8/04-wave8-battle-02.png",
+    "final-shots/wave8/04-wave8-battle-03.png",
+    "final-shots/wave8/04-wave8-battle-04.png",
+    "final-shots/wave8/04-wave8-battle-05.png",
+    "final-shots/wave8/04-wave8-battle-06.png",
+    "final-shots/wave8/04-wave8-battle-07.png"
+  ],
+  "portraitFocusReviewed": true,
+  "checks": [
+    "Original hairstyle, color palette, identity, props and variant grouping visually checked; clothing exception listed below",
+    "Tongnan/Tongnv remain two winged characters; Xiaolunan Qianshou retains separate deer-body legs",
+    "Guishibai and Guishihei have independent portraits from their respective original cards",
+    "No printed card frames, text panels or affiliation emblems retained in final image",
+    "Actual gallery, formation, all deck captures and all seven battles visually reviewed"
+  ],
+  "originalOnlyRevisions": [
+    {
+      "id": "yuedu",
+      "attempts": 1
+    }
+  ],
+  "designExceptions": [
+    {
+      "id": "yixienamei",
+      "detail": "For general-audience output, fully opaque covered ceremonial gown replaces source body styling. Hairstyle, red mantle, palette, serpentine composition preserved."
+    }
+  ],
+  "captureErrors": 0,
+  "captureWarnings": 0,
+  "limitations": "Viewport capture with automated inputs; ordinary, awakening and skills still share owner portrait."
+}

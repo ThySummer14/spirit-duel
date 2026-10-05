@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">大岳丸</title>
+  <desc id="desc">大岳丸：三神器与海浪，铃鹿山势</desc>
+  <defs>
+    <linearGradient id="dayueling-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1218"/>
+      <stop offset=".55" stop-color="#122030"/>
+      <stop offset="1" stop-color="#080c12"/>
+    </linearGradient>
+    <radialGradient id="dayueling-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#70a0d0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#4070a0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#4070a0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dayueling-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c0d8f0"/>
+      <stop offset=".55" stop-color="#7090b0"/>
+      <stop offset="1" stop-color="#4070a0"/>
+    </linearGradient>
+    <linearGradient id="dayueling-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4070a0"/>
+      <stop offset="1" stop-color="#183850"/>
+    </linearGradient>
+    <linearGradient id="dayueling-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#dayueling-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#dayueling-halo)"/>
+  <g>
+    <circle cx="70" cy="90" r="14" fill="url(#dayueling-gold)" stroke="#2a3040" stroke-width="1.4"/>
+    <path d="M130 70l8 40-8 8-8-8Z" fill="url(#dayueling-acc)" stroke="#2a3040" stroke-width="1.2"/>
+    <rect x="90" y="120" width="20" height="36" rx="3" fill="url(#dayueling-body)" stroke="#2a3040" stroke-width="1.4"/>
+  </g>
+  <path d="M35 175c22-14 42-4 55 10 12-16 34-24 55-10 10 6 14 14 16 22H22c2-10 6-18 13-22Z" fill="url(#dayueling-body)" opacity=".75"/>
+  <path d="M55 182c14-6 28-2 35 6 8-8 22-12 35-6" fill="none" stroke="#c0d8f0" stroke-width="1.2" opacity=".55"/>
+<g fill="url(#dayueling-acc)">
+    <circle cx="40" cy="70" r="2" opacity=".6"/>
+    <circle cx="164" cy="72" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="130" r="1.6" opacity=".5"/>
+    <circle cx="170" cy="136" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="30" r="1.5" opacity=".5"/>
+    <circle cx="68" cy="205" r="1.4" opacity=".5"/>
+    <circle cx="132" cy="205" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#4070a0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

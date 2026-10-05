@@ -1,0 +1,317 @@
+{
+  "total": 75,
+  "unique": 75,
+  "packs": {
+    "wave5": {
+      "units": 24,
+      "screenshots": 16,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-wave5-portraits-01.png",
+        "01-wave5-portraits-02.png",
+        "01-wave5-portraits-03.png"
+      ],
+      "deck": [
+        "03-wave5-deck-01.png",
+        "03-wave5-deck-02.png",
+        "03-wave5-deck-03.png",
+        "03-wave5-deck-04.png",
+        "03-wave5-deck-05.png",
+        "03-wave5-deck-06.png"
+      ],
+      "battle": [
+        "04-wave5-battle-01.png",
+        "04-wave5-battle-02.png",
+        "04-wave5-battle-03.png",
+        "04-wave5-battle-04.png",
+        "04-wave5-battle-05.png",
+        "04-wave5-battle-06.png"
+      ],
+      "allyGroups": [
+        [
+          "tengji",
+          "huaniajuan",
+          "yanmo",
+          "kuileishi"
+        ],
+        [
+          "baizangzhu",
+          "rulianshi",
+          "fengli",
+          "guanhu"
+        ],
+        [
+          "song",
+          "yunwaijing",
+          "liangmianfo",
+          "heitongzi"
+        ],
+        [
+          "baitongzi",
+          "xiazhongshaonv",
+          "yi",
+          "xiaosongwan"
+        ],
+        [
+          "wuwu",
+          "qianji",
+          "shiling",
+          "maozhanggui"
+        ],
+        [
+          "xingxiongtongzi",
+          "yixigong",
+          "limao",
+          "tuwan"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack, matching roster and successful capture log"
+    },
+    "wave6": {
+      "units": 32,
+      "screenshots": 21,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-wave6-portraits-01.png",
+        "01-wave6-portraits-02.png",
+        "01-wave6-portraits-03.png",
+        "01-wave6-portraits-04.png"
+      ],
+      "deck": [
+        "03-wave6-deck-01.png",
+        "03-wave6-deck-02.png",
+        "03-wave6-deck-03.png",
+        "03-wave6-deck-04.png",
+        "03-wave6-deck-05.png",
+        "03-wave6-deck-06.png",
+        "03-wave6-deck-07.png",
+        "03-wave6-deck-08.png"
+      ],
+      "battle": [
+        "04-wave6-battle-01.png",
+        "04-wave6-battle-02.png",
+        "04-wave6-battle-03.png",
+        "04-wave6-battle-04.png",
+        "04-wave6-battle-05.png",
+        "04-wave6-battle-06.png",
+        "04-wave6-battle-07.png",
+        "04-wave6-battle-08.png"
+      ],
+      "allyGroups": [
+        [
+          "jinnaluo",
+          "lingyanji",
+          "rurineque",
+          "shouwu"
+        ],
+        [
+          "gunvhongye",
+          "choushizhinv",
+          "yifanmumian",
+          "yecha"
+        ],
+        [
+          "huangchuanzhizhu",
+          "wannianzhu",
+          "shuzhu",
+          "sanweihu"
+        ],
+        [
+          "jicanghai",
+          "wuchen",
+          "ninghongye",
+          "tayumenhutao"
+        ],
+        [
+          "baize",
+          "hudiejing",
+          "luoxinfu",
+          "yitiao"
+        ],
+        [
+          "jialouluo",
+          "huajing",
+          "yinge",
+          "bujianyue"
+        ],
+        [
+          "xuzuozhinan",
+          "liyujing",
+          "chongshi",
+          "xieenv"
+        ],
+        [
+          "xunxiangxing",
+          "linghaidie",
+          "yujuchong",
+          "hainren"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack, matching roster and successful capture log"
+    },
+    "wave7": {
+      "units": 25,
+      "screenshots": 19,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-wave7-portraits-01.png",
+        "01-wave7-portraits-02.png",
+        "01-wave7-portraits-03.png",
+        "01-wave7-portraits-04.png"
+      ],
+      "deck": [
+        "03-wave7-deck-01.png",
+        "03-wave7-deck-02.png",
+        "03-wave7-deck-03.png",
+        "03-wave7-deck-04.png",
+        "03-wave7-deck-05.png",
+        "03-wave7-deck-06.png",
+        "03-wave7-deck-07.png"
+      ],
+      "battle": [
+        "04-wave7-battle-01.png",
+        "04-wave7-battle-02.png",
+        "04-wave7-battle-03.png",
+        "04-wave7-battle-04.png",
+        "04-wave7-battle-05.png",
+        "04-wave7-battle-06.png",
+        "04-wave7-battle-07.png"
+      ],
+      "allyGroups": [
+        [
+          "gulonghuo",
+          "chuanyuan",
+          "erkounv",
+          "xiaoxiuzhishou"
+        ],
+        [
+          "quanshen-lizhan",
+          "yaodaoji-zhuren",
+          "datiangou-gangfeng",
+          "qingxingdeng-huihuo"
+        ],
+        [
+          "kongquemingwang",
+          "fenpopo",
+          "jiao",
+          "ji"
+        ],
+        [
+          "jutun-wangkong",
+          "caitong-lvli",
+          "qingfangzhu-fanchen",
+          "panguan-xuanmo"
+        ],
+        [
+          "langyazi",
+          "yanling",
+          "huimingdeng",
+          "shifagui"
+        ],
+        [
+          "tiannimei",
+          "guniao-yuxiang",
+          "taohua-luoying",
+          "yimulian-linglai"
+        ],
+        [
+          "shantu-zuofu",
+          "gulonghuo",
+          "chuanyuan",
+          "erkounv"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack, matching roster and successful capture log"
+    },
+    "wave8": {
+      "units": 25,
+      "screenshots": 19,
+      "size": [
+        1280,
+        800
+      ],
+      "gallery": [
+        "01-wave8-portraits-01.png",
+        "01-wave8-portraits-02.png",
+        "01-wave8-portraits-03.png",
+        "01-wave8-portraits-04.png"
+      ],
+      "deck": [
+        "03-wave8-deck-01.png",
+        "03-wave8-deck-02.png",
+        "03-wave8-deck-03.png",
+        "03-wave8-deck-04.png",
+        "03-wave8-deck-05.png",
+        "03-wave8-deck-06.png",
+        "03-wave8-deck-07.png"
+      ],
+      "battle": [
+        "04-wave8-battle-01.png",
+        "04-wave8-battle-02.png",
+        "04-wave8-battle-03.png",
+        "04-wave8-battle-04.png",
+        "04-wave8-battle-05.png",
+        "04-wave8-battle-06.png",
+        "04-wave8-battle-07.png"
+      ],
+      "allyGroups": [
+        [
+          "chen",
+          "tianzhao",
+          "yuedu",
+          "gunv"
+        ],
+        [
+          "yunv",
+          "huang-qiming",
+          "zhuiyueshen-shuiyue",
+          "wushi-maoshi"
+        ],
+        [
+          "yixienamei",
+          "guishibai",
+          "guishihei",
+          "tongnantongnv"
+        ],
+        [
+          "zhiwu",
+          "daorenshen",
+          "ertong",
+          "yingcao-pupu"
+        ],
+        [
+          "mianqiling-xinsu",
+          "fansi",
+          "longzi",
+          "maochuan"
+        ],
+        [
+          "alaina",
+          "youning",
+          "xiaolunan-qianshou",
+          "rihefang-qingyang"
+        ],
+        [
+          "yanyanluo-fumiao",
+          "chen",
+          "tianzhao",
+          "yuedu"
+        ]
+      ],
+      "allUnitsCovered": true,
+      "coverageSource": "capture_redrawn.gd _run_pack, matching roster and successful capture log"
+    }
+  }
+}

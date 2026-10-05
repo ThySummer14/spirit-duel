@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">樱花妖·璃景</title>
+  <desc id="desc">樱花妖·璃景：琉璃樱与花雨，璃魄华舞</desc>
+  <defs>
+    <linearGradient id="yinghuayaolijing-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#180c10"/>
+      <stop offset=".55" stop-color="#281418"/>
+      <stop offset="1" stop-color="#10080c"/>
+    </linearGradient>
+    <radialGradient id="yinghuayaolijing-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#f0a0b0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#e06080" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#e06080" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="yinghuayaolijing-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8d0d8"/>
+      <stop offset=".55" stop-color="#c08090"/>
+      <stop offset="1" stop-color="#e06080"/>
+    </linearGradient>
+    <linearGradient id="yinghuayaolijing-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e06080"/>
+      <stop offset="1" stop-color="#501828"/>
+    </linearGradient>
+    <linearGradient id="yinghuayaolijing-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#yinghuayaolijing-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#yinghuayaolijing-halo)"/>
+  <g>
+    <g fill="url(#yinghuayaolijing-acc)" opacity=".9">
+      <path d="M100 125c-8-22-2-38 8-48 2 16 0 34-8 48Z"/>
+      <path d="M100 125c8-22 24-28 38-24-12 12-24 20-38 24Z"/>
+      <path d="M100 125c22-8 34 2 40 14-16 0-30-4-40-14Z"/>
+      <path d="M100 125c8 22-2 38-14 44 0-16 4-32 14-44Z"/>
+      <path d="M100 125c-22 8-34-2-38-14 14 2 28 6 38 14Z"/>
+    </g>
+    <circle cx="100" cy="125" r="8" fill="url(#yinghuayaolijing-gold)" opacity=".85"/>
+  </g>
+<g fill="url(#yinghuayaolijing-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#e06080" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

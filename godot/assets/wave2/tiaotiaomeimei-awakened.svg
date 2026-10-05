@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">跳跳妹妹 · 觉醒相</title>
+  <desc id="desc">双马尾与番茄：少女环形与一枚番茄跃出。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="tiaotiaomeimei-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#180c12"/>
+      <stop offset=".55" stop-color="#28141c"/>
+      <stop offset="1" stop-color="#10080c"/>
+    </linearGradient>
+    <radialGradient id="tiaotiaomeimei-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#f0a0b0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#e85070" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#e85070" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tiaotiaomeimei-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8d0d8"/>
+      <stop offset=".55" stop-color="#e090a8"/>
+      <stop offset="1" stop-color="#e85070"/>
+    </linearGradient>
+    <linearGradient id="tiaotiaomeimei-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e85070"/>
+      <stop offset="1" stop-color="#902040"/>
+    </linearGradient>
+    <linearGradient id="tiaotiaomeimei-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#tiaotiaomeimei-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#tiaotiaomeimei-halo)"/>
+  <g>
+    <circle cx="78" cy="78" r="14" fill="url(#tiaotiaomeimei-body)" stroke="#4a2030" stroke-width="1.5"/>
+    <circle cx="122" cy="78" r="14" fill="url(#tiaotiaomeimei-body)" stroke="#4a2030" stroke-width="1.5"/>
+    <ellipse cx="100" cy="110" rx="36" ry="40" fill="url(#tiaotiaomeimei-body)" stroke="#4a2030" stroke-width="2"/>
+    <ellipse cx="86" cy="108" rx="5" ry="4" fill="#2a1018"/>
+    <ellipse cx="114" cy="108" rx="5" ry="4" fill="#2a1018"/>
+    <circle cx="87" cy="107" r="1.5" fill="#ffe0f0"/><circle cx="115" cy="107" r="1.5" fill="#ffe0f0"/>
+    <path d="M92 124c5 7 12 7 16 0" stroke="#5a2838" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </g>
+  <g>
+    <ellipse cx="148" cy="168" rx="22" ry="18" fill="#e04858" stroke="#7a2028" stroke-width="1.6"/>
+    <path d="M148 150c-2 6-2 10 0 14 4-4 8-8 10-12-4 0-8-2-10-2Z" fill="#3d8f4a"/>
+    <ellipse cx="140" cy="164" rx="4" ry="3" fill="#ff8090" opacity=".7"/>
+  </g>
+  <path d="M70 178h60l-8 24H78Z" fill="url(#tiaotiaomeimei-body)" opacity=".55"/>
+<g fill="url(#tiaotiaomeimei-acc)">
+    <circle cx="40" cy="100" r="2" opacity=".6"/>
+    <circle cx="164" cy="96" r="1.8" opacity=".55"/>
+    <circle cx="36" cy="160" r="1.6" opacity=".5"/>
+    <circle cx="172" cy="130" r="1.5" opacity=".5"/>
+    <circle cx="100" cy="28" r="1.6" opacity=".5"/>
+    <circle cx="56" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="120" cy="40" r="1.3" opacity=".45"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#tiaotiaomeimei-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#tiaotiaomeimei-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#tiaotiaomeimei-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#tiaotiaomeimei-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#tiaotiaomeimei-gold)"/>
+    <g stroke="url(#tiaotiaomeimei-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#e85070" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

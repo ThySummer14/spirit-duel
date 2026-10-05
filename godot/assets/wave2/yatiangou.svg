@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">鸦天狗</title>
+  <desc id="desc">鸦羽与佩刀：墨羽展开，金柄太刀斜倚</desc>
+  <defs>
+    <linearGradient id="yatiangou-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1218"/>
+      <stop offset=".55" stop-color="#14202c"/>
+      <stop offset="1" stop-color="#0a0c12"/>
+    </linearGradient>
+    <radialGradient id="yatiangou-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#80b0d0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#5080b0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#5080b0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="yatiangou-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#d0e0f0"/>
+      <stop offset=".55" stop-color="#88a8c0"/>
+      <stop offset="1" stop-color="#5080b0"/>
+    </linearGradient>
+    <linearGradient id="yatiangou-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5080b0"/>
+      <stop offset="1" stop-color="#203850"/>
+    </linearGradient>
+    <linearGradient id="yatiangou-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#yatiangou-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#yatiangou-halo)"/>
+  <g>
+    <path d="M90 100c-28-18-52-14-64 2 18 2 34 12 44 28-14-4-28 0-38 10 20 0 40 8 50 20Z" fill="url(#yatiangou-body)" opacity=".9"/>
+    <path d="M110 100c28-18 52-14 64 2-18 2-34 12-44 28 14-4 28 0 38 10-20 0-40 8-50 20Z" fill="url(#yatiangou-body)" opacity=".9"/>
+    <ellipse cx="100" cy="108" rx="28" ry="32" fill="url(#yatiangou-acc)" opacity=".9" stroke="#1a2028" stroke-width="2"/>
+    <path d="M88 78l-8-24 20 12ZM112 78l8-24-20 12Z" fill="url(#yatiangou-acc)"/>
+    <ellipse cx="88" cy="106" rx="5" ry="4" fill="#0a0c10"/>
+    <ellipse cx="112" cy="106" rx="5" ry="4" fill="#0a0c10"/>
+    <circle cx="89" cy="105" r="1.4" fill="#c0e0ff"/><circle cx="113" cy="105" r="1.4" fill="#c0e0ff"/>
+    <path d="M100 118l4 8h-8Z" fill="#e8a040"/>
+  </g>
+  <path d="M148 56l8 90-10 2-8-90Z" fill="url(#yatiangou-gold)" stroke="#3a2810" stroke-width="1"/>
+<g fill="url(#yatiangou-acc)">
+    <circle cx="36" cy="80" r="2" opacity=".6"/>
+    <circle cx="164" cy="84" r="1.8" opacity=".55"/>
+    <circle cx="32" cy="140" r="1.8" opacity=".55"/>
+    <circle cx="170" cy="146" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="28" r="1.5" opacity=".5"/>
+    <circle cx="64" cy="198" r="1.5" opacity=".5"/>
+    <circle cx="136" cy="198" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#5080b0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

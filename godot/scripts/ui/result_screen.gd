@@ -2,6 +2,9 @@ class_name ResultScreen
 extends Control
 
 const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
+const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
+const BattleScreen := preload("res://scripts/ui/battle_screen.gd")
+const Sfx := preload("res://scripts/ui/sfx.gd")
 ## Victory / defeat with seal-like stamp.
 
 signal rematch
@@ -20,10 +23,12 @@ func setup(victory: bool, summary: String, commands: Array = []) -> void:
 
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
-	var bg := ColorRect.new()
-	bg.color = ThemeBuilder.INK_0
+	var bg := Backdrop.new()
+	bg.scene = "port"
+	bg.dim = 0.75
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
+	Sfx.music("bgm_menu")
 
 	var center := CenterContainer.new()
 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -63,8 +68,7 @@ func _ready() -> void:
 		rl.custom_minimum_size = Vector2(0, 110)
 		var lines := PackedStringArray()
 		for i in mini(_commands.size(), 80):
-			var c = _commands[i]
-			lines.append("#%d %s p%s" % [i + 1, str(c.get("c", "?")), str(c.get("p", ""))])
+			lines.append(BattleScreen.describe_command(_commands[i], i))
 		rl.text = "\n".join(lines)
 		cv.add_child(rl)
 		col.add_child(cmd_box)
@@ -72,7 +76,7 @@ func _ready() -> void:
 	var h := HBoxContainer.new()
 	h.add_theme_constant_override("separation", 16)
 	col.add_child(h)
-	var again := ThemeBuilder.rounded_rect_button("再战一局", Vector2(200, 48))
+	var again := ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("再战一局", Vector2(200, 48)))
 	again.pressed.connect(func(): rematch.emit())
 	h.add_child(again)
 	var menu := ThemeBuilder.rounded_rect_button("回到主菜单", Vector2(200, 48))

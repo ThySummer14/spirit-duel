@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">饿鬼</title>
+  <desc id="desc">饿鬼：巨口与饭团，饥火中烧</desc>
+  <defs>
+    <linearGradient id="egui-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140e08"/>
+      <stop offset=".55" stop-color="#201810"/>
+      <stop offset="1" stop-color="#0c0a08"/>
+    </linearGradient>
+    <radialGradient id="egui-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#d0a060" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#a06030" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#a06030" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="egui-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e8d0a8"/>
+      <stop offset=".55" stop-color="#b08860"/>
+      <stop offset="1" stop-color="#a06030"/>
+    </linearGradient>
+    <linearGradient id="egui-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a06030"/>
+      <stop offset="1" stop-color="#503010"/>
+    </linearGradient>
+    <linearGradient id="egui-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#egui-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#egui-halo)"/>
+  <g>
+    <ellipse cx="100" cy="130" rx="38" ry="32" fill="url(#egui-body)" stroke="#3a2810" stroke-width="2"/>
+    <path d="M75 130c8 16 42 16 50 0" fill="#1a1008" opacity=".8"/>
+    <path d="M80 115c5 8 15 8 20 0M100 115c5 8 15 8 20 0" stroke="#3a2810" stroke-width="1.5" fill="none"/>
+  </g>
+  <ellipse cx="140" cy="95" rx="14" ry="10" fill="url(#egui-acc)" stroke="#3a2810" stroke-width="1.2"/>
+  <path d="M130 90c4-6 16-6 20 0" fill="none" stroke="url(#egui-gold)" stroke-width="1.2"/>
+<g fill="url(#egui-acc)">
+    <circle cx="36" cy="85" r="2" opacity=".6"/>
+    <circle cx="164" cy="70" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="175" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="177" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.5" opacity=".5"/>
+    <circle cx="70" cy="205" r="1.4" opacity=".5"/>
+    <circle cx="130" cy="205" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#a06030" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

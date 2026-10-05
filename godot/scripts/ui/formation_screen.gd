@@ -3,326 +3,257 @@ extends Control
 
 const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
 const ContentLoader := preload("res://scripts/content_loader.gd")
-## Pick 4 units from content, review passives and card list, confirm.
+const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
+const SaveStore := preload("res://scripts/save_store.gd")
+const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
+const Sfx := preload("res://scripts/ui/sfx.gd")
 
 signal confirmed(unit_ids: Array)
 signal back_requested
 signal edit_deck(unit_id: String)
 
 const PICK_COUNT := 4
-
+var browse_only := false
+var formation_slot := 0
 var _selected: Array = []
+var _focused := "ember"
 var _unit_list: GridContainer
 var _detail_box: VBoxContainer
-var _card_box: VBoxContainer
+var _card_box: HBoxContainer
+var _selected_row: HBoxContainer
+var _deck_row: HBoxContainer
 var _confirm_btn: Button
 var _status_l: Label
 var _search: LineEdit
+var _roster_count: Label
+var _pack_picker: OptionButton
 var _pack_filter := "all"
-var _pack_buttons: ButtonGroup = ButtonGroup.new()
-
+var _slot_picker: OptionButton
+var _drafts: Dictionary = {}
 
 func _ready() -> void:
-	theme = ThemeBuilder.build_washi_theme()
-	set_anchors_preset(Control.PRESET_FULL_RECT)
-	var bg := ColorRect.new()
-	bg.color = ThemeBuilder.WASHI_BG
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	theme = ThemeBuilder.build_night_theme()
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var bg := Backdrop.new()
+	bg.scene = "table"
+	bg.dim = 0.22
 	add_child(bg)
-	# 和纸微光
-	var glow := ColorRect.new()
-	glow.color = Color(1, 0.98, 0.93, 0.35)
-	glow.set_anchors_preset(Control.PRESET_FULL_RECT)
-	glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(glow)
-
+	Sfx.music("bgm_menu")
 	var root := VBoxContainer.new()
-	root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.offset_left = 20
-	root.offset_top = 12
-	root.offset_right = -20
-	root.offset_bottom = -12
-	root.add_theme_constant_override("separation", 10)
+	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	root.offset_left = 22
+	root.offset_right = -22
+	root.offset_top = 16
+	root.offset_bottom = -16
+	root.add_theme_constant_override("separation", 12)
 	add_child(root)
-
 	var header := HBoxContainer.new()
+	header.add_theme_constant_override("separation", 16)
 	root.add_child(header)
-	header.add_child(ThemeBuilder.washi_title("编 成", 36))
-	var spacer := Control.new()
-	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	header.add_child(spacer)
 	var back := Button.new()
-	back.text = "返回"
+	back.text = "‹ 返回"
 	back.pressed.connect(func(): back_requested.emit())
 	header.add_child(back)
-
-	var tools := HFlowContainer.new()
-	tools.add_theme_constant_override("h_separation", 8)
-	tools.add_theme_constant_override("v_separation", 6)
-	tools.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	root.add_child(tools)
-	_search = LineEdit.new()
-	_search.placeholder_text = "搜索式者 / 定位…"
-	_search.clear_button_enabled = true
-	_search.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_search.text_changed.connect(func(_t): _rebuild_unit_list())
-	tools.add_child(_search)
-	for pack_id in ["all", "origin", "classic", "wave2", "wave3", "wave4", "wave5", "wave6", "wave7", "wave8", "wave9", "wave10", "wave11", "wave12", "wave13"]:
-		var b := Button.new()
-		b.text = _pack_label(pack_id)
-		b.toggle_mode = true
-		b.button_group = _pack_buttons
-		b.button_pressed = pack_id == "all"
-		b.set_meta("pack", pack_id)
-		b.pressed.connect(func():
-			_pack_filter = pack_id
-			_rebuild_unit_list()
-		)
-		tools.add_child(b)
-
-	_status_l = ThemeBuilder.washi_dim("已选 0/%d · 请选择四名角色" % PICK_COUNT)
-	root.add_child(_status_l)
-
+	header.add_child(ThemeBuilder.title_label("式神录" if browse_only else "灵契编组", 28))
+	var sp := Control.new()
+	sp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(sp)
+	_slot_picker = OptionButton.new()
+	for entry in SaveStore.get_formations(): _slot_picker.add_item(str(entry.name))
+	_slot_picker.select(formation_slot)
+	_slot_picker.item_selected.connect(_switch_slot)
+	_slot_picker.visible = not browse_only
+	header.add_child(_slot_picker)
+	var save := Button.new()
+	save.text = "保存阵容"
+	save.visible = not browse_only
+	save.pressed.connect(func():
+		_status_l.text = "阵容已保存" if SaveStore.save_formation(formation_slot, _selected) else "请先选满四名不同式神"
+	)
+	header.add_child(save)
+	_confirm_btn = ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("出 战", Vector2(136, 44)))
+	_confirm_btn.visible = not browse_only
+	_confirm_btn.pressed.connect(_on_confirm)
+	header.add_child(_confirm_btn)
 	var split := HBoxContainer.new()
 	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	split.add_theme_constant_override("separation", 12)
+	split.add_theme_constant_override("separation", 16)
 	root.add_child(split)
-
-	# left: unit grid
-	var left_panel := PanelContainer.new()
-	left_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	left_panel.size_flags_stretch_ratio = 1.35
-	left_panel.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(14, false))
-	split.add_child(left_panel)
-	var scroll := ScrollContainer.new()
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	left_panel.add_child(scroll)
+	var left := VBoxContainer.new()
+	left.custom_minimum_size = Vector2(206, 0)
+	left.add_theme_constant_override("separation", 8)
+	split.add_child(left)
+	_search = LineEdit.new()
+	_search.placeholder_text = "搜索式神 / 定位"
+	_search.clear_button_enabled = true
+	_search.text_changed.connect(func(_t): _rebuild_unit_list())
+	left.add_child(_search)
+	_pack_picker = OptionButton.new()
+	for id in ContentLoader.pack_ids(): _pack_picker.add_item(ContentLoader.pack_label(id))
+	_pack_picker.item_selected.connect(func(index):
+		_pack_filter = ContentLoader.pack_ids()[index]
+		_rebuild_unit_list()
+	)
+	left.add_child(_pack_picker)
+	_roster_count = ThemeBuilder.dim_label("", 12)
+	left.add_child(_roster_count)
+	var roster_scroll := ScrollContainer.new()
+	roster_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	roster_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	left.add_child(roster_scroll)
 	_unit_list = GridContainer.new()
-	_unit_list.columns = 3
-	_unit_list.add_theme_constant_override("h_separation", 8)
-	_unit_list.add_theme_constant_override("v_separation", 8)
-	_unit_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.add_child(_unit_list)
-
-	# middle: detail
-	var mid := PanelContainer.new()
+	_unit_list.columns = 2
+	_unit_list.add_theme_constant_override("h_separation", 10)
+	_unit_list.add_theme_constant_override("v_separation", 10)
+	roster_scroll.add_child(_unit_list)
+	var mid := VBoxContainer.new()
 	mid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	mid.size_flags_stretch_ratio = 1.0
-	mid.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(14, false))
+	mid.add_theme_constant_override("separation", 8)
 	split.add_child(mid)
-	var mid_v := VBoxContainer.new()
-	mid_v.add_theme_constant_override("separation", 6)
-	mid.add_child(mid_v)
-	mid_v.add_child(ThemeBuilder.micro_label("角色详情"))
-	var dscroll := ScrollContainer.new()
-	dscroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	mid_v.add_child(dscroll)
-	_detail_box = VBoxContainer.new()
-	_detail_box.add_theme_constant_override("separation", 6)
-	_detail_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	dscroll.add_child(_detail_box)
-
-	# right: cards
+	_status_l = ThemeBuilder.dim_label("", 13)
+	mid.add_child(_status_l)
+	_selected_row = HBoxContainer.new()
+	_selected_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	_selected_row.add_theme_constant_override("separation", 14)
+	_selected_row.visible = not browse_only
+	mid.add_child(_selected_row)
+	mid.add_child(ThemeBuilder.label("专属卡牌 · 点击检视完整牌文", 14, ThemeBuilder.PAPER))
+	var card_scroll := ScrollContainer.new()
+	card_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	card_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	mid.add_child(card_scroll)
+	_card_box = HBoxContainer.new()
+	_card_box.add_theme_constant_override("separation", 12)
+	card_scroll.add_child(_card_box)
+	mid.add_child(ThemeBuilder.dim_label("当前式神的八张构筑 · 点击下方卡牌进入构筑", 12))
+	var deck_scroll := ScrollContainer.new()
+	deck_scroll.custom_minimum_size = Vector2(0, 104)
+	deck_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	mid.add_child(deck_scroll)
+	_deck_row = HBoxContainer.new()
+	_deck_row.add_theme_constant_override("separation", 7)
+	deck_scroll.add_child(_deck_row)
 	var right := PanelContainer.new()
-	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	right.size_flags_stretch_ratio = 1.25
-	right.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(14, false))
+	right.custom_minimum_size = Vector2(244, 0)
+	right.add_theme_stylebox_override("panel", ThemeBuilder.panel(Color(0.08, 0.085, 0.14, 0.92), Color("71677d"), 4, 1))
 	split.add_child(right)
-	var r_v := VBoxContainer.new()
-	r_v.add_theme_constant_override("separation", 6)
-	right.add_child(r_v)
-	r_v.add_child(ThemeBuilder.micro_label("卡牌一览（不含衍生）"))
-	var cscroll := ScrollContainer.new()
-	cscroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	r_v.add_child(cscroll)
-	_card_box = VBoxContainer.new()
-	_card_box.add_theme_constant_override("separation", 4)
-	_card_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	cscroll.add_child(_card_box)
-
-	var footer := HBoxContainer.new()
-	root.add_child(footer)
-	var sp2 := Control.new()
-	sp2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	footer.add_child(sp2)
-	_confirm_btn = ThemeBuilder.rounded_rect_button("确认出战", Vector2(220, 48))
-	_confirm_btn.disabled = true
-	_confirm_btn.pressed.connect(_on_confirm)
-	footer.add_child(_confirm_btn)
-
+	var detail_scroll := ScrollContainer.new()
+	detail_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	right.add_child(detail_scroll)
+	_detail_box = VBoxContainer.new()
+	_detail_box.custom_minimum_size = Vector2(218, 0)
+	_detail_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_detail_box.add_theme_constant_override("separation", 10)
+	detail_scroll.add_child(_detail_box)
 	_rebuild_unit_list()
-	_show_unit(ContentLoader.playable_units()[0] if not ContentLoader.playable_units().is_empty() else {})
+	_show_unit(ContentLoader.unit_def(_focused))
 
-
-func _pack_label(pack_id: String) -> String:
-	match pack_id:
-		"origin":
-			return "灵枢原创"
-		"classic":
-			return "经典包"
-		"wave2":
-			return "不夜之火"
-		"wave3":
-			return "月夜沧海"
-		"wave4":
-			return "吉运善恶"
-		"wave5":
-			return "繁花喧哗"
-		"wave6":
-			return "空弦鸣雷"
-		"wave7":
-			return "燃灯桃源"
-		"wave8":
-			return "祝星千录"
-		"wave9":
-			return "龙渊花札"
-		"wave10":
-			return "鬼灭联动"
-		"wave11":
-			return "衍生式神"
-		"wave12":
-			return "灵枢二弹"
-		"wave13":
-			return "命运抉择"
-		_:
-			return "全部"
-
+func _clear(box: Container) -> void:
+	for child in box.get_children():
+		box.remove_child(child)
+		child.queue_free()
 
 func _filtered_units() -> Array:
 	var q := _search.text.strip_edges().to_lower()
-	var out: Array = []
-	for unit in ContentLoader.playable_units():
-		var pack := str(unit.get("pack", "origin"))
-		if _pack_filter != "all" and pack != _pack_filter:
-			continue
-		if q != "":
-			var hay := ("%s %s %s %s" % [
-				str(unit.get("name", "")), str(unit.get("title", "")),
-				str(unit.get("role", "")), str(unit.get("strategy", "")),
-			]).to_lower()
-			if not hay.contains(q):
-				continue
-		out.append(unit)
-	return out
-
+	# 全部名录优先展示迁入的经典与资料片角色，原创试验角色放在末尾。
+	var packs := ContentLoader.pack_ids()
+	packs.erase("all")
+	packs.erase("origin")
+	packs.append("origin")
+	var catalogue: Array = []
+	for pack in packs: catalogue.append_array(ContentLoader.units_in_pack(pack))
+	return catalogue.filter(func(unit):
+		if _pack_filter != "all" and str(unit.get("pack", "origin")) != _pack_filter: return false
+		var hay := "%s %s %s %s" % [unit.get("name", ""), unit.get("title", ""), unit.get("role", ""), unit.get("strategy", "")]
+		return q == "" or hay.to_lower().contains(q)
+	)
 
 func _rebuild_unit_list() -> void:
-	for c in _unit_list.get_children():
-		c.queue_free()
+	_clear(_unit_list)
 	var units := _filtered_units()
+	_roster_count.text = "%d / %d 位式神 · 向下滚动浏览" % [units.size(), ContentLoader.playable_units().size()]
 	for unit in units:
-		var picked: bool = _selected.has(unit.get("id", ""))
-		var accent := ThemeBuilder.unit_color_of(unit)
-		var card := Button.new()
-		card.custom_minimum_size = Vector2(150, 88)
-		card.clip_text = true
-		var pack_tag := _pack_label(str(unit.get("pack", "origin")))
-		card.text = "%s\n%s · %s" % [str(unit.get("name", "?")), pack_tag, str(unit.get("title", ""))]
-		if picked:
-			card.text = "★ " + card.text
-		var sb := ThemeBuilder.washi_panel(16, picked)
-		if picked:
-			sb.border_color = ThemeBuilder.WASHI_GOLD_2
-		card.add_theme_stylebox_override("normal", sb)
-		var hov := ThemeBuilder.washi_panel(16, true)
-		hov.bg_color = Color("fffaf0")
-		card.add_theme_stylebox_override("hover", hov)
-		card.add_theme_stylebox_override("pressed", ThemeBuilder.washi_panel(16, true))
-		card.pressed.connect(func():
-			_show_unit(unit)
-			_toggle(unit)
-		)
-		_unit_list.add_child(card)
-	if units.is_empty():
-		_unit_list.add_child(ThemeBuilder.washi_dim("没有匹配的角色", 13))
-	_status_l.text = "已选 %d/%d · 显示 %d 名 · 请点选角色" % [_selected.size(), PICK_COUNT, units.size()]
+		var face := UIWidgets.make_unit_panel(unit, func(u):
+			if not browse_only: _toggle(u)
+			_show_unit(u)
+		, true, _selected.has(unit.id) if not browse_only else unit.id == _focused)
+		face.custom_minimum_size = Vector2(92, 136)
+		_unit_list.add_child(face)
+	if units.is_empty(): _unit_list.add_child(ThemeBuilder.dim_label("没有匹配的式神"))
 	_confirm_btn.disabled = _selected.size() != PICK_COUNT
-
+	_status_l.text = "式神录 · %d 名" % units.size() if browse_only else "已选 %d / 4 · 每位八张，共三十二张牌" % _selected.size()
+	_clear(_selected_row)
+	for i in PICK_COUNT:
+		if i < _selected.size():
+			var unit := ContentLoader.unit_def(_selected[i])
+			var face := UIWidgets.make_unit_panel(unit, func(u): _show_unit(u), false, str(unit.id) == _focused)
+			face.custom_minimum_size = Vector2(116, 176)
+			_selected_row.add_child(face)
+		else:
+			var empty := ThemeBuilder.rounded_rect_button("＋\n选择式神", Vector2(116, 176))
+			empty.disabled = true
+			_selected_row.add_child(empty)
 
 func _toggle(unit: Dictionary) -> void:
-	var uid: String = unit.get("id", "")
-	if _selected.has(uid):
-		_selected.erase(uid)
+	Sfx.play("ui_click", 0.7)
+	var uid := str(unit.id)
+	if _selected.has(uid): _selected.erase(uid)
+	elif _selected.size() < PICK_COUNT: _selected.append(uid)
 	else:
-		if _selected.size() >= PICK_COUNT:
-			_status_l.text = "已满 4 人，先移出再选新角色"
-			return
-		_selected.append(uid)
+		_status_l.text = "阵容已满 · 点选已选式神可移出"
+		return
 	_rebuild_unit_list()
-	_show_unit(unit)
-
 
 func _show_unit(unit: Dictionary) -> void:
-	if unit.is_empty():
-		return
-	for c in _detail_box.get_children():
-		c.queue_free()
-	_detail_box.add_child(ThemeBuilder.washi_title("%s · %s" % [str(unit.get("name", "?")), str(unit.get("title", ""))], 22))
-	_detail_box.add_child(ThemeBuilder.chip(_pack_label(str(unit.get("pack", "origin"))), ThemeBuilder.GOLD))
-	_detail_box.add_child(ThemeBuilder.washi_dim(str(unit.get("role", "")) + " · " + str(unit.get("strategy", "")), 12))
-	_detail_box.add_child(ThemeBuilder.washi_dim("生命 %d　攻击 %d" % [int(unit.get("maxHp", 0)), int(unit.get("attack", 0))], 14))
-	var deck_btn := Button.new()
-	deck_btn.text = "构筑卡组（8 张）"
-	deck_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	deck_btn.custom_minimum_size = Vector2(0, 40)
-	deck_btn.pressed.connect(func(): edit_deck.emit(str(unit.get("id", ""))))
-	_detail_box.add_child(deck_btn)
-	_detail_box.add_child(ThemeBuilder.label("被动 · " + ContentLoader.passive_text(unit), 13, ThemeBuilder.WASHI_INK))
-	_detail_box.add_child(ThemeBuilder.label("觉醒 · " + ContentLoader.passive_text(unit, true), 13, ThemeBuilder.WASHI_GOLD))
-	var official := str(unit.get("officialAbility", unit.get("officialText", "")))
-	if official != "":
-		_detail_box.add_child(ThemeBuilder.washi_dim("原案：" + official, 11))
-
-	for c in _card_box.get_children():
-		c.queue_free()
-	var cards := ContentLoader.cards_for_unit(str(unit.get("id", "")))
-	cards = cards.filter(func(card): return not bool(card.get("token", false)))
-	cards.sort_custom(func(a, b):
-		var ra := _rarity_rank(str(a.get("rarity", "")))
-		var rb := _rarity_rank(str(b.get("rarity", "")))
-		if ra != rb:
-			return ra > rb
-		return int(a.get("level", 0)) < int(b.get("level", 0))
-	)
+	if unit.is_empty(): return
+	_focused = str(unit.id)
+	_clear(_detail_box)
+	var portrait := UIWidgets.portrait(unit, Vector2(174, 245))
+	portrait.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	_detail_box.add_child(portrait)
+	_detail_box.add_child(ThemeBuilder.title_label(str(unit.get("title", "")), 20))
+	_detail_box.add_child(ThemeBuilder.dim_label(str(unit.get("role", "")), 12))
+	_detail_box.add_child(ThemeBuilder.dim_label(ContentLoader.pack_label(str(unit.get("pack", "origin"))), 12))
+	for pair in [["被动", ContentLoader.passive_text(unit)], ["觉醒", ContentLoader.passive_text(unit, true)], ["策略", str(unit.get("strategy", ""))]]:
+		var label := ThemeBuilder.label(pair[0] + " · " + pair[1], 12, ThemeBuilder.GOLD if pair[0] == "觉醒" else ThemeBuilder.PAPER_DIM)
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_detail_box.add_child(label)
+	var deck := Button.new()
+	deck.text = "构筑卡组（8 张）"
+	deck.pressed.connect(func(): edit_deck.emit(_focused))
+	_detail_box.add_child(deck)
+	_clear(_card_box)
+	var cards := ContentLoader.cards_for_unit(_focused).filter(func(card): return not card.get("token", false) and not card.get("skin", false))
+	cards.sort_custom(func(a, b): return int(a.get("level", 1)) < int(b.get("level", 1)))
 	for card in cards:
-		var rarity := ThemeBuilder.rarity_color_of(str(card.get("rarity", "common")))
-		var row := VBoxContainer.new()
-		row.add_theme_constant_override("separation", 2)
-		var head := HBoxContainer.new()
-		head.add_theme_constant_override("separation", 6)
-		row.add_child(head)
-		head.add_child(ThemeBuilder.chip(str(card.get("rarity", "")), rarity))
-		head.add_child(ThemeBuilder.label(str(card.get("name", "?")), 13, ThemeBuilder.WASHI_INK))
-		head.add_child(ThemeBuilder.washi_dim(str(card.get("typeLabel", "")) + " Lv" + str(int(card.get("level", 1))) + " 费" + str(int(card.get("cost", 0))), 11))
-		var tip := ThemeBuilder.label(str(card.get("text", "")), 12, ThemeBuilder.WASHI_DIM)
-		tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		tip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		row.add_child(tip)
-		var official_c := str(card.get("officialText", ""))
-		if official_c != "" and official_c != str(card.get("text", "")):
-			var o := ThemeBuilder.washi_dim("原案：" + official_c, 10)
-			o.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-			row.add_child(o)
-		_card_box.add_child(row)
+		var face := UIWidgets.make_card_tile(card, func(): _inspect_card(card), Vector2(164, 256))
+		face.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		_card_box.add_child(face)
+	_clear(_deck_row)
+	var deck_ids := SaveStore.get_deck(_focused)
+	if deck_ids.size() != 8: deck_ids = ContentLoader.starter_card_ids(_focused)
+	for id in deck_ids:
+		_deck_row.add_child(UIWidgets.make_card_tile(ContentLoader.card_def(id), func(): edit_deck.emit(_focused), Vector2(62, 92)))
 
+func _inspect_card(card: Dictionary) -> void:
+	Sfx.play("ui_click", 0.7)
+	UIWidgets.show_card_modal(self, card)
 
-func _rarity_rank(r: String) -> int:
-	match r:
-		"ssr", "legendary":
-			return 4
-		"epic":
-			return 3
-		"rare":
-			return 2
-		_:
-			return 1
-
+func _switch_slot(slot: int) -> void:
+	_drafts[formation_slot] = _selected.duplicate()
+	formation_slot = slot
+	_selected = _drafts.get(slot, SaveStore.get_formations()[slot].lineup).duplicate()
+	_rebuild_unit_list()
+	if not _selected.is_empty(): _show_unit(ContentLoader.unit_def(_selected[0]))
 
 func _on_confirm() -> void:
-	if _selected.size() == PICK_COUNT:
+	if _selected.size() == PICK_COUNT and SaveStore.save_formation(formation_slot, _selected):
 		confirmed.emit(_selected.duplicate())
-
 
 func set_preselect(unit_ids: Array) -> void:
 	_selected = unit_ids.duplicate()
 	_rebuild_unit_list()
+	if not _selected.is_empty(): _show_unit(ContentLoader.unit_def(_selected[0]))
+
+func selected_units() -> Array:
+	return _selected.duplicate()

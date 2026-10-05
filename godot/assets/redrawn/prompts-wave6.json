@@ -1,0 +1,592 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "policy": "Only the corresponding original reference may be used for redraws and retries. Never use rejected generated art as image input.",
+  "units": [
+    {
+      "id": "jinnaluo",
+      "name": "紧那罗",
+      "role": "256",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/25600_紧那罗.png",
+      "output": "godot/assets/redrawn/wave6/jinnaluo.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Long mint-green-haired woman in white-red kimono with teal details, holding a long pale string instrument, flowing fabric and delicate crystal motifs; preserve her pale green hair.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 紧那罗: Long mint-green-haired woman in white-red kimono with teal details, holding a long pale string instrument, flowing fabric and delicate crystal motifs; preserve her pale green hair.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4dfa1192-6353-4ce9-967c-f5607b671460.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4dfa1192-6353-4ce9-967c-f5607b671460.png",
+      "focus": [
+        0.655,
+        0.165
+      ]
+    },
+    {
+      "id": "lingyanji",
+      "name": "铃彦姬",
+      "role": "263",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26300_铃彦姬.png",
+      "output": "godot/assets/redrawn/wave6/lingyanji.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Dark teal-haired dancer with high ornament, short white-black outfit with red-gold ties, bell ornaments and large dark green flame shapes; preserve bent-leg dancing pose.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 铃彦姬: Dark teal-haired dancer with high ornament, short white-black outfit with red-gold ties, bell ornaments and large dark green flame shapes; preserve bent-leg dancing pose.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c0d3c4f2-8df6-4b58-b0dc-0beea0d98969.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c0d3c4f2-8df6-4b58-b0dc-0beea0d98969.png",
+      "focus": [
+        0.405,
+        0.18
+      ]
+    },
+    {
+      "id": "rurineque",
+      "name": "入内雀",
+      "role": "257",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/25700_入内雀.png",
+      "output": "godot/assets/redrawn/wave6/rurineque.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Straw hat obscuring the face, dark purple tattered garments, floating bones in a circular halo and blue-black birds; preserve the eerie wrapped figure rather than inventing a visible face.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 入内雀: Straw hat obscuring the face, dark purple tattered garments, floating bones in a circular halo and blue-black birds; preserve the eerie wrapped figure rather than inventing a visible face.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7de5cd32-e355-41a4-946d-48d31c1242a0.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7de5cd32-e355-41a4-946d-48d31c1242a0.png",
+      "focus": [
+        0.595,
+        0.257
+      ]
+    },
+    {
+      "id": "shouwu",
+      "name": "首无",
+      "role": "260",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26000_首无.png",
+      "output": "godot/assets/redrawn/wave6/shouwu.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Pale-haired boy in blue black clothes with yellow large beads, red rope and small red ball; preserve intentionally detached floating head above the neck gap, do not reattach it.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 首无: Pale-haired boy in blue black clothes with yellow large beads, red rope and small red ball; preserve intentionally detached floating head above the neck gap, do not reattach it.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-dc93cd8d-3076-4fd4-8efb-f9d1b92d8eb3.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-dc93cd8d-3076-4fd4-8efb-f9d1b92d8eb3.png",
+      "focus": [
+        0.56,
+        0.185
+      ]
+    },
+    {
+      "id": "gunvhongye",
+      "name": "鬼女红叶",
+      "role": "259",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/25900_鬼女红叶.png",
+      "output": "godot/assets/redrawn/wave6/gunvhongye.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Long black-haired woman with gold antlerlike headdress, blue-red floral kimono, autumn maple leaves and small pale ghost faces; preserve red obi and dark flowing sleeves.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 鬼女红叶: Long black-haired woman with gold antlerlike headdress, blue-red floral kimono, autumn maple leaves and small pale ghost faces; preserve red obi and dark flowing sleeves.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-20875cdf-8803-4f34-9b7a-7861636045ca.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-20875cdf-8803-4f34-9b7a-7861636045ca.png",
+      "focus": [
+        0.383,
+        0.139
+      ]
+    },
+    {
+      "id": "choushizhinv",
+      "name": "丑时之女",
+      "role": "258",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/25800_丑时之女.png",
+      "output": "godot/assets/redrawn/wave6/choushizhinv.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Pale blue-haired horned girl with white-red garments, green face markings, giant straw doll behind her and needles; preserve the straw effigy as separate object.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 丑时之女: Pale blue-haired horned girl with white-red garments, green face markings, giant straw doll behind her and needles; preserve the straw effigy as separate object.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-6cf4006c-df0e-4da6-a438-054b59d328d8.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-6cf4006c-df0e-4da6-a438-054b59d328d8.png",
+      "focus": [
+        0.33,
+        0.244
+      ]
+    },
+    {
+      "id": "yifanmumian",
+      "name": "一反木绵",
+      "role": "261",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26100_一反木绵.png",
+      "output": "godot/assets/redrawn/wave6/yifanmumian.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Pale-faced long dark-haired woman in red black robes wrapped in flowing white cloth strips; preserve cloth spirit ribbons and tied ankles.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 一反木绵: Pale-faced long dark-haired woman in red black robes wrapped in flowing white cloth strips; preserve cloth spirit ribbons and tied ankles.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a7315335-5a63-4810-ac6d-fe7e87784fb2.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a7315335-5a63-4810-ac6d-fe7e87784fb2.png",
+      "focus": [
+        0.697,
+        0.117
+      ]
+    },
+    {
+      "id": "yecha",
+      "name": "夜叉",
+      "role": "262",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26200_夜叉.png",
+      "output": "godot/assets/redrawn/wave6/yecha.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Long red-haired male oni, pale muscular upper body with purple markings, black trousers, red-gold waist cloth and curved dark weapon; preserve sharp expression and acrobatic pose.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 夜叉: Long red-haired male oni, pale muscular upper body with purple markings, black trousers, red-gold waist cloth and curved dark weapon; preserve sharp expression and acrobatic pose.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-55f59487-cf44-450b-b760-78b7c1777ebd.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-55f59487-cf44-450b-b760-78b7c1777ebd.png",
+      "focus": [
+        0.44,
+        0.196
+      ]
+    },
+    {
+      "id": "huangchuanzhizhu",
+      "name": "荒川之主",
+      "role": "271",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/27100_荒川之主.png",
+      "output": "godot/assets/redrawn/wave6/huangchuanzhizhu.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "White-haired blue-skinned ruler in teal patterned robes with dark purple mantle and broad pink-blue collar, surrounded by stylized water and fish shadows.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 荒川之主: White-haired blue-skinned ruler in teal patterned robes with dark purple mantle and broad pink-blue collar, surrounded by stylized water and fish shadows.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-49d5e12c-43e7-41bb-9c1b-5d2320e43c2c.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-49d5e12c-43e7-41bb-9c1b-5d2320e43c2c.png",
+      "focus": [
+        0.61,
+        0.14
+      ]
+    },
+    {
+      "id": "wannianzhu",
+      "name": "万年竹",
+      "role": "268",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26800_万年竹.png",
+      "output": "godot/assets/redrawn/wave6/wannianzhu.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Long black-haired man in green white robes and purple obi holding a bamboo flute at his lips; preserve tall bamboo backdrop and light restrained palette.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 万年竹: Long black-haired man in green white robes and purple obi holding a bamboo flute at his lips; preserve tall bamboo backdrop and light restrained palette.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0da1f10e-60ab-4bb0-b68f-88ac2a8a3f5b.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0da1f10e-60ab-4bb0-b68f-88ac2a8a3f5b.png",
+      "focus": [
+        0.58,
+        0.14
+      ]
+    },
+    {
+      "id": "shuzhu",
+      "name": "数珠",
+      "role": "269",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26900_数珠.png",
+      "output": "godot/assets/redrawn/wave6/shuzhu.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Brown-haired small monk in white-gold robes and wide hat, holding long staff, seated above large gold bell and red green prayer beads; preserve playful small scale.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 数珠: Brown-haired small monk in white-gold robes and wide hat, holding long staff, seated above large gold bell and red green prayer beads; preserve playful small scale.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7c2b59da-9e79-4279-a0b5-f488e1c92d2a.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7c2b59da-9e79-4279-a0b5-f488e1c92d2a.png",
+      "focus": [
+        0.49,
+        0.235
+      ]
+    },
+    {
+      "id": "sanweihu",
+      "name": "三尾狐",
+      "role": "272",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/27200_三尾狐.png",
+      "output": "godot/assets/redrawn/wave6/sanweihu.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Black-haired fox woman with red ears, black-red kimono, white face makeup and three distinct large dark red tails; retain fox identity and original sleeve shapes.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 三尾狐: Black-haired fox woman with red ears, black-red kimono, white face makeup and three distinct large dark red tails; retain fox identity and original sleeve shapes.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5e67f8d4-1867-49f3-a692-6dbbf7c9584e.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5e67f8d4-1867-49f3-a692-6dbbf7c9584e.png",
+      "focus": [
+        0.575,
+        0.155
+      ]
+    },
+    {
+      "id": "jicanghai",
+      "name": "季沧海",
+      "role": "264",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26400_季沧海.png",
+      "output": "godot/assets/redrawn/wave6/jicanghai.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Dark-haired martial artist in white shirt, black trousers and white leg wraps, swinging broad engraved sword in original dynamic pose; preserve human warrior design.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 季沧海: Dark-haired martial artist in white shirt, black trousers and white leg wraps, swinging broad engraved sword in original dynamic pose; preserve human warrior design.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d762a990-1a3b-4648-ae0d-9d8dbd32d4d0.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d762a990-1a3b-4648-ae0d-9d8dbd32d4d0.png",
+      "focus": [
+        0.42,
+        0.18
+      ]
+    },
+    {
+      "id": "wuchen",
+      "name": "无尘",
+      "role": "265",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26500_无尘.png",
+      "output": "godot/assets/redrawn/wave6/wuchen.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Black-haired topknot martial artist in pale blue-white robes, dark trousers, white boots and gold waist fittings, holding original sword; preserve youthful male face.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 无尘: Black-haired topknot martial artist in pale blue-white robes, dark trousers, white boots and gold waist fittings, holding original sword; preserve youthful male face.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-13e83b47-3c62-49d9-a544-d4f4787b46d9.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-13e83b47-3c62-49d9-a544-d4f4787b46d9.png",
+      "focus": [
+        0.34,
+        0.175
+      ]
+    },
+    {
+      "id": "ninghongye",
+      "name": "宁红夜",
+      "role": "266",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26600_宁红夜.png",
+      "output": "godot/assets/redrawn/wave6/ninghongye.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Long dark ponytail, red blindfold covering both eyes, red and black fitted warrior clothing and curved weapon; preserve blindfold instead of drawing uncovered eyes.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 宁红夜: Long dark ponytail, red blindfold covering both eyes, red and black fitted warrior clothing and curved weapon; preserve blindfold instead of drawing uncovered eyes.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-58ef40fa-cb9f-47c9-9c9d-4fc3db5112c8.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-58ef40fa-cb9f-47c9-9c9d-4fc3db5112c8.png",
+      "focus": [
+        0.71,
+        0.165
+      ]
+    },
+    {
+      "id": "tayumenhutao",
+      "name": "土御门胡桃",
+      "role": "267",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/26700_土御门胡桃.png",
+      "output": "godot/assets/redrawn/wave6/tayumenhutao.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Long dark-haired young woman in white pink teal clothing with red sword handle, umbrella shapes and paper cranes; preserve the original modest short dress and gentle face.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 土御门胡桃: Long dark-haired young woman in white pink teal clothing with red sword handle, umbrella shapes and paper cranes; preserve the original modest short dress and gentle face.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e03b5c30-4fee-4977-b9b7-60ce72ec776d.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e03b5c30-4fee-4977-b9b7-60ce72ec776d.png",
+      "focus": [
+        0.365,
+        0.145
+      ]
+    },
+    {
+      "id": "baize",
+      "name": "白泽",
+      "role": "273",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/27300_白泽.png",
+      "output": "godot/assets/redrawn/wave6/baize.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Long white-haired pale deity in white silver-blue layered robes, delicate hornlike head ornament and white winglike fur forms; preserve ivory and navy motifs.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 白泽: Long white-haired pale deity in white silver-blue layered robes, delicate hornlike head ornament and white winglike fur forms; preserve ivory and navy motifs.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7bdee720-062c-4f04-a00f-5b9c2a8fe5ed.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-7bdee720-062c-4f04-a00f-5b9c2a8fe5ed.png",
+      "focus": [
+        0.53,
+        0.142
+      ]
+    },
+    {
+      "id": "hudiejing",
+      "name": "蝴蝶精",
+      "role": "274",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/27400_蝴蝶精.png",
+      "output": "godot/assets/redrawn/wave6/hudiejing.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Purple-haired butterfly girl in red purple kimono, prominent lavender butterfly wings and gold ornament held near her face; preserve clear insect wing identity.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 蝴蝶精: Purple-haired butterfly girl in red purple kimono, prominent lavender butterfly wings and gold ornament held near her face; preserve clear insect wing identity.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-28cfed80-fef8-4465-ad14-b379e22fc128.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-28cfed80-fef8-4465-ad14-b379e22fc128.png",
+      "focus": [
+        0.52,
+        0.172
+      ]
+    },
+    {
+      "id": "luoxinfu",
+      "name": "络新妇",
+      "role": "275",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/27500_络新妇.png",
+      "output": "godot/assets/redrawn/wave6/luoxinfu.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Black-haired horned woman in red-black armor, seated atop a large black-red spider body with separate curved legs; keep human upper body and spider lower grouping as in reference.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 络新妇: Black-haired horned woman in red-black armor, seated atop a large black-red spider body with separate curved legs; keep human upper body and spider lower grouping as in reference.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-531c9517-4f4c-4081-822a-722d53c79e61.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-531c9517-4f4c-4081-822a-722d53c79e61.png",
+      "focus": [
+        0.433,
+        0.202
+      ]
+    },
+    {
+      "id": "yitiao",
+      "name": "一条",
+      "role": "276",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/27600_一条.png",
+      "output": "godot/assets/redrawn/wave6/yitiao.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Brown-haired dog-eared courier with golden animal muzzle, purple short coat and dark trousers, red sandals, a shoulder pole carrying red fish basket; preserve animal face.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 一条: Brown-haired dog-eared courier with golden animal muzzle, purple short coat and dark trousers, red sandals, a shoulder pole carrying red fish basket; preserve animal face.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c76c50f8-8b87-42ca-b006-6e086c63c20b.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c76c50f8-8b87-42ca-b006-6e086c63c20b.png",
+      "focus": [
+        0.475,
+        0.215
+      ]
+    },
+    {
+      "id": "jialouluo",
+      "name": "迦楼罗",
+      "role": "277",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/27700_迦楼罗.png",
+      "output": "godot/assets/redrawn/wave6/jialouluo.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Bird-masked winged warrior with black feathers, gold-white body armor, purple waist cords and a tall dark staff; keep bird beak mask and large black wings.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 迦楼罗: Bird-masked winged warrior with black feathers, gold-white body armor, purple waist cords and a tall dark staff; keep bird beak mask and large black wings.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e171ebd5-b658-4583-9b6e-6d11d568e746.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e171ebd5-b658-4583-9b6e-6d11d568e746.png",
+      "focus": [
+        0.626,
+        0.167
+      ]
+    },
+    {
+      "id": "huajing",
+      "name": "化鲸",
+      "role": "278",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/27800_化鲸.png",
+      "output": "godot/assets/redrawn/wave6/huajing.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Pale blue-gray-haired girl in deep blue clothes with oversized dark blue armored sleeves, seated on curving blue whale tail; preserve whale and child separation.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 化鲸: Pale blue-gray-haired girl in deep blue clothes with oversized dark blue armored sleeves, seated on curving blue whale tail; preserve whale and child separation.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-541dca02-609f-49aa-b1ae-f84323957c37.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-541dca02-609f-49aa-b1ae-f84323957c37.png",
+      "focus": [
+        0.68,
+        0.248
+      ]
+    },
+    {
+      "id": "yinge",
+      "name": "影鳄",
+      "role": "279",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/27900_影鳄.png",
+      "output": "godot/assets/redrawn/wave6/yinge.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Small red-haired boy in white clothes beside a much larger dark brown horned crocodile shadow with circular eye and blue mouth; preserve both subjects and relative scale.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 影鳄: Small red-haired boy in white clothes beside a much larger dark brown horned crocodile shadow with circular eye and blue mouth; preserve both subjects and relative scale.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-73894f43-851a-435b-979c-28a5e9a3cef7.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-73894f43-851a-435b-979c-28a5e9a3cef7.png",
+      "focus": [
+        0.51,
+        0.323
+      ]
+    },
+    {
+      "id": "bujianyue",
+      "name": "不见岳",
+      "role": "280",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/28000_不见岳.png",
+      "output": "godot/assets/redrawn/wave6/bujianyue.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Black-haired man with gold-black headdress, white kimono and black pants, seated amid green-gold mountain shapes and birds; preserve calm pose and long dark mantle.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 不见岳: Black-haired man with gold-black headdress, white kimono and black pants, seated amid green-gold mountain shapes and birds; preserve calm pose and long dark mantle.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-01bda00e-73a8-4da8-9ebf-a1466808fc70.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-01bda00e-73a8-4da8-9ebf-a1466808fc70.png",
+      "focus": [
+        0.538,
+        0.157
+      ]
+    },
+    {
+      "id": "xuzuozhinan",
+      "name": "须佐之男",
+      "role": "281",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/28100_须佐之男.png",
+      "output": "godot/assets/redrawn/wave6/xuzuozhinan.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "White-haired armored deity in black gray gold lightning armor, large gold horned crown and long dark weapon; preserve angular armor and lightning motifs.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 须佐之男: White-haired armored deity in black gray gold lightning armor, large gold horned crown and long dark weapon; preserve angular armor and lightning motifs.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fdb15347-5d61-46e6-9f0b-e78272952f1a.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fdb15347-5d61-46e6-9f0b-e78272952f1a.png",
+      "focus": [
+        0.447,
+        0.177
+      ]
+    },
+    {
+      "id": "liyujing",
+      "name": "鲤鱼精",
+      "role": "282",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/28200_鲤鱼精.png",
+      "output": "godot/assets/redrawn/wave6/liyujing.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Black-haired fish girl with orange pink flower headpiece, orange gold flowing sleeves and pink fish tail, aquatic round background; preserve mermaid silhouette.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 鲤鱼精: Black-haired fish girl with orange pink flower headpiece, orange gold flowing sleeves and pink fish tail, aquatic round background; preserve mermaid silhouette.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-899a3471-d5f4-4cfe-8d1e-9995d2a3d426.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-899a3471-d5f4-4cfe-8d1e-9995d2a3d426.png",
+      "focus": [
+        0.695,
+        0.208
+      ]
+    },
+    {
+      "id": "chongshi",
+      "name": "虫师",
+      "role": "283",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/28300_虫师.png",
+      "output": "godot/assets/redrawn/wave6/chongshi.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Brown-haired insect girl in teal white orange robes with petal-like sleeves, large orange obi and small butterflies; preserve the layered light wing forms.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 虫师: Brown-haired insect girl in teal white orange robes with petal-like sleeves, large orange obi and small butterflies; preserve the layered light wing forms.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-87a022d0-0f87-4dd7-9456-8e40bc6fd7c7.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-87a022d0-0f87-4dd7-9456-8e40bc6fd7c7.png",
+      "focus": [
+        0.559,
+        0.164
+      ]
+    },
+    {
+      "id": "xieenv",
+      "name": "蝎女",
+      "role": "284",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/28400_蝎女.png",
+      "output": "godot/assets/redrawn/wave6/xieenv.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Short gray-black-haired pale woman in white and navy robe with red patterns, long black-red scorpion claws and segmented tail; preserve separate scorpion anatomy.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 蝎女: Short gray-black-haired pale woman in white and navy robe with red patterns, long black-red scorpion claws and segmented tail; preserve separate scorpion anatomy.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bb24342d-66fb-4448-bc7d-e7b0cd29117a.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bb24342d-66fb-4448-bc7d-e7b0cd29117a.png",
+      "focus": [
+        0.512,
+        0.12
+      ]
+    },
+    {
+      "id": "xunxiangxing",
+      "name": "寻香行",
+      "role": "288",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/28800_寻香行.png",
+      "output": "godot/assets/redrawn/wave6/xunxiangxing.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "White-haired figure in white blue robes, dark red ties, broad mask-decorated floating canopy and thin suspended strings with bells; preserve original elegant tall silhouette.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 寻香行: White-haired figure in white blue robes, dark red ties, broad mask-decorated floating canopy and thin suspended strings with bells; preserve original elegant tall silhouette.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d29ccd95-bc0d-4b4e-b080-977f4b3f5749.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1cd346ef-3f93-4dc4-a0a8-2482c4b1c29f.png",
+      "focus": [
+        0.49,
+        0.22
+      ],
+      "revisions": [
+        {
+          "reason": "remove printed blue affiliation emblem",
+          "input": "art-reference-official/卡面/01_式神/28800_寻香行.png",
+          "inputPolicy": "original-reference-only",
+          "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 寻香行: White-haired figure in white blue robes, dark red ties, broad mask-decorated floating canopy and thin suspended strings with bells; preserve original elegant tall silhouette.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n\nCritical constraint: omit the source's blue triple-swirl affiliation UI emblem below the boots. It is a printed card-interface symbol, not magical energy or a costume feature. No blue circular spiral emblem anywhere. Only the character, genuine costume and props, and painted background may be drawn. Do not reproduce any printed card icon.\n",
+          "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1cd346ef-3f93-4dc4-a0a8-2482c4b1c29f.png"
+        }
+      ]
+    },
+    {
+      "id": "linghaidie",
+      "name": "灵海蝶",
+      "role": "287",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/28700_灵海蝶.png",
+      "output": "godot/assets/redrawn/wave6/linghaidie.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "White pink-haired girl with white-red shelllike butterfly wing head ornaments, white black yellow dress and pale orange translucent wing shapes; preserve aquatic butterfly motifs.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 灵海蝶: White pink-haired girl with white-red shelllike butterfly wing head ornaments, white black yellow dress and pale orange translucent wing shapes; preserve aquatic butterfly motifs.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ea1de737-3968-4011-ae52-36225449b230.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ea1de737-3968-4011-ae52-36225449b230.png",
+      "focus": [
+        0.574,
+        0.245
+      ]
+    },
+    {
+      "id": "yujuchong",
+      "name": "於菊虫",
+      "role": "285",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/28500_於菊虫.png",
+      "output": "godot/assets/redrawn/wave6/yujuchong.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Long dark-haired woman in white purple green robe, gold mothlike tall hat and ringed insect markings, seated atop segmented green-white caterpillar body; preserve insect lower body.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 於菊虫: Long dark-haired woman in white purple green robe, gold mothlike tall hat and ringed insect markings, seated atop segmented green-white caterpillar body; preserve insect lower body.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e65630d5-ea16-4cf0-9b23-22a30661fea6.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e65630d5-ea16-4cf0-9b23-22a30661fea6.png",
+      "focus": [
+        0.59,
+        0.214
+      ]
+    },
+    {
+      "id": "hainren",
+      "name": "海忍",
+      "role": "286",
+      "pack": "wave6",
+      "reference": "art-reference-official/卡面/01_式神/28600_海忍.png",
+      "output": "godot/assets/redrawn/wave6/hainren.png",
+      "inputPolicy": "original-reference-only",
+      "mode": "built-in image_gen; reference redraw",
+      "invariants": "Long black-haired ninja woman in white black red outfit, pale mask over the eyes and curved katana behind her; preserve straps, long red sash and restrained ocean blue background.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot character portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nInput image 1 is the ORIGINAL Onmyoji: The Card Game (阴阳师百闻牌) character card, used ONLY as the authoritative reference for identity, costume, silhouette, props, color palette and painted style. Create a fresh detailed redraw of that exact reference character, faithfully following its visible design. The attached printed card frame, name, numbers, symbols and text are not part of the illustration and must all be omitted.\nStyle/medium: match the original reference's fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigment colors and subtle washi paper texture. Keep its illustrated proportions; no photorealism, no shiny generic 3D/gacha aesthetic.\nComposition: the exact visible character, paired figures, puppet or mount grouping in the reference; head in the upper quarter, face clear and large enough to read as a small game portrait, body and identifying props inside the central 75%. Maintain the original pose and mood where practical, extending only its background into a vertical frameless painting.\nAnatomy: coherent face perspective, natural eye alignment, distinct nose and mouth, clean jaw silhouette, well-formed hands, correct separate limbs. Hair may overlap as in the original but must not accidentally fuse with facial features.\nConstraints: no character redesign, no new costume or unreferenced accessories; no letters, numbers, card border, interface, logo or watermark. If the source is ambiguous, retain the visible form instead of inventing details.\nSubject-specific reference invariants: 海忍: Long black-haired ninja woman in white black red outfit, pale mask over the eyes and curved katana behind her; preserve straps, long red sash and restrained ocean blue background.\nFor paired or mounted references, keep exactly the original figures, no reduction to one generic character. For costume variants, use only this attached specific variant, never another skin.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c73149e9-e838-42b6-a799-d5025c0ee2fe.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c73149e9-e838-42b6-a799-d5025c0ee2fe.png",
+      "focus": [
+        0.556,
+        0.178
+      ]
+    }
+  ]
+}

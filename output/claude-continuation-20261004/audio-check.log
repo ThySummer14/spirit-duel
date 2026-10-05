@@ -1,0 +1,23 @@
+attack.wav: 1ch 32000Hz peak=0.700 rms_db=-18.3
+bgm_battle.wav: 1ch 32000Hz peak=0.700 rms_db=-17.9
+bgm_menu.wav: 1ch 32000Hz peak=0.700 rms_db=-16.3
+card_draw.wav: 1ch 32000Hz peak=0.550 rms_db=-20.5
+card_hover.wav: 1ch 32000Hz peak=0.300 rms_db=-24.3
+card_play.wav: 1ch 32000Hz peak=0.750 rms_db=-22.6
+core_hit.wav: 1ch 32000Hz peak=0.950 rms_db=-16.5
+defeat.wav: 1ch 32000Hz peak=0.800 rms_db=-17.4
+error.wav: 1ch 32000Hz peak=0.350 rms_db=-20.0
+heal.wav: 1ch 32000Hz peak=0.550 rms_db=-22.1
+hit.wav: 1ch 32000Hz peak=0.850 rms_db=-21.0
+knockout.wav: 1ch 32000Hz peak=0.800 rms_db=-20.1
+level_up.wav: 1ch 32000Hz peak=0.700 rms_db=-19.5
+purchase.wav: 1ch 32000Hz peak=0.500 rms_db=-23.3
+reveal.wav: 1ch 32000Hz peak=0.600 rms_db=-22.6
+reveal_ssr.wav: 1ch 32000Hz peak=0.800 rms_db=-19.7
+shield.wav: 1ch 32000Hz peak=0.550 rms_db=-23.2
+turn_end.wav: 1ch 32000Hz peak=0.600 rms_db=-26.9
+turn_start.wav: 1ch 32000Hz peak=0.600 rms_db=-18.0
+ui_click.wav: 1ch 32000Hz peak=0.600 rms_db=-22.0
+ui_hover.wav: 1ch 32000Hz peak=0.250 rms_db=-23.9
+victory.wav: 1ch 32000Hz peak=0.850 rms_db=-19.3
+AUDIO_OK 22 WAVs

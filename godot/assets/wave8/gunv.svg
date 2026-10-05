@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">骨女</title>
+  <desc id="desc">骨女：骸骨转生，怨生赤霞</desc>
+  <defs>
+    <linearGradient id="gunv-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#120e0c"/>
+      <stop offset=".55" stop-color="#1c1614"/>
+      <stop offset="1" stop-color="#0c0a08"/>
+    </linearGradient>
+    <radialGradient id="gunv-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#d0c0b0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#806050" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#806050" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gunv-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#e8d8c8"/>
+      <stop offset=".55" stop-color="#a89080"/>
+      <stop offset="1" stop-color="#806050"/>
+    </linearGradient>
+    <linearGradient id="gunv-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#806050"/>
+      <stop offset="1" stop-color="#403028"/>
+    </linearGradient>
+    <linearGradient id="gunv-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#gunv-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#gunv-halo)"/>
+  <g>
+    <ellipse cx="100" cy="70" rx="28" ry="32" fill="url(#gunv-body)" opacity=".5" stroke="#2a2040" stroke-width="1.4"/>
+    <path d="M72 100c-8 30-6 60 4 80M128 100c8 30 6 60-4 80" fill="none" stroke="url(#gunv-acc)" stroke-width="3"/>
+    <path d="M85 110c5 25 5 45 0 65M115 110c-5 25-5 45 0 65" stroke="url(#gunv-gold)" stroke-width="1.2"/>
+  </g>
+<g fill="url(#gunv-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#806050" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

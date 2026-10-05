@@ -1,0 +1,257 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "policy": "Project-setting generation authorized by user; preserve unit identity and unified style.",
+  "units": [
+    {
+      "id": "ember",
+      "name": "赤曜",
+      "role": "ember",
+      "pack": "origin",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/ember.svg",
+      "setting": {
+        "id": "ember",
+        "name": "赤曜",
+        "title": "焰锋",
+        "role": "爆发 / 突击",
+        "strategy": "用战斗牌反复入阵触发余烬；赤炼强化清前线，日铸强化压核心，觉醒后空场也能追击。",
+        "color": "#e75b32",
+        "officialAbility": null,
+        "svgDescription": "狐面焰灵：朱红狐面具栖于焰心，外圈火舌成环，飞舞余烬环绕，鎏金狐瞳"
+      },
+      "output": "godot/assets/redrawn/origin/ember.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A vermilion fox-mask flame spirit, gold fox eyes in a red mask suspended within its fiery heart, encircled by curling tongues of flame and drifting embers. The mask and flame ARE the subject, no new human body.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 赤曜: A vermilion fox-mask flame spirit, gold fox eyes in a red mask suspended within its fiery heart, encircled by curling tongues of flame and drifting embers. The mask and flame ARE the subject, no new human body.\nProject palette: #e75b32.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2bd630e6-803e-411b-846a-22e2f49da32b.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2bd630e6-803e-411b-846a-22e2f49da32b.png",
+      "focus": [
+        0.512,
+        0.47
+      ]
+    },
+    {
+      "id": "basalt",
+      "name": "岚岳",
+      "role": "basalt",
+      "pack": "origin",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/basalt.svg",
+      "setting": {
+        "id": "basalt",
+        "name": "岚岳",
+        "title": "垒卫",
+        "role": "护阵 / 站场",
+        "strategy": "以镇守入阵积盾；山门强化驻守，磐碑配合幻境护阵，用响应保护队友。",
+        "color": "#a98b54",
+        "officialAbility": null,
+        "svgDescription": "石守之灵：层叠远山前的厚重石鸟居，居中石灯笼透出暖芒，苔金主调"
+      },
+      "output": "godot/assets/redrawn/origin/basalt.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A stone guardian spirit shaped as a massive weathered stone torii gate with a warm glowing stone lantern at its center, layered mountains, moss and muted ocher stone. Keep non-humanoid monumental gate silhouette.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 岚岳: A stone guardian spirit shaped as a massive weathered stone torii gate with a warm glowing stone lantern at its center, layered mountains, moss and muted ocher stone. Keep non-humanoid monumental gate silhouette.\nProject palette: #a98b54.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fc3844ea-e211-4f58-8f7a-4ca9ec93d9bd.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fc3844ea-e211-4f58-8f7a-4ca9ec93d9bd.png",
+      "focus": [
+        0.508,
+        0.349
+      ]
+    },
+    {
+      "id": "lumen",
+      "name": "弦月",
+      "role": "lumen",
+      "pack": "origin",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/lumen.svg",
+      "setting": {
+        "id": "lumen",
+        "name": "弦月",
+        "title": "织光",
+        "role": "恢复 / 调度",
+        "strategy": "把每回合第一张弦月牌留给调度或治疗，觉醒后优先使用法术；两种形态分别保护核心与自身。",
+        "color": "#d8bd42",
+        "officialAbility": null,
+        "svgDescription": "月织之灵：弦月悬于靛蓝夜空，白鹤掠过，银线织出光之经纬，流银主调"
+      },
+      "output": "godot/assets/redrawn/origin/lumen.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A moon-weaving spirit: silver crescent moon in indigo night, graceful white crane flying across its face, fine silver light threads weaving a translucent lattice. Keep crane and crescent as the central subject, not a generic human.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 弦月: A moon-weaving spirit: silver crescent moon in indigo night, graceful white crane flying across its face, fine silver light threads weaving a translucent lattice. Keep crane and crescent as the central subject, not a generic human.\nProject palette: #d8bd42.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5ead3e44-e56e-46be-9b21-8a67c86612f9.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5ead3e44-e56e-46be-9b21-8a67c86612f9.png",
+      "focus": [
+        0.753,
+        0.313
+      ]
+    },
+    {
+      "id": "rime",
+      "name": "白棱",
+      "role": "rime",
+      "pack": "origin",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/rime.svg",
+      "setting": {
+        "id": "rime",
+        "name": "白棱",
+        "title": "霜刃",
+        "role": "控制 / 破防",
+        "strategy": "交战留下眩晕，冰镜追加晶裂；凛冬用法术积盾，碎镜裁决将眩晕转成破盾与高伤害。",
+        "color": "#5d8797",
+        "officialAbility": null,
+        "svgDescription": "霜晶之灵：六棱冰晶悬浮于青蓝寒雾，棱面折光如刃，碎冰环绕，冷青主调"
+      },
+      "output": "godot/assets/redrawn/origin/rime.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A frost crystal spirit: a large floating six-sided ice crystal in cyan cold mist, facets as sharp as blades, surrounding fragments of ice. Main crystal centered high enough for a landscape card crop. No humanoid figure.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 白棱: A frost crystal spirit: a large floating six-sided ice crystal in cyan cold mist, facets as sharp as blades, surrounding fragments of ice. Main crystal centered high enough for a landscape card crop. No humanoid figure.\nProject palette: #5d8797.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-25c58deb-993d-4cd7-927b-8854fce493a9.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-25c58deb-993d-4cd7-927b-8854fce493a9.png",
+      "focus": [
+        0.504,
+        0.347
+      ]
+    },
+    {
+      "id": "storm",
+      "name": "霆鸢",
+      "role": "storm",
+      "pack": "origin",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/storm.svg",
+      "setting": {
+        "id": "storm",
+        "name": "霆鸢",
+        "title": "鸣羽",
+        "role": "连击 / 压制",
+        "strategy": "从后场出击触发追风，用惊雷形态与觉醒积蓄充能，再用投射或爆能收束对局。",
+        "color": "#1599b5",
+        "officialAbility": null,
+        "svgDescription": "雷鸣之灵：鸢鸟自雷云俯冲展翼，羽刃携电光划破紫夜，青雷主调"
+      },
+      "output": "godot/assets/redrawn/origin/storm.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A majestic kite bird of thunder diving out of storm clouds with spread wings, feather blades carrying cyan lightning across a violet night. Preserve bird anatomy and distinct cyan-blue palette.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 霆鸢: A majestic kite bird of thunder diving out of storm clouds with spread wings, feather blades carrying cyan lightning across a violet night. Preserve bird anatomy and distinct cyan-blue palette.\nProject palette: #1599b5.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bafd4643-5a06-4983-8a9a-19a028fcec0f.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bafd4643-5a06-4983-8a9a-19a028fcec0f.png",
+      "focus": [
+        0.655,
+        0.494
+      ]
+    },
+    {
+      "id": "ink",
+      "name": "玄砚",
+      "role": "ink",
+      "pack": "origin",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/ink.svg",
+      "setting": {
+        "id": "ink",
+        "name": "玄砚",
+        "title": "墨相",
+        "role": "策略 / 消耗",
+        "strategy": "以幻境部署触发墨护；无相强化前线护盾，墨卷保护施术者，觉醒延长幻境的收益窗口。",
+        "color": "#6f6288",
+        "officialAbility": null,
+        "svgDescription": "墨鲤书灵：圆相墨环中墨鲤回游，朱印点睛，笔锋扫过宣纸留白，玄紫主调"
+      },
+      "output": "godot/assets/redrawn/origin/ink.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A living black ink koi swimming within a circular ink brushstroke, small vermilion seal-like abstract accent, sweeping brush marks over pale washi, deep violet-black ink. No readable calligraphy or actual seal characters.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 玄砚: A living black ink koi swimming within a circular ink brushstroke, small vermilion seal-like abstract accent, sweeping brush marks over pale washi, deep violet-black ink. No readable calligraphy or actual seal characters.\nProject palette: #6f6288.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-07b10b8f-0c51-4cb0-aab6-295d410fbfa8.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-07b10b8f-0c51-4cb0-aab6-295d410fbfa8.png",
+      "focus": [
+        0.43,
+        0.575
+      ]
+    },
+    {
+      "id": "frostblade",
+      "name": "银狼",
+      "role": "frostblade",
+      "pack": "origin",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/frostblade.svg",
+      "setting": {
+        "id": "frostblade",
+        "name": "银狼",
+        "title": "狼牙",
+        "role": "狼刃 / 游击 / 连击",
+        "strategy": "靠先攻与连击主动换血，交战后刃胄补盾；觉醒奖励击倒，孤狼一闪击倒后撤。",
+        "color": "#7fa8c9",
+        "officialAbility": null,
+        "svgDescription": "霜白狼首覆以青钢面甲，双月牙刃交叉于颌前，寒气凝成雪尘环绕"
+      },
+      "output": "godot/assets/redrawn/origin/frostblade.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A frost-white wolf with cold blue steel face armor, a pair of crescent blades crossed below its jaw, icy snow dust swirling about it. Wolf muzzle and separate blades must be readable; no humanoid conversion.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 银狼: A frost-white wolf with cold blue steel face armor, a pair of crescent blades crossed below its jaw, icy snow dust swirling about it. Wolf muzzle and separate blades must be readable; no humanoid conversion.\nProject palette: #7fa8c9.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ed84b44b-271a-4995-81ad-9f1d8fabcb13.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ed84b44b-271a-4995-81ad-9f1d8fabcb13.png",
+      "focus": [
+        0.503,
+        0.336
+      ]
+    },
+    {
+      "id": "kongo",
+      "name": "金刚",
+      "role": "kongo",
+      "pack": "origin",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/kongo.svg",
+      "setting": {
+        "id": "kongo",
+        "name": "金刚",
+        "title": "不坏",
+        "role": "石佛 / 铁壁 / 不屈",
+        "strategy": "用不屈承受一轮进攻，金身与觉醒在前线修复伤势；存下护盾后以怒罗汉反攻。",
+        "color": "#9aa085",
+        "officialAbility": null,
+        "svgDescription": "青灰石佛端坐于莲台，胸嵌鎏金法轮，身后石环如山门，苔痕与金纹共生"
+      },
+      "output": "godot/assets/redrawn/origin/kongo.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A moss-gray stone Buddha sitting calmly on a lotus pedestal, gilded dharma wheel inset in its chest, great stone ring behind like a mountain gate, weathered moss and fine gold veins. Distinct calm stone face.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 金刚: A moss-gray stone Buddha sitting calmly on a lotus pedestal, gilded dharma wheel inset in its chest, great stone ring behind like a mountain gate, weathered moss and fine gold veins. Distinct calm stone face.\nProject palette: #9aa085.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e46c0965-7b34-42bc-8fe4-289e4172e898.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e46c0965-7b34-42bc-8fe4-289e4172e898.png",
+      "focus": [
+        0.499,
+        0.195
+      ]
+    }
+  ],
+  "coverage": "complete-pack",
+  "settingGenerationAuthorization": "用户 2026-10-05：允许按现有设定补画，统一画风。"
+}

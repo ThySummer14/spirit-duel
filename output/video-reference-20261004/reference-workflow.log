@@ -1,0 +1,25 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+REFERENCE_FAIL repeated flips are idempotent
+REFERENCE_FAIL all five flips finish the persisted reveal
+SCRIPT ERROR: Invalid access to property or key 'cards' on a base object of type 'Dictionary'.
+          at: _verify_pack_transactions (res://scripts/verify_reference_workflow.gd:100)
+          GDScript backtrace (most recent call first):
+              [0] _verify_pack_transactions (res://scripts/verify_reference_workflow.gd:100)
+              [1] _run (res://scripts/verify_reference_workflow.gd:38)
+REFERENCE_FAIL overlapping flip input cannot destroy active animation
+REFERENCE_FAIL re-entering resumes the same reveal
+REFERENCE_FAIL reveal-all enables completion
+REFERENCE_FAIL receive button completes without additional draw
+REFERENCE_FAIL complete battlefield keeps the hand inside the window
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_FAIL AI presentation beat performs exactly one command
+REFERENCE_WORKFLOW checks=177 failures=17

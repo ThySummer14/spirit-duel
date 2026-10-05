@@ -1,0 +1,168 @@
+WorkerThreadPool: 10 threads, 3 max low-priority.
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+TextServer: Added interface "Dummy" (dummy)
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)" (advanced)
+SDL: Init OK!
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)" (advanced).
+TextureStreaming settings: enabled=0, budget_mb=512, min_lod=0, max_lod=3
+CORE API HASH: 1240022292
+EDITOR API HASH: 2891737124
+Loading resource: res://scripts/verify_presentation.gd remapped: res://scripts/verify_presentation.gd
+Loading resource: res://scenes/main_menu.tscn remapped: res://scenes/main_menu.tscn
+Loading resource: res://scripts/ui/main.gd remapped: res://scripts/ui/main.gd
+Completed load for: 'res://scripts/ui/main.gd' remapped 'res://scripts/ui/main.gd' at thread -1
+Completed load for: 'res://scenes/main_menu.tscn' remapped 'res://scenes/main_menu.tscn' at thread -1
+Completed load for: 'res://scripts/verify_presentation.gd' remapped 'res://scripts/verify_presentation.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Loading resource: res://assets/fonts/NotoSansSC.ttf remapped: res://assets/fonts/NotoSansSC.ttf
+Loading resource: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata remapped: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata
+Completed load for: 'res://assets/fonts/NotoSansSC.ttf' remapped 'res://assets/fonts/NotoSansSC.ttf' at thread -1
+Loading resource: res://assets/fonts/NotoSerifSC.ttf remapped: res://assets/fonts/NotoSerifSC.ttf
+Loading resource: res://.godot/imported/NotoSerifSC.ttf-f9681ab396cd468c5f1aa660d91a9cf1.fontdata remapped: res://.godot/imported/NotoSerifSC.ttf-f9681ab396cd468c5f1aa660d91a9cf1.fontdata
+Completed load for: 'res://assets/fonts/NotoSerifSC.ttf' remapped 'res://assets/fonts/NotoSerifSC.ttf' at thread -1
+Loading resource: res://assets/audio/attack.wav remapped: res://assets/audio/attack.wav
+Loading resource: res://.godot/imported/attack.wav-825b62c1f9509f7d19a957a51a526957.sample remapped: res://.godot/imported/attack.wav-825b62c1f9509f7d19a957a51a526957.sample
+Completed load for: 'res://assets/audio/attack.wav' remapped 'res://assets/audio/attack.wav' at thread -1
+Loading resource: res://assets/audio/bgm_battle.wav remapped: res://assets/audio/bgm_battle.wav
+Loading resource: res://.godot/imported/bgm_battle.wav-21248085976eea3dec3574fbb2308a3f.sample remapped: res://.godot/imported/bgm_battle.wav-21248085976eea3dec3574fbb2308a3f.sample
+Completed load for: 'res://assets/audio/bgm_battle.wav' remapped 'res://assets/audio/bgm_battle.wav' at thread -1
+Loading resource: res://assets/audio/bgm_menu.wav remapped: res://assets/audio/bgm_menu.wav
+Loading resource: res://.godot/imported/bgm_menu.wav-9f2d20197574d1d559ebc6bf71843337.sample remapped: res://.godot/imported/bgm_menu.wav-9f2d20197574d1d559ebc6bf71843337.sample
+Completed load for: 'res://assets/audio/bgm_menu.wav' remapped 'res://assets/audio/bgm_menu.wav' at thread -1
+Loading resource: res://assets/audio/card_draw.wav remapped: res://assets/audio/card_draw.wav
+Loading resource: res://.godot/imported/card_draw.wav-3058533a9903911fb40c994d5f5b99ee.sample remapped: res://.godot/imported/card_draw.wav-3058533a9903911fb40c994d5f5b99ee.sample
+Completed load for: 'res://assets/audio/card_draw.wav' remapped 'res://assets/audio/card_draw.wav' at thread -1
+Loading resource: res://assets/audio/card_hover.wav remapped: res://assets/audio/card_hover.wav
+Loading resource: res://.godot/imported/card_hover.wav-5e21f3dbc07af630b288b4c71ab7f44f.sample remapped: res://.godot/imported/card_hover.wav-5e21f3dbc07af630b288b4c71ab7f44f.sample
+Completed load for: 'res://assets/audio/card_hover.wav' remapped 'res://assets/audio/card_hover.wav' at thread -1
+Loading resource: res://assets/audio/card_play.wav remapped: res://assets/audio/card_play.wav
+Loading resource: res://.godot/imported/card_play.wav-413f02181f35d346e9ab1f24b3840a88.sample remapped: res://.godot/imported/card_play.wav-413f02181f35d346e9ab1f24b3840a88.sample
+Completed load for: 'res://assets/audio/card_play.wav' remapped 'res://assets/audio/card_play.wav' at thread -1
+Loading resource: res://assets/audio/core_hit.wav remapped: res://assets/audio/core_hit.wav
+Loading resource: res://.godot/imported/core_hit.wav-673e838d2e735159c881503efab27bba.sample remapped: res://.godot/imported/core_hit.wav-673e838d2e735159c881503efab27bba.sample
+Completed load for: 'res://assets/audio/core_hit.wav' remapped 'res://assets/audio/core_hit.wav' at thread -1
+Loading resource: res://assets/audio/defeat.wav remapped: res://assets/audio/defeat.wav
+Loading resource: res://.godot/imported/defeat.wav-2c373cdad262b5fb9203b05423989caa.sample remapped: res://.godot/imported/defeat.wav-2c373cdad262b5fb9203b05423989caa.sample
+Completed load for: 'res://assets/audio/defeat.wav' remapped 'res://assets/audio/defeat.wav' at thread -1
+Loading resource: res://assets/audio/error.wav remapped: res://assets/audio/error.wav
+Loading resource: res://.godot/imported/error.wav-99844ed22afbc0c517ece11da3662cae.sample remapped: res://.godot/imported/error.wav-99844ed22afbc0c517ece11da3662cae.sample
+Completed load for: 'res://assets/audio/error.wav' remapped 'res://assets/audio/error.wav' at thread -1
+Loading resource: res://assets/audio/heal.wav remapped: res://assets/audio/heal.wav
+Loading resource: res://.godot/imported/heal.wav-931ca7a754542f5b94f13b00622da730.sample remapped: res://.godot/imported/heal.wav-931ca7a754542f5b94f13b00622da730.sample
+Completed load for: 'res://assets/audio/heal.wav' remapped 'res://assets/audio/heal.wav' at thread -1
+Loading resource: res://assets/audio/hit.wav remapped: res://assets/audio/hit.wav
+Loading resource: res://.godot/imported/hit.wav-96dc477cdf4a42f381370dba6e3f75ce.sample remapped: res://.godot/imported/hit.wav-96dc477cdf4a42f381370dba6e3f75ce.sample
+Completed load for: 'res://assets/audio/hit.wav' remapped 'res://assets/audio/hit.wav' at thread -1
+Loading resource: res://assets/audio/knockout.wav remapped: res://assets/audio/knockout.wav
+Loading resource: res://.godot/imported/knockout.wav-93932ac9ef158055cbb4734e70e20c45.sample remapped: res://.godot/imported/knockout.wav-93932ac9ef158055cbb4734e70e20c45.sample
+Completed load for: 'res://assets/audio/knockout.wav' remapped 'res://assets/audio/knockout.wav' at thread -1
+Loading resource: res://assets/audio/level_up.wav remapped: res://assets/audio/level_up.wav
+Loading resource: res://.godot/imported/level_up.wav-8c90c04fb618cb40d1c51d7c501b3cd7.sample remapped: res://.godot/imported/level_up.wav-8c90c04fb618cb40d1c51d7c501b3cd7.sample
+Completed load for: 'res://assets/audio/level_up.wav' remapped 'res://assets/audio/level_up.wav' at thread -1
+Loading resource: res://assets/audio/purchase.wav remapped: res://assets/audio/purchase.wav
+Loading resource: res://.godot/imported/purchase.wav-b1741d21e720116831bd475d57bf6a9c.sample remapped: res://.godot/imported/purchase.wav-b1741d21e720116831bd475d57bf6a9c.sample
+Completed load for: 'res://assets/audio/purchase.wav' remapped 'res://assets/audio/purchase.wav' at thread -1
+Loading resource: res://assets/audio/reveal.wav remapped: res://assets/audio/reveal.wav
+Loading resource: res://.godot/imported/reveal.wav-8481ad7dbd43c702a21d13fde2814a33.sample remapped: res://.godot/imported/reveal.wav-8481ad7dbd43c702a21d13fde2814a33.sample
+Completed load for: 'res://assets/audio/reveal.wav' remapped 'res://assets/audio/reveal.wav' at thread -1
+Loading resource: res://assets/audio/reveal_ssr.wav remapped: res://assets/audio/reveal_ssr.wav
+Loading resource: res://.godot/imported/reveal_ssr.wav-4794fb85eb5f89741553f44d3b5a28e2.sample remapped: res://.godot/imported/reveal_ssr.wav-4794fb85eb5f89741553f44d3b5a28e2.sample
+Completed load for: 'res://assets/audio/reveal_ssr.wav' remapped 'res://assets/audio/reveal_ssr.wav' at thread -1
+Loading resource: res://assets/audio/shield.wav remapped: res://assets/audio/shield.wav
+Loading resource: res://.godot/imported/shield.wav-28ce60ec10352f989ad5bbdcaa2a9611.sample remapped: res://.godot/imported/shield.wav-28ce60ec10352f989ad5bbdcaa2a9611.sample
+Completed load for: 'res://assets/audio/shield.wav' remapped 'res://assets/audio/shield.wav' at thread -1
+Loading resource: res://assets/audio/turn_end.wav remapped: res://assets/audio/turn_end.wav
+Loading resource: res://.godot/imported/turn_end.wav-54911a2d29aef22cc60ed4bc32ef009d.sample remapped: res://.godot/imported/turn_end.wav-54911a2d29aef22cc60ed4bc32ef009d.sample
+Completed load for: 'res://assets/audio/turn_end.wav' remapped 'res://assets/audio/turn_end.wav' at thread -1
+Loading resource: res://assets/audio/turn_start.wav remapped: res://assets/audio/turn_start.wav
+Loading resource: res://.godot/imported/turn_start.wav-2e9877aa80ca57a371da9e344c205071.sample remapped: res://.godot/imported/turn_start.wav-2e9877aa80ca57a371da9e344c205071.sample
+Completed load for: 'res://assets/audio/turn_start.wav' remapped 'res://assets/audio/turn_start.wav' at thread -1
+Loading resource: res://assets/audio/ui_click.wav remapped: res://assets/audio/ui_click.wav
+Loading resource: res://.godot/imported/ui_click.wav-27a1a14815f4272c438d6dd4385cee0b.sample remapped: res://.godot/imported/ui_click.wav-27a1a14815f4272c438d6dd4385cee0b.sample
+Completed load for: 'res://assets/audio/ui_click.wav' remapped 'res://assets/audio/ui_click.wav' at thread -1
+Loading resource: res://assets/audio/ui_hover.wav remapped: res://assets/audio/ui_hover.wav
+Loading resource: res://.godot/imported/ui_hover.wav-e8532001b0f3258b9ba03aefba32a561.sample remapped: res://.godot/imported/ui_hover.wav-e8532001b0f3258b9ba03aefba32a561.sample
+Completed load for: 'res://assets/audio/ui_hover.wav' remapped 'res://assets/audio/ui_hover.wav' at thread -1
+Loading resource: res://assets/audio/victory.wav remapped: res://assets/audio/victory.wav
+Loading resource: res://.godot/imported/victory.wav-d893d32ad919f27e15cf04d35e288b78.sample remapped: res://.godot/imported/victory.wav-d893d32ad919f27e15cf04d35e288b78.sample
+Completed load for: 'res://assets/audio/victory.wav' remapped 'res://assets/audio/victory.wav' at thread -1
+Loading resource: res://assets/scenery/port.png remapped: res://assets/scenery/port.png
+Loading resource: res://.godot/imported/port.png-dcb6eb81e8d9484b888ee26c68d1965d.ctex remapped: res://.godot/imported/port.png-dcb6eb81e8d9484b888ee26c68d1965d.ctex
+Completed load for: 'res://assets/scenery/port.png' remapped 'res://assets/scenery/port.png' at thread -1
+Loading resource: res://assets/redrawn/classic/yaodaoji.png remapped: res://assets/redrawn/classic/yaodaoji.png
+Loading resource: res://.godot/imported/yaodaoji.png-0dbda15fcd6aa4bb21947c05c55402e5.ctex remapped: res://.godot/imported/yaodaoji.png-0dbda15fcd6aa4bb21947c05c55402e5.ctex
+Completed load for: 'res://assets/redrawn/classic/yaodaoji.png' remapped 'res://assets/redrawn/classic/yaodaoji.png' at thread -1
+Loading resource: res://assets/redrawn/classic/jutun-tongzi.png remapped: res://assets/redrawn/classic/jutun-tongzi.png
+Loading resource: res://.godot/imported/jutun-tongzi.png-5ee90104460b2937a9c492c252b3a5f3.ctex remapped: res://.godot/imported/jutun-tongzi.png-5ee90104460b2937a9c492c252b3a5f3.ctex
+Completed load for: 'res://assets/redrawn/classic/jutun-tongzi.png' remapped 'res://assets/redrawn/classic/jutun-tongzi.png' at thread -1
+Loading resource: res://assets/redrawn/classic/bingyong.png remapped: res://assets/redrawn/classic/bingyong.png
+Loading resource: res://.godot/imported/bingyong.png-1f42110ee858ff5306166009442830df.ctex remapped: res://.godot/imported/bingyong.png-1f42110ee858ff5306166009442830df.ctex
+Completed load for: 'res://assets/redrawn/classic/bingyong.png' remapped 'res://assets/redrawn/classic/bingyong.png' at thread -1
+Loading resource: res://assets/redrawn/classic/datiangou.png remapped: res://assets/redrawn/classic/datiangou.png
+Loading resource: res://.godot/imported/datiangou.png-97d7c0c8b55011969b3c0c49f39e5777.ctex remapped: res://.godot/imported/datiangou.png-97d7c0c8b55011969b3c0c49f39e5777.ctex
+Completed load for: 'res://assets/redrawn/classic/datiangou.png' remapped 'res://assets/redrawn/classic/datiangou.png' at thread -1
+Loading resource: res://assets/ember.svg remapped: res://assets/ember.svg
+Loading resource: res://.godot/imported/ember.svg-acad0f2e9fef6dc30ec7b3b3b66b2556.ctex remapped: res://.godot/imported/ember.svg-acad0f2e9fef6dc30ec7b3b3b66b2556.ctex
+Completed load for: 'res://assets/ember.svg' remapped 'res://assets/ember.svg' at thread -1
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+Loading resource: res://assets/ink.svg remapped: res://assets/ink.svg
+Loading resource: res://.godot/imported/ink.svg-bc38f2bcf6391a433c194cc7778502fb.ctex remapped: res://.godot/imported/ink.svg-bc38f2bcf6391a433c194cc7778502fb.ctex
+Completed load for: 'res://assets/ink.svg' remapped 'res://assets/ink.svg' at thread -1
+Loading resource: res://assets/storm.svg remapped: res://assets/storm.svg
+Loading resource: res://.godot/imported/storm.svg-874d24fec2a9f203604bb1621142421b.ctex remapped: res://.godot/imported/storm.svg-874d24fec2a9f203604bb1621142421b.ctex
+Completed load for: 'res://assets/storm.svg' remapped 'res://assets/storm.svg' at thread -1
+Loading resource: res://assets/kongo.svg remapped: res://assets/kongo.svg
+Loading resource: res://.godot/imported/kongo.svg-73e5e293d21dc593f1b037164b8579ce.ctex remapped: res://.godot/imported/kongo.svg-73e5e293d21dc593f1b037164b8579ce.ctex
+Completed load for: 'res://assets/kongo.svg' remapped 'res://assets/kongo.svg' at thread -1
+Loading resource: res://assets/frostblade.svg remapped: res://assets/frostblade.svg
+Loading resource: res://.godot/imported/frostblade.svg-1ff1e4d291225b312dfc67426dd989a0.ctex remapped: res://.godot/imported/frostblade.svg-1ff1e4d291225b312dfc67426dd989a0.ctex
+Completed load for: 'res://assets/frostblade.svg' remapped 'res://assets/frostblade.svg' at thread -1
+Loading resource: res://assets/basalt.svg remapped: res://assets/basalt.svg
+Loading resource: res://.godot/imported/basalt.svg-c72f3308214d8081bbc5b5a5c0417479.ctex remapped: res://.godot/imported/basalt.svg-c72f3308214d8081bbc5b5a5c0417479.ctex
+Completed load for: 'res://assets/basalt.svg' remapped 'res://assets/basalt.svg' at thread -1
+Loading resource: res://assets/lumen.svg remapped: res://assets/lumen.svg
+Loading resource: res://.godot/imported/lumen.svg-0151a829645aa2b48bd247fe51eeeb63.ctex remapped: res://.godot/imported/lumen.svg-0151a829645aa2b48bd247fe51eeeb63.ctex
+Completed load for: 'res://assets/lumen.svg' remapped 'res://assets/lumen.svg' at thread -1
+Loading resource: res://assets/rime.svg remapped: res://assets/rime.svg
+Loading resource: res://.godot/imported/rime.svg-2cd02d2a584ad271337318209e945932.ctex remapped: res://.godot/imported/rime.svg-2cd02d2a584ad271337318209e945932.ctex
+Completed load for: 'res://assets/rime.svg' remapped 'res://assets/rime.svg' at thread -1
+Loading resource: res://assets/basalt-awakened.svg remapped: res://assets/basalt-awakened.svg
+Loading resource: res://.godot/imported/basalt-awakened.svg-b0fe682336a4ecc62ab9169e1b132674.ctex remapped: res://.godot/imported/basalt-awakened.svg-b0fe682336a4ecc62ab9169e1b132674.ctex
+Completed load for: 'res://assets/basalt-awakened.svg' remapped 'res://assets/basalt-awakened.svg' at thread -1
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+Loading resource: res://assets/ember-awakened.svg remapped: res://assets/ember-awakened.svg
+Loading resource: res://.godot/imported/ember-awakened.svg-82f6a3c94e59307b0fd1a4c5f5c20898.ctex remapped: res://.godot/imported/ember-awakened.svg-82f6a3c94e59307b0fd1a4c5f5c20898.ctex
+Completed load for: 'res://assets/ember-awakened.svg' remapped 'res://assets/ember-awakened.svg' at thread -1
+Loading resource: res://assets/rime-awakened.svg remapped: res://assets/rime-awakened.svg
+Loading resource: res://.godot/imported/rime-awakened.svg-8f464be46e5e3b403dcb177c6f00068a.ctex remapped: res://.godot/imported/rime-awakened.svg-8f464be46e5e3b403dcb177c6f00068a.ctex
+Completed load for: 'res://assets/rime-awakened.svg' remapped 'res://assets/rime-awakened.svg' at thread -1
+PRESENTATION checks=119 failures=0
+PRESENTATION_OK
+WARNING: 1 RID of type "CanvasItem" was leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2733)
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2604)
+ERROR: Cannot get path of node as it is not in a scene tree.
+   at: get_path (scene/main/node.cpp:2463)
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Leaked instance: HFlowContainer:483838134444 - Node path: 
+Leaked instance: Object:483854911663
+Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).
+Orphan StringName: h_separation (static: 0, total: 2)
+Orphan StringName: v_separation (static: 0, total: 2)
+StringName: 2 unclaimed string names at exit.

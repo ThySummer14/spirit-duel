@@ -1,0 +1,60 @@
+{
+  "pack": "wave7",
+  "units": 25,
+  "status": "accepted",
+  "originalAndSelectedCompared": true,
+  "comparisonSheets": [
+    "review/wave7-comparison-01.jpg",
+    "review/wave7-comparison-02.jpg",
+    "review/wave7-comparison-03.jpg",
+    "review/wave7-comparison-04.jpg",
+    "review/wave7-comparison-05.jpg",
+    "review/wave7-comparison-06.jpg",
+    "review/wave7-comparison-07.jpg"
+  ],
+  "allGameScreenshotsViewed": true,
+  "screenshots": [
+    "final-shots/wave7/01-wave7-portraits-01.png",
+    "final-shots/wave7/01-wave7-portraits-02.png",
+    "final-shots/wave7/01-wave7-portraits-03.png",
+    "final-shots/wave7/01-wave7-portraits-04.png",
+    "final-shots/wave7/02-wave7-formation.png",
+    "final-shots/wave7/03-wave7-deck-01.png",
+    "final-shots/wave7/03-wave7-deck-02.png",
+    "final-shots/wave7/03-wave7-deck-03.png",
+    "final-shots/wave7/03-wave7-deck-04.png",
+    "final-shots/wave7/03-wave7-deck-05.png",
+    "final-shots/wave7/03-wave7-deck-06.png",
+    "final-shots/wave7/03-wave7-deck-07.png",
+    "final-shots/wave7/04-wave7-battle-01.png",
+    "final-shots/wave7/04-wave7-battle-02.png",
+    "final-shots/wave7/04-wave7-battle-03.png",
+    "final-shots/wave7/04-wave7-battle-04.png",
+    "final-shots/wave7/04-wave7-battle-05.png",
+    "final-shots/wave7/04-wave7-battle-06.png",
+    "final-shots/wave7/04-wave7-battle-07.png"
+  ],
+  "portraitFocusReviewed": true,
+  "checks": [
+    "Identity, costume variant, props and paired/mounted figures match corresponding original",
+    "Final images have no printed card border, stat/name panels or affiliation badges",
+    "Faces, limbs, card art cropping and gallery/formation/deck/battle rendering visually reviewed"
+  ],
+  "originalOnlyRevisions": [
+    {
+      "id": "jiao",
+      "attempts": 1
+    },
+    {
+      "id": "ji",
+      "attempts": 2
+    },
+    {
+      "id": "jutun-wangkong",
+      "attempts": 1
+    }
+  ],
+  "captureErrors": 0,
+  "captureWarnings": 0,
+  "limitations": "Viewport capture with automated inputs; ordinary, awakening and skills still share owner portrait."
+}

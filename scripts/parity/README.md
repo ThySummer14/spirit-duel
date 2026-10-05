@@ -24,6 +24,7 @@
 | `sample-response-play.json` | 响应打出嵌套 LIFO：见切连锁 → 原 assault 再开窗 |
 | `sample-divination.json` | 占卜展示顶 3 张、选择置顶、恢复结算栈 |
 | `sample-fortune.json` | 鼓舞池累积/出击消耗 + 运势骰 fortune-success 追伤 |
+| `sample-targeted-response.json` | 对手回合出击 → 指定目标的霜障开窗 → 玩家选择友方角色响应 |
 
 命令中立格式（两边各自解析）：
 

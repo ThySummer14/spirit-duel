@@ -1,0 +1,873 @@
+WorkerThreadPool: 10 threads, 3 max low-priority.
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+TextServer: Added interface "Dummy" (dummy)
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)" (advanced)
+SDL: Init OK!
+Accessibility: AccessKit driver loaded.
+Accessibility: window 0 adapter created.
+Using "default" pen tablet driver...
+OpenGL debugging not supported!
+Shader 'CanvasSdfShaderGLES3' SHA256: 2c02992750422d0a2684894bb0c504f90877a42e1d9d6a4e8f61c8e7ec2c7a57
+Shader 'SkeletonShaderGLES3' SHA256: 4c4add4b54bec61d7d80ac9f0d05ffe8ddc0c5aba3830b88332cc060221d8057
+Shader 'ParticlesShaderGLES3' SHA256: 65e1f71f6896c7c360eb859792191d3006466121b89fcacd8d2321492a6d655a
+Shader 'ParticlesCopyShaderGLES3' SHA256: a6e252b517ecb45c5a2969bf6728b9ffa4a18b2cee30c6cdb2daa32f3a71b67a
+Shader 'CopyShaderGLES3' SHA256: 8554343db2d85f101a2215a4139e262eae9f0a8f4432fa311c7dfba56fbb0ca6
+Shader 'CubemapFilterShaderGLES3' SHA256: 71561c9c9500513aae7b9f3bfa5d4cff990b6dd31177ed3706219661f92c522b
+Shader 'GlowShaderGLES3' SHA256: 1a87a7cf19f4d56af9eae09f5c6825e559eac17d3053548ec6e7dc2080560dae
+Shader 'PostShaderGLES3' SHA256: 992b5e6acec81ac1364c47bcfc4f5f23ab28e84b3c69173a580688d58b6f0b5c
+Shader 'FeedShaderGLES3' SHA256: 187c3c4d3974f2c687e49fc4d3769bc976a9ec8788e828fac9e288846761c378
+Shader 'CanvasShaderGLES3' SHA256: 02d65dec2f7383555a0e375e838a0f671c89a9dc5d68c8d4b06036511a425019
+Shader 'CanvasOcclusionShaderGLES3' SHA256: 1f33c9844bf4e76cabb3218323a6d8b98712d2a09af19e27eb0b74a70818a0e1
+Shader 'SceneShaderGLES3' SHA256: 50cce82fb173e3637cfd3468435bd2d5f2e798fc4cbf34e593dd4ddfc3d313df
+Shader 'SkyShaderGLES3' SHA256: d4ee2d50942e0303146528f9cf45376bde206fe0898f86895ada12af3e63eef0
+Shader 'TexBlitShaderGLES3' SHA256: d85ccb2ac36d53afad4ec33abd575567928bb034afcae6cb17b52489382e610a
+OpenGL API 4.1 Metal - 91.7 - Compatibility - Using Device: Apple - Apple M5
+CoreAudio: detected 2 channels
+CoreAudio: output sampling rate: 48000 Hz
+CoreAudio: output audio buffer frames: 512 calculated latency: 10ms
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)" (advanced).
+TextureStreaming settings: enabled=0, budget_mb=512, min_lod=0, max_lod=3
+CORE API HASH: 1240022292
+EDITOR API HASH: 2891737124
+Loading resource: res://scripts/capture_redrawn.gd remapped: res://scripts/capture_redrawn.gd
+Loading resource: res://scenes/main_menu.tscn remapped: res://scenes/main_menu.tscn
+Loading resource: res://scripts/ui/main.gd remapped: res://scripts/ui/main.gd
+Completed load for: 'res://scripts/ui/main.gd' remapped 'res://scripts/ui/main.gd' at thread -1
+Completed load for: 'res://scenes/main_menu.tscn' remapped 'res://scenes/main_menu.tscn' at thread -1
+Completed load for: 'res://scripts/capture_redrawn.gd' remapped 'res://scripts/capture_redrawn.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Loading resource: res://assets/fonts/NotoSansSC.ttf remapped: res://assets/fonts/NotoSansSC.ttf
+Loading resource: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata remapped: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata
+Completed load for: 'res://assets/fonts/NotoSansSC.ttf' remapped 'res://assets/fonts/NotoSansSC.ttf' at thread -1
+Loading resource: res://assets/fonts/NotoSerifSC.ttf remapped: res://assets/fonts/NotoSerifSC.ttf
+Loading resource: res://.godot/imported/NotoSerifSC.ttf-f9681ab396cd468c5f1aa660d91a9cf1.fontdata remapped: res://.godot/imported/NotoSerifSC.ttf-f9681ab396cd468c5f1aa660d91a9cf1.fontdata
+Completed load for: 'res://assets/fonts/NotoSerifSC.ttf' remapped 'res://assets/fonts/NotoSerifSC.ttf' at thread -1
+Loading resource: res://assets/redrawn/wave2/yaohu.png remapped: res://assets/redrawn/wave2/yaohu.png
+Loading resource: res://.godot/imported/yaohu.png-33c575ae1b5a734deecf296beba8d37a.ctex remapped: res://.godot/imported/yaohu.png-33c575ae1b5a734deecf296beba8d37a.ctex
+Completed load for: 'res://assets/redrawn/wave2/yaohu.png' remapped 'res://assets/redrawn/wave2/yaohu.png' at thread -1
+Loading resource: res://assets/redrawn/wave2/tiaotiaomeimei.png remapped: res://assets/redrawn/wave2/tiaotiaomeimei.png
+Loading resource: res://.godot/imported/tiaotiaomeimei.png-2f92e572aa524a4db126b236f47aa579.ctex remapped: res://.godot/imported/tiaotiaomeimei.png-2f92e572aa524a4db126b236f47aa579.ctex
+Completed load for: 'res://assets/redrawn/wave2/tiaotiaomeimei.png' remapped 'res://assets/redrawn/wave2/tiaotiaomeimei.png' at thread -1
+Loading resource: res://assets/redrawn/wave2/buzhinhuo.png remapped: res://assets/redrawn/wave2/buzhinhuo.png
+Loading resource: res://.godot/imported/buzhinhuo.png-35feddda92d358d9d023f05b6ce08fb4.ctex remapped: res://.godot/imported/buzhinhuo.png-35feddda92d358d9d023f05b6ce08fb4.ctex
+Completed load for: 'res://assets/redrawn/wave2/buzhinhuo.png' remapped 'res://assets/redrawn/wave2/buzhinhuo.png' at thread -1
+Loading resource: res://assets/redrawn/wave2/xiaolunan.png remapped: res://assets/redrawn/wave2/xiaolunan.png
+Loading resource: res://.godot/imported/xiaolunan.png-e09795bf0408c1cb38a85ea56fdf7032.ctex remapped: res://.godot/imported/xiaolunan.png-e09795bf0408c1cb38a85ea56fdf7032.ctex
+Completed load for: 'res://assets/redrawn/wave2/xiaolunan.png' remapped 'res://assets/redrawn/wave2/xiaolunan.png' at thread -1
+Loading resource: res://assets/redrawn/wave2/yanyanluo.png remapped: res://assets/redrawn/wave2/yanyanluo.png
+Loading resource: res://.godot/imported/yanyanluo.png-96d11944432b3fd3b2f513c513fc44f9.ctex remapped: res://.godot/imported/yanyanluo.png-96d11944432b3fd3b2f513c513fc44f9.ctex
+Completed load for: 'res://assets/redrawn/wave2/yanyanluo.png' remapped 'res://assets/redrawn/wave2/yanyanluo.png' at thread -1
+Loading resource: res://assets/redrawn/wave2/rihefang.png remapped: res://assets/redrawn/wave2/rihefang.png
+Loading resource: res://.godot/imported/rihefang.png-e8841fc5e75fdad5d80b089737e28081.ctex remapped: res://.godot/imported/rihefang.png-e8841fc5e75fdad5d80b089737e28081.ctex
+Completed load for: 'res://assets/redrawn/wave2/rihefang.png' remapped 'res://assets/redrawn/wave2/rihefang.png' at thread -1
+Loading resource: res://assets/redrawn/wave2/lianyou.png remapped: res://assets/redrawn/wave2/lianyou.png
+Loading resource: res://.godot/imported/lianyou.png-98b8c473dd3595021df1e72a793bca92.ctex remapped: res://.godot/imported/lianyou.png-98b8c473dd3595021df1e72a793bca92.ctex
+Completed load for: 'res://assets/redrawn/wave2/lianyou.png' remapped 'res://assets/redrawn/wave2/lianyou.png' at thread -1
+Loading resource: res://assets/redrawn/wave2/yatiangou.png remapped: res://assets/redrawn/wave2/yatiangou.png
+Loading resource: res://.godot/imported/yatiangou.png-2c9934a285894244ee1d73538c359ed8.ctex remapped: res://.godot/imported/yatiangou.png-2c9934a285894244ee1d73538c359ed8.ctex
+Completed load for: 'res://assets/redrawn/wave2/yatiangou.png' remapped 'res://assets/redrawn/wave2/yatiangou.png' at thread -1
+SHOT 01-wave23-portraits-01
+Loading resource: res://assets/redrawn/wave2/lingyuyuqian.png remapped: res://assets/redrawn/wave2/lingyuyuqian.png
+Loading resource: res://.godot/imported/lingyuyuqian.png-ed3a6abed8d514edfa2bf9662cef97ed.ctex remapped: res://.godot/imported/lingyuyuqian.png-ed3a6abed8d514edfa2bf9662cef97ed.ctex
+Completed load for: 'res://assets/redrawn/wave2/lingyuyuqian.png' remapped 'res://assets/redrawn/wave2/lingyuyuqian.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/biyehua.png remapped: res://assets/redrawn/wave3/biyehua.png
+Loading resource: res://.godot/imported/biyehua.png-1cc4f66fac6fddc9d6da98f413b375b2.ctex remapped: res://.godot/imported/biyehua.png-1cc4f66fac6fddc9d6da98f413b375b2.ctex
+Completed load for: 'res://assets/redrawn/wave3/biyehua.png' remapped 'res://assets/redrawn/wave3/biyehua.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/huang.png remapped: res://assets/redrawn/wave3/huang.png
+Loading resource: res://.godot/imported/huang.png-ca8423a356b40c72aea533394cb9649f.ctex remapped: res://.godot/imported/huang.png-ca8423a356b40c72aea533394cb9649f.ctex
+Completed load for: 'res://assets/redrawn/wave3/huang.png' remapped 'res://assets/redrawn/wave3/huang.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/jiuciliang.png remapped: res://assets/redrawn/wave3/jiuciliang.png
+Loading resource: res://.godot/imported/jiuciliang.png-a4cc34805eee72580ff5a4cc5116aa30.ctex remapped: res://.godot/imported/jiuciliang.png-a4cc34805eee72580ff5a4cc5116aa30.ctex
+Completed load for: 'res://assets/redrawn/wave3/jiuciliang.png' remapped 'res://assets/redrawn/wave3/jiuciliang.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/huiyeji.png remapped: res://assets/redrawn/wave3/huiyeji.png
+Loading resource: res://.godot/imported/huiyeji.png-2ade8783240c3a22b67bc3ab85699348.ctex remapped: res://.godot/imported/huiyeji.png-2ade8783240c3a22b67bc3ab85699348.ctex
+Completed load for: 'res://assets/redrawn/wave3/huiyeji.png' remapped 'res://assets/redrawn/wave3/huiyeji.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/xixueji.png remapped: res://assets/redrawn/wave3/xixueji.png
+Loading resource: res://.godot/imported/xixueji.png-10c202919b0e699bba3c5bfb44cad47c.ctex remapped: res://.godot/imported/xixueji.png-10c202919b0e699bba3c5bfb44cad47c.ctex
+Completed load for: 'res://assets/redrawn/wave3/xixueji.png' remapped 'res://assets/redrawn/wave3/xixueji.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/tianjingxia.png remapped: res://assets/redrawn/wave3/tianjingxia.png
+Loading resource: res://.godot/imported/tianjingxia.png-0858f369c2254f49d73012502a3b50f9.ctex remapped: res://.godot/imported/tianjingxia.png-0858f369c2254f49d73012502a3b50f9.ctex
+Completed load for: 'res://assets/redrawn/wave3/tianjingxia.png' remapped 'res://assets/redrawn/wave3/tianjingxia.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/longyechaji.png remapped: res://assets/redrawn/wave3/longyechaji.png
+Loading resource: res://.godot/imported/longyechaji.png-ae728d2b680c2231015f99b8798f5bdb.ctex remapped: res://.godot/imported/longyechaji.png-ae728d2b680c2231015f99b8798f5bdb.ctex
+Completed load for: 'res://assets/redrawn/wave3/longyechaji.png' remapped 'res://assets/redrawn/wave3/longyechaji.png' at thread -1
+SHOT 01-wave23-portraits-02
+Loading resource: res://assets/redrawn/wave3/mengpo.png remapped: res://assets/redrawn/wave3/mengpo.png
+Loading resource: res://.godot/imported/mengpo.png-f68acb8e02e4f9d887fa97e09794ddc5.ctex remapped: res://.godot/imported/mengpo.png-f68acb8e02e4f9d887fa97e09794ddc5.ctex
+Completed load for: 'res://assets/redrawn/wave3/mengpo.png' remapped 'res://assets/redrawn/wave3/mengpo.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/shanfeng.png remapped: res://assets/redrawn/wave3/shanfeng.png
+Loading resource: res://.godot/imported/shanfeng.png-8f386804223df86147b026cdf02ebd1d.ctex remapped: res://.godot/imported/shanfeng.png-8f386804223df86147b026cdf02ebd1d.ctex
+Completed load for: 'res://assets/redrawn/wave3/shanfeng.png' remapped 'res://assets/redrawn/wave3/shanfeng.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/dayueling.png remapped: res://assets/redrawn/wave3/dayueling.png
+Loading resource: res://.godot/imported/dayueling.png-80bc974db55b498434acc4c4101ebf93.ctex remapped: res://.godot/imported/dayueling.png-80bc974db55b498434acc4c4101ebf93.ctex
+Completed load for: 'res://assets/redrawn/wave3/dayueling.png' remapped 'res://assets/redrawn/wave3/dayueling.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/guiqie.png remapped: res://assets/redrawn/wave3/guiqie.png
+Loading resource: res://.godot/imported/guiqie.png-24164770db5261f958b6edff904633f7.ctex remapped: res://.godot/imported/guiqie.png-24164770db5261f958b6edff904633f7.ctex
+Completed load for: 'res://assets/redrawn/wave3/guiqie.png' remapped 'res://assets/redrawn/wave3/guiqie.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/wuguishi.png remapped: res://assets/redrawn/wave3/wuguishi.png
+Loading resource: res://.godot/imported/wuguishi.png-ac600faad2750224de7b637c5793c7af.ctex remapped: res://.godot/imported/wuguishi.png-ac600faad2750224de7b637c5793c7af.ctex
+Completed load for: 'res://assets/redrawn/wave3/wuguishi.png' remapped 'res://assets/redrawn/wave3/wuguishi.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/yinghuayao.png remapped: res://assets/redrawn/wave3/yinghuayao.png
+Loading resource: res://.godot/imported/yinghuayao.png-ea90d910971e82167d91dbf411634ff0.ctex remapped: res://.godot/imported/yinghuayao.png-ea90d910971e82167d91dbf411634ff0.ctex
+Completed load for: 'res://assets/redrawn/wave3/yinghuayao.png' remapped 'res://assets/redrawn/wave3/yinghuayao.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/xun.png remapped: res://assets/redrawn/wave3/xun.png
+Loading resource: res://.godot/imported/xun.png-68da3163c2df25afb96ff8e8aa9dec39.ctex remapped: res://.godot/imported/xun.png-68da3163c2df25afb96ff8e8aa9dec39.ctex
+Completed load for: 'res://assets/redrawn/wave3/xun.png' remapped 'res://assets/redrawn/wave3/xun.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/renmianshu.png remapped: res://assets/redrawn/wave3/renmianshu.png
+Loading resource: res://.godot/imported/renmianshu.png-de2e0e349cc9999e449752107c0e2c3b.ctex remapped: res://.godot/imported/renmianshu.png-de2e0e349cc9999e449752107c0e2c3b.ctex
+Completed load for: 'res://assets/redrawn/wave3/renmianshu.png' remapped 'res://assets/redrawn/wave3/renmianshu.png' at thread -1
+SHOT 01-wave23-portraits-03
+Loading resource: res://assets/redrawn/wave3/tiaotiaogege.png remapped: res://assets/redrawn/wave3/tiaotiaogege.png
+Loading resource: res://.godot/imported/tiaotiaogege.png-dc1eebee23797bc4e02e1cd0a14b3000.ctex remapped: res://.godot/imported/tiaotiaogege.png-dc1eebee23797bc4e02e1cd0a14b3000.ctex
+Completed load for: 'res://assets/redrawn/wave3/tiaotiaogege.png' remapped 'res://assets/redrawn/wave3/tiaotiaogege.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/shimengmo.png remapped: res://assets/redrawn/wave3/shimengmo.png
+Loading resource: res://.godot/imported/shimengmo.png-c22c68d84531a4960d669287391d1fdd.ctex remapped: res://.godot/imported/shimengmo.png-c22c68d84531a4960d669287391d1fdd.ctex
+Completed load for: 'res://assets/redrawn/wave3/shimengmo.png' remapped 'res://assets/redrawn/wave3/shimengmo.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/yujiazhu.png remapped: res://assets/redrawn/wave3/yujiazhu.png
+Loading resource: res://.godot/imported/yujiazhu.png-20e1d76866689a3f28e4bed7bd677c5e.ctex remapped: res://.godot/imported/yujiazhu.png-20e1d76866689a3f28e4bed7bd677c5e.ctex
+Completed load for: 'res://assets/redrawn/wave3/yujiazhu.png' remapped 'res://assets/redrawn/wave3/yujiazhu.png' at thread -1
+Loading resource: res://assets/redrawn/wave3/sanmu.png remapped: res://assets/redrawn/wave3/sanmu.png
+Loading resource: res://.godot/imported/sanmu.png-42b84a8381488e71f44d1fa36c55ed30.ctex remapped: res://.godot/imported/sanmu.png-42b84a8381488e71f44d1fa36c55ed30.ctex
+Completed load for: 'res://assets/redrawn/wave3/sanmu.png' remapped 'res://assets/redrawn/wave3/sanmu.png' at thread -1
+SHOT 01-wave23-portraits-04
+Loading resource: res://assets/scenery/table.png remapped: res://assets/scenery/table.png
+Loading resource: res://.godot/imported/table.png-cdb09b61e0864f3c52857d35f8fa1daf.ctex remapped: res://.godot/imported/table.png-cdb09b61e0864f3c52857d35f8fa1daf.ctex
+Completed load for: 'res://assets/scenery/table.png' remapped 'res://assets/scenery/table.png' at thread -1
+Loading resource: res://assets/audio/bgm_menu.wav remapped: res://assets/audio/bgm_menu.wav
+Loading resource: res://.godot/imported/bgm_menu.wav-9f2d20197574d1d559ebc6bf71843337.sample remapped: res://.godot/imported/bgm_menu.wav-9f2d20197574d1d559ebc6bf71843337.sample
+Completed load for: 'res://assets/audio/bgm_menu.wav' remapped 'res://assets/audio/bgm_menu.wav' at thread -1
+Loading resource: res://assets/redrawn/classic/yaodaoji.png remapped: res://assets/redrawn/classic/yaodaoji.png
+Loading resource: res://.godot/imported/yaodaoji.png-0dbda15fcd6aa4bb21947c05c55402e5.ctex remapped: res://.godot/imported/yaodaoji.png-0dbda15fcd6aa4bb21947c05c55402e5.ctex
+Completed load for: 'res://assets/redrawn/classic/yaodaoji.png' remapped 'res://assets/redrawn/classic/yaodaoji.png' at thread -1
+Loading resource: res://assets/redrawn/classic/jutun-tongzi.png remapped: res://assets/redrawn/classic/jutun-tongzi.png
+Loading resource: res://.godot/imported/jutun-tongzi.png-5ee90104460b2937a9c492c252b3a5f3.ctex remapped: res://.godot/imported/jutun-tongzi.png-5ee90104460b2937a9c492c252b3a5f3.ctex
+Completed load for: 'res://assets/redrawn/classic/jutun-tongzi.png' remapped 'res://assets/redrawn/classic/jutun-tongzi.png' at thread -1
+Loading resource: res://assets/redrawn/classic/bingyong.png remapped: res://assets/redrawn/classic/bingyong.png
+Loading resource: res://.godot/imported/bingyong.png-1f42110ee858ff5306166009442830df.ctex remapped: res://.godot/imported/bingyong.png-1f42110ee858ff5306166009442830df.ctex
+Completed load for: 'res://assets/redrawn/classic/bingyong.png' remapped 'res://assets/redrawn/classic/bingyong.png' at thread -1
+Loading resource: res://assets/redrawn/classic/datiangou.png remapped: res://assets/redrawn/classic/datiangou.png
+Loading resource: res://.godot/imported/datiangou.png-97d7c0c8b55011969b3c0c49f39e5777.ctex remapped: res://.godot/imported/datiangou.png-97d7c0c8b55011969b3c0c49f39e5777.ctex
+Completed load for: 'res://assets/redrawn/classic/datiangou.png' remapped 'res://assets/redrawn/classic/datiangou.png' at thread -1
+Loading resource: res://assets/redrawn/classic/xuenv.png remapped: res://assets/redrawn/classic/xuenv.png
+Loading resource: res://.godot/imported/xuenv.png-74cc672b833bae1f494090b0aacd083b.ctex remapped: res://.godot/imported/xuenv.png-74cc672b833bae1f494090b0aacd083b.ctex
+Completed load for: 'res://assets/redrawn/classic/xuenv.png' remapped 'res://assets/redrawn/classic/xuenv.png' at thread -1
+Loading resource: res://assets/redrawn/classic/yingcao.png remapped: res://assets/redrawn/classic/yingcao.png
+Loading resource: res://.godot/imported/yingcao.png-fc6eb734ca3a966fd6d85647b1c9df64.ctex remapped: res://.godot/imported/yingcao.png-fc6eb734ca3a966fd6d85647b1c9df64.ctex
+Completed load for: 'res://assets/redrawn/classic/yingcao.png' remapped 'res://assets/redrawn/classic/yingcao.png' at thread -1
+Loading resource: res://assets/redrawn/classic/taohuayao.png remapped: res://assets/redrawn/classic/taohuayao.png
+Loading resource: res://.godot/imported/taohuayao.png-68752b35a1966e0515e970fff10ee04b.ctex remapped: res://.godot/imported/taohuayao.png-68752b35a1966e0515e970fff10ee04b.ctex
+Completed load for: 'res://assets/redrawn/classic/taohuayao.png' remapped 'res://assets/redrawn/classic/taohuayao.png' at thread -1
+Loading resource: res://assets/redrawn/classic/guniao.png remapped: res://assets/redrawn/classic/guniao.png
+Loading resource: res://.godot/imported/guniao.png-0daa4810866f7cbf631155abff64d33f.ctex remapped: res://.godot/imported/guniao.png-0daa4810866f7cbf631155abff64d33f.ctex
+Completed load for: 'res://assets/redrawn/classic/guniao.png' remapped 'res://assets/redrawn/classic/guniao.png' at thread -1
+Loading resource: res://assets/redrawn/classic/bailang.png remapped: res://assets/redrawn/classic/bailang.png
+Loading resource: res://.godot/imported/bailang.png-646b1c728a0a3cf46643c38cf6de0f09.ctex remapped: res://.godot/imported/bailang.png-646b1c728a0a3cf46643c38cf6de0f09.ctex
+Completed load for: 'res://assets/redrawn/classic/bailang.png' remapped 'res://assets/redrawn/classic/bailang.png' at thread -1
+Loading resource: res://assets/redrawn/classic/caitongzi.png remapped: res://assets/redrawn/classic/caitongzi.png
+Loading resource: res://.godot/imported/caitongzi.png-339ffb8720f644194f6cb3402e22e032.ctex remapped: res://.godot/imported/caitongzi.png-339ffb8720f644194f6cb3402e22e032.ctex
+Completed load for: 'res://assets/redrawn/classic/caitongzi.png' remapped 'res://assets/redrawn/classic/caitongzi.png' at thread -1
+Loading resource: res://assets/redrawn/classic/xuetongzi.png remapped: res://assets/redrawn/classic/xuetongzi.png
+Loading resource: res://.godot/imported/xuetongzi.png-2f017c3d8edb35a400b65669da6669f9.ctex remapped: res://.godot/imported/xuetongzi.png-2f017c3d8edb35a400b65669da6669f9.ctex
+Completed load for: 'res://assets/redrawn/classic/xuetongzi.png' remapped 'res://assets/redrawn/classic/xuetongzi.png' at thread -1
+Loading resource: res://assets/redrawn/classic/shantong.png remapped: res://assets/redrawn/classic/shantong.png
+Loading resource: res://.godot/imported/shantong.png-3eb4ba24d8c641ffbdd876deb8140326.ctex remapped: res://.godot/imported/shantong.png-3eb4ba24d8c641ffbdd876deb8140326.ctex
+Completed load for: 'res://assets/redrawn/classic/shantong.png' remapped 'res://assets/redrawn/classic/shantong.png' at thread -1
+Loading resource: res://assets/redrawn/classic/tiaotiaodidi.png remapped: res://assets/redrawn/classic/tiaotiaodidi.png
+Loading resource: res://.godot/imported/tiaotiaodidi.png-99c5d851cab3af4196e0f443395159ac.ctex remapped: res://.godot/imported/tiaotiaodidi.png-99c5d851cab3af4196e0f443395159ac.ctex
+Completed load for: 'res://assets/redrawn/classic/tiaotiaodidi.png' remapped 'res://assets/redrawn/classic/tiaotiaodidi.png' at thread -1
+Loading resource: res://assets/redrawn/classic/qingshe.png remapped: res://assets/redrawn/classic/qingshe.png
+Loading resource: res://.godot/imported/qingshe.png-5b22dd7ff313c436681ae7763d295f27.ctex remapped: res://.godot/imported/qingshe.png-5b22dd7ff313c436681ae7763d295f27.ctex
+Completed load for: 'res://assets/redrawn/classic/qingshe.png' remapped 'res://assets/redrawn/classic/qingshe.png' at thread -1
+Loading resource: res://assets/redrawn/classic/zhen.png remapped: res://assets/redrawn/classic/zhen.png
+Loading resource: res://.godot/imported/zhen.png-aae7537d2dd96bf388472ad83b52cb7b.ctex remapped: res://.godot/imported/zhen.png-aae7537d2dd96bf388472ad83b52cb7b.ctex
+Completed load for: 'res://assets/redrawn/classic/zhen.png' remapped 'res://assets/redrawn/classic/zhen.png' at thread -1
+Loading resource: res://assets/redrawn/classic/haifangzhu.png remapped: res://assets/redrawn/classic/haifangzhu.png
+Loading resource: res://.godot/imported/haifangzhu.png-b1d9b917efb3e56e417d6c311f8e06af.ctex remapped: res://.godot/imported/haifangzhu.png-b1d9b917efb3e56e417d6c311f8e06af.ctex
+Completed load for: 'res://assets/redrawn/classic/haifangzhu.png' remapped 'res://assets/redrawn/classic/haifangzhu.png' at thread -1
+Loading resource: res://assets/redrawn/classic/yimulian.png remapped: res://assets/redrawn/classic/yimulian.png
+Loading resource: res://.godot/imported/yimulian.png-37199b8d16a332ef101af919ab84d56e.ctex remapped: res://.godot/imported/yimulian.png-37199b8d16a332ef101af919ab84d56e.ctex
+Completed load for: 'res://assets/redrawn/classic/yimulian.png' remapped 'res://assets/redrawn/classic/yimulian.png' at thread -1
+Loading resource: res://assets/redrawn/classic/shuweng.png remapped: res://assets/redrawn/classic/shuweng.png
+Loading resource: res://.godot/imported/shuweng.png-0fda6bc64c606a0deab79009036069d8.ctex remapped: res://.godot/imported/shuweng.png-0fda6bc64c606a0deab79009036069d8.ctex
+Completed load for: 'res://assets/redrawn/classic/shuweng.png' remapped 'res://assets/redrawn/classic/shuweng.png' at thread -1
+Loading resource: res://assets/redrawn/classic/jue.png remapped: res://assets/redrawn/classic/jue.png
+Loading resource: res://.godot/imported/jue.png-5c151a7735ed4dc43882a1cb01a09f8a.ctex remapped: res://.godot/imported/jue.png-5c151a7735ed4dc43882a1cb01a09f8a.ctex
+Completed load for: 'res://assets/redrawn/classic/jue.png' remapped 'res://assets/redrawn/classic/jue.png' at thread -1
+Loading resource: res://assets/redrawn/classic/quanshen.png remapped: res://assets/redrawn/classic/quanshen.png
+Loading resource: res://.godot/imported/quanshen.png-1f0ec707808cc1bcbd53264067bdf54d.ctex remapped: res://.godot/imported/quanshen.png-1f0ec707808cc1bcbd53264067bdf54d.ctex
+Completed load for: 'res://assets/redrawn/classic/quanshen.png' remapped 'res://assets/redrawn/classic/quanshen.png' at thread -1
+Loading resource: res://assets/redrawn/classic/panguan.png remapped: res://assets/redrawn/classic/panguan.png
+Loading resource: res://.godot/imported/panguan.png-d453cb126a5bda25040e958773691aaa.ctex remapped: res://.godot/imported/panguan.png-d453cb126a5bda25040e958773691aaa.ctex
+Completed load for: 'res://assets/redrawn/classic/panguan.png' remapped 'res://assets/redrawn/classic/panguan.png' at thread -1
+Loading resource: res://assets/redrawn/classic/yijin-zhentian.png remapped: res://assets/redrawn/classic/yijin-zhentian.png
+Loading resource: res://.godot/imported/yijin-zhentian.png-2721ae8c103be17091c3ea3a2149cbfd.ctex remapped: res://.godot/imported/yijin-zhentian.png-2721ae8c103be17091c3ea3a2149cbfd.ctex
+Completed load for: 'res://assets/redrawn/classic/yijin-zhentian.png' remapped 'res://assets/redrawn/classic/yijin-zhentian.png' at thread -1
+Loading resource: res://assets/redrawn/classic/fenghuanghuo.png remapped: res://assets/redrawn/classic/fenghuanghuo.png
+Loading resource: res://.godot/imported/fenghuanghuo.png-cdd14e0853229eb46afd8dc3dee8ca6c.ctex remapped: res://.godot/imported/fenghuanghuo.png-cdd14e0853229eb46afd8dc3dee8ca6c.ctex
+Completed load for: 'res://assets/redrawn/classic/fenghuanghuo.png' remapped 'res://assets/redrawn/classic/fenghuanghuo.png' at thread -1
+Loading resource: res://assets/redrawn/classic/qingfangzhu.png remapped: res://assets/redrawn/classic/qingfangzhu.png
+Loading resource: res://.godot/imported/qingfangzhu.png-24b3b984fd66e962b070093a29568c70.ctex remapped: res://.godot/imported/qingfangzhu.png-24b3b984fd66e962b070093a29568c70.ctex
+Completed load for: 'res://assets/redrawn/classic/qingfangzhu.png' remapped 'res://assets/redrawn/classic/qingfangzhu.png' at thread -1
+Loading resource: res://assets/redrawn/classic/qingwa-ciqi.png remapped: res://assets/redrawn/classic/qingwa-ciqi.png
+Loading resource: res://.godot/imported/qingwa-ciqi.png-7a35ac5250dff539f262a4e2a12d8aa7.ctex remapped: res://.godot/imported/qingwa-ciqi.png-7a35ac5250dff539f262a4e2a12d8aa7.ctex
+Completed load for: 'res://assets/redrawn/classic/qingwa-ciqi.png' remapped 'res://assets/redrawn/classic/qingwa-ciqi.png' at thread -1
+Loading resource: res://assets/redrawn/classic/shantu.png remapped: res://assets/redrawn/classic/shantu.png
+Loading resource: res://.godot/imported/shantu.png-350c62097ddfb2689455b0e5c898c5a9.ctex remapped: res://.godot/imported/shantu.png-350c62097ddfb2689455b0e5c898c5a9.ctex
+Completed load for: 'res://assets/redrawn/classic/shantu.png' remapped 'res://assets/redrawn/classic/shantu.png' at thread -1
+Loading resource: res://assets/redrawn/classic/yaoginshi.png remapped: res://assets/redrawn/classic/yaoginshi.png
+Loading resource: res://.godot/imported/yaoginshi.png-4e29d0bbf3c9ba058f4ede1a8f6e01dc.ctex remapped: res://.godot/imported/yaoginshi.png-4e29d0bbf3c9ba058f4ede1a8f6e01dc.ctex
+Completed load for: 'res://assets/redrawn/classic/yaoginshi.png' remapped 'res://assets/redrawn/classic/yaoginshi.png' at thread -1
+Loading resource: res://assets/redrawn/classic/qingxingdeng.png remapped: res://assets/redrawn/classic/qingxingdeng.png
+Loading resource: res://.godot/imported/qingxingdeng.png-0a67ecb718bed9a32918e40a747e4915.ctex remapped: res://.godot/imported/qingxingdeng.png-0a67ecb718bed9a32918e40a747e4915.ctex
+Completed load for: 'res://assets/redrawn/classic/qingxingdeng.png' remapped 'res://assets/redrawn/classic/qingxingdeng.png' at thread -1
+Loading resource: res://assets/redrawn/classic/zuofutongzi.png remapped: res://assets/redrawn/classic/zuofutongzi.png
+Loading resource: res://.godot/imported/zuofutongzi.png-3e5ad75d868150e34801924b7db4c3eb.ctex remapped: res://.godot/imported/zuofutongzi.png-3e5ad75d868150e34801924b7db4c3eb.ctex
+Completed load for: 'res://assets/redrawn/classic/zuofutongzi.png' remapped 'res://assets/redrawn/classic/zuofutongzi.png' at thread -1
+Loading resource: res://assets/wave4/jieshen.svg remapped: res://assets/wave4/jieshen.svg
+Loading resource: res://.godot/imported/jieshen.svg-4089312d9eeedf51decc8649ae26eaf8.ctex remapped: res://.godot/imported/jieshen.svg-4089312d9eeedf51decc8649ae26eaf8.ctex
+Completed load for: 'res://assets/wave4/jieshen.svg' remapped 'res://assets/wave4/jieshen.svg' at thread -1
+Loading resource: res://assets/wave4/gitongwan.svg remapped: res://assets/wave4/gitongwan.svg
+Loading resource: res://.godot/imported/gitongwan.svg-769bedd5447c6fdb04ceb16f2e9d418e.ctex remapped: res://.godot/imported/gitongwan.svg-769bedd5447c6fdb04ceb16f2e9d418e.ctex
+Completed load for: 'res://assets/wave4/gitongwan.svg' remapped 'res://assets/wave4/gitongwan.svg' at thread -1
+Loading resource: res://assets/wave4/banruo.svg remapped: res://assets/wave4/banruo.svg
+Loading resource: res://.godot/imported/banruo.svg-c485c0ad65f6e2bae67819df599c1d16.ctex remapped: res://.godot/imported/banruo.svg-c485c0ad65f6e2bae67819df599c1d16.ctex
+Completed load for: 'res://assets/wave4/banruo.svg' remapped 'res://assets/wave4/banruo.svg' at thread -1
+Loading resource: res://assets/wave4/tieshu.svg remapped: res://assets/wave4/tieshu.svg
+Loading resource: res://.godot/imported/tieshu.svg-24e83d708ad5eb45b3c7082345e667b2.ctex remapped: res://.godot/imported/tieshu.svg-24e83d708ad5eb45b3c7082345e667b2.ctex
+Completed load for: 'res://assets/wave4/tieshu.svg' remapped 'res://assets/wave4/tieshu.svg' at thread -1
+Loading resource: res://assets/wave4/hetong.svg remapped: res://assets/wave4/hetong.svg
+Loading resource: res://.godot/imported/hetong.svg-3b0500f37058d45fd9f0f5568e74d054.ctex remapped: res://.godot/imported/hetong.svg-3b0500f37058d45fd9f0f5568e74d054.ctex
+Completed load for: 'res://assets/wave4/hetong.svg' remapped 'res://assets/wave4/hetong.svg' at thread -1
+Loading resource: res://assets/wave4/zhuiyueshen.svg remapped: res://assets/wave4/zhuiyueshen.svg
+Loading resource: res://.godot/imported/zhuiyueshen.svg-400912ff320bdbacac22ee30f93d661c.ctex remapped: res://.godot/imported/zhuiyueshen.svg-400912ff320bdbacac22ee30f93d661c.ctex
+Completed load for: 'res://assets/wave4/zhuiyueshen.svg' remapped 'res://assets/wave4/zhuiyueshen.svg' at thread -1
+Loading resource: res://assets/wave4/baimugui.svg remapped: res://assets/wave4/baimugui.svg
+Loading resource: res://.godot/imported/baimugui.svg-b552472c1a5ddd6f4c62e4411cad8fba.ctex remapped: res://.godot/imported/baimugui.svg-b552472c1a5ddd6f4c62e4411cad8fba.ctex
+Completed load for: 'res://assets/wave4/baimugui.svg' remapped 'res://assets/wave4/baimugui.svg' at thread -1
+Loading resource: res://assets/wave4/wushizhiling.svg remapped: res://assets/wave4/wushizhiling.svg
+Loading resource: res://.godot/imported/wushizhiling.svg-2d1df013f0a07e5b71e04e2b936f447c.ctex remapped: res://.godot/imported/wushizhiling.svg-2d1df013f0a07e5b71e04e2b936f447c.ctex
+Completed load for: 'res://assets/wave4/wushizhiling.svg' remapped 'res://assets/wave4/wushizhiling.svg' at thread -1
+Loading resource: res://assets/wave4/guishiheibai.svg remapped: res://assets/wave4/guishiheibai.svg
+Loading resource: res://.godot/imported/guishiheibai.svg-d4ab3fdd7f627382ec1942d8058654a7.ctex remapped: res://.godot/imported/guishiheibai.svg-d4ab3fdd7f627382ec1942d8058654a7.ctex
+Completed load for: 'res://assets/wave4/guishiheibai.svg' remapped 'res://assets/wave4/guishiheibai.svg' at thread -1
+Loading resource: res://assets/wave4/huoqumo.svg remapped: res://assets/wave4/huoqumo.svg
+Loading resource: res://.godot/imported/huoqumo.svg-9b2d6b188d709cc8bee409221a0cef4b.ctex remapped: res://.godot/imported/huoqumo.svg-9b2d6b188d709cc8bee409221a0cef4b.ctex
+Completed load for: 'res://assets/wave4/huoqumo.svg' remapped 'res://assets/wave4/huoqumo.svg' at thread -1
+Loading resource: res://assets/wave4/yuanjiulanghu.svg remapped: res://assets/wave4/yuanjiulanghu.svg
+Loading resource: res://.godot/imported/yuanjiulanghu.svg-90affa8648f47cb9a867a51d09c631c3.ctex remapped: res://.godot/imported/yuanjiulanghu.svg-90affa8648f47cb9a867a51d09c631c3.ctex
+Completed load for: 'res://assets/wave4/yuanjiulanghu.svg' remapped 'res://assets/wave4/yuanjiulanghu.svg' at thread -1
+Loading resource: res://assets/wave4/yingxueji.svg remapped: res://assets/wave4/yingxueji.svg
+Loading resource: res://.godot/imported/yingxueji.svg-4ef8cf54ddc7f09c2f1261abba287544.ctex remapped: res://.godot/imported/yingxueji.svg-4ef8cf54ddc7f09c2f1261abba287544.ctex
+Completed load for: 'res://assets/wave4/yingxueji.svg' remapped 'res://assets/wave4/yingxueji.svg' at thread -1
+Loading resource: res://assets/wave4/jingliuliqian.svg remapped: res://assets/wave4/jingliuliqian.svg
+Loading resource: res://.godot/imported/jingliuliqian.svg-9a94eac43d1382086a85a03c5ae7df7e.ctex remapped: res://.godot/imported/jingliuliqian.svg-9a94eac43d1382086a85a03c5ae7df7e.ctex
+Completed load for: 'res://assets/wave4/jingliuliqian.svg' remapped 'res://assets/wave4/jingliuliqian.svg' at thread -1
+Loading resource: res://assets/wave4/egui.svg remapped: res://assets/wave4/egui.svg
+Loading resource: res://.godot/imported/egui.svg-0bf435b2b678c7b402789d8e4b07bb3d.ctex remapped: res://.godot/imported/egui.svg-0bf435b2b678c7b402789d8e4b07bb3d.ctex
+Completed load for: 'res://assets/wave4/egui.svg' remapped 'res://assets/wave4/egui.svg' at thread -1
+Loading resource: res://assets/wave4/duyanxiaoseng.svg remapped: res://assets/wave4/duyanxiaoseng.svg
+Loading resource: res://.godot/imported/duyanxiaoseng.svg-2225932dbf144fe54333d38a7afb9f41.ctex remapped: res://.godot/imported/duyanxiaoseng.svg-2225932dbf144fe54333d38a7afb9f41.ctex
+Completed load for: 'res://assets/wave4/duyanxiaoseng.svg' remapped 'res://assets/wave4/duyanxiaoseng.svg' at thread -1
+Loading resource: res://assets/wave4/mianqiling.svg remapped: res://assets/wave4/mianqiling.svg
+Loading resource: res://.godot/imported/mianqiling.svg-72d4b60947945df892eb66a5b2c43dd9.ctex remapped: res://.godot/imported/mianqiling.svg-72d4b60947945df892eb66a5b2c43dd9.ctex
+Completed load for: 'res://assets/wave4/mianqiling.svg' remapped 'res://assets/wave4/mianqiling.svg' at thread -1
+Loading resource: res://assets/wave4/jiumingmao.svg remapped: res://assets/wave4/jiumingmao.svg
+Loading resource: res://.godot/imported/jiumingmao.svg-ee7699469c2ff4e1b4e5df49d4978ed8.ctex remapped: res://.godot/imported/jiumingmao.svg-ee7699469c2ff4e1b4e5df49d4978ed8.ctex
+Completed load for: 'res://assets/wave4/jiumingmao.svg' remapped 'res://assets/wave4/jiumingmao.svg' at thread -1
+Loading resource: res://assets/wave4/axiuluo.svg remapped: res://assets/wave4/axiuluo.svg
+Loading resource: res://.godot/imported/axiuluo.svg-2fe8b167ab16d5b03b2b98cfff3a013c.ctex remapped: res://.godot/imported/axiuluo.svg-2fe8b167ab16d5b03b2b98cfff3a013c.ctex
+Completed load for: 'res://assets/wave4/axiuluo.svg' remapped 'res://assets/wave4/axiuluo.svg' at thread -1
+Loading resource: res://assets/wave4/bayiqidashe.svg remapped: res://assets/wave4/bayiqidashe.svg
+Loading resource: res://.godot/imported/bayiqidashe.svg-ba75004272f008488cb0117044ac3e66.ctex remapped: res://.godot/imported/bayiqidashe.svg-ba75004272f008488cb0117044ac3e66.ctex
+Completed load for: 'res://assets/wave4/bayiqidashe.svg' remapped 'res://assets/wave4/bayiqidashe.svg' at thread -1
+Loading resource: res://assets/wave4/jinyuji.svg remapped: res://assets/wave4/jinyuji.svg
+Loading resource: res://.godot/imported/jinyuji.svg-052aa000aed6f85a993275538e03e179.ctex remapped: res://.godot/imported/jinyuji.svg-052aa000aed6f85a993275538e03e179.ctex
+Completed load for: 'res://assets/wave4/jinyuji.svg' remapped 'res://assets/wave4/jinyuji.svg' at thread -1
+Loading resource: res://assets/wave4/huangkulou.svg remapped: res://assets/wave4/huangkulou.svg
+Loading resource: res://.godot/imported/huangkulou.svg-4d871341a8c10f6b3863af5ffbdec373.ctex remapped: res://.godot/imported/huangkulou.svg-4d871341a8c10f6b3863af5ffbdec373.ctex
+Completed load for: 'res://assets/wave4/huangkulou.svg' remapped 'res://assets/wave4/huangkulou.svg' at thread -1
+Loading resource: res://assets/wave4/gouchang.svg remapped: res://assets/wave4/gouchang.svg
+Loading resource: res://.godot/imported/gouchang.svg-df5090e5f7ca11b986d55f2c2a5dee91.ctex remapped: res://.godot/imported/gouchang.svg-df5090e5f7ca11b986d55f2c2a5dee91.ctex
+Completed load for: 'res://assets/wave4/gouchang.svg' remapped 'res://assets/wave4/gouchang.svg' at thread -1
+Loading resource: res://assets/wave4/dishitian.svg remapped: res://assets/wave4/dishitian.svg
+Loading resource: res://.godot/imported/dishitian.svg-290ad66ddff390ab2b7ed03aed5e5885.ctex remapped: res://.godot/imported/dishitian.svg-290ad66ddff390ab2b7ed03aed5e5885.ctex
+Completed load for: 'res://assets/wave4/dishitian.svg' remapped 'res://assets/wave4/dishitian.svg' at thread -1
+Loading resource: res://assets/wave4/xieji.svg remapped: res://assets/wave4/xieji.svg
+Loading resource: res://.godot/imported/xieji.svg-5ca6f4a07cad6543c1a3037135cfdb07.ctex remapped: res://.godot/imported/xieji.svg-5ca6f4a07cad6543c1a3037135cfdb07.ctex
+Completed load for: 'res://assets/wave4/xieji.svg' remapped 'res://assets/wave4/xieji.svg' at thread -1
+Loading resource: res://assets/wave4/yuzaoqian.svg remapped: res://assets/wave4/yuzaoqian.svg
+Loading resource: res://.godot/imported/yuzaoqian.svg-0cf18c8763515c989edfc7951939c99b.ctex remapped: res://.godot/imported/yuzaoqian.svg-0cf18c8763515c989edfc7951939c99b.ctex
+Completed load for: 'res://assets/wave4/yuzaoqian.svg' remapped 'res://assets/wave4/yuzaoqian.svg' at thread -1
+Loading resource: res://assets/wave4/huibishou.svg remapped: res://assets/wave4/huibishou.svg
+Loading resource: res://.godot/imported/huibishou.svg-e0ee895fb26ab1d5e16ef2a3446829fe.ctex remapped: res://.godot/imported/huibishou.svg-e0ee895fb26ab1d5e16ef2a3446829fe.ctex
+Completed load for: 'res://assets/wave4/huibishou.svg' remapped 'res://assets/wave4/huibishou.svg' at thread -1
+Loading resource: res://assets/wave5/tengji.svg remapped: res://assets/wave5/tengji.svg
+Loading resource: res://.godot/imported/tengji.svg-8c98a685ea7ed10eb5a16514655b23d5.ctex remapped: res://.godot/imported/tengji.svg-8c98a685ea7ed10eb5a16514655b23d5.ctex
+Completed load for: 'res://assets/wave5/tengji.svg' remapped 'res://assets/wave5/tengji.svg' at thread -1
+Loading resource: res://assets/wave5/huaniajuan.svg remapped: res://assets/wave5/huaniajuan.svg
+Loading resource: res://.godot/imported/huaniajuan.svg-e797c64372f565702d6b42a53dcc3640.ctex remapped: res://.godot/imported/huaniajuan.svg-e797c64372f565702d6b42a53dcc3640.ctex
+Completed load for: 'res://assets/wave5/huaniajuan.svg' remapped 'res://assets/wave5/huaniajuan.svg' at thread -1
+Loading resource: res://assets/wave5/yanmo.svg remapped: res://assets/wave5/yanmo.svg
+Loading resource: res://.godot/imported/yanmo.svg-c9f529f347b2b7351a45c20cc931097c.ctex remapped: res://.godot/imported/yanmo.svg-c9f529f347b2b7351a45c20cc931097c.ctex
+Completed load for: 'res://assets/wave5/yanmo.svg' remapped 'res://assets/wave5/yanmo.svg' at thread -1
+Loading resource: res://assets/wave5/kuileishi.svg remapped: res://assets/wave5/kuileishi.svg
+Loading resource: res://.godot/imported/kuileishi.svg-d7ec9add9b0d43997dae12a7d4997ef9.ctex remapped: res://.godot/imported/kuileishi.svg-d7ec9add9b0d43997dae12a7d4997ef9.ctex
+Completed load for: 'res://assets/wave5/kuileishi.svg' remapped 'res://assets/wave5/kuileishi.svg' at thread -1
+Loading resource: res://assets/wave5/baizangzhu.svg remapped: res://assets/wave5/baizangzhu.svg
+Loading resource: res://.godot/imported/baizangzhu.svg-82167a37fa5fc724824626c25095fb31.ctex remapped: res://.godot/imported/baizangzhu.svg-82167a37fa5fc724824626c25095fb31.ctex
+Completed load for: 'res://assets/wave5/baizangzhu.svg' remapped 'res://assets/wave5/baizangzhu.svg' at thread -1
+Loading resource: res://assets/wave5/rulianshi.svg remapped: res://assets/wave5/rulianshi.svg
+Loading resource: res://.godot/imported/rulianshi.svg-3b308ca8d60b1a8d00e0eb9ad0fc12b0.ctex remapped: res://.godot/imported/rulianshi.svg-3b308ca8d60b1a8d00e0eb9ad0fc12b0.ctex
+Completed load for: 'res://assets/wave5/rulianshi.svg' remapped 'res://assets/wave5/rulianshi.svg' at thread -1
+Loading resource: res://assets/wave5/fengli.svg remapped: res://assets/wave5/fengli.svg
+Loading resource: res://.godot/imported/fengli.svg-dfec54f53bd2e8cc4be7ca8714f9c1f7.ctex remapped: res://.godot/imported/fengli.svg-dfec54f53bd2e8cc4be7ca8714f9c1f7.ctex
+Completed load for: 'res://assets/wave5/fengli.svg' remapped 'res://assets/wave5/fengli.svg' at thread -1
+Loading resource: res://assets/wave5/guanhu.svg remapped: res://assets/wave5/guanhu.svg
+Loading resource: res://.godot/imported/guanhu.svg-9c835be1c2c8cce3dd8f63d2ba4f0d60.ctex remapped: res://.godot/imported/guanhu.svg-9c835be1c2c8cce3dd8f63d2ba4f0d60.ctex
+Completed load for: 'res://assets/wave5/guanhu.svg' remapped 'res://assets/wave5/guanhu.svg' at thread -1
+Loading resource: res://assets/wave5/song.svg remapped: res://assets/wave5/song.svg
+Loading resource: res://.godot/imported/song.svg-ad456cc1ed06380592e68f9a750f3691.ctex remapped: res://.godot/imported/song.svg-ad456cc1ed06380592e68f9a750f3691.ctex
+Completed load for: 'res://assets/wave5/song.svg' remapped 'res://assets/wave5/song.svg' at thread -1
+Loading resource: res://assets/wave5/yunwaijing.svg remapped: res://assets/wave5/yunwaijing.svg
+Loading resource: res://.godot/imported/yunwaijing.svg-3b78c88b097a3dfd41fcd31af8e3ae08.ctex remapped: res://.godot/imported/yunwaijing.svg-3b78c88b097a3dfd41fcd31af8e3ae08.ctex
+Completed load for: 'res://assets/wave5/yunwaijing.svg' remapped 'res://assets/wave5/yunwaijing.svg' at thread -1
+Loading resource: res://assets/wave5/liangmianfo.svg remapped: res://assets/wave5/liangmianfo.svg
+Loading resource: res://.godot/imported/liangmianfo.svg-ff5ee75f1a4f1326540e58bdf3aafc1e.ctex remapped: res://.godot/imported/liangmianfo.svg-ff5ee75f1a4f1326540e58bdf3aafc1e.ctex
+Completed load for: 'res://assets/wave5/liangmianfo.svg' remapped 'res://assets/wave5/liangmianfo.svg' at thread -1
+Loading resource: res://assets/wave5/heitongzi.svg remapped: res://assets/wave5/heitongzi.svg
+Loading resource: res://.godot/imported/heitongzi.svg-0100375ecf95a301d1bffefa0197ae04.ctex remapped: res://.godot/imported/heitongzi.svg-0100375ecf95a301d1bffefa0197ae04.ctex
+Completed load for: 'res://assets/wave5/heitongzi.svg' remapped 'res://assets/wave5/heitongzi.svg' at thread -1
+Loading resource: res://assets/wave5/baitongzi.svg remapped: res://assets/wave5/baitongzi.svg
+Loading resource: res://.godot/imported/baitongzi.svg-3785c0ead50d1fbc50d58592b1b17b1b.ctex remapped: res://.godot/imported/baitongzi.svg-3785c0ead50d1fbc50d58592b1b17b1b.ctex
+Completed load for: 'res://assets/wave5/baitongzi.svg' remapped 'res://assets/wave5/baitongzi.svg' at thread -1
+Loading resource: res://assets/wave5/xiazhongshaonv.svg remapped: res://assets/wave5/xiazhongshaonv.svg
+Loading resource: res://.godot/imported/xiazhongshaonv.svg-af9889e932127540a4d4ecabf3e4ea6c.ctex remapped: res://.godot/imported/xiazhongshaonv.svg-af9889e932127540a4d4ecabf3e4ea6c.ctex
+Completed load for: 'res://assets/wave5/xiazhongshaonv.svg' remapped 'res://assets/wave5/xiazhongshaonv.svg' at thread -1
+Loading resource: res://assets/wave5/yi.svg remapped: res://assets/wave5/yi.svg
+Loading resource: res://.godot/imported/yi.svg-911e47d1192e0376d7326293df667f64.ctex remapped: res://.godot/imported/yi.svg-911e47d1192e0376d7326293df667f64.ctex
+Completed load for: 'res://assets/wave5/yi.svg' remapped 'res://assets/wave5/yi.svg' at thread -1
+Loading resource: res://assets/wave5/xiaosongwan.svg remapped: res://assets/wave5/xiaosongwan.svg
+Loading resource: res://.godot/imported/xiaosongwan.svg-336f304e9a6bc1b1d915d7a51667b10a.ctex remapped: res://.godot/imported/xiaosongwan.svg-336f304e9a6bc1b1d915d7a51667b10a.ctex
+Completed load for: 'res://assets/wave5/xiaosongwan.svg' remapped 'res://assets/wave5/xiaosongwan.svg' at thread -1
+Loading resource: res://assets/wave5/wuwu.svg remapped: res://assets/wave5/wuwu.svg
+Loading resource: res://.godot/imported/wuwu.svg-7e46b99f3013ade32596526ebe3fa0d3.ctex remapped: res://.godot/imported/wuwu.svg-7e46b99f3013ade32596526ebe3fa0d3.ctex
+Completed load for: 'res://assets/wave5/wuwu.svg' remapped 'res://assets/wave5/wuwu.svg' at thread -1
+Loading resource: res://assets/wave5/qianji.svg remapped: res://assets/wave5/qianji.svg
+Loading resource: res://.godot/imported/qianji.svg-f6309ca47a5afd983b84f39fe209a91d.ctex remapped: res://.godot/imported/qianji.svg-f6309ca47a5afd983b84f39fe209a91d.ctex
+Completed load for: 'res://assets/wave5/qianji.svg' remapped 'res://assets/wave5/qianji.svg' at thread -1
+Loading resource: res://assets/wave5/shiling.svg remapped: res://assets/wave5/shiling.svg
+Loading resource: res://.godot/imported/shiling.svg-a23ea7d2812532b751aa52013daf190e.ctex remapped: res://.godot/imported/shiling.svg-a23ea7d2812532b751aa52013daf190e.ctex
+Completed load for: 'res://assets/wave5/shiling.svg' remapped 'res://assets/wave5/shiling.svg' at thread -1
+Loading resource: res://assets/wave5/maozhanggui.svg remapped: res://assets/wave5/maozhanggui.svg
+Loading resource: res://.godot/imported/maozhanggui.svg-98dd4cdca5e777c0602cef538897fa5b.ctex remapped: res://.godot/imported/maozhanggui.svg-98dd4cdca5e777c0602cef538897fa5b.ctex
+Completed load for: 'res://assets/wave5/maozhanggui.svg' remapped 'res://assets/wave5/maozhanggui.svg' at thread -1
+Loading resource: res://assets/wave5/xingxiongtongzi.svg remapped: res://assets/wave5/xingxiongtongzi.svg
+Loading resource: res://.godot/imported/xingxiongtongzi.svg-9a61ee0839197095290d0ac5504915ac.ctex remapped: res://.godot/imported/xingxiongtongzi.svg-9a61ee0839197095290d0ac5504915ac.ctex
+Completed load for: 'res://assets/wave5/xingxiongtongzi.svg' remapped 'res://assets/wave5/xingxiongtongzi.svg' at thread -1
+Loading resource: res://assets/wave5/yixigong.svg remapped: res://assets/wave5/yixigong.svg
+Loading resource: res://.godot/imported/yixigong.svg-c0d0f2296505f875be9b7c4c591b2f04.ctex remapped: res://.godot/imported/yixigong.svg-c0d0f2296505f875be9b7c4c591b2f04.ctex
+Completed load for: 'res://assets/wave5/yixigong.svg' remapped 'res://assets/wave5/yixigong.svg' at thread -1
+Loading resource: res://assets/wave5/limao.svg remapped: res://assets/wave5/limao.svg
+Loading resource: res://.godot/imported/limao.svg-939abb4b61f768a09b9824b1977e5d02.ctex remapped: res://.godot/imported/limao.svg-939abb4b61f768a09b9824b1977e5d02.ctex
+Completed load for: 'res://assets/wave5/limao.svg' remapped 'res://assets/wave5/limao.svg' at thread -1
+Loading resource: res://assets/wave5/tuwan.svg remapped: res://assets/wave5/tuwan.svg
+Loading resource: res://.godot/imported/tuwan.svg-9f268c94e4e3095b8e48748151b76ac5.ctex remapped: res://.godot/imported/tuwan.svg-9f268c94e4e3095b8e48748151b76ac5.ctex
+Completed load for: 'res://assets/wave5/tuwan.svg' remapped 'res://assets/wave5/tuwan.svg' at thread -1
+Loading resource: res://assets/wave6/jinnaluo.svg remapped: res://assets/wave6/jinnaluo.svg
+Loading resource: res://.godot/imported/jinnaluo.svg-e7e0ac74a98f8cb1b41821f9620debd5.ctex remapped: res://.godot/imported/jinnaluo.svg-e7e0ac74a98f8cb1b41821f9620debd5.ctex
+Completed load for: 'res://assets/wave6/jinnaluo.svg' remapped 'res://assets/wave6/jinnaluo.svg' at thread -1
+Loading resource: res://assets/wave6/lingyanji.svg remapped: res://assets/wave6/lingyanji.svg
+Loading resource: res://.godot/imported/lingyanji.svg-eacded1859f7217cd31f6e3e8af66581.ctex remapped: res://.godot/imported/lingyanji.svg-eacded1859f7217cd31f6e3e8af66581.ctex
+Completed load for: 'res://assets/wave6/lingyanji.svg' remapped 'res://assets/wave6/lingyanji.svg' at thread -1
+Loading resource: res://assets/wave6/rurineque.svg remapped: res://assets/wave6/rurineque.svg
+Loading resource: res://.godot/imported/rurineque.svg-4cc171e2ee04c8c7b487c3da8c5a9a71.ctex remapped: res://.godot/imported/rurineque.svg-4cc171e2ee04c8c7b487c3da8c5a9a71.ctex
+Completed load for: 'res://assets/wave6/rurineque.svg' remapped 'res://assets/wave6/rurineque.svg' at thread -1
+Loading resource: res://assets/wave6/shouwu.svg remapped: res://assets/wave6/shouwu.svg
+Loading resource: res://.godot/imported/shouwu.svg-4dd3c1ceddea5083724a9358ae753c92.ctex remapped: res://.godot/imported/shouwu.svg-4dd3c1ceddea5083724a9358ae753c92.ctex
+Completed load for: 'res://assets/wave6/shouwu.svg' remapped 'res://assets/wave6/shouwu.svg' at thread -1
+Loading resource: res://assets/wave6/gunvhongye.svg remapped: res://assets/wave6/gunvhongye.svg
+Loading resource: res://.godot/imported/gunvhongye.svg-8fa3daddbb1e24f7949e4889fee1a022.ctex remapped: res://.godot/imported/gunvhongye.svg-8fa3daddbb1e24f7949e4889fee1a022.ctex
+Completed load for: 'res://assets/wave6/gunvhongye.svg' remapped 'res://assets/wave6/gunvhongye.svg' at thread -1
+Loading resource: res://assets/wave6/choushizhinv.svg remapped: res://assets/wave6/choushizhinv.svg
+Loading resource: res://.godot/imported/choushizhinv.svg-231c23ca2b5f6fea951dd9acf8b452f8.ctex remapped: res://.godot/imported/choushizhinv.svg-231c23ca2b5f6fea951dd9acf8b452f8.ctex
+Completed load for: 'res://assets/wave6/choushizhinv.svg' remapped 'res://assets/wave6/choushizhinv.svg' at thread -1
+Loading resource: res://assets/wave6/yifanmumian.svg remapped: res://assets/wave6/yifanmumian.svg
+Loading resource: res://.godot/imported/yifanmumian.svg-9d80b41708dfccf566480a8186e2f834.ctex remapped: res://.godot/imported/yifanmumian.svg-9d80b41708dfccf566480a8186e2f834.ctex
+Completed load for: 'res://assets/wave6/yifanmumian.svg' remapped 'res://assets/wave6/yifanmumian.svg' at thread -1
+Loading resource: res://assets/wave6/yecha.svg remapped: res://assets/wave6/yecha.svg
+Loading resource: res://.godot/imported/yecha.svg-6b70319610f27bf02648e0f1ce851d5d.ctex remapped: res://.godot/imported/yecha.svg-6b70319610f27bf02648e0f1ce851d5d.ctex
+Completed load for: 'res://assets/wave6/yecha.svg' remapped 'res://assets/wave6/yecha.svg' at thread -1
+Loading resource: res://assets/wave6/huangchuanzhizhu.svg remapped: res://assets/wave6/huangchuanzhizhu.svg
+Loading resource: res://.godot/imported/huangchuanzhizhu.svg-e82923f45d605ff001389b868d4472ec.ctex remapped: res://.godot/imported/huangchuanzhizhu.svg-e82923f45d605ff001389b868d4472ec.ctex
+Completed load for: 'res://assets/wave6/huangchuanzhizhu.svg' remapped 'res://assets/wave6/huangchuanzhizhu.svg' at thread -1
+Loading resource: res://assets/wave6/wannianzhu.svg remapped: res://assets/wave6/wannianzhu.svg
+Loading resource: res://.godot/imported/wannianzhu.svg-af1e6bc96d5e2ca2001e5a66a6b69418.ctex remapped: res://.godot/imported/wannianzhu.svg-af1e6bc96d5e2ca2001e5a66a6b69418.ctex
+Completed load for: 'res://assets/wave6/wannianzhu.svg' remapped 'res://assets/wave6/wannianzhu.svg' at thread -1
+Loading resource: res://assets/wave6/shuzhu.svg remapped: res://assets/wave6/shuzhu.svg
+Loading resource: res://.godot/imported/shuzhu.svg-27b3c4430f22ebe3f2454e2bea7f5d97.ctex remapped: res://.godot/imported/shuzhu.svg-27b3c4430f22ebe3f2454e2bea7f5d97.ctex
+Completed load for: 'res://assets/wave6/shuzhu.svg' remapped 'res://assets/wave6/shuzhu.svg' at thread -1
+Loading resource: res://assets/wave6/sanweihu.svg remapped: res://assets/wave6/sanweihu.svg
+Loading resource: res://.godot/imported/sanweihu.svg-42571a7ed8f6a6ee4231b35cbdf0612d.ctex remapped: res://.godot/imported/sanweihu.svg-42571a7ed8f6a6ee4231b35cbdf0612d.ctex
+Completed load for: 'res://assets/wave6/sanweihu.svg' remapped 'res://assets/wave6/sanweihu.svg' at thread -1
+Loading resource: res://assets/wave6/jicanghai.svg remapped: res://assets/wave6/jicanghai.svg
+Loading resource: res://.godot/imported/jicanghai.svg-2ab6888e5e4350eb441e3976139465be.ctex remapped: res://.godot/imported/jicanghai.svg-2ab6888e5e4350eb441e3976139465be.ctex
+Completed load for: 'res://assets/wave6/jicanghai.svg' remapped 'res://assets/wave6/jicanghai.svg' at thread -1
+Loading resource: res://assets/wave6/wuchen.svg remapped: res://assets/wave6/wuchen.svg
+Loading resource: res://.godot/imported/wuchen.svg-d8ba2d1edf6af44078bb948fccd23c09.ctex remapped: res://.godot/imported/wuchen.svg-d8ba2d1edf6af44078bb948fccd23c09.ctex
+Completed load for: 'res://assets/wave6/wuchen.svg' remapped 'res://assets/wave6/wuchen.svg' at thread -1
+Loading resource: res://assets/wave6/ninghongye.svg remapped: res://assets/wave6/ninghongye.svg
+Loading resource: res://.godot/imported/ninghongye.svg-267b441cbf0f64f40dde9f765282928b.ctex remapped: res://.godot/imported/ninghongye.svg-267b441cbf0f64f40dde9f765282928b.ctex
+Completed load for: 'res://assets/wave6/ninghongye.svg' remapped 'res://assets/wave6/ninghongye.svg' at thread -1
+Loading resource: res://assets/wave6/tayumenhutao.svg remapped: res://assets/wave6/tayumenhutao.svg
+Loading resource: res://.godot/imported/tayumenhutao.svg-587ab9805f452399483996bf88e0ac06.ctex remapped: res://.godot/imported/tayumenhutao.svg-587ab9805f452399483996bf88e0ac06.ctex
+Completed load for: 'res://assets/wave6/tayumenhutao.svg' remapped 'res://assets/wave6/tayumenhutao.svg' at thread -1
+Loading resource: res://assets/wave6/baize.svg remapped: res://assets/wave6/baize.svg
+Loading resource: res://.godot/imported/baize.svg-4b0e3607d1138563c3afbc68dd698073.ctex remapped: res://.godot/imported/baize.svg-4b0e3607d1138563c3afbc68dd698073.ctex
+Completed load for: 'res://assets/wave6/baize.svg' remapped 'res://assets/wave6/baize.svg' at thread -1
+Loading resource: res://assets/wave6/hudiejing.svg remapped: res://assets/wave6/hudiejing.svg
+Loading resource: res://.godot/imported/hudiejing.svg-334d81c98d0a3d980f42092a717eb0aa.ctex remapped: res://.godot/imported/hudiejing.svg-334d81c98d0a3d980f42092a717eb0aa.ctex
+Completed load for: 'res://assets/wave6/hudiejing.svg' remapped 'res://assets/wave6/hudiejing.svg' at thread -1
+Loading resource: res://assets/wave6/luoxinfu.svg remapped: res://assets/wave6/luoxinfu.svg
+Loading resource: res://.godot/imported/luoxinfu.svg-0bbe1bc18650c51f80584d2025161280.ctex remapped: res://.godot/imported/luoxinfu.svg-0bbe1bc18650c51f80584d2025161280.ctex
+Completed load for: 'res://assets/wave6/luoxinfu.svg' remapped 'res://assets/wave6/luoxinfu.svg' at thread -1
+Loading resource: res://assets/wave6/yitiao.svg remapped: res://assets/wave6/yitiao.svg
+Loading resource: res://.godot/imported/yitiao.svg-fab18446cb573ff514a890323e57cef6.ctex remapped: res://.godot/imported/yitiao.svg-fab18446cb573ff514a890323e57cef6.ctex
+Completed load for: 'res://assets/wave6/yitiao.svg' remapped 'res://assets/wave6/yitiao.svg' at thread -1
+Loading resource: res://assets/wave6/jialouluo.svg remapped: res://assets/wave6/jialouluo.svg
+Loading resource: res://.godot/imported/jialouluo.svg-54327ad3a56623a5e1b27c4a71808d31.ctex remapped: res://.godot/imported/jialouluo.svg-54327ad3a56623a5e1b27c4a71808d31.ctex
+Completed load for: 'res://assets/wave6/jialouluo.svg' remapped 'res://assets/wave6/jialouluo.svg' at thread -1
+Loading resource: res://assets/wave6/huajing.svg remapped: res://assets/wave6/huajing.svg
+Loading resource: res://.godot/imported/huajing.svg-0a68b5ed161ce48d0136a017f32ca032.ctex remapped: res://.godot/imported/huajing.svg-0a68b5ed161ce48d0136a017f32ca032.ctex
+Completed load for: 'res://assets/wave6/huajing.svg' remapped 'res://assets/wave6/huajing.svg' at thread -1
+Loading resource: res://assets/wave6/yinge.svg remapped: res://assets/wave6/yinge.svg
+Loading resource: res://.godot/imported/yinge.svg-f1427143bb2d3f0162abf3e22b981648.ctex remapped: res://.godot/imported/yinge.svg-f1427143bb2d3f0162abf3e22b981648.ctex
+Completed load for: 'res://assets/wave6/yinge.svg' remapped 'res://assets/wave6/yinge.svg' at thread -1
+Loading resource: res://assets/wave6/bujianyue.svg remapped: res://assets/wave6/bujianyue.svg
+Loading resource: res://.godot/imported/bujianyue.svg-48c8a2cb327f39e64f4d4d77cb06f6a8.ctex remapped: res://.godot/imported/bujianyue.svg-48c8a2cb327f39e64f4d4d77cb06f6a8.ctex
+Completed load for: 'res://assets/wave6/bujianyue.svg' remapped 'res://assets/wave6/bujianyue.svg' at thread -1
+Loading resource: res://assets/wave6/xuzuozhinan.svg remapped: res://assets/wave6/xuzuozhinan.svg
+Loading resource: res://.godot/imported/xuzuozhinan.svg-5ff25197f909940c0fbdaec4ff5979c5.ctex remapped: res://.godot/imported/xuzuozhinan.svg-5ff25197f909940c0fbdaec4ff5979c5.ctex
+Completed load for: 'res://assets/wave6/xuzuozhinan.svg' remapped 'res://assets/wave6/xuzuozhinan.svg' at thread -1
+Loading resource: res://assets/wave6/liyujing.svg remapped: res://assets/wave6/liyujing.svg
+Loading resource: res://.godot/imported/liyujing.svg-5ea04e181ec20d9686dd9bef523322bf.ctex remapped: res://.godot/imported/liyujing.svg-5ea04e181ec20d9686dd9bef523322bf.ctex
+Completed load for: 'res://assets/wave6/liyujing.svg' remapped 'res://assets/wave6/liyujing.svg' at thread -1
+Loading resource: res://assets/wave6/chongshi.svg remapped: res://assets/wave6/chongshi.svg
+Loading resource: res://.godot/imported/chongshi.svg-8922c9ed14abea2d1165e1a3090afd17.ctex remapped: res://.godot/imported/chongshi.svg-8922c9ed14abea2d1165e1a3090afd17.ctex
+Completed load for: 'res://assets/wave6/chongshi.svg' remapped 'res://assets/wave6/chongshi.svg' at thread -1
+Loading resource: res://assets/wave6/xieenv.svg remapped: res://assets/wave6/xieenv.svg
+Loading resource: res://.godot/imported/xieenv.svg-373792f72d54ff168405c05caf63559d.ctex remapped: res://.godot/imported/xieenv.svg-373792f72d54ff168405c05caf63559d.ctex
+Completed load for: 'res://assets/wave6/xieenv.svg' remapped 'res://assets/wave6/xieenv.svg' at thread -1
+Loading resource: res://assets/wave6/xunxiangxing.svg remapped: res://assets/wave6/xunxiangxing.svg
+Loading resource: res://.godot/imported/xunxiangxing.svg-7d03fbfeaa6d82f26bf79051b29ca2f6.ctex remapped: res://.godot/imported/xunxiangxing.svg-7d03fbfeaa6d82f26bf79051b29ca2f6.ctex
+Completed load for: 'res://assets/wave6/xunxiangxing.svg' remapped 'res://assets/wave6/xunxiangxing.svg' at thread -1
+Loading resource: res://assets/wave6/linghaidie.svg remapped: res://assets/wave6/linghaidie.svg
+Loading resource: res://.godot/imported/linghaidie.svg-c93add7fa36275da3ce908392ccf3279.ctex remapped: res://.godot/imported/linghaidie.svg-c93add7fa36275da3ce908392ccf3279.ctex
+Completed load for: 'res://assets/wave6/linghaidie.svg' remapped 'res://assets/wave6/linghaidie.svg' at thread -1
+Loading resource: res://assets/wave6/yujuchong.svg remapped: res://assets/wave6/yujuchong.svg
+Loading resource: res://.godot/imported/yujuchong.svg-47dd1b372022686e973819740d97938b.ctex remapped: res://.godot/imported/yujuchong.svg-47dd1b372022686e973819740d97938b.ctex
+Completed load for: 'res://assets/wave6/yujuchong.svg' remapped 'res://assets/wave6/yujuchong.svg' at thread -1
+Loading resource: res://assets/wave6/hainren.svg remapped: res://assets/wave6/hainren.svg
+Loading resource: res://.godot/imported/hainren.svg-e1783adef64e7ee9ea78dfe559845f5a.ctex remapped: res://.godot/imported/hainren.svg-e1783adef64e7ee9ea78dfe559845f5a.ctex
+Completed load for: 'res://assets/wave6/hainren.svg' remapped 'res://assets/wave6/hainren.svg' at thread -1
+Loading resource: res://assets/wave7/gulonghuo.svg remapped: res://assets/wave7/gulonghuo.svg
+Loading resource: res://.godot/imported/gulonghuo.svg-6f6c51a09c0d8344ae95fd86e4a9e02d.ctex remapped: res://.godot/imported/gulonghuo.svg-6f6c51a09c0d8344ae95fd86e4a9e02d.ctex
+Completed load for: 'res://assets/wave7/gulonghuo.svg' remapped 'res://assets/wave7/gulonghuo.svg' at thread -1
+Loading resource: res://assets/wave7/chuanyuan.svg remapped: res://assets/wave7/chuanyuan.svg
+Loading resource: res://.godot/imported/chuanyuan.svg-a6d365a8ee7007bb07014a61e83d4166.ctex remapped: res://.godot/imported/chuanyuan.svg-a6d365a8ee7007bb07014a61e83d4166.ctex
+Completed load for: 'res://assets/wave7/chuanyuan.svg' remapped 'res://assets/wave7/chuanyuan.svg' at thread -1
+Loading resource: res://assets/wave7/erkounv.svg remapped: res://assets/wave7/erkounv.svg
+Loading resource: res://.godot/imported/erkounv.svg-f97f6fa6e1c3c5a843a826a99305e57d.ctex remapped: res://.godot/imported/erkounv.svg-f97f6fa6e1c3c5a843a826a99305e57d.ctex
+Completed load for: 'res://assets/wave7/erkounv.svg' remapped 'res://assets/wave7/erkounv.svg' at thread -1
+Loading resource: res://assets/wave7/xiaoxiuzhishou.svg remapped: res://assets/wave7/xiaoxiuzhishou.svg
+Loading resource: res://.godot/imported/xiaoxiuzhishou.svg-b54186e2df4f8b17ea91d2b967518ca3.ctex remapped: res://.godot/imported/xiaoxiuzhishou.svg-b54186e2df4f8b17ea91d2b967518ca3.ctex
+Completed load for: 'res://assets/wave7/xiaoxiuzhishou.svg' remapped 'res://assets/wave7/xiaoxiuzhishou.svg' at thread -1
+Loading resource: res://assets/wave7/quanshen-lizhan.svg remapped: res://assets/wave7/quanshen-lizhan.svg
+Loading resource: res://.godot/imported/quanshen-lizhan.svg-05978bf63e16d6864761f82644ebb4ae.ctex remapped: res://.godot/imported/quanshen-lizhan.svg-05978bf63e16d6864761f82644ebb4ae.ctex
+Completed load for: 'res://assets/wave7/quanshen-lizhan.svg' remapped 'res://assets/wave7/quanshen-lizhan.svg' at thread -1
+Loading resource: res://assets/wave7/yaodaoji-zhuren.svg remapped: res://assets/wave7/yaodaoji-zhuren.svg
+Loading resource: res://.godot/imported/yaodaoji-zhuren.svg-663726084a09db7449aa2949220e2305.ctex remapped: res://.godot/imported/yaodaoji-zhuren.svg-663726084a09db7449aa2949220e2305.ctex
+Completed load for: 'res://assets/wave7/yaodaoji-zhuren.svg' remapped 'res://assets/wave7/yaodaoji-zhuren.svg' at thread -1
+Loading resource: res://assets/wave7/datiangou-gangfeng.svg remapped: res://assets/wave7/datiangou-gangfeng.svg
+Loading resource: res://.godot/imported/datiangou-gangfeng.svg-40703d034c2424592911546979d379d4.ctex remapped: res://.godot/imported/datiangou-gangfeng.svg-40703d034c2424592911546979d379d4.ctex
+Completed load for: 'res://assets/wave7/datiangou-gangfeng.svg' remapped 'res://assets/wave7/datiangou-gangfeng.svg' at thread -1
+Loading resource: res://assets/wave7/qingxingdeng-huihuo.svg remapped: res://assets/wave7/qingxingdeng-huihuo.svg
+Loading resource: res://.godot/imported/qingxingdeng-huihuo.svg-6e011815bd6f6e9ba0224ccf6b20aeda.ctex remapped: res://.godot/imported/qingxingdeng-huihuo.svg-6e011815bd6f6e9ba0224ccf6b20aeda.ctex
+Completed load for: 'res://assets/wave7/qingxingdeng-huihuo.svg' remapped 'res://assets/wave7/qingxingdeng-huihuo.svg' at thread -1
+Loading resource: res://assets/wave7/kongquemingwang.svg remapped: res://assets/wave7/kongquemingwang.svg
+Loading resource: res://.godot/imported/kongquemingwang.svg-0aeacddbc7126471cd34327434514062.ctex remapped: res://.godot/imported/kongquemingwang.svg-0aeacddbc7126471cd34327434514062.ctex
+Completed load for: 'res://assets/wave7/kongquemingwang.svg' remapped 'res://assets/wave7/kongquemingwang.svg' at thread -1
+Loading resource: res://assets/wave7/fenpopo.svg remapped: res://assets/wave7/fenpopo.svg
+Loading resource: res://.godot/imported/fenpopo.svg-302a6315ab136b584109d3a4a1f5e11d.ctex remapped: res://.godot/imported/fenpopo.svg-302a6315ab136b584109d3a4a1f5e11d.ctex
+Completed load for: 'res://assets/wave7/fenpopo.svg' remapped 'res://assets/wave7/fenpopo.svg' at thread -1
+Loading resource: res://assets/wave7/jiao.svg remapped: res://assets/wave7/jiao.svg
+Loading resource: res://.godot/imported/jiao.svg-afd2a60d8b42f1f67961d64c86d7b40d.ctex remapped: res://.godot/imported/jiao.svg-afd2a60d8b42f1f67961d64c86d7b40d.ctex
+Completed load for: 'res://assets/wave7/jiao.svg' remapped 'res://assets/wave7/jiao.svg' at thread -1
+Loading resource: res://assets/wave7/ji.svg remapped: res://assets/wave7/ji.svg
+Loading resource: res://.godot/imported/ji.svg-8d07644c56b874b6c66d374b463388a5.ctex remapped: res://.godot/imported/ji.svg-8d07644c56b874b6c66d374b463388a5.ctex
+Completed load for: 'res://assets/wave7/ji.svg' remapped 'res://assets/wave7/ji.svg' at thread -1
+Loading resource: res://assets/wave7/jutun-wangkong.svg remapped: res://assets/wave7/jutun-wangkong.svg
+Loading resource: res://.godot/imported/jutun-wangkong.svg-e89cb305ebcf6c46ce74ee4407940823.ctex remapped: res://.godot/imported/jutun-wangkong.svg-e89cb305ebcf6c46ce74ee4407940823.ctex
+Completed load for: 'res://assets/wave7/jutun-wangkong.svg' remapped 'res://assets/wave7/jutun-wangkong.svg' at thread -1
+Loading resource: res://assets/wave7/caitong-lvli.svg remapped: res://assets/wave7/caitong-lvli.svg
+Loading resource: res://.godot/imported/caitong-lvli.svg-140493a20622caf943f0af5df39d8800.ctex remapped: res://.godot/imported/caitong-lvli.svg-140493a20622caf943f0af5df39d8800.ctex
+Completed load for: 'res://assets/wave7/caitong-lvli.svg' remapped 'res://assets/wave7/caitong-lvli.svg' at thread -1
+Loading resource: res://assets/wave7/qingfangzhu-fanchen.svg remapped: res://assets/wave7/qingfangzhu-fanchen.svg
+Loading resource: res://.godot/imported/qingfangzhu-fanchen.svg-9c6251cc1e63872547b2ae1a67f2277e.ctex remapped: res://.godot/imported/qingfangzhu-fanchen.svg-9c6251cc1e63872547b2ae1a67f2277e.ctex
+Completed load for: 'res://assets/wave7/qingfangzhu-fanchen.svg' remapped 'res://assets/wave7/qingfangzhu-fanchen.svg' at thread -1
+Loading resource: res://assets/wave7/panguan-xuanmo.svg remapped: res://assets/wave7/panguan-xuanmo.svg
+Loading resource: res://.godot/imported/panguan-xuanmo.svg-4b974fa8970b9f79c14df5f9a3a7502f.ctex remapped: res://.godot/imported/panguan-xuanmo.svg-4b974fa8970b9f79c14df5f9a3a7502f.ctex
+Completed load for: 'res://assets/wave7/panguan-xuanmo.svg' remapped 'res://assets/wave7/panguan-xuanmo.svg' at thread -1
+Loading resource: res://assets/wave7/langyazi.svg remapped: res://assets/wave7/langyazi.svg
+Loading resource: res://.godot/imported/langyazi.svg-67cda4858eecbb5d1d5fc5de599dcdbf.ctex remapped: res://.godot/imported/langyazi.svg-67cda4858eecbb5d1d5fc5de599dcdbf.ctex
+Completed load for: 'res://assets/wave7/langyazi.svg' remapped 'res://assets/wave7/langyazi.svg' at thread -1
+Loading resource: res://assets/wave7/yanling.svg remapped: res://assets/wave7/yanling.svg
+Loading resource: res://.godot/imported/yanling.svg-ee913ba6f0759eb7dd498c382bfdeb7d.ctex remapped: res://.godot/imported/yanling.svg-ee913ba6f0759eb7dd498c382bfdeb7d.ctex
+Completed load for: 'res://assets/wave7/yanling.svg' remapped 'res://assets/wave7/yanling.svg' at thread -1
+Loading resource: res://assets/wave7/huimingdeng.svg remapped: res://assets/wave7/huimingdeng.svg
+Loading resource: res://.godot/imported/huimingdeng.svg-aa254018fdf293eb6c472ba4563ae0cc.ctex remapped: res://.godot/imported/huimingdeng.svg-aa254018fdf293eb6c472ba4563ae0cc.ctex
+Completed load for: 'res://assets/wave7/huimingdeng.svg' remapped 'res://assets/wave7/huimingdeng.svg' at thread -1
+Loading resource: res://assets/wave7/shifagui.svg remapped: res://assets/wave7/shifagui.svg
+Loading resource: res://.godot/imported/shifagui.svg-228f785b58f2e7e4b2665112d1d4b6dd.ctex remapped: res://.godot/imported/shifagui.svg-228f785b58f2e7e4b2665112d1d4b6dd.ctex
+Completed load for: 'res://assets/wave7/shifagui.svg' remapped 'res://assets/wave7/shifagui.svg' at thread -1
+Loading resource: res://assets/wave7/tiannimei.svg remapped: res://assets/wave7/tiannimei.svg
+Loading resource: res://.godot/imported/tiannimei.svg-62f00949ac2dbd60409609b83e1a2741.ctex remapped: res://.godot/imported/tiannimei.svg-62f00949ac2dbd60409609b83e1a2741.ctex
+Completed load for: 'res://assets/wave7/tiannimei.svg' remapped 'res://assets/wave7/tiannimei.svg' at thread -1
+Loading resource: res://assets/wave7/guniao-yuxiang.svg remapped: res://assets/wave7/guniao-yuxiang.svg
+Loading resource: res://.godot/imported/guniao-yuxiang.svg-9b46ef8ab4d3aa9b0e3776904b9d7720.ctex remapped: res://.godot/imported/guniao-yuxiang.svg-9b46ef8ab4d3aa9b0e3776904b9d7720.ctex
+Completed load for: 'res://assets/wave7/guniao-yuxiang.svg' remapped 'res://assets/wave7/guniao-yuxiang.svg' at thread -1
+Loading resource: res://assets/wave7/taohua-luoying.svg remapped: res://assets/wave7/taohua-luoying.svg
+Loading resource: res://.godot/imported/taohua-luoying.svg-1d01472aa9e17a870c196072a32f3381.ctex remapped: res://.godot/imported/taohua-luoying.svg-1d01472aa9e17a870c196072a32f3381.ctex
+Completed load for: 'res://assets/wave7/taohua-luoying.svg' remapped 'res://assets/wave7/taohua-luoying.svg' at thread -1
+Loading resource: res://assets/wave7/yimulian-linglai.svg remapped: res://assets/wave7/yimulian-linglai.svg
+Loading resource: res://.godot/imported/yimulian-linglai.svg-89e250b75fc696d76c4b97e97c373621.ctex remapped: res://.godot/imported/yimulian-linglai.svg-89e250b75fc696d76c4b97e97c373621.ctex
+Completed load for: 'res://assets/wave7/yimulian-linglai.svg' remapped 'res://assets/wave7/yimulian-linglai.svg' at thread -1
+Loading resource: res://assets/wave7/shantu-zuofu.svg remapped: res://assets/wave7/shantu-zuofu.svg
+Loading resource: res://.godot/imported/shantu-zuofu.svg-68eee071d262b5ddd633ca2cd9518f16.ctex remapped: res://.godot/imported/shantu-zuofu.svg-68eee071d262b5ddd633ca2cd9518f16.ctex
+Completed load for: 'res://assets/wave7/shantu-zuofu.svg' remapped 'res://assets/wave7/shantu-zuofu.svg' at thread -1
+Loading resource: res://assets/wave8/chen.svg remapped: res://assets/wave8/chen.svg
+Loading resource: res://.godot/imported/chen.svg-d89712d97bf921b4f6c8c352dd52ee61.ctex remapped: res://.godot/imported/chen.svg-d89712d97bf921b4f6c8c352dd52ee61.ctex
+Completed load for: 'res://assets/wave8/chen.svg' remapped 'res://assets/wave8/chen.svg' at thread -1
+Loading resource: res://assets/wave8/tianzhao.svg remapped: res://assets/wave8/tianzhao.svg
+Loading resource: res://.godot/imported/tianzhao.svg-b793b16dffa5be6c95f2721da5332737.ctex remapped: res://.godot/imported/tianzhao.svg-b793b16dffa5be6c95f2721da5332737.ctex
+Completed load for: 'res://assets/wave8/tianzhao.svg' remapped 'res://assets/wave8/tianzhao.svg' at thread -1
+Loading resource: res://assets/wave8/yuedu.svg remapped: res://assets/wave8/yuedu.svg
+Loading resource: res://.godot/imported/yuedu.svg-6704315b739367e06cc2a3f1c6ad41b6.ctex remapped: res://.godot/imported/yuedu.svg-6704315b739367e06cc2a3f1c6ad41b6.ctex
+Completed load for: 'res://assets/wave8/yuedu.svg' remapped 'res://assets/wave8/yuedu.svg' at thread -1
+Loading resource: res://assets/wave8/gunv.svg remapped: res://assets/wave8/gunv.svg
+Loading resource: res://.godot/imported/gunv.svg-05fae287b17abc69762e623b981b1182.ctex remapped: res://.godot/imported/gunv.svg-05fae287b17abc69762e623b981b1182.ctex
+Completed load for: 'res://assets/wave8/gunv.svg' remapped 'res://assets/wave8/gunv.svg' at thread -1
+Loading resource: res://assets/wave8/yunv.svg remapped: res://assets/wave8/yunv.svg
+Loading resource: res://.godot/imported/yunv.svg-bd58d0a9856a7296d02cc8cf581532bf.ctex remapped: res://.godot/imported/yunv.svg-bd58d0a9856a7296d02cc8cf581532bf.ctex
+Completed load for: 'res://assets/wave8/yunv.svg' remapped 'res://assets/wave8/yunv.svg' at thread -1
+Loading resource: res://assets/wave8/huang-qiming.svg remapped: res://assets/wave8/huang-qiming.svg
+Loading resource: res://.godot/imported/huang-qiming.svg-b8574f353f69f40ce620a412396c5c3a.ctex remapped: res://.godot/imported/huang-qiming.svg-b8574f353f69f40ce620a412396c5c3a.ctex
+Completed load for: 'res://assets/wave8/huang-qiming.svg' remapped 'res://assets/wave8/huang-qiming.svg' at thread -1
+Loading resource: res://assets/wave8/zhuiyueshen-shuiyue.svg remapped: res://assets/wave8/zhuiyueshen-shuiyue.svg
+Loading resource: res://.godot/imported/zhuiyueshen-shuiyue.svg-beacb97ce7cee4a2cbae79b9357ca453.ctex remapped: res://.godot/imported/zhuiyueshen-shuiyue.svg-beacb97ce7cee4a2cbae79b9357ca453.ctex
+Completed load for: 'res://assets/wave8/zhuiyueshen-shuiyue.svg' remapped 'res://assets/wave8/zhuiyueshen-shuiyue.svg' at thread -1
+Loading resource: res://assets/wave8/wushi-maoshi.svg remapped: res://assets/wave8/wushi-maoshi.svg
+Loading resource: res://.godot/imported/wushi-maoshi.svg-3e8b66b2456a5ffa4d7698b1da601698.ctex remapped: res://.godot/imported/wushi-maoshi.svg-3e8b66b2456a5ffa4d7698b1da601698.ctex
+Completed load for: 'res://assets/wave8/wushi-maoshi.svg' remapped 'res://assets/wave8/wushi-maoshi.svg' at thread -1
+Loading resource: res://assets/wave8/yixienamei.svg remapped: res://assets/wave8/yixienamei.svg
+Loading resource: res://.godot/imported/yixienamei.svg-0aff38b18543ae15e9b19866b06df96a.ctex remapped: res://.godot/imported/yixienamei.svg-0aff38b18543ae15e9b19866b06df96a.ctex
+Completed load for: 'res://assets/wave8/yixienamei.svg' remapped 'res://assets/wave8/yixienamei.svg' at thread -1
+Loading resource: res://assets/wave8/guishibai.svg remapped: res://assets/wave8/guishibai.svg
+Loading resource: res://.godot/imported/guishibai.svg-3c5ac09524357300a318064ebab8c7aa.ctex remapped: res://.godot/imported/guishibai.svg-3c5ac09524357300a318064ebab8c7aa.ctex
+Completed load for: 'res://assets/wave8/guishibai.svg' remapped 'res://assets/wave8/guishibai.svg' at thread -1
+Loading resource: res://assets/wave8/guishihei.svg remapped: res://assets/wave8/guishihei.svg
+Loading resource: res://.godot/imported/guishihei.svg-0e06f77d1b8233a114b68363f97de686.ctex remapped: res://.godot/imported/guishihei.svg-0e06f77d1b8233a114b68363f97de686.ctex
+Completed load for: 'res://assets/wave8/guishihei.svg' remapped 'res://assets/wave8/guishihei.svg' at thread -1
+Loading resource: res://assets/wave8/tongnantongnv.svg remapped: res://assets/wave8/tongnantongnv.svg
+Loading resource: res://.godot/imported/tongnantongnv.svg-63e91f2dc1a03b7089f6376afd55254e.ctex remapped: res://.godot/imported/tongnantongnv.svg-63e91f2dc1a03b7089f6376afd55254e.ctex
+Completed load for: 'res://assets/wave8/tongnantongnv.svg' remapped 'res://assets/wave8/tongnantongnv.svg' at thread -1
+Loading resource: res://assets/wave8/zhiwu.svg remapped: res://assets/wave8/zhiwu.svg
+Loading resource: res://.godot/imported/zhiwu.svg-97ad60bca832f094e687c02e91d2f154.ctex remapped: res://.godot/imported/zhiwu.svg-97ad60bca832f094e687c02e91d2f154.ctex
+Completed load for: 'res://assets/wave8/zhiwu.svg' remapped 'res://assets/wave8/zhiwu.svg' at thread -1
+Loading resource: res://assets/wave8/daorenshen.svg remapped: res://assets/wave8/daorenshen.svg
+Loading resource: res://.godot/imported/daorenshen.svg-b36937546b740d7c65568ccba33de092.ctex remapped: res://.godot/imported/daorenshen.svg-b36937546b740d7c65568ccba33de092.ctex
+Completed load for: 'res://assets/wave8/daorenshen.svg' remapped 'res://assets/wave8/daorenshen.svg' at thread -1
+Loading resource: res://assets/wave8/ertong.svg remapped: res://assets/wave8/ertong.svg
+Loading resource: res://.godot/imported/ertong.svg-4dcdcd6b6fc83f3471e72c6d2400bf97.ctex remapped: res://.godot/imported/ertong.svg-4dcdcd6b6fc83f3471e72c6d2400bf97.ctex
+Completed load for: 'res://assets/wave8/ertong.svg' remapped 'res://assets/wave8/ertong.svg' at thread -1
+Loading resource: res://assets/wave8/yingcao-pupu.svg remapped: res://assets/wave8/yingcao-pupu.svg
+Loading resource: res://.godot/imported/yingcao-pupu.svg-236f5f2f47be291903dbb9856abac6d2.ctex remapped: res://.godot/imported/yingcao-pupu.svg-236f5f2f47be291903dbb9856abac6d2.ctex
+Completed load for: 'res://assets/wave8/yingcao-pupu.svg' remapped 'res://assets/wave8/yingcao-pupu.svg' at thread -1
+Loading resource: res://assets/wave8/mianqiling-xinsu.svg remapped: res://assets/wave8/mianqiling-xinsu.svg
+Loading resource: res://.godot/imported/mianqiling-xinsu.svg-f92fdc22e884afc796f558b0e938db3d.ctex remapped: res://.godot/imported/mianqiling-xinsu.svg-f92fdc22e884afc796f558b0e938db3d.ctex
+Completed load for: 'res://assets/wave8/mianqiling-xinsu.svg' remapped 'res://assets/wave8/mianqiling-xinsu.svg' at thread -1
+Loading resource: res://assets/wave8/fansi.svg remapped: res://assets/wave8/fansi.svg
+Loading resource: res://.godot/imported/fansi.svg-3d7e6eacdb1d535f0f6fceeba9acd955.ctex remapped: res://.godot/imported/fansi.svg-3d7e6eacdb1d535f0f6fceeba9acd955.ctex
+Completed load for: 'res://assets/wave8/fansi.svg' remapped 'res://assets/wave8/fansi.svg' at thread -1
+Loading resource: res://assets/wave8/longzi.svg remapped: res://assets/wave8/longzi.svg
+Loading resource: res://.godot/imported/longzi.svg-634d7d36c11a8e2b5107c13373914798.ctex remapped: res://.godot/imported/longzi.svg-634d7d36c11a8e2b5107c13373914798.ctex
+Completed load for: 'res://assets/wave8/longzi.svg' remapped 'res://assets/wave8/longzi.svg' at thread -1
+Loading resource: res://assets/wave8/maochuan.svg remapped: res://assets/wave8/maochuan.svg
+Loading resource: res://.godot/imported/maochuan.svg-1bc3c4540b5238c6cffa3b1c550ebdbb.ctex remapped: res://.godot/imported/maochuan.svg-1bc3c4540b5238c6cffa3b1c550ebdbb.ctex
+Completed load for: 'res://assets/wave8/maochuan.svg' remapped 'res://assets/wave8/maochuan.svg' at thread -1
+Loading resource: res://assets/wave8/alaina.svg remapped: res://assets/wave8/alaina.svg
+Loading resource: res://.godot/imported/alaina.svg-4d4ee3e1a252a77ae3be804f271e5cfe.ctex remapped: res://.godot/imported/alaina.svg-4d4ee3e1a252a77ae3be804f271e5cfe.ctex
+Completed load for: 'res://assets/wave8/alaina.svg' remapped 'res://assets/wave8/alaina.svg' at thread -1
+Loading resource: res://assets/wave8/youning.svg remapped: res://assets/wave8/youning.svg
+Loading resource: res://.godot/imported/youning.svg-61e8b7acd4988047108418bdd5d519f8.ctex remapped: res://.godot/imported/youning.svg-61e8b7acd4988047108418bdd5d519f8.ctex
+Completed load for: 'res://assets/wave8/youning.svg' remapped 'res://assets/wave8/youning.svg' at thread -1
+Loading resource: res://assets/wave8/xiaolunan-qianshou.svg remapped: res://assets/wave8/xiaolunan-qianshou.svg
+Loading resource: res://.godot/imported/xiaolunan-qianshou.svg-933c53f595cb1e00d31b026c479dd430.ctex remapped: res://.godot/imported/xiaolunan-qianshou.svg-933c53f595cb1e00d31b026c479dd430.ctex
+Completed load for: 'res://assets/wave8/xiaolunan-qianshou.svg' remapped 'res://assets/wave8/xiaolunan-qianshou.svg' at thread -1
+Loading resource: res://assets/wave8/rihefang-qingyang.svg remapped: res://assets/wave8/rihefang-qingyang.svg
+Loading resource: res://.godot/imported/rihefang-qingyang.svg-d67a3179506a1e0c62c2fba9d704748d.ctex remapped: res://.godot/imported/rihefang-qingyang.svg-d67a3179506a1e0c62c2fba9d704748d.ctex
+Completed load for: 'res://assets/wave8/rihefang-qingyang.svg' remapped 'res://assets/wave8/rihefang-qingyang.svg' at thread -1
+Loading resource: res://assets/wave8/yanyanluo-fumiao.svg remapped: res://assets/wave8/yanyanluo-fumiao.svg
+Loading resource: res://.godot/imported/yanyanluo-fumiao.svg-3da0e02ce48aac2145b8a03e313fa86e.ctex remapped: res://.godot/imported/yanyanluo-fumiao.svg-3da0e02ce48aac2145b8a03e313fa86e.ctex
+Completed load for: 'res://assets/wave8/yanyanluo-fumiao.svg' remapped 'res://assets/wave8/yanyanluo-fumiao.svg' at thread -1
+Loading resource: res://assets/wave9/yatiangou-qiuye.svg remapped: res://assets/wave9/yatiangou-qiuye.svg
+Loading resource: res://.godot/imported/yatiangou-qiuye.svg-796bbd90130338897428484fcb4cd9c8.ctex remapped: res://.godot/imported/yatiangou-qiuye.svg-796bbd90130338897428484fcb4cd9c8.ctex
+Completed load for: 'res://assets/wave9/yatiangou-qiuye.svg' remapped 'res://assets/wave9/yatiangou-qiuye.svg' at thread -1
+Loading resource: res://assets/wave9/shuweng-zhixing.svg remapped: res://assets/wave9/shuweng-zhixing.svg
+Loading resource: res://.godot/imported/shuweng-zhixing.svg-5afe2a137cd784f2c1b39f27afd601ea.ctex remapped: res://.godot/imported/shuweng-zhixing.svg-5afe2a137cd784f2c1b39f27afd601ea.ctex
+Completed load for: 'res://assets/wave9/shuweng-zhixing.svg' remapped 'res://assets/wave9/shuweng-zhixing.svg' at thread -1
+Loading resource: res://assets/wave9/huojinshen.svg remapped: res://assets/wave9/huojinshen.svg
+Loading resource: res://.godot/imported/huojinshen.svg-6fb7fef33fd703e19c89da9e797ceefe.ctex remapped: res://.godot/imported/huojinshen.svg-6fb7fef33fd703e19c89da9e797ceefe.ctex
+Completed load for: 'res://assets/wave9/huojinshen.svg' remapped 'res://assets/wave9/huojinshen.svg' at thread -1
+Loading resource: res://assets/wave9/sibing.svg remapped: res://assets/wave9/sibing.svg
+Loading resource: res://.godot/imported/sibing.svg-6ea692fa0dba2e3146b81d05757b06bb.ctex remapped: res://.godot/imported/sibing.svg-6ea692fa0dba2e3146b81d05757b06bb.ctex
+Completed load for: 'res://assets/wave9/sibing.svg' remapped 'res://assets/wave9/sibing.svg' at thread -1
+Loading resource: res://assets/wave9/dayueling-yuxin.svg remapped: res://assets/wave9/dayueling-yuxin.svg
+Loading resource: res://.godot/imported/dayueling-yuxin.svg-4d5a0eb051a42261df3d056fdbe84b23.ctex remapped: res://.godot/imported/dayueling-yuxin.svg-4d5a0eb051a42261df3d056fdbe84b23.ctex
+Completed load for: 'res://assets/wave9/dayueling-yuxin.svg' remapped 'res://assets/wave9/dayueling-yuxin.svg' at thread -1
+Loading resource: res://assets/wave9/chili.svg remapped: res://assets/wave9/chili.svg
+Loading resource: res://.godot/imported/chili.svg-e634f9e3d33095f6db8ddf41d697b0b4.ctex remapped: res://.godot/imported/chili.svg-e634f9e3d33095f6db8ddf41d697b0b4.ctex
+Completed load for: 'res://assets/wave9/chili.svg' remapped 'res://assets/wave9/chili.svg' at thread -1
+Loading resource: res://assets/wave9/jieshen-suiyuan.svg remapped: res://assets/wave9/jieshen-suiyuan.svg
+Loading resource: res://.godot/imported/jieshen-suiyuan.svg-9d12aede422164953986ad8517b1c229.ctex remapped: res://.godot/imported/jieshen-suiyuan.svg-9d12aede422164953986ad8517b1c229.ctex
+Completed load for: 'res://assets/wave9/jieshen-suiyuan.svg' remapped 'res://assets/wave9/jieshen-suiyuan.svg' at thread -1
+Loading resource: res://assets/wave9/tieshu-haojia.svg remapped: res://assets/wave9/tieshu-haojia.svg
+Loading resource: res://.godot/imported/tieshu-haojia.svg-60b84d62e5df7d4af61775d82bd82802.ctex remapped: res://.godot/imported/tieshu-haojia.svg-60b84d62e5df7d4af61775d82bd82802.ctex
+Completed load for: 'res://assets/wave9/tieshu-haojia.svg' remapped 'res://assets/wave9/tieshu-haojia.svg' at thread -1
+Loading resource: res://assets/wave9/yijin-qianxun.svg remapped: res://assets/wave9/yijin-qianxun.svg
+Loading resource: res://.godot/imported/yijin-qianxun.svg-10300322168167fcaf041dff71d9f84f.ctex remapped: res://.godot/imported/yijin-qianxun.svg-10300322168167fcaf041dff71d9f84f.ctex
+Completed load for: 'res://assets/wave9/yijin-qianxun.svg' remapped 'res://assets/wave9/yijin-qianxun.svg' at thread -1
+Loading resource: res://assets/wave9/baizangzhu-lixin.svg remapped: res://assets/wave9/baizangzhu-lixin.svg
+Loading resource: res://.godot/imported/baizangzhu-lixin.svg-efbc979e09a94c67d81c3c67c1128671.ctex remapped: res://.godot/imported/baizangzhu-lixin.svg-efbc979e09a94c67d81c3c67c1128671.ctex
+Completed load for: 'res://assets/wave9/baizangzhu-lixin.svg' remapped 'res://assets/wave9/baizangzhu-lixin.svg' at thread -1
+Loading resource: res://assets/wave9/guijinyang.svg remapped: res://assets/wave9/guijinyang.svg
+Loading resource: res://.godot/imported/guijinyang.svg-4f0910713e49976c878a35ce79e82869.ctex remapped: res://.godot/imported/guijinyang.svg-4f0910713e49976c878a35ce79e82869.ctex
+Completed load for: 'res://assets/wave9/guijinyang.svg' remapped 'res://assets/wave9/guijinyang.svg' at thread -1
+Loading resource: res://assets/wave9/longche.svg remapped: res://assets/wave9/longche.svg
+Loading resource: res://.godot/imported/longche.svg-84c10271933a620ea3a83b4429b0b881.ctex remapped: res://.godot/imported/longche.svg-84c10271933a620ea3a83b4429b0b881.ctex
+Completed load for: 'res://assets/wave9/longche.svg' remapped 'res://assets/wave9/longche.svg' at thread -1
+Loading resource: res://assets/wave9/pinfashen.svg remapped: res://assets/wave9/pinfashen.svg
+Loading resource: res://.godot/imported/pinfashen.svg-4c66827ade55dca3b216a2d1d91c1665.ctex remapped: res://.godot/imported/pinfashen.svg-4c66827ade55dca3b216a2d1d91c1665.ctex
+Completed load for: 'res://assets/wave9/pinfashen.svg' remapped 'res://assets/wave9/pinfashen.svg' at thread -1
+Loading resource: res://assets/wave9/longjue.svg remapped: res://assets/wave9/longjue.svg
+Loading resource: res://.godot/imported/longjue.svg-8b4322f9acfe8fa1d04cb2322a1db9a4.ctex remapped: res://.godot/imported/longjue.svg-8b4322f9acfe8fa1d04cb2322a1db9a4.ctex
+Completed load for: 'res://assets/wave9/longjue.svg' remapped 'res://assets/wave9/longjue.svg' at thread -1
+Loading resource: res://assets/wave9/fengyangjun.svg remapped: res://assets/wave9/fengyangjun.svg
+Loading resource: res://.godot/imported/fengyangjun.svg-af2bb4589c6dab8a459c79c744436313.ctex remapped: res://.godot/imported/fengyangjun.svg-af2bb4589c6dab8a459c79c744436313.ctex
+Completed load for: 'res://assets/wave9/fengyangjun.svg' remapped 'res://assets/wave9/fengyangjun.svg' at thread -1
+Loading resource: res://assets/wave9/jintianyuzaoqian.svg remapped: res://assets/wave9/jintianyuzaoqian.svg
+Loading resource: res://.godot/imported/jintianyuzaoqian.svg-bb35b911dd03db2e1ee9d53c1c90b14f.ctex remapped: res://.godot/imported/jintianyuzaoqian.svg-bb35b911dd03db2e1ee9d53c1c90b14f.ctex
+Completed load for: 'res://assets/wave9/jintianyuzaoqian.svg' remapped 'res://assets/wave9/jintianyuzaoqian.svg' at thread -1
+Loading resource: res://assets/wave9/chanxinyunwaijing.svg remapped: res://assets/wave9/chanxinyunwaijing.svg
+Loading resource: res://.godot/imported/chanxinyunwaijing.svg-500c49289e721cbceb657dc66eed36c8.ctex remapped: res://.godot/imported/chanxinyunwaijing.svg-500c49289e721cbceb657dc66eed36c8.ctex
+Completed load for: 'res://assets/wave9/chanxinyunwaijing.svg' remapped 'res://assets/wave9/chanxinyunwaijing.svg' at thread -1
+Loading resource: res://assets/wave9/zhaocaimao.svg remapped: res://assets/wave9/zhaocaimao.svg
+Loading resource: res://.godot/imported/zhaocaimao.svg-a73a0b509f045a9f333c49eebb98e7ad.ctex remapped: res://.godot/imported/zhaocaimao.svg-a73a0b509f045a9f333c49eebb98e7ad.ctex
+Completed load for: 'res://assets/wave9/zhaocaimao.svg' remapped 'res://assets/wave9/zhaocaimao.svg' at thread -1
+Loading resource: res://assets/wave9/maozhanggui-huanyan.svg remapped: res://assets/wave9/maozhanggui-huanyan.svg
+Loading resource: res://.godot/imported/maozhanggui-huanyan.svg-be2b0a95773975897fa1ca7699828233.ctex remapped: res://.godot/imported/maozhanggui-huanyan.svg-be2b0a95773975897fa1ca7699828233.ctex
+Completed load for: 'res://assets/wave9/maozhanggui-huanyan.svg' remapped 'res://assets/wave9/maozhanggui-huanyan.svg' at thread -1
+Loading resource: res://assets/wave9/geluoduo.svg remapped: res://assets/wave9/geluoduo.svg
+Loading resource: res://.godot/imported/geluoduo.svg-998466b473f2bdc6c54e0c6952358194.ctex remapped: res://.godot/imported/geluoduo.svg-998466b473f2bdc6c54e0c6952358194.ctex
+Completed load for: 'res://assets/wave9/geluoduo.svg' remapped 'res://assets/wave9/geluoduo.svg' at thread -1
+Loading resource: res://assets/wave9/yinfanhuiyeji.svg remapped: res://assets/wave9/yinfanhuiyeji.svg
+Loading resource: res://.godot/imported/yinfanhuiyeji.svg-e5f514a37704e2b9cf0747fe401c0590.ctex remapped: res://.godot/imported/yinfanhuiyeji.svg-e5f514a37704e2b9cf0747fe401c0590.ctex
+Completed load for: 'res://assets/wave9/yinfanhuiyeji.svg' remapped 'res://assets/wave9/yinfanhuiyeji.svg' at thread -1
+Loading resource: res://assets/wave9/daixiaoguhuoniao.svg remapped: res://assets/wave9/daixiaoguhuoniao.svg
+Loading resource: res://.godot/imported/daixiaoguhuoniao.svg-fa00139fc330188b5183421ad27284b3.ctex remapped: res://.godot/imported/daixiaoguhuoniao.svg-fa00139fc330188b5183421ad27284b3.ctex
+Completed load for: 'res://assets/wave9/daixiaoguhuoniao.svg' remapped 'res://assets/wave9/daixiaoguhuoniao.svg' at thread -1
+Loading resource: res://assets/wave9/chulingshanfeng.svg remapped: res://assets/wave9/chulingshanfeng.svg
+Loading resource: res://.godot/imported/chulingshanfeng.svg-9417caf7d8d811287ebcae789483ff8e.ctex remapped: res://.godot/imported/chulingshanfeng.svg-9417caf7d8d811287ebcae789483ff8e.ctex
+Completed load for: 'res://assets/wave9/chulingshanfeng.svg' remapped 'res://assets/wave9/chulingshanfeng.svg' at thread -1
+Loading resource: res://assets/wave9/fenghuanghuo-jingyu.svg remapped: res://assets/wave9/fenghuanghuo-jingyu.svg
+Loading resource: res://.godot/imported/fenghuanghuo-jingyu.svg-f4801ea5a7342d85acade3ce77dafbe2.ctex remapped: res://.godot/imported/fenghuanghuo-jingyu.svg-f4801ea5a7342d85acade3ce77dafbe2.ctex
+Completed load for: 'res://assets/wave9/fenghuanghuo-jingyu.svg' remapped 'res://assets/wave9/fenghuanghuo-jingyu.svg' at thread -1
+Loading resource: res://assets/wave9/xixueji-xiyi.svg remapped: res://assets/wave9/xixueji-xiyi.svg
+Loading resource: res://.godot/imported/xixueji-xiyi.svg-5e4fe918ecfc40acd441008088c65227.ctex remapped: res://.godot/imported/xixueji-xiyi.svg-5e4fe918ecfc40acd441008088c65227.ctex
+Completed load for: 'res://assets/wave9/xixueji-xiyi.svg' remapped 'res://assets/wave9/xixueji-xiyi.svg' at thread -1
+Loading resource: res://assets/wave9/yinghuayao-lijing.svg remapped: res://assets/wave9/yinghuayao-lijing.svg
+Loading resource: res://.godot/imported/yinghuayao-lijing.svg-ae3448178df9b211d3d45e766d0de399.ctex remapped: res://.godot/imported/yinghuayao-lijing.svg-ae3448178df9b211d3d45e766d0de399.ctex
+Completed load for: 'res://assets/wave9/yinghuayao-lijing.svg' remapped 'res://assets/wave9/yinghuayao-lijing.svg' at thread -1
+Loading resource: res://assets/wave9/shenqilou.svg remapped: res://assets/wave9/shenqilou.svg
+Loading resource: res://.godot/imported/shenqilou.svg-37e73937ad3b67e9e927e08d447fd2a7.ctex remapped: res://.godot/imported/shenqilou.svg-37e73937ad3b67e9e927e08d447fd2a7.ctex
+Completed load for: 'res://assets/wave9/shenqilou.svg' remapped 'res://assets/wave9/shenqilou.svg' at thread -1
+Loading resource: res://assets/wave10/tanjirou.svg remapped: res://assets/wave10/tanjirou.svg
+Loading resource: res://.godot/imported/tanjirou.svg-dd04a4ced69dba3843c86989b313f624.ctex remapped: res://.godot/imported/tanjirou.svg-dd04a4ced69dba3843c86989b313f624.ctex
+Completed load for: 'res://assets/wave10/tanjirou.svg' remapped 'res://assets/wave10/tanjirou.svg' at thread -1
+Loading resource: res://assets/wave10/nezuko.svg remapped: res://assets/wave10/nezuko.svg
+Loading resource: res://.godot/imported/nezuko.svg-356a2481a61b68ffa103b0091a9b0ba2.ctex remapped: res://.godot/imported/nezuko.svg-356a2481a61b68ffa103b0091a9b0ba2.ctex
+Completed load for: 'res://assets/wave10/nezuko.svg' remapped 'res://assets/wave10/nezuko.svg' at thread -1
+Loading resource: res://assets/wave11/fanqie.svg remapped: res://assets/wave11/fanqie.svg
+Loading resource: res://.godot/imported/fanqie.svg-a845e7b2daece295d9dec8a9700372e4.ctex remapped: res://.godot/imported/fanqie.svg-a845e7b2daece295d9dec8a9700372e4.ctex
+Completed load for: 'res://assets/wave11/fanqie.svg' remapped 'res://assets/wave11/fanqie.svg' at thread -1
+Loading resource: res://assets/wave11/bingqiang.svg remapped: res://assets/wave11/bingqiang.svg
+Loading resource: res://.godot/imported/bingqiang.svg-dd44bf548857e27578c21b19f2a44b07.ctex remapped: res://.godot/imported/bingqiang.svg-dd44bf548857e27578c21b19f2a44b07.ctex
+Completed load for: 'res://assets/wave11/bingqiang.svg' remapped 'res://assets/wave11/bingqiang.svg' at thread -1
+Loading resource: res://assets/wave11/zhiren.svg remapped: res://assets/wave11/zhiren.svg
+Loading resource: res://.godot/imported/zhiren.svg-6ac1ff09f90b922196b47155341939e0.ctex remapped: res://.godot/imported/zhiren.svg-6ac1ff09f90b922196b47155341939e0.ctex
+Completed load for: 'res://assets/wave11/zhiren.svg' remapped 'res://assets/wave11/zhiren.svg' at thread -1
+Loading resource: res://assets/wave11/yanyanluo-fenshen.svg remapped: res://assets/wave11/yanyanluo-fenshen.svg
+Loading resource: res://.godot/imported/yanyanluo-fenshen.svg-11033ff59b55cc6d7340969e8f22e872.ctex remapped: res://.godot/imported/yanyanluo-fenshen.svg-11033ff59b55cc6d7340969e8f22e872.ctex
+Completed load for: 'res://assets/wave11/yanyanluo-fenshen.svg' remapped 'res://assets/wave11/yanyanluo-fenshen.svg' at thread -1
+Loading resource: res://assets/wave11/jinran-buye.svg remapped: res://assets/wave11/jinran-buye.svg
+Loading resource: res://.godot/imported/jinran-buye.svg-852e13730a3ccf6618b22b38d693af10.ctex remapped: res://.godot/imported/jinran-buye.svg-852e13730a3ccf6618b22b38d693af10.ctex
+Completed load for: 'res://assets/wave11/jinran-buye.svg' remapped 'res://assets/wave11/jinran-buye.svg' at thread -1
+Loading resource: res://assets/wave11/xueqiu-jingling.svg remapped: res://assets/wave11/xueqiu-jingling.svg
+Loading resource: res://.godot/imported/xueqiu-jingling.svg-7ecb9f66472ca7f32d36e1fd70973a5d.ctex remapped: res://.godot/imported/xueqiu-jingling.svg-7ecb9f66472ca7f32d36e1fd70973a5d.ctex
+Completed load for: 'res://assets/wave11/xueqiu-jingling.svg' remapped 'res://assets/wave11/xueqiu-jingling.svg' at thread -1
+Loading resource: res://assets/wave11/huangjinyu-ling.svg remapped: res://assets/wave11/huangjinyu-ling.svg
+Loading resource: res://.godot/imported/huangjinyu-ling.svg-adcdde4d014b0fea0abf4dcb14643fd6.ctex remapped: res://.godot/imported/huangjinyu-ling.svg-adcdde4d014b0fea0abf4dcb14643fd6.ctex
+Completed load for: 'res://assets/wave11/huangjinyu-ling.svg' remapped 'res://assets/wave11/huangjinyu-ling.svg' at thread -1
+Loading resource: res://assets/wave11/mingdeng-shou.svg remapped: res://assets/wave11/mingdeng-shou.svg
+Loading resource: res://.godot/imported/mingdeng-shou.svg-5bdf870fd0533ad11200cf8ac2fd27fe.ctex remapped: res://.godot/imported/mingdeng-shou.svg-5bdf870fd0533ad11200cf8ac2fd27fe.ctex
+Completed load for: 'res://assets/wave11/mingdeng-shou.svg' remapped 'res://assets/wave11/mingdeng-shou.svg' at thread -1
+Loading resource: res://assets/wave11/xinmo.svg remapped: res://assets/wave11/xinmo.svg
+Loading resource: res://.godot/imported/xinmo.svg-9ce814ce0e8e29d6d44702d8e4c69dd3.ctex remapped: res://.godot/imported/xinmo.svg-9ce814ce0e8e29d6d44702d8e4c69dd3.ctex
+Completed load for: 'res://assets/wave11/xinmo.svg' remapped 'res://assets/wave11/xinmo.svg' at thread -1
+Loading resource: res://assets/wave11/shouhu-ling.svg remapped: res://assets/wave11/shouhu-ling.svg
+Loading resource: res://.godot/imported/shouhu-ling.svg-c1d42df0a62ffc4b9f4e6aaa95fcf87c.ctex remapped: res://.godot/imported/shouhu-ling.svg-c1d42df0a62ffc4b9f4e6aaa95fcf87c.ctex
+Completed load for: 'res://assets/wave11/shouhu-ling.svg' remapped 'res://assets/wave11/shouhu-ling.svg' at thread -1
+Loading resource: res://assets/wave12/yueying.svg remapped: res://assets/wave12/yueying.svg
+Loading resource: res://.godot/imported/yueying.svg-e88a64a357ce184b7d5df6f2d2085ae8.ctex remapped: res://.godot/imported/yueying.svg-e88a64a357ce184b7d5df6f2d2085ae8.ctex
+Completed load for: 'res://assets/wave12/yueying.svg' remapped 'res://assets/wave12/yueying.svg' at thread -1
+Loading resource: res://assets/wave12/shizhu.svg remapped: res://assets/wave12/shizhu.svg
+Loading resource: res://.godot/imported/shizhu.svg-51cee02983e3b89c9db6d134ddc4e1f2.ctex remapped: res://.godot/imported/shizhu.svg-51cee02983e3b89c9db6d134ddc4e1f2.ctex
+Completed load for: 'res://assets/wave12/shizhu.svg' remapped 'res://assets/wave12/shizhu.svg' at thread -1
+Loading resource: res://assets/wave12/yanling-huo.svg remapped: res://assets/wave12/yanling-huo.svg
+Loading resource: res://.godot/imported/yanling-huo.svg-2f263c3459b2ba37e5c184471edf5748.ctex remapped: res://.godot/imported/yanling-huo.svg-2f263c3459b2ba37e5c184471edf5748.ctex
+Completed load for: 'res://assets/wave12/yanling-huo.svg' remapped 'res://assets/wave12/yanling-huo.svg' at thread -1
+Loading resource: res://assets/wave12/shuimo.svg remapped: res://assets/wave12/shuimo.svg
+Loading resource: res://.godot/imported/shuimo.svg-254993b91921203c7bfdd0ea1be07198.ctex remapped: res://.godot/imported/shuimo.svg-254993b91921203c7bfdd0ea1be07198.ctex
+Completed load for: 'res://assets/wave12/shuimo.svg' remapped 'res://assets/wave12/shuimo.svg' at thread -1
+Loading resource: res://assets/wave12/leiyin.svg remapped: res://assets/wave12/leiyin.svg
+Loading resource: res://.godot/imported/leiyin.svg-d9e9a998d062d1fe6b3d6695f78cdf37.ctex remapped: res://.godot/imported/leiyin.svg-d9e9a998d062d1fe6b3d6695f78cdf37.ctex
+Completed load for: 'res://assets/wave12/leiyin.svg' remapped 'res://assets/wave12/leiyin.svg' at thread -1
+Loading resource: res://assets/wave12/xingchen.svg remapped: res://assets/wave12/xingchen.svg
+Loading resource: res://.godot/imported/xingchen.svg-21a91a474aea078f6b81c6f2d91b9868.ctex remapped: res://.godot/imported/xingchen.svg-21a91a474aea078f6b81c6f2d91b9868.ctex
+Completed load for: 'res://assets/wave12/xingchen.svg' remapped 'res://assets/wave12/xingchen.svg' at thread -1
+Loading resource: res://assets/wave12/momo.svg remapped: res://assets/wave12/momo.svg
+Loading resource: res://.godot/imported/momo.svg-0959b274d2a033e44524f02a336fcaca.ctex remapped: res://.godot/imported/momo.svg-0959b274d2a033e44524f02a336fcaca.ctex
+Completed load for: 'res://assets/wave12/momo.svg' remapped 'res://assets/wave12/momo.svg' at thread -1
+Loading resource: res://assets/wave12/jinguang.svg remapped: res://assets/wave12/jinguang.svg
+Loading resource: res://.godot/imported/jinguang.svg-e3785823c44c463d598848e2538d80b0.ctex remapped: res://.godot/imported/jinguang.svg-e3785823c44c463d598848e2538d80b0.ctex
+Completed load for: 'res://assets/wave12/jinguang.svg' remapped 'res://assets/wave12/jinguang.svg' at thread -1
+Loading resource: res://assets/wave13/shiyao-longyechaji.svg remapped: res://assets/wave13/shiyao-longyechaji.svg
+Loading resource: res://.godot/imported/shiyao-longyechaji.svg-8809f333d282b78a37c949ac9d4bd9d1.ctex remapped: res://.godot/imported/shiyao-longyechaji.svg-8809f333d282b78a37c949ac9d4bd9d1.ctex
+Completed load for: 'res://assets/wave13/shiyao-longyechaji.svg' remapped 'res://assets/wave13/shiyao-longyechaji.svg' at thread -1
+Loading resource: res://assets/wave13/baize-yuanqi.svg remapped: res://assets/wave13/baize-yuanqi.svg
+Loading resource: res://.godot/imported/baize-yuanqi.svg-82ff10f07574865abb21c8fef51a6bc5.ctex remapped: res://.godot/imported/baize-yuanqi.svg-82ff10f07574865abb21c8fef51a6bc5.ctex
+Completed load for: 'res://assets/wave13/baize-yuanqi.svg' remapped 'res://assets/wave13/baize-yuanqi.svg' at thread -1
+Loading resource: res://assets/wave13/shenqi-huang.svg remapped: res://assets/wave13/shenqi-huang.svg
+Loading resource: res://.godot/imported/shenqi-huang.svg-71b4af4d9b4a104610a39d0dcfdb9f6a.ctex remapped: res://.godot/imported/shenqi-huang.svg-71b4af4d9b4a104610a39d0dcfdb9f6a.ctex
+Completed load for: 'res://assets/wave13/shenqi-huang.svg' remapped 'res://assets/wave13/shenqi-huang.svg' at thread -1
+Loading resource: res://assets/wave13/xuan.svg remapped: res://assets/wave13/xuan.svg
+Loading resource: res://.godot/imported/xuan.svg-2f1c5895bbb12210a1d71774da7d8f2d.ctex remapped: res://.godot/imported/xuan.svg-2f1c5895bbb12210a1d71774da7d8f2d.ctex
+Completed load for: 'res://assets/wave13/xuan.svg' remapped 'res://assets/wave13/xuan.svg' at thread -1
+Loading resource: res://assets/wave13/yuyuan-banruo.svg remapped: res://assets/wave13/yuyuan-banruo.svg
+Loading resource: res://.godot/imported/yuyuan-banruo.svg-28ca1f11870a6a0de3dc9d65e76f0b7e.ctex remapped: res://.godot/imported/yuyuan-banruo.svg-28ca1f11870a6a0de3dc9d65e76f0b7e.ctex
+Completed load for: 'res://assets/wave13/yuyuan-banruo.svg' remapped 'res://assets/wave13/yuyuan-banruo.svg' at thread -1
+Loading resource: res://assets/wave13/luohou.svg remapped: res://assets/wave13/luohou.svg
+Loading resource: res://.godot/imported/luohou.svg-93c3915a704c0f4b73b7d1b557247cc2.ctex remapped: res://.godot/imported/luohou.svg-93c3915a704c0f4b73b7d1b557247cc2.ctex
+Completed load for: 'res://assets/wave13/luohou.svg' remapped 'res://assets/wave13/luohou.svg' at thread -1
+Loading resource: res://assets/ember.svg remapped: res://assets/ember.svg
+Loading resource: res://.godot/imported/ember.svg-acad0f2e9fef6dc30ec7b3b3b66b2556.ctex remapped: res://.godot/imported/ember.svg-acad0f2e9fef6dc30ec7b3b3b66b2556.ctex
+Completed load for: 'res://assets/ember.svg' remapped 'res://assets/ember.svg' at thread -1
+Loading resource: res://assets/basalt.svg remapped: res://assets/basalt.svg
+Loading resource: res://.godot/imported/basalt.svg-c72f3308214d8081bbc5b5a5c0417479.ctex remapped: res://.godot/imported/basalt.svg-c72f3308214d8081bbc5b5a5c0417479.ctex
+Completed load for: 'res://assets/basalt.svg' remapped 'res://assets/basalt.svg' at thread -1
+Loading resource: res://assets/lumen.svg remapped: res://assets/lumen.svg
+Loading resource: res://.godot/imported/lumen.svg-0151a829645aa2b48bd247fe51eeeb63.ctex remapped: res://.godot/imported/lumen.svg-0151a829645aa2b48bd247fe51eeeb63.ctex
+Completed load for: 'res://assets/lumen.svg' remapped 'res://assets/lumen.svg' at thread -1
+Loading resource: res://assets/rime.svg remapped: res://assets/rime.svg
+Loading resource: res://.godot/imported/rime.svg-2cd02d2a584ad271337318209e945932.ctex remapped: res://.godot/imported/rime.svg-2cd02d2a584ad271337318209e945932.ctex
+Completed load for: 'res://assets/rime.svg' remapped 'res://assets/rime.svg' at thread -1
+Loading resource: res://assets/storm.svg remapped: res://assets/storm.svg
+Loading resource: res://.godot/imported/storm.svg-874d24fec2a9f203604bb1621142421b.ctex remapped: res://.godot/imported/storm.svg-874d24fec2a9f203604bb1621142421b.ctex
+Completed load for: 'res://assets/storm.svg' remapped 'res://assets/storm.svg' at thread -1
+Loading resource: res://assets/ink.svg remapped: res://assets/ink.svg
+Loading resource: res://.godot/imported/ink.svg-bc38f2bcf6391a433c194cc7778502fb.ctex remapped: res://.godot/imported/ink.svg-bc38f2bcf6391a433c194cc7778502fb.ctex
+Completed load for: 'res://assets/ink.svg' remapped 'res://assets/ink.svg' at thread -1
+Loading resource: res://assets/frostblade.svg remapped: res://assets/frostblade.svg
+Loading resource: res://.godot/imported/frostblade.svg-1ff1e4d291225b312dfc67426dd989a0.ctex remapped: res://.godot/imported/frostblade.svg-1ff1e4d291225b312dfc67426dd989a0.ctex
+Completed load for: 'res://assets/frostblade.svg' remapped 'res://assets/frostblade.svg' at thread -1
+Loading resource: res://assets/kongo.svg remapped: res://assets/kongo.svg
+Loading resource: res://.godot/imported/kongo.svg-73e5e293d21dc593f1b037164b8579ce.ctex remapped: res://.godot/imported/kongo.svg-73e5e293d21dc593f1b037164b8579ce.ctex
+Completed load for: 'res://assets/kongo.svg' remapped 'res://assets/kongo.svg' at thread -1
+Loading resource: res://assets/ember-awakened.svg remapped: res://assets/ember-awakened.svg
+Loading resource: res://.godot/imported/ember-awakened.svg-82f6a3c94e59307b0fd1a4c5f5c20898.ctex remapped: res://.godot/imported/ember-awakened.svg-82f6a3c94e59307b0fd1a4c5f5c20898.ctex
+Completed load for: 'res://assets/ember-awakened.svg' remapped 'res://assets/ember-awakened.svg' at thread -1
+SHOT 02-wave2-formation
+Loading resource: res://assets/scenery/table.png remapped: res://assets/scenery/table.png
+Loading resource: res://.godot/imported/table.png-cdb09b61e0864f3c52857d35f8fa1daf.ctex remapped: res://.godot/imported/table.png-cdb09b61e0864f3c52857d35f8fa1daf.ctex
+Completed load for: 'res://assets/scenery/table.png' remapped 'res://assets/scenery/table.png' at thread -1
+SHOT 02-wave3-formation
+Loading resource: res://assets/scenery/table.png remapped: res://assets/scenery/table.png
+Loading resource: res://.godot/imported/table.png-cdb09b61e0864f3c52857d35f8fa1daf.ctex remapped: res://.godot/imported/table.png-cdb09b61e0864f3c52857d35f8fa1daf.ctex
+Completed load for: 'res://assets/scenery/table.png' remapped 'res://assets/scenery/table.png' at thread -1
+SHOT 03-buzhinhuo-deck
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+Loading resource: res://assets/audio/bgm_battle.wav remapped: res://assets/audio/bgm_battle.wav
+Loading resource: res://.godot/imported/bgm_battle.wav-21248085976eea3dec3574fbb2308a3f.sample remapped: res://.godot/imported/bgm_battle.wav-21248085976eea3dec3574fbb2308a3f.sample
+Completed load for: 'res://assets/audio/bgm_battle.wav' remapped 'res://assets/audio/bgm_battle.wav' at thread -1
+Loading resource: res://assets/audio/card_draw.wav remapped: res://assets/audio/card_draw.wav
+Loading resource: res://.godot/imported/card_draw.wav-3058533a9903911fb40c994d5f5b99ee.sample remapped: res://.godot/imported/card_draw.wav-3058533a9903911fb40c994d5f5b99ee.sample
+Completed load for: 'res://assets/audio/card_draw.wav' remapped 'res://assets/audio/card_draw.wav' at thread -1
+SHOT 04-wave23-battle-01
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+SHOT 04-wave23-battle-02
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+SHOT 04-wave23-battle-03
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+SHOT 04-wave23-battle-04
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+SHOT 04-wave23-battle-05
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+SHOT 04-wave23-battle-06
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+SHOT 04-wave23-battle-07
+Loading resource: res://assets/scenery/battle.png remapped: res://assets/scenery/battle.png
+Loading resource: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex remapped: res://.godot/imported/battle.png-60ad238fafca742744c05bd8d9bc10d0.ctex
+Completed load for: 'res://assets/scenery/battle.png' remapped 'res://assets/scenery/battle.png' at thread -1
+Loading resource: res://assets/audio/ui_click.wav remapped: res://assets/audio/ui_click.wav
+Loading resource: res://.godot/imported/ui_click.wav-27a1a14815f4272c438d6dd4385cee0b.sample remapped: res://.godot/imported/ui_click.wav-27a1a14815f4272c438d6dd4385cee0b.sample
+Completed load for: 'res://assets/audio/ui_click.wav' remapped 'res://assets/audio/ui_click.wav' at thread -1
+SHOT 05-legal-target-line
+SHOT 06-invalid-target-line
+Loading resource: res://assets/audio/attack.wav remapped: res://assets/audio/attack.wav
+Loading resource: res://.godot/imported/attack.wav-825b62c1f9509f7d19a957a51a526957.sample remapped: res://.godot/imported/attack.wav-825b62c1f9509f7d19a957a51a526957.sample
+Completed load for: 'res://assets/audio/attack.wav' remapped 'res://assets/audio/attack.wav' at thread -1
+SHOT 07-attack-impact
+Loading resource: res://assets/audio/hit.wav remapped: res://assets/audio/hit.wav
+Loading resource: res://.godot/imported/hit.wav-96dc477cdf4a42f381370dba6e3f75ce.sample remapped: res://.godot/imported/hit.wav-96dc477cdf4a42f381370dba6e3f75ce.sample
+Completed load for: 'res://assets/audio/hit.wav' remapped 'res://assets/audio/hit.wav' at thread -1
+SHOT 08-attack-settled
+REDRAWN_CAPTURE_DONE
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Accessibility: window 0 adapter destroyed.

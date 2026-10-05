@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">山童 · 觉醒相</title>
+  <desc id="desc">远山与木棒：山形背影，肩扛木棒，山野之气。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="shantong-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14100c"/>
+      <stop offset=".55" stop-color="#201814"/>
+      <stop offset="1" stop-color="#0e0a08"/>
+    </linearGradient>
+    <radialGradient id="shantong-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#c0a060" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#a07830" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#a07830" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shantong-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#d8c8a0"/>
+      <stop offset=".55" stop-color="#a08860"/>
+      <stop offset="1" stop-color="#a07830"/>
+    </linearGradient>
+    <linearGradient id="shantong-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a07830"/>
+      <stop offset="1" stop-color="#503810"/>
+    </linearGradient>
+    <linearGradient id="shantong-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#shantong-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#shantong-halo)"/>
+  <path d="M40 160 70 90l30 40 24-50 36 80Z" fill="url(#shantong-body)" opacity=".75" stroke="#3a3028" stroke-width="1.5"/>
+  <path d="M70 90 85 120M94 130l10-20M124 80l8 30" stroke="#5c4838" stroke-width="1.2" opacity=".5"/>
+  <ellipse cx="100" cy="128" rx="30" ry="34" fill="url(#shantong-acc)" opacity=".85" stroke="#3a2818" stroke-width="1.8"/>
+  <path d="M82 108c6-4 12-4 16 0M102 108c6-4 12-4 16 0" stroke="#5c3820" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="88" cy="120" rx="5" ry="4" fill="#2a1808"/><ellipse cx="112" cy="120" rx="5" ry="4" fill="#2a1808"/>
+  <path d="M90 140c6 6 14 6 20 0" stroke="#5c3820" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M150 80c8 4 12 14 10 24-10 30-8 60 4 80-14-4-24-18-28-36-4-18 2-48 14-68Z" fill="url(#shantong-body)" opacity=".8"/>
+  <path d="M154 78c6-2 12 2 14 8-6 2-12 0-14-8Z" fill="url(#shantong-acc)" opacity=".7"/>
+  <path d="M60 188h80l-6 16H66Z" fill="url(#shantong-body)" opacity=".45"/>
+<g fill="url(#shantong-acc)">
+    <circle cx="40" cy="70" r="2" opacity=".55"/>
+    <circle cx="164" cy="60" r="1.8" opacity=".55"/>
+    <circle cx="36" cy="140" r="1.8" opacity=".5"/>
+    <circle cx="170" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="32" r="1.6" opacity=".5"/>
+    <circle cx="56" cy="196" r="1.4" opacity=".45"/>
+    <circle cx="148" cy="196" r="1.6" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#shantong-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#shantong-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#shantong-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#shantong-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#shantong-gold)"/>
+    <g stroke="url(#shantong-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#a07830" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

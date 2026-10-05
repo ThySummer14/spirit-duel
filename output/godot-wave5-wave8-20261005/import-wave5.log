@@ -1,0 +1,104 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 项目初始化 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 正在扫描文件结构……[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 正在加载全局类名……[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | 正在校验 GDExtension……[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 正在创建自动加载脚本……[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 正在初始化插件……[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 正在启动文件扫描……[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started 正在扫描动作…… (24 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | baitongzi.png[39m[0m
+[   4% ] [90m[1m_update_scan_actions[22m | baizangzhu.png[39m[0m
+[   8% ] [90m[1m_update_scan_actions[22m | fengli.png[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | guanhu.png[39m[0m
+[  16% ] [90m[1m_update_scan_actions[22m | heitongzi.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | huaniajuan.png[39m[0m
+[  24% ] [90m[1m_update_scan_actions[22m | kuileishi.png[39m[0m
+[  28% ] [90m[1m_update_scan_actions[22m | liangmianfo.png[39m[0m
+[  32% ] [90m[1m_update_scan_actions[22m | limao.png[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | maozhanggui.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | qianji.png[39m[0m
+[  44% ] [90m[1m_update_scan_actions[22m | rulianshi.png[39m[0m
+[  48% ] [90m[1m_update_scan_actions[22m | shiling.png[39m[0m
+[  52% ] [90m[1m_update_scan_actions[22m | song.png[39m[0m
+[  56% ] [90m[1m_update_scan_actions[22m | tengji.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | tuwan.png[39m[0m
+[  64% ] [90m[1m_update_scan_actions[22m | wuwu.png[39m[0m
+[  68% ] [90m[1m_update_scan_actions[22m | xiaosongwan.png[39m[0m
+[  72% ] [90m[1m_update_scan_actions[22m | xiazhongshaonv.png[39m[0m
+[  76% ] [90m[1m_update_scan_actions[22m | xingxiongtongzi.png[39m[0m
+[  80% ] [90m[1m_update_scan_actions[22m | yanmo.png[39m[0m
+[  84% ] [90m[1m_update_scan_actions[22m | yi.png[39m[0m
+[  88% ] [90m[1m_update_scan_actions[22m | yixigong.png[39m[0m
+[  92% ] [90m[1m_update_scan_actions[22m | yunwaijing.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (24 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   4% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   8% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  12% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  16% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  20% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  24% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  28% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  32% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  36% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  40% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  44% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  48% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  52% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  56% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  60% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  64% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  68% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  72% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  76% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  80% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  84% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  88% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  92% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的前置操作……[39m[0m
+[   0% ] [90m[1mreimport[22m | yunwaijing.png[39m[0m
+[   4% ] [90m[1mreimport[22m | yixigong.png[39m[0m
+[   8% ] [90m[1mreimport[22m | yi.png[39m[0m
+[  12% ] [90m[1mreimport[22m | yanmo.png[39m[0m
+[  16% ] [90m[1mreimport[22m | xingxiongtongzi.png[39m[0m
+[  20% ] [90m[1mreimport[22m | xiazhongshaonv.png[39m[0m
+[  24% ] [90m[1mreimport[22m | xiaosongwan.png[39m[0m
+[  28% ] [90m[1mreimport[22m | wuwu.png[39m[0m
+[  32% ] [90m[1mreimport[22m | tuwan.png[39m[0m
+[  36% ] [90m[1mreimport[22m | tengji.png[39m[0m
+[  40% ] [90m[1mreimport[22m | song.png[39m[0m
+[  44% ] [90m[1mreimport[22m | shiling.png[39m[0m
+[  48% ] [90m[1mreimport[22m | rulianshi.png[39m[0m
+[  52% ] [90m[1mreimport[22m | qianji.png[39m[0m
+[  56% ] [90m[1mreimport[22m | maozhanggui.png[39m[0m
+[  60% ] [90m[1mreimport[22m | limao.png[39m[0m
+[  64% ] [90m[1mreimport[22m | liangmianfo.png[39m[0m
+[  68% ] [90m[1mreimport[22m | kuileishi.png[39m[0m
+[  72% ] [90m[1mreimport[22m | huaniajuan.png[39m[0m
+[  76% ] [90m[1mreimport[22m | heitongzi.png[39m[0m
+[  80% ] [90m[1mreimport[22m | guanhu.png[39m[0m
+[  84% ] [90m[1mreimport[22m | fengli.png[39m[0m
+[  88% ] [90m[1mreimport[22m | baizangzhu.png[39m[0m
+[  92% ] [90m[1mreimport[22m | baitongzi.png[39m[0m
+[  96% ] [90m[1mreimport[22m | 正在结束资产导入……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (24 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的后置操作……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 正在加载编辑器 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 正在加载编辑器布局……[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 正在加载停靠面板……[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 正在重新打开场景……[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 正在加载中央编辑器布局……[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 正在加载插件窗口布局……[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 编辑器布局就绪。[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m

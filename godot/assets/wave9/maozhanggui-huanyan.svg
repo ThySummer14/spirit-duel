@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">猫掌柜·焕宴</title>
+  <desc id="desc">猫掌柜·焕宴：暖帘蓝图与猫侍应，新生祭典</desc>
+  <defs>
+    <linearGradient id="maozhangguihuanyan-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#180c0c"/>
+      <stop offset=".55" stop-color="#281414"/>
+      <stop offset="1" stop-color="#100808"/>
+    </linearGradient>
+    <radialGradient id="maozhangguihuanyan-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e09080" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#d06040" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#d06040" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="maozhangguihuanyan-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f8d0c0"/>
+      <stop offset=".55" stop-color="#c07868"/>
+      <stop offset="1" stop-color="#d06040"/>
+    </linearGradient>
+    <linearGradient id="maozhangguihuanyan-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d06040"/>
+      <stop offset="1" stop-color="#502010"/>
+    </linearGradient>
+    <linearGradient id="maozhangguihuanyan-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#maozhangguihuanyan-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#maozhangguihuanyan-halo)"/>
+  <g>
+    <path d="M60 85h80v20H60Z" fill="url(#maozhangguihuanyan-acc)" opacity=".85"/>
+    <path d="M68 105v20M84 105v24M100 105v20M116 105v24M132 105v20" stroke="url(#maozhangguihuanyan-acc)" stroke-width="3"/>
+    <rect x="75" y="135" width="50" height="40" rx="3" fill="url(#maozhangguihuanyan-body)" stroke="#3a2018" stroke-width="1.5"/>
+    <path d="M85 150h30M85 162h20" stroke="#3a2018" stroke-width="1.2"/>
+  </g>
+<g fill="url(#maozhangguihuanyan-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#d06040" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

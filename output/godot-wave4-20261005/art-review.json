@@ -1,0 +1,397 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "method": "逐张查看原版与生成图，并复核七页原版/重绘对照；每张只使用自身原版作为图像输入。",
+  "units": [
+    {
+      "id": "jieshen",
+      "name": "缘结神",
+      "role": "216",
+      "reference": "art-reference-official/卡面/01_式神/21600_缘结神.png",
+      "runtime": "godot/assets/redrawn/wave4/jieshen.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4e95498d-3d9f-4d0c-b392-9c6744af4266.png",
+      "focus": [
+        0.52,
+        0.215
+      ],
+      "review": "保留黑长发、白红衣、结缘灯与灰色小伙伴。",
+      "status": "selected",
+      "sha256": "ee5b2308f482f14f3b7f73104e9785f9b7a0d852a3aebe3092adf33673664195"
+    },
+    {
+      "id": "gitongwan",
+      "name": "鬼童丸",
+      "role": "214",
+      "reference": "art-reference-official/卡面/01_式神/21400_鬼童丸.png",
+      "runtime": "godot/assets/redrawn/wave4/gitongwan.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5740be91-132b-4c91-9e53-ae885f8a178d.png",
+      "focus": [
+        0.52,
+        0.17
+      ],
+      "review": "保留红褐发、紫白上衣、交腿姿势、鬼面与锁链。",
+      "status": "selected",
+      "sha256": "bcac2be567ff8c17a2b2ad5160b0f7a8f33058b0c2094f07e70fa5278159e25d"
+    },
+    {
+      "id": "banruo",
+      "name": "般若",
+      "role": "215",
+      "reference": "art-reference-official/卡面/01_式神/21500_般若.png",
+      "runtime": "godot/assets/redrawn/wave4/banruo.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-33cc64bc-f5d2-4e4d-a8a3-47f4c11892cb.png",
+      "focus": [
+        0.58,
+        0.2
+      ],
+      "review": "保留浅褐发、青金衣袖、白腿与手持鬼面。",
+      "status": "selected",
+      "sha256": "f8b832c79f1996018223df2a6a52f1ebb4e2a7d35d6b97959514f9b4bc9fc54a"
+    },
+    {
+      "id": "tieshu",
+      "name": "铁鼠",
+      "role": "212",
+      "reference": "art-reference-official/卡面/01_式神/21200_铁鼠.png",
+      "runtime": "godot/assets/redrawn/wave4/tieshu.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-fb5e980b-a6f5-4eea-b0f3-8345c5c36b23.png",
+      "focus": [
+        0.5,
+        0.285
+      ],
+      "review": "保留圆耳、草帽、蓝黄衣、念珠与金币。",
+      "status": "selected",
+      "sha256": "5a82cc70ab7f9dde53d0dabb90793ef2d3f795bc652a4dad82fc210a24b9b801"
+    },
+    {
+      "id": "hetong",
+      "name": "河童",
+      "role": "213",
+      "reference": "art-reference-official/卡面/01_式神/21300_河童.png",
+      "runtime": "godot/assets/redrawn/wave4/hetong.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-00995a85-3ea9-4fb9-82ad-1518f366b13e.png",
+      "focus": [
+        0.58,
+        0.265
+      ],
+      "review": "保留荷叶帽、面围、蓝袍、蹼手足和水球。",
+      "status": "selected",
+      "sha256": "722b82b3c4120ca947f4e88dc908e904cbcb5374a55fad3f649a3a532dc27506"
+    },
+    {
+      "id": "zhuiyueshen",
+      "name": "追月神",
+      "role": "197",
+      "reference": "art-reference-official/卡面/01_式神/19700_追月神.png",
+      "runtime": "godot/assets/redrawn/wave4/zhuiyueshen.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-12db431a-405e-4bea-b09d-563f1bc5b450.png",
+      "focus": [
+        0.405,
+        0.2
+      ],
+      "review": "保留白发兔耳、蓝袍、月牙、鼓与小兔。",
+      "status": "selected",
+      "sha256": "c78d49a768fd746ebf4017e8ff004a50a86d2a41ca83121e4776738911ca60e5"
+    },
+    {
+      "id": "baimugui",
+      "name": "百目鬼",
+      "role": "196",
+      "reference": "art-reference-official/卡面/01_式神/19600_百目鬼.png",
+      "runtime": "godot/assets/redrawn/wave4/baimugui.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b0dd7918-4fcc-4814-80f7-42bb7df4cb4d.png",
+      "focus": [
+        0.47,
+        0.205
+      ],
+      "review": "保留白发、眼纹轮盘、红黑衣与悬坐姿势。",
+      "status": "selected",
+      "sha256": "6de77a8274991d526a287b9c423b6ab16e2d74e363e1495269e7341ce5479e8d"
+    },
+    {
+      "id": "wushizhiling",
+      "name": "武士之灵",
+      "role": "193",
+      "reference": "art-reference-official/卡面/01_式神/19300_武士之灵.png",
+      "runtime": "godot/assets/redrawn/wave4/wushizhiling.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-19612428-d1c3-4346-90ca-1a27c56203e5.png",
+      "focus": [
+        0.59,
+        0.17
+      ],
+      "review": "保留苍蓝鬼面、白发须、红羽织与蓝色幽魂下身。",
+      "status": "selected",
+      "sha256": "501804d9bdbb8c762c48c1d907481eaca84f034186169e1fb8ce58b3bb892875"
+    },
+    {
+      "id": "guishiheibai",
+      "name": "鬼使黑/鬼使白",
+      "role": "194",
+      "reference": "art-reference-official/卡面/01_式神/19400_鬼使黑_鬼使白.png",
+      "runtime": "godot/assets/redrawn/wave4/guishiheibai.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-141dc736-085f-48b5-af2c-cdd5440c29b0.png",
+      "focus": [
+        0.38,
+        0.19
+      ],
+      "review": "原版该条目只显示鬼使黑，重绘保留黑帽、黑红衣、大镰刀；未另画鬼使白。",
+      "status": "selected",
+      "sha256": "ad14337991d9fb3b94f48aa0f8b9a7b19d232a4b7b4a381b2ed17a52f77768cc"
+    },
+    {
+      "id": "huoqumo",
+      "name": "火取魔",
+      "role": "204",
+      "reference": "art-reference-official/卡面/01_式神/20400_火取魔.png",
+      "runtime": "godot/assets/redrawn/wave4/huoqumo.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-df61fc78-441a-4da3-9a55-c0eba4b2eeeb.png",
+      "focus": [
+        0.48,
+        0.23
+      ],
+      "review": "保留白发骑者、黑白兽与红纹长剑，人兽结构清晰。",
+      "status": "selected",
+      "sha256": "a2ec8a8e9e4d6b9b390357880d1e17b46d8b1ebb61b1eef95964d21fe47ab7b0"
+    },
+    {
+      "id": "yuanjiulanghu",
+      "name": "源九郎狐",
+      "role": "205",
+      "reference": "art-reference-official/卡面/01_式神/20500_源九郎狐.png",
+      "runtime": "godot/assets/redrawn/wave4/yuanjiulanghu.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-e8a874af-7175-469f-8374-8557aad43b66.png",
+      "focus": [
+        0.6,
+        0.16
+      ],
+      "review": "保留白发狐耳、白紫衣与多尾，灰黑大尾仍在后方。",
+      "status": "selected",
+      "sha256": "b9b9086712342e6759b6d3d810b9eed82f39c220bceed46a18b3c61dbda1a970"
+    },
+    {
+      "id": "yingxueji",
+      "name": "樱雪姬",
+      "role": "207",
+      "reference": "art-reference-official/卡面/01_式神/20700_樱雪姬.png",
+      "runtime": "godot/assets/redrawn/wave4/yingxueji.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-37b4d5be-afb4-4a6f-96fb-40ee13fea730.png",
+      "focus": [
+        0.6,
+        0.15
+      ],
+      "review": "保留白发、高角冠、蓝白冰衣、黑袖、横向刀剑和蝶群。",
+      "status": "selected",
+      "sha256": "a9f251dcd208b06179ef811034fa2d15a2ede3cf15e82b235ba741b7b933d986"
+    },
+    {
+      "id": "jingliuliqian",
+      "name": "净琉璃御前",
+      "role": "206",
+      "reference": "art-reference-official/卡面/01_式神/20600_净琉璃御前.png",
+      "runtime": "godot/assets/redrawn/wave4/jingliuliqian.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-970d5232-4759-42f8-8f5d-9a6fc378b061.png",
+      "focus": [
+        0.65,
+        0.15
+      ],
+      "review": "保留黑发、深蓝白衣、羽翼、星纹与几何轮盘。",
+      "status": "selected",
+      "sha256": "6d721a995d6f36b320d43f223cdd8e4aa90fcbe5f8a38d78aa7b03d6356cac19"
+    },
+    {
+      "id": "egui",
+      "name": "饿鬼",
+      "role": "217",
+      "reference": "art-reference-official/卡面/01_式神/21700_饿鬼.png",
+      "runtime": "godot/assets/redrawn/wave4/egui.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1cd997a7-c612-4ec4-9870-d0f60f001fd3.png",
+      "focus": [
+        0.65,
+        0.26
+      ],
+      "review": "保留灰白肤、乱褐发红眼、破青袍、黄头布与村落。",
+      "status": "selected",
+      "sha256": "ff357c3e6f892e60bc53ad31e4e5ca0df3da3c19326a0252c88e74f0d8e81743"
+    },
+    {
+      "id": "duyanxiaoseng",
+      "name": "独眼小僧",
+      "role": "188",
+      "reference": "art-reference-official/卡面/01_式神/18800_独眼小僧.png",
+      "runtime": "godot/assets/redrawn/wave4/duyanxiaoseng.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-91ff5311-cf01-4814-ba73-9cee30bf8527.png",
+      "focus": [
+        0.61,
+        0.17
+      ],
+      "review": "保留单个中央金眼、光头尖耳、紫衣、橙珠和绳束石座。",
+      "status": "selected",
+      "sha256": "84e07f30306972f59028d09e884a4e939da6b576f529a2507f4a173425c34be6"
+    },
+    {
+      "id": "mianqiling",
+      "name": "面灵气",
+      "role": "208",
+      "reference": "art-reference-official/卡面/01_式神/20800_面灵气.png",
+      "runtime": "godot/assets/redrawn/wave4/mianqiling.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-afb871a7-7413-4bf2-b837-5ce81edc6fec.png",
+      "focus": [
+        0.55,
+        0.17
+      ],
+      "review": "保留黑发饰、白衣、彩色飘带及独立环绕面具。",
+      "status": "selected",
+      "sha256": "073f4f0ce502075ab7d2a9c14110d5662d86965a0f23d0b8b86d1e0c1ab16cff"
+    },
+    {
+      "id": "jiumingmao",
+      "name": "九命猫",
+      "role": "201",
+      "reference": "art-reference-official/卡面/01_式神/20100_九命猫.png",
+      "runtime": "godot/assets/redrawn/wave4/jiumingmao.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c369ff42-b170-4c85-a4c9-3a7daf9680c4.png",
+      "focus": [
+        0.38,
+        0.19
+      ],
+      "review": "保留黑猫耳、黑发多尾、棕红短衣、红爪护臂与火焰。",
+      "status": "selected",
+      "sha256": "cbe6c6627891047b3d364fd6a55b0c9cc25e1879674a5c164f97afb1b8b08d24"
+    },
+    {
+      "id": "axiuluo",
+      "name": "阿修罗",
+      "role": "224",
+      "reference": "art-reference-official/卡面/01_式神/22400_阿修罗.png",
+      "runtime": "godot/assets/redrawn/wave4/axiuluo.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-0a4df0b6-204a-4b04-ba48-a738dc230e58.png",
+      "focus": [
+        0.5,
+        0.15
+      ],
+      "review": "保留黑长发、胸纹、红黑衣、金饰与背后恶魔轮廓。",
+      "status": "selected",
+      "sha256": "547a83e449d776bf4b23746d957a05e19fa027d0eb1830454d33304731efdb20"
+    },
+    {
+      "id": "bayiqidashe",
+      "name": "八岐大蛇",
+      "role": "220",
+      "reference": "art-reference-official/卡面/01_式神/22000_八岐大蛇.png",
+      "runtime": "godot/assets/redrawn/wave4/bayiqidashe.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-6473f316-6717-47ed-bd7c-1946aa03303c.png",
+      "focus": [
+        0.52,
+        0.11
+      ],
+      "review": "保留黑长发、紫蓝金袍与盘绕紫蛇，蛇与人体衣袖分离。",
+      "status": "selected",
+      "sha256": "5ca7d7c4a585f88439a5c77a59f050a7f5cf1256982ae5b65573be1275d33d93"
+    },
+    {
+      "id": "jinyuji",
+      "name": "金鱼姬",
+      "role": "227",
+      "reference": "art-reference-official/卡面/01_式神/22700_金鱼姬.png",
+      "runtime": "godot/assets/redrawn/wave4/jinyuji.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-bb79e802-1f0d-42df-b684-92c244a5f736.png",
+      "focus": [
+        0.57,
+        0.17
+      ],
+      "review": "保留蓝发、鱼帽、红白衣、扇与红白金鱼骑乘姿态。",
+      "status": "selected",
+      "sha256": "524bfff7ab2d79256db64a970105786e964d05e4efef8682f4d3355906659ff5"
+    },
+    {
+      "id": "huangkulou",
+      "name": "荒骷髅",
+      "role": "226",
+      "reference": "art-reference-official/卡面/01_式神/22600_荒骷髅.png",
+      "runtime": "godot/assets/redrawn/wave4/huangkulou.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-c27979dd-5924-49f7-8fcb-92ed1fa99dca.png",
+      "focus": [
+        0.665,
+        0.335
+      ],
+      "review": "保留骷髅脸、红黑金甲、金角盔、背刀、彼岸花与白骷髅。",
+      "status": "selected",
+      "sha256": "f11e1a7f639a26ec1c057d4da99369157572f75d31d8d1400706532eb551e093"
+    },
+    {
+      "id": "gouchang",
+      "name": "垢尝",
+      "role": "211",
+      "reference": "art-reference-official/卡面/01_式神/21100_垢尝.png",
+      "runtime": "godot/assets/redrawn/wave4/gouchang.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a1f3f255-3839-43ab-b367-5ab5e8dcdf33.png",
+      "focus": [
+        0.5,
+        0.4
+      ],
+      "review": "保留桶帽、灰衣、蓝短裙、长刷与黑灰小妖。",
+      "status": "selected",
+      "sha256": "40e8038e219b2ac3ebabdb230e8cfe75bde470c902e7ad04f5fd3609584b5b97"
+    },
+    {
+      "id": "dishitian",
+      "name": "帝释天",
+      "role": "225",
+      "reference": "art-reference-official/卡面/01_式神/22500_帝释天.png",
+      "runtime": "godot/assets/redrawn/wave4/dishitian.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4287242e-c127-455f-b2cb-d3c7250ad6f7.png",
+      "focus": [
+        0.815,
+        0.165
+      ],
+      "review": "保留白发白金衣、坐姿、金莲饰、红花及深蓝背景；脸部在右上。",
+      "status": "selected",
+      "sha256": "4db04992771cb5bcbe4a17e7a81196da842021c1a27f63aed0b462ba0575382a"
+    },
+    {
+      "id": "xieji",
+      "name": "蟹姬",
+      "role": "210",
+      "reference": "art-reference-official/卡面/01_式神/21000_蟹姬.png",
+      "runtime": "godot/assets/redrawn/wave4/xieji.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-1aecdad4-b41b-4a48-bfb2-680ffcbce032.png",
+      "focus": [
+        0.58,
+        0.18
+      ],
+      "review": "保留粉红发、红衣、黄蝴蝶结、巨大蟹钳工具、木屐与海浪。",
+      "status": "selected",
+      "sha256": "b225e0d33ff4808903a16acbe962200e255d00bbff869d2789fd92e9960030dc"
+    },
+    {
+      "id": "yuzaoqian",
+      "name": "玉藻前",
+      "role": "221",
+      "reference": "art-reference-official/卡面/01_式神/22100_玉藻前.png",
+      "runtime": "godot/assets/redrawn/wave4/yuzaoqian.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-15d2e55b-55f1-4bf5-843d-de4292dc49b3.png",
+      "focus": [
+        0.53,
+        0.18
+      ],
+      "review": "保留狐面、黑长发、蓝青红金华服、头冠与白尾；未自行改成裸脸。",
+      "status": "selected",
+      "sha256": "57ae015d026584bb40868cd37410e3bf9ec1afe88af30254fe87771ec9a4ea70"
+    },
+    {
+      "id": "huibishou",
+      "name": "惠比寿",
+      "role": "209",
+      "reference": "art-reference-official/卡面/01_式神/20900_惠比寿.png",
+      "runtime": "godot/assets/redrawn/wave4/huibishou.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-4e2b7568-8e59-40da-9ad2-fb3e65096f9a.png",
+      "focus": [
+        0.525,
+        0.225
+      ],
+      "review": "保留白须笑脸、黑高帽、白黄黑衣、扇、鱼竿、大暗红鱼与金币。",
+      "status": "selected",
+      "sha256": "c580c2a2338762b428bd849b0c946738df187c72eb0dea31fee100ee4ebd4ddb"
+    }
+  ]
+}

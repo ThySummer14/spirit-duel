@@ -1,0 +1,176 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== godot import assets ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 项目初始化 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 正在扫描文件结构……[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 正在加载全局类名……[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | 正在校验 GDExtension……[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 正在创建自动加载脚本……[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 正在初始化插件……[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 正在启动文件扫描……[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 正在注册全局类…… (2 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  33% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started 正在扫描动作…… (26 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | axiuluo.png[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | baimugui.png[39m[0m
+[   7% ] [90m[1m_update_scan_actions[22m | banruo.png[39m[0m
+[  11% ] [90m[1m_update_scan_actions[22m | bayiqidashe.png[39m[0m
+[  14% ] [90m[1m_update_scan_actions[22m | dishitian.png[39m[0m
+[  18% ] [90m[1m_update_scan_actions[22m | duyanxiaoseng.png[39m[0m
+[  22% ] [90m[1m_update_scan_actions[22m | egui.png[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | gitongwan.png[39m[0m
+[  29% ] [90m[1m_update_scan_actions[22m | gouchang.png[39m[0m
+[  33% ] [90m[1m_update_scan_actions[22m | guishiheibai.png[39m[0m
+[  37% ] [90m[1m_update_scan_actions[22m | hetong.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | huangkulou.png[39m[0m
+[  44% ] [90m[1m_update_scan_actions[22m | huibishou.png[39m[0m
+[  48% ] [90m[1m_update_scan_actions[22m | huoqumo.png[39m[0m
+[  51% ] [90m[1m_update_scan_actions[22m | jieshen.png[39m[0m
+[  55% ] [90m[1m_update_scan_actions[22m | jingliuliqian.png[39m[0m
+[  59% ] [90m[1m_update_scan_actions[22m | jinyuji.png[39m[0m
+[  62% ] [90m[1m_update_scan_actions[22m | jiumingmao.png[39m[0m
+[  66% ] [90m[1m_update_scan_actions[22m | mianqiling.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | tieshu.png[39m[0m
+[  74% ] [90m[1m_update_scan_actions[22m | wushizhiling.png[39m[0m
+[  77% ] [90m[1m_update_scan_actions[22m | xieji.png[39m[0m
+[  81% ] [90m[1m_update_scan_actions[22m | yingxueji.png[39m[0m
+[  85% ] [90m[1m_update_scan_actions[22m | yuanjiulanghu.png[39m[0m
+[  88% ] [90m[1m_update_scan_actions[22m | yuzaoqian.png[39m[0m
+[  92% ] [90m[1m_update_scan_actions[22m | zhuiyueshen.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (26 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   3% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   7% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  11% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  14% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  18% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  22% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  25% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  29% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  33% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  37% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  40% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  44% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  48% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  51% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  55% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  59% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  62% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  66% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  70% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  74% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  77% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  81% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  85% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  88% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  92% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的前置操作……[39m[0m
+[   0% ] [90m[1mreimport[22m | zhuiyueshen.png[39m[0m
+[   3% ] [90m[1mreimport[22m | yuzaoqian.png[39m[0m
+[   7% ] [90m[1mreimport[22m | yuanjiulanghu.png[39m[0m
+[  11% ] [90m[1mreimport[22m | yingxueji.png[39m[0m
+[  14% ] [90m[1mreimport[22m | xieji.png[39m[0m
+[  18% ] [90m[1mreimport[22m | wushizhiling.png[39m[0m
+[  22% ] [90m[1mreimport[22m | tieshu.png[39m[0m
+[  25% ] [90m[1mreimport[22m | mianqiling.png[39m[0m
+[  29% ] [90m[1mreimport[22m | jiumingmao.png[39m[0m
+[  33% ] [90m[1mreimport[22m | jinyuji.png[39m[0m
+[  37% ] [90m[1mreimport[22m | jingliuliqian.png[39m[0m
+[  40% ] [90m[1mreimport[22m | jieshen.png[39m[0m
+[  44% ] [90m[1mreimport[22m | huoqumo.png[39m[0m
+[  48% ] [90m[1mreimport[22m | huibishou.png[39m[0m
+[  51% ] [90m[1mreimport[22m | huangkulou.png[39m[0m
+[  55% ] [90m[1mreimport[22m | hetong.png[39m[0m
+[  59% ] [90m[1mreimport[22m | guishiheibai.png[39m[0m
+[  62% ] [90m[1mreimport[22m | gouchang.png[39m[0m
+[  66% ] [90m[1mreimport[22m | gitongwan.png[39m[0m
+[  70% ] [90m[1mreimport[22m | egui.png[39m[0m
+[  74% ] [90m[1mreimport[22m | duyanxiaoseng.png[39m[0m
+[  77% ] [90m[1mreimport[22m | dishitian.png[39m[0m
+[  81% ] [90m[1mreimport[22m | bayiqidashe.png[39m[0m
+[  85% ] [90m[1mreimport[22m | banruo.png[39m[0m
+[  88% ] [90m[1mreimport[22m | baimugui.png[39m[0m
+[  92% ] [90m[1mreimport[22m | axiuluo.png[39m[0m
+[  96% ] [90m[1mreimport[22m | 正在结束资产导入……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (26 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的后置操作……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 正在加载编辑器 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 正在加载编辑器布局……[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 正在加载停靠面板……[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 正在重新打开场景……[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 正在加载中央编辑器布局……[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 正在加载插件窗口布局……[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 编辑器布局就绪。[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+== godot verify ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_CONTENT_OK units=250 playable=250 cards=2114
+GODOT_MATCH_OK commands=17 log=59 turn=5 winner=-1 seed=20260920
+COMMAND_LOG [{"a":{"unit":1},"c":"level_up","p":0,"r":2987955158,"t":1},{"a":{"card":"flash-thrust","hand":1,"target":null},"c":"play_card","p":0,"r":2987955158,"t":1},{"a":{"bonus":2,"target":null,"unit":0},"c":"assault","p":0,"r":2987955158,"t":1},{"
+GODOT_VERT_SLICE_OK
+== godot verify_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+UI_LOAD_OK 21
+== godot verify_save ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SAVE_OK lineup=["ember", "basalt", "lumen", "rime"] deck0=8 steps=20
+== godot verify_collection ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+COLLECTION_CHECKS checks=9 failures=0
+COLLECTION_OK pack=5 crafted=true reward=300
+== godot verify_interactions ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+INTERACTIONS checks=30 failures=0
+INTERACTIONS_OK
+== godot verify_reference_workflow ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+REFERENCE_WORKFLOW checks=187 failures=0
+REFERENCE_WORKFLOW_OK
+== godot verify_presentation ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PRESENTATION checks=119 failures=0
+PRESENTATION_OK
+== godot verify_art ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ART checks=1755 failures=0 redrawn_units=83
+ART_OK
+== godot verify_roster ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ROSTER checks=5303 failures=0 units=250 portraits=500 matches=63 covered=250 opponents=117
+ROSTER_OK
+== godot seeded matches ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PLAYTEST matches=60 completed=60 wins=[34, 26] stalls=0 avg_turn=15.5
+PLAYTEST_OK
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FOCUS rounds=20 completed=20 wins=[12, 8] stalls=0 response_games=9 choice_games=1
+FOCUS_OK
+== godot boot smoke ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_VERIFY_ALL_OK

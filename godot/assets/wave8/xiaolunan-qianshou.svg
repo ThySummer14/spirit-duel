@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">小鹿男·千守</title>
+  <desc id="desc">小鹿男·千守：森灵巡山，巨鹿神像</desc>
+  <defs>
+    <linearGradient id="xiaolunanqianshou-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c140c"/>
+      <stop offset=".55" stop-color="#142014"/>
+      <stop offset="1" stop-color="#080e08"/>
+    </linearGradient>
+    <radialGradient id="xiaolunanqianshou-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#80b070" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#408830" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#408830" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="xiaolunanqianshou-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c0d8b0"/>
+      <stop offset=".55" stop-color="#70a060"/>
+      <stop offset="1" stop-color="#408830"/>
+    </linearGradient>
+    <linearGradient id="xiaolunanqianshou-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#408830"/>
+      <stop offset="1" stop-color="#204818"/>
+    </linearGradient>
+    <linearGradient id="xiaolunanqianshou-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#xiaolunanqianshou-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#xiaolunanqianshou-halo)"/>
+  <g>
+    <path d="M100 55v90" stroke="url(#xiaolunanqianshou-acc)" stroke-width="3"/>
+    <path d="M100 80c-25-5-35-25-30-40 20 5 30 20 30 40zM100 80c25-5 35-25 30-40-20 5-30 20-30 40z" fill="url(#xiaolunanqianshou-body)" opacity=".5"/>
+    <path d="M100 110c-30 0-45-15-40-35 25 5 40 15 40 35zM100 110c30 0 45-15 40-35-25 5-40 15-40 35z" fill="url(#xiaolunanqianshou-acc)" opacity=".45"/>
+  </g>
+<g fill="url(#xiaolunanqianshou-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#408830" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

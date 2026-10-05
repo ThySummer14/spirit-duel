@@ -1,0 +1,93 @@
+[
+  {
+    "sample": "divination-choice",
+    "seed": 888001,
+    "match": true,
+    "finalDiffs": [],
+    "stepDiffs": [],
+    "summary": {
+      "finalDiffCount": 0,
+      "stepDiffCount": 0,
+      "jsSteps": 5,
+      "godotSteps": 5
+    }
+  },
+  {
+    "sample": "fortune-encourage",
+    "seed": 888002,
+    "match": true,
+    "finalDiffs": [],
+    "stepDiffs": [],
+    "summary": {
+      "finalDiffCount": 0,
+      "stepDiffCount": 0,
+      "jsSteps": 5,
+      "godotSteps": 5
+    }
+  },
+  {
+    "sample": "combat-keywords",
+    "seed": 424242,
+    "match": true,
+    "finalDiffs": [],
+    "stepDiffs": [],
+    "summary": {
+      "finalDiffCount": 0,
+      "stepDiffCount": 0,
+      "jsSteps": 13,
+      "godotSteps": 13
+    }
+  },
+  {
+    "sample": "origin-core-loop",
+    "seed": 20260920,
+    "match": true,
+    "finalDiffs": [],
+    "stepDiffs": [],
+    "summary": {
+      "finalDiffCount": 0,
+      "stepDiffCount": 0,
+      "jsSteps": 16,
+      "godotSteps": 16
+    }
+  },
+  {
+    "sample": "response-play-nest",
+    "seed": 777002,
+    "match": true,
+    "finalDiffs": [],
+    "stepDiffs": [],
+    "summary": {
+      "finalDiffCount": 0,
+      "stepDiffCount": 0,
+      "jsSteps": 8,
+      "godotSteps": 8
+    }
+  },
+  {
+    "sample": "response-pass-chain",
+    "seed": 777001,
+    "match": true,
+    "finalDiffs": [],
+    "stepDiffs": [],
+    "summary": {
+      "finalDiffCount": 0,
+      "stepDiffCount": 0,
+      "jsSteps": 8,
+      "godotSteps": 8
+    }
+  },
+  {
+    "sample": "targeted-response-opponent-turn",
+    "seed": 777004,
+    "match": true,
+    "finalDiffs": [],
+    "stepDiffs": [],
+    "summary": {
+      "finalDiffCount": 0,
+      "stepDiffCount": 0,
+      "jsSteps": 4,
+      "godotSteps": 4
+    }
+  }
+]

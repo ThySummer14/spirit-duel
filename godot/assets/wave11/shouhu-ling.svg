@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">守护灵</title>
+  <desc id="desc">守护灵：犬神兵俑信念，永世护主</desc>
+  <defs>
+    <linearGradient id="shouhuling-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1014"/>
+      <stop offset=".55" stop-color="#141c28"/>
+      <stop offset="1" stop-color="#080a10"/>
+    </linearGradient>
+    <radialGradient id="shouhuling-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#90b0c0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#406880" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#406880" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shouhuling-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c0d0d8"/>
+      <stop offset=".55" stop-color="#708898"/>
+      <stop offset="1" stop-color="#406880"/>
+    </linearGradient>
+    <linearGradient id="shouhuling-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#406880"/>
+      <stop offset="1" stop-color="#183040"/>
+    </linearGradient>
+    <linearGradient id="shouhuling-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#shouhuling-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#shouhuling-halo)"/>
+  <g>
+    <path d="M100 70l40 18v35c0 28-18 48-40 58-22-10-40-30-40-58V88Z" fill="url(#shouhuling-body)" opacity=".75" stroke="#203040" stroke-width="1.8"/>
+    <path d="M100 85l28 12v28c0 20-12 34-28 42-16-8-28-22-28-42V97Z" fill="url(#shouhuling-acc)" opacity=".45"/>
+    <circle cx="100" cy="115" r="8" fill="url(#shouhuling-gold)" opacity=".85"/>
+    <path d="M100 123v18" stroke="url(#shouhuling-gold)" stroke-width="2"/>
+    <path d="M55 175c25 10 65 10 90 0" stroke="url(#shouhuling-body)" stroke-width="2" fill="none" opacity=".5"/>
+  </g>
+<g fill="url(#shouhuling-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#406880" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

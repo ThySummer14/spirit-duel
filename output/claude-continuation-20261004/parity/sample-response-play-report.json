@@ -1,0 +1,13 @@
+{
+  "sample": "response-play-nest",
+  "seed": 777002,
+  "match": true,
+  "finalDiffs": [],
+  "stepDiffs": [],
+  "summary": {
+    "finalDiffCount": 0,
+    "stepDiffCount": 0,
+    "jsSteps": 8,
+    "godotSteps": 8
+  }
+}

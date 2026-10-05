@@ -1,0 +1,13 @@
+{
+  "sample": "combat-keywords",
+  "seed": 424242,
+  "match": true,
+  "finalDiffs": [],
+  "stepDiffs": [],
+  "summary": {
+    "finalDiffCount": 0,
+    "stepDiffCount": 0,
+    "jsSteps": 13,
+    "godotSteps": 13
+  }
+}

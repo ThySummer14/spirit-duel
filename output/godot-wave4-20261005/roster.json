@@ -1,0 +1,262 @@
+[
+  {
+    "id": "jieshen",
+    "name": "缘结神",
+    "role": "216",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/21600_缘结神.png",
+    "output": "godot/assets/redrawn/wave4/jieshen.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "gitongwan",
+    "name": "鬼童丸",
+    "role": "214",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/21400_鬼童丸.png",
+    "output": "godot/assets/redrawn/wave4/gitongwan.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "banruo",
+    "name": "般若",
+    "role": "215",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/21500_般若.png",
+    "output": "godot/assets/redrawn/wave4/banruo.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "tieshu",
+    "name": "铁鼠",
+    "role": "212",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/21200_铁鼠.png",
+    "output": "godot/assets/redrawn/wave4/tieshu.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "hetong",
+    "name": "河童",
+    "role": "213",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/21300_河童.png",
+    "output": "godot/assets/redrawn/wave4/hetong.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "zhuiyueshen",
+    "name": "追月神",
+    "role": "197",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/19700_追月神.png",
+    "output": "godot/assets/redrawn/wave4/zhuiyueshen.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "baimugui",
+    "name": "百目鬼",
+    "role": "196",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/19600_百目鬼.png",
+    "output": "godot/assets/redrawn/wave4/baimugui.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "wushizhiling",
+    "name": "武士之灵",
+    "role": "193",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/19300_武士之灵.png",
+    "output": "godot/assets/redrawn/wave4/wushizhiling.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "guishiheibai",
+    "name": "鬼使黑/鬼使白",
+    "role": "194",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/19400_鬼使黑_鬼使白.png",
+    "output": "godot/assets/redrawn/wave4/guishiheibai.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "huoqumo",
+    "name": "火取魔",
+    "role": "204",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/20400_火取魔.png",
+    "output": "godot/assets/redrawn/wave4/huoqumo.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "yuanjiulanghu",
+    "name": "源九郎狐",
+    "role": "205",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/20500_源九郎狐.png",
+    "output": "godot/assets/redrawn/wave4/yuanjiulanghu.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "yingxueji",
+    "name": "樱雪姬",
+    "role": "207",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/20700_樱雪姬.png",
+    "output": "godot/assets/redrawn/wave4/yingxueji.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "jingliuliqian",
+    "name": "净琉璃御前",
+    "role": "206",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/20600_净琉璃御前.png",
+    "output": "godot/assets/redrawn/wave4/jingliuliqian.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "egui",
+    "name": "饿鬼",
+    "role": "217",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/21700_饿鬼.png",
+    "output": "godot/assets/redrawn/wave4/egui.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "duyanxiaoseng",
+    "name": "独眼小僧",
+    "role": "188",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/18800_独眼小僧.png",
+    "output": "godot/assets/redrawn/wave4/duyanxiaoseng.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "mianqiling",
+    "name": "面灵气",
+    "role": "208",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/20800_面灵气.png",
+    "output": "godot/assets/redrawn/wave4/mianqiling.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "jiumingmao",
+    "name": "九命猫",
+    "role": "201",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/20100_九命猫.png",
+    "output": "godot/assets/redrawn/wave4/jiumingmao.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "axiuluo",
+    "name": "阿修罗",
+    "role": "224",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/22400_阿修罗.png",
+    "output": "godot/assets/redrawn/wave4/axiuluo.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "bayiqidashe",
+    "name": "八岐大蛇",
+    "role": "220",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/22000_八岐大蛇.png",
+    "output": "godot/assets/redrawn/wave4/bayiqidashe.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "jinyuji",
+    "name": "金鱼姬",
+    "role": "227",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/22700_金鱼姬.png",
+    "output": "godot/assets/redrawn/wave4/jinyuji.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "huangkulou",
+    "name": "荒骷髅",
+    "role": "226",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/22600_荒骷髅.png",
+    "output": "godot/assets/redrawn/wave4/huangkulou.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "gouchang",
+    "name": "垢尝",
+    "role": "211",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/21100_垢尝.png",
+    "output": "godot/assets/redrawn/wave4/gouchang.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "dishitian",
+    "name": "帝释天",
+    "role": "225",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/22500_帝释天.png",
+    "output": "godot/assets/redrawn/wave4/dishitian.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "xieji",
+    "name": "蟹姬",
+    "role": "210",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/21000_蟹姬.png",
+    "output": "godot/assets/redrawn/wave4/xieji.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "yuzaoqian",
+    "name": "玉藻前",
+    "role": "221",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/22100_玉藻前.png",
+    "output": "godot/assets/redrawn/wave4/yuzaoqian.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  },
+  {
+    "id": "huibishou",
+    "name": "惠比寿",
+    "role": "209",
+    "pack": "wave4",
+    "reference": "art-reference-official/卡面/01_式神/20900_惠比寿.png",
+    "output": "godot/assets/redrawn/wave4/huibishou.png",
+    "inputPolicy": "original-reference-only",
+    "mode": "built-in image_gen; reference redraw"
+  }
+]

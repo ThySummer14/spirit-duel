@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="leiyin-t leiyin-d">
+  <title id="leiyin-t">雷音</title>
+  <desc id="leiyin-d">灵枢原创式神立绘</desc>
+  <defs>
+    <linearGradient id="leiyin-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241838"/><stop offset="1" stop-color="#382850"/>
+    </linearGradient>
+    <radialGradient id="leiyin-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#e8d0ff" stop-opacity=".4"/><stop offset="1" stop-color="#c0a0e0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="leiyin-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8d0ff"/><stop offset="1" stop-color="#c0a0e0"/>
+    </linearGradient>
+    <linearGradient id="leiyin-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8d0ff"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#leiyin-bg)"/>
+  <rect width="200" height="260" fill="url(#leiyin-halo)"/>
+  
+  <g><polygon points="100,45 130,110 100,105 70,110" fill="url(#p-accent)"/><rect x="70" y="105" width="60" height="70" rx="10" fill="url(#p-body)"/><path d="M85 130 L115 130 M90 150 L110 150" stroke="#f0e8d0" stroke-width="3"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#f0e8d0">雷音</text>
+</svg>

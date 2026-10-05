@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="momo_a-t momo_a-d">
+  <title id="momo_a-t">觉醒·墨蚀</title>
+  <desc id="momo_a-d">灵枢原创式神立绘</desc>
+  <defs>
+    <linearGradient id="momo_a-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1828"/><stop offset="1" stop-color="#2e2840"/>
+    </linearGradient>
+    <radialGradient id="momo_a-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#b0a0c8" stop-opacity=".4"/><stop offset="1" stop-color="#6a5a80" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="momo_a-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b0a0c8"/><stop offset="1" stop-color="#6a5a80"/>
+    </linearGradient>
+    <linearGradient id="momo_a-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b0a0c8"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#momo_a-bg)"/>
+  <rect width="200" height="260" fill="url(#momo_a-halo)"/>
+  <circle cx="100" cy="115" r="72" fill="none" stroke="#c9762c" stroke-width="3" opacity=".7"/>
+  <g filter="url(#p-glow)"><ellipse cx="100" cy="125" rx="42" ry="45" fill="url(#p-body)"/><path d="M70 90 Q100 70 130 90" stroke="url(#p-accent)" stroke-width="10" fill="none"/><ellipse cx="88" cy="120" rx="6" ry="8" fill="#e8e0f0"/><ellipse cx="112" cy="120" rx="6" ry="8" fill="#e8e0f0"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#f0e8d0">墨蚀</text>
+</svg>

@@ -1,0 +1,137 @@
+{
+  "screenshots": 19,
+  "size": [
+    1280,
+    800
+  ],
+  "unique": 19,
+  "gallery_pages": 4,
+  "formation": 1,
+  "deck_screens": 7,
+  "battle_screens": 7,
+  "battle_coverage": 26,
+  "groups": [
+    {
+      "shot": "04-wave4-battle-01.png",
+      "allies": [
+        "jieshen",
+        "gitongwan",
+        "banruo",
+        "tieshu"
+      ],
+      "opponents": [
+        "hetong",
+        "zhuiyueshen",
+        "baimugui",
+        "wushizhiling"
+      ],
+      "deck": "03-wave4-deck-01.png",
+      "deck_owner": "jieshen"
+    },
+    {
+      "shot": "04-wave4-battle-02.png",
+      "allies": [
+        "hetong",
+        "zhuiyueshen",
+        "baimugui",
+        "wushizhiling"
+      ],
+      "opponents": [
+        "guishiheibai",
+        "huoqumo",
+        "yuanjiulanghu",
+        "yingxueji"
+      ],
+      "deck": "03-wave4-deck-02.png",
+      "deck_owner": "hetong"
+    },
+    {
+      "shot": "04-wave4-battle-03.png",
+      "allies": [
+        "guishiheibai",
+        "huoqumo",
+        "yuanjiulanghu",
+        "yingxueji"
+      ],
+      "opponents": [
+        "jingliuliqian",
+        "egui",
+        "duyanxiaoseng",
+        "mianqiling"
+      ],
+      "deck": "03-wave4-deck-03.png",
+      "deck_owner": "guishiheibai"
+    },
+    {
+      "shot": "04-wave4-battle-04.png",
+      "allies": [
+        "jingliuliqian",
+        "egui",
+        "duyanxiaoseng",
+        "mianqiling"
+      ],
+      "opponents": [
+        "jiumingmao",
+        "axiuluo",
+        "bayiqidashe",
+        "jinyuji"
+      ],
+      "deck": "03-wave4-deck-04.png",
+      "deck_owner": "jingliuliqian"
+    },
+    {
+      "shot": "04-wave4-battle-05.png",
+      "allies": [
+        "jiumingmao",
+        "axiuluo",
+        "bayiqidashe",
+        "jinyuji"
+      ],
+      "opponents": [
+        "huangkulou",
+        "gouchang",
+        "dishitian",
+        "xieji"
+      ],
+      "deck": "03-wave4-deck-05.png",
+      "deck_owner": "jiumingmao"
+    },
+    {
+      "shot": "04-wave4-battle-06.png",
+      "allies": [
+        "huangkulou",
+        "gouchang",
+        "dishitian",
+        "xieji"
+      ],
+      "opponents": [
+        "yuzaoqian",
+        "huibishou",
+        "jieshen",
+        "gitongwan"
+      ],
+      "deck": "03-wave4-deck-06.png",
+      "deck_owner": "huangkulou"
+    },
+    {
+      "shot": "04-wave4-battle-07.png",
+      "allies": [
+        "yuzaoqian",
+        "huibishou",
+        "jieshen",
+        "gitongwan"
+      ],
+      "opponents": [
+        "banruo",
+        "tieshu",
+        "hetong",
+        "zhuiyueshen"
+      ],
+      "deck": "03-wave4-deck-07.png",
+      "deck_owner": "yuzaoqian"
+    }
+  ],
+  "visual_review": "逐页查看全部 26 位画册、一张编组、七组战场及七张构筑对照；角色归属正确，面部焦点与卡面显示正常。",
+  "log_errors": 0,
+  "log_warnings": 0
+}

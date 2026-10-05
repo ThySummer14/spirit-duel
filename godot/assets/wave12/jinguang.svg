@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="jinguang-t jinguang-d">
+  <title id="jinguang-t">辉印</title>
+  <desc id="jinguang-d">灵枢原创式神立绘</desc>
+  <defs>
+    <linearGradient id="jinguang-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#302818"/><stop offset="1" stop-color="#4a3c20"/>
+    </linearGradient>
+    <radialGradient id="jinguang-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#ffe890" stop-opacity=".4"/><stop offset="1" stop-color="#e0c060" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="jinguang-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe890"/><stop offset="1" stop-color="#e0c060"/>
+    </linearGradient>
+    <linearGradient id="jinguang-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe890"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#jinguang-bg)"/>
+  <rect width="200" height="260" fill="url(#jinguang-halo)"/>
+  
+  <g><circle cx="100" cy="110" r="36" fill="url(#p-body)"/><circle cx="100" cy="110" r="20" fill="none" stroke="url(#p-accent)" stroke-width="5"/><rect x="85" y="150" width="30" height="36" rx="6" fill="url(#p-accent)" opacity=".85"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#f0e8d0">辉印</text>
+</svg>

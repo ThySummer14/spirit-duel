@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">千姬 · 觉醒相</title>
+  <desc id="desc">千姬：海原贝戟与潮纹，珠光流转。觉醒相：鎏金环阵与绯焰符印</desc>
+  <defs>
+    <linearGradient id="qianji-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#081018"/>
+      <stop offset=".55" stop-color="#102030"/>
+      <stop offset="1" stop-color="#060a12"/>
+    </linearGradient>
+    <radialGradient id="qianji-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#70b0e0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#3080b0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#3080b0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="qianji-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c0e0f8"/>
+      <stop offset=".55" stop-color="#70a0c0"/>
+      <stop offset="1" stop-color="#3080b0"/>
+    </linearGradient>
+    <linearGradient id="qianji-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3080b0"/>
+      <stop offset="1" stop-color="#183858"/>
+    </linearGradient>
+    <linearGradient id="qianji-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#qianji-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#qianji-halo)"/>
+  <g>
+    <path d="M100 50v120" stroke="url(#qianji-body)" stroke-width="3.5"/>
+    <path d="M100 50c-8 10-8 22 0 30 8-8 8-20 0-30z" fill="url(#qianji-gold)"/>
+    <circle cx="100" cy="95" r="8" fill="url(#qianji-acc)"/>
+    <path d="M55 175c15-12 35-12 45 0 10-12 30-12 45 0" fill="none" stroke="url(#qianji-acc)" stroke-width="2.2"/>
+    <path d="M60 190c14-8 32-8 40 0 8-8 26-8 40 0" fill="none" stroke="url(#qianji-body)" stroke-width="1.5" opacity=".6"/>
+  </g>
+<g fill="url(#qianji-acc)">
+    <circle cx="42" cy="85" r="2" opacity=".6"/>
+    <circle cx="160" cy="88" r="1.8" opacity=".55"/>
+    <circle cx="38" cy="160" r="1.6" opacity=".5"/>
+    <circle cx="164" cy="162" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="30" r="1.5" opacity=".5"/>
+    <circle cx="70" cy="210" r="1.4" opacity=".5"/>
+    <circle cx="130" cy="210" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <g aria-hidden="true">
+    <circle cx="100" cy="112" r="99" fill="rgba(255, 233, 178, 0.35)" opacity=".55"/>
+    <g fill="none" stroke="url(#qianji-gold)">
+      <circle cx="100" cy="112" r="90" stroke-width="1.6" stroke-dasharray="11 7" opacity=".78"/>
+      <circle cx="100" cy="112" r="83.5" stroke-width=".8" opacity=".4"/>
+    </g>
+    <g>
+      <circle cx="24.7" cy="68.5" r="6" fill="url(#qianji-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="24.7" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="175.3" cy="68.5" r="6" fill="url(#qianji-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="175.3" cy="68.5" r="1.8" fill="#ff8a3d"/>
+      <circle cx="100" cy="199" r="6" fill="url(#qianji-gold)" stroke="#59371b" stroke-width="1"/>
+      <circle cx="100" cy="199" r="1.8" fill="#ff8a3d"/>
+    </g>
+    <path d="M100 16c5 7 5.5 12 0 19-5.5-7-5-12 0-19z" fill="url(#qianji-gold)"/>
+    <g stroke="url(#qianji-gold)" stroke-width="1" opacity=".7">
+      <path d="M84 26h-7M123 26h7M88 14l-5-4M112 14l5-4M88 38l-5 4M112 38l5 4"/>
+    </g>
+    <g fill="#ffd98a" opacity=".8">
+      <circle cx="38" cy="88" r="2.4"/><circle cx="162" cy="94" r="2"/>
+      <circle cx="52" cy="170" r="1.8"/><circle cx="150" cy="176" r="2.2"/>
+    </g>
+    <g fill="#ffe6a8" opacity=".7">
+      <circle cx="66" cy="48" r="1.2"/><circle cx="134" cy="48" r="1.2"/>
+      <circle cx="100" cy="208" r="1.4"/>
+    </g>
+  </g>
+  <rect width="200" height="260" fill="none" stroke="#3080b0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

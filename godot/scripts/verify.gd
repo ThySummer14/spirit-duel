@@ -35,7 +35,7 @@ func _verify_content() -> int:
 		return 1
 	var seen := {}
 	for card in cards:
-		if seen.has(card.id) or not content.by_id.has(card.unitId):
+		if seen.has(card.id) or not content.units_by_id.has(card.unitId):
 			push_error("Duplicate card or missing owner: " + str(card.id))
 			return 1
 		seen[card.id] = true

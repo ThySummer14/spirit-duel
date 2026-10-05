@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "policy": "Project-setting generation authorized by user; preserve unit identity and unified style.",
+  "units": [
+    {
+      "id": "shiyao-longyechaji",
+      "name": "时曜泷夜叉姬",
+      "role": "destiny-shiyao-longyechaji",
+      "pack": "wave13",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave13/shiyao-longyechaji.svg",
+      "setting": {
+        "id": "shiyao-longyechaji",
+        "name": "时曜泷夜叉姬",
+        "title": "时曜",
+        "role": "时序 / 爆发",
+        "strategy": "时曜回响，叉影连斩。",
+        "color": "#7a8ab8",
+        "officialAbility": "命运抉择·时曜泷夜叉姬（卡库快照后式神，按公开设定简化）。",
+        "svgDescription": ""
+      },
+      "output": "godot/assets/redrawn/wave13/shiyao-longyechaji.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A time-and-light battle princess, long silver-blue hair, layered dark indigo and pale blue armor robes, long forked polearm, subtle circular astronomical time rings and silver-blue blade trails. Female adult face clear; austere warrior posture.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 时曜泷夜叉姬: A time-and-light battle princess, long silver-blue hair, layered dark indigo and pale blue armor robes, long forked polearm, subtle circular astronomical time rings and silver-blue blade trails. Female adult face clear; austere warrior posture.\nProject palette: #7a8ab8.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-61626039-cf79-4edc-a2df-2b45b741cf35.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-61626039-cf79-4edc-a2df-2b45b741cf35.png",
+      "focus": [
+        0.476,
+        0.155
+      ]
+    },
+    {
+      "id": "baize-yuanqi",
+      "name": "白泽·缘起",
+      "role": "destiny-baize-yuanqi",
+      "pack": "wave13",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave13/baize-yuanqi.svg",
+      "setting": {
+        "id": "baize-yuanqi",
+        "name": "白泽·缘起",
+        "title": "缘起",
+        "role": "占卜 / 支援",
+        "strategy": "缘起星轨，白泽渡厄。",
+        "color": "#a0c8b0",
+        "officialAbility": "命运抉择·白泽·缘起（白泽重制位，按公开设定简化）。",
+        "svgDescription": ""
+      },
+      "output": "godot/assets/redrawn/wave13/baize-yuanqi.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A wise Baize-inspired auspicious white mythical beast with elegant horns and soft long mane, pale jade and white-gold ornament, benevolent expressive animal face, a few fine green-gold fate threads and divining stars. Creature form, not a generic humanoid.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 白泽·缘起: A wise Baize-inspired auspicious white mythical beast with elegant horns and soft long mane, pale jade and white-gold ornament, benevolent expressive animal face, a few fine green-gold fate threads and divining stars. Creature form, not a generic humanoid.\nProject palette: #a0c8b0.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-68ade598-cfb4-4da3-89cf-620ded927503.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-68ade598-cfb4-4da3-89cf-620ded927503.png",
+      "focus": [
+        0.598,
+        0.199
+      ]
+    },
+    {
+      "id": "shenqi-huang",
+      "name": "神启荒",
+      "role": "destiny-shenqi-huang",
+      "pack": "wave13",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave13/shenqi-huang.svg",
+      "setting": {
+        "id": "shenqi-huang",
+        "name": "神启荒",
+        "title": "神启",
+        "role": "星辰 / 法术",
+        "strategy": "神启星陨，荒原裁决。",
+        "color": "#8898c8",
+        "officialAbility": "命运抉择·神启荒（荒变体，按公开设定简化）。",
+        "svgDescription": ""
+      },
+      "output": "godot/assets/redrawn/wave13/shenqi-huang.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A star-revelation deity inspired by Huang: tall adult male with long deep indigo hair, white and dark blue celestial robes, pale gold accents, clear calm stern face, floating planets and star orbits in blue night. Distinct dignified celestial silhouette.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 神启荒: A star-revelation deity inspired by Huang: tall adult male with long deep indigo hair, white and dark blue celestial robes, pale gold accents, clear calm stern face, floating planets and star orbits in blue night. Distinct dignified celestial silhouette.\nProject palette: #8898c8.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2e85e0a7-00aa-4680-b20b-b0d7f4c41255.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-2e85e0a7-00aa-4680-b20b-b0d7f4c41255.png",
+      "focus": [
+        0.507,
+        0.161
+      ]
+    },
+    {
+      "id": "xuan",
+      "name": "璇",
+      "role": "destiny-xuan",
+      "pack": "wave13",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave13/xuan.svg",
+      "setting": {
+        "id": "xuan",
+        "name": "璇",
+        "title": "璇玑",
+        "role": "平衡 / 光暗",
+        "strategy": "璇玑双衡，光暗相济。",
+        "color": "#c8b8d8",
+        "officialAbility": "命运抉择·璇（卡库快照后式神，按公开设定简化）。",
+        "svgDescription": ""
+      },
+      "output": "godot/assets/redrawn/wave13/xuan.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A deity of balanced light and shadow, pale lavender long hair, flowing lilac-white and deep violet robes, clear serene adult face, holding two opposed luminous and dark spheres, thin balanced orbital rings, restrained lavender palette.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 璇: A deity of balanced light and shadow, pale lavender long hair, flowing lilac-white and deep violet robes, clear serene adult face, holding two opposed luminous and dark spheres, thin balanced orbital rings, restrained lavender palette.\nProject palette: #c8b8d8.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-249a58a6-3896-4c89-b2a3-2154d6557f39.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-249a58a6-3896-4c89-b2a3-2154d6557f39.png",
+      "focus": [
+        0.49,
+        0.163
+      ]
+    },
+    {
+      "id": "yuyuan-banruo",
+      "name": "御怨般若",
+      "role": "destiny-yuyuan-banruo",
+      "pack": "wave13",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave13/yuyuan-banruo.svg",
+      "setting": {
+        "id": "yuyuan-banruo",
+        "name": "御怨般若",
+        "title": "御怨",
+        "role": "怨念 / 破甲",
+        "strategy": "御怨蚀心，般若笑面。",
+        "color": "#c06070",
+        "officialAbility": "命运抉择·御怨般若（般若重制位，按公开设定简化）。",
+        "svgDescription": ""
+      },
+      "output": "godot/assets/redrawn/wave13/yuyuan-banruo.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A grudge-governing hannya spirit, long pale hair, narrow clear face, dark red-black ceremonial robes, pale horned hannya mask held beside the face, curling crimson resentment cords and ghostly pale masks. Keep real face separate from mask.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 御怨般若: A grudge-governing hannya spirit, long pale hair, narrow clear face, dark red-black ceremonial robes, pale horned hannya mask held beside the face, curling crimson resentment cords and ghostly pale masks. Keep real face separate from mask.\nProject palette: #c06070.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5aaf2125-f674-451d-a1d1-5465b5b21908.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-5aaf2125-f674-451d-a1d1-5465b5b21908.png",
+      "focus": [
+        0.566,
+        0.218
+      ]
+    },
+    {
+      "id": "luohou",
+      "name": "罗睺",
+      "role": "destiny-luohou",
+      "pack": "wave13",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave13/luohou.svg",
+      "setting": {
+        "id": "luohou",
+        "name": "罗睺",
+        "title": "蚀日",
+        "role": "暗蚀 / 压制",
+        "strategy": "蚀日吞光，罗睺压境。",
+        "color": "#6a5060",
+        "officialAbility": "命运抉择·罗睺（卡库快照后式神，按公开设定简化）。",
+        "svgDescription": ""
+      },
+      "output": "godot/assets/redrawn/wave13/luohou.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "An eclipse-eating Rahu spirit: dark plum-black horned celestial dragon-like demon with a readable serpentine head and luminous pale violet eyes, curving clawed body embracing a black sun with a thin silver-violet rim, shadow tendrils. No blank eclipse alone: creature face is clear.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 罗睺: An eclipse-eating Rahu spirit: dark plum-black horned celestial dragon-like demon with a readable serpentine head and luminous pale violet eyes, curving clawed body embracing a black sun with a thin silver-violet rim, shadow tendrils. No blank eclipse alone: creature face is clear.\nProject palette: #6a5060.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-eada3fa2-e3b5-4956-8a56-a6241b4e5e8e.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-eada3fa2-e3b5-4956-8a56-a6241b4e5e8e.png",
+      "focus": [
+        0.588,
+        0.366
+      ]
+    }
+  ],
+  "coverage": "complete-pack",
+  "settingGenerationAuthorization": "用户 2026-10-05：允许按现有设定补画，统一画风。"
+}

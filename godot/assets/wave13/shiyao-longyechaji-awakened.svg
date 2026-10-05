@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img">
+  <title>觉醒·时曜</title>
+  <defs>
+    <linearGradient id="shiyao_longyechaji_a-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c2438"/><stop offset="1" stop-color="#2c3858"/>
+    </linearGradient>
+    <radialGradient id="shiyao_longyechaji_a-halo" cx=".5" cy=".42" r=".55">
+      <stop offset="0" stop-color="#c0d0f0" stop-opacity=".4"/><stop offset="1" stop-color="#7a8ab8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shiyao_longyechaji_a-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c0d0f0"/><stop offset="1" stop-color="#7a8ab8"/>
+    </linearGradient>
+    <linearGradient id="shiyao_longyechaji_a-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c0d0f0"/><stop offset="1" stop-color="#f0e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#shiyao_longyechaji_a-bg)"/>
+  <rect width="200" height="260" fill="url(#shiyao_longyechaji_a-halo)"/>
+  <circle cx="100" cy="115" r="72" fill="none" stroke="#c9762c" stroke-width="3" opacity=".7"/>
+  <g><polygon points="100,40 135,105 100,100 65,105" fill="url(#p-accent)"/><rect x="72" y="100" width="56" height="75" rx="10" fill="url(#p-body)"/><path d="M80 130 H120" stroke="#e8e0f0" stroke-width="3"/></g>
+  <text x="100" y="230" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#f0e8d0">时曜</text>
+</svg>

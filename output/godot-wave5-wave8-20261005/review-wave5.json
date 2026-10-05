@@ -1,0 +1,96 @@
+{
+  "pack": "wave5",
+  "units": 24,
+  "status": "accepted",
+  "originalAndSelectedCompared": true,
+  "comparisonSheets": [
+    "review/wave5-comparison-01.jpg",
+    "review/wave5-comparison-02.jpg",
+    "review/wave5-comparison-03.jpg",
+    "review/wave5-comparison-04.jpg",
+    "review/wave5-comparison-05.jpg",
+    "review/wave5-comparison-06.jpg"
+  ],
+  "allGameScreenshotsViewed": true,
+  "screenshots": [
+    "final-shots/wave5/01-wave5-portraits-01.png",
+    "final-shots/wave5/01-wave5-portraits-02.png",
+    "final-shots/wave5/01-wave5-portraits-03.png",
+    "final-shots/wave5/02-wave5-formation.png",
+    "final-shots/wave5/03-wave5-deck-01.png",
+    "final-shots/wave5/03-wave5-deck-02.png",
+    "final-shots/wave5/03-wave5-deck-03.png",
+    "final-shots/wave5/03-wave5-deck-04.png",
+    "final-shots/wave5/03-wave5-deck-05.png",
+    "final-shots/wave5/03-wave5-deck-06.png",
+    "final-shots/wave5/04-wave5-battle-01.png",
+    "final-shots/wave5/04-wave5-battle-02.png",
+    "final-shots/wave5/04-wave5-battle-03.png",
+    "final-shots/wave5/04-wave5-battle-04.png",
+    "final-shots/wave5/04-wave5-battle-05.png",
+    "final-shots/wave5/04-wave5-battle-06.png"
+  ],
+  "portraitFocusReviewed": true,
+  "checks": [
+    "Identity, costume variant, props and paired/mounted figures match corresponding original",
+    "Final images have no printed card border, stat/name panels or affiliation badges",
+    "Faces, limbs, card art cropping and gallery/formation/deck/battle rendering visually reviewed"
+  ],
+  "originalOnlyRevisions": [
+    {
+      "id": "tengji",
+      "attempts": 1
+    },
+    {
+      "id": "huaniajuan",
+      "attempts": 1
+    },
+    {
+      "id": "yanmo",
+      "attempts": 1
+    },
+    {
+      "id": "kuileishi",
+      "attempts": 1
+    },
+    {
+      "id": "baizangzhu",
+      "attempts": 1
+    },
+    {
+      "id": "rulianshi",
+      "attempts": 1
+    },
+    {
+      "id": "xiazhongshaonv",
+      "attempts": 1
+    },
+    {
+      "id": "wuwu",
+      "attempts": 1
+    },
+    {
+      "id": "qianji",
+      "attempts": 1
+    },
+    {
+      "id": "shiling",
+      "attempts": 1
+    },
+    {
+      "id": "maozhanggui",
+      "attempts": 1
+    },
+    {
+      "id": "xingxiongtongzi",
+      "attempts": 1
+    },
+    {
+      "id": "yixigong",
+      "attempts": 1
+    }
+  ],
+  "captureErrors": 0,
+  "captureWarnings": 0,
+  "limitations": "Viewport capture with automated inputs; ordinary, awakening and skills still share owner portrait."
+}

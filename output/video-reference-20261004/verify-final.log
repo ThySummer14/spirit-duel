@@ -1,0 +1,45 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content
+== godot verify ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_CONTENT_OK units=250 playable=250 cards=2114
+GODOT_MATCH_OK commands=17 log=59 turn=5 winner=-1 seed=20260920
+COMMAND_LOG [{"a":{"unit":1},"c":"level_up","p":0,"r":2987955158,"t":1},{"a":{"card":"flash-thrust","hand":1,"target":null},"c":"play_card","p":0,"r":2987955158,"t":1},{"a":{"bonus":2,"target":null,"unit":0},"c":"assault","p":0,"r":2987955158,"t":1},{"
+GODOT_VERT_SLICE_OK
+== godot verify_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+UI_LOAD_OK 15
+== godot verify_save ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SAVE_OK lineup=["ember", "basalt", "lumen", "rime"] deck0=8 steps=20
+== godot verify_collection ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+COLLECTION_CHECKS checks=9 failures=0
+COLLECTION_OK pack=5 crafted=true reward=300
+== godot verify_interactions ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+INTERACTIONS checks=30 failures=0
+INTERACTIONS_OK
+== godot verify_reference_workflow ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+REFERENCE_WORKFLOW checks=186 failures=0
+REFERENCE_WORKFLOW_OK
+== godot seeded matches ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PLAYTEST matches=60 completed=60 wins=[33, 27] stalls=0 avg_turn=15.6
+PLAYTEST_OK
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FOCUS rounds=20 completed=20 wins=[12, 8] stalls=0 response_games=9 choice_games=1
+FOCUS_OK
+== godot boot smoke ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_VERIFY_ALL_OK

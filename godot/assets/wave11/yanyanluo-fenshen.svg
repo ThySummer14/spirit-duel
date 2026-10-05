@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">烟烟罗分身</title>
+  <desc id="desc">烟烟罗分身：烟雾散形，瘴蚀真形</desc>
+  <defs>
+    <linearGradient id="yanyanluofenshen-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#100c14"/>
+      <stop offset=".55" stop-color="#181424"/>
+      <stop offset="1" stop-color="#0a0810"/>
+    </linearGradient>
+    <radialGradient id="yanyanluofenshen-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#b0a0c8" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#6050a0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#6050a0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="yanyanluofenshen-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#d0c8e0"/>
+      <stop offset=".55" stop-color="#8878a8"/>
+      <stop offset="1" stop-color="#6050a0"/>
+    </linearGradient>
+    <linearGradient id="yanyanluofenshen-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6050a0"/>
+      <stop offset="1" stop-color="#282050"/>
+    </linearGradient>
+    <linearGradient id="yanyanluofenshen-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#yanyanluofenshen-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#yanyanluofenshen-halo)"/>
+  <g fill="none" stroke="url(#yanyanluofenshen-body)" stroke-width="3" stroke-linecap="round" opacity=".75">
+    <path d="M55 150c15-25 30-40 45-40s30 15 45 40"/>
+    <path d="M60 125c12-20 25-32 40-32s28 12 40 32"/>
+    <path d="M70 100c8-14 18-22 30-22s22 8 30 22"/>
+  </g>
+  <g>
+    <ellipse cx="100" cy="88" rx="16" ry="14" fill="url(#yanyanluofenshen-acc)" opacity=".65"/>
+    <circle cx="93" cy="86" r="2.5" fill="#2a2030"/><circle cx="107" cy="86" r="2.5" fill="#2a2030"/>
+    <path d="M70 175c20 8 50 8 70 0" stroke="url(#yanyanluofenshen-acc)" stroke-width="2" fill="none" opacity=".5"/>
+    <circle cx="48" cy="130" r="6" fill="url(#yanyanluofenshen-acc)" opacity=".35"/>
+    <circle cx="155" cy="140" r="5" fill="url(#yanyanluofenshen-acc)" opacity=".3"/>
+  </g>
+<g fill="url(#yanyanluofenshen-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#6050a0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

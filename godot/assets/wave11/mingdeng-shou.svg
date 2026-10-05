@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">明灯使</title>
+  <desc id="desc">明灯使：青行灯灯灵，引魂长明</desc>
+  <defs>
+    <linearGradient id="mingdengshou-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14100c"/>
+      <stop offset=".55" stop-color="#201814"/>
+      <stop offset="1" stop-color="#0c0a08"/>
+    </linearGradient>
+    <radialGradient id="mingdengshou-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#f0d890" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c09040" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c09040" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mingdengshou-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0e8c0"/>
+      <stop offset=".55" stop-color="#c0a870"/>
+      <stop offset="1" stop-color="#c09040"/>
+    </linearGradient>
+    <linearGradient id="mingdengshou-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c09040"/>
+      <stop offset="1" stop-color="#604020"/>
+    </linearGradient>
+    <linearGradient id="mingdengshou-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#mingdengshou-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#mingdengshou-halo)"/>
+  <g>
+    <rect x="82" y="100" width="36" height="50" rx="6" fill="url(#mingdengshou-body)" stroke="#403020" stroke-width="1.6"/>
+    <path d="M88 100h24M88 150h24" stroke="url(#mingdengshou-gold)" stroke-width="1.5"/>
+    <path d="M100 88v-12" stroke="url(#mingdengshou-gold)" stroke-width="2"/>
+    <ellipse cx="100" cy="125" rx="10" ry="14" fill="url(#mingdengshou-acc)" opacity=".75"/>
+    <path d="M82 110h-14M118 110h14M82 140h-10M118 140h10" stroke="url(#mingdengshou-body)" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="100" cy="70" r="6" fill="url(#mingdengshou-gold)" opacity=".85"/>
+    <path d="M70 175c20 8 50 8 70 0" stroke="url(#mingdengshou-body)" stroke-width="2" fill="none" opacity=".45"/>
+  </g>
+<g fill="url(#mingdengshou-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#c09040" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

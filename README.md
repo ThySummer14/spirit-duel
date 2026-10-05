@@ -55,7 +55,19 @@
 
 ## Godot 纵向切片
 
-可玩切片在 `godot/`：菜单 / 编成 / 对战 / 结果，纯 GDScript 规则 + 种子命令日志 + 贪心 AI。内容由 `scripts/export-godot-content.mjs` 导出到 `godot/content/content.json`（当前 37 角色 / 380 卡）。验收：`./scripts/godot-verify.sh`（内容契约 + 模拟对局 + 启动冒烟）。详见 [godot/README.md](godot/README.md) 与 [ENGINE_DIRECTION.md](ENGINE_DIRECTION.md)。
+Godot 迁移版在 `godot/`：菜单 / 编成 / 构筑 / 图鉴 / 秘闻阁 / 对战 / 结果，纯 GDScript 规则 + 种子命令日志 + 贪心 AI。内容由 `scripts/export-godot-content.mjs` 导出到 `godot/content/content.json`（当前 250 角色 / 2114 卡）；部分复杂关键词与被动仍简化结算，浏览器版保留为规则对拍基准。验收：`./scripts/godot-verify.sh`（内容、UI 解析、隔离存档与收藏、实际按钮交互回归、多局压测、启动冒烟）。详见 [godot/README.md](godot/README.md)、[ENGINE_DIRECTION.md](ENGINE_DIRECTION.md) 与 [2026-10-03 修复验收](output/godot-iteration-20261003/acceptance.md)。
+
+2026-10-04 已参照完整实机录像改造 Godot 主城、五槽编组、角色/卡牌检视、资料包购买与五张揭晓、起手换牌和完整 4v4 战场，并接入 Botcf Image 生成的四张环境背景。角色继续使用现有占位资源。见 [视频参照改造验收与截图](output/video-reference-20261004/acceptance.md)。
+
+同日接续并完成本地 Claude Code 中断的 Godot 界面与体验改造：内置中文字体、程序化音频与音量设置、扇形手牌、统一检视、战斗演出与 AI 节奏，并修复重新开局的节点泄漏和退出崩溃。见 [接续验收与截图](output/claude-continuation-20261004/acceptance.md)。
+
+2026-10-05 完成 Godot 全角色入口接通：主城按资料包切换试用阵容，快速对弈采用当前已保存的阵容，对手从完整角色池按种子选取；编组优先展示经典式神，并明确显示筛选数 / 全库 250 位。250 个角色、2114 张卡与 500 张基础/觉醒肖像与浏览器内容同源，导出脚本同步肖像资源。全角色加载、构筑与对局覆盖见 [角色迁入验收](output/godot-roster-20261005/acceptance.md)。
+
+同日按原版角色卡面参考重绘八位经典式神，保留发型、服饰、武器与配色，将无框插画接入 Godot 全部角色卡面入口，并配置裁切焦点。普通与觉醒共用立绘，剩余 242 位仍为占位美术。提示词与素材见 [重绘说明](godot/assets/redrawn/README.md)，实际游戏画面与回归检查见 [美术验收](output/godot-art-20261005/acceptance.md)。
+
+随后补齐经典基础包剩余 21 位，Godot 现已使用全部 29 位经典式神的重绘立绘，其他资料包 221 位仍使用占位资源。茨木童子按用户反馈重新生成清晰面部并替换。完整经典包覆盖、实际卡面和战场截图见 [续批美术验收](output/godot-art-classic-20261005/acceptance.md)。
+
+同日继续完成第二、第三资料包全部 28 位原版参照重绘，Godot 重绘覆盖增至 57 位；镰鼬因初版造型偏离，重新只用原版卡面生成并采用修正版。战场增加合法/非法目标连线与右键取消，升勾、出牌和交战演出期间拦截重复输入，攻击按入场、前冲、命中和回位展示；反击伤害浮字在命中时定位到移动中的卡面，并修复空状态检视的节点泄漏。完整检查、原版对照与最终游戏截图见 [批量重绘与手感验收](output/godot-wave23-feel-20261005/acceptance.md)。
 
 ## 本轮内容与界面
 
@@ -210,3 +222,9 @@ node --check game-session.js
 ```
 
 Godot 可行性验证入口：`scripts/export-godot-content.mjs` 导出原创内容，`prototypes/godot-content-probe/verify.gd` 在隔离工程中验证内容契约；不参与浏览器运行、不执行卡牌规则。详见 [引擎方向](ENGINE_DIRECTION.md)。
+
+同日补齐第四资料包（吉运善恶）全部 26 位原版参照重绘，Godot 重绘覆盖增至 83 位。逐张设置头像焦点，扩展完整资料包美术检查与按资料包截图采集；此前 57 张图片与映射保持一致。19 张实际游戏截图、原版对照及完整运行结果见 [第四资料包验收](output/godot-wave4-20261005/acceptance.md)。
+
+同日继续完成第五至第八资料包全部 106 位重绘并接入 Godot，累计 189 位，剩余 61 位仍使用 SVG。每位保存对应原版、提示词、最终生成文件和裁切焦点，保留双人、坐骑与衣装变体；伊邪那美采用完整衣装版并记录差异。75 张游戏截图、3989 项美术检查、完整 Godot 验收和 JS 测试结果见 [第五至第八资料包验收](output/godot-wave5-wave8-20261005/acceptance.md)。
+
+随后补齐最后 61 位并接入 Godot，全部 250 位可玩角色均有插画。本轮 30 位使用对应原版，31 位按用户授权依据现有设定补画，保持统一墨线、矿物色与纸面纹理。保存每位来源、提示词、最终选图、裁切焦点和原版重试记录；此前 189 张 PNG、映射与焦点保持一致。实际游戏截图与完整运行结果见 [全部 250 位插画验收](output/godot-wave9-reference-20261005/acceptance.md)。

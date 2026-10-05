@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">万年竹</title>
+  <desc id="desc">万年竹：竹笛剑影，叶剑清风</desc>
+  <defs>
+    <linearGradient id="wannianzhu-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c140c"/>
+      <stop offset=".55" stop-color="#142014"/>
+      <stop offset="1" stop-color="#080e08"/>
+    </linearGradient>
+    <radialGradient id="wannianzhu-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#80c090" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#40a050" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#40a050" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wannianzhu-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#c0e8c8"/>
+      <stop offset=".55" stop-color="#70a880"/>
+      <stop offset="1" stop-color="#40a050"/>
+    </linearGradient>
+    <linearGradient id="wannianzhu-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#40a050"/>
+      <stop offset="1" stop-color="#184828"/>
+    </linearGradient>
+    <linearGradient id="wannianzhu-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#wannianzhu-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#wannianzhu-halo)"/>
+  <g fill="none" stroke="url(#wannianzhu-acc)" stroke-width="2.4" stroke-linecap="round">
+    <path d="M75 195V75"/>
+    <path d="M75 105c-14-8-24-6-32 2M75 140c14-8 24-6 32 2M75 170c-14-8-24-6-32 2"/>
+  </g>
+  <g>
+    <path d="M125 60v100" stroke="url(#wannianzhu-body)" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M118 58h14l-7-14Z" fill="url(#wannianzhu-gold)"/>
+    <circle cx="125" cy="120" r="3" fill="#102010"/>
+    <circle cx="125" cy="145" r="3" fill="#102010"/>
+    <circle cx="125" cy="95" r="3" fill="#102010"/>
+  </g>
+<g fill="url(#wannianzhu-acc)">
+    <circle cx="40" cy="80" r="2" opacity=".6"/>
+    <circle cx="160" cy="86" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="150" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="154" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="40" r="1.8" opacity=".55"/>
+    <circle cx="70" cy="200" r="1.5" opacity=".5"/>
+    <circle cx="130" cy="200" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#40a050" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

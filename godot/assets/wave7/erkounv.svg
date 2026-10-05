@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">二口女</title>
+  <desc id="desc">二口女：血口双唇，充能附体</desc>
+  <defs>
+    <linearGradient id="erkounv-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140c12"/>
+      <stop offset=".55" stop-color="#20141c"/>
+      <stop offset="1" stop-color="#0c080c"/>
+    </linearGradient>
+    <radialGradient id="erkounv-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#e08090" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#c04060" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#c04060" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="erkounv-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0c8d0"/>
+      <stop offset=".55" stop-color="#c07080"/>
+      <stop offset="1" stop-color="#c04060"/>
+    </linearGradient>
+    <linearGradient id="erkounv-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c04060"/>
+      <stop offset="1" stop-color="#601830"/>
+    </linearGradient>
+    <linearGradient id="erkounv-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#erkounv-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#erkounv-halo)"/>
+  <path d="M100 48c22 18 34 40 34 64 0 28-16 48-34 62-18-14-34-34-34-62 0-24 12-46 34-64z" fill="url(#erkounv-body)" stroke="url(#erkounv-acc)" stroke-width="1.4"/>
+
+  <path d="M70 110c12 18 48 18 60 0-8 22-52 22-60 0z" fill="url(#erkounv-acc)"/>
+  <path d="M78 108h44" stroke="#f8e8e8" stroke-width="2" opacity=".7"/>
+  <circle cx="86" cy="104" r="3" fill="#fff" opacity=".65"/>
+  <circle cx="114" cy="104" r="3" fill="#fff" opacity=".65"/>
+  <path d="M88 140c4 10 20 10 24 0" stroke="url(#erkounv-acc)" stroke-width="2" fill="none"/>
+
+  <g fill="url(#erkounv-acc)">
+    <circle cx="40" cy="80" r="1.8" opacity=".55"/>
+    <circle cx="160" cy="84" r="1.6" opacity=".5"/>
+    <circle cx="48" cy="160" r="1.5" opacity=".45"/>
+    <circle cx="152" cy="164" r="1.8" opacity=".5"/>
+    <circle cx="100" cy="36" r="1.4" opacity=".4"/>
+    <circle cx="100" cy="190" r="1.6" opacity=".45"/>
+  </g>  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#c04060" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

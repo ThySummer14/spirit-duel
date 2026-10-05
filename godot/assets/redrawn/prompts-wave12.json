@@ -1,0 +1,257 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "policy": "Project-setting generation authorized by user; preserve unit identity and unified style.",
+  "units": [
+    {
+      "id": "yueying",
+      "name": "月隐",
+      "role": "origin2-yueying",
+      "pack": "wave12",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave12/yueying.svg",
+      "setting": {
+        "id": "yueying",
+        "name": "月隐",
+        "title": "匿影",
+        "role": "潜行 / 连击",
+        "strategy": "匿影避锋，月蚀连斩。",
+        "color": "#8a9bc0",
+        "officialAbility": "原创·月隐：月下潜行的剑客。",
+        "svgDescription": "灵枢原创式神立绘"
+      },
+      "output": "godot/assets/redrawn/wave12/yueying.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A moonlit stealth swordsman in layered indigo and pale blue robes, calm adult face partly under a soft hood, one slim curved blade, dark flowing cloak, quiet crescent moon and pale silver shadows. Different from fire and thunder characters.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 月隐: A moonlit stealth swordsman in layered indigo and pale blue robes, calm adult face partly under a soft hood, one slim curved blade, dark flowing cloak, quiet crescent moon and pale silver shadows. Different from fire and thunder characters.\nProject palette: #8a9bc0.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff34b5a0-d64f-44b0-8948-424f7c071fff.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-ff34b5a0-d64f-44b0-8948-424f7c071fff.png",
+      "focus": [
+        0.564,
+        0.161
+      ]
+    },
+    {
+      "id": "shizhu",
+      "name": "石主",
+      "role": "origin2-shizhu",
+      "pack": "wave12",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave12/shizhu.svg",
+      "setting": {
+        "id": "shizhu",
+        "name": "石主",
+        "title": "山骨",
+        "role": "壁垒 / 反打",
+        "strategy": "叠甲站场，震地反伤。",
+        "color": "#a89870",
+        "officialAbility": "原创·石主：镇守山骨的岩灵。",
+        "svgDescription": "灵枢原创式神立绘"
+      },
+      "output": "godot/assets/redrawn/wave12/shizhu.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A mountain-bone rock spirit, broad blocklike weathered ocher stone torso, sculpted head with two clear warm glowing eyes, huge rocky fists, moss and layered cliff forms, stable protective posture. Keep living stone identity.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 石主: A mountain-bone rock spirit, broad blocklike weathered ocher stone torso, sculpted head with two clear warm glowing eyes, huge rocky fists, moss and layered cliff forms, stable protective posture. Keep living stone identity.\nProject palette: #a89870.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a1de6c8c-c483-4f72-b648-40f51c614654.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-a1de6c8c-c483-4f72-b648-40f51c614654.png",
+      "focus": [
+        0.566,
+        0.123
+      ]
+    },
+    {
+      "id": "yanling-huo",
+      "name": "焰铃",
+      "role": "origin2-yanling-huo",
+      "pack": "wave12",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave12/yanling-huo.svg",
+      "setting": {
+        "id": "yanling-huo",
+        "name": "焰铃",
+        "title": "摇火",
+        "role": "法术 / 投射",
+        "strategy": "摇火投射，铃音灼敌。",
+        "color": "#e07040",
+        "officialAbility": "原创·焰铃：摇火成术的铃使。",
+        "svgDescription": "灵枢原创式神立绘"
+      },
+      "output": "godot/assets/redrawn/wave12/yanling-huo.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A fire-bell caster in muted burnt orange robes, dark tied hair, clear face, holding a polished bronze handbell with flames curling from its rim; hanging bells and ribbons, orange sparks following a graceful ritual gesture.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 焰铃: A fire-bell caster in muted burnt orange robes, dark tied hair, clear face, holding a polished bronze handbell with flames curling from its rim; hanging bells and ribbons, orange sparks following a graceful ritual gesture.\nProject palette: #e07040.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-3d1c8a11-9de1-4015-9ff8-c0e64678a838.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-3d1c8a11-9de1-4015-9ff8-c0e64678a838.png",
+      "focus": [
+        0.52,
+        0.16
+      ]
+    },
+    {
+      "id": "shuimo",
+      "name": "水沫",
+      "role": "origin2-shuimo",
+      "pack": "wave12",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave12/shuimo.svg",
+      "setting": {
+        "id": "shuimo",
+        "name": "水沫",
+        "title": "潮语",
+        "role": "治疗 / 转甲",
+        "strategy": "潮语续命，过疗化甲。",
+        "color": "#5a9aaa",
+        "officialAbility": "原创·水沫：潮声化沫的医者。",
+        "svgDescription": "灵枢原创式神立绘"
+      },
+      "output": "godot/assets/redrawn/wave12/shuimo.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A tide-foam healer in pale teal and blue-white layered robes, flowing dark teal hair, gentle face, hands forming a bowl of sea foam, translucent water sleeves, curling waves and bubbles. Calm caring posture, teal palette.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 水沫: A tide-foam healer in pale teal and blue-white layered robes, flowing dark teal hair, gentle face, hands forming a bowl of sea foam, translucent water sleeves, curling waves and bubbles. Calm caring posture, teal palette.\nProject palette: #5a9aaa.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d2b17236-bb59-4915-b4d3-74ac5161fefd.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-d2b17236-bb59-4915-b4d3-74ac5161fefd.png",
+      "focus": [
+        0.471,
+        0.175
+      ]
+    },
+    {
+      "id": "leiyin",
+      "name": "雷音",
+      "role": "origin2-leiyin",
+      "pack": "wave12",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave12/leiyin.svg",
+      "setting": {
+        "id": "leiyin",
+        "name": "雷音",
+        "title": "震弦",
+        "role": "眩晕 / 充能",
+        "strategy": "震弦控场，雷怒充能。",
+        "color": "#c0a0e0",
+        "officialAbility": "原创·雷音：拨弦引雷的乐师。",
+        "svgDescription": "灵枢原创式神立绘"
+      },
+      "output": "godot/assets/redrawn/wave12/leiyin.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A thunder musician in violet-white robes, dark long hair tied neatly, playing a traditional string instrument whose strings emit delicate lavender lightning, clear face and hands, violet thunderclouds. Musician and string instrument must be legible.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 雷音: A thunder musician in violet-white robes, dark long hair tied neatly, playing a traditional string instrument whose strings emit delicate lavender lightning, clear face and hands, violet thunderclouds. Musician and string instrument must be legible.\nProject palette: #c0a0e0.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-76671ecd-16dd-45e4-ab7b-030b7c3a2045.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-76671ecd-16dd-45e4-ab7b-030b7c3a2045.png",
+      "focus": [
+        0.521,
+        0.142
+      ]
+    },
+    {
+      "id": "xingchen",
+      "name": "星尘",
+      "role": "origin2-xingchen",
+      "pack": "wave12",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave12/xingchen.svg",
+      "setting": {
+        "id": "xingchen",
+        "name": "星尘",
+        "title": "尘轨",
+        "role": "运势 / 占卜",
+        "strategy": "星轨卜算，尘光过牌。",
+        "color": "#d0c080",
+        "officialAbility": "原创·星尘：循星尘轨迹的占者。",
+        "svgDescription": "灵枢原创式神立绘"
+      },
+      "output": "godot/assets/redrawn/wave12/xingchen.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A stardust diviner in sand-gold and pale cream robes, dark brown tied hair, serene adult face, holding an orb surrounded by slender orbital rings, falling fine golden dust and muted night sky. Distinct divining instrument.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 星尘: A stardust diviner in sand-gold and pale cream robes, dark brown tied hair, serene adult face, holding an orb surrounded by slender orbital rings, falling fine golden dust and muted night sky. Distinct divining instrument.\nProject palette: #d0c080.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-01ce0fc6-2072-4494-8891-a1c471974ef2.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-01ce0fc6-2072-4494-8891-a1c471974ef2.png",
+      "focus": [
+        0.488,
+        0.174
+      ]
+    },
+    {
+      "id": "momo",
+      "name": "墨貘",
+      "role": "origin2-momo",
+      "pack": "wave12",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave12/momo.svg",
+      "setting": {
+        "id": "momo",
+        "name": "墨貘",
+        "title": "梦蚀",
+        "role": "破甲 / 压制",
+        "strategy": "蚀梦灌甲，墨香困敌。",
+        "color": "#6a5a80",
+        "officialAbility": "原创·墨貘：食梦吐墨的兽灵。",
+        "svgDescription": "灵枢原创式神立绘"
+      },
+      "output": "godot/assets/redrawn/wave12/momo.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A dream-eating ink tapir spirit, rounded dark violet-gray body, short distinct tapir trunk, expressive pale eyes, ink spilling in smoky curls from its mouth and hooves, dreamlike washi backdrop. Creature anatomy with four legs.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 墨貘: A dream-eating ink tapir spirit, rounded dark violet-gray body, short distinct tapir trunk, expressive pale eyes, ink spilling in smoky curls from its mouth and hooves, dreamlike washi backdrop. Creature anatomy with four legs.\nProject palette: #6a5a80.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b61ab480-353a-440f-be3f-9a3b6dbac1fe.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-b61ab480-353a-440f-be3f-9a3b6dbac1fe.png",
+      "focus": [
+        0.655,
+        0.355
+      ]
+    },
+    {
+      "id": "jinguang",
+      "name": "金光",
+      "role": "origin2-jinguang",
+      "pack": "wave12",
+      "reference": null,
+      "referenceKind": "project-setting",
+      "settingSource": "godot/content/content.json",
+      "existingArt": "assets/wave12/jinguang.svg",
+      "setting": {
+        "id": "jinguang",
+        "name": "金光",
+        "title": "辉印",
+        "role": "鼓舞 / 觉醒",
+        "strategy": "辉印鼓舞，金身开悟。",
+        "color": "#e0c060",
+        "officialAbility": "原创·金光：结印扬辉的祭官。",
+        "svgDescription": "灵枢原创式神立绘"
+      },
+      "output": "godot/assets/redrawn/wave12/jinguang.png",
+      "inputPolicy": "project-setting; user-authorized 2026-10-05",
+      "mode": "built-in image_gen; setting-based generation",
+      "invariants": "A radiant ritual priest in pale gold and ocher ceremonial robes, clear composed adult face, hands forming a coherent ritual mudra, circular golden seal geometry behind and soft cream light. Abstract geometry without written glyphs.",
+      "prompt": "Use case: stylized-concept\nAsset type: single Godot game unit portrait, full-bleed vertical 2:3 illustration, 1024x1536.\nPrimary request: create this unit from its EXISTING PROJECT SETTING, authorized by the user because no matching original card reference exists. This is a setting-based illustration, not a claimed original-card recreation.\nStyle: fine Japanese fantasy ink outlines, clear planar cel-painted forms, restrained mineral pigments, subtle washi paper texture, elegant illustrated proportions, matching a fantasy card-game roster. No photorealism or glossy 3D.\nComposition: one clearly recognizable main subject with face or defining structure in the upper central portion, readable at small landscape game-card size, identifying props inside the central 75%, full-bleed quiet painterly background. No ornamental card frame.\nAnatomy: coherent face and eye alignment, clean mouth and nose, natural distinct hands and limbs; keep species readable for creature or object spirits.\nConstraints: no text, letters, numbers, card frame, UI, corner symbols, logos or watermark. Respect the existing unit color and spirit identity.\nSubject setting: 金光: A radiant ritual priest in pale gold and ocher ceremonial robes, clear composed adult face, hands forming a coherent ritual mudra, circular golden seal geometry behind and soft cream light. Abstract geometry without written glyphs.\nProject palette: #e0c060.\n",
+      "generated": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-526f3e74-ad13-4748-ae9a-0102ad9e2466.png",
+      "selected": "/Users/thysummer/.codex/generated_images/01a10b26-5249-7321-8e7f-aab7684997d0/exec-526f3e74-ad13-4748-ae9a-0102ad9e2466.png",
+      "focus": [
+        0.512,
+        0.184
+      ]
+    }
+  ],
+  "coverage": "complete-pack",
+  "settingGenerationAuthorization": "用户 2026-10-05：允许按现有设定补画，统一画风。"
+}

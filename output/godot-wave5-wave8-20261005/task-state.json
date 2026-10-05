@@ -1,0 +1,41 @@
+{
+  "scope": [
+    "wave5",
+    "wave6",
+    "wave7",
+    "wave8"
+  ],
+  "status": "complete",
+  "plannedNewUnits": 106,
+  "generatedNewUnits": 106,
+  "baselineRedrawn": 83,
+  "integratedRedrawn": 189,
+  "remainingGeneration": 0,
+  "remainingSvgUnits": 61,
+  "completedPacks": [
+    "wave5",
+    "wave6",
+    "wave7",
+    "wave8"
+  ],
+  "gameScreenshots": 75,
+  "finalComparisonSheets": 28,
+  "verification": {
+    "godot": "GODOT_VERIFY_ALL_OK",
+    "artChecks": 3989,
+    "jsTests": 163,
+    "uiAudit": 385,
+    "oldAssetsUnchanged": 83,
+    "documentLinks": 186,
+    "finalCheck": "passed"
+  },
+  "designExceptions": [
+    "yixienamei: complete opaque ceremonial gown after output safety rejection"
+  ],
+  "generationRecovery": {
+    "wave5": 24,
+    "wave8": 8,
+    "status": "resolved"
+  },
+  "rule": "Original reference only; rejected generated art never used as image input; previous 83 images and manifest entries remain identical."
+}

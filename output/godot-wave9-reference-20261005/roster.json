@@ -1,0 +1,302 @@
+[
+  {
+    "id": "yatiangou-qiuye",
+    "name": "鸦天狗·秋叶",
+    "role": "642",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64200_鸦天狗·秋叶.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/yatiangou-qiuye.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "shuweng-zhixing",
+    "name": "书翁·志行",
+    "role": "643",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64300_书翁·志行.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/shuweng-zhixing.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "huojinshen",
+    "name": "祸津神",
+    "role": "644",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64400_祸津神.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/huojinshen.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "sibing",
+    "name": "四饼",
+    "role": "645",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64500_四饼.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/sibing.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "dayueling-yuxin",
+    "name": "大岳丸·渝心",
+    "role": "646",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64600_大岳丸·渝心.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/dayueling-yuxin.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "chili",
+    "name": "螭璃",
+    "role": "647",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64700_螭璃.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/chili.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "jieshen-suiyuan",
+    "name": "缘结神·遂愿",
+    "role": "648",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64800_缘结神·遂愿.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/jieshen-suiyuan.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "tieshu-haojia",
+    "name": "铁鼠·豪贾",
+    "role": "649",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/64900_铁鼠·豪贾.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/tieshu-haojia.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "yijin-qianxun",
+    "name": "以津真天·千寻",
+    "role": "650",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65000_以津真天·千寻.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/yijin-qianxun.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "baizangzhu-lixin",
+    "name": "白藏主·砺心",
+    "role": "651",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65100_白藏主·砺心.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/baizangzhu-lixin.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "guijinyang",
+    "name": "鬼金羊",
+    "role": "652",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65200_鬼金羊.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/guijinyang.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "longche",
+    "name": "胧车",
+    "role": "653",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65300_胧车.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/longche.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "pinfashen",
+    "name": "贫乏神",
+    "role": "657",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65700_贫乏神.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/pinfashen.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "longjue",
+    "name": "龙珏",
+    "role": "654",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65400_龙珏.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/longjue.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "fengyangjun",
+    "name": "封阳君",
+    "role": "655",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65500_封阳君.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/fengyangjun.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "jintianyuzaoqian",
+    "name": "烬天玉藻前",
+    "role": "660",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66000_烬天玉藻前.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/jintianyuzaoqian.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "chanxinyunwaijing",
+    "name": "禅心云外镜",
+    "role": "656",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65600_禅心云外镜.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/chanxinyunwaijing.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "zhaocaimao",
+    "name": "招财猫",
+    "role": "659",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65900_招财猫.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/zhaocaimao.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "maozhanggui-huanyan",
+    "name": "猫掌柜·焕宴",
+    "role": "658",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/65800_猫掌柜·焕宴.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/maozhanggui-huanyan.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "geluoduo",
+    "name": "歌留多",
+    "role": "661",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66100_歌留多.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/geluoduo.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "yinfanhuiyeji",
+    "name": "因幡辉夜姬",
+    "role": "666",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66600_因幡辉夜姬.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/yinfanhuiyeji.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "daixiaoguhuoniao",
+    "name": "待宵姑获鸟",
+    "role": "667",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66700_待宵姑获鸟.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/daixiaoguhuoniao.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "chulingshanfeng",
+    "name": "初翎山风",
+    "role": "662",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66200_初翎山风.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/chulingshanfeng.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "fenghuanghuo-jingyu",
+    "name": "凤凰火·净羽",
+    "role": "665",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66500_凤凰火·净羽.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/fenghuanghuo-jingyu.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "xixueji-xiyi",
+    "name": "吸血姬·曦忆",
+    "role": "663",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66300_吸血姬·曦忆.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/xixueji-xiyi.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "yinghuayao-lijing",
+    "name": "樱花妖·璃景",
+    "role": "664",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/66400_樱花妖·璃景.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/yinghuayao-lijing.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "shenqilou",
+    "name": "蜃气楼",
+    "role": "298",
+    "pack": "wave9",
+    "reference": "art-reference-official/卡面/01_式神/29800_蜃气楼.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave9/shenqilou.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "tanjirou",
+    "name": "炭治郎",
+    "role": "182",
+    "pack": "wave10",
+    "reference": "art-reference-official/卡面/01_式神/18200_炭治郎.png",
+    "referenceKind": "original-unit-card",
+    "output": "godot/assets/redrawn/wave10/tanjirou.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "fanqie",
+    "name": "番茄",
+    "role": "fanqie",
+    "pack": "wave11",
+    "reference": "art-reference-official/卡面/07_衍生/146001_番茄_r146.png",
+    "referenceKind": "original-derived-card",
+    "output": "godot/assets/redrawn/wave11/fanqie.png",
+    "inputPolicy": "original-reference-only"
+  },
+  {
+    "id": "bingqiang",
+    "name": "冰墙",
+    "role": "bingqiang",
+    "pack": "wave11",
+    "reference": "art-reference-official/卡面/02_法术/10609_冰墙.png",
+    "referenceKind": "original-spell-card",
+    "output": "godot/assets/redrawn/wave11/bingqiang.png",
+    "inputPolicy": "original-reference-only"
+  }
+]

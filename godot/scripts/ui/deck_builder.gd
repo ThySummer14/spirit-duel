@@ -4,7 +4,10 @@ extends Control
 
 const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
 const ContentLoader := preload("res://scripts/content_loader.gd")
+const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
+const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
 const SaveStore := preload("res://scripts/save_store.gd")
+const Sfx := preload("res://scripts/ui/sfx.gd")
 
 signal deck_confirmed(unit_id: String, card_ids: Array)
 signal back_requested
@@ -13,7 +16,7 @@ const PICK_COUNT := 8
 
 var _unit_id := ""
 var _picked: Array = []
-var _pool_box: VBoxContainer
+var _pool_box: GridContainer
 var _status: Label
 var _list_scroll: ScrollContainer
 var _confirm_btn: Button
@@ -29,12 +32,13 @@ func setup(unit_id: String) -> void:
 
 
 func _ready() -> void:
-	theme = ThemeBuilder.build_washi_theme()
+	theme = ThemeBuilder.build_night_theme()
 	set_anchors_preset(Control.PRESET_FULL_RECT)
-	var bg := ColorRect.new()
-	bg.color = ThemeBuilder.WASHI_BG
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	var bg := Backdrop.new()
+	bg.scene = "table"
+	bg.dim = 0.22
 	add_child(bg)
+	Sfx.music("bgm_menu")
 
 	var root := VBoxContainer.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -48,7 +52,7 @@ func _ready() -> void:
 	var unit := ContentLoader.unit_def(_unit_id)
 	var header := HBoxContainer.new()
 	root.add_child(header)
-	header.add_child(ThemeBuilder.washi_title("构筑 · %s" % str(unit.get("name", _unit_id)), 28))
+	header.add_child(ThemeBuilder.title_label("构筑 · %s" % str(unit.get("name", _unit_id)), 28))
 	var sp := Control.new()
 	sp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(sp)
@@ -74,27 +78,31 @@ func _ready() -> void:
 
 	var left := PanelContainer.new()
 	left.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	left.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(12, false))
+	left.add_theme_stylebox_override("panel", ThemeBuilder.panel(Color(0.09, 0.09, 0.16, 0.86), Color("71677d"), 4, 1))
 	split.add_child(left)
 	_list_scroll = ScrollContainer.new()
+	_list_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	left.add_child(_list_scroll)
-	_pool_box = VBoxContainer.new()
-	_pool_box.add_theme_constant_override("separation", 6)
+	_pool_box = GridContainer.new()
+	_pool_box.columns = 4
+	_pool_box.add_theme_constant_override("h_separation", 12)
+	_pool_box.add_theme_constant_override("v_separation", 12)
 	_pool_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_list_scroll.add_child(_pool_box)
 
 	var side := PanelContainer.new()
 	side.custom_minimum_size = Vector2(280, 0)
-	side.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(12, false))
+	side.add_theme_stylebox_override("panel", ThemeBuilder.panel(Color(0.09, 0.09, 0.16, 0.86), Color("71677d"), 4, 1))
 	split.add_child(side)
 	var side_v := VBoxContainer.new()
 	side_v.add_theme_constant_override("separation", 8)
 	side.add_child(side_v)
-	side_v.add_child(ThemeBuilder.micro_label("角色档案"))
-	var tip := ThemeBuilder.label(ContentLoader.passive_text(unit), 12, ThemeBuilder.WASHI_DIM)
+	side_v.add_child(UIWidgets.portrait(unit, Vector2(190, 274)))
+	side_v.add_child(ThemeBuilder.dim_label("角色档案"))
+	var tip := ThemeBuilder.label(ContentLoader.passive_text(unit), 12, ThemeBuilder.PAPER_DIM)
 	tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	side_v.add_child(tip)
-	_confirm_btn = ThemeBuilder.rounded_rect_button("确认卡组", Vector2(220, 44))
+	_confirm_btn = ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("确认卡组", Vector2(220, 44)))
 	_confirm_btn.disabled = true
 	_confirm_btn.pressed.connect(func():
 		if _picked.size() == PICK_COUNT:
@@ -121,6 +129,7 @@ func _limit_of(card: Dictionary) -> int:
 
 func _rebuild() -> void:
 	for c in _pool_box.get_children():
+		_pool_box.remove_child(c)
 		c.queue_free()
 	var unit := ContentLoader.unit_def(_unit_id)
 	var cards := ContentLoader.cards_for_unit(_unit_id)
@@ -136,36 +145,41 @@ func _rebuild() -> void:
 		var cid: String = str(card.get("id", ""))
 		var have := _count_of(cid)
 		var limit := _limit_of(card)
-		var row := PanelContainer.new()
-		var rarity := ThemeBuilder.rarity_color_of(str(card.get("rarity", "common")))
-		row.add_theme_stylebox_override("panel", ThemeBuilder.washi_panel(10, have > 0))
-		var h := HBoxContainer.new()
-		h.add_theme_constant_override("separation", 8)
-		row.add_child(h)
-		h.add_child(ThemeBuilder.chip("%d×" % have, ThemeBuilder.GOLD if have > 0 else ThemeBuilder.TEXT_FAINT))
-		var name_l := ThemeBuilder.label(str(card.get("name", "?")), 14, ThemeBuilder.WASHI_INK)
-		name_l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		h.add_child(name_l)
-		h.add_child(ThemeBuilder.dim_label("Lv%d 费%d /%d" % [int(card.get("level", 1)), int(card.get("cost", 0)), limit], 11))
+		var row := VBoxContainer.new()
+		row.add_theme_constant_override("separation", 4)
+		var face := UIWidgets.make_card_tile(card, func():
+			UIWidgets.show_card_modal(self, card)
+		, Vector2(164, 248), have > 0, "已选 %d / %d" % [have, limit])
+		row.add_child(face)
+		var actions := HBoxContainer.new()
+		actions.alignment = BoxContainer.ALIGNMENT_CENTER
+		row.add_child(actions)
 		var minus := Button.new()
 		minus.text = "−"
+		minus.custom_minimum_size = Vector2(48, 36)
 		minus.disabled = have <= 0
+		minus.set_meta("remove_card", cid)
 		minus.pressed.connect(func():
 			var idx := _picked.find(cid)
 			if idx >= 0:
 				_picked.remove_at(idx)
+				Sfx.play("ui_click", 0.7)
 				_rebuild()
 		)
-		h.add_child(minus)
+		actions.add_child(minus)
+		actions.add_child(ThemeBuilder.label("%d" % have, 16))
 		var plus := Button.new()
 		plus.text = "+"
+		plus.custom_minimum_size = Vector2(48, 36)
 		plus.disabled = have >= limit or _picked.size() >= PICK_COUNT
+		plus.set_meta("add_card", cid)
 		plus.pressed.connect(func():
-			if _picked.size() < PICK_COUNT and have < limit:
+			if _picked.size() < PICK_COUNT and _count_of(cid) < limit:
 				_picked.append(cid)
+				Sfx.play("ui_click", 0.7)
 				_rebuild()
 		)
-		h.add_child(plus)
+		actions.add_child(plus)
 		_pool_box.add_child(row)
 
 	_status.text = "%s · 已选 %d/%d" % [str(unit.get("name", _unit_id)), _picked.size(), PICK_COUNT]

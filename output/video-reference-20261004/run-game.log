@@ -1,0 +1,8 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+OpenGL API 4.1 Metal - 91.7 - Compatibility - Using Device: Apple - Apple M5
+
+WARNING: Could not create render target, status: GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT
+     at: _update_render_target_color (drivers/gles3/storage/texture_storage.cpp:3346)
+     GDScript backtrace (most recent call first):
+         [0] _show_command_log (res://scripts/ui/battle_screen.gd:662)
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 0 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable

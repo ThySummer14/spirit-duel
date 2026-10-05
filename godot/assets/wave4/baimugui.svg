@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">百目鬼</title>
+  <desc id="desc">百目鬼：百目窥视，瞳阵罗列</desc>
+  <defs>
+    <linearGradient id="baimugui-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#100818"/>
+      <stop offset=".55" stop-color="#181028"/>
+      <stop offset="1" stop-color="#0a0612"/>
+    </linearGradient>
+    <radialGradient id="baimugui-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#a080d0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#6040a0" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#6040a0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="baimugui-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#d0c0e8"/>
+      <stop offset=".55" stop-color="#8870b0"/>
+      <stop offset="1" stop-color="#6040a0"/>
+    </linearGradient>
+    <linearGradient id="baimugui-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6040a0"/>
+      <stop offset="1" stop-color="#282050"/>
+    </linearGradient>
+    <linearGradient id="baimugui-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#baimugui-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#baimugui-halo)"/>
+  <g>
+    <ellipse cx="100" cy="130" rx="36" ry="40" fill="url(#baimugui-body)" stroke="#2a2040" stroke-width="2"/>
+  </g>
+  <g>
+    <ellipse cx="82" cy="115" rx="10" ry="7" fill="#1a1028"/><circle cx="82" cy="115" r="3" fill="url(#baimugui-gold)"/>
+    <ellipse cx="118" cy="115" rx="10" ry="7" fill="#1a1028"/><circle cx="118" cy="115" r="3" fill="url(#baimugui-gold)"/>
+    <ellipse cx="100" cy="95" rx="8" ry="6" fill="#1a1028"/><circle cx="100" cy="95" r="2.5" fill="url(#baimugui-gold)"/>
+    <ellipse cx="70" cy="145" rx="7" ry="5" fill="#1a1028"/><circle cx="70" cy="145" r="2" fill="url(#baimugui-gold)"/>
+    <ellipse cx="130" cy="145" rx="7" ry="5" fill="#1a1028"/><circle cx="130" cy="145" r="2" fill="url(#baimugui-gold)"/>
+    <ellipse cx="100" cy="155" rx="7" ry="5" fill="#1a1028"/><circle cx="100" cy="155" r="2" fill="url(#baimugui-gold)"/>
+  </g>
+<g fill="url(#baimugui-acc)">
+    <circle cx="36" cy="80" r="2" opacity=".6"/>
+    <circle cx="164" cy="82" r="1.8" opacity=".55"/>
+    <circle cx="34" cy="185" r="1.6" opacity=".5"/>
+    <circle cx="168" cy="187" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="30" r="1.5" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#6040a0" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

@@ -1,0 +1,1328 @@
+{
+  "schema": 1,
+  "units": {
+    "yaodaoji": {
+      "path": "assets/redrawn/classic/yaodaoji.png",
+      "focus": [
+        0.7,
+        0.25
+      ]
+    },
+    "jutun-tongzi": {
+      "path": "assets/redrawn/classic/jutun-tongzi.png",
+      "focus": [
+        0.46,
+        0.27
+      ]
+    },
+    "bingyong": {
+      "path": "assets/redrawn/classic/bingyong.png",
+      "focus": [
+        0.5,
+        0.3
+      ]
+    },
+    "datiangou": {
+      "path": "assets/redrawn/classic/datiangou.png",
+      "focus": [
+        0.5,
+        0.3
+      ]
+    },
+    "xuenv": {
+      "path": "assets/redrawn/classic/xuenv.png",
+      "focus": [
+        0.5,
+        0.3
+      ]
+    },
+    "yingcao": {
+      "path": "assets/redrawn/classic/yingcao.png",
+      "focus": [
+        0.5,
+        0.3
+      ]
+    },
+    "taohuayao": {
+      "path": "assets/redrawn/classic/taohuayao.png",
+      "focus": [
+        0.5,
+        0.3
+      ]
+    },
+    "guniao": {
+      "path": "assets/redrawn/classic/guniao.png",
+      "focus": [
+        0.5,
+        0.3
+      ]
+    },
+    "bailang": {
+      "path": "assets/redrawn/classic/bailang.png",
+      "focus": [
+        0.4,
+        0.2
+      ]
+    },
+    "caitongzi": {
+      "path": "assets/redrawn/classic/caitongzi.png",
+      "focus": [
+        0.53,
+        0.16
+      ]
+    },
+    "xuetongzi": {
+      "path": "assets/redrawn/classic/xuetongzi.png",
+      "focus": [
+        0.49,
+        0.21
+      ]
+    },
+    "shantong": {
+      "path": "assets/redrawn/classic/shantong.png",
+      "focus": [
+        0.52,
+        0.18
+      ]
+    },
+    "tiaotiaodidi": {
+      "path": "assets/redrawn/classic/tiaotiaodidi.png",
+      "focus": [
+        0.55,
+        0.26
+      ]
+    },
+    "qingshe": {
+      "path": "assets/redrawn/classic/qingshe.png",
+      "focus": [
+        0.53,
+        0.28
+      ]
+    },
+    "zhen": {
+      "path": "assets/redrawn/classic/zhen.png",
+      "focus": [
+        0.6,
+        0.25
+      ]
+    },
+    "haifangzhu": {
+      "path": "assets/redrawn/classic/haifangzhu.png",
+      "focus": [
+        0.45,
+        0.2
+      ]
+    },
+    "yimulian": {
+      "path": "assets/redrawn/classic/yimulian.png",
+      "focus": [
+        0.48,
+        0.31
+      ]
+    },
+    "shuweng": {
+      "path": "assets/redrawn/classic/shuweng.png",
+      "focus": [
+        0.57,
+        0.17
+      ]
+    },
+    "jue": {
+      "path": "assets/redrawn/classic/jue.png",
+      "focus": [
+        0.42,
+        0.19
+      ]
+    },
+    "quanshen": {
+      "path": "assets/redrawn/classic/quanshen.png",
+      "focus": [
+        0.82,
+        0.26
+      ]
+    },
+    "panguan": {
+      "path": "assets/redrawn/classic/panguan.png",
+      "focus": [
+        0.25,
+        0.18
+      ]
+    },
+    "yijin-zhentian": {
+      "path": "assets/redrawn/classic/yijin-zhentian.png",
+      "focus": [
+        0.55,
+        0.18
+      ]
+    },
+    "fenghuanghuo": {
+      "path": "assets/redrawn/classic/fenghuanghuo.png",
+      "focus": [
+        0.55,
+        0.18
+      ]
+    },
+    "qingfangzhu": {
+      "path": "assets/redrawn/classic/qingfangzhu.png",
+      "focus": [
+        0.51,
+        0.19
+      ]
+    },
+    "qingwa-ciqi": {
+      "path": "assets/redrawn/classic/qingwa-ciqi.png",
+      "focus": [
+        0.52,
+        0.33
+      ]
+    },
+    "shantu": {
+      "path": "assets/redrawn/classic/shantu.png",
+      "focus": [
+        0.54,
+        0.3
+      ]
+    },
+    "yaoginshi": {
+      "path": "assets/redrawn/classic/yaoginshi.png",
+      "focus": [
+        0.58,
+        0.17
+      ]
+    },
+    "qingxingdeng": {
+      "path": "assets/redrawn/classic/qingxingdeng.png",
+      "focus": [
+        0.55,
+        0.17
+      ]
+    },
+    "zuofutongzi": {
+      "path": "assets/redrawn/classic/zuofutongzi.png",
+      "focus": [
+        0.4,
+        0.36
+      ]
+    },
+    "yaohu": {
+      "path": "assets/redrawn/wave2/yaohu.png",
+      "focus": [
+        0.55,
+        0.2
+      ]
+    },
+    "tiaotiaomeimei": {
+      "path": "assets/redrawn/wave2/tiaotiaomeimei.png",
+      "focus": [
+        0.76,
+        0.29
+      ]
+    },
+    "buzhinhuo": {
+      "path": "assets/redrawn/wave2/buzhinhuo.png",
+      "focus": [
+        0.75,
+        0.27
+      ]
+    },
+    "xiaolunan": {
+      "path": "assets/redrawn/wave2/xiaolunan.png",
+      "focus": [
+        0.56,
+        0.21
+      ]
+    },
+    "yanyanluo": {
+      "path": "assets/redrawn/wave2/yanyanluo.png",
+      "focus": [
+        0.55,
+        0.22
+      ]
+    },
+    "rihefang": {
+      "path": "assets/redrawn/wave2/rihefang.png",
+      "focus": [
+        0.43,
+        0.33
+      ]
+    },
+    "lianyou": {
+      "path": "assets/redrawn/wave2/lianyou.png",
+      "focus": [
+        0.43,
+        0.26
+      ]
+    },
+    "yatiangou": {
+      "path": "assets/redrawn/wave2/yatiangou.png",
+      "focus": [
+        0.61,
+        0.17
+      ]
+    },
+    "lingyuyuqian": {
+      "path": "assets/redrawn/wave2/lingyuyuqian.png",
+      "focus": [
+        0.75,
+        0.28
+      ]
+    },
+    "biyehua": {
+      "path": "assets/redrawn/wave3/biyehua.png",
+      "focus": [
+        0.55,
+        0.22
+      ]
+    },
+    "huang": {
+      "path": "assets/redrawn/wave3/huang.png",
+      "focus": [
+        0.69,
+        0.17
+      ]
+    },
+    "jiuciliang": {
+      "path": "assets/redrawn/wave3/jiuciliang.png",
+      "focus": [
+        0.46,
+        0.18
+      ]
+    },
+    "huiyeji": {
+      "path": "assets/redrawn/wave3/huiyeji.png",
+      "focus": [
+        0.53,
+        0.23
+      ]
+    },
+    "xixueji": {
+      "path": "assets/redrawn/wave3/xixueji.png",
+      "focus": [
+        0.53,
+        0.25
+      ]
+    },
+    "tianjingxia": {
+      "path": "assets/redrawn/wave3/tianjingxia.png",
+      "focus": [
+        0.46,
+        0.26
+      ]
+    },
+    "longyechaji": {
+      "path": "assets/redrawn/wave3/longyechaji.png",
+      "focus": [
+        0.46,
+        0.2
+      ]
+    },
+    "mengpo": {
+      "path": "assets/redrawn/wave3/mengpo.png",
+      "focus": [
+        0.51,
+        0.21
+      ]
+    },
+    "shanfeng": {
+      "path": "assets/redrawn/wave3/shanfeng.png",
+      "focus": [
+        0.61,
+        0.23
+      ]
+    },
+    "dayueling": {
+      "path": "assets/redrawn/wave3/dayueling.png",
+      "focus": [
+        0.43,
+        0.21
+      ]
+    },
+    "guiqie": {
+      "path": "assets/redrawn/wave3/guiqie.png",
+      "focus": [
+        0.6,
+        0.24
+      ]
+    },
+    "wuguishi": {
+      "path": "assets/redrawn/wave3/wuguishi.png",
+      "focus": [
+        0.47,
+        0.2
+      ]
+    },
+    "yinghuayao": {
+      "path": "assets/redrawn/wave3/yinghuayao.png",
+      "focus": [
+        0.53,
+        0.22
+      ]
+    },
+    "xun": {
+      "path": "assets/redrawn/wave3/xun.png",
+      "focus": [
+        0.57,
+        0.39
+      ]
+    },
+    "renmianshu": {
+      "path": "assets/redrawn/wave3/renmianshu.png",
+      "focus": [
+        0.53,
+        0.22
+      ]
+    },
+    "tiaotiaogege": {
+      "path": "assets/redrawn/wave3/tiaotiaogege.png",
+      "focus": [
+        0.55,
+        0.17
+      ]
+    },
+    "shimengmo": {
+      "path": "assets/redrawn/wave3/shimengmo.png",
+      "focus": [
+        0.55,
+        0.43
+      ]
+    },
+    "yujiazhu": {
+      "path": "assets/redrawn/wave3/yujiazhu.png",
+      "focus": [
+        0.7,
+        0.32
+      ]
+    },
+    "sanmu": {
+      "path": "assets/redrawn/wave3/sanmu.png",
+      "focus": [
+        0.35,
+        0.38
+      ]
+    },
+    "jieshen": {
+      "path": "assets/redrawn/wave4/jieshen.png",
+      "focus": [
+        0.52,
+        0.215
+      ]
+    },
+    "gitongwan": {
+      "path": "assets/redrawn/wave4/gitongwan.png",
+      "focus": [
+        0.52,
+        0.17
+      ]
+    },
+    "banruo": {
+      "path": "assets/redrawn/wave4/banruo.png",
+      "focus": [
+        0.58,
+        0.2
+      ]
+    },
+    "tieshu": {
+      "path": "assets/redrawn/wave4/tieshu.png",
+      "focus": [
+        0.5,
+        0.285
+      ]
+    },
+    "hetong": {
+      "path": "assets/redrawn/wave4/hetong.png",
+      "focus": [
+        0.58,
+        0.265
+      ]
+    },
+    "zhuiyueshen": {
+      "path": "assets/redrawn/wave4/zhuiyueshen.png",
+      "focus": [
+        0.405,
+        0.2
+      ]
+    },
+    "baimugui": {
+      "path": "assets/redrawn/wave4/baimugui.png",
+      "focus": [
+        0.47,
+        0.205
+      ]
+    },
+    "wushizhiling": {
+      "path": "assets/redrawn/wave4/wushizhiling.png",
+      "focus": [
+        0.59,
+        0.17
+      ]
+    },
+    "guishiheibai": {
+      "path": "assets/redrawn/wave4/guishiheibai.png",
+      "focus": [
+        0.38,
+        0.19
+      ]
+    },
+    "huoqumo": {
+      "path": "assets/redrawn/wave4/huoqumo.png",
+      "focus": [
+        0.48,
+        0.23
+      ]
+    },
+    "yuanjiulanghu": {
+      "path": "assets/redrawn/wave4/yuanjiulanghu.png",
+      "focus": [
+        0.6,
+        0.16
+      ]
+    },
+    "yingxueji": {
+      "path": "assets/redrawn/wave4/yingxueji.png",
+      "focus": [
+        0.6,
+        0.15
+      ]
+    },
+    "jingliuliqian": {
+      "path": "assets/redrawn/wave4/jingliuliqian.png",
+      "focus": [
+        0.65,
+        0.15
+      ]
+    },
+    "egui": {
+      "path": "assets/redrawn/wave4/egui.png",
+      "focus": [
+        0.65,
+        0.26
+      ]
+    },
+    "duyanxiaoseng": {
+      "path": "assets/redrawn/wave4/duyanxiaoseng.png",
+      "focus": [
+        0.61,
+        0.17
+      ]
+    },
+    "mianqiling": {
+      "path": "assets/redrawn/wave4/mianqiling.png",
+      "focus": [
+        0.55,
+        0.17
+      ]
+    },
+    "jiumingmao": {
+      "path": "assets/redrawn/wave4/jiumingmao.png",
+      "focus": [
+        0.38,
+        0.19
+      ]
+    },
+    "axiuluo": {
+      "path": "assets/redrawn/wave4/axiuluo.png",
+      "focus": [
+        0.5,
+        0.15
+      ]
+    },
+    "bayiqidashe": {
+      "path": "assets/redrawn/wave4/bayiqidashe.png",
+      "focus": [
+        0.52,
+        0.11
+      ]
+    },
+    "jinyuji": {
+      "path": "assets/redrawn/wave4/jinyuji.png",
+      "focus": [
+        0.57,
+        0.17
+      ]
+    },
+    "huangkulou": {
+      "path": "assets/redrawn/wave4/huangkulou.png",
+      "focus": [
+        0.665,
+        0.335
+      ]
+    },
+    "gouchang": {
+      "path": "assets/redrawn/wave4/gouchang.png",
+      "focus": [
+        0.5,
+        0.4
+      ]
+    },
+    "dishitian": {
+      "path": "assets/redrawn/wave4/dishitian.png",
+      "focus": [
+        0.815,
+        0.165
+      ]
+    },
+    "xieji": {
+      "path": "assets/redrawn/wave4/xieji.png",
+      "focus": [
+        0.58,
+        0.18
+      ]
+    },
+    "yuzaoqian": {
+      "path": "assets/redrawn/wave4/yuzaoqian.png",
+      "focus": [
+        0.53,
+        0.18
+      ]
+    },
+    "huibishou": {
+      "path": "assets/redrawn/wave4/huibishou.png",
+      "focus": [
+        0.525,
+        0.225
+      ]
+    },
+    "tengji": {
+      "path": "assets/redrawn/wave5/tengji.png",
+      "focus": [
+        0.49,
+        0.143
+      ]
+    },
+    "huaniajuan": {
+      "path": "assets/redrawn/wave5/huaniajuan.png",
+      "focus": [
+        0.504,
+        0.18
+      ]
+    },
+    "yanmo": {
+      "path": "assets/redrawn/wave5/yanmo.png",
+      "focus": [
+        0.53,
+        0.172
+      ]
+    },
+    "kuileishi": {
+      "path": "assets/redrawn/wave5/kuileishi.png",
+      "focus": [
+        0.66,
+        0.217
+      ]
+    },
+    "baizangzhu": {
+      "path": "assets/redrawn/wave5/baizangzhu.png",
+      "focus": [
+        0.592,
+        0.174
+      ]
+    },
+    "rulianshi": {
+      "path": "assets/redrawn/wave5/rulianshi.png",
+      "focus": [
+        0.663,
+        0.204
+      ]
+    },
+    "fengli": {
+      "path": "assets/redrawn/wave5/fengli.png",
+      "focus": [
+        0.435,
+        0.22
+      ]
+    },
+    "guanhu": {
+      "path": "assets/redrawn/wave5/guanhu.png",
+      "focus": [
+        0.57,
+        0.28
+      ]
+    },
+    "song": {
+      "path": "assets/redrawn/wave5/song.png",
+      "focus": [
+        0.57,
+        0.165
+      ]
+    },
+    "yunwaijing": {
+      "path": "assets/redrawn/wave5/yunwaijing.png",
+      "focus": [
+        0.5,
+        0.32
+      ]
+    },
+    "liangmianfo": {
+      "path": "assets/redrawn/wave5/liangmianfo.png",
+      "focus": [
+        0.52,
+        0.335
+      ]
+    },
+    "heitongzi": {
+      "path": "assets/redrawn/wave5/heitongzi.png",
+      "focus": [
+        0.625,
+        0.315
+      ]
+    },
+    "baitongzi": {
+      "path": "assets/redrawn/wave5/baitongzi.png",
+      "focus": [
+        0.61,
+        0.34
+      ]
+    },
+    "xiazhongshaonv": {
+      "path": "assets/redrawn/wave5/xiazhongshaonv.png",
+      "focus": [
+        0.5,
+        0.273
+      ]
+    },
+    "yi": {
+      "path": "assets/redrawn/wave5/yi.png",
+      "focus": [
+        0.5,
+        0.12
+      ]
+    },
+    "xiaosongwan": {
+      "path": "assets/redrawn/wave5/xiaosongwan.png",
+      "focus": [
+        0.4,
+        0.24
+      ]
+    },
+    "wuwu": {
+      "path": "assets/redrawn/wave5/wuwu.png",
+      "focus": [
+        0.43,
+        0.274
+      ]
+    },
+    "qianji": {
+      "path": "assets/redrawn/wave5/qianji.png",
+      "focus": [
+        0.38,
+        0.1
+      ]
+    },
+    "shiling": {
+      "path": "assets/redrawn/wave5/shiling.png",
+      "focus": [
+        0.5,
+        0.161
+      ]
+    },
+    "maozhanggui": {
+      "path": "assets/redrawn/wave5/maozhanggui.png",
+      "focus": [
+        0.48,
+        0.18
+      ]
+    },
+    "xingxiongtongzi": {
+      "path": "assets/redrawn/wave5/xingxiongtongzi.png",
+      "focus": [
+        0.325,
+        0.135
+      ]
+    },
+    "yixigong": {
+      "path": "assets/redrawn/wave5/yixigong.png",
+      "focus": [
+        0.4,
+        0.285
+      ]
+    },
+    "limao": {
+      "path": "assets/redrawn/wave5/limao.png",
+      "focus": [
+        0.5,
+        0.24
+      ]
+    },
+    "tuwan": {
+      "path": "assets/redrawn/wave5/tuwan.png",
+      "focus": [
+        0.48,
+        0.24
+      ]
+    },
+    "jinnaluo": {
+      "path": "assets/redrawn/wave6/jinnaluo.png",
+      "focus": [
+        0.655,
+        0.165
+      ]
+    },
+    "lingyanji": {
+      "path": "assets/redrawn/wave6/lingyanji.png",
+      "focus": [
+        0.405,
+        0.18
+      ]
+    },
+    "rurineque": {
+      "path": "assets/redrawn/wave6/rurineque.png",
+      "focus": [
+        0.595,
+        0.257
+      ]
+    },
+    "shouwu": {
+      "path": "assets/redrawn/wave6/shouwu.png",
+      "focus": [
+        0.56,
+        0.185
+      ]
+    },
+    "gunvhongye": {
+      "path": "assets/redrawn/wave6/gunvhongye.png",
+      "focus": [
+        0.383,
+        0.139
+      ]
+    },
+    "choushizhinv": {
+      "path": "assets/redrawn/wave6/choushizhinv.png",
+      "focus": [
+        0.33,
+        0.244
+      ]
+    },
+    "yifanmumian": {
+      "path": "assets/redrawn/wave6/yifanmumian.png",
+      "focus": [
+        0.697,
+        0.117
+      ]
+    },
+    "yecha": {
+      "path": "assets/redrawn/wave6/yecha.png",
+      "focus": [
+        0.44,
+        0.196
+      ]
+    },
+    "huangchuanzhizhu": {
+      "path": "assets/redrawn/wave6/huangchuanzhizhu.png",
+      "focus": [
+        0.61,
+        0.14
+      ]
+    },
+    "wannianzhu": {
+      "path": "assets/redrawn/wave6/wannianzhu.png",
+      "focus": [
+        0.58,
+        0.14
+      ]
+    },
+    "shuzhu": {
+      "path": "assets/redrawn/wave6/shuzhu.png",
+      "focus": [
+        0.49,
+        0.235
+      ]
+    },
+    "sanweihu": {
+      "path": "assets/redrawn/wave6/sanweihu.png",
+      "focus": [
+        0.575,
+        0.155
+      ]
+    },
+    "jicanghai": {
+      "path": "assets/redrawn/wave6/jicanghai.png",
+      "focus": [
+        0.42,
+        0.18
+      ]
+    },
+    "wuchen": {
+      "path": "assets/redrawn/wave6/wuchen.png",
+      "focus": [
+        0.34,
+        0.175
+      ]
+    },
+    "ninghongye": {
+      "path": "assets/redrawn/wave6/ninghongye.png",
+      "focus": [
+        0.71,
+        0.165
+      ]
+    },
+    "tayumenhutao": {
+      "path": "assets/redrawn/wave6/tayumenhutao.png",
+      "focus": [
+        0.365,
+        0.145
+      ]
+    },
+    "baize": {
+      "path": "assets/redrawn/wave6/baize.png",
+      "focus": [
+        0.53,
+        0.142
+      ]
+    },
+    "hudiejing": {
+      "path": "assets/redrawn/wave6/hudiejing.png",
+      "focus": [
+        0.52,
+        0.172
+      ]
+    },
+    "luoxinfu": {
+      "path": "assets/redrawn/wave6/luoxinfu.png",
+      "focus": [
+        0.433,
+        0.202
+      ]
+    },
+    "yitiao": {
+      "path": "assets/redrawn/wave6/yitiao.png",
+      "focus": [
+        0.475,
+        0.215
+      ]
+    },
+    "jialouluo": {
+      "path": "assets/redrawn/wave6/jialouluo.png",
+      "focus": [
+        0.626,
+        0.167
+      ]
+    },
+    "huajing": {
+      "path": "assets/redrawn/wave6/huajing.png",
+      "focus": [
+        0.68,
+        0.248
+      ]
+    },
+    "yinge": {
+      "path": "assets/redrawn/wave6/yinge.png",
+      "focus": [
+        0.51,
+        0.323
+      ]
+    },
+    "bujianyue": {
+      "path": "assets/redrawn/wave6/bujianyue.png",
+      "focus": [
+        0.538,
+        0.157
+      ]
+    },
+    "xuzuozhinan": {
+      "path": "assets/redrawn/wave6/xuzuozhinan.png",
+      "focus": [
+        0.447,
+        0.177
+      ]
+    },
+    "liyujing": {
+      "path": "assets/redrawn/wave6/liyujing.png",
+      "focus": [
+        0.695,
+        0.208
+      ]
+    },
+    "chongshi": {
+      "path": "assets/redrawn/wave6/chongshi.png",
+      "focus": [
+        0.559,
+        0.164
+      ]
+    },
+    "xieenv": {
+      "path": "assets/redrawn/wave6/xieenv.png",
+      "focus": [
+        0.512,
+        0.12
+      ]
+    },
+    "xunxiangxing": {
+      "path": "assets/redrawn/wave6/xunxiangxing.png",
+      "focus": [
+        0.49,
+        0.22
+      ]
+    },
+    "linghaidie": {
+      "path": "assets/redrawn/wave6/linghaidie.png",
+      "focus": [
+        0.574,
+        0.245
+      ]
+    },
+    "yujuchong": {
+      "path": "assets/redrawn/wave6/yujuchong.png",
+      "focus": [
+        0.59,
+        0.214
+      ]
+    },
+    "hainren": {
+      "path": "assets/redrawn/wave6/hainren.png",
+      "focus": [
+        0.556,
+        0.178
+      ]
+    },
+    "gulonghuo": {
+      "path": "assets/redrawn/wave7/gulonghuo.png",
+      "focus": [
+        0.59,
+        0.178
+      ]
+    },
+    "chuanyuan": {
+      "path": "assets/redrawn/wave7/chuanyuan.png",
+      "focus": [
+        0.5,
+        0.277
+      ]
+    },
+    "erkounv": {
+      "path": "assets/redrawn/wave7/erkounv.png",
+      "focus": [
+        0.53,
+        0.246
+      ]
+    },
+    "xiaoxiuzhishou": {
+      "path": "assets/redrawn/wave7/xiaoxiuzhishou.png",
+      "focus": [
+        0.5,
+        0.17
+      ]
+    },
+    "quanshen-lizhan": {
+      "path": "assets/redrawn/wave7/quanshen-lizhan.png",
+      "focus": [
+        0.434,
+        0.288
+      ]
+    },
+    "yaodaoji-zhuren": {
+      "path": "assets/redrawn/wave7/yaodaoji-zhuren.png",
+      "focus": [
+        0.518,
+        0.184
+      ]
+    },
+    "datiangou-gangfeng": {
+      "path": "assets/redrawn/wave7/datiangou-gangfeng.png",
+      "focus": [
+        0.598,
+        0.226
+      ]
+    },
+    "qingxingdeng-huihuo": {
+      "path": "assets/redrawn/wave7/qingxingdeng-huihuo.png",
+      "focus": [
+        0.591,
+        0.22
+      ]
+    },
+    "kongquemingwang": {
+      "path": "assets/redrawn/wave7/kongquemingwang.png",
+      "focus": [
+        0.568,
+        0.161
+      ]
+    },
+    "fenpopo": {
+      "path": "assets/redrawn/wave7/fenpopo.png",
+      "focus": [
+        0.52,
+        0.276
+      ]
+    },
+    "jiao": {
+      "path": "assets/redrawn/wave7/jiao.png",
+      "focus": [
+        0.55,
+        0.248
+      ]
+    },
+    "ji": {
+      "path": "assets/redrawn/wave7/ji.png",
+      "focus": [
+        0.54,
+        0.151
+      ]
+    },
+    "jutun-wangkong": {
+      "path": "assets/redrawn/wave7/jutun-wangkong.png",
+      "focus": [
+        0.63,
+        0.137
+      ]
+    },
+    "caitong-lvli": {
+      "path": "assets/redrawn/wave7/caitong-lvli.png",
+      "focus": [
+        0.432,
+        0.229
+      ]
+    },
+    "qingfangzhu-fanchen": {
+      "path": "assets/redrawn/wave7/qingfangzhu-fanchen.png",
+      "focus": [
+        0.55,
+        0.131
+      ]
+    },
+    "panguan-xuanmo": {
+      "path": "assets/redrawn/wave7/panguan-xuanmo.png",
+      "focus": [
+        0.367,
+        0.245
+      ]
+    },
+    "langyazi": {
+      "path": "assets/redrawn/wave7/langyazi.png",
+      "focus": [
+        0.53,
+        0.201
+      ]
+    },
+    "yanling": {
+      "path": "assets/redrawn/wave7/yanling.png",
+      "focus": [
+        0.552,
+        0.278
+      ]
+    },
+    "huimingdeng": {
+      "path": "assets/redrawn/wave7/huimingdeng.png",
+      "focus": [
+        0.469,
+        0.266
+      ]
+    },
+    "shifagui": {
+      "path": "assets/redrawn/wave7/shifagui.png",
+      "focus": [
+        0.49,
+        0.124
+      ]
+    },
+    "tiannimei": {
+      "path": "assets/redrawn/wave7/tiannimei.png",
+      "focus": [
+        0.525,
+        0.18
+      ]
+    },
+    "guniao-yuxiang": {
+      "path": "assets/redrawn/wave7/guniao-yuxiang.png",
+      "focus": [
+        0.595,
+        0.219
+      ]
+    },
+    "taohua-luoying": {
+      "path": "assets/redrawn/wave7/taohua-luoying.png",
+      "focus": [
+        0.401,
+        0.157
+      ]
+    },
+    "yimulian-linglai": {
+      "path": "assets/redrawn/wave7/yimulian-linglai.png",
+      "focus": [
+        0.561,
+        0.146
+      ]
+    },
+    "shantu-zuofu": {
+      "path": "assets/redrawn/wave7/shantu-zuofu.png",
+      "focus": [
+        0.56,
+        0.255
+      ]
+    },
+    "chen": {
+      "path": "assets/redrawn/wave8/chen.png",
+      "focus": [
+        0.514,
+        0.128
+      ]
+    },
+    "tianzhao": {
+      "path": "assets/redrawn/wave8/tianzhao.png",
+      "focus": [
+        0.585,
+        0.135
+      ]
+    },
+    "yuedu": {
+      "path": "assets/redrawn/wave8/yuedu.png",
+      "focus": [
+        0.547,
+        0.152
+      ]
+    },
+    "gunv": {
+      "path": "assets/redrawn/wave8/gunv.png",
+      "focus": [
+        0.638,
+        0.188
+      ]
+    },
+    "yunv": {
+      "path": "assets/redrawn/wave8/yunv.png",
+      "focus": [
+        0.581,
+        0.21
+      ]
+    },
+    "huang-qiming": {
+      "path": "assets/redrawn/wave8/huang-qiming.png",
+      "focus": [
+        0.456,
+        0.134
+      ]
+    },
+    "zhuiyueshen-shuiyue": {
+      "path": "assets/redrawn/wave8/zhuiyueshen-shuiyue.png",
+      "focus": [
+        0.424,
+        0.155
+      ]
+    },
+    "wushi-maoshi": {
+      "path": "assets/redrawn/wave8/wushi-maoshi.png",
+      "focus": [
+        0.522,
+        0.146
+      ]
+    },
+    "yixienamei": {
+      "path": "assets/redrawn/wave8/yixienamei.png",
+      "focus": [
+        0.492,
+        0.168
+      ]
+    },
+    "guishibai": {
+      "path": "assets/redrawn/wave8/guishibai.png",
+      "focus": [
+        0.522,
+        0.203
+      ]
+    },
+    "guishihei": {
+      "path": "assets/redrawn/wave8/guishihei.png",
+      "focus": [
+        0.431,
+        0.204
+      ]
+    },
+    "tongnantongnv": {
+      "path": "assets/redrawn/wave8/tongnantongnv.png",
+      "focus": [
+        0.548,
+        0.415
+      ]
+    },
+    "zhiwu": {
+      "path": "assets/redrawn/wave8/zhiwu.png",
+      "focus": [
+        0.523,
+        0.172
+      ]
+    },
+    "daorenshen": {
+      "path": "assets/redrawn/wave8/daorenshen.png",
+      "focus": [
+        0.509,
+        0.181
+      ]
+    },
+    "ertong": {
+      "path": "assets/redrawn/wave8/ertong.png",
+      "focus": [
+        0.59,
+        0.185
+      ]
+    },
+    "yingcao-pupu": {
+      "path": "assets/redrawn/wave8/yingcao-pupu.png",
+      "focus": [
+        0.537,
+        0.212
+      ]
+    },
+    "mianqiling-xinsu": {
+      "path": "assets/redrawn/wave8/mianqiling-xinsu.png",
+      "focus": [
+        0.504,
+        0.244
+      ]
+    },
+    "fansi": {
+      "path": "assets/redrawn/wave8/fansi.png",
+      "focus": [
+        0.661,
+        0.205
+      ]
+    },
+    "longzi": {
+      "path": "assets/redrawn/wave8/longzi.png",
+      "focus": [
+        0.494,
+        0.116
+      ]
+    },
+    "maochuan": {
+      "path": "assets/redrawn/wave8/maochuan.png",
+      "focus": [
+        0.518,
+        0.223
+      ]
+    },
+    "alaina": {
+      "path": "assets/redrawn/wave8/alaina.png",
+      "focus": [
+        0.565,
+        0.154
+      ]
+    },
+    "youning": {
+      "path": "assets/redrawn/wave8/youning.png",
+      "focus": [
+        0.544,
+        0.208
+      ]
+    },
+    "xiaolunan-qianshou": {
+      "path": "assets/redrawn/wave8/xiaolunan-qianshou.png",
+      "focus": [
+        0.618,
+        0.178
+      ]
+    },
+    "rihefang-qingyang": {
+      "path": "assets/redrawn/wave8/rihefang-qingyang.png",
+      "focus": [
+        0.621,
+        0.21
+      ]
+    },
+    "yanyanluo-fumiao": {
+      "path": "assets/redrawn/wave8/yanyanluo-fumiao.png",
+      "focus": [
+        0.488,
+        0.27
+      ]
+    }
+  }
+}

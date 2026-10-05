@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-labelledby="title desc">
+  <title id="title">狸猫</title>
+  <desc id="desc">狸猫：狸腹与酒葫芦，醉眼朦胧</desc>
+  <defs>
+    <linearGradient id="limao-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140c08"/>
+      <stop offset=".55" stop-color="#201410"/>
+      <stop offset="1" stop-color="#0c0806"/>
+    </linearGradient>
+    <radialGradient id="limao-halo" cx=".5" cy=".44" r=".6">
+      <stop offset="0" stop-color="#d09060" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#b05030" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#b05030" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="limao-body" x1=".2" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#f0d0b0"/>
+      <stop offset=".55" stop-color="#b08868"/>
+      <stop offset="1" stop-color="#b05030"/>
+    </linearGradient>
+    <linearGradient id="limao-acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b05030"/>
+      <stop offset="1" stop-color="#502010"/>
+    </linearGradient>
+    <linearGradient id="limao-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#c9762c"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="260" fill="url(#limao-bg)"/>
+  <circle cx="100" cy="112" r="86" fill="url(#limao-halo)"/>
+  <g>
+    <ellipse cx="100" cy="140" rx="34" ry="38" fill="url(#limao-body)" stroke="#3a2818" stroke-width="2"/>
+    <circle cx="88" cy="130" r="4" fill="#1a1008"/><circle cx="112" cy="130" r="4" fill="#1a1008"/>
+    <ellipse cx="100" cy="148" rx="8" ry="5" fill="#2a1808"/>
+    <path d="M78 78c-8-14-4-26 6-32 0 12 2 22 6 32M122 78c8-14 4-26-6-32 0 12-2 22-6 32" fill="url(#limao-acc)" opacity=".8"/>
+    <path d="M145 100c8 0 12 8 10 18s-10 14-16 10 0-28 6-28z" fill="url(#limao-gold)" opacity=".75"/>
+  </g>
+<g fill="url(#limao-acc)">
+    <circle cx="42" cy="90" r="2" opacity=".6"/>
+    <circle cx="160" cy="92" r="1.8" opacity=".55"/>
+    <circle cx="38" cy="165" r="1.6" opacity=".5"/>
+    <circle cx="164" cy="168" r="1.6" opacity=".5"/>
+    <circle cx="100" cy="36" r="1.5" opacity=".5"/>
+    <circle cx="72" cy="210" r="1.4" opacity=".5"/>
+    <circle cx="128" cy="210" r="1.4" opacity=".5"/>
+  </g>
+  <ellipse cx="100" cy="222" rx="52" ry="9" fill="#000" opacity=".4"/>
+  <rect width="200" height="260" fill="none" stroke="#b05030" stroke-opacity=".35" stroke-width="1.5" rx="10"/>
+</svg>

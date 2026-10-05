@@ -1,0 +1,219 @@
+[
+  {
+    "id": "ember",
+    "name": "赤曜",
+    "pack": "origin",
+    "officialRole": null,
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "basalt",
+    "name": "岚岳",
+    "pack": "origin",
+    "officialRole": null,
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "lumen",
+    "name": "弦月",
+    "pack": "origin",
+    "officialRole": null,
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "rime",
+    "name": "白棱",
+    "pack": "origin",
+    "officialRole": null,
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "storm",
+    "name": "霆鸢",
+    "pack": "origin",
+    "officialRole": null,
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "ink",
+    "name": "玄砚",
+    "pack": "origin",
+    "officialRole": null,
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "frostblade",
+    "name": "银狼",
+    "pack": "origin",
+    "officialRole": null,
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "kongo",
+    "name": "金刚",
+    "pack": "origin",
+    "officialRole": null,
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "nezuko",
+    "name": "祢豆子",
+    "pack": "wave10",
+    "officialRole": "182",
+    "reason": "officialRole 182 and its local unit/awakening card show Tanjiro, not Nezuko"
+  },
+  {
+    "id": "zhiren",
+    "name": "纸人",
+    "pack": "wave11",
+    "officialRole": "zhiren",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "yanyanluo-fenshen",
+    "name": "烟烟罗分身",
+    "pack": "wave11",
+    "officialRole": "yanyanluo-fenshen",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "jinran-buye",
+    "name": "烬染不夜",
+    "pack": "wave11",
+    "officialRole": "jinran-buye",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "xueqiu-jingling",
+    "name": "雪球精灵",
+    "pack": "wave11",
+    "officialRole": "xueqiu-jingling",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "huangjinyu-ling",
+    "name": "黄金羽灵",
+    "pack": "wave11",
+    "officialRole": "huangjinyu-ling",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "mingdeng-shou",
+    "name": "明灯使",
+    "pack": "wave11",
+    "officialRole": "mingdeng-shou",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "xinmo",
+    "name": "心魔",
+    "pack": "wave11",
+    "officialRole": "xinmo",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "shouhu-ling",
+    "name": "守护灵",
+    "pack": "wave11",
+    "officialRole": "shouhu-ling",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "yueying",
+    "name": "月隐",
+    "pack": "wave12",
+    "officialRole": "origin2-yueying",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "shizhu",
+    "name": "石主",
+    "pack": "wave12",
+    "officialRole": "origin2-shizhu",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "yanling-huo",
+    "name": "焰铃",
+    "pack": "wave12",
+    "officialRole": "origin2-yanling-huo",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "shuimo",
+    "name": "水沫",
+    "pack": "wave12",
+    "officialRole": "origin2-shuimo",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "leiyin",
+    "name": "雷音",
+    "pack": "wave12",
+    "officialRole": "origin2-leiyin",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "xingchen",
+    "name": "星尘",
+    "pack": "wave12",
+    "officialRole": "origin2-xingchen",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "momo",
+    "name": "墨貘",
+    "pack": "wave12",
+    "officialRole": "origin2-momo",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "jinguang",
+    "name": "金光",
+    "pack": "wave12",
+    "officialRole": "origin2-jinguang",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "shiyao-longyechaji",
+    "name": "时曜泷夜叉姬",
+    "pack": "wave13",
+    "officialRole": "destiny-shiyao-longyechaji",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "baize-yuanqi",
+    "name": "白泽·缘起",
+    "pack": "wave13",
+    "officialRole": "destiny-baize-yuanqi",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "shenqi-huang",
+    "name": "神启荒",
+    "pack": "wave13",
+    "officialRole": "destiny-shenqi-huang",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "xuan",
+    "name": "璇",
+    "pack": "wave13",
+    "officialRole": "destiny-xuan",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "yuyuan-banruo",
+    "name": "御怨般若",
+    "pack": "wave13",
+    "officialRole": "destiny-yuyuan-banruo",
+    "reason": "No corresponding original reference in local source set"
+  },
+  {
+    "id": "luohou",
+    "name": "罗睺",
+    "pack": "wave13",
+    "officialRole": "destiny-luohou",
+    "reason": "No corresponding original reference in local source set"
+  }
+]
