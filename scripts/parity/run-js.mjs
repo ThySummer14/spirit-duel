@@ -128,6 +128,13 @@ if (Array.isArray(sample.injectLevels)) {
     if (unit) unit.level = item.level ?? 1;
   }
 }
+// Optional damaged-state fixture; production game creation is unchanged.
+if (Array.isArray(sample.injectHp)) {
+  for (const item of sample.injectHp) {
+    const unit = state.players[item.player]?.units[item.unit];
+    if (unit && Number.isInteger(item.hp) && item.hp >= 0 && item.hp <= unit.maxHp) unit.hp = item.hp;
+  }
+}
 if (Array.isArray(sample.injectEnergy)) {
   for (const item of sample.injectEnergy) {
     const pIdx = item.player ?? 0;

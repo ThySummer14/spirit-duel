@@ -1016,11 +1016,9 @@ func _apply_damage_action(p_idx: int, et: String, value, target_unit: Dictionary
 func _grow_unit(unit: Dictionary, atk: int, hp: int) -> void:
 	unit.attackBonus = int(unit.attackBonus) + atk
 	unit.maxHpBonus = int(unit.maxHpBonus) + hp
+	# _recalc already grants the max-HP increase to living units exactly once.
+	# Adding it again heals existing damage and can even revive a knocked-out unit.
 	_recalc(unit)
-	if hp > 0:
-		unit.hp = mini(int(unit.hp) + hp, int(unit.maxHp))
-	unit.attack = int(unit.baseAttack) + int(unit.attackBonus) + int(unit.form.get("attackBonus", 0))
-	unit.maxHp = int(unit.baseMaxHp) + int(unit.maxHpBonus) + int(unit.form.get("hpBonus", 0))
 
 
 func _recalc(unit: Dictionary) -> void:

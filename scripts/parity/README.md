@@ -18,6 +18,7 @@
 
 | 文件 | 覆盖 |
 | --- | --- |
+| `sample-growth.json` | 受伤角色觉醒时生命上限只增长一次，不额外治疗已有伤势 |
 | `sample-origin.json` | 升勾→出牌→出击→形态→结束回合 核心环（原创四人） |
 | `sample-keywords.json` | 贯通 / 连击 / 先攻 / 远程 / 暴击 战斗牌 |
 | `sample-response.json` | 响应窗口 pass 优先权（双方放弃后原效果结算） |
@@ -68,3 +69,5 @@
 | 其余关键词资源链 | 烹饪/入夜/蓄力完整树等仍简化；未知 effect 记「效果暂未完全结算」 |
 
 已对齐资源链：**占卜**（pendingChoice + 置顶）、**运势**（骰子 + fortune-success）、**鼓舞**（池累积/出击消耗）、**充能**（回合成长 + chargeCost）。
+
+`injectHp` 可为指定 `player` / `unit` 设置合法范围内的 `hp`，用于受伤状态的回归样本；不影响正式对局创建。

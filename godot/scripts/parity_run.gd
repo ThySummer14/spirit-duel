@@ -62,6 +62,18 @@ func _init() -> void:
 		var lu := int(item.get("unit", 0))
 		if lp >= 0 and lp < gs.players.size() and lu >= 0 and lu < gs.player(lp).units.size():
 			gs.player(lp).units[lu].level = int(item.get("level", 1))
+	# Optional damaged-state fixture, matching run-js.mjs.
+	var inject_hp: Array = sample.get("injectHp", []) if sample.get("injectHp") is Array else []
+	for item in inject_hp:
+		if not (item is Dictionary):
+			continue
+		var hp_player := int(item.get("player", -1))
+		var hp_unit := int(item.get("unit", -1))
+		var hp := int(item.get("hp", -1))
+		if hp_player >= 0 and hp_player < gs.players.size() and hp_unit >= 0 and hp_unit < gs.player(hp_player).units.size():
+			var unit: Dictionary = gs.player(hp_player).units[hp_unit]
+			if hp >= 0 and hp <= int(unit.maxHp):
+				unit.hp = hp
 	var inject_e: Array = sample.get("injectEnergy", []) if sample.get("injectEnergy") is Array else []
 	for item in inject_e:
 		if not (item is Dictionary):
