@@ -24,3 +24,11 @@ The aggregate asset import was killed while processing the large art collection 
 - UI script parsing: 21 scripts passed (not a rendered UI check).
 - Isolated save and collection checks passed.
 - Seeded stress: 60 random matches and 20 focused matches completed, zero stalls; focused matches included nine response games and one choice game.
+
+## Iteration 3: overflow draws preserve the player's held cards
+
+Godot removed the first card from hand when exceeding 12, while the browser baseline retains the first 12 and burns the new overflow. Drawing into a full hand could therefore destroy a card the player was saving. The overflow now removes the newly drawn card.
+
+- Four direct cases cover 11/12 held cards and one/three draws; the previous implementation failed retained-card and first-free-slot checks, and the fix passes.
+- Parity snapshots now compare ordered hand and deck card identities in addition to counts, closing the blind spot that hid this bug.
+- All nine fixtures pass the expanded comparison, including the new full-hand end-turn fixture and damaged-awakening fixture.

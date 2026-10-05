@@ -25,6 +25,8 @@ function snapshot(state) {
       avatarHp: player.avatarHp,
       energy: player.energy,
       handCount: player.hand.length,
+      handCards: player.hand.map((card) => card.definitionId),
+      deckCards: player.deck.map((card) => card.definitionId),
       deckCount: player.deck.length,
       attackUsed: player.attackUsed === true,
       levelUpUsed: player.levelUpUsed === true,

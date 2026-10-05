@@ -359,7 +359,7 @@ func _draw(p_idx: int, count: int) -> void:
 		var def := ContentLoader.card_def(card.definitionId)
 		_log("%s 抽到「%s」。" % [p.name, def.get("name", card.definitionId)], TONE_NEUTRAL)
 		while p.hand.size() > int(rules.get("maxHandSize", 12)):
-			var burned: Dictionary = p.hand.pop_front()
+			var burned: Dictionary = p.hand.pop_back()
 			var bdef := ContentLoader.card_def(burned.definitionId)
 			_log("%s 手牌已满，「%s」被烧毁。" % [p.name, bdef.get("name", burned.definitionId)], TONE_DANGER)
 

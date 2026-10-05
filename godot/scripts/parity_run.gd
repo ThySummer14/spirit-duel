@@ -164,6 +164,8 @@ func _snapshot(gs) -> Dictionary:
 			"avatarHp": int(p.get("avatarHp", 0)),
 			"energy": int(p.get("energy", 0)),
 			"handCount": p.hand.size(),
+			"handCards": p.hand.map(func(card): return card.definitionId),
+			"deckCards": p.deck.map(func(card): return card.definitionId),
 			"deckCount": p.deck.size(),
 			"attackUsed": bool(p.get("attackUsed", false)),
 			"levelUpUsed": bool(p.get("levelUpUsed", false)),

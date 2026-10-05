@@ -35,7 +35,7 @@ fi
 echo "== godot import assets =="
 run_godot_check --editor --import
 
-for check_script in verify verify_combat verify_growth verify_ui verify_save verify_collection verify_interactions verify_reference_workflow verify_presentation verify_art verify_roster; do
+for check_script in verify verify_combat verify_growth verify_draw verify_ui verify_save verify_collection verify_interactions verify_reference_workflow verify_presentation verify_art verify_roster; do
   echo "== godot $check_script =="
   run_godot_check --script "res://scripts/$check_script.gd"
 done

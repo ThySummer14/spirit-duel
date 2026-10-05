@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "name": "full-hand-preserves-held-cards",
+  "seed": 424242,
+  "lineupA": [
+    "basalt",
+    "lumen",
+    "rime",
+    "ink"
+  ],
+  "lineupB": [
+    "storm",
+    "frostblade",
+    "kongo",
+    "ember"
+  ],
+  "injectHand": [
+    {
+      "player": 0,
+      "card": "awaken-basalt"
+    },
+    {
+      "player": 0,
+      "card": "awaken-basalt"
+    },
+    {
+      "player": 0,
+      "card": "awaken-basalt"
+    },
+    {
+      "player": 0,
+      "card": "awaken-basalt"
+    },
+    {
+      "player": 0,
+      "card": "awaken-basalt"
+    },
+    {
+      "player": 0,
+      "card": "awaken-basalt"
+    },
+    {
+      "player": 0,
+      "card": "awaken-basalt"
+    }
+  ],
+  "commands": [
+    {
+      "seq": 1,
+      "type": "end-turn",
+      "player": 0
+    },
+    {
+      "seq": 2,
+      "type": "end-turn",
+      "player": 1
+    }
+  ]
+}
