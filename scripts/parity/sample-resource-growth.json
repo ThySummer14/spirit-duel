@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "name": "resource-and-growth-effects",
+  "seed": 424242,
+  "lineupA": [
+    "huangchuanzhizhu",
+    "shantu",
+    "caitongzi",
+    "yaoginshi"
+  ],
+  "lineupB": [
+    "basalt",
+    "lumen",
+    "rime",
+    "ink"
+  ],
+  "injectHand": [
+    {
+      "player": 0,
+      "card": "c27101"
+    },
+    {
+      "player": 0,
+      "card": "c12702"
+    },
+    {
+      "player": 0,
+      "card": "c11103"
+    },
+    {
+      "player": 0,
+      "card": "c12806"
+    }
+  ],
+  "injectLevels": [
+    {
+      "player": 0,
+      "unit": 0,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 1,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 2,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 3,
+      "level": 3
+    }
+  ],
+  "injectEnergy": [
+    {
+      "player": 0,
+      "amount": 2
+    }
+  ],
+  "injectHp": [
+    {
+      "player": 0,
+      "unit": 2,
+      "hp": 2
+    }
+  ],
+  "commands": [
+    {
+      "seq": 1,
+      "type": "play-card",
+      "player": 0,
+      "card": "c27101"
+    },
+    {
+      "seq": 2,
+      "type": "play-card",
+      "player": 0,
+      "card": "c12702",
+      "target": "player:caitongzi"
+    },
+    {
+      "seq": 3,
+      "type": "play-card",
+      "player": 0,
+      "card": "c11103"
+    },
+    {
+      "seq": 4,
+      "type": "play-card",
+      "player": 0,
+      "card": "c12806"
+    }
+  ]
+}

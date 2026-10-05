@@ -838,6 +838,24 @@ func _resolve_action(p_idx: int, src: int, card: Dictionary, effect: Dictionary,
 		"heal":
 			for u in _ally_targets(p_idx, et, src, target_id, target_unit):
 				_heal_unit(u, _num(value))
+		"buff-stats":
+			var bonuses := _value_dict(value)
+			var targets: Array = []
+			if et == "all-enemy-units":
+				targets = player(e_idx).units.filter(func(u): return int(u.hp) > 0)
+			elif et == "selected-enemy":
+				if not target_unit.is_empty():
+					targets = [target_unit]
+			elif et in ["source", "all-ally-units", "all-other-allies"] or target_id != null:
+				targets = _ally_targets(p_idx, et, src, target_id, target_unit)
+			for u in targets:
+				if int(u.hp) > 0:
+					_grow_unit(u, _num(bonuses.get("attack", 0)), _num(bonuses.get("hp", 0)))
+					_log("%s 获得 +%d/+%d。" % [u.name, _num(bonuses.get("attack", 0)), _num(bonuses.get("hp", 0))], TONE_SUCCESS)
+		"energy-gain":
+			var amount := _num(value) if value != null else 1
+			p.energy = mini(4, int(p.energy) + amount)
+			_log("%s 获得 %d 点鬼火。" % [p.name, amount], TONE_SUCCESS)
 		"heal-avatar":
 			_heal_avatar(p_idx, _num(value))
 		"shield":

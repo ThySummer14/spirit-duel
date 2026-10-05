@@ -32,3 +32,12 @@ Godot removed the first card from hand when exceeding 12, while the browser base
 - Four direct cases cover 11/12 held cards and one/three draws; the previous implementation failed retained-card and first-free-slot checks, and the fix passes.
 - Parity snapshots now compare ordered hand and deck card identities in addition to counts, closing the blind spot that hid this bug.
 - All nine fixtures pass the expanded comparison, including the new full-hand end-turn fixture and damaged-awakening fixture.
+
+## Iteration 4: existing energy and stat-growth effects resolve
+
+The content catalog contains 56 `energy-gain` and 190 `buff-stats` effect references. These previously fell through to the unsupported-effect log. Godot now implements the JS baseline's energy cap of four and permanent stat growth for source, selected ally/enemy, all allies/enemies and all other allies. Missing selected targets do not silently buff the source; dead units are excluded and growth preserves existing damage.
+
+- Direct effect regression: 149 checks passed across all six target scopes, missing targets, dead units, damaged units, and energy caps.
+- Real-card parity fixture: four successful plays exercise energy and selected/self/other-ally growth, matching JS including ordered hand/deck contents.
+- This covers these two effect primitives, not every card's remaining complex mechanisms or passive timing.
+- A separate observed token-generation ordering difference is being investigated; it is not hidden by disabling identity comparison.

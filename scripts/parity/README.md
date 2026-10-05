@@ -19,6 +19,7 @@
 | 文件 | 覆盖 |
 | --- | --- |
 | `sample-hand-overflow.json` | 手牌已满时烧毁新抽到的牌，保留原手牌及其顺序 |
+| `sample-resource-growth.json` | 鬼火获取上限、指定友方/自身/其他友方的永久成长 |
 | `sample-growth.json` | 受伤角色觉醒时生命上限只增长一次，不额外治疗已有伤势 |
 | `sample-origin.json` | 升勾→出牌→出击→形态→结束回合 核心环（原创四人） |
 | `sample-keywords.json` | 贯通 / 连击 / 先攻 / 远程 / 暴击 战斗牌 |
