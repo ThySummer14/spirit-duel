@@ -1266,6 +1266,10 @@ func _resolve_combat(p_idx: int, unit_index: int, bonus: int, pierce: bool, remo
 		_log("%s 向 %s 发起远程出击。" % [attacker.name, defender.name], TONE_TURN)
 	else:
 		_log("%s 向 %s 发起出击。" % [attacker.name, defender.name], TONE_TURN)
+	# Snapshot retaliation before damage: knockout clears frozen, but must not
+	# grant a stunned defender a counterattack (same order as JS resolveCombat).
+	var counter_power := int(defender.attack)
+	var counter_allowed := (not remote) and int(defender.frozen) == 0
 	var result := _damage_unit(e_idx, fi, power, p_idx)
 	var defender_down: bool = result.knocked
 	# 贯通：溢出伤害转移核心
@@ -1282,11 +1286,10 @@ func _resolve_combat(p_idx: int, unit_index: int, bonus: int, pierce: bool, remo
 			_damage_avatar(e_idx, 1, p_idx)
 	# 先攻：首次伤害即气绝则不反击
 	# 与 JS 对齐：目标已气绝仍可反击（先攻除外），不要求 defender.hp > 0
-	var counter_allowed := (not remote) and int(defender.frozen) == 0 and int(attacker.hp) > 0 and winner < 0
 	if first_strike and defender_down:
 		counter_allowed = false
-	if counter_allowed and int(defender.attack) > 0:
-		_damage_unit(p_idx, unit_index, int(defender.attack), e_idx)
+	if counter_allowed and int(attacker.hp) > 0 and winner < 0 and counter_power > 0:
+		_damage_unit(p_idx, unit_index, counter_power, e_idx)
 	var ctx := {"defender": defender, "from_reserve": entered_from_reserve, "killed": defender_down}
 	_fire_hooks(p_idx, unit_index, "combat-resolved", ctx)
 	_run_form_hooks(p_idx, unit_index, "combat-resolved", ctx)
