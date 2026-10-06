@@ -3,7 +3,7 @@
  * 卡面原文见 officialText；效果为可玩化映射，复杂机制已在 text 中标注简化。
  * 请勿把网易官方美术放入本仓库。
  */
-import { CARD_KEYWORDS } from './game-keywords.js?v=9d3113fe';
+import { CARD_KEYWORDS } from './game-keywords.js?v=ae8562bd';
 
 export const WAVE3_PACK_ID = 'wave3';
 export const WAVE3_PACK_NAME = '月夜沧海';

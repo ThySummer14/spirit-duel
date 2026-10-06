@@ -2,7 +2,7 @@
  * 命运抉择（wave13）6 位式神 + SKIN 变体卡 — 由 scripts/gen-wave13-content.py 生成。
  * 命运抉择式神晚于卡库快照，效果按公开设定可玩化简化。
  */
-import { CARD_KEYWORDS } from './game-keywords.js?v=9d3113fe';
+import { CARD_KEYWORDS } from './game-keywords.js?v=ae8562bd';
 
 export const WAVE13_PACK_ID = 'wave13';
 export const WAVE13_PACK_NAME = '命运抉择';

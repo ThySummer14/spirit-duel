@@ -9,7 +9,7 @@ import {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=9d3113fe';
+} from './game-content.js?v=ae8562bd';
 import {
   CARD_KEYWORDS,
   applyCardPlayedKeywordHooks,
@@ -30,7 +30,7 @@ import {
   validateCardKeywordConfiguration,
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
-} from './game-keywords.js?v=9d3113fe';
+} from './game-keywords.js?v=ae8562bd';
 
 export {
   CARD_DEFINITIONS,
@@ -45,7 +45,7 @@ export {
   getStarterCardIdsForUnit,
   getUnitDefinition,
   validateDeckDefinition,
-} from './game-content.js?v=9d3113fe';
+} from './game-content.js?v=ae8562bd';
 
 export {
   CARD_KEYWORDS,
@@ -56,7 +56,7 @@ export {
   getUnitKeywordStatuses,
   getKeywordStatusText,
   validateCardKeywordConfiguration,
-} from './game-keywords.js?v=9d3113fe';
+} from './game-keywords.js?v=ae8562bd';
 
 export const GAME_EVENTS = Object.freeze({
   MATCH_STARTED: 'match-started',

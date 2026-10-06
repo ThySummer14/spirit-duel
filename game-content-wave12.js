@@ -2,7 +2,7 @@
  * 灵枢原创·二弹（wave12，8 式神）内容 — 由 scripts/gen-wave12-content.py 生成。
  * 原创墨夜和风设定，与网易 IP 无关。效果仅映射已有动作。
  */
-import { CARD_KEYWORDS } from './game-keywords.js?v=9d3113fe';
+import { CARD_KEYWORDS } from './game-keywords.js?v=ae8562bd';
 
 export const WAVE12_PACK_ID = 'wave12';
 export const WAVE12_PACK_NAME = '灵枢原创·二弹';

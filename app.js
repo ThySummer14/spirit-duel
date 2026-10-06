@@ -1,5 +1,5 @@
-import { createBattleRenderer } from './battle-render.js?v=9d3113fe';
-import { createBattleFx } from './battle-fx.js?v=9d3113fe';
+import { createBattleRenderer } from './battle-render.js?v=ae8562bd';
+import { createBattleFx } from './battle-fx.js?v=ae8562bd';
 import {
   DEFAULT_PLAYER_LINEUP,
   GAME_RULES,
@@ -28,9 +28,9 @@ import {
   resolveDivinationChoice,
   serializeGame,
   validateDeckDefinition,
-} from './game-core.js?v=9d3113fe';
-import { chooseAiCommand } from './game-ai.js?v=9d3113fe';
-import { gameAudio } from './game-audio.js?v=9d3113fe';
+} from './game-core.js?v=ae8562bd';
+import { chooseAiCommand } from './game-ai.js?v=ae8562bd';
+import { gameAudio } from './game-audio.js?v=ae8562bd';
 import {
   COLLECTION_RULES,
   RARITY_LABELS,
@@ -45,26 +45,26 @@ import {
   validateCollectionDeck,
   ownedHoloCopies,
   serializeCollection,
-} from './game-collection.js?v=9d3113fe';
+} from './game-collection.js?v=ae8562bd';
 import {
   canUpgradeUnit,
   captureBattleSnapshot,
   deriveBattleFeedback,
-} from './game-presentation.js?v=9d3113fe';
+} from './game-presentation.js?v=ae8562bd';
 import {
   appendCommand,
   createCommandReplay,
   createCommandJournal,
   createSessionSave,
   restoreSessionSave,
-} from './game-session.js?v=9d3113fe';
+} from './game-session.js?v=ae8562bd';
 import {
   holoLayers,
   holoSheenMarkup,
   initCollectionHolo,
   initPreviewHolo,
   initRevealHolo,
-} from './card-holo.js?v=9d3113fe';
+} from './card-holo.js?v=ae8562bd';
 
 const LOCAL_SAVE_KEY = 'nexus-front:session-slot-1';
 const COLLECTION_STORAGE_KEY = 'nexus-front:collection';
@@ -1060,7 +1060,6 @@ function renderFormationRoster() {
     image.width = 200;
     image.height = 260;
     art.append(image);
-    art.append(packBadge);
 
     const order = document.createElement('span');
     order.className = 'roster-order';
@@ -1069,6 +1068,7 @@ function renderFormationRoster() {
     const packBadge = document.createElement('span');
     packBadge.className = 'roster-pack-badge';
     packBadge.textContent = (unit.pack ?? 'origin') === 'classic' ? '经典' : '原创';
+    art.append(packBadge);
 
     const identity = document.createElement('span');
     identity.className = 'roster-identity';

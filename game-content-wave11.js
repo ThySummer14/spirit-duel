@@ -3,7 +3,7 @@
  * 灵感来自 token-derivatives 衍生/召唤物，改写为独立可玩式神。
  * 效果仅映射已有动作；请勿把网易官方美术放入本仓库。
  */
-import { CARD_KEYWORDS } from './game-keywords.js?v=9d3113fe';
+import { CARD_KEYWORDS } from './game-keywords.js?v=ae8562bd';
 
 export const WAVE11_PACK_ID = 'wave11';
 export const WAVE11_PACK_NAME = '衍生式神';

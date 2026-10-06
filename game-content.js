@@ -1,23 +1,23 @@
-import { CARD_KEYWORDS } from './game-keywords.js?v=9d3113fe';
+import { CARD_KEYWORDS } from './game-keywords.js?v=ae8562bd';
 import {
   CLASSIC_CARD_DEFINITIONS,
   CLASSIC_PACK_ID,
   CLASSIC_PACK_NAME,
   CLASSIC_UNIT_DEFINITIONS,
-} from './game-content-classic.js?v=1';
+} from './game-content-classic.js?v=ae8562bd';
 import {
   WAVE2_CARD_DEFINITIONS,
   WAVE2_PACK_ID,
   WAVE2_PACK_NAME,
   WAVE2_UNIT_DEFINITIONS,
-} from './game-content-wave2.js?v=1';
+} from './game-content-wave2.js?v=ae8562bd';
 import {
   WAVE3_CARD_DEFINITIONS,
   WAVE3_PACK_ID,
   WAVE3_PACK_NAME,
   WAVE3_SUBPACKS,
   WAVE3_UNIT_DEFINITIONS,
-} from './game-content-wave3.js?v=1';
+} from './game-content-wave3.js?v=ae8562bd';
 
 import {
   WAVE4_PACK_ID,
@@ -25,68 +25,68 @@ import {
   WAVE4_UNIT_DEFINITIONS,
   WAVE4_CARD_DEFINITIONS,
   WAVE4_SUBPACKS,
-} from './game-content-wave4.js?v=1';
+} from './game-content-wave4.js?v=ae8562bd';
 import {
   WAVE5_PACK_ID,
   WAVE5_PACK_NAME,
   WAVE5_UNIT_DEFINITIONS,
   WAVE5_CARD_DEFINITIONS,
   WAVE5_SUBPACKS,
-} from './game-content-wave5.js?v=1';
+} from './game-content-wave5.js?v=ae8562bd';
 import {
   WAVE6_PACK_ID,
   WAVE6_PACK_NAME,
   WAVE6_UNIT_DEFINITIONS,
   WAVE6_CARD_DEFINITIONS,
   WAVE6_SUBPACKS,
-} from './game-content-wave6.js?v=1';
+} from './game-content-wave6.js?v=ae8562bd';
 import {
   WAVE7_PACK_ID,
   WAVE7_PACK_NAME,
   WAVE7_UNIT_DEFINITIONS,
   WAVE7_CARD_DEFINITIONS,
   WAVE7_SUBPACKS,
-} from './game-content-wave7.js?v=1';
+} from './game-content-wave7.js?v=ae8562bd';
 import {
   WAVE8_PACK_ID,
   WAVE8_PACK_NAME,
   WAVE8_UNIT_DEFINITIONS,
   WAVE8_CARD_DEFINITIONS,
   WAVE8_SUBPACKS,
-} from './game-content-wave8.js?v=1';
+} from './game-content-wave8.js?v=ae8562bd';
 import {
   WAVE9_PACK_ID,
   WAVE9_PACK_NAME,
   WAVE9_UNIT_DEFINITIONS,
   WAVE9_CARD_DEFINITIONS,
   WAVE9_SUBPACKS,
-} from './game-content-wave9.js?v=1';
+} from './game-content-wave9.js?v=ae8562bd';
 import {
   WAVE10_PACK_ID,
   WAVE10_PACK_NAME,
   WAVE10_UNIT_DEFINITIONS,
   WAVE10_CARD_DEFINITIONS,
   WAVE10_SUBPACKS,
-} from './game-content-wave10.js?v=1';
+} from './game-content-wave10.js?v=ae8562bd';
 import {
   WAVE11_PACK_ID,
   WAVE11_PACK_NAME,
   WAVE11_UNIT_DEFINITIONS,
   WAVE11_CARD_DEFINITIONS,
   WAVE11_SUBPACKS,
-} from './game-content-wave11.js?v=1';
+} from './game-content-wave11.js?v=ae8562bd';
 import {
   WAVE12_PACK_ID,
   WAVE12_PACK_NAME,
   WAVE12_UNIT_DEFINITIONS,
   WAVE12_CARD_DEFINITIONS,
-} from './game-content-wave12.js?v=1';
+} from './game-content-wave12.js?v=ae8562bd';
 import {
   WAVE13_PACK_ID,
   WAVE13_PACK_NAME,
   WAVE13_UNIT_DEFINITIONS,
   WAVE13_CARD_DEFINITIONS,
-} from './game-content-wave13.js?v=1';
+} from './game-content-wave13.js?v=ae8562bd';
 export {
   WAVE4_PACK_ID,
   WAVE4_PACK_NAME,

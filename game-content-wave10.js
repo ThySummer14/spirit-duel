@@ -3,7 +3,7 @@
  * 官方双形态切换简化为独立可选式神；卡面原文见 officialText。
  * 请勿把网易官方美术放入本仓库。
  */
-import { CARD_KEYWORDS } from './game-keywords.js?v=9d3113fe';
+import { CARD_KEYWORDS } from './game-keywords.js?v=ae8562bd';
 
 export const WAVE10_PACK_ID = 'wave10';
 export const WAVE10_PACK_NAME = '鬼灭之刃联动';
