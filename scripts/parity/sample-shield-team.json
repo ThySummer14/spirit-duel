@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "name": "wind-guard-all-living-allies",
+  "seed": 424242,
+  "lineupA": [
+    "yimulian",
+    "basalt",
+    "lumen",
+    "rime"
+  ],
+  "lineupB": [
+    "storm",
+    "ink",
+    "kongo",
+    "ember"
+  ],
+  "injectLevels": [
+    {
+      "player": 0,
+      "unit": 0,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 1,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 2,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 3,
+      "level": 3
+    }
+  ],
+  "injectHp": [
+    {
+      "player": 0,
+      "unit": 3,
+      "hp": 0
+    }
+  ],
+  "injectHand": [
+    {
+      "player": 0,
+      "card": "c11802"
+    }
+  ],
+  "commands": [
+    {
+      "seq": 1,
+      "type": "play-card",
+      "player": 0,
+      "card": "c11802"
+    }
+  ]
+}

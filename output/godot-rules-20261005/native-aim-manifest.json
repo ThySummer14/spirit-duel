@@ -1,0 +1,45 @@
+{
+  "observed_utc": "2026-10-05T19:48:25Z",
+  "renderer": "X11",
+  "input": "test-injected viewport mouse events; real production UI; no game commands",
+  "assertion_failures": [],
+  "scope": "Eight-character representative fixture, not full roster or original-game footage. Capture files retained with task QA artifacts.",
+  "images": [
+    {
+      "name": "01-hud-hidden.png",
+      "size": [
+        1180,
+        812
+      ],
+      "bytes": 1348503,
+      "sha256": "020ae9471393f5d0ea983ba53660e112f80982deeec023079a39c50bdcd5d1a3"
+    },
+    {
+      "name": "02-ally-valid.png",
+      "size": [
+        1180,
+        812
+      ],
+      "bytes": 1349417,
+      "sha256": "016f065bb7792a710e233fd0ed2e82afbada1ef9d07a6fca71a38554a96140a7"
+    },
+    {
+      "name": "03-enemy-invalid.png",
+      "size": [
+        1180,
+        812
+      ],
+      "bytes": 1355021,
+      "sha256": "1b355c8e395a5d9f9a63946b9a308d7960c6317ccd24943497d69aee11d53d75"
+    },
+    {
+      "name": "04-window-exit-hidden.png",
+      "size": [
+        1180,
+        812
+      ],
+      "bytes": 1348788,
+      "sha256": "01967e6dcc896b90ac3eae6ca7dc5fbe2d0f23ccfa0bda73669dfabd2b4da1ac"
+    }
+  ]
+}

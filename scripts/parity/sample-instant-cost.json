@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "name": "instant-first-free-and-turn-reset",
+  "seed": 424242,
+  "lineupA": [
+    "jutun-tongzi",
+    "basalt",
+    "lumen",
+    "rime"
+  ],
+  "lineupB": [
+    "storm",
+    "ink",
+    "kongo",
+    "ember"
+  ],
+  "injectHand": [
+    {
+      "player": 0,
+      "card": "c10201"
+    },
+    {
+      "player": 0,
+      "card": "c10201"
+    },
+    {
+      "player": 0,
+      "card": "c10201"
+    },
+    {
+      "player": 0,
+      "card": "c10201"
+    }
+  ],
+  "commands": [
+    {
+      "seq": 1,
+      "type": "play-card",
+      "player": 0,
+      "card": "c10201"
+    },
+    {
+      "seq": 2,
+      "type": "play-card",
+      "player": 0,
+      "card": "c10201"
+    },
+    {
+      "seq": 3,
+      "type": "play-card",
+      "player": 0,
+      "card": "c10201"
+    },
+    {
+      "seq": 4,
+      "type": "end-turn",
+      "player": 0
+    },
+    {
+      "seq": 5,
+      "type": "end-turn",
+      "player": 1
+    },
+    {
+      "seq": 6,
+      "type": "play-card",
+      "player": 0,
+      "card": "c10201"
+    }
+  ],
+  "injectLevels": [
+    {
+      "player": 0,
+      "unit": 0,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 1,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 2,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 3,
+      "level": 3
+    }
+  ]
+}

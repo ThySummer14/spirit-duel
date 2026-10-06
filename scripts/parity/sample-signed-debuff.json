@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "name": "signed-stat-reduction",
+  "seed": 424242,
+  "lineupA": [
+    "panguan",
+    "baizangzhu",
+    "dishitian",
+    "rime"
+  ],
+  "lineupB": [
+    "storm",
+    "ink",
+    "kongo",
+    "ember"
+  ],
+  "injectLevels": [
+    {
+      "player": 0,
+      "unit": 0,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 1,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 2,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 3,
+      "level": 3
+    },
+    {
+      "player": 1,
+      "unit": 0,
+      "level": 3
+    },
+    {
+      "player": 1,
+      "unit": 1,
+      "level": 3
+    },
+    {
+      "player": 1,
+      "unit": 2,
+      "level": 3
+    },
+    {
+      "player": 1,
+      "unit": 3,
+      "level": 3
+    }
+  ],
+  "injectHand": [
+    {
+      "player": 0,
+      "card": "c12201"
+    },
+    {
+      "player": 0,
+      "card": "c12201"
+    },
+    {
+      "player": 0,
+      "card": "c23302"
+    },
+    {
+      "player": 0,
+      "card": "c22503"
+    }
+  ],
+  "commands": [
+    {
+      "seq": 1,
+      "type": "play-card",
+      "player": 0,
+      "card": "c12201",
+      "target": "ai:storm"
+    },
+    {
+      "seq": 2,
+      "type": "play-card",
+      "player": 0,
+      "card": "c12201",
+      "target": "ai:storm"
+    },
+    {
+      "seq": 3,
+      "type": "play-card",
+      "player": 0,
+      "card": "c23302",
+      "target": "ai:storm"
+    },
+    {
+      "seq": 4,
+      "type": "play-card",
+      "player": 0,
+      "card": "c22503"
+    }
+  ],
+  "injectEnergy": [
+    {
+      "player": 0,
+      "amount": 2
+    }
+  ],
+  "injectHp": [
+    {
+      "player": 1,
+      "unit": 0,
+      "hp": 2
+    }
+  ]
+}

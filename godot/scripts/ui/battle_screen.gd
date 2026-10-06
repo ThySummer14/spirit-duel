@@ -81,6 +81,8 @@ var _aim: Control
 var _presentation_until := 0
 var _presentation_ticket := 0
 var _motion_tweens: Dictionary = {}
+var _aim_pointer_viewport := Vector2.ZERO
+var _aim_pointer_known := false
 
 
 func setup(lineup_a: Array, lineup_b: Array, p_seed: int, deck_a: Dictionary = {}, deck_b: Dictionary = {}, opening_choice: bool = false) -> void:
@@ -104,6 +106,8 @@ func setup(lineup_a: Array, lineup_b: Array, p_seed: int, deck_a: Dictionary = {
 
 
 func _reset_view_cache() -> void:
+	_invalidate_aim_pointer()
+	_cancel_battle_timers()
 	_presentation_until = 0
 	_presentation_ticket += 1
 	for tw in _motion_tweens.values():
@@ -144,6 +148,9 @@ func _reset_view_cache() -> void:
 # ——————————————————————————— 构建 ———————————————————————————
 
 func _ready() -> void:
+	get_window().mouse_exited.connect(_invalidate_aim_pointer)
+	get_window().focus_exited.connect(_invalidate_aim_pointer)
+	resized.connect(_invalidate_aim_pointer)
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var bg := Backdrop.new()
 	bg.scene = "battle"
@@ -1185,12 +1192,18 @@ func _check_auto_ai() -> void:
 
 
 func _run_ai() -> void:
-	var state := gs
-	# 刷新后的演出在 deferred 回调中计算时长，先让该帧完成再开始计时。
+	var state_id := gs.get_instance_id()
+	# Let deferred presentation work compute its duration before scheduling.
 	await get_tree().process_frame
-	await get_tree().create_timer(maxf(_ai_delay, _presentation_remaining())).timeout
-	if gs != state: return
-	if gs == null or is_queued_for_deletion() or gs.action_player() != AI:
+	if not is_inside_tree() or is_queued_for_deletion() or gs == null or gs.get_instance_id() != state_id:
+		return
+	_delay(maxf(_ai_delay, _presentation_remaining()), _step_ai.bind(state_id))
+
+
+func _step_ai(state_id: int) -> void:
+	if gs == null or gs.get_instance_id() != state_id:
+		return
+	if is_queued_for_deletion() or gs.action_player() != AI:
 		_ai_thinking = false
 		return
 	GameAI.take_action(gs, AI)
@@ -1200,15 +1213,23 @@ func _run_ai() -> void:
 
 
 func _on_finished(winner: int) -> void:
-	var state := gs
+	var state_id := gs.get_instance_id()
 	Sfx.play("victory" if winner == PLAYER else "defeat")
 	await get_tree().process_frame
-	await get_tree().create_timer(maxf(maxf(0.45, _ai_delay), _presentation_remaining())).timeout
-	if gs != state or is_queued_for_deletion(): return
-	match_over.emit(winner, gs.snapshot())
+	if not is_inside_tree() or is_queued_for_deletion() or gs == null or gs.get_instance_id() != state_id:
+		return
+	_delay(maxf(maxf(0.45, _ai_delay), _presentation_remaining()), _emit_match_over.bind(winner, state_id))
+
+
+func _emit_match_over(winner: int, state_id: int) -> void:
+	if gs != null and gs.get_instance_id() == state_id and not is_queued_for_deletion():
+		match_over.emit(winner, gs.snapshot())
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouse:
+		_aim_pointer_viewport = event.position
+		_aim_pointer_known = event.position.is_finite() and get_viewport_rect().has_point(event.position)
 	if gs == null or gs.winner >= 0 or gs.phase == "opening":
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
@@ -1462,9 +1483,19 @@ func _hold_presentation(seconds: float) -> void:
 	)
 
 
+func _invalidate_aim_pointer() -> void:
+	_aim_pointer_known = false
+	if is_instance_valid(_aim): _aim.hide()
+
+
 func _process(_delta: float) -> void:
 	if not is_instance_valid(_aim) or gs == null: return
-	var context := _aim_context(get_global_mouse_position())
+	# InputEventMouse.position is viewport-local. Do not poll a desktop/global
+	# cursor that may be stale after synthetic input, focus loss or window exit.
+	var context: Dictionary = {}
+	if _aim_pointer_known:
+		var pointer := get_canvas_transform().affine_inverse() * _aim_pointer_viewport
+		context = _aim_context(pointer)
 	_aim.visible = not context.is_empty()
 	if context.is_empty(): return
 	_aim.origin = context.origin
@@ -1475,7 +1506,18 @@ func _process(_delta: float) -> void:
 
 
 func _aim_context(pointer: Vector2) -> Dictionary:
-	if _input_locked() or gs == null: return {}
+	if _input_locked() or gs == null or not pointer.is_finite(): return {}
+	var local_pointer := get_global_transform().affine_inverse() * pointer
+	if not Rect2(Vector2.ZERO, size).has_point(local_pointer): return {}
+	# Guide only over the battlefield, our hand, or the targetable enemy core.
+	# Header buttons, opponent hand and end-turn controls are not targeting space.
+	var in_play_area := false
+	for area in [_board, _hand_row, _enemy_plate]:
+		if is_instance_valid(area) and area.get_global_rect().has_point(pointer):
+			in_play_area = true
+			break
+	if not in_play_area: return {}
+	if is_instance_valid(_log_panel) and _log_panel.visible and _log_panel.get_global_rect().has_point(pointer): return {}
 	var payload := _drag_payload.duplicate()
 	if payload.is_empty():
 		if _pending_target_card >= 0:
@@ -1641,14 +1683,35 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 		_ai_delay = clampf(impact + 0.45, 0.55, 2.0)
 
 
+func _cancel_battle_timers() -> void:
+	for child in get_children():
+		if child is Timer and child.get_meta("battle_delay", false):
+			child.stop()
+			child.queue_free()
+
+
+func _exit_tree() -> void:
+	_invalidate_aim_pointer()
+	_cancel_battle_timers()
+
+
 func _delay(seconds: float, action: Callable) -> void:
-	var state := gs
 	if seconds <= 0.01:
 		action.call()
 		return
-	get_tree().create_timer(seconds).timeout.connect(func():
-		if is_inside_tree() and not is_queued_for_deletion() and gs == state: action.call()
-	)
+	# Child timers die with this screen. SceneTree timers outlive it and their
+	# callbacks used to retain an old GameState until the delay elapsed.
+	var state_id := gs.get_instance_id() if gs != null else 0
+	var timer := Timer.new()
+	timer.one_shot = true
+	timer.set_meta("battle_delay", true)
+	add_child(timer)
+	timer.timeout.connect(func():
+		timer.queue_free()
+		if is_inside_tree() and not is_queued_for_deletion() and gs != null and gs.get_instance_id() == state_id:
+			action.call()
+	, CONNECT_ONE_SHOT)
+	timer.start(seconds)
 
 
 ## 对手出牌：大卡从对手手牌处飞到场中央停留，再淡出

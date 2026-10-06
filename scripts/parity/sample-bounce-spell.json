@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "name": "wind-bounce-surviving-front",
+  "seed": 424242,
+  "lineupA": [
+    "datiangou",
+    "basalt",
+    "lumen",
+    "rime"
+  ],
+  "lineupB": [
+    "storm",
+    "ink",
+    "kongo",
+    "ember"
+  ],
+  "injectLevels": [
+    {
+      "player": 0,
+      "unit": 0,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 1,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 2,
+      "level": 3
+    },
+    {
+      "player": 0,
+      "unit": 3,
+      "level": 3
+    },
+    {
+      "player": 1,
+      "unit": 0,
+      "level": 3
+    },
+    {
+      "player": 1,
+      "unit": 1,
+      "level": 3
+    },
+    {
+      "player": 1,
+      "unit": 2,
+      "level": 3
+    },
+    {
+      "player": 1,
+      "unit": 3,
+      "level": 3
+    }
+  ],
+  "injectHand": [
+    {
+      "player": 0,
+      "card": "c10504"
+    }
+  ],
+  "commands": [
+    {
+      "seq": 1,
+      "type": "end-turn",
+      "player": 0
+    },
+    {
+      "seq": 2,
+      "type": "attack",
+      "player": 1,
+      "unit": 0
+    },
+    {
+      "seq": 3,
+      "type": "end-turn",
+      "player": 1
+    },
+    {
+      "seq": 4,
+      "type": "play-card",
+      "player": 0,
+      "card": "c10504",
+      "target": "ai:storm"
+    }
+  ]
+}

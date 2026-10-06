@@ -493,6 +493,13 @@ func either_player_has_response() -> bool:
 	return other
 
 
+func effective_card_cost(p_idx: int, card: Dictionary) -> int:
+	var usage: Dictionary = player(p_idx).get("keywordUsage", {}).get("instant", {})
+	if _kw(card, "instant") and current_player == p_idx and response_window.is_empty() and not usage.get("used", false):
+		return 0
+	return int(card.get("cost", 0))
+
+
 func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> Dictionary:
 	if phase == "opening":
 		return {"ok": false, "reason": "请先确认起手牌。"}
@@ -516,7 +523,7 @@ func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> Di
 		return {"ok": false, "reason": "未知卡牌。"}
 	if not response_window.is_empty() and not card_matches_response_window(card):
 		return {"ok": false, "reason": "响应窗口中只能使用符合触发条件的响应牌。"}
-	var cost := int(card.get("cost", 0))
+	var cost := effective_card_cost(p_idx, card)
 	if int(p.energy) < cost:
 		return {"ok": false, "reason": "鬼火不足：需要 %d，当前 %d。" % [cost, int(p.energy)]}
 	var src := _source_index(p_idx, card)
@@ -532,6 +539,8 @@ func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> Di
 	if card.has("chargeCost") and int(su.get("charge", 0)) < int(card.get("chargeCost", 0)):
 		return {"ok": false, "reason": "充能不足：需要 %d，%s 当前为 %d。" % [int(card.chargeCost), su.name, int(su.get("charge", 0))]}
 	var t: String = card.get("target", "auto")
+	if t == "auto" and target_id != null and card.get("effect") != "assault":
+		return {"ok": false, "reason": "请选择一个有效目标。"}
 	if t != "auto":
 		var opts := valid_targets(p_idx, card)
 		if target_id == null or not opts.has(target_id):
@@ -554,7 +563,10 @@ func play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> bool:
 	if is_response:
 		response_depth = int(response_ctx.get("depth", 0)) + 1
 	_record("play_card", {"hand": hand_index, "target": target_id, "card": inst.definitionId}, p_idx)
-	p.energy = int(p.energy) - int(card.get("cost", 0))
+	var cost := effective_card_cost(p_idx, card)
+	p.energy = int(p.energy) - cost
+	if _kw(card, "instant") and cost == 0:
+		kw_usage(p_idx, "instant").used = true
 	p.hand.remove_at(hand_index)
 	p.cardsPlayedThisTurn = int(p.cardsPlayedThisTurn) + 1
 	_log("%s 使用「%s」。" % [p.name, card.get("name", "?")], TONE_CARD)
@@ -835,6 +847,9 @@ func _resolve_action(p_idx: int, src: int, card: Dictionary, effect: Dictionary,
 				basic_attack_ex(p_idx, src, bonus, false, target_id)
 		"damage":
 			_apply_damage_action(p_idx, et, value, target_unit)
+		"damage-self":
+			# Match the existing JS effect: damage the source unit, including shields/knockout.
+			_damage_unit(p_idx, src, _num(value), e_idx)
 		"heal":
 			for u in _ally_targets(p_idx, et, src, target_id, target_unit):
 				_heal_unit(u, _num(value))
@@ -852,6 +867,32 @@ func _resolve_action(p_idx: int, src: int, card: Dictionary, effect: Dictionary,
 				if int(u.hp) > 0:
 					_grow_unit(u, _num(bonuses.get("attack", 0)), _num(bonuses.get("hp", 0)))
 					_log("%s 获得 +%d/+%d。" % [u.name, _num(bonuses.get("attack", 0)), _num(bonuses.get("hp", 0))], TONE_SUCCESS)
+		"debuff-stats":
+			# The JS baseline uses signed deltas on one selected enemy only.
+			# Do not infer negation or all-enemy scope from the action's name.
+			var idx := _unit_index_by_uid(e_idx, target_unit.get("uid", ""))
+			if idx >= 0:
+				var unit: Dictionary = player(e_idx).units[idx]
+				if int(unit.hp) > 0:
+					var delta := _value_dict(value)
+					var hp_delta := _num(delta.get("hp", 0))
+					unit.attackBonus = int(unit.attackBonus) + _num(delta.get("attack", 0))
+					unit.maxHpBonus = int(unit.maxHpBonus) + hp_delta
+					if hp_delta != 0:
+						unit.hp = maxi(1, int(unit.hp) + hp_delta)
+					_recalc(unit)
+					_log("%s 数值变化：力量 %+d，生命 %+d。" % [unit.name, _num(delta.get("attack", 0)), hp_delta], TONE_DANGER)
+		"bounce-to-reserve":
+			var idx := _unit_index_by_uid(e_idx, target_unit.get("uid", ""))
+			if idx >= 0 and int(player(e_idx).units[idx].hp) > 0:
+				player(e_idx).units[idx].front = 0
+				_log("%s 被移回准备区。" % player(e_idx).units[idx].name, TONE_NEUTRAL)
+		"shield-self-player":
+			# Existing baseline means shields for living allies, not a new avatar shield.
+			for unit in p.units:
+				if int(unit.hp) > 0:
+					unit.shield = int(unit.shield) + _num(value)
+					_log("%s 获得 %d 点护盾。" % [unit.name, _num(value)], TONE_SUCCESS)
 		"energy-gain":
 			var amount := _num(value) if value != null else 1
 			p.energy = mini(4, int(p.energy) + amount)
@@ -1014,7 +1055,7 @@ func _apply_damage_action(p_idx: int, et: String, value, target_unit: Dictionary
 				_damage_unit(e_idx, i, amount, p_idx)
 	elif et == "enemy-avatar" or et == "ally-avatar":
 		_damage_avatar(e_idx, amount, p_idx)
-	elif et == "enemy-front" or (et == "selected-enemy" and target_unit.is_empty()):
+	elif et == "enemy-front":
 		var fi: int = front_index(e_idx)
 		if fi >= 0:
 			_damage_unit(e_idx, fi, amount, p_idx)
@@ -1375,7 +1416,7 @@ func _run_passive_effect(p_idx: int, unit_index: int, effect: String, params, ct
 			var fi: int = front_index(e_idx)
 			if fi >= 0:
 				_damage_unit(e_idx, fi, amount, p_idx)
-			elif pdict.get("fallbackAvatar", false):
+			elif effect == "passive-damage-enemy-front-on-spell" or pdict.get("fallbackAvatar", false):
 				_damage_avatar(e_idx, amount, p_idx)
 		"passive-shield-self-if-front", "turn-shield", "passive-buff-self-if-front":
 			if int(u.front) == 1:
@@ -1569,6 +1610,7 @@ func _begin_turn(p_idx: int) -> void:
 	p.attackUsed = false
 	p.levelUpUsed = false
 	p.cardsPlayedThisTurn = 0
+	kw_usage(p_idx, "instant").used = false
 	p.energy = int(p.maxEnergy)
 	if p_idx == 0 and p.get("turnsTaken", 0) + 1 == int(rules.get("bonusUpgradeTurn", 7)):
 		p.bonusUpgrades = int(p.bonusUpgrades) + 1
@@ -1600,14 +1642,16 @@ func _begin_turn(p_idx: int) -> void:
 				_log("%s 自行归队，生命回复至满。" % u.name, TONE_SUCCESS)
 	# realms
 	_trigger_realms(p_idx)
-	# turn-start passives (need front? fire all living units)
-	for i in p.units.size():
-		if int(p.units[i].hp) > 0:
-			_run_unit_hooks(p_idx, i, "turn-started", {})
-			_run_form_hooks(p_idx, i, "turn-started", {})
+	# JS beginTurn draws before emitting turn-started/passive hooks. This also
+	# prevents passives from firing after deck exhaustion has ended the match.
 	if winner < 0:
 		_draw(p_idx, 1)
-	_log("%s 获得行动权。" % p.name, TONE_TURN)
+	if winner < 0:
+		_log("%s 获得行动权。" % p.name, TONE_TURN)
+		for i in p.units.size():
+			if int(p.units[i].hp) > 0:
+				_run_unit_hooks(p_idx, i, "turn-started", {})
+				_run_form_hooks(p_idx, i, "turn-started", {})
 	# 回合开始时战斗区回退准备区（与 JS beginTurn 末尾对齐）
 	for u in p.units:
 		if int(u.front) == 1:

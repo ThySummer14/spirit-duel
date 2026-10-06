@@ -20,6 +20,13 @@
 | --- | --- |
 | `sample-hand-overflow.json` | 手牌已满时烧毁新抽到的牌，保留原手牌及其顺序 |
 | `sample-resource-growth.json` | 鬼火获取上限、指定友方/自身/其他友方的永久成长 |
+| `sample-instant-cost.json` | 首张瞬发免费、后续按费用支付、下个己方回合重置 |
+| `sample-self-damage-rewards.json` | 自伤与抽牌/鬼火/觉醒组合；自动目标牌拒绝额外目标，缺失指定目标不改打核心 |
+| `sample-signed-debuff.json` | 指定敌方的带符号属性变化；正值与无指定目标的全体效果保留 JS 当前语义 |
+| `sample-bounce-spell.json` | 风神一扇将存活敌方移回准备区，随后法术被动命中空场核心 |
+| `sample-shield-team.json` | 风符·护给存活己方加盾，气绝队友不加盾 |
+| `sample-self-damage.json` | 切腹先对来源式神造成伤害，气绝后不再获得后续成长 |
+| `sample-turn-token.json` | 回合抽牌先于被动生成牌，验证起手与后续回合的手牌顺序 |
 | `sample-growth.json` | 受伤角色觉醒时生命上限只增长一次，不额外治疗已有伤势 |
 | `sample-origin.json` | 升勾→出牌→出击→形态→结束回合 核心环（原创四人） |
 | `sample-keywords.json` | 贯通 / 连击 / 先攻 / 远程 / 暴击 战斗牌 |

@@ -184,8 +184,10 @@ func _verify_ai_lifecycle() -> void:
 	_check(battle.gs.command_log.size() == command_count, "AI waits while its large card showcase is still visible")
 	await create_timer(1.0).timeout
 	_check(battle.gs.command_log.size() > command_count, "AI resumes autonomously when the showcase has finished")
+	var state_ref: WeakRef = weakref(battle.gs)
 	battle.queue_free()
 	await process_frame
+	_check(state_ref.get_ref() == null, "freeing a battle immediately releases its state despite pending AI/presentation timers")
 
 func _portrait_count(battle: BattleScreen) -> int:
 	var count := 0

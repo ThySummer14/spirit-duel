@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "turn-draw-before-token-hooks",
+  "seed": 424242,
+  "lineupA": [
+    "qingxingdeng",
+    "basalt",
+    "lumen",
+    "rime"
+  ],
+  "lineupB": [
+    "storm",
+    "frostblade",
+    "kongo",
+    "ember"
+  ],
+  "commands": [
+    {
+      "seq": 1,
+      "type": "end-turn",
+      "player": 0
+    },
+    {
+      "seq": 2,
+      "type": "end-turn",
+      "player": 1
+    }
+  ]
+}
