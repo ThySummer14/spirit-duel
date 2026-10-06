@@ -15,6 +15,8 @@ var _mote_layer: Control
 
 func _ready() -> void:
 	var path := "res://assets/scenery/%s.png" % scene
+	if scene == "battle": path = "res://assets/scenery/battle-pond-v2.png"
+	elif scene == "port": path = "res://assets/scenery/port-town-v2.png"
 	if ResourceLoader.exists(path): _background = load(path)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)

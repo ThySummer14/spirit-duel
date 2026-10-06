@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Container
 ## 战场行：准备区横带或前线阵台。拖拽进行中若可放置则发光提示。
 
 var can_drop: Callable
@@ -18,6 +18,8 @@ func _ready() -> void:
 
 
 func _notification(what: int) -> void:
+	if what == NOTIFICATION_SORT_CHILDREN:
+		_sort_portraits()
 	if what == NOTIFICATION_DRAG_BEGIN:
 		var payload = get_viewport().gui_get_drag_data()
 		_drag_ok = payload is Dictionary and can_drop.is_valid() and can_drop.call(payload)
@@ -38,35 +40,32 @@ func _process(_delta: float) -> void:
 
 
 func _draw() -> void:
-	var r := Rect2(Vector2.ZERO, size)
-	if style == "front":
-		var sb := StyleBoxFlat.new()
-		sb.bg_color = Color(accent.r, accent.g, accent.b, 0.07)
-		sb.border_color = Color(accent.r, accent.g, accent.b, 0.28)
-		sb.set_border_width_all(1)
-		sb.set_corner_radius_all(18)
-		sb.anti_aliasing = true
-		draw_style_box(sb, r)
-		var c := size * 0.5
-		draw_arc(c, minf(size.x, size.y) * 0.42, 0, TAU, 64, Color(accent, 0.16), 1.0, true)
-		if get_child_count() == 0 or (get_child_count() == 1 and get_child(0) is Label):
-			draw_string(_font, Vector2(0, size.y - 12), title, HORIZONTAL_ALIGNMENT_CENTER, size.x, 12, Color(accent, 0.55))
-	else:
-		var mid := size.y * 0.5
-		var col := Color(accent.r, accent.g, accent.b, 0.09)
-		draw_polygon(PackedVector2Array([Vector2(size.x * 0.04, mid - size.y * 0.42), Vector2(size.x * 0.96, mid - size.y * 0.42), Vector2(size.x, mid), Vector2(size.x * 0.96, mid + size.y * 0.42), Vector2(size.x * 0.04, mid + size.y * 0.42), Vector2(0, mid)]),
-			PackedColorArray([col, col, Color(col, 0.0), col, col, Color(col, 0.0)]))
-		draw_line(Vector2(size.x * 0.1, mid + size.y * 0.47), Vector2(size.x * 0.9, mid + size.y * 0.47), Color(accent, 0.18), 1.0, true)
-	if _drag_ok:
-		var pulse := 0.55 + 0.45 * sin(Time.get_ticks_msec() / 180.0)
-		var glow := StyleBoxFlat.new()
-		glow.draw_center = true
-		glow.bg_color = Color(0.5, 0.95, 0.75, 0.08 + (0.1 if _hover_ok else 0.0))
-		glow.border_color = Color(0.55, 1.0, 0.8, 0.45 + 0.4 * pulse)
-		glow.set_border_width_all(2)
-		glow.set_corner_radius_all(18)
-		glow.anti_aliasing = true
-		draw_style_box(glow, r.grow(2))
+	# 空前线平时保持池面留白，拖牌时才显示可放置阵台。
+	if not _drag_ok: return
+	var c := size * 0.5
+	var pulse := 0.55 + 0.45 * sin(Time.get_ticks_msec() / 180.0)
+	draw_circle(c, minf(size.x, size.y) * 0.46, Color(0.61, 0.87, 0.97, 0.07 + (0.1 if _hover_ok else 0)))
+	draw_arc(c, minf(size.x, size.y) * 0.46, 0, TAU, 48, Color(0.7, 0.92, 1, 0.35 + pulse * 0.35), 2, true)
+	draw_string(_font, Vector2(0, size.y * 0.5 + 5), title, HORIZONTAL_ALIGNMENT_CENTER, size.x, 12, Color("e4f3df"))
+
+
+func _sort_portraits() -> void:
+	var enemy := bool(get_meta("enemy", false))
+	for child in get_children():
+		if not child is Control: continue
+		if not child.has_meta("unit_index"):
+			fit_child_in_rect(child, Rect2(Vector2.ZERO, size))
+			continue
+		var card_size: Vector2 = child.custom_minimum_size
+		var index := int(child.get_meta("unit_index", 0))
+		var pos := (size - card_size) * 0.5
+		if style == "reserve":
+			# 按式神原槽位排布，出入前线时其余肖像不会跳位。
+			var centers := [0.14, 0.37, 0.63, 0.86]
+			pos.x = size.x * centers[index % 4] - card_size.x * 0.5
+			var down := index % 2 == (0 if enemy else 1)
+			pos.y = 30.0 if down else 0.0
+		fit_child_in_rect(child, Rect2(pos, card_size))
 
 
 func _can_drop_data(_pos: Vector2, data: Variant) -> bool:

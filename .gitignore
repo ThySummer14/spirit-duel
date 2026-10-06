@@ -15,3 +15,6 @@ npm-debug.log*
 
 # Godot 编辑器缓存
 godot/.godot/
+
+# Pages 构建副本、导出文件和下载的构建工具
+/.build/

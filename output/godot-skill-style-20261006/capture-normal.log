@@ -1,0 +1,20 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+OpenGL API 4.1 Metal - 91.7 - Compatibility - Using Device: Apple - Apple M5
+
+SPELL_CAPTURE 01-fire families=["fire"]
+SPELL_CAPTURE 02-ice families=["ice"]
+SPELL_CAPTURE 03-freeze families=["ice"]
+SPELL_CAPTURE 04-wind families=["wind"]
+SPELL_CAPTURE 05-thunder families=["thunder"]
+SPELL_CAPTURE 06-ink-seal families=["seal", "ink"]
+SPELL_CAPTURE 07-petal-heal families=["petal"]
+SPELL_CAPTURE 08-heal families=["heal"]
+SPELL_CAPTURE 09-shield families=["shield"]
+SPELL_CAPTURE 10-form families=["form"]
+SPELL_CAPTURE 11-awaken families=["awaken"]
+SPELL_CAPTURE 12-realm families=["realm"]
+SPELL_CAPTURE 13-resource families=["resource"]
+SPELL_CAPTURE 14-slash families=["slash"]
+SPELL_CAPTURE 15-guard families=["fire", "shield"]
+SPELL_CAPTURE 16-arcane families=["arcane", "resource"]
+SPELL_CAPTURE_OK cases=16

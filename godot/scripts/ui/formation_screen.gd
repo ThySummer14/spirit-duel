@@ -6,6 +6,7 @@ const ContentLoader := preload("res://scripts/content_loader.gd")
 const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
 const SaveStore := preload("res://scripts/save_store.gd")
 const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
+const PaperScroll := preload("res://scripts/ui/paper_scroll.gd")
 const Sfx := preload("res://scripts/ui/sfx.gd")
 
 signal confirmed(unit_ids: Array)
@@ -36,25 +37,26 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var bg := Backdrop.new()
 	bg.scene = "table"
-	bg.dim = 0.22
+	bg.dim = 0.1
+	bg.tint = Color(0.92, 0.91, 1.0)
 	add_child(bg)
 	Sfx.music("bgm_menu")
 	var root := VBoxContainer.new()
 	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	root.offset_left = 22
-	root.offset_right = -22
-	root.offset_top = 16
-	root.offset_bottom = -16
+	root.offset_left = 20
+	root.offset_right = -20
+	root.offset_top = 12
+	root.offset_bottom = -12
 	root.add_theme_constant_override("separation", 12)
 	add_child(root)
 	var header := HBoxContainer.new()
 	header.add_theme_constant_override("separation", 16)
 	root.add_child(header)
-	var back := Button.new()
+	var back := ThemeBuilder.ghost(Button.new())
 	back.text = "‹ 返回"
 	back.pressed.connect(func(): back_requested.emit())
 	header.add_child(back)
-	header.add_child(ThemeBuilder.title_label("式神录" if browse_only else "灵契编组", 28))
+	header.add_child(ThemeBuilder.title_label("式神录" if browse_only else "阵 容", 28))
 	var sp := Control.new()
 	sp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(sp)
@@ -64,87 +66,91 @@ func _ready() -> void:
 	_slot_picker.item_selected.connect(_switch_slot)
 	_slot_picker.visible = not browse_only
 	header.add_child(_slot_picker)
-	var save := Button.new()
+	var save := ThemeBuilder.ghost(Button.new())
 	save.text = "保存阵容"
 	save.visible = not browse_only
 	save.pressed.connect(func():
 		_status_l.text = "阵容已保存" if SaveStore.save_formation(formation_slot, _selected) else "请先选满四名不同式神"
 	)
 	header.add_child(save)
-	_confirm_btn = ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("出 战", Vector2(136, 44)))
+	_confirm_btn = ThemeBuilder.primary(ThemeBuilder.rounded_rect_button("出 战", Vector2(124, 40)))
 	_confirm_btn.visible = not browse_only
 	_confirm_btn.pressed.connect(_on_confirm)
 	header.add_child(_confirm_btn)
 	var split := HBoxContainer.new()
 	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	split.add_theme_constant_override("separation", 16)
+	split.add_theme_constant_override("separation", 18)
 	root.add_child(split)
+	# 原视频左侧的小头像竖栏；搜索和资料包筛选继续可用。
 	var left := VBoxContainer.new()
-	left.custom_minimum_size = Vector2(206, 0)
+	left.custom_minimum_size = Vector2(112, 0)
 	left.add_theme_constant_override("separation", 8)
 	split.add_child(left)
 	_search = LineEdit.new()
-	_search.placeholder_text = "搜索式神 / 定位"
+	_search.placeholder_text = "搜索式神"
 	_search.clear_button_enabled = true
+	_search.add_theme_font_size_override("font_size", 12)
 	_search.text_changed.connect(func(_t): _rebuild_unit_list())
 	left.add_child(_search)
 	_pack_picker = OptionButton.new()
+	_pack_picker.fit_to_longest_item = false
+	_pack_picker.add_theme_font_size_override("font_size", 11)
 	for id in ContentLoader.pack_ids(): _pack_picker.add_item(ContentLoader.pack_label(id))
 	_pack_picker.item_selected.connect(func(index):
 		_pack_filter = ContentLoader.pack_ids()[index]
 		_rebuild_unit_list()
 	)
 	left.add_child(_pack_picker)
-	_roster_count = ThemeBuilder.dim_label("", 12)
+	_roster_count = ThemeBuilder.dim_label("", 11)
 	left.add_child(_roster_count)
 	var roster_scroll := ScrollContainer.new()
 	roster_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	roster_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	left.add_child(roster_scroll)
 	_unit_list = GridContainer.new()
-	_unit_list.columns = 2
-	_unit_list.add_theme_constant_override("h_separation", 10)
-	_unit_list.add_theme_constant_override("v_separation", 10)
+	_unit_list.columns = 1
+	_unit_list.add_theme_constant_override("v_separation", 12)
 	roster_scroll.add_child(_unit_list)
+	# 轻量式神竖签，牌池得到主要横向空间。
+	var detail_scroll := ScrollContainer.new()
+	detail_scroll.custom_minimum_size = Vector2(148, 0)
+	detail_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	split.add_child(detail_scroll)
+	_detail_box = VBoxContainer.new()
+	_detail_box.custom_minimum_size = Vector2(140, 0)
+	_detail_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_detail_box.add_theme_constant_override("separation", 12)
+	detail_scroll.add_child(_detail_box)
 	var mid := VBoxContainer.new()
 	mid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	mid.add_theme_constant_override("separation", 8)
+	mid.add_theme_constant_override("separation", 10)
 	split.add_child(mid)
-	_status_l = ThemeBuilder.dim_label("", 13)
+	_status_l = ThemeBuilder.dim_label("", 12)
 	mid.add_child(_status_l)
-	_selected_row = HBoxContainer.new()
-	_selected_row.alignment = BoxContainer.ALIGNMENT_CENTER
-	_selected_row.add_theme_constant_override("separation", 14)
-	_selected_row.visible = not browse_only
-	mid.add_child(_selected_row)
-	mid.add_child(ThemeBuilder.label("专属卡牌 · 点击检视完整牌文", 14, ThemeBuilder.PAPER))
 	var card_scroll := ScrollContainer.new()
 	card_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	card_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	mid.add_child(card_scroll)
 	_card_box = HBoxContainer.new()
-	_card_box.add_theme_constant_override("separation", 12)
+	_card_box.add_theme_constant_override("separation", 14)
 	card_scroll.add_child(_card_box)
-	mid.add_child(ThemeBuilder.dim_label("当前式神的八张构筑 · 点击下方卡牌进入构筑", 12))
+	mid.add_child(ThemeBuilder.dim_label("八张构筑 · 点击纸卷中的卡牌调整", 12))
+	var scroll_paper := PaperScroll.new()
+	scroll_paper.custom_minimum_size = Vector2(0, 182)
+	mid.add_child(scroll_paper)
 	var deck_scroll := ScrollContainer.new()
-	deck_scroll.custom_minimum_size = Vector2(0, 104)
 	deck_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	mid.add_child(deck_scroll)
+	scroll_paper.add_child(deck_scroll)
 	_deck_row = HBoxContainer.new()
-	_deck_row.add_theme_constant_override("separation", 7)
+	_deck_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	_deck_row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_deck_row.add_theme_constant_override("separation", 0)
 	deck_scroll.add_child(_deck_row)
-	var right := PanelContainer.new()
-	right.custom_minimum_size = Vector2(244, 0)
-	right.add_theme_stylebox_override("panel", ThemeBuilder.panel(Color(0.08, 0.085, 0.14, 0.92), Color("71677d"), 4, 1))
-	split.add_child(right)
-	var detail_scroll := ScrollContainer.new()
-	detail_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	right.add_child(detail_scroll)
-	_detail_box = VBoxContainer.new()
-	_detail_box.custom_minimum_size = Vector2(218, 0)
-	_detail_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_detail_box.add_theme_constant_override("separation", 10)
-	detail_scroll.add_child(_detail_box)
+	_selected_row = HBoxContainer.new()
+	_selected_row.alignment = BoxContainer.ALIGNMENT_END
+	_selected_row.add_theme_constant_override("separation", 22)
+	_selected_row.visible = not browse_only
+	mid.add_child(_selected_row)
 	_rebuild_unit_list()
 	_show_unit(ContentLoader.unit_def(_focused))
 
@@ -171,13 +177,15 @@ func _filtered_units() -> Array:
 func _rebuild_unit_list() -> void:
 	_clear(_unit_list)
 	var units := _filtered_units()
-	_roster_count.text = "%d / %d 位式神 · 向下滚动浏览" % [units.size(), ContentLoader.playable_units().size()]
+	_roster_count.text = "%d / %d" % [units.size(), ContentLoader.playable_units().size()]
 	for unit in units:
 		var face := UIWidgets.make_unit_panel(unit, func(u):
 			if not browse_only: _toggle(u)
 			_show_unit(u)
 		, true, _selected.has(unit.id) if not browse_only else unit.id == _focused)
-		face.custom_minimum_size = Vector2(92, 136)
+		face.portrait_only = true
+		face.custom_minimum_size = Vector2(82, 92)
+		face.tooltip_text = str(unit.name)
 		_unit_list.add_child(face)
 	if units.is_empty(): _unit_list.add_child(ThemeBuilder.dim_label("没有匹配的式神"))
 	_confirm_btn.disabled = _selected.size() != PICK_COUNT
@@ -186,11 +194,11 @@ func _rebuild_unit_list() -> void:
 	for i in PICK_COUNT:
 		if i < _selected.size():
 			var unit := ContentLoader.unit_def(_selected[i])
-			var face := UIWidgets.make_unit_panel(unit, func(u): _show_unit(u), false, str(unit.id) == _focused)
-			face.custom_minimum_size = Vector2(116, 176)
+			var face := UIWidgets.unit_token(unit, func(): _show_unit(unit), Vector2(62, 62), "diamond", str(unit.id) == _focused)
+			face.custom_minimum_size = Vector2(62, 62)
 			_selected_row.add_child(face)
 		else:
-			var empty := ThemeBuilder.rounded_rect_button("＋\n选择式神", Vector2(116, 176))
+			var empty := ThemeBuilder.rounded_rect_button("＋", Vector2(62, 62))
 			empty.disabled = true
 			_selected_row.add_child(empty)
 
@@ -208,10 +216,10 @@ func _show_unit(unit: Dictionary) -> void:
 	if unit.is_empty(): return
 	_focused = str(unit.id)
 	_clear(_detail_box)
-	var portrait := UIWidgets.portrait(unit, Vector2(174, 245))
+	var portrait := UIWidgets.unit_token(unit, Callable(), Vector2(96, 96), "diamond")
 	portrait.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	_detail_box.add_child(portrait)
-	_detail_box.add_child(ThemeBuilder.title_label(str(unit.get("title", "")), 20))
+	_detail_box.add_child(ThemeBuilder.title_label(str(unit.get("name", "")), 24))
 	_detail_box.add_child(ThemeBuilder.dim_label(str(unit.get("role", "")), 12))
 	_detail_box.add_child(ThemeBuilder.dim_label(ContentLoader.pack_label(str(unit.get("pack", "origin"))), 12))
 	for pair in [["被动", ContentLoader.passive_text(unit)], ["觉醒", ContentLoader.passive_text(unit, true)], ["策略", str(unit.get("strategy", ""))]]:
@@ -226,14 +234,18 @@ func _show_unit(unit: Dictionary) -> void:
 	var cards := ContentLoader.cards_for_unit(_focused).filter(func(card): return not card.get("token", false) and not card.get("skin", false))
 	cards.sort_custom(func(a, b): return int(a.get("level", 1)) < int(b.get("level", 1)))
 	for card in cards:
-		var face := UIWidgets.make_card_tile(card, func(): _inspect_card(card), Vector2(164, 256))
+		var face := UIWidgets.make_card_tile(card, func(): _inspect_card(card), Vector2(174, 318))
 		face.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		_card_box.add_child(face)
 	_clear(_deck_row)
 	var deck_ids := SaveStore.get_deck(_focused)
 	if deck_ids.size() != 8: deck_ids = ContentLoader.starter_card_ids(_focused)
 	for id in deck_ids:
-		_deck_row.add_child(UIWidgets.make_card_tile(ContentLoader.card_def(id), func(): edit_deck.emit(_focused), Vector2(62, 92)))
+		var slot := CenterContainer.new()
+		slot.custom_minimum_size.x = 92
+		slot.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		slot.add_child(UIWidgets.make_card_tile(ContentLoader.card_def(id), func(): edit_deck.emit(_focused), Vector2(82, 136)))
+		_deck_row.add_child(slot)
 
 func _inspect_card(card: Dictionary) -> void:
 	Sfx.play("ui_click", 0.7)

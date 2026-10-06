@@ -11,6 +11,8 @@ const CardFace := preload("res://scripts/ui/card_face.gd")
 const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
 const HandFan := preload("res://scripts/ui/hand_fan.gd")
 const BattleAim := preload("res://scripts/ui/battle_aim.gd")
+const EffectCues := preload("res://scripts/ui/battle_effect_cues.gd")
+const SpellEffect := preload("res://scripts/ui/battle_spell_effect.gd")
 const Sfx := preload("res://scripts/ui/sfx.gd")
 ## 对战界面：上下准备区、中央交战阵台、左侧双方牌手、右侧结束回合与牌库、底部扇形手牌。
 ## 所有操作经 GameState 合法性检查；表现层从相邻快照与命令日志推导动画。
@@ -20,14 +22,14 @@ signal back_requested
 
 const PLAYER := 0
 const AI := 1
-const UNIT_SIZE := Vector2(96, 124)
-const FRONT_SIZE := Vector2(108, 140)
+const UNIT_SIZE := Vector2(108, 146)
+const FRONT_SIZE := Vector2(116, 156)
 
 var gs: GameState
-var _enemy_reserve: HBoxContainer
-var _enemy_front: HBoxContainer
-var _ally_front: HBoxContainer
-var _ally_reserve: HBoxContainer
+var _enemy_reserve: Container
+var _enemy_front: Container
+var _ally_front: Container
+var _ally_reserve: Container
 var _cmd_bar: HFlowContainer
 var _prompt_l: Label
 var _hand_scroll: Control
@@ -51,7 +53,7 @@ var _opening_cards: HBoxContainer
 var _opening_status: Label
 var _mulligan_selected: Array = []
 var _ai_delay := 0.35
-var _board: VBoxContainer
+var _board: Control
 var _effects: Control
 var _selected_attacker := -1
 var _enemy_target_btn: Button
@@ -154,64 +156,61 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var bg := Backdrop.new()
 	bg.scene = "battle"
-	bg.dim = 0.3
-	bg.tint = Color(0.86, 0.92, 1.0)
-	bg.vignette = 0.62
-	bg.motes = 18
+	bg.dim = 0.02
+	bg.tint = Color.WHITE
+	bg.vignette = 0.12
+	bg.motes = 12
 	bg.mote_color = Color(0.85, 0.95, 1.0)
 	add_child(bg)
 	_stage = Control.new()
 	_stage.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_stage.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_stage)
-	var root := VBoxContainer.new()
-	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	root.offset_left = 14
-	root.offset_right = -14
-	root.offset_top = 8
-	root.offset_bottom = 0
-	root.add_theme_constant_override("separation", 6)
-	_stage.add_child(root)
-	root.add_child(_build_top_bar())
-	var body := HBoxContainer.new()
-	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	body.add_theme_constant_override("separation", 10)
-	root.add_child(body)
-	body.add_child(_build_left_column())
-	_board = VBoxContainer.new()
-	_board.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_board.add_theme_constant_override("separation", 6)
-	body.add_child(_board)
-	_enemy_reserve = _make_row("reserve", "对方准备区", ThemeBuilder.FOE, UNIT_SIZE.y + 10)
-	_board.add_child(_enemy_reserve)
-	var combat := HBoxContainer.new()
-	combat.alignment = BoxContainer.ALIGNMENT_CENTER
-	combat.add_theme_constant_override("separation", 14)
-	combat.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	_board.add_child(combat)
-	_enemy_front = _make_row("front", "对方前线", ThemeBuilder.FOE, FRONT_SIZE.y + 14)
-	_enemy_front.custom_minimum_size.x = 250
-	combat.add_child(_enemy_front)
+	var header := _build_top_bar()
+	_stage.add_child(header)
+	header.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	header.offset_left = 170
+	header.offset_right = -24
+	header.offset_top = 8
+	_stage.add_child(_build_left_column())
+	_board = Control.new()
+	_board.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_board.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_board.offset_left = 178
+	_board.offset_right = -160
+	_board.offset_top = 42
+	_board.offset_bottom = -260
+	_stage.add_child(_board)
+	_enemy_reserve = _make_row("reserve", "对方准备区", ThemeBuilder.FOE, UNIT_SIZE.y)
+	_place_zone(_enemy_reserve, Rect2(0, 0, 1, 0.38), true)
+	_enemy_front = _make_row("front", "对方前线", ThemeBuilder.FOE, FRONT_SIZE.y)
+	_place_zone(_enemy_front, Rect2(0.56, 0.32, 0.23, 0.34), true)
+	_ally_front = _make_row("front", "己方前线", ThemeBuilder.ALLY, FRONT_SIZE.y)
+	_place_zone(_ally_front, Rect2(0.25, 0.38, 0.23, 0.34), false)
+	_ally_reserve = _make_row("reserve", "己方准备区", ThemeBuilder.ALLY, UNIT_SIZE.y)
+	_place_zone(_ally_reserve, Rect2(0, 0.62, 1, 0.38), false)
 	_clash = Control.new()
-	_clash.custom_minimum_size = Vector2(120, FRONT_SIZE.y + 14)
 	_clash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_clash.draw.connect(_draw_clash)
-	combat.add_child(_clash)
-	_ally_front = _make_row("front", "己方前线", ThemeBuilder.ALLY, FRONT_SIZE.y + 14)
-	_ally_front.custom_minimum_size.x = 250
-	combat.add_child(_ally_front)
-	_ally_reserve = _make_row("reserve", "己方准备区", ThemeBuilder.ALLY, UNIT_SIZE.y + 10)
-	_board.add_child(_ally_reserve)
-	_board.add_child(_build_prompt())
-	body.add_child(_build_right_column())
+	_board.add_child(_clash)
+	_clash.visible = false
+	var prompt := _build_prompt()
+	_stage.add_child(prompt)
+	prompt.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	prompt.offset_left = 205
+	prompt.offset_right = -205
+	prompt.offset_top = -267
+	prompt.offset_bottom = -239
+	prompt.z_index = 12
+	_stage.add_child(_build_right_column())
 	_hand_scroll = Control.new()
-	_hand_scroll.custom_minimum_size = Vector2(0, 232)
 	_hand_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	root.add_child(_hand_scroll)
+	_hand_scroll.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	_hand_scroll.offset_top = -260
+	_stage.add_child(_hand_scroll)
 	_hand_row = HandFan.new()
 	_hand_row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_hand_row.offset_left = 150
-	_hand_row.offset_right = -150
+	_hand_row.offset_left = 180
+	_hand_row.offset_right = -180
 	_hand_scroll.add_child(_hand_row)
 	_log_panel = _build_side_panel()
 	_log_panel.visible = false
@@ -275,10 +274,7 @@ func _build_top_bar() -> Control:
 
 func _plate(accent: Color) -> PanelContainer:
 	var plate := PanelContainer.new()
-	var sb := ThemeBuilder.glass(0.8, Color(accent, 0.55), 14)
-	sb.border_width_left = 3
-	sb.content_margin_left = 14
-	plate.add_theme_stylebox_override("panel", sb)
+	plate.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	plate.set_meta("accent", accent)
 	return plate
 
@@ -320,159 +316,164 @@ func _hp_bar(accent: Color) -> Control:
 
 
 func _build_left_column() -> Control:
-	var col := VBoxContainer.new()
-	col.custom_minimum_size = Vector2(196, 0)
-	col.add_theme_constant_override("separation", 10)
-	# —— 敌方牌手：同时是核心攻击目标 ——
+	var col := Control.new()
+	col.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	col.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_enemy_plate = _plate(ThemeBuilder.FOE)
-	col.add_child(_enemy_plate)
-	var ev := VBoxContainer.new()
-	ev.add_theme_constant_override("separation", 4)
-	ev.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_enemy_plate.add_child(ev)
-	var eh := HBoxContainer.new()
-	eh.add_theme_constant_override("separation", 10)
-	eh.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	ev.add_child(eh)
-	eh.add_child(_crest(ThemeBuilder.FOE, "敌"))
-	var en := VBoxContainer.new()
-	en.add_theme_constant_override("separation", 0)
-	en.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	eh.add_child(en)
-	var en_name := ThemeBuilder.label("失序体", 16, ThemeBuilder.PAPER)
-	en_name.add_theme_font_override("font", ThemeBuilder.display_font())
-	en.add_child(en_name)
-	en.add_child(ThemeBuilder.label("敌方核心", 11, ThemeBuilder.TEXT_DIM))
-	var ecore := HBoxContainer.new()
-	ecore.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	ev.add_child(ecore)
-	_enemy_core = ThemeBuilder.bold_label("30", 34, ThemeBuilder.DANGER_SOFT)
-	ecore.add_child(_enemy_core)
-	var emax := ThemeBuilder.label("/ 30", 13, ThemeBuilder.TEXT_FAINT)
-	emax.size_flags_vertical = Control.SIZE_SHRINK_END
-	ecore.add_child(emax)
-	_enemy_bar = _hp_bar(ThemeBuilder.FOE.lightened(0.15))
-	ev.add_child(_enemy_bar)
-	_enemy_info = ThemeBuilder.label("", 11, ThemeBuilder.TEXT_DIM)
-	ev.add_child(_enemy_info)
-	_enemy_realms = HFlowContainer.new()
-	_enemy_realms.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	ev.add_child(_enemy_realms)
+	_ally_plate = _plate(ThemeBuilder.ALLY)
+	for pair in [[_enemy_plate, AI], [_ally_plate, PLAYER]]:
+		var plate: PanelContainer = pair[0]
+		var enemy: bool = pair[1] == AI
+		col.add_child(plate)
+		plate.position = Vector2(10, 8)
+		plate.size = Vector2(146, 142)
+		if not enemy:
+			plate.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+			plate.offset_top = -168
+			plate.offset_bottom = -26
+			plate.offset_left = 10
+			plate.offset_right = 156
+		var area := Control.new()
+		area.custom_minimum_size = Vector2(146, 142)
+		area.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		plate.add_child(area)
+		var units: Array = gs.player(AI if enemy else PLAYER).units if gs != null else []
+		var unit: Dictionary = units[0] if not units.is_empty() else ContentLoader.unit_def("ember")
+		var portrait := UIWidgets.unit_token(unit, Callable(), Vector2(104, 104), "circle")
+		area.add_child(portrait)
+		portrait.position = Vector2(5, 8)
+		portrait.size = Vector2(104, 104)
+		var halo := Control.new()
+		halo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		halo.size = Vector2(118, 118)
+		area.add_child(halo)
+		halo.draw.connect(func():
+			halo.draw_arc(Vector2(58, 60), 54, -2.8, 2.5, 48, Color("b0a9d8"), 4, true)
+			halo.draw_arc(Vector2(58, 60), 59, -1.4, 1.7, 40, Color(0.68, 0.83, 0.92, 0.6), 2, true)
+		)
+		var hp := ThemeBuilder.bold_label("30", 38, Color("bd353a"))
+		ThemeBuilder.outline(hp, 3, Color("f1edd5"))
+		hp.position = Vector2(86, 76)
+		area.add_child(hp)
+		var info := ThemeBuilder.label("", 11, ThemeBuilder.PAPER)
+		info.visible = false
+		area.add_child(info)
+		var bar := _hp_bar(ThemeBuilder.FOE if enemy else ThemeBuilder.ALLY)
+		bar.visible = false
+		area.add_child(bar)
+		var realms := HFlowContainer.new()
+		realms.position = Vector2(3, 145)
+		realms.size = Vector2(158, 0)
+		realms.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		area.add_child(realms)
+		if enemy:
+			_enemy_core = hp
+			_enemy_bar = bar
+			_enemy_info = info
+			_enemy_realms = realms
+		else:
+			_ally_core = hp
+			_ally_bar = bar
+			_ally_info = info
+			_ally_realms = realms
 	var target := Button.new()
 	_enemy_target_btn = target
 	target.flat = true
 	target.focus_mode = Control.FOCUS_NONE
 	for state in ["normal", "hover", "pressed", "focus", "disabled", "hover_pressed"]:
 		target.add_theme_stylebox_override(state, StyleBoxEmpty.new())
-	target.pressed.connect(func(): _on_core_clicked())
+	target.pressed.connect(_on_core_clicked)
 	target.set_drag_forwarding(Callable(), func(_pos, payload): return _can_drop_command(payload, "ai-avatar"), func(_pos, payload): _drop_command(payload, "ai-avatar"))
 	_enemy_plate.add_child(target)
-	var spacer := Control.new()
-	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	col.add_child(spacer)
-	# —— 我方牌手 ——
-	_ally_plate = _plate(ThemeBuilder.ALLY)
-	col.add_child(_ally_plate)
-	var av := VBoxContainer.new()
-	av.add_theme_constant_override("separation", 4)
-	_ally_plate.add_child(av)
-	var ah := HBoxContainer.new()
-	ah.add_theme_constant_override("separation", 10)
-	av.add_child(ah)
-	ah.add_child(_crest(ThemeBuilder.ALLY, "我"))
-	var an := VBoxContainer.new()
-	an.add_theme_constant_override("separation", 0)
-	ah.add_child(an)
-	var an_name := ThemeBuilder.label("巡界者", 16, ThemeBuilder.PAPER)
-	an_name.add_theme_font_override("font", ThemeBuilder.display_font())
-	an.add_child(an_name)
-	an.add_child(ThemeBuilder.label("我方核心", 11, ThemeBuilder.TEXT_DIM))
-	var acore := HBoxContainer.new()
-	av.add_child(acore)
-	_ally_core = ThemeBuilder.bold_label("30", 34, ThemeBuilder.GOLD_BRIGHT)
-	acore.add_child(_ally_core)
-	var amax := ThemeBuilder.label("/ 30", 13, ThemeBuilder.TEXT_FAINT)
-	amax.size_flags_vertical = Control.SIZE_SHRINK_END
-	acore.add_child(amax)
-	_ally_bar = _hp_bar(ThemeBuilder.ALLY)
-	av.add_child(_ally_bar)
-	var energy_row := HBoxContainer.new()
-	energy_row.add_theme_constant_override("separation", 8)
-	av.add_child(energy_row)
 	_energy_orbs = Control.new()
-	_energy_orbs.custom_minimum_size = Vector2(64, 28)
+	_energy_orbs.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+	_energy_orbs.offset_left = 143
+	_energy_orbs.offset_right = 249
+	_energy_orbs.offset_top = -106
+	_energy_orbs.offset_bottom = -74
 	_energy_orbs.set_meta("energy", 0)
 	_energy_orbs.set_meta("max", 2)
+	_energy_orbs.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_energy_orbs.draw.connect(_draw_energy)
-	energy_row.add_child(_energy_orbs)
-	_energy_l = ThemeBuilder.label("", 13, ThemeBuilder.FIRE)
-	_energy_l.add_theme_font_override("font", ThemeBuilder.medium_font())
-	_energy_l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	energy_row.add_child(_energy_l)
-	_ally_info = ThemeBuilder.label("", 11, ThemeBuilder.TEXT_DIM)
-	av.add_child(_ally_info)
-	_ally_realms = HFlowContainer.new()
-	av.add_child(_ally_realms)
+	col.add_child(_energy_orbs)
+	_energy_l = ThemeBuilder.label("", 11, Color("eeeac1"))
+	ThemeBuilder.outline(_energy_l, 2, Color("45657a"))
+	_energy_l.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+	_energy_l.offset_left = 146
+	_energy_l.offset_right = 252
+	_energy_l.offset_top = -66
+	_energy_l.offset_bottom = -47
+	col.add_child(_energy_l)
 	return col
 
 
 func _build_right_column() -> Control:
-	var col := VBoxContainer.new()
-	col.custom_minimum_size = Vector2(150, 0)
-	col.add_theme_constant_override("separation", 6)
-	col.alignment = BoxContainer.ALIGNMENT_CENTER
-	var top := CenterContainer.new()
-	col.add_child(top)
+	var col := Control.new()
+	col.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	col.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_enemy_hand = HBoxContainer.new()
-	_enemy_hand.add_theme_constant_override("separation", -22)
-	top.add_child(_enemy_hand)
-	_enemy_deck_l = ThemeBuilder.label("", 11, ThemeBuilder.TEXT_DIM)
-	_enemy_deck_l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_enemy_hand.add_theme_constant_override("separation", -21)
+	_enemy_hand.anchor_left = 0.70
+	_enemy_hand.anchor_right = 0.70
+	_enemy_hand.offset_top = 10
+	col.add_child(_enemy_hand)
+	_enemy_deck_l = ThemeBuilder.label("", 10, Color("ddeae7"))
+	ThemeBuilder.outline(_enemy_deck_l, 2, Color("426478"))
+	_enemy_deck_l.anchor_left = 0.70
+	_enemy_deck_l.offset_top = 87
 	col.add_child(_enemy_deck_l)
-	var sp1 := Control.new()
-	sp1.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	col.add_child(sp1)
-	var seal_wrap := CenterContainer.new()
-	col.add_child(seal_wrap)
 	_end_btn = Button.new()
-	_end_btn.text = "结束\n回合"
-	_end_btn.custom_minimum_size = Vector2(108, 108)
+	_end_btn.text = "结束
+回合"
+	_end_btn.custom_minimum_size = Vector2(102, 102)
+	_end_btn.set_anchors_and_offsets_preset(Control.PRESET_CENTER_RIGHT)
+	_end_btn.offset_left = -121
+	_end_btn.offset_right = -19
+	_end_btn.offset_top = -58
+	_end_btn.offset_bottom = 44
 	_end_btn.focus_mode = Control.FOCUS_NONE
-	_end_btn.add_theme_font_override("font", ThemeBuilder.display_font())
-	_end_btn.add_theme_font_size_override("font_size", 19)
+	_end_btn.add_theme_font_override("font", ThemeBuilder.heavy_display_font())
+	_end_btn.add_theme_font_size_override("font_size", 22)
 	_style_seal(false)
 	_end_btn.pressed.connect(_on_end_turn)
-	seal_wrap.add_child(_end_btn)
-	var hint := ThemeBuilder.label("Enter", 10, ThemeBuilder.TEXT_FAINT)
-	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	col.add_child(hint)
-	var sp2 := Control.new()
-	sp2.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	col.add_child(sp2)
-	var deck_row := HBoxContainer.new()
-	deck_row.alignment = BoxContainer.ALIGNMENT_CENTER
-	deck_row.add_theme_constant_override("separation", 8)
-	col.add_child(deck_row)
-	var pile := CardFace.new()
-	pile.face_down = true
-	pile.custom_minimum_size = Vector2(46, 68)
-	pile.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	deck_row.add_child(pile)
-	_deck_l = ThemeBuilder.label("", 12, ThemeBuilder.TEXT_DIM)
-	_deck_l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	deck_row.add_child(_deck_l)
+	col.add_child(_end_btn)
+	for enemy in [true, false]:
+		var pile := Control.new()
+		pile.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		pile.set_anchors_and_offsets_preset(Control.PRESET_CENTER_RIGHT)
+		pile.offset_left = -92
+		pile.offset_right = -8
+		pile.offset_top = -235 if enemy else 108
+		pile.offset_bottom = -103 if enemy else 240
+		col.add_child(pile)
+		for i in 3:
+			var back := CardFace.new()
+			back.face_down = true
+			back.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			back.size = Vector2(62, 91)
+			back.position = Vector2(12 + i * 9, i * 10)
+			back.pivot_offset = back.size * 0.5
+			back.rotation = deg_to_rad(-22 + i * 10)
+			pile.add_child(back)
+	_deck_l = ThemeBuilder.label("", 11, Color("eff0dd"))
+	ThemeBuilder.outline(_deck_l, 2, Color("385467"))
+	_deck_l.set_anchors_and_offsets_preset(Control.PRESET_CENTER_RIGHT)
+	_deck_l.offset_left = -94
+	_deck_l.offset_top = 231
+	_deck_l.offset_right = -10
+	col.add_child(_deck_l)
 	return col
 
 
 func _style_seal(active: bool, urge: bool = false) -> void:
-	var fill := Color("9a3324") if active else Color(0.12, 0.13, 0.18, 0.85)
-	var rim := ThemeBuilder.GOLD_BRIGHT if active else Color(0.4, 0.42, 0.5, 0.6)
+	var fill := Color("7860a7") if active else Color(0.31, 0.35, 0.46, 0.82)
+	var rim := Color("c4b5e3") if active else Color("8d9cbd")
 	var normal := ThemeBuilder.panel(fill, rim, 54, 3)
-	normal.shadow_color = Color(1, 0.75, 0.35, 0.55) if urge else Color(0, 0, 0, 0.45)
+	normal.shadow_color = Color(0.7, 0.67, 1.0, 0.45) if urge else Color(0, 0, 0, 0.45)
 	normal.shadow_size = 22 if urge else 10
 	var hover := normal.duplicate()
 	hover.bg_color = fill.lightened(0.12)
-	hover.shadow_color = Color(1, 0.8, 0.4, 0.6)
+	hover.shadow_color = Color(0.75, 0.71, 1.0, 0.55)
 	hover.shadow_size = 20
 	var pressed := normal.duplicate()
 	pressed.bg_color = fill.darkened(0.2)
@@ -487,9 +488,10 @@ func _style_seal(active: bool, urge: bool = false) -> void:
 
 func _build_prompt() -> Control:
 	var wrap := CenterContainer.new()
-	wrap.custom_minimum_size = Vector2(0, 40)
+	wrap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	wrap.custom_minimum_size = Vector2(0, 28)
 	var pill := PanelContainer.new()
-	var sb := ThemeBuilder.glass(0.78, Color(0.82, 0.68, 0.4, 0.4), 20)
+	var sb := StyleBoxEmpty.new()
 	sb.content_margin_left = 18
 	sb.content_margin_right = 10
 	sb.content_margin_top = 4
@@ -503,19 +505,25 @@ func _build_prompt() -> Control:
 	return wrap
 
 
-func _make_row(style: String, title: String, accent: Color, height: float) -> HBoxContainer:
+func _make_row(style: String, title: String, accent: Color, _height: float) -> Container:
 	var row := DropZone.new()
 	row.style = style
 	row.title = title
 	row.accent = accent
-	row.alignment = BoxContainer.ALIGNMENT_CENTER
-	row.add_theme_constant_override("separation", 22)
-	row.custom_minimum_size = Vector2(0, height)
 	row.set_meta("title", title)
 	var is_front := style == "front"
 	row.can_drop = func(payload): return is_front and _can_drop_command(payload, null)
 	row.on_drop = func(payload): _drop_command(payload, null)
 	return row
+
+
+func _place_zone(zone: Control, area: Rect2, enemy: bool) -> void:
+	_board.add_child(zone)
+	zone.anchor_left = area.position.x
+	zone.anchor_top = area.position.y
+	zone.anchor_right = area.end.x
+	zone.anchor_bottom = area.end.y
+	zone.set_meta("enemy", enemy)
 
 
 func _build_side_panel() -> PanelContainer:
@@ -568,9 +576,9 @@ func _draw_energy() -> void:
 		var lit := i < e
 		var flame := PackedVector2Array([c + Vector2(-8, -1), c + Vector2(-3, -13), c + Vector2(0, -7), c + Vector2(4, -14), c + Vector2(8, -1)])
 		if lit:
-			_energy_orbs.draw_circle(c, 13, Color(0.45, 0.8, 1.0, 0.16))
-			_energy_orbs.draw_colored_polygon(flame, Color("4c9cf0"))
-			_energy_orbs.draw_circle(c, 8, Color("7fd6ff"))
+			_energy_orbs.draw_circle(c, 13, Color(1.0, 0.92, 0.5, 0.22))
+			_energy_orbs.draw_colored_polygon(flame, Color("c5bd59"))
+			_energy_orbs.draw_circle(c, 8, Color("fff6a5"))
 			_energy_orbs.draw_circle(c + Vector2(-2, -2), 3, Color(1, 1, 1, 0.6))
 		else:
 			_energy_orbs.draw_circle(c, 8, Color(0.1, 0.12, 0.18, 0.9))
@@ -631,6 +639,8 @@ func _refresh() -> void:
 
 	var previous := _last_view
 	_last_view = gs.snapshot().duplicate(true)
+	# 表现层保存等待中的帧，响应或占卜结束时仍可识别真正施法者。
+	_last_view["presentationStack"] = gs.resolution_stack.duplicate(true)
 	var commands: Array = gs.command_log.slice(_last_command_count)
 	_last_command_count = gs.command_log.size()
 	if not previous.is_empty():
@@ -672,7 +682,7 @@ func _fill_enemy_hand(count: int) -> void:
 	while _enemy_hand.get_child_count() < shown:
 		var back := CardFace.new()
 		back.face_down = true
-		back.custom_minimum_size = Vector2(36, 54)
+		back.custom_minimum_size = Vector2(43, 70)
 		back.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_enemy_hand.add_child(back)
 	var n := _enemy_hand.get_child_count()
@@ -682,7 +692,7 @@ func _fill_enemy_hand(count: int) -> void:
 		back.rotation = deg_to_rad((i - (n - 1) * 0.5) * 5.0)
 
 
-func _fill_units(box: HBoxContainer, p_idx: int, front_only: bool) -> void:
+func _fill_units(box: Container, p_idx: int, front_only: bool) -> void:
 	if box == null or gs == null:
 		return
 	var p := gs.player(p_idx)
@@ -845,20 +855,18 @@ func _update_selection_highlights() -> void:
 
 
 func _set_plate_glow(plate: PanelContainer, on: bool) -> void:
-	var accent: Color = plate.get_meta("accent", ThemeBuilder.FOE)
-	var sb := ThemeBuilder.glass(0.8, Color(0.55, 1.0, 0.8, 0.9) if on else Color(accent, 0.55), 14)
-	sb.border_width_left = 3
-	sb.content_margin_left = 14
-	if on:
-		sb.set_border_width_all(2)
-		sb.border_width_left = 3
-		sb.shadow_color = Color(0.5, 1.0, 0.75, 0.35)
-		sb.shadow_size = 18
+	if not on:
+		plate.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+		return
+	var sb := ThemeBuilder.panel(Color(0.65, 0.9, 0.87, 0.04), Color("e0edb9"), 70, 2)
+	sb.shadow_color = Color(0.7, 0.85, 1.0, 0.35)
+	sb.shadow_size = 12
 	plate.add_theme_stylebox_override("panel", sb)
 
 
 func _prompt(text: String, color: Color = ThemeBuilder.PAPER) -> void:
-	_prompt_l = ThemeBuilder.label(text, 14, color)
+	_prompt_l = ThemeBuilder.label(text, 12, color)
+	ThemeBuilder.outline(_prompt_l, 2, Color("405d73"))
 	_prompt_l.add_theme_font_override("font", ThemeBuilder.medium_font())
 	_prompt_l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	_cmd_bar.add_child(_prompt_l)
@@ -929,7 +937,7 @@ func _fill_command_bar() -> void:
 		for i in gs.player(PLAYER).units.size():
 			if gs.can_level_up(PLAYER, i):
 				names.append(str(gs.player(PLAYER).units[i].get("name", "?")))
-		_prompt("升勾：点选金光式神（%s）提升 1 勾玉" % "、".join(names), ThemeBuilder.GOLD_BRIGHT)
+		_prompt("点选发光式神，提升 1 勾玉", ThemeBuilder.GOLD_BRIGHT)
 		return
 	if _has_any_action():
 		_prompt("打出发光手牌，或拖动式神到交战区出击", ThemeBuilder.PAPER)
@@ -1457,11 +1465,13 @@ func _presentation_duration(before: Dictionary, after: Dictionary, commands: Arr
 	var duration := 0.0
 	for cmd in commands:
 		match str(cmd.get("c", "")):
-			"play_card": duration += 1.2 if int(cmd.get("p", 0)) == AI else 0.48
+			"play_card": duration += 1.2 if int(cmd.get("p", 0)) == AI else 0.78
 			"basic_attack", "assault": duration += 0.85
 			"level_up": duration += 0.38
 	if int(before.get("turn", 0)) != int(after.get("turn", 0)):
 		duration = maxf(duration, 1.0)
+	if not EffectCues.build(before, after, commands).is_empty():
+		duration = maxf(duration, SpellEffect.TRAVEL + SpellEffect.TAIL + 0.05)
 	return duration
 
 
@@ -1509,6 +1519,9 @@ func _aim_context(pointer: Vector2) -> Dictionary:
 	if _input_locked() or gs == null or not pointer.is_finite(): return {}
 	var local_pointer := get_global_transform().affine_inverse() * pointer
 	if not Rect2(Vector2.ZERO, size).has_point(local_pointer): return {}
+	# 浮在池面上的资源控件也不属于目标区。
+	for hud in [_enemy_hand, _end_btn, _cmd_bar]:
+		if is_instance_valid(hud) and hud.visible and hud.get_global_rect().has_point(pointer): return {}
 	# Guide only over the battlefield, our hand, or the targetable enemy core.
 	# Header buttons, opponent hand and end-turn controls are not targeting space.
 	var in_play_area := false
@@ -1577,6 +1590,8 @@ func _motion_tween(widget: Control) -> Tween:
 func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [], state: GameState = null) -> void:
 	if state != null and state != gs: return
 	if not is_inside_tree() or _effects == null: return
+	for face in _unit_widgets.values():
+		if is_instance_valid(face) and face.has_meta("attack_impact_position"): face.remove_meta("attack_impact_position")
 	# 出击者的入场、前冲与回位使用同一个 Tween，避免与移位互相覆盖。
 	var attackers: Array = []
 	for cmd in commands:
@@ -1595,7 +1610,8 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 		if not attackers.has(uid):
 			_motion_tween(w).tween_property(w, "visual_offset", Vector2.ZERO, 0.22).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	# 2. 命令驱动的动作：出牌展示、出击前冲
-	var impact := 0.05
+	var cues := EffectCues.build(before, after, commands)
+	var impact := 0.18 if not cues.is_empty() else 0.05
 	var beat := 0.0
 	for cmd in commands:
 		var p := int(cmd.get("p", 0))
@@ -1610,7 +1626,7 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 					beat += 0.95
 				else:
 					_fly_played_card(card, a)
-					impact = maxf(impact, beat + 0.22)
+					impact = maxf(impact, beat + 0.28)
 					beat += 0.3
 			"basic_attack", "assault":
 				var t := maxf(beat, impact - 0.2)
@@ -1624,6 +1640,8 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 					var w := _unit_widget(str(lp.units[ui].uid))
 					if w != null: _ring_burst(_center_of(w), ThemeBuilder.GOLD_BRIGHT, beat)
 				Sfx.play("level_up", 0.8)
+	# 仅已发生的数值/状态变化产生命中特效。等待响应的法术不会提前命中。
+	for cue in cues: _present_spell_cue(cue, impact)
 	# 3. 数值变化：在冲击时刻呈现
 	var shake := 0.0
 	for p in [PLAYER, AI]:
@@ -1649,7 +1667,7 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 			var delta := int(unit.hp) - int(previous.hp)
 			var shield_delta := int(unit.get("shield", 0)) - int(previous.get("shield", 0))
 			if delta < 0:
-				_floating_on_unit("%d" % delta, widget, Color("ff8a72"), 32, impact)
+				_floating_on_unit("%d" % delta, widget, Color("ffe397"), 42, impact)
 				_delay(impact, func():
 					if not is_instance_valid(widget): return
 					Sfx.play("hit", clampf(0.45 + -delta * 0.12, 0.45, 1.0))
@@ -1672,7 +1690,6 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 				_ring_burst(at, ThemeBuilder.GOLD_BRIGHT, impact)
 			if bool(unit.get("awakened", false)) and not bool(previous.get("awakened", false)):
 				_floating_on_unit("觉醒", widget, ThemeBuilder.TYPE_AWAKEN, 30, impact)
-				_ring_burst(at, ThemeBuilder.TYPE_AWAKEN, impact)
 	if shake > 0.0:
 		_delay(impact, func(): _shake_node(_stage, shake))
 	if int(before.turn) != int(after.turn) and int(after.winner) < 0:
@@ -1681,6 +1698,32 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 	# AI 下一步等当前演出落地
 	if not commands.is_empty() or int(before.turn) != int(after.turn):
 		_ai_delay = clampf(impact + 0.45, 0.55, 2.0)
+
+
+func _present_spell_cue(cue: Dictionary, impact: float) -> void:
+	var target := _unit_widget(str(cue.target)) if not str(cue.target).is_empty() else null
+	var saved_impact: Variant = target.get_meta("attack_impact_position") if is_instance_valid(target) and target.has_meta("attack_impact_position") and cue.kind == "damage" else null
+	_delay(maxf(0.0, impact - SpellEffect.TRAVEL), func():
+		var source := _unit_widget(str(cue.source)) if not str(cue.source).is_empty() else null
+		var destination := Vector2.ZERO
+		if is_instance_valid(target) and target.is_inside_tree():
+			destination = saved_impact if saved_impact is Vector2 else _center_of(target) + target.visual_offset
+		elif cue.area == "hand":
+			destination = _center_of(_hand_row) + Vector2(0, -55) if int(cue.player) == PLAYER else _center_of(_enemy_hand)
+		elif cue.area == "energy":
+			destination = _center_of(_energy_orbs) if int(cue.player) == PLAYER else _center_of(_enemy_plate)
+		else: destination = _center_of(_ally_plate if int(cue.player) == PLAYER else _enemy_plate)
+		var effect := SpellEffect.new()
+		effect.family = str(cue.family)
+		effect.destination = destination
+		effect.origin = _center_of(source) + source.visual_offset if is_instance_valid(source) else destination
+		effect.travel = cue.kind in ["damage", "heal", "revive", "freeze", "seal"] and effect.origin.distance_to(destination) > 30.0
+		effect.radius = (86.0 if cue.kind in ["heal", "revive"] else 62.0) if is_instance_valid(target) else 45.0
+		effect.set_meta("target_uid", str(cue.target))
+		effect.set_meta("kind", str(cue.kind))
+		_effects.add_child(effect)
+		_effects.move_child(effect, 0)
+	)
 
 
 func _cancel_battle_timers() -> void:
@@ -1775,7 +1818,6 @@ func _fly_played_card(card: Dictionary, args: Dictionary) -> void:
 	tw.tween_property(face, "scale", Vector2(0.55, 0.55), 0.3)
 	tw.tween_property(face, "modulate:a", 0.0, 0.18).set_delay(0.16)
 	tw.chain().tween_callback(face.queue_free)
-	_ring_burst(dest, ThemeBuilder.type_color_of(str(card.get("type", ""))).lightened(0.3), 0.28)
 
 
 ## 出击：攻击者冲向敌方前线（或敌方核心）再弹回
@@ -1794,6 +1836,8 @@ func _lunge(p_idx: int, unit_index: int, before: Dictionary, delay: float) -> fl
 		target_pos = _center_of(_enemy_plate if p_idx == PLAYER else _ally_plate)
 	var from := _center_of(attacker)
 	var reach := (target_pos - from) * 0.55
+	# 保存此次 Tween 的命中位置。慢帧可能跨过命中与回位，Timer 不能再读取回位后的偏移。
+	attacker.set_meta("attack_impact_position", from + reach)
 	var entry := 0.22 if attacker.visual_offset.length() > 2.0 else 0.0
 	var tw := _motion_tween(attacker)
 	tw.tween_interval(delay)
@@ -1866,15 +1910,18 @@ func _ring_burst(at: Vector2, color: Color, delay: float = 0.0) -> void:
 
 func _floating_on_unit(text: String, widget: Control, color: Color, font_size: int, delay: float, offset: Vector2 = Vector2.ZERO) -> void:
 	# 命中时再取绘制位置；出击者的反击伤害不能留在其回位后的空阵台。
+	var attack_impact: Variant = widget.get_meta("attack_impact_position") if text.begins_with("-") and widget.has_meta("attack_impact_position") else null
 	_delay(delay, func():
 		if not is_instance_valid(widget) or not widget.is_inside_tree(): return
-		var at: Vector2 = _center_of(widget) + widget.visual_offset + offset
+		var at: Vector2 = (attack_impact as Vector2) if attack_impact is Vector2 else _center_of(widget) + widget.visual_offset
+		at += offset
 		_floating(text, at, color, font_size)
 	)
 
 
 func _floating(text: String, at: Vector2, color: Color, font_size: int = 27, delay: float = 0.0) -> void:
-	var label := ThemeBuilder.label(text, font_size, color)
+	var is_damage := text.begins_with("-")
+	var label := ThemeBuilder.label(text, maxi(font_size, 42) if is_damage else font_size, Color("ffe397") if is_damage else color)
 	label.add_theme_font_override("font", ThemeBuilder.heavy_display_font())
 	ThemeBuilder.outline(label, 8, Color("0b0d18"))
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1891,6 +1938,14 @@ func _floating(text: String, at: Vector2, color: Color, font_size: int = 27, del
 	label.scale = Vector2(0.4, 0.4)
 	label.modulate.a = 0.0
 	_effects.add_child(label)
+	if is_damage:
+		var brush := Control.new()
+		brush.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		brush.show_behind_parent = true
+		label.add_child(brush)
+		brush.draw.connect(func():
+			brush.draw_colored_polygon(PackedVector2Array([Vector2(20, 19), Vector2(138, 4), Vector2(126, 39), Vector2(34, 53), Vector2(48, 36)]), Color(0.21, 0.10, 0.23, 0.65))
+		)
 	var tw := label.create_tween()
 	tw.tween_interval(delay)
 	tw.set_parallel(true)
@@ -1915,16 +1970,19 @@ func _show_turn_banner(mine: bool) -> void:
 	band.offset_top = -46
 	band.offset_bottom = 46
 	band.position.y -= 40
-	var accent := ThemeBuilder.GOLD_BRIGHT if mine else ThemeBuilder.FOE.lightened(0.3)
+	var accent := Color("fff4e8")
 	band.draw.connect(func():
 		var w := band.size.x
 		var h := band.size.y
-		var dark := Color(0.02, 0.025, 0.05, 0.86)
-		var clear := Color(0.02, 0.025, 0.05, 0.0)
-		band.draw_polygon(PackedVector2Array([Vector2(0, 0), Vector2(w * 0.5, 0), Vector2(w * 0.5, h), Vector2(0, h)]), PackedColorArray([clear, dark, dark, clear]))
-		band.draw_polygon(PackedVector2Array([Vector2(w * 0.5, 0), Vector2(w, 0), Vector2(w, h), Vector2(w * 0.5, h)]), PackedColorArray([dark, clear, clear, dark]))
-		band.draw_line(Vector2(w * 0.2, 2), Vector2(w * 0.8, 2), Color(accent, 0.6), 1.0, true)
-		band.draw_line(Vector2(w * 0.2, h - 2), Vector2(w * 0.8, h - 2), Color(accent, 0.6), 1.0, true)
+		var ink := Color("a54652") if mine else Color("685483")
+		var points := PackedVector2Array()
+		for i in 24:
+			points.append(Vector2(w * (0.23 + i * 0.024), h * (0.08 + 0.04 * sin(i * 7.1))))
+		for i in range(23, -1, -1):
+			points.append(Vector2(w * (0.23 + i * 0.024), h * (0.88 + 0.06 * cos(i * 8.3))))
+		band.draw_colored_polygon(points, Color(ink, 0.85))
+		for i in 12:
+			band.draw_line(Vector2(w * 0.19 + i * 7, h * (0.18 + i * 0.045)), Vector2(w * 0.85 - i * 8, h * (0.15 + i * 0.05)), Color(ink, 0.28), 3, true)
 	)
 	add_child(band)
 	var title := ThemeBuilder.label("你 的 回 合" if mine else "对 手 回 合", 38, accent)

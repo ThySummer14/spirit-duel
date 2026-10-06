@@ -32,6 +32,20 @@ static func portrait(unit: Dictionary, min_size: Vector2) -> Control:
 	return face
 
 
+static func unit_token(unit: Dictionary, on_click: Callable, min_size: Vector2, shape: String = "diamond", selected: bool = false) -> Control:
+	var face := CardFace.new()
+	face.data = unit
+	face.unit_mode = true
+	face.portrait_only = true
+	face.portrait_shape = shape
+	face.selected = selected
+	face.custom_minimum_size = min_size
+	face.tooltip_text = str(unit.get("name", ""))
+	if on_click.is_valid(): attach_click(face, on_click)
+	else: face.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return face
+
+
 static func make_card_tile(card: Dictionary, on_click: Callable, min_size: Vector2 = Vector2(164, 258), selected: bool = false, note: String = "") -> Control:
 	var face := CardFace.new()
 	face.data = card

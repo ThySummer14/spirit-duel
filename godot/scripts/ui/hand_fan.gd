@@ -2,7 +2,7 @@ extends Control
 ## 扇形手牌：按张数收紧间距、轻微弧度与倾角；悬停的牌抬起、放大、置顶，相邻牌让位。
 ## 子节点即卡面，顺序与手牌下标一致（测试与键盘 1-9 依赖此顺序）。
 
-const CARD_SIZE := Vector2(124, 192)
+const CARD_SIZE := Vector2(142, 222)
 const HOVER_LIFT := 46.0
 const HOVER_SCALE := 1.16
 
@@ -68,7 +68,7 @@ func relayout() -> void:
 		var card: Control = cards[i]
 		var centered := (i - (n - 1) * 0.5)
 		var arc := minf(1.0, 7.0 / maxf(n, 1))
-		var rot := deg_to_rad(centered * 2.6 * arc)
+		var rot := deg_to_rad(centered * 1.6 * arc)
 		# 留出底边与倾斜后的角点空间，十二张手牌也完整落在窗口内。
 		var y := size.y - CARD_SIZE.y - 36.0 + absf(centered) * absf(centered) * 0.65 * arc
 		var x := start + i * step

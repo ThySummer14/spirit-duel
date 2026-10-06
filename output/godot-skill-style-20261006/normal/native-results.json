@@ -1,0 +1,336 @@
+[
+	{
+		"card": "c12404",
+		"case": "01-fire",
+		"commands": [
+			{
+				"a": {
+					"card": "c12404",
+					"hand": 0,
+					"target": "ai:basalt"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"fire"
+		]
+	},
+	{
+		"card": "c10605",
+		"case": "02-ice",
+		"commands": [
+			{
+				"a": {
+					"card": "c10605",
+					"hand": 0,
+					"target": "ai:basalt"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"ice"
+		]
+	},
+	{
+		"card": "c10603",
+		"case": "03-freeze",
+		"commands": [
+			{
+				"a": {
+					"card": "c10603",
+					"hand": 0,
+					"target": "ai:basalt"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"ice"
+		]
+	},
+	{
+		"card": "c10503",
+		"case": "04-wind",
+		"commands": [
+			{
+				"a": {
+					"card": "c10503",
+					"hand": 0,
+					"target": null
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"wind"
+		]
+	},
+	{
+		"card": "spark-shot",
+		"case": "05-thunder",
+		"commands": [
+			{
+				"a": {
+					"card": "spark-shot",
+					"hand": 0,
+					"target": "ai:basalt"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"thunder"
+		]
+	},
+	{
+		"card": "erode-script",
+		"case": "06-ink-seal",
+		"commands": [
+			{
+				"a": {
+					"card": "erode-script",
+					"hand": 0,
+					"target": "ai:basalt"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"seal",
+			"ink"
+		]
+	},
+	{
+		"card": "c10801",
+		"case": "07-petal-heal",
+		"commands": [
+			{
+				"a": {
+					"card": "c10801",
+					"hand": 0,
+					"target": "player:taohuayao"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"petal"
+		]
+	},
+	{
+		"card": "mend",
+		"case": "08-heal",
+		"commands": [
+			{
+				"a": {
+					"card": "mend",
+					"hand": 0,
+					"target": "player:lumen"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"heal"
+		]
+	},
+	{
+		"card": "brace",
+		"case": "09-shield",
+		"commands": [
+			{
+				"a": {
+					"card": "brace",
+					"hand": 0,
+					"target": "player:basalt"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"shield"
+		]
+	},
+	{
+		"card": "c10302",
+		"case": "10-form",
+		"commands": [
+			{
+				"a": {
+					"card": "c10302",
+					"hand": 0,
+					"target": null
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"form"
+		]
+	},
+	{
+		"card": "c10107",
+		"case": "11-awaken",
+		"commands": [
+			{
+				"a": {
+					"card": "c10107",
+					"hand": 0,
+					"target": null
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"awaken"
+		]
+	},
+	{
+		"card": "wardline",
+		"case": "12-realm",
+		"commands": [
+			{
+				"a": {
+					"card": "wardline",
+					"hand": 0,
+					"target": null
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"realm"
+		]
+	},
+	{
+		"card": "soul-tithe",
+		"case": "13-resource",
+		"commands": [
+			{
+				"a": {
+					"card": "soul-tithe",
+					"hand": 0,
+					"target": null
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"resource"
+		]
+	},
+	{
+		"card": "c10103",
+		"case": "14-slash",
+		"commands": [
+			{
+				"a": {
+					"card": "c10103",
+					"hand": 0,
+					"target": null
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			},
+			{
+				"a": {
+					"bonus": 2,
+					"target": null,
+					"unit": 0
+				},
+				"c": "assault",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"slash"
+		]
+	},
+	{
+		"card": "c12404",
+		"case": "15-guard",
+		"commands": [
+			{
+				"a": {
+					"card": "c12404",
+					"hand": 0,
+					"target": "ai:basalt"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"fire",
+			"shield"
+		]
+	},
+	{
+		"card": "c10701",
+		"case": "16-arcane",
+		"commands": [
+			{
+				"a": {
+					"card": "c10701",
+					"hand": 0,
+					"target": "ai:basalt"
+				},
+				"c": "play_card",
+				"p": 0,
+				"r": 3234660714,
+				"t": 1
+			}
+		],
+		"families": [
+			"arcane",
+			"resource"
+		]
+	}
+]

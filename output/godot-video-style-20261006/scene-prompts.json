@@ -1,0 +1,26 @@
+{
+  "mode": "built-in image_gen",
+  "purpose": "Match the user-supplied gameplay recording's scenery",
+  "assets": [
+    {
+      "path": "godot/assets/scenery/battle-pond-v2.png",
+      "reference": "original video 00:03:23",
+      "prompt": "Use case: stylized-concept\nAsset type: production backdrop for a landscape Japanese fantasy card duel game, no interface baked in.\nInput image: reference screenshot from user's original gameplay video, ONLY reference for the BACKGROUND composition and illustrated art style. All cards and UI elements must be removed.\nPrimary request: create a clean 2.16:1 wide battle pond background closely matching the reference's bright powder-blue shallow water, painterly Japanese fantasy illustration, soft lotus pads and flower petals, translucent flowing circular currents and fish motifs. Top-down flat view. A very pale large circular lotus/lily reflection occupies the center. A soft large decorative dark-blue koi silhouette curves around the upper right with its head near far right, beneath the water surface; small orange koi swimming far left. Delicate blue-gray currents, pink and lavender lotus leaves around center-left, misty edges. Keep upper middle and lower middle spacious to place eight upright character cards. Light bright cyan water and diffused pearly white center; edges moderately blue, never black. Soft anime hand-painted game art, flowing graphic brushwork, elegant low contrast, like the supplied pond setting.\nConstraints: landscape wide 2160x1000 or similar 2.16:1 aspect; background only. No cards, portraits, numbers, letters, labels, HUD, frames, logos, watermark, coins, badges, or buttons. No mountains, sky, architecture, clouds, stone platforms, battlefield grids. No photorealistic 3D rendering.",
+      "sha256": "d6fe27fc352278a12b616a2a0e3c5435a846c51da4bd9e1097f665c88b30911f",
+      "dimensions": [
+        1843,
+        853
+      ]
+    },
+    {
+      "path": "godot/assets/scenery/port-town-v2.png",
+      "reference": "original video 00:00:00",
+      "prompt": "Use case: stylized-concept\nAsset type: wide landscape game hub background, UI-free illustration.\nInput image: the user's gameplay video screenshot is a style and composition reference for the town environment only.\nPrimary request: paint a very closely matching welcoming Japanese fantasy evening town, symmetrical inward-facing streets, elevated view toward a central courtyard gateway, large red-brown timber inns and shops on both left and right, curving green jade tiled roofs. Right facade occupies 1/3 and rises three stories. Left facade frames 1/3 with balconies. Warm cream golden illuminated square windows and many orange lanterns. Center is an open paved plaza and low wide jade-roof gateway, with warm string lanterns on both sides. Dark teal green rippled sky with distant tiny pagodas along horizon and three hanging round light orbs. Broad center opening, no water harbor. Stylized hand-painted anime game environment, clearly drawn architectural forms, restrained linework and painterly color; more graphic illustration than realism. Cozy warm bright street against teal night sky, light interiors, green roof edges with gold trim.\nComposition: panorama approximately 2.16:1, 2160x1000. Keep the center sky upper middle open for title. Leave the lower quarter as illuminated paving and rooftops suitable for small translucent navigation UI overlays. Match the reference town perspective and warm jade palette.\nConstraints: environment only, remove ALL interface elements from reference. No text, logos, numbers, floating icons, UI badges, portraits, menus, cards, signs with text or watermark. No moonlit ocean or blue cloud forests.",
+      "sha256": "30fa03236fcef640c8db0089f73a8e7c74286ec26c85c8daaa7d69c9f28aa6a7",
+      "dimensions": [
+        1843,
+        853
+      ]
+    }
+  ]
+}

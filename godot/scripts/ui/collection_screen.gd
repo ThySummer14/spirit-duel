@@ -8,12 +8,13 @@ const CollectionStore := preload("res://scripts/collection_store.gd")
 const UIWidgets := preload("res://scripts/ui/ui_widgets.gd")
 const CardFace := preload("res://scripts/ui/card_face.gd")
 const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
+const RevealFan := preload("res://scripts/ui/reveal_fan.gd")
 const Sfx := preload("res://scripts/ui/sfx.gd")
 signal back_requested
 
 var _balance_l: Label
 var _stats_l: Label
-var _reveal_box: HBoxContainer
+var _reveal_box: Container
 var _card_box: GridContainer
 var _unit_list: OptionButton
 var _units: Array = []
@@ -198,14 +199,13 @@ func _show_reveal() -> void:
 	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_reveal_layer.add_child(center)
 	var v := VBoxContainer.new()
-	v.add_theme_constant_override("separation", 24)
+	v.add_theme_constant_override("separation", 16)
 	center.add_child(v)
-	v.add_child(ThemeBuilder.title_label("秘 闻 显 现", 34))
+	v.add_child(ThemeBuilder.title_label("秘 闻 显 现", 24))
 	_reveal_status = ThemeBuilder.dim_label("点击卡背逐张揭晓", 14)
 	_reveal_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(_reveal_status)
-	_reveal_box = HBoxContainer.new()
-	_reveal_box.add_theme_constant_override("separation", 18)
+	_reveal_box = RevealFan.new()
 	v.add_child(_reveal_box)
 	var actions := HBoxContainer.new()
 	actions.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -242,6 +242,7 @@ func _render_reveal() -> void:
 		var tile := CardFace.new()
 		tile.data = ContentLoader.card_def(str(item.id))
 		tile.face_down = not revealed.has(i)
+		tile.selected = revealed.has(i)
 		tile.note = "新入收藏" if int(item.gained) > 0 else "重复 → %d御札" % int(CollectionStore.RULES.dupeValue.get(item.rarity, 5))
 		tile.custom_minimum_size = Vector2(164, 272)
 		_reveal_box.add_child(tile)
@@ -263,6 +264,13 @@ func _flip_reveal(index: int) -> void:
 	tween.tween_callback(func():
 		if CollectionStore.reveal_card(index):
 			tile.face_down = false
+			tile.flash = 0.7
+			tile.selected = true
+			_reveal_box.burst = 1.0
+			var light := create_tween().set_parallel(true)
+			light.tween_property(tile, "flash", 0.0, 0.32)
+			light.tween_property(tile, "rotation", 0.0, 0.2)
+			light.tween_property(_reveal_box, "burst", 0.0, 0.48)
 			tile.queue_redraw()
 			Sfx.play("reveal_ssr" if tile.data.get("rarity") == "ssr" else "reveal")
 	)

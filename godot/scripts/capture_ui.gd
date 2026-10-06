@@ -30,6 +30,7 @@ func _init() -> void:
 		if parts.size() == 2: viewport_size = Vector2i(int(parts[0]), int(parts[1]))
 	DirAccess.make_dir_recursive_absolute(_shot_dir)
 	DisplayServer.window_set_size(viewport_size)
+	DisplayServer.window_move_to_foreground()
 	root.size = viewport_size
 	root.gui_disable_input = true
 	_root = Control.new()
@@ -38,7 +39,8 @@ func _init() -> void:
 	# 窗口尺寸是物理像素；canvas_items 已把逻辑尺寸缩放，不能再按物理尺寸设最小值。
 	_root.custom_minimum_size = Vector2(1280, 800)
 	root.add_child(_root)
-	_capture_all.call_deferred()
+	if args.has("style"): _capture_style.call_deferred()
+	else: _capture_all.call_deferred()
 
 
 func _clear() -> void:
@@ -52,6 +54,8 @@ func _shot(name: String) -> void:
 	await create_timer(1.4).timeout
 	await process_frame
 	await process_frame
+	# macOS 上失焦窗口可能复用上一帧；验收必须抓取当前场景的真实渲染。
+	RenderingServer.force_draw(false)
 	var img: Image = root.get_viewport().get_texture().get_image()
 	var path := "%s/%s.png" % [_shot_dir, name]
 	img.save_png(path)
@@ -171,11 +175,128 @@ func _capture_all() -> void:
 	shell._show_settings()
 	await _shot("08-settings")
 	_clear()
+	# 视频风格验收使用已补齐立绘的经典式神，训练角色仍覆盖前面的规则场景。
+	var classic := ContentLoader.recommended_lineup()
+	form = FormationScreen.new()
+	_root.add_child(form)
+	form.set_preselect(classic)
+	await _shot("09-classic-formation")
+	_clear()
+	battle = BattleScreen.new()
+	battle.setup(classic, ["yingcao", "caitongzi", "xuetongzi", "yatiangou"], 20261006)
+	battle._ai_thinking = true
+	_root.add_child(battle)
+	await _shot("10-classic-battle")
+	if args_for_motion(): await _capture_motion(battle)
+	_clear()
 	await process_frame
 
 	print("CAPTURE_DONE")
 	VerifySupport.cleanup_stores(_fixture)
 	quit(0)
+
+
+func args_for_motion() -> bool:
+	return OS.get_cmdline_user_args().has("motion")
+
+
+func _capture_style() -> void:
+	_root.add_child(MainMenuScreen.new())
+	await _shot("01-menu")
+	_clear()
+	var form := FormationScreen.new()
+	_root.add_child(form)
+	form.set_preselect(["ember", "basalt", "lumen", "rime"])
+	await _shot("02-formation")
+	_clear()
+	var classic := ContentLoader.recommended_lineup()
+	form = FormationScreen.new()
+	_root.add_child(form)
+	form.set_preselect(classic)
+	await _shot("09-classic-formation")
+	_clear()
+	var battle := BattleScreen.new()
+	battle.setup(classic, ["yingcao", "caitongzi", "xuetongzi", "yatiangou"], 20261006)
+	battle._ai_thinking = true
+	_root.add_child(battle)
+	await _shot("10-classic-battle")
+	if args_for_motion(): await _capture_motion(battle)
+	_clear()
+	await process_frame
+	VerifySupport.cleanup_stores(_fixture)
+	print("CAPTURE_STYLE_DONE")
+	quit(0)
+
+
+func _viewport_click(face: Control) -> void:
+	var point := face.get_global_transform_with_canvas() * (face.size * 0.5)
+	var move := InputEventMouseMotion.new()
+	move.position = point
+	root.push_input(move, true)
+	for down in [true, false]:
+		var event := InputEventMouseButton.new()
+		event.position = point
+		event.button_index = MOUSE_BUTTON_LEFT
+		event.pressed = down
+		root.push_input(event, true)
+
+
+func _capture_motion(battle: BattleScreen) -> void:
+	var frames := _shot_dir.path_join("motion-frames")
+	DirAccess.make_dir_recursive_absolute(frames)
+	for player in battle.gs.players:
+		player.levelUpUsed = true
+		for unit in player.units:
+			unit.level = 3
+			unit.hp = 20
+			unit.maxHp = 20
+			unit.shield = 0
+	# 无响应牌，使录像能持续展示一次完整出击与回位。
+	battle.gs.player(1).hand.clear()
+	battle.gs.player(1).units[0].front = 1
+	# 测试场景的初始数值不是一次治疗，先建立快照再开始录制实际动作。
+	battle._last_view = {}
+	battle._refresh()
+	await create_timer(battle._presentation_remaining() + 0.1).timeout
+	await process_frame
+	for face in battle._unit_widgets.values():
+		if face.has_meta("flip_from"): face.remove_meta("flip_from")
+	root.gui_disable_input = false
+	var timings: Array = []
+	var began := Time.get_ticks_msec()
+	var began_frame := Engine.get_process_frames()
+	var fixed_fps := 0.0
+	var engine_args := OS.get_cmdline_args()
+	var fixed_flag := engine_args.find("--fixed-fps")
+	if fixed_flag >= 0 and fixed_flag + 1 < engine_args.size(): fixed_fps = float(engine_args[fixed_flag + 1])
+	# Godot 可能不再把已消费的引擎参数交给脚本；显式用户参数与实际 delta 一起校验。
+	if OS.get_cmdline_user_args().has("fps=25"):
+		fixed_fps = 25.0
+		if not is_equal_approx(_root.get_process_delta_time(), 1.0 / fixed_fps):
+			push_error("fps=25 motion capture requires engine --fixed-fps 25")
+			quit(1)
+			return
+	_viewport_click(battle._unit_widget(str(battle.gs.player(0).units[0].uid)))
+	_viewport_click(battle._unit_widget(str(battle.gs.player(1).units[0].uid)))
+	if battle.gs.command_log.is_empty() or battle.gs.command_log[-1].c != "basic_attack":
+		push_error("Motion capture failed to attack through viewport input")
+		quit(1)
+		return
+	for i in 64:
+		if i == 34: battle._show_turn_banner(true)
+		await create_timer(0.04).timeout
+		RenderingServer.force_draw(false)
+		var image := root.get_texture().get_image()
+		# 固定帧步进时使用模拟时间；GPU 回读/PNG 写盘不计入游戏演出速度。
+		timings.append((Engine.get_process_frames() - began_frame) / fixed_fps if fixed_fps > 0 else (Time.get_ticks_msec() - began) / 1000.0)
+		image.save_png(frames.path_join("%03d.png" % i))
+		if i in [7, 13, 37, 41]: image.save_png(_shot_dir.path_join("11-motion-%02d.png" % i))
+	var timing_file := FileAccess.open(frames.path_join("timings.json"), FileAccess.WRITE)
+	timing_file.store_string(JSON.stringify(timings))
+	timing_file.close()
+	root.gui_disable_input = true
+	print("MOTION_CAPTURE_OK frames=64 native_attack=1")
+	print("MOTION_TIMING fixed_fps=", fixed_fps, " simulation_seconds=", timings[-1] - timings[0])
 
 
 func _inject(gs, player_index: int, card_id: String) -> int:

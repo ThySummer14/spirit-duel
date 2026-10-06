@@ -89,7 +89,13 @@ func _run() -> void:
 	await process_frame
 	_check(menu._lineup_faces.get_global_rect().end.x <= 1280 and menu._lineup_faces.get_global_rect().end.y <= 800, "main-menu lineup preview stays inside the viewport")
 	var selected: Array = main._lineup.duplicate()
-	var start_buttons: Array = menu.find_children("*", "Button", true, false).filter(func(button): return button.text == "开 始 对 弈")
+	var start_buttons: Array = menu.find_children("*", "Button", true, false).filter(func(button): return button.get_meta("action", "") == "start_quick_match")
+	_check(start_buttons.size() == 1, "the menu exposes one semantic quick-match action")
+	if start_buttons.is_empty():
+		main.free()
+		VerifySupport.cleanup_stores(fixture)
+		quit(1)
+		return
 	start_buttons[0].pressed.emit()
 	main._current._ai_thinking = true
 	_check(main._current.gs.player(0).units.map(func(unit): return unit.id) == selected, "main-menu start uses the selected expansion lineup")

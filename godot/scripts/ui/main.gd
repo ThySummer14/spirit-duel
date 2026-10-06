@@ -24,7 +24,7 @@ var _deck_return_codex := false
 
 
 func _ready() -> void:
-	get_window().min_size = Vector2i(1280, 800)
+	get_window().min_size = Vector2i(1280, 720)
 	self.theme = ThemeBuilder.build_theme()
 	var saved_lineup: Array = SaveStore.get_lineup()
 	if ContentLoader.valid_lineup(saved_lineup):
@@ -66,7 +66,12 @@ func _show_menu() -> void:
 	menu.open_codex.connect(_show_codex)
 	menu.open_collection.connect(_show_collection)
 	menu.open_settings.connect(_show_settings)
-	menu.quit_requested.connect(func(): get_tree().quit())
+	menu.quit_requested.connect(func():
+		if OS.has_feature("web"):
+			JavaScriptBridge.eval("window.location.assign('../')")
+		else:
+			get_tree().quit()
+	)
 	_swap(menu)
 
 
