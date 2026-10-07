@@ -1,0 +1,11 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ZHEN_FAIL base ability has a real two-turn timer
+ZHEN_FAIL avatar break adds to one real hit and is consumed
+ZHEN_FAIL toxic combat converts both directions without HP damage
+ZHEN_FAIL conversion keeps exact incoming and outgoing power
+ZHEN_FAIL conditional lifesteal includes detonated break
+ZHEN_FAIL flower has no fabricated attack bonus and uses remaining health
+ZHEN_FAIL scatter installs printed body
+ZHEN_FAIL scatter converts own countdown into damage even on unmarked target
+ZHEN checks=16 failures=8

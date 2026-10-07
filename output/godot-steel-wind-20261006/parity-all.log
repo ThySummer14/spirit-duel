@@ -1,0 +1,171 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-bounce-spell.json ==
+JS_PARITY_OK steps=4 ok=4 → output/godot-steel-wind-20261006/parity/sample-bounce-spell-js.json
+== Godot parity: scripts/parity/sample-bounce-spell.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=4 ok=4 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-bounce-spell-godot.json
+== compare ==
+PARITY_MATCH sample=wind-bounce-surviving-front steps=4
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-divination.json ==
+JS_PARITY_OK steps=5 ok=5 → output/godot-steel-wind-20261006/parity/sample-divination-js.json
+== Godot parity: scripts/parity/sample-divination.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=5 ok=5 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-divination-godot.json
+== compare ==
+PARITY_MATCH sample=divination-choice steps=5
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-fortune.json ==
+JS_PARITY_OK steps=5 ok=5 → output/godot-steel-wind-20261006/parity/sample-fortune-js.json
+== Godot parity: scripts/parity/sample-fortune.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=5 ok=5 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-fortune-godot.json
+== compare ==
+PARITY_MATCH sample=fortune-encourage steps=5
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-growth.json ==
+JS_PARITY_OK steps=1 ok=1 → output/godot-steel-wind-20261006/parity/sample-growth-js.json
+== Godot parity: scripts/parity/sample-growth.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=1 ok=1 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-growth-godot.json
+== compare ==
+PARITY_MATCH sample=damaged-awakening-growth steps=1
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-hand-overflow.json ==
+JS_PARITY_OK steps=2 ok=2 → output/godot-steel-wind-20261006/parity/sample-hand-overflow-js.json
+== Godot parity: scripts/parity/sample-hand-overflow.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=2 ok=2 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-hand-overflow-godot.json
+== compare ==
+PARITY_MATCH sample=full-hand-preserves-held-cards steps=2
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-instant-cost.json ==
+JS_PARITY_OK steps=6 ok=6 → output/godot-steel-wind-20261006/parity/sample-instant-cost-js.json
+== Godot parity: scripts/parity/sample-instant-cost.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=6 ok=6 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-instant-cost-godot.json
+== compare ==
+PARITY_MATCH sample=instant-first-free-and-turn-reset steps=6
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-keywords.json ==
+JS_PARITY_OK steps=13 ok=5 → output/godot-steel-wind-20261006/parity/sample-keywords-js.json
+== Godot parity: scripts/parity/sample-keywords.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=13 ok=5 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-keywords-godot.json
+== compare ==
+PARITY_MATCH sample=combat-keywords steps=13
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-origin.json ==
+JS_PARITY_OK steps=16 ok=10 → output/godot-steel-wind-20261006/parity/sample-origin-js.json
+== Godot parity: scripts/parity/sample-origin.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=16 ok=10 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-origin-godot.json
+== compare ==
+PARITY_MATCH sample=origin-core-loop steps=16
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-resource-growth.json ==
+JS_PARITY_OK steps=4 ok=4 → output/godot-steel-wind-20261006/parity/sample-resource-growth-js.json
+== Godot parity: scripts/parity/sample-resource-growth.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=4 ok=4 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-resource-growth-godot.json
+== compare ==
+PARITY_MATCH sample=resource-and-growth-effects steps=4
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-response-play.json ==
+JS_PARITY_OK steps=8 ok=8 → output/godot-steel-wind-20261006/parity/sample-response-play-js.json
+== Godot parity: scripts/parity/sample-response-play.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=8 ok=8 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-response-play-godot.json
+== compare ==
+PARITY_MATCH sample=response-play-nest steps=8
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-response.json ==
+JS_PARITY_OK steps=8 ok=8 → output/godot-steel-wind-20261006/parity/sample-response-js.json
+== Godot parity: scripts/parity/sample-response.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=8 ok=8 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-response-godot.json
+== compare ==
+PARITY_MATCH sample=response-pass-chain steps=8
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-self-damage-rewards.json ==
+JS_PARITY_OK steps=5 ok=4 → output/godot-steel-wind-20261006/parity/sample-self-damage-rewards-js.json
+== Godot parity: scripts/parity/sample-self-damage-rewards.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=5 ok=4 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-self-damage-rewards-godot.json
+== compare ==
+PARITY_MATCH sample=compound-self-damage-rewards steps=5
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-self-damage.json ==
+JS_PARITY_OK steps=1 ok=1 → output/godot-steel-wind-20261006/parity/sample-self-damage-js.json
+== Godot parity: scripts/parity/sample-self-damage.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=1 ok=1 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-self-damage-godot.json
+== compare ==
+PARITY_MATCH sample=self-damage-before-growth steps=1
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-shield-team.json ==
+JS_PARITY_OK steps=1 ok=1 → output/godot-steel-wind-20261006/parity/sample-shield-team-js.json
+== Godot parity: scripts/parity/sample-shield-team.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=1 ok=1 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-shield-team-godot.json
+== compare ==
+PARITY_MATCH sample=wind-guard-all-living-allies steps=1
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-signed-debuff.json ==
+JS_PARITY_OK steps=4 ok=4 → output/godot-steel-wind-20261006/parity/sample-signed-debuff-js.json
+== Godot parity: scripts/parity/sample-signed-debuff.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=4 ok=4 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-signed-debuff-godot.json
+== compare ==
+PARITY_MATCH sample=signed-stat-reduction steps=4
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-targeted-response.json ==
+JS_PARITY_OK steps=4 ok=4 → output/godot-steel-wind-20261006/parity/sample-targeted-response-js.json
+== Godot parity: scripts/parity/sample-targeted-response.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=4 ok=4 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-targeted-response-godot.json
+== compare ==
+PARITY_MATCH sample=targeted-response-opponent-turn steps=4
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-turn-token.json ==
+JS_PARITY_OK steps=2 ok=2 → output/godot-steel-wind-20261006/parity/sample-turn-token-js.json
+== Godot parity: scripts/parity/sample-turn-token.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=2 ok=2 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-turn-token-godot.json
+== compare ==
+PARITY_MATCH sample=turn-draw-before-token-hooks steps=2
+PARITY_ALL_OK samples=17

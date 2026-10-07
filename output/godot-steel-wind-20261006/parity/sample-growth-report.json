@@ -1,0 +1,13 @@
+{
+  "sample": "damaged-awakening-growth",
+  "seed": 424242,
+  "match": true,
+  "finalDiffs": [],
+  "stepDiffs": [],
+  "summary": {
+    "finalDiffCount": 0,
+    "stepDiffCount": 0,
+    "jsSteps": 1,
+    "godotSteps": 1
+  }
+}

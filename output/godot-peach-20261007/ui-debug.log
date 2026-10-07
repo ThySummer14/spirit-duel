@@ -1,0 +1,9 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PEACH_UI_FAIL native awakening uses printed stats (awake=false, attack=4, hp=9, hand=[{ "instanceId": "peach-ui-0", "definitionId": "c10809" }])
+PEACH_UI_FAIL native bloom runs three separate heals and permanent growth
+PEACH_UI_FAIL native spring revives full health with permanent growth and swift
+PEACH_UI_FAIL native awakening uses printed stats (awake=false, attack=4, hp=9, hand=[{ "instanceId": "peach-ui-0", "definitionId": "c10809" }])
+PEACH_UI_FAIL native bloom runs three separate heals and permanent growth
+PEACH_UI_FAIL native spring revives full health with permanent growth and swift
+PEACH_UI checks=48 failures=6

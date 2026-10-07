@@ -882,13 +882,11 @@ function resolveCombat(state, attackerPlayerIndex, attackerUnitIndex, options = 
     );
     damageAvatar(state, defenderPlayerIndex, result.overkill, attackerPlayerIndex);
   }
-  if (result.knockedOut && state.winner === null) damageAvatar(state, defenderPlayerIndex, 1, attackerPlayerIndex);
   // 连击：追加一次等量战斗伤害（目标存活时）
   let defenderDown = result.knockedOut;
   if (combo && state.winner === null && defender.hp > 0) {
     const comboResult = damageUnit(state, defenderPlayerIndex, defenderIndex, attackPower, attackerPlayerIndex);
     defenderDown = defenderDown || comboResult.knockedOut;
-    if (comboResult.knockedOut && state.winner === null) damageAvatar(state, defenderPlayerIndex, 1, attackerPlayerIndex);
   }
   // 先攻：首次伤害即气绝目标时，不受反击
   if (firstStrike && defenderDown) counterAllowed = false;

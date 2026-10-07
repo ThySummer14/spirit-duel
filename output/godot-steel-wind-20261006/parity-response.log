@@ -1,0 +1,10 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== JS parity: scripts/parity/sample-response-play.json ==
+JS_PARITY_OK steps=8 ok=8 → output/godot-steel-wind-20261006/parity/sample-response-play-js.json
+== Godot parity: scripts/parity/sample-response-play.json ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_PARITY_OK steps=8 ok=8 → /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-steel-wind-20261006/parity/sample-response-play-godot.json
+== compare ==
+PARITY_MATCH sample=response-play-nest steps=8

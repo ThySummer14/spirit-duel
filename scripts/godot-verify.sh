@@ -35,7 +35,7 @@ fi
 echo "== godot import assets =="
 run_godot_check --editor --import
 
-for check_script in verify verify_combat verify_growth verify_draw verify_resource_effects verify_self_damage verify_instant verify_auto_targets verify_signed_debuff verify_bounce verify_team_shield verify_turn_order verify_ui verify_save verify_collection verify_interactions verify_reference_workflow verify_presentation verify_spell_effects verify_aim_pointer verify_video_layout verify_art verify_roster; do
+for check_script in verify verify_combat verify_growth verify_draw verify_resource_effects verify_self_damage verify_instant verify_auto_targets verify_signed_debuff verify_bounce verify_team_shield verify_turn_order verify_steel_wind verify_steel_wind_ui verify_yaoginshi verify_yaoginshi_ui verify_datiangou verify_datiangou_ui verify_yimulian verify_yimulian_ui verify_zhen verify_zhen_ui verify_phoenix verify_phoenix_ui verify_peach verify_peach_ui verify_firefly verify_firefly_ui verify_parallel_rules verify_ui verify_save verify_collection verify_interactions verify_reference_workflow verify_presentation verify_spell_effects verify_aim_pointer verify_video_layout verify_art verify_roster; do
   echo "== godot $check_script =="
   run_godot_check --script "res://scripts/$check_script.gd"
 done

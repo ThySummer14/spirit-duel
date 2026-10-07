@@ -1,0 +1,254 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== godot import assets ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 项目初始化 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 正在扫描文件结构……[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 正在加载全局类名……[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | 正在校验 GDExtension……[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 正在创建自动加载脚本……[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 正在初始化插件……[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 正在启动文件扫描……[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 正在注册全局类…… (13 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   7% ] [90m[1mupdate_scripts_classes[22m | BattleScreen[39m[0m
+[  14% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  21% ] [90m[1mupdate_scripts_classes[22m | UIWidgets[39m[0m
+[  28% ] [90m[1mupdate_scripts_classes[22m | ArmorBreakRules[39m[0m
+[  35% ] [90m[1mupdate_scripts_classes[22m | CountdownRules[39m[0m
+[  42% ] [90m[1mupdate_scripts_classes[22m | GameAI[39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | GameState[39m[0m
+[  57% ] [90m[1mupdate_scripts_classes[22m | VerifiedCardRules[39m[0m
+[  64% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  71% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  78% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  85% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started 正在扫描动作…… (12 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | 1280-01-avatar-poison.png[39m[0m
+[   7% ] [90m[1m_update_scan_actions[22m | 1280-02-countdown-target.png[39m[0m
+[  15% ] [90m[1m_update_scan_actions[22m | 1280-03-toxic-combat.png[39m[0m
+[  23% ] [90m[1m_update_scan_actions[22m | 1280-04-conditional-lifesteal.png[39m[0m
+[  30% ] [90m[1m_update_scan_actions[22m | 1280-05-toxic-response.png[39m[0m
+[  38% ] [90m[1m_update_scan_actions[22m | 1280-06-scatter-countdown.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | 1600-01-avatar-poison.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | 1600-02-countdown-target.png[39m[0m
+[  61% ] [90m[1m_update_scan_actions[22m | 1600-03-toxic-combat.png[39m[0m
+[  69% ] [90m[1m_update_scan_actions[22m | 1600-04-conditional-lifesteal.png[39m[0m
+[  76% ] [90m[1m_update_scan_actions[22m | 1600-05-toxic-response.png[39m[0m
+[  84% ] [90m[1m_update_scan_actions[22m | 1600-06-scatter-countdown.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (12 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   7% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  15% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  23% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  30% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  38% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  46% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  53% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  61% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  69% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  76% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  84% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的前置操作……[39m[0m
+[   0% ] [90m[1mreimport[22m | 1280-01-avatar-poison.png[39m[0m
+[   7% ] [90m[1mreimport[22m | 1280-02-countdown-target.png[39m[0m
+[  15% ] [90m[1mreimport[22m | 1280-03-toxic-combat.png[39m[0m
+[  23% ] [90m[1mreimport[22m | 1280-04-conditional-lifesteal.png[39m[0m
+[  30% ] [90m[1mreimport[22m | 1280-05-toxic-response.png[39m[0m
+[  38% ] [90m[1mreimport[22m | 1280-06-scatter-countdown.png[39m[0m
+[  46% ] [90m[1mreimport[22m | 1600-01-avatar-poison.png[39m[0m
+[  53% ] [90m[1mreimport[22m | 1600-02-countdown-target.png[39m[0m
+[  61% ] [90m[1mreimport[22m | 1600-03-toxic-combat.png[39m[0m
+[  69% ] [90m[1mreimport[22m | 1600-04-conditional-lifesteal.png[39m[0m
+[  76% ] [90m[1mreimport[22m | 1600-05-toxic-response.png[39m[0m
+[  84% ] [90m[1mreimport[22m | 1600-06-scatter-countdown.png[39m[0m
+[  92% ] [90m[1mreimport[22m | 正在结束资产导入……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (12 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的后置操作……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 正在加载编辑器 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 正在加载编辑器布局……[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 正在加载停靠面板……[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 正在重新打开场景……[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 正在加载中央编辑器布局……[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 正在加载插件窗口布局……[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 编辑器布局就绪。[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+== godot verify ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_CONTENT_OK units=250 playable=250 cards=2114
+GODOT_MATCH_OK commands=17 log=59 turn=5 winner=-1 seed=20260920
+COMMAND_LOG [{"a":{"unit":1},"c":"level_up","p":0,"r":2987955158,"t":1},{"a":{"card":"flash-thrust","hand":1,"target":null},"c":"play_card","p":0,"r":2987955158,"t":1},{"a":{"bonus":2,"target":null,"unit":0},"c":"assault","p":0,"r":2987955158,"t":1},{"
+GODOT_VERT_SLICE_OK
+== godot verify_combat ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+COMBAT_REGRESSION_OK cases=16
+== godot verify_growth ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GROWTH_REGRESSION_OK checks=24
+== godot verify_draw ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+DRAW_REGRESSION_OK cases=4
+== godot verify_resource_effects ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+RESOURCE_EFFECTS_OK checks=149
+== godot verify_self_damage ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SELF_DAMAGE_OK checks=39
+== godot verify_instant ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+INSTANT_OK checks=12
+== godot verify_auto_targets ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+AUTO_TARGETS_OK checks=9
+== godot verify_signed_debuff ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SIGNED_DEBUFF_OK checks=14
+== godot verify_bounce ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BOUNCE_OK checks=16
+== godot verify_team_shield ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+TEAM_SHIELD_OK checks=22
+== godot verify_turn_order ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+TURN_ORDER_OK checks=7
+== godot verify_steel_wind ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+STEEL_WIND checks=115 failures=0
+STEEL_WIND_OK
+== godot verify_steel_wind_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+STEEL_UI checks=44 failures=0
+STEEL_UI_OK
+== godot verify_yaoginshi ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YAOQIN checks=126 failures=0
+YAOQIN_OK
+== godot verify_yaoginshi_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YAOQIN_UI checks=30 failures=0
+YAOQIN_UI_OK
+== godot verify_datiangou ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+DATIANGOU checks=115 failures=0
+DATIANGOU_OK
+== godot verify_datiangou_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+DATIANGOU_UI checks=38 failures=0
+DATIANGOU_UI_OK
+== godot verify_yimulian ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YIMULIAN checks=128 failures=0
+YIMULIAN_OK
+== godot verify_yimulian_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YIMULIAN_UI checks=52 failures=0
+YIMULIAN_UI_OK
+== godot verify_zhen ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ZHEN checks=122 failures=0
+ZHEN_OK
+== godot verify_zhen_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ZHEN_UI checks=48 failures=0
+ZHEN_UI_OK
+== godot verify_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+UI_LOAD_OK 21
+== godot verify_save ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SAVE_OK lineup=["ember", "basalt", "lumen", "rime"] deck0=8 steps=20
+== godot verify_collection ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+COLLECTION_CHECKS checks=9 failures=0
+COLLECTION_OK pack=5 crafted=true reward=300
+== godot verify_interactions ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+INTERACTIONS checks=30 failures=0
+INTERACTIONS_OK
+== godot verify_reference_workflow ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+REFERENCE_WORKFLOW checks=187 failures=0
+REFERENCE_WORKFLOW_OK
+== godot verify_presentation ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PRESENTATION checks=120 failures=0
+PRESENTATION_OK
+== godot verify_spell_effects ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SPELL_EFFECTS checks=97 failures=0
+SPELL_EFFECTS_OK
+== godot verify_aim_pointer ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+AIM_POINTER checks=19 failures=0
+AIM_POINTER_OK
+== godot verify_video_layout ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+VIDEO_LAYOUT checks=884 failures=0
+VIDEO_LAYOUT_OK
+== godot verify_art ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ART checks=5283 failures=0 redrawn_units=250
+ART_OK
+== godot verify_roster ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ROSTER checks=5304 failures=0 units=250 portraits=500 matches=63 covered=250 opponents=117
+ROSTER_OK
+== godot seeded matches ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PLAYTEST matches=60 completed=60 wins=[30, 30] stalls=0 avg_turn=16.1
+PLAYTEST_OK
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FOCUS rounds=20 completed=20 wins=[10, 10] stalls=0 response_games=8 choice_games=1
+FOCUS_OK
+== godot boot smoke ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_VERIFY_ALL_OK

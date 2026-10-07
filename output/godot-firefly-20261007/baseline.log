@@ -1,0 +1,20 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FIREFLY_FAIL verified card 10701
+FIREFLY_FAIL verified card 10702
+FIREFLY_FAIL verified card 10703
+FIREFLY_FAIL verified card 10704
+FIREFLY_FAIL verified card 10705
+FIREFLY_FAIL verified card 10706
+FIREFLY_FAIL verified card 10707
+FIREFLY_FAIL verified card 10708
+FIREFLY_FAIL base ability grants form instant
+FIREFLY_FAIL first instant legal with zero fire
+FIREFLY_FAIL zero-fire heal form play
+FIREFLY_FAIL own form draws exactly once
+FIREFLY_FAIL non-form never triggers aura draw
+FIREFLY_FAIL courage printed stats no fake attack gain
+SCRIPT ERROR: Invalid access to property or key 'attack' on a base object of type 'Dictionary'.
+          at: _initialize (res://scripts/verify_firefly.gd:72)
+          GDScript backtrace (most recent call first):
+              [0] _initialize (res://scripts/verify_firefly.gd:72)

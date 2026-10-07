@@ -1,0 +1,363 @@
+{
+  "date": "2026-10-07",
+  "deleted": [
+    {
+      "path": ".build/godot-web-src",
+      "files": 3362,
+      "bytes": 823736335
+    },
+    {
+      "path": ".build/pages",
+      "files": 542,
+      "bytes": 93445530
+    },
+    {
+      "path": "output/godot-skill-style-20261006/native-spells.avi",
+      "files": 1,
+      "bytes": 106387152
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/000.png",
+      "files": 1,
+      "bytes": 1668321
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/001.png",
+      "files": 1,
+      "bytes": 1670864
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/002.png",
+      "files": 1,
+      "bytes": 1670667
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/003.png",
+      "files": 1,
+      "bytes": 1668890
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/004.png",
+      "files": 1,
+      "bytes": 1668381
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/005.png",
+      "files": 1,
+      "bytes": 1668526
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/006.png",
+      "files": 1,
+      "bytes": 1667848
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/007.png",
+      "files": 1,
+      "bytes": 1668139
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/008.png",
+      "files": 1,
+      "bytes": 1668195
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/009.png",
+      "files": 1,
+      "bytes": 1669564
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/010.png",
+      "files": 1,
+      "bytes": 1652014
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/011.png",
+      "files": 1,
+      "bytes": 1655944
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/012.png",
+      "files": 1,
+      "bytes": 1658057
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/013.png",
+      "files": 1,
+      "bytes": 1659854
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/014.png",
+      "files": 1,
+      "bytes": 1660826
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/015.png",
+      "files": 1,
+      "bytes": 1664021
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/016.png",
+      "files": 1,
+      "bytes": 1665844
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/017.png",
+      "files": 1,
+      "bytes": 1666905
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/018.png",
+      "files": 1,
+      "bytes": 1667373
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/019.png",
+      "files": 1,
+      "bytes": 1667427
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/020.png",
+      "files": 1,
+      "bytes": 1667349
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/021.png",
+      "files": 1,
+      "bytes": 1682417
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/022.png",
+      "files": 1,
+      "bytes": 1682503
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/023.png",
+      "files": 1,
+      "bytes": 1682221
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/024.png",
+      "files": 1,
+      "bytes": 1682458
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/025.png",
+      "files": 1,
+      "bytes": 1682997
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/026.png",
+      "files": 1,
+      "bytes": 1683246
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/027.png",
+      "files": 1,
+      "bytes": 1683428
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/028.png",
+      "files": 1,
+      "bytes": 1683888
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/029.png",
+      "files": 1,
+      "bytes": 1683721
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/030.png",
+      "files": 1,
+      "bytes": 1683941
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/031.png",
+      "files": 1,
+      "bytes": 1683977
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/032.png",
+      "files": 1,
+      "bytes": 1683913
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/033.png",
+      "files": 1,
+      "bytes": 1683255
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/034.png",
+      "files": 1,
+      "bytes": 1684306
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/035.png",
+      "files": 1,
+      "bytes": 1679445
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/036.png",
+      "files": 1,
+      "bytes": 1672146
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/037.png",
+      "files": 1,
+      "bytes": 1660678
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/038.png",
+      "files": 1,
+      "bytes": 1650977
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/039.png",
+      "files": 1,
+      "bytes": 1650830
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/040.png",
+      "files": 1,
+      "bytes": 1650807
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/041.png",
+      "files": 1,
+      "bytes": 1650952
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/042.png",
+      "files": 1,
+      "bytes": 1650990
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/043.png",
+      "files": 1,
+      "bytes": 1650901
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/044.png",
+      "files": 1,
+      "bytes": 1650877
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/045.png",
+      "files": 1,
+      "bytes": 1650737
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/046.png",
+      "files": 1,
+      "bytes": 1650904
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/047.png",
+      "files": 1,
+      "bytes": 1650855
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/048.png",
+      "files": 1,
+      "bytes": 1650875
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/049.png",
+      "files": 1,
+      "bytes": 1650811
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/050.png",
+      "files": 1,
+      "bytes": 1650926
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/051.png",
+      "files": 1,
+      "bytes": 1650820
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/052.png",
+      "files": 1,
+      "bytes": 1650822
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/053.png",
+      "files": 1,
+      "bytes": 1650849
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/054.png",
+      "files": 1,
+      "bytes": 1650917
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/055.png",
+      "files": 1,
+      "bytes": 1653156
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/056.png",
+      "files": 1,
+      "bytes": 1662866
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/057.png",
+      "files": 1,
+      "bytes": 1670383
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/058.png",
+      "files": 1,
+      "bytes": 1676163
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/059.png",
+      "files": 1,
+      "bytes": 1680429
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/060.png",
+      "files": 1,
+      "bytes": 1683498
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/061.png",
+      "files": 1,
+      "bytes": 1686173
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/062.png",
+      "files": 1,
+      "bytes": 1685809
+    },
+    {
+      "path": "output/godot-video-style-20261006/final-wide/motion-frames/063.png",
+      "files": 1,
+      "bytes": 1683463
+    }
+  ],
+  "deletedBytes": 1130269356,
+  "preservedFinalMedia": [
+    {
+      "path": "output/godot-skill-style-20261006/native-spells.mp4",
+      "bytes": 3095375,
+      "sha256": "073404c74c6c2928be34a78feefc10908f3f673f6f60b4417f893d163b87d325",
+      "fullDecodeExitCode": 0
+    },
+    {
+      "path": "output/godot-video-style-20261006/native-combat.mp4",
+      "bytes": 434559,
+      "sha256": "25abddf8b3f253624fba90d468255abbcc77d4730c90655853b65d0f6acae7a1",
+      "fullDecodeExitCode": 0
+    }
+  ],
+  "preserved": [
+    ".build/tools",
+    "godot/.godot",
+    "research-data",
+    "art-reference-official",
+    "all acceptance screenshots",
+    "source video outside repository"
+  ]
+}

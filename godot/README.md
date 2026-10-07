@@ -1,6 +1,10 @@
 # 灵枢战线 · Godot 纵向切片
 
-`godot/` 是《灵枢战线》可玩纵向切片：4v4 编成、升勾→出牌→出击/交战→气绝→复归→核心扣血→胜负、确定性命令日志、简易贪心 AI。规则为纯 GDScript（`scripts/game_state.gd`），与浏览器版 `game-core.js` 数据同源（`content/content.json`），**不是**第二套完整规则实现。
+`godot/` 是《灵枢战线》可玩纵向切片：4v4 编成、升勾→出牌→出击/交战→气绝→复归→核心扣血→胜负、确定性命令日志、简易贪心 AI。规则为纯 GDScript（`scripts/game_state.gd`），基础数据与浏览器版 `game-core.js` 同源（`content/content.json`）；`content/verified_rules.json` 优先覆盖已核对的原生规则，执行器见 `scripts/verified_card_rules.gd`。历史近似效果仍需逐项还原，不能以旧 JS 行为为正确性标准。
+
+妖琴师的能力倒计时由 `scripts/countdown_rules.gd` 执行，与钢风的自动起源施法分别处理；可减少或延长气绝倒计时，三种觉醒能反复切换，大合奏按真实触发历史增强。魔音扰心在对手回合自动消耗手牌与鬼火，令整张待使用牌失效；主动使用的封锁在回合边界到期。手牌和式神检视显示当前曲目、倒计时和大合奏实际效果。新增 `verify_yaoginshi.gd`、`verify_yaoginshi_ui.gd` 覆盖规则与原生点击。时序证据及未核实边界见 [研究记录](../research-notes/10-yaoginshi-countdown-rules.md)。
+
+大天狗由 `scripts/spell_replay_rules.gd` 保存每次法术的效果与增强状态：两回合复用、觉醒后每回合复用、随机重新选目标、形态对本次受影响敌方式神各追加一次伤害。暴风之盾在被攻击时自动结算，第二份护甲绑定原目标的下一回合；吾即正义按实际施法记录在手牌增强为直接消灭。`verify_datiangou.gd` 与 `verify_datiangou_ui.gd` 验证规则和操作。倒计时法术不触发魔音反制；钢风的挂起源能力独立于被反制的战斗效果。见 [本轮规则与证据边界](../research-notes/11-datiangou-spell-replay.md)。
 
 ## 运行
 
@@ -33,14 +37,14 @@ Godot 4.8.dev5（本机路径见上）。主场景 `scenes/main_menu.tscn`。
 
 主城设置可分别调节背景音乐与音效，音量保存在 `user://spirit_duel/settings.json`。字体采用随包内置的 Noto Sans SC / Noto Serif SC（SIL OFL），避免系统字体解析造成简体字缺失；音频由 `scripts/gen-godot-audio.py` 程序化合成，背景音乐使用音频流连续循环。
 
-## 规则要点（与 JS 对齐的切片）
+## 当前基础规则及历史缺口
 
 - 双方 4 角色，核心 30，鬼火 2，手牌上限 12，气绝 2 回合复归，勾玉 0–3，齐头并进升勾
 - 初始最左角色免费 1 勾；0 勾不可选中/出击/用其牌
-- 出击进入前线；敌方前线空则打核心；反击（眩晕则不反击）；击破额外对核心 1 伤
+- 出击进入前线；敌方前线空则打核心；反击（眩晕则不反击）；击破本身不额外对核心造成伤害
 - 效果：assault / damage / heal / heal-avatar / shield / fortify / draw / revive / freeze / apply-brittle / apply-keyword / grant-unyielding / damage-enemy-front / burn-all / form / realm / awaken 等
 - 未知 action：不结算并记「效果暂未完全结算」，内容仍可加载
-- 形态：应用攻/血加成并回满血，`formAbility` 作提醒文案；少数 formHooks 以简化触发模拟
+- 形态：钢风两张形态与大天狗暴风之主按原版面板替换、真实触发能力并在气绝时移除；其余历史形态仍存在把面板当加成、用近似 hook 替代能力的问题，属于待修复缺陷
 - 种子 RNG（LCG，与 JS 对齐）+ `command_log`，响应记录实际行动方，占卜选择也入日志
 
 ## 目录
@@ -64,7 +68,7 @@ scripts/export-godot-content.mjs
 scripts/godot-verify.sh
 ```
 
-## 简化说明
+## 待还原缺陷（禁止继续以近似效果扩展）
 
 - 响应优先权、指定目标的响应牌、占卜选牌已接入；烹饪集齐 / 夜幕预约 / 蓄力树等仍有单步近似或未实现效果
 - 连击/先攻/贯通/远程/暴击已接入交战；鼓舞池支持累积和出击消耗；融合等其余资源链仍有简化
@@ -213,7 +217,15 @@ Godot --headless --path godot --script res://scripts/verify_save.gd
 
 实际截图、录像、命令记录及回归结果见 [技能演出验收](../output/godot-skill-style-20261006/acceptance.md)。
 
-## GitHub Pages 网页测试
+## 原版规则还原续作（2026-10-06）
+
+钢风 8 张牌的历史近似效果已换成独立原生结算：手牌起源选择、倒计时自动施放、移动、追猎、真正的屏障、条件连击、原版形态面板及幻境手牌触发。叶隐按视频 03:20 处理有倒计时与无倒计时两种分支。起源牌按已查到的官方调整更新黑羽之刃和羽刃暴风，资料来源、版本差异及尚未直接实机验证的边界见 [核对记录](../research-notes/09-steel-wind-video-rules.md)。
+
+原生点击新增双卡选择；手牌只消费一次，取消不扣资源。目标连线显示叶隐会移动到哪个区域及倒计时/抽牌分支，追猎前冲追随实际选中的准备区目标。自动施放展示对应原牌并保留可读停留时间，演出期间拦截重复输入。
+
+`npm run audit:rules` 会报告全库还原尚未完成。当前大量旧角色仍执行历史近似效果，不能以完整载入 250 位角色或压测通过掩盖这一缺口；后续修复必须遵循 [AGENTS.md](../AGENTS.md)。本轮只建立了钢风的资料核对与原生实现，JS 卡库尚未同步。实际检查和截图见 [本轮验收](../output/godot-steel-wind-20261006/acceptance.md)。
+
+## GitHub Pages 网页测试（现有部署）
 
 当前版本发布到 https://thysummer14.github.io/spirit-duel/play/ ，原 HTML/JS 版继续位于站点根目录。Pages 构建固定使用 Godot 4.6.3 stable 的单线程 Web 模板，Compatibility 渲染器；无需站点配置 COOP/COEP。首次载入下载资源后可进入主城、阵容、收藏与 4v4 对弈。浏览器 IndexedDB 保存阵容与收藏，本地客户端存档不会同步过去；建议先用电脑浏览器测试。
 
@@ -225,3 +237,22 @@ python3 scripts/dev-server.py 4180 .build/pages
 ```
 
 打开 http://localhost:4180/play/ 。构建只在 `.build/godot-web-src` 中缩小角色 PNG 导入：长边 768、WebP 有损质量 0.8；原始 PNG 与客户端导入设置保持完整。JSON 内容和动态加载的卡面、字体、背景、音频全部导出，验收脚本不进入运行包。`.github/workflows/deploy-pages.yml` 推送 `main` 后执行规则测试、UI 审计、内容导出及 Web 构建，只上传 `.build/pages`，不发布本地参考素材、源码目录或验收录像。
+
+
+## 2026-10-07 一目连形态链
+
+原版一目连的 8 张牌现在通过 `form_countdown_rules.gd` 结算形态倒计时、替换/气绝/罡风触发、觉醒进场、牌手护甲、出击鼓舞、直接消灭，以及风符·瞬的自动响应与当回合自毁。牌手资源、单位详情和粉色沙漏同步显示实际状态；演出遵守响应 → 旧形态触发 → 进攻的顺序。
+
+新增 `verify_yimulian.gd` 和 `verify_yimulian_ui.gd`，均接入 `godot-verify.sh`。龙按官方 2020-11-26 公告改为每个目标 6 伤害；跨牌计数和目标去重目前有旧机制细则支持，仍保留 `verificationPending`，审计不会将其计为已核对原生项。当前 4 个角色、32 张牌为 `source-backed-native`，另 1 张牌为 `pending-verification`；全库审计继续失败。[来源与规则范围](../research-notes/12-yimulian-form-lifecycle.md) · [本轮验收与原生截图](../output/godot-yimulian-20261007/acceptance.md)。
+
+## 2026-10-07 鸩与破甲结算
+
+鸩的 8 张历史牌接入独立能力倒计时、真实破甲消耗与清除、毒蚀双向转换、条件免伤/吸血、比例破甲和有来源归属的伤害转换。响应修改原战斗的反击与效果，不另发起攻击。UI 显示牌手破甲、累计触发次数与当前形态能力，AI 可以合法主动使用毒蚀及配合倒计时。
+
+`verify_zhen.gd` 的 122 项规则检查及 `verify_zhen_ui.gd` 的 48 项原生交互检查已接入全量验证。觉醒历史计数、毒蚀防护交互和毒之华奇数取整仍是待核验边界；没有把稳定性通过当成全部规则已还原。[来源与边界](../research-notes/13-zhen-armor-break.md) · [本轮验收](../output/godot-zhen-20261007/acceptance.md)。
+
+## 2026-10-07 三组并行机制修复
+
+凤凰火、桃花妖和萤草由独立模块实现，覆盖 24 张主体卡牌与 3 张旧生成牌。共享引擎统一处理动态牌面、双方角色目标、迅捷、入场战斗续帧和形态安装顺序，使用牌触发的能力保留独立结算帧。UI 读取逐段真实伤害来源，分别呈现本体与后续投射，治疗、成长和复活的数值也不再混为一段。
+
+新增三组规则/UI测试及 `verify_parallel_rules.gd`，均纳入 `scripts/godot-verify.sh`。本批规则与集成共403项通过，全量验证及143场对局完成。新增6张卡和2个式神条目保留待核验标记；全库审计继续失败。具体范围、来源、结果及原生截图见 [并行验收](../output/godot-parallel-20261007/acceptance.md)。

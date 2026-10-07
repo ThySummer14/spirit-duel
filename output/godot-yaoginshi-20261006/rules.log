@@ -1,0 +1,6 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/verify_yaoginshi.gd:197)
+ERROR: Failed to load script "res://scripts/verify_yaoginshi.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:50)

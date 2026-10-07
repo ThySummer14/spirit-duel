@@ -1,0 +1,2897 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "video-200",
+      "path": "/Users/thysummer/Downloads/LANDrop/Screenrecorder-2026-10-04-11-30-41-829.mp4",
+      "time": "03:20",
+      "evidence": "叶隐全文、瞬发与移动说明；无倒计时才抽牌。"
+    },
+    {
+      "id": "official-card-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "29000–29008 原版牌型、数值与起源对应。"
+    },
+    {
+      "id": "balance-2023-11-23",
+      "url": "https://www.taptap.cn/moment/476492882555962569",
+      "evidence": "官方账号公告：钢羽之刃改为+2力量/+1护甲，移除先攻。"
+    },
+    {
+      "id": "balance-2021-07-29",
+      "url": "https://www.taptap.cn/moment/169528710922242294",
+      "evidence": "黑羽之刃：二勾、投射4伤，消灭式神抽1；羽刃暴风：所有敌方角色3伤。 大合奏增加瞬发。"
+    },
+    {
+      "id": "origin-design-2023",
+      "url": "https://app.ali213.net/news/198029.html",
+      "evidence": "官方设计说明转载：使用有起源的牌时可改为使用原版同名牌；消耗同一手牌。"
+    },
+    {
+      "id": "yaoginshi-card-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "12800–12808 基础能力、牌型、觉醒增益和稀有度；后续公告覆盖过期效果。"
+    },
+    {
+      "id": "balance-2023-10-26",
+      "url": "https://www.taptap.cn/moment/466326798867629315",
+      "evidence": "入阵歌随机5伤及觉醒施法减倒计时；疯魔琴心指定敌人+2、自身-3。"
+    },
+    {
+      "id": "yaoginshi-encyclopedia",
+      "url": "https://www.taptap.cn/moment/15217964768822110",
+      "evidence": "官方式神百科：三种觉醒、原有能力先结算再替换、气绝目标、大合奏记录实际生效种类。"
+    },
+    {
+      "id": "fix-2024-03-07",
+      "url": "https://www.taptap.cn/moment/514522490442090698",
+      "evidence": "官方修复入阵歌触发后大合奏动态文本；原生动态显示采用实际能力记录。"
+    },
+    {
+      "id": "datiangou-guide",
+      "url": "https://www.taptap.cn/moment/15230745719081430",
+      "evidence": "原作者式神攻略：复读随机选目标；形态每个受影响式神只追加一次伤害；觉醒不替换已有法术。数值以后续公告为准。"
+    },
+    {
+      "id": "datiangou-balance-2020",
+      "url": "https://www.taptap.cn/moment/15226566611042541",
+      "evidence": "吾即正义降为一勾、随机取得等级不高于自身的其他专属法术。"
+    },
+    {
+      "id": "balance-2021-05-20",
+      "url": "https://www.iyingdi.com/tz/post/5058122",
+      "evidence": "维护公告转载：吾即正义增加瞬发；觉醒·大天狗基础增益改为+2/+2。"
+    },
+    {
+      "id": "countdown-interactions-2023",
+      "url": "https://www.taptap.cn/moment/467093870207830538",
+      "evidence": "玩家实测机制记录：倒计时不被魔音反制；钢风战斗牌被反制仍挂起源倒计时；增强仅在手牌更新。"
+    },
+    {
+      "id": "shield-mode-boundary",
+      "url": "https://www.taptap.cn/moment/382962056401259069",
+      "evidence": "官方有个牌局模式专属调整。当前普通对战沿用公告中调整前的两次2护甲，不套用牌局屏障。"
+    },
+    {
+      "id": "yimulian-encyclopedia",
+      "url": "https://www.taptap.cn/moment/15217971966246969",
+      "evidence": "原作者式神百科：形态倒计时、进退场、罡风、鼓舞和瞬的响应/自毁。"
+    },
+    {
+      "id": "balance-2020-11-26",
+      "url": "https://www.taptap.cn/moment/80802089336308748",
+      "evidence": "官方公告：风符·龙从5伤害增强至6伤害，保留逐次增加目标。"
+    },
+    {
+      "id": "yimulian-form-return",
+      "url": "https://news.17173.com/z/ssr/content/02272020/135410058.shtml",
+      "evidence": "琴连鸩天攻略：风符·瞬自毁后回满基础2/6生命，形态移除不等于式神气绝。"
+    },
+    {
+      "id": "encourage-boundary",
+      "url": "https://www.taptap.cn/moment/467093870207830538",
+      "evidence": "实测关键词：鼓舞限定出击；普通战斗牌不消耗。"
+    },
+    {
+      "id": "armor-rules",
+      "url": "https://www.taptap.cn/moment/15225928984561461",
+      "evidence": "原作者基础规则：牌手也有护甲；护甲在自己的回合开始清除。"
+    },
+    {
+      "id": "dragon-detail-2020",
+      "url": "https://www.omobi.cc/archives/105027.html",
+      "evidence": "2020机制细则转载：同波最多5个不同目标；两张风符·龙不共享次数。尚未找到原作者页面与指定视频版本实机片段，保留待核实标记。"
+    },
+    {
+      "id": "zhen-official-intro",
+      "url": "https://www.taptap.cn/moment/15216213986642463",
+      "evidence": "官方内测角色介绍：破甲、倒计时、伤害转换和按生命比例施加破甲；内测3破甲已过期。"
+    },
+    {
+      "id": "zhen-cards-2020",
+      "url": "https://www.taptap.cn/moment/15218999667199201",
+      "evidence": "官方攻略账号署名西园寺世界：2/5基础、8张牌、觉醒历史累计、鸩羽条件免疫、诱惑2攻2甲吸血。碧羽散华段落仍混有旧条件，服从官方维护公告。"
+    },
+    {
+      "id": "balance-2020-01-20",
+      "url": "https://www.taptap.cn/moment/15229385627929568",
+      "evidence": "官方维护公告：碧羽散华不再要求目标先有破甲，所有鸩产生的破甲转换为等量伤害。"
+    },
+    {
+      "id": "zhen-flower-after-hit",
+      "url": "https://www.taptap.cn/moment/15223033941722667",
+      "evidence": "狸猫会原作者狼眼：毒之华在造成伤害后，按剩余生命施加破甲；毒蚀保命后仍可能被额外伤害处理。"
+    },
+    {
+      "id": "armor-break-keywords",
+      "url": "https://www.taptap.cn/moment/341546240254673892",
+      "evidence": "原作者关键词整理：破甲随受伤消耗、己方回合开始清除、0攻不触发；吸血按造成的伤害。"
+    },
+    {
+      "id": "phoenix-guide-2020",
+      "url": "https://www.taptap.cn/moment/15220265260682773",
+      "evidence": "官方攻略账号刊登原作者西园寺世界：凤凰火八牌、基础与觉醒、击杀条件、对牌手伤害次数含出击；重复觉醒只叠身材。"
+    },
+    {
+      "id": "phoenix-balance-2020-02-27",
+      "url": "https://news.17173.com/z/ssr/content/02272020/134855815.shtml",
+      "evidence": "署名官方的维护公告存档：凤鸣3伤害改2伤害。未发现后续正式回调；旧快照冲突保留。"
+    },
+    {
+      "id": "phoenix-card-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "12400–12408原牌文、4/6与5/6形态、觉醒+1/+1；凤鸣3伤害与后续公告冲突。"
+    },
+    {
+      "id": "peach-official-guide",
+      "url": "https://www.taptap.cn/moment/15203252383515913",
+      "evidence": "官方攻略账号发布西园寺世界原作者攻略（2020-02-25）：八张牌、临时与永久成长、目标范围、形态身材、无群体迅捷。"
+    },
+    {
+      "id": "peach-swift-trial",
+      "url": "https://www.taptap.cn/moment/15218505548825832",
+      "evidence": "狸猫会纳豆酱原作者迅捷试炼：下一次普通出击免火，不增加回合出击次数，未使用跨回合保留。"
+    },
+    {
+      "id": "peach-supplement",
+      "url": "https://www.taptap.cn/moment/15227883832214628",
+      "evidence": "狸猫会原作者辅助篇：定向检索、形态进场能力、可在气绝时使用群体复活。"
+    },
+    {
+      "id": "peach-patch-followup",
+      "url": "https://www.gamedog.cn/news/3349086.html",
+      "evidence": "2023-10-12维护公告转载线索：修复桃花妖气绝后桃华灼灼可能仍有瞬发。原始公告链接未找到，条件本身另有官方攻略牌文支撑。"
+    },
+    {
+      "id": "firefly-official-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "10700–10708 官方牌文、形态身材2/5、3/5、4/5及觉醒+2/+2与瞬发；虹彩以2020年5月公告覆盖旧快照。"
+    },
+    {
+      "id": "firefly-official-guide",
+      "url": "https://www.taptap.cn/moment/15218501010588024",
+      "evidence": "官方式神百科：形态瞬发抽牌、鼓舞跨回合累积仅普攻消耗、点点仅在手牌增强及双阵营目标、虹彩为生成。"
+    },
+    {
+      "id": "firefly-official-talk",
+      "url": "https://www.taptap.cn/moment/15229119918770183",
+      "evidence": "官方署名西园寺世界：形态3/5、4/5、入场与回合起始、闪烁入场响应。"
+    },
+    {
+      "id": "firefly-may2020-balance",
+      "url": "https://m.3839.com/gamehistorylog/109747.htm",
+      "evidence": "发行历史更新文案归档：2020年5月20日版本虹彩新增瞬发。"
+    },
+    {
+      "id": "firefly-order-faq",
+      "url": "https://www.taptap.cn/moment/15225930238658237",
+      "evidence": "原作者实測FAQ：闪烁与持续力量效果存在层叠；同阶段形态触发依入场先后，复杂优先级待当前版本核验。"
+    },
+    {
+      "id": "phoenix-pierce-rules",
+      "url": "https://www.taptap.cn/moment/391974253349570771",
+      "evidence": "原作者关键词实测：贯通独立分配到牌手，不屈/屏障仅保护式神；凤火允许选择己方式神。"
+    },
+    {
+      "id": "peach-printed-awakening",
+      "url": "https://img2-tc.tapimg.com/bbcode/images/a69872ce10e1ff48dabc15fa6b3c8345.png/_tap_ugc.jpg",
+      "evidence": "2020官方攻略中的觉醒原卡图：三级法术、印刷+2力量/+1生命；已下载并目视核验。"
+    },
+    {
+      "id": "phoenix-use-faq-2020",
+      "url": "https://www.taptap.cn/moment/15225930238658237",
+      "evidence": "原作者兔实测 FAQ（2020-01-25）：凤火或引燃杀死自己后，仍触发基础投射；引燃杀死己方式神对己方牌手造成第二段。"
+    },
+    {
+      "id": "phoenix-use-process-2022",
+      "url": "https://www.bilibili.com/opus/709901963270029348",
+      "evidence": "原作者 LL起翼夜鹰《百闻规则集·蓄力》区分蓄力操作与实际使用牌，后者可触发凤凰火；不作为反制后触发的直接证明。"
+    },
+    {
+      "id": "firefly-knockout-status",
+      "url": "https://www.taptap.cn/moment/15218562876573034",
+      "evidence": "官方新手试炼气绝说明：气绝移除非永久状态加成与形态；萤火点点普通生命增益必须清除，觉醒保留。"
+    }
+  ],
+  "units": {
+    "datiangou-gangfeng": {
+      "spellCountdown": {
+        "on": "combat",
+        "turns": 2,
+        "awakenedTurns": 1,
+        "persistKnockout": true
+      },
+      "passive": {
+        "id": "steel-origin-countdown",
+        "name": "起源再临",
+        "text": "使用战斗牌时，倒计时2：再次使用该牌的起源牌。此效果在气绝时不会移除。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "steel-origin-countdown-awakened",
+        "name": "龙卷钢风",
+        "text": "使用战斗牌时，倒计时1：再次使用该牌的起源牌。此效果在气绝时不会移除。",
+        "hooks": []
+      }
+    },
+    "yaoginshi": {
+      "countdownAbility": {
+        "turns": 3,
+        "initial": "healing",
+        "modes": {
+          "healing": {
+            "name": "余韵",
+            "text": "为所有己方角色恢复3点生命。",
+            "effects": [
+              {
+                "condition": "always",
+                "action": "heal-characters",
+                "target": "all-allies",
+                "value": 3
+              }
+            ]
+          },
+          "battle": {
+            "name": "入阵歌",
+            "text": "造成5点伤害，随机分配给所有敌方角色。当你使用妖琴师的觉醒法术牌时，使妖琴师的倒计时-3。",
+            "effects": [
+              {
+                "condition": "always",
+                "action": "random-damage",
+                "target": "all-enemies",
+                "value": 5
+              }
+            ],
+            "onAwakeningPlayed": 3
+          },
+          "kagura": {
+            "name": "神乐歌",
+            "text": "己方其他式神倒计时-1并获得1力量与1生命。",
+            "effects": [
+              {
+                "condition": "always",
+                "action": "countdown-team-growth",
+                "target": "all-other-allies",
+                "value": {
+                  "countdown": 1,
+                  "attack": 1,
+                  "hp": 1
+                }
+              }
+            ]
+          },
+          "requiem": {
+            "name": "镇魂歌",
+            "text": "抽一张牌，获得1点鬼火。",
+            "effects": [
+              {
+                "condition": "always",
+                "action": "draw",
+                "target": "ally-player",
+                "value": 1
+              },
+              {
+                "condition": "always",
+                "action": "energy-gain",
+                "target": "ally-player",
+                "value": 1
+              }
+            ]
+          }
+        }
+      },
+      "passive": {
+        "id": "song-countdown",
+        "name": "余韵",
+        "text": "倒计时3：为所有己方角色恢复3点生命。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "song-countdown-awakened",
+        "name": "三歌",
+        "text": "觉醒法术替换当前倒计时能力；大合奏记录本局实际生效过的不同能力。",
+        "hooks": []
+      }
+    },
+    "datiangou": {
+      "spellCountdown": {
+        "on": "spell",
+        "turns": 2,
+        "awakenedTurns": 1,
+        "persistKnockout": false
+      },
+      "passive": {
+        "id": "spell-replay",
+        "name": "风之再临",
+        "text": "大天狗使用法术后，倒计时2：再次使用该法术。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "spell-replay-awakened",
+        "name": "风之再临",
+        "text": "大天狗使用法术后，倒计时1：再次使用该法术。",
+        "hooks": []
+      }
+    },
+    "yimulian": {
+      "formLifecycle": {
+        "destroyed": true,
+        "awakenedEntry": true
+      },
+      "passive": {
+        "id": "form-departure",
+        "name": "风神之护",
+        "text": "一目连的形态牌被消灭时会触发倒计时效果。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "form-arrival-departure",
+        "name": "风符共鸣",
+        "text": "一目连的形态牌进场或被消灭时触发倒计时效果。",
+        "hooks": []
+      }
+    },
+    "zhen": {
+      "attack": 2,
+      "maxHp": 5,
+      "countdownAbility": {
+        "turns": 2,
+        "initial": "poison",
+        "poisonHistory": true,
+        "modes": {
+          "poison": {
+            "name": "碧羽之毒",
+            "text": "使敌方牌手获得2破甲。",
+            "effects": [
+              {
+                "condition": "always",
+                "action": "poison-countdown",
+                "target": "enemy-avatar",
+                "value": 2,
+                "growsWithHistory": false
+              }
+            ]
+          },
+          "venom": {
+            "name": "剧毒蚀心",
+            "text": "使敌方牌手获得2破甲。本局每触发过一次基础能力，此效果额外+1。",
+            "effects": [
+              {
+                "condition": "always",
+                "action": "poison-countdown",
+                "target": "enemy-avatar",
+                "value": 2,
+                "growsWithHistory": true
+              }
+            ]
+          }
+        }
+      },
+      "passive": {
+        "id": "zhen-countdown",
+        "name": "碧羽之毒",
+        "text": "倒计时2：使敌方牌手获得2破甲。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "zhen-countdown-awakened",
+        "name": "剧毒蚀心",
+        "text": "倒计时2：使敌方牌手获得2破甲。本局游戏每触发过一次鸩的基础能力，此效果额外+1。",
+        "hooks": []
+      },
+      "verificationPending": [
+        "觉醒能力的历史次数是否计入当前触发，仍缺录像对应版本实測；基础倒计时与2破甲已有来源。"
+      ]
+    },
+    "fenghuanghuo": {
+      "verifiedRules": true,
+      "attack": 2,
+      "maxHp": 4,
+      "phoenixSpellTrigger": true,
+      "passive": {
+        "id": "phoenix-spell-projectile",
+        "name": "凤火投射",
+        "text": "当凤凰火使用法术牌时，投射：造成1点伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "phoenix-team-spell-projectile",
+        "name": "凤火投射",
+        "text": "当己方式神使用法术牌时，投射：造成1点伤害。",
+        "hooks": []
+      },
+      "verificationPending": [
+        "魔音反制后触发的直接实测尚缺；按“使用法术牌时”独立保留已宣布的使用能力帧，本体无效不抹去使用事件。施法自杀仍投射已有原作者实测支持。响应中变形、焚羽在气绝前后是否快照加伤仍待核验。"
+      ]
+    },
+    "taohuayao": {
+      "attack": 1,
+      "maxHp": 6,
+      "peachRestoration": true,
+      "formLifecycle": {},
+      "passive": {
+        "id": "peach-restoration",
+        "name": "花信",
+        "text": "桃花妖治疗或复活己方式神时，使该式神获得1力量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "peach-restoration-awake",
+        "name": "灼灼其华",
+        "text": "桃花妖治疗或复活己方式神时，使该式神永久获得2力量及2生命。",
+        "hooks": []
+      },
+      "verificationPending": [
+        "对满血式神进行零实际恢复时是否触发成长，以及桃花妖自身气绝时群体复活后的成长时点，仍需录像版本客户端边界复测。"
+      ]
+    },
+    "yingcao": {
+      "attack": 2,
+      "maxHp": 5,
+      "formCardAura": {
+        "awakenedAllies": true
+      },
+      "passive": {
+        "id": "firefly-forms",
+        "name": "蒲公英之光",
+        "text": "萤草的形态牌获得瞬发且使用时抽一张牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "firefly-allied-forms",
+        "name": "虹光普照",
+        "text": "己方式神的形态牌获得瞬发且使用时抽一张牌。",
+        "hooks": []
+      }
+    }
+  },
+  "cards": {
+    "c29001": {
+      "text": "本次战斗获得1护甲。起源：风神一扇。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "effect": "assault",
+      "value": 0,
+      "verifiedRules": true,
+      "combatOption": {
+        "shield": 1
+      },
+      "originCard": {
+        "id": "steel-origin-fan",
+        "name": "风神一扇",
+        "unitId": "datiangou-gangfeng",
+        "type": "spell",
+        "typeLabel": "法术牌",
+        "level": 1,
+        "cost": 1,
+        "target": "auto",
+        "effects": [
+          {
+            "condition": "always",
+            "action": "projectile-displace",
+            "target": "auto",
+            "value": 2
+          }
+        ],
+        "text": "投射：造成2点伤害，然后将受到此伤害的式神移回准备区。",
+        "effect": "projectile-displace",
+        "value": 2,
+        "rarity": "common",
+        "verifiedRules": true
+      },
+      "keywords": [],
+      "cost": 1
+    },
+    "c29002": {
+      "text": "瞬发，移动一个己方式神，并使其倒计时-1；若其不具有倒计时则抽1张牌。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "move-unit",
+          "target": "selected-ally",
+          "value": null
+        },
+        {
+          "condition": "always",
+          "action": "reduce-countdown-or-draw",
+          "target": "selected-ally",
+          "value": 1
+        }
+      ],
+      "effect": "move-unit",
+      "value": null,
+      "verifiedRules": true,
+      "target": "ally-unit",
+      "cost": 1,
+      "rarity": "rare",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [
+        "瞬发",
+        "移动",
+        "倒计时"
+      ]
+    },
+    "c29003": {
+      "text": "形态：3力量/4生命。进场时使一个己方式神获得2护甲。己方回合结束时，己方有护甲的式神倒计时-1。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 4,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "shield",
+          "target": "selected-ally",
+          "value": 2
+        }
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 4,
+        "setBase": true
+      },
+      "verifiedRules": true,
+      "target": "ally-unit",
+      "formAbility": "己方回合结束时，己方有护甲的式神倒计时-1。",
+      "formHooks": [],
+      "formRules": {
+        "endTurnArmoredCountdown": 1
+      }
+    },
+    "c29004": {
+      "text": "起源：天狗风乱。攻击式神时获得连击。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "effect": "assault",
+      "value": 0,
+      "verifiedRules": true,
+      "keywords": [],
+      "combatOption": {
+        "comboAgainstUnit": true
+      },
+      "originCard": {
+        "id": "steel-origin-storm",
+        "name": "天狗风乱",
+        "unitId": "datiangou-gangfeng",
+        "type": "spell",
+        "typeLabel": "法术牌",
+        "level": 2,
+        "cost": 1,
+        "target": "auto",
+        "effects": [
+          {
+            "condition": "always",
+            "action": "random-damage",
+            "target": "all-enemies",
+            "value": 6
+          }
+        ],
+        "text": "造成6点伤害，随机分配给所有敌方角色。",
+        "effect": "random-damage",
+        "value": 6,
+        "rarity": "common",
+        "verifiedRules": true
+      }
+    },
+    "c29005": {
+      "text": "本次战斗获得+2力量/+1护甲。起源：黑羽之刃。追猎：可以攻击准备区式神。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "effect": "assault",
+      "value": 2,
+      "verifiedRules": true,
+      "target": "enemy-unit",
+      "keywords": [],
+      "combatOption": {
+        "pursuit": true,
+        "shield": 1
+      },
+      "originCard": {
+        "id": "steel-origin-feather",
+        "name": "黑羽之刃",
+        "unitId": "datiangou-gangfeng",
+        "type": "spell",
+        "typeLabel": "法术牌",
+        "level": 2,
+        "cost": 1,
+        "target": "auto",
+        "effects": [
+          {
+            "condition": "always",
+            "action": "projectile-draw-on-kill",
+            "target": "auto",
+            "value": 4
+          }
+        ],
+        "text": "投射：造成4点伤害，若消灭式神则抽1张牌。",
+        "effect": "projectile-draw-on-kill",
+        "value": 4,
+        "rarity": "common",
+        "verifiedRules": true
+      }
+    },
+    "c29006": {
+      "text": "形态：3力量/6生命。当大天狗·钢风使用法术牌时，获得屏障；使用战斗牌时，倒计时-1。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "verifiedRules": true,
+      "formAbility": "使用法术牌时获得屏障，抵挡下一次伤害；使用战斗牌时倒计时-1。",
+      "formHooks": [],
+      "formRules": {
+        "barrierOnSpell": true,
+        "countdownOnCombat": 1
+      }
+    },
+    "c29007": {
+      "text": "本次战斗获得+2力量/+2护甲。起源：羽刃暴风。当对牌手造成伤害时，倒计时-2。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "effect": "assault",
+      "value": 2,
+      "verifiedRules": true,
+      "keywords": [],
+      "combatOption": {
+        "shield": 2,
+        "countdownOnAvatarDamage": 2
+      },
+      "originCard": {
+        "id": "steel-origin-blades",
+        "name": "羽刃暴风",
+        "unitId": "datiangou-gangfeng",
+        "type": "spell",
+        "typeLabel": "法术牌",
+        "level": 3,
+        "cost": 1,
+        "target": "auto",
+        "effects": [
+          {
+            "condition": "always",
+            "action": "damage",
+            "target": "all-enemies",
+            "value": 3
+          }
+        ],
+        "text": "对所有敌方角色造成3点伤害。",
+        "effect": "damage",
+        "value": 3,
+        "rarity": "common",
+        "verifiedRules": true
+      }
+    },
+    "c29008": {
+      "text": "幻境（耐久6）。每回合一次，当己方式神使用手牌时，使该式神倒计时-1。觉醒：大天狗·钢风使用战斗牌时，倒计时1：再次使用该牌的起源牌。此效果在气绝时不会移除。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 0,
+            "hp": 0
+          }
+        },
+        {
+          "condition": "always",
+          "action": "realm",
+          "target": "ally-player",
+          "value": null
+        }
+      ],
+      "effect": "awaken",
+      "value": {
+        "attack": 0,
+        "hp": 0
+      },
+      "verifiedRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "cost": 1,
+      "deckLimit": 2,
+      "copies": 2,
+      "realm": {
+        "hp": 6,
+        "trigger": "hand-card-used",
+        "handCountdown": 1,
+        "avatarLinked": true
+      },
+      "keywords": []
+    },
+    "c12801": {
+      "name": "觉醒·入阵歌",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "rarity": "common",
+      "text": "觉醒：倒计时3：造成5点伤害，随机分配给所有敌方角色。当你使用妖琴师的觉醒法术牌时，使妖琴师的倒计时-3。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken-countdown",
+          "target": "source",
+          "value": {
+            "mode": "battle",
+            "attack": 0,
+            "hp": 1
+          }
+        }
+      ],
+      "effect": "awaken-countdown",
+      "value": {
+        "mode": "battle",
+        "attack": 0,
+        "hp": 1
+      },
+      "target": "auto",
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "觉醒",
+        "倒计时"
+      ],
+      "awakening": true,
+      "awakeningBonus": {
+        "attack": 0,
+        "hp": 1
+      }
+    },
+    "c12802": {
+      "name": "觉醒·神乐歌",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "rarity": "common",
+      "text": "使妖琴师的倒计时-3。觉醒：倒计时3：己方其他式神倒计时-1并获得1力量与1生命。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "countdown-change",
+          "target": "source",
+          "value": -3
+        },
+        {
+          "condition": "always",
+          "action": "awaken-countdown",
+          "target": "source",
+          "value": {
+            "mode": "kagura",
+            "attack": 1,
+            "hp": 0
+          }
+        }
+      ],
+      "effect": "countdown-change",
+      "value": -3,
+      "target": "auto",
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "觉醒",
+        "倒计时"
+      ],
+      "awakening": true,
+      "awakeningBonus": {
+        "attack": 1,
+        "hp": 0
+      }
+    },
+    "c12803": {
+      "name": "觉醒·镇魂歌",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "rarity": "common",
+      "text": "使妖琴师的倒计时-3。觉醒：倒计时3：抽一张牌，获得1点鬼火。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "countdown-change",
+          "target": "source",
+          "value": -3
+        },
+        {
+          "condition": "always",
+          "action": "awaken-countdown",
+          "target": "source",
+          "value": {
+            "mode": "requiem",
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "effect": "countdown-change",
+      "value": -3,
+      "target": "auto",
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "觉醒",
+        "倒计时"
+      ],
+      "awakening": true,
+      "awakeningBonus": {
+        "attack": 1,
+        "hp": 1
+      }
+    },
+    "c12804": {
+      "name": "惊弦",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "rarity": "common",
+      "text": "使一个式神的倒计时-2。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "countdown-change",
+          "target": "selected-unit",
+          "value": -2
+        }
+      ],
+      "effect": "countdown-change",
+      "value": -2,
+      "target": "any-unit-including-knocked",
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "倒计时"
+      ]
+    },
+    "c12805": {
+      "name": "疯魔琴心",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "rarity": "rare",
+      "text": "使一个敌方式神的倒计时+2，使妖琴师的倒计时-3。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "countdown-change",
+          "target": "selected-unit",
+          "value": 2
+        },
+        {
+          "condition": "always",
+          "action": "countdown-change",
+          "target": "source",
+          "value": -3
+        }
+      ],
+      "effect": "countdown-change",
+      "value": 2,
+      "target": "enemy-unit-including-knocked",
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "倒计时"
+      ]
+    },
+    "c12806": {
+      "name": "余音",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "rarity": "rare",
+      "text": "使妖琴师的倒计时-3，使己方其他未气绝式神的倒计时-1。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "countdown-change",
+          "target": "source",
+          "value": -3
+        },
+        {
+          "condition": "always",
+          "action": "countdown-change",
+          "target": "living-other-allies",
+          "value": -1
+        }
+      ],
+      "effect": "countdown-change",
+      "value": -3,
+      "target": "auto",
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "倒计时"
+      ]
+    },
+    "c12807": {
+      "name": "魔音扰心",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "rarity": "rare",
+      "text": "敌方牌手本回合使用的下一张牌不会生效。响应：当敌方牌手将使用牌时，自动使用此牌。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "nullify-next-card",
+          "target": "enemy-player",
+          "value": null
+        }
+      ],
+      "effect": "nullify-next-card",
+      "value": null,
+      "target": "auto",
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "response"
+      ],
+      "tags": [
+        "响应"
+      ],
+      "autoResponse": "opponent-card-used"
+    },
+    "c12808": {
+      "name": "大合奏",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "rarity": "ssr",
+      "text": "瞬发。增强：本局游戏妖琴师的基础能力每生效过一种，此牌便具有对应效果。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "repeat-countdown-history",
+          "target": "source",
+          "value": null
+        }
+      ],
+      "effect": "repeat-countdown-history",
+      "value": null,
+      "target": "auto",
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [
+        "瞬发",
+        "增强"
+      ],
+      "dynamicCountdownHistory": true
+    },
+    "c10501": {
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "projectile"
+      ],
+      "tags": [
+        "投射"
+      ],
+      "target": "auto",
+      "text": "投射：造成4点伤害。若消灭了式神，则抽一张牌。",
+      "effect": "projectile-draw-on-kill",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "projectile-draw-on-kill",
+          "target": "auto",
+          "value": 4
+        }
+      ]
+    },
+    "c10502": {
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "形态"
+      ],
+      "target": "auto",
+      "text": "形态：4力量/6生命。大天狗使用法术后，对受影响的敌方式神各造成1点伤害。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 4,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "afterSpellAffectedDamage": 1
+      },
+      "formHooks": [],
+      "formAbility": "大天狗使用法术后，对受影响的敌方式神各造成1点伤害。"
+    },
+    "c10503": {
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "随机伤害"
+      ],
+      "target": "auto",
+      "text": "造成6点伤害，随机分配给所有敌方角色。",
+      "effect": "random-damage",
+      "value": 6,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "random-damage",
+          "target": "auto",
+          "value": 6
+        }
+      ]
+    },
+    "c10504": {
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "projectile"
+      ],
+      "tags": [
+        "投射"
+      ],
+      "target": "auto",
+      "text": "投射：造成2点伤害，然后将受到此伤害的式神移回准备区。",
+      "effect": "projectile-displace",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "projectile-displace",
+          "target": "auto",
+          "value": 2
+        }
+      ]
+    },
+    "c10506": {
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "群体伤害"
+      ],
+      "target": "auto",
+      "text": "对所有敌方角色造成3点伤害。",
+      "effect": "damage",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "all-enemies",
+          "value": 3
+        }
+      ]
+    },
+    "c10507": {
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "target": "auto",
+      "text": "使大天狗的倒计时-1。觉醒：大天狗使用法术后，倒计时1：再次使用该法术。",
+      "effect": "awaken-spell-replay",
+      "value": {
+        "attack": 2,
+        "hp": 2,
+        "countdown": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken-spell-replay",
+          "target": "auto",
+          "value": {
+            "attack": 2,
+            "hp": 2,
+            "countdown": 1
+          }
+        }
+      ],
+      "awakening": true,
+      "awakeningBonus": {
+        "attack": 2,
+        "hp": 2
+      },
+      "excludeSpellReplay": true
+    },
+    "c10508": {
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [
+        "瞬发",
+        "增强"
+      ],
+      "target": "auto",
+      "text": "瞬发。随机获得一张大天狗的不大于自身等级的其他法术牌。增强：本局游戏大天狗若使用过10次法术，则此牌变为消灭所有敌方式神。",
+      "effect": "generate-own-spell",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "generate-own-spell",
+          "target": "auto",
+          "value": null
+        }
+      ],
+      "spellEnhancement": {
+        "threshold": 10,
+        "action": "destroy-enemy-units",
+        "text": "瞬发。消灭所有敌方式神。"
+      }
+    },
+    "c10509": {
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "response"
+      ],
+      "tags": [
+        "响应"
+      ],
+      "target": "ally-unit",
+      "text": "使一个己方式神获得2护甲并在下个回合开始时再获得2护甲。响应：当你战斗区式神被攻击时，自动对其使用。",
+      "effect": "shield-next-turn",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shield-next-turn",
+          "target": "auto",
+          "value": 2
+        }
+      ],
+      "autoResponse": "front-attacked"
+    },
+    "skin-datiangou-93150": {
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "随机伤害"
+      ],
+      "target": "auto",
+      "text": "造成6点伤害，随机分配给所有敌方角色。",
+      "effect": "random-damage",
+      "value": 6,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "random-damage",
+          "target": "auto",
+          "value": 6
+        }
+      ],
+      "canonicalCardId": "c10503"
+    },
+    "c11801": {
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "text": "倒计时2：投射，造成3点伤害。",
+      "officialText": "倒计时2：投射，造成3点伤害。",
+      "target": "auto",
+      "formHooks": [],
+      "keywords": [],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "倒计时2：投射，造成3点伤害。",
+      "formRules": {
+        "countdown": 2,
+        "countdownEffects": [
+          {
+            "condition": "always",
+            "action": "damage-enemy-front",
+            "target": "auto",
+            "value": 3
+          }
+        ]
+      }
+    },
+    "c11802": {
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "text": "倒计时2：你的牌手获得5护甲。",
+      "officialText": "倒计时2：你的牌手获得5护甲。",
+      "target": "auto",
+      "formHooks": [],
+      "keywords": [],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "倒计时2：你的牌手获得5护甲。",
+      "formRules": {
+        "countdown": 2,
+        "countdownEffects": [
+          {
+            "condition": "always",
+            "action": "avatar-armor",
+            "target": "ally-player",
+            "value": 5
+          }
+        ]
+      }
+    },
+    "c11804": {
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "text": "倒计时2：鼓舞，获得+3力量与+3护甲。",
+      "officialText": "倒计时2：鼓舞，获得+3力量与+3护甲。",
+      "target": "auto",
+      "formHooks": [],
+      "keywords": [],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "倒计时2：鼓舞，获得+3力量与+3护甲。",
+      "formRules": {
+        "countdown": 2,
+        "countdownEffects": [
+          {
+            "condition": "always",
+            "action": "apply-keyword",
+            "target": "ally-player",
+            "value": {
+              "keywordId": "encourage",
+              "attack": 3,
+              "shield": 3
+            }
+          }
+        ]
+      }
+    },
+    "c11805": {
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "text": "倒计时2：消灭敌方战斗区的式神。",
+      "officialText": "倒计时2：消灭敌方战斗区的式神。",
+      "target": "auto",
+      "formHooks": [],
+      "keywords": [],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "倒计时2：消灭敌方战斗区的式神。",
+      "formRules": {
+        "countdown": 2,
+        "countdownEffects": [
+          {
+            "condition": "always",
+            "action": "destroy-enemy-front",
+            "target": "auto",
+            "value": 0
+          }
+        ]
+      }
+    },
+    "c11807": {
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "text": "倒计时2：随机对一个敌方角色造成6点伤害。此效果之前每触发过一次，多作用一个目标。",
+      "officialText": "倒计时2：随机对一个敌方角色造成6点伤害。此效果之前每触发过一次，多作用一个目标。",
+      "target": "auto",
+      "formHooks": [],
+      "keywords": [],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "倒计时2：随机对一个敌方角色造成6点伤害。此效果之前每触发过一次，多作用一个目标。",
+      "formRules": {
+        "countdown": 2,
+        "countdownEffects": [
+          {
+            "condition": "always",
+            "action": "expanding-random-damage",
+            "target": "auto",
+            "value": 6
+          }
+        ]
+      },
+      "verificationPending": [
+        "两张风符·龙不共享触发次数、同波目标不重复：已有2020机制细则转载支持，尚缺原作者来源及指定视频版本实机交叉核验。"
+      ]
+    },
+    "c11808": {
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "text": "响应：当一目连被攻击时，自动使用此牌。回合结束时此牌自毁。",
+      "officialText": "响应：当一目连被攻击时，自动使用此牌。回合结束时此牌自毁。",
+      "target": "auto",
+      "formHooks": [],
+      "keywords": [
+        "response"
+      ],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "effect": "form",
+      "value": {
+        "attack": 6,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "响应：当一目连被攻击时，自动使用此牌。回合结束时此牌自毁。",
+      "formRules": {
+        "destroyAtTurnEnd": true
+      },
+      "autoResponse": "source-attacked"
+    },
+    "c11803": {
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "text": "瞬发。消灭一目连上的形态牌，抽两张牌。",
+      "officialText": "瞬发。消灭一目连上的形态牌，抽两张牌。",
+      "target": "auto",
+      "formHooks": [],
+      "keywords": [
+        "instant"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "effect": "destroy-own-form",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "destroy-own-form",
+          "target": "source",
+          "value": 0
+        },
+        {
+          "condition": "always",
+          "action": "draw",
+          "target": "ally-player",
+          "value": 2
+        }
+      ]
+    },
+    "c11806": {
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "text": "觉醒：一目连的形态牌进场或被消灭时触发倒计时效果。",
+      "officialText": "觉醒：一目连的形态牌进场或被消灭时触发倒计时效果。",
+      "target": "auto",
+      "formHooks": [],
+      "keywords": [],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "awakening": true,
+      "awakeningBonus": {
+        "attack": 2,
+        "hp": 0
+      },
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "awaken-form-lifecycle",
+      "value": {
+        "attack": 2,
+        "hp": 0
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken-form-lifecycle",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 0
+          }
+        }
+      ]
+    },
+    "c11601": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "本次战斗+2力量。若攻击有破甲的角色，免疫战斗伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "assault",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "combatOption": {
+        "immuneAgainstArmorBreak": true
+      }
+    },
+    "c11602": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使鸩的倒计时-2，抽一张牌。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "countdown-change",
+      "value": -2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "countdown-change",
+          "target": "source",
+          "value": -2
+        },
+        {
+          "condition": "always",
+          "action": "draw",
+          "target": "ally-player",
+          "value": 1
+        }
+      ]
+    },
+    "c11603": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "4力量/6生命。当敌方式神本回合第一次获得破甲时，鸩的倒计时-1。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "当敌方式神本回合第一次获得破甲时，鸩的倒计时-1。",
+      "formRules": {
+        "firstEnemyArmorBreakCountdown": 1
+      }
+    },
+    "c11604": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "本次战斗+4力量。双方造成的伤害效果转化为等量破甲。响应：当鸩被攻击时，自动使用此牌。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "assault",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 4
+        }
+      ],
+      "autoResponse": "source-attacked",
+      "responseModifiesCombat": true,
+      "combatOption": {
+        "convertCombatToArmorBreak": true
+      },
+      "verificationPending": [
+        "毒蚀与屏障、碧羽散华同时存在时的精确转换优先级仍需视频对应版本实测。"
+      ]
+    },
+    "c11605": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "+1力量/+0生命。使鸩的倒计时-2。觉醒：倒计时2，使敌方牌手获得2破甲，本局每触发过一次基础能力，此效果额外+1。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "countdown-change",
+      "value": -2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "countdown-change",
+          "target": "source",
+          "value": -2
+        },
+        {
+          "condition": "always",
+          "action": "awaken-countdown",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 0,
+            "mode": "venom"
+          }
+        }
+      ],
+      "awakening": true,
+      "dynamicPoisonHistory": true,
+      "verificationPending": [
+        "首次觉醒减计时与替换能力的先后，以及历史增强是否包括正在触发的次数，缺对应版本直接实测；当前按牌文顺序和已完成次数结算。"
+      ]
+    },
+    "c11606": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "5力量/7生命。鸩造成的破甲效果转化为等量伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "鸩造成的破甲效果转化为等量伤害。",
+      "formRules": {
+        "armorBreakToDamage": true
+      }
+    },
+    "c11607": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对敌方角色造成战斗伤害时，使其获得等同于其一半生命的破甲。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "assault",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "combatOption": {
+        "halfRemainingHpArmorBreak": true
+      },
+      "verificationPending": [
+        "已确认按伤后剩余生命计算；奇数生命目前向下取整，尚缺原客户端取整实测。"
+      ]
+    },
+    "c11608": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "本次战斗+2力量/+2护甲。若攻击有破甲的角色，获得吸血。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "assault",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "combatOption": {
+        "shield": 2,
+        "lifeStealAgainstArmorBreak": true
+      }
+    },
+    "c12401": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发。对敌方牌手造成2点伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "formHooks": [],
+      "effect": "damage",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "enemy-avatar",
+          "value": 2
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 2,
+      "verificationPending": [
+        "2020-02-27官方维护公告将凤鸣由3改2；当前官方资料快照仍为3，尚未查到后续回调公告，按明确维护记录取2，待指定录像版本实机核对。"
+      ]
+    },
+    "c12402": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对所有敌方式神造成1点伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "damage",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "all-enemy-units",
+          "value": 1
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 1,
+      "phoenixArea": true
+    },
+    "c12403": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "4力量/6生命。凤凰火造成的所有非战斗伤害+1。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "凤凰火造成的所有非战斗伤害+1。",
+      "formRules": {
+        "nonCombatDamageBonus": 1
+      }
+    },
+    "c12404": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对一个式神造成5点伤害。",
+      "target": "any-living-unit",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "damage",
+      "value": 5,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "selected-any",
+          "value": 5
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 5
+    },
+    "c12405": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "贯通。投射：造成5点伤害。增强：本局游戏凤凰火每对敌方牌手造成一次伤害，此牌伤害+1。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "projectile",
+        "pierce"
+      ],
+      "tags": [],
+      "formHooks": [],
+      "effect": "damage-enemy-front",
+      "value": 5,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage-enemy-front",
+          "target": "auto",
+          "value": 5
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 5,
+      "phoenixEnhancement": true,
+      "verificationPending": [
+        "贯通已保留穿过式神屏障的牌手溢出伤害；屏障同时叠加护甲/破甲、伤害转化与替代的精细分配仍需对应版本实机核对，不能由当前测试视为全部确认。"
+      ]
+    },
+    "c12406": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "5力量/6生命。当凤凰火使用法术牌时，运势4：将一张「凤火」置入手牌。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "当凤凰火使用法术牌时，运势4：将一张「凤火」置入手牌。",
+      "formRules": {
+        "fortuneGenerate": {
+          "threshold": 4,
+          "card": "c12404"
+        }
+      },
+      "verificationPending": [
+        "同次施法投射与出云运势的先后、反制或本体气绝后已触发出云以及其他式神改骰组合仍缺直接实测。当前按使用事件记录出云，本体→投射→运势；已排队能力不依附被反制移除的本体。"
+      ]
+    },
+    "c12407": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对一个式神造成2点伤害，若击杀则再对它的牌手造成2点伤害。",
+      "target": "any-living-unit",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "phoenix-ignite",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "phoenix-ignite",
+          "target": "selected-any",
+          "value": 2
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 2
+    },
+    "c12408": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "+1力量/+1生命。觉醒：当己方式神使用法术牌时，投射：造成1点伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "awaken-phoenix",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken-phoenix",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "awakening": true
+    },
+    "c10801": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "为一个角色恢复5点生命。",
+      "target": "any-character",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "peach-heal",
+      "value": 5,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-heal",
+          "target": "selected-character",
+          "value": 5
+        }
+      ],
+      "formHooks": [],
+      "verificationPending": [
+        "零实际恢复是否触发桃花妖成长，仍缺原版客户端实测；当前只在生命实际恢复时成长。"
+      ]
+    },
+    "c10802": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发。选择一个己方式神，从牌库中随机抽一张该式神的牌。",
+      "target": "ally-unit-any-state",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "INSTANT"
+      ],
+      "tags": [],
+      "effect": "peach-search",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-search",
+          "target": "selected-character",
+          "value": null
+        }
+      ],
+      "formHooks": []
+    },
+    "c10803": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "不消耗鬼火。鼓舞：获得+2力量与+2护甲。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "ENCOURAGE"
+      ],
+      "tags": [],
+      "effect": "peach-encourage",
+      "value": {
+        "attack": 2,
+        "shield": 2
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-encourage",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "shield": 2
+          }
+        }
+      ],
+      "formHooks": [],
+      "encourage": null
+    },
+    "c10804": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "入场和己方回合开始时，随机为一个己方受伤式神恢复3点生命。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "入场和己方回合开始时，随机为一个己方受伤式神恢复3点生命。",
+      "formRules": {
+        "peachRandomHeal": {
+          "amount": 3,
+          "repeats": 1
+        }
+      }
+    },
+    "c10805": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "入场和己方回合开始时，随机为一个己方受伤式神恢复2点生命，将此过程再重复2次。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "入场和己方回合开始时，随机为一个己方受伤式神恢复2点生命，将此过程再重复2次。",
+      "formRules": {
+        "peachRandomHeal": {
+          "amount": 2,
+          "repeats": 3
+        }
+      }
+    },
+    "c10807": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "若桃花妖未气绝，此牌获得瞬发。复活所有己方式神。（桃花妖气绝时可用）",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "peach-revive-all",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-revive-all",
+          "target": "source",
+          "value": null
+        }
+      ],
+      "formHooks": [],
+      "allowKnockedSource": true,
+      "aliveSourceInstant": true,
+      "verificationPending": [
+        "桃花妖自身气绝时群体复活：当前先全体复活再统一触发成长，避免站位顺序影响；自身和同组其他式神是否都获得成长仍需对应版本实测。"
+      ]
+    },
+    "c10808": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "复活一个己方式神并使其获得迅捷。",
+      "target": "knocked-ally-any-level",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "复活",
+        "迅捷"
+      ],
+      "effect": "peach-revive",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-revive",
+          "target": "selected-character",
+          "value": null
+        }
+      ],
+      "formHooks": []
+    },
+    "c10809": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "觉醒：桃花妖治疗或复活己方式神时，使该式神永久获得2力量及2生命。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "effect": "peach-awaken",
+      "value": {
+        "attack": 2,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-awaken",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 1
+          }
+        }
+      ],
+      "formHooks": []
+    },
+    "c10701": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "encourage"
+      ],
+      "target": "any-living-character",
+      "level": 1,
+      "text": "造成2点伤害。鼓舞：获得+2护甲。",
+      "encourage": null,
+      "effect": "damage-character",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage-character",
+          "target": "selected-character",
+          "value": 2
+        },
+        {
+          "condition": "always",
+          "action": "apply-keyword",
+          "target": "ally-player",
+          "value": {
+            "keywordId": "encourage",
+            "attack": 0,
+            "shield": 2
+          }
+        }
+      ]
+    },
+    "c10702": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 1,
+      "text": "入场和己方回合开始时，为所有己方式神恢复2点生命。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "heal"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，为所有己方式神恢复2点生命。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "heal"
+      }
+    },
+    "c10703": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 2,
+      "text": "入场和己方回合开始时，鼓舞：获得+2力量。",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "courage"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，鼓舞：获得+2力量。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "courage"
+      }
+    },
+    "c10705": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 3,
+      "text": "入场和己方回合开始时，你获得1点鬼火。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "energy"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，你获得1点鬼火。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "energy"
+      }
+    },
+    "c10704": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "response"
+      ],
+      "target": "enemy-front-unit",
+      "level": 2,
+      "text": "敌方战斗区的式神本回合力量变为0。响应：当敌方式神进入战斗区时，对其自动使用该牌。",
+      "autoResponse": "enemy-entered-front",
+      "effect": "firefly-flash",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "firefly-flash",
+          "target": "selected-enemy",
+          "value": 0
+        }
+      ],
+      "verificationPending": [
+        "闪烁与持续力量光环、进入战斗区同次战斗加攻/鼓舞、后续形态替换的原版层叠优先级仍需录像或当前版本实测；已实现当前力量归零、响应原战斗和本回合到期。",
+        "同次进入战斗区事件遇到手牌中多张闪烁时的响应串接次数尚未查实；当前共用响应执行器每次事件使用首张合法响应牌。"
+      ]
+    },
+    "c10706": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "auto",
+      "level": 3,
+      "text": "瞬发。将萤草的三种形态牌置入手牌。",
+      "effect": "firefly-rainbow",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "firefly-rainbow",
+          "target": "ally-player",
+          "value": 3
+        }
+      ],
+      "generatedCards": [
+        "c10702",
+        "c10703",
+        "c10705"
+      ]
+    },
+    "c10707": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant",
+        "awakening"
+      ],
+      "target": "auto",
+      "level": 3,
+      "text": "瞬发。+2力量/+2生命。觉醒：己方式神的形态牌获得瞬发且使用时抽一张牌。",
+      "effect": "firefly-awaken",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "firefly-awaken",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ]
+    },
+    "c10708": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "enhance"
+      ],
+      "target": "any-living-unit",
+      "level": 1,
+      "text": "使一个己方式神+1生命，或对一个敌方式神造成1点伤害。增强：己方回合开始时，若萤草上有形态，此牌效果+1。",
+      "effect": "firefly-dual-target",
+      "value": 1,
+      "baseValue": 1,
+      "enhanceWhileSourceForm": true,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "firefly-dual-target",
+          "target": "selected-character",
+          "value": 1
+        }
+      ]
+    },
+    "yingcao-zhiyu": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 1,
+      "text": "入场和己方回合开始时，为所有己方式神恢复2点生命。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "heal"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，为所有己方式神恢复2点生命。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "heal"
+      },
+      "starterCopies": 0,
+      "token": true
+    },
+    "yingcao-yongqi": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 2,
+      "text": "入场和己方回合开始时，鼓舞：获得+2力量。",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "courage"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，鼓舞：获得+2力量。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "courage"
+      },
+      "starterCopies": 0,
+      "token": true
+    },
+    "yingcao-anhun": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 3,
+      "text": "入场和己方回合开始时，你获得1点鬼火。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "energy"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，你获得1点鬼火。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "energy"
+      },
+      "starterCopies": 0,
+      "token": true
+    }
+  }
+}

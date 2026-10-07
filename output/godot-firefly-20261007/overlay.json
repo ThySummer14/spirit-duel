@@ -1,0 +1,482 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "firefly-official-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "10700–10708 官方牌文、形态身材2/5、3/5、4/5及觉醒+2/+2与瞬发；虹彩以2020年5月公告覆盖旧快照。"
+    },
+    {
+      "id": "firefly-official-guide",
+      "url": "https://www.taptap.cn/moment/15218501010588024",
+      "evidence": "官方式神百科：形态瞬发抽牌、鼓舞跨回合累积仅普攻消耗、点点仅在手牌增强及双阵营目标、虹彩为生成。"
+    },
+    {
+      "id": "firefly-official-talk",
+      "url": "https://www.taptap.cn/moment/15229119918770183",
+      "evidence": "官方署名西园寺世界：形态3/5、4/5、入场与回合起始、闪烁入场响应。"
+    },
+    {
+      "id": "firefly-may2020-balance",
+      "url": "https://m.3839.com/gamehistorylog/109747.htm",
+      "evidence": "发行历史更新文案归档：2020年5月20日版本虹彩新增瞬发。"
+    },
+    {
+      "id": "firefly-order-faq",
+      "url": "https://www.taptap.cn/moment/15225930238658237",
+      "evidence": "原作者实測FAQ：闪烁与持续力量效果存在层叠；同阶段形态触发依入场先后，复杂优先级待当前版本核验。"
+    },
+    {
+      "id": "firefly-knockout-status",
+      "url": "https://www.taptap.cn/moment/15218562876573034",
+      "evidence": "官方新手试炼气绝说明：气绝移除非永久状态加成与形态；萤火点点普通生命增益必须清除，觉醒保留。"
+    }
+  ],
+  "units": {
+    "yingcao": {
+      "attack": 2,
+      "maxHp": 5,
+      "formCardAura": {
+        "awakenedAllies": true
+      },
+      "passive": {
+        "id": "firefly-forms",
+        "name": "蒲公英之光",
+        "text": "萤草的形态牌获得瞬发且使用时抽一张牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "firefly-allied-forms",
+        "name": "虹光普照",
+        "text": "己方式神的形态牌获得瞬发且使用时抽一张牌。",
+        "hooks": []
+      }
+    }
+  },
+  "cards": {
+    "c10701": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "encourage"
+      ],
+      "target": "any-living-character",
+      "level": 1,
+      "text": "造成2点伤害。鼓舞：获得+2护甲。",
+      "encourage": null,
+      "effect": "damage-character",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage-character",
+          "target": "selected-character",
+          "value": 2
+        },
+        {
+          "condition": "always",
+          "action": "apply-keyword",
+          "target": "ally-player",
+          "value": {
+            "keywordId": "encourage",
+            "attack": 0,
+            "shield": 2
+          }
+        }
+      ]
+    },
+    "c10702": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 1,
+      "text": "入场和己方回合开始时，为所有己方式神恢复2点生命。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "heal"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，为所有己方式神恢复2点生命。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "heal"
+      }
+    },
+    "c10703": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 2,
+      "text": "入场和己方回合开始时，鼓舞：获得+2力量。",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "courage"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，鼓舞：获得+2力量。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "courage"
+      }
+    },
+    "c10705": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 3,
+      "text": "入场和己方回合开始时，你获得1点鬼火。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "energy"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，你获得1点鬼火。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "energy"
+      }
+    },
+    "c10704": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "response"
+      ],
+      "target": "enemy-front-unit",
+      "level": 2,
+      "text": "敌方战斗区的式神本回合力量变为0。响应：当敌方式神进入战斗区时，对其自动使用该牌。",
+      "autoResponse": "enemy-entered-front",
+      "effect": "firefly-flash",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "firefly-flash",
+          "target": "selected-enemy",
+          "value": 0
+        }
+      ],
+      "verificationPending": [
+        "闪烁与持续力量光环、进入战斗区同次战斗加攻/鼓舞、后续形态替换的原版层叠优先级仍需录像或当前版本实测；已实现当前力量归零、响应原战斗和本回合到期。",
+        "同次进入战斗区事件遇到手牌中多张闪烁时的响应串接次数尚未查实；当前共用响应执行器每次事件使用首张合法响应牌。"
+      ]
+    },
+    "c10706": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "auto",
+      "level": 3,
+      "text": "瞬发。将萤草的三种形态牌置入手牌。",
+      "effect": "firefly-rainbow",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "firefly-rainbow",
+          "target": "ally-player",
+          "value": 3
+        }
+      ],
+      "generatedCards": [
+        "c10702",
+        "c10703",
+        "c10705"
+      ]
+    },
+    "c10707": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant",
+        "awakening"
+      ],
+      "target": "auto",
+      "level": 3,
+      "text": "瞬发。+2力量/+2生命。觉醒：己方式神的形态牌获得瞬发且使用时抽一张牌。",
+      "effect": "firefly-awaken",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "firefly-awaken",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ]
+    },
+    "c10708": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "enhance"
+      ],
+      "target": "any-living-unit",
+      "level": 1,
+      "text": "使一个己方式神+1生命，或对一个敌方式神造成1点伤害。增强：己方回合开始时，若萤草上有形态，此牌效果+1。",
+      "effect": "firefly-dual-target",
+      "value": 1,
+      "baseValue": 1,
+      "enhanceWhileSourceForm": true,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "firefly-dual-target",
+          "target": "selected-character",
+          "value": 1
+        }
+      ]
+    },
+    "yingcao-zhiyu": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 1,
+      "text": "入场和己方回合开始时，为所有己方式神恢复2点生命。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "heal"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，为所有己方式神恢复2点生命。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "heal"
+      },
+      "starterCopies": 0,
+      "token": true
+    },
+    "yingcao-yongqi": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 2,
+      "text": "入场和己方回合开始时，鼓舞：获得+2力量。",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "courage"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，鼓舞：获得+2力量。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "courage"
+      },
+      "starterCopies": 0,
+      "token": true
+    },
+    "yingcao-anhun": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 3,
+      "text": "入场和己方回合开始时，你获得1点鬼火。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "firefly-light",
+          "target": "source",
+          "value": "energy"
+        }
+      ],
+      "formAbility": "入场和己方回合开始时，你获得1点鬼火。",
+      "formHooks": [],
+      "formRules": {
+        "fireflyLight": "energy"
+      },
+      "starterCopies": 0,
+      "token": true
+    }
+  }
+}

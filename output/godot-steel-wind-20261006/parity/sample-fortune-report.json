@@ -1,0 +1,13 @@
+{
+  "sample": "fortune-encourage",
+  "seed": 888002,
+  "match": true,
+  "finalDiffs": [],
+  "stepDiffs": [],
+  "summary": {
+    "finalDiffCount": 0,
+    "stepDiffCount": 0,
+    "jsSteps": 5,
+    "godotSteps": 5
+  }
+}

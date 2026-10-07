@@ -2,6 +2,10 @@
 
 一个依赖浏览器原生 HTML/CSS/JavaScript 的原创卡牌对战原型。当前里程碑是建立可持续扩展的战斗框架，而不是一次实现所有外围模式。
 
+当前维护重点是 Godot 版的原版规则还原。历史卡库包含大量“可玩化映射”，这些属于待修复缺陷；下文早期里程碑中的关键词“已接入”不代表其全部卡牌已按原版结算。禁止继续把复杂机制替换成加攻、护甲、抽牌或直接伤害。`npm run audit:rules` 单独检查全库还原状态，目前应失败；普通测试和多局压测不代替该检查。参见 [还原约束](AGENTS.md) 和 [本轮规则核对](research-notes/09-steel-wind-video-rules.md)。
+
+最新续建：按三组并行修复凤凰火、桃花妖、萤草的基础能力与 24 张主体卡牌，并修复萤草 3 张历史生成牌。共享层补上施法能力独立排队、入场响应续帧、形态触发顺序、迅捷、临时/永久成长区别、双方牌手目标及逐段伤害来源演出。403 项本轮规则/集成检查与全量 Godot 验证通过；仍未获得实机证据的版本和边界保留待核验，全库还原审计继续失败。详见 [并行验收](output/godot-parallel-20261007/acceptance.md)，此前 [鸩核对](research-notes/13-zhen-armor-break.md)、[一目连核对](research-notes/12-yimulian-form-lifecycle.md) 与 [大天狗核对](research-notes/11-datiangou-spell-replay.md) 持续保留。修复作用于本地 Godot 和由同一代码导出的网页 Godot 版；网页随 `main` 的 Pages 构建更新，旧 HTML/JS 版仍有独立的历史规则实现。
+
 网页测试：[当前 Godot 版](https://thysummer14.github.io/spirit-duel/play/) · [原 HTML/JS 版](https://thysummer14.github.io/spirit-duel/)。Godot 版包含最新的视频参照界面和技能演出，建议使用电脑浏览器；阵容与收藏保存在当前浏览器，与本地客户端分开。`main` 推送后由 GitHub Actions 自动导出并发布。
 
 ## 当前规则基线
@@ -57,7 +61,7 @@
 
 ## Godot 纵向切片
 
-Godot 迁移版在 `godot/`：菜单 / 编成 / 构筑 / 图鉴 / 秘闻阁 / 对战 / 结果，纯 GDScript 规则 + 种子命令日志 + 贪心 AI。内容由 `scripts/export-godot-content.mjs` 导出到 `godot/content/content.json`（当前 250 角色 / 2114 卡）；部分复杂关键词与被动仍简化结算，浏览器版保留为规则对拍基准。验收：`./scripts/godot-verify.sh`（内容、UI 解析、隔离存档与收藏、实际按钮交互回归、多局压测、启动冒烟）。详见 [godot/README.md](godot/README.md)、[ENGINE_DIRECTION.md](ENGINE_DIRECTION.md) 与 [2026-10-03 修复验收](output/godot-iteration-20261003/acceptance.md)。
+Godot 迁移版在 `godot/`：菜单 / 编成 / 构筑 / 图鉴 / 秘闻阁 / 对战 / 结果，纯 GDScript 规则 + 种子命令日志 + 贪心 AI。内容由 `scripts/export-godot-content.mjs` 导出到 `godot/content/content.json`（当前 250 角色 / 2114 卡）；部分复杂关键词与被动仍简化结算，浏览器版保留为共享基础行为的对拍参考。按原版核对的 Godot 规则由 `godot/content/verified_rules.json` 覆盖旧映射，浏览器版不能作为这些修复的正确性标准。验收：`./scripts/godot-verify.sh`（内容、UI 解析、隔离存档与收藏、实际按钮交互回归、多局压测、启动冒烟）。详见 [godot/README.md](godot/README.md)、[ENGINE_DIRECTION.md](ENGINE_DIRECTION.md) 与 [2026-10-03 修复验收](output/godot-iteration-20261003/acceptance.md)。
 
 2026-10-04 已参照完整实机录像改造 Godot 主城、五槽编组、角色/卡牌检视、资料包购买与五张揭晓、起手换牌和完整 4v4 战场，并接入 Botcf Image 生成的四张环境背景。角色继续使用现有占位资源。见 [视频参照改造验收与截图](output/video-reference-20261004/acceptance.md)。
 
@@ -157,7 +161,7 @@ effects: [
 
 - **响应**：待结算动作匹配 `responseTo` 时打开响应窗口；支持双方交替优先权、连续两次放弃、LIFO 连锁结算和 8 层嵌套上限。
 - **瞬发**：仅在持有者自己的行动回合生效；每回合打出的第一张瞬发牌费用为 0，使用后本回合其余瞬发牌恢复原费用。
-- **贯通**：攻击先结算护盾和角色生命，超过目标剩余生命的真实溢出伤害转移给敌方核心；原有的气绝核心伤害仍会独立结算。
+- **贯通**：攻击先结算护盾和角色生命，超过目标剩余生命的真实溢出伤害转移给敌方核心；击倒式神本身不额外造成核心伤害。
 - **眩晕**：角色无法出击或反击，在其持有者回合结束时减少持续回合。内部存档字段继续使用 `frozen` 以保持兼容。
 - **远程**：带远程的战斗牌从角色当前位置发动攻击；攻击者不进入前线、己方原前线不变，且本次不受反击。
 - **运势**：结算前通过确定性 RNG 投掷 D6；达到卡牌阈值时才执行 `fortune-success` 效果步骤。

@@ -1,0 +1,21 @@
+
+> spirit-duel@0.1.0 audit:rules
+> node scripts/audit-rule-fidelity.mjs --out output/godot-datiangou-20261006/rule-fidelity.json
+
+{
+  "fullCatalogRestored": false,
+  "summary": {
+    "units": {
+      "known-approximation": 154,
+      "unreviewed": 93,
+      "source-backed-native": 3
+    },
+    "cards": {
+      "known-approximation": 1074,
+      "unreviewed": 1015,
+      "source-backed-native": 25
+    }
+  },
+  "errors": []
+}
+RULE_FIDELITY_INCOMPLETE: 全库仍存在简化或未核对内容。稳定性测试通过不等于效果还原。

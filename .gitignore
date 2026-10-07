@@ -12,6 +12,11 @@ npm-debug.log*
 /output/godot-*/review/original-*.jpg
 /output/godot-*/review/*comparison*.jpg
 /output/video-reference-20261004/reference/
+/output/godot-*/source-cards/
+
+# 可从最终录像与采集脚本重新生成的录制中间文件
+/output/godot-*/native-*.avi
+/output/godot-*/final-wide/motion-frames/*.png
 
 # Godot 编辑器缓存
 godot/.godot/

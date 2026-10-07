@@ -340,8 +340,8 @@ test('pierce transfers only unshielded overkill damage to the enemy core', () =>
   const result = playCard(state, 0, card.instanceId);
 
   assert.equal(result.error, null);
-  assert.equal(result.state.players[1].avatarHp, 26);
-  assert.equal(result.state.players[0].damageDealt, 6);
+  assert.equal(result.state.players[1].avatarHp, 27);
+  assert.equal(result.state.players[0].damageDealt, 5);
   assert.ok(result.state.events.some((event) => (
     event.type === GAME_EVENTS.PIERCING_TRIGGERED && event.payload.damage === 3
   )));
@@ -1181,6 +1181,28 @@ test('battle-zone unit returns to reserve at the start of its owner turn', () =>
       && event.payload.source === 'battle-zone'
   )));
   assert.ok(unit.hp > 0, '归位角色保持存活');
+});
+
+test('ordinary and combo knockouts do not damage the opposing avatar', () => {
+  for (const useCombo of [false, true]) {
+    const state = createGame({ seed: 13, playerUnitIds: ['ember', 'basalt', 'lumen', 'rime'] });
+    const attacker = state.players[0].units[0];
+    const defender = state.players[1].units[0];
+    attacker.level = 2;
+    state.players[0].frontUnitId = attacker.uid;
+    state.players[1].frontUnitId = defender.uid;
+    state.players[1].hand = [];
+    state.players[1].avatarHp = 1;
+    defender.shield = 0;
+    defender.hp = useCombo ? attacker.attack + 1 : 1;
+    const result = useCombo
+      ? playCard(state, 0, putCardInHand(state, 0, 'twin-flame').instanceId)
+      : basicAttack(state, 0, attacker.uid);
+    assert.equal(result.error, null);
+    assert.equal(result.state.players[1].units[0].hp, 0);
+    assert.equal(result.state.players[1].avatarHp, 1, '气绝本身不应造成牌手伤害');
+    assert.equal(result.state.winner, null, '击倒式神不应误判牌手败北');
+  }
 });
 
 test('attacking into an empty battle zone hits the core directly', () => {

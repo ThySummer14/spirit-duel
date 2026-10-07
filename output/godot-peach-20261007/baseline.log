@@ -1,0 +1,55 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PEACH_FAIL heal targets both sides and both players
+PEACH_FAIL healing may target inactive living unit
+PEACH_FAIL healing five triggers one source-attributed temporary attack
+PEACH_FAIL other healing doesn't trigger Peach
+PEACH_FAIL second awakening preserves its printed bonus
+PEACH_FAIL one real heal gains exactly permanent +2/+2
+PEACH_FAIL awakened restoration survives knockout
+PEACH_FAIL natural revival retains permanent maxHP
+PEACH_FAIL zero-heal client boundary remains audited
+PEACH_FAIL play c10801
+PEACH_FAIL enemy can be healed without own growth
+PEACH_FAIL play c10801
+PEACH_FAIL own player heals five
+PEACH_FAIL play c10801
+PEACH_FAIL enemy player is a legal heal target
+PEACH_FAIL player recovery doesn't buff source
+PEACH_FAIL search targets inactive knocked ally
+PEACH_FAIL search excludes all opponents and avatars
+PEACH_FAIL play c10802
+PEACH_FAIL search draws the actual selected-unit deck instance
+PEACH_FAIL search leaves unrelated deck order intact
+PEACH_FAIL first search is instant
+PEACH_FAIL play c10802
+PEACH_FAIL second search pays and doesn't draw unrelated replacement
+PEACH_FAIL abundance sets 3/7 instead of adding 3/7
+PEACH_FAIL abundance has real on-entry random injured healing
+PEACH_FAIL abundance repeats on owner turn start
+PEACH_FAIL enemy turn doesn't run owner form
+PEACH_FAIL bloom replaces abundance with 4/9
+PEACH_FAIL bloom repeats exact three two-point recoveries with per-heal growth
+PEACH_FAIL each repeat refreshes injured pool and excludes healed target
+PEACH_FAIL no third recovery when all injuries are gone
+PEACH_FAIL three awaken heals fully resolve separately before next selection
+PEACH_FAIL form disappears at source knockout while awakening remains
+PEACH_FAIL spring revives full current maxHP with one temporary growth
+PEACH_FAIL spring grants unit swift, not card instant
+PEACH_FAIL alive-source mass revival gains first instant
+PEACH_FAIL mass revival plays alive source without fire
+PEACH_FAIL mass revival has no obsolete group swift
+PEACH_FAIL mass revival is legal with dead source
+PEACH_FAIL dead source casts mass revival
+PEACH_FAIL all allies including source return at full health
+PEACH_FAIL pending boundary: simultaneous revival growth independent of lineup position
+PEACH_FAIL self-revival growth remains audited
+PEACH_FAIL swift permits zero-fire basic attack
+PEACH_FAIL swift uses real ordinary attack
+PEACH_FAIL swift is consumed only by successful basic attack
+PEACH_FAIL knockout removes granted swift
+PEACH_FAIL AI legally heals wounded ally rather than enemy/full avatar
+PEACH_FAIL AI searches only unit with cards remaining
+PEACH_FAIL AI doesn't spend mass revival on no casualties
+PEACH_FAIL AI can use swift with zero fire
+PEACH checks=88 failures=52

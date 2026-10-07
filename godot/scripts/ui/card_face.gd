@@ -72,7 +72,7 @@ func refresh_art() -> void:
 	var unit := data if unit_mode else ContentLoader.unit_def(str(data.get("unitId", "")))
 	if unit_mode and not unit.has("art"):
 		unit = ContentLoader.unit_def(str(data.get("id", "")))
-	var awakened: bool = data.get("awakened", false) or data.get("type", "") == "awakening"
+	var awakened: bool = data.get("awakened", false) or data.get("awakening", false) or data.get("type", "") == "awakening"
 	var artwork := PortraitLibrary.artwork(unit, awakened)
 	var path: String = artwork.path
 	_art_focus = artwork.focus
@@ -351,6 +351,12 @@ func _draw_card() -> void:
 	for i in level:
 		_gem(Vector2(w - pad - 7 - i * 8, h * 0.075), clampf(w * 0.028, 2, 5), Color("a2c9bb"))
 	_gem(Vector2(w - pad - 7, paper_y + name_fs * 0.75), clampf(w * 0.027, 2, 5), accent)
+	var bonus: Dictionary = data.get("awakeningBonus", {})
+	if not bonus.is_empty():
+		var labels: Array[String] = []
+		if int(bonus.get("attack", 0)) != 0: labels.append("%+d力量" % int(bonus.attack))
+		if int(bonus.get("hp", 0)) != 0: labels.append("%+d生命" % int(bonus.hp))
+		_center_text(paper_y - 5, "  ".join(labels), int(clampf(w * 0.075, 9, 16)), Color("f2ddb1"), _bold, 3)
 	if mini:
 		_center_text(h - pad - 5, str(data.get("typeLabel", "")).left(2), 8, Color("616575"), _font)
 	else:
@@ -499,15 +505,21 @@ func _draw_unit() -> void:
 		_text(sc + Vector2(-sr * 1.5, sr * 0.45), str(shield), int(sr * 1.25), Color.WHITE, _bold, sr * 3, HORIZONTAL_ALIGNMENT_CENTER, 2, Color("0d2440"))
 	# 状态徽记（右上竖排）
 	var badges: Array = []
+	var countdown: Dictionary = CountdownRules.timer(data)
+	var has_countdown := not countdown.is_empty() and not knocked and int(data.get("level", 0)) > 0
+	if has_countdown:
+		_countdown_badge(Vector2(w - pad - 6, pad + 13), clampf(w * 0.105, 9, 14), int(countdown.remaining))
+	if data.get("barrier", false): badges.append(["障", 0, Color("76d9cf")])
+	if data.get("swift", false): badges.append(["迅", 0, Color("a4df9a")])
 	for pair in [["frozen", "晕", Color("9d82d4")], ["charge", "充", Color("4fb6c9")], ["armorBreak", "破", Color("d9733a")], ["brittle", "裂", Color("c95f7a")]]:
 		if int(data.get(pair[0], 0)) > 0: badges.append([pair[1], int(data[pair[0]]), pair[2]])
 	if data.get("unyielding", false): badges.append(["屈", 0, Color("d9b56a")])
 	var bs := clampf(w * 0.17, 12, 22)
 	for i in mini(badges.size(), 4):
 		var b: Array = badges[i]
-		var rect := Rect2(w - pad - bs - 1, pad + 2 + i * (bs + 2), bs, bs)
+		var rect := Rect2(w - pad - bs - 1, pad + 2 + (i + (1 if has_countdown else 0)) * (bs + 2), bs, bs)
 		draw_style_box(_box(Color(b[2]).darkened(0.35), Color(b[2]).lightened(0.3), int(bs * 0.3), 1), rect)
-		var label := str(b[0]) if int(b[1]) <= 1 else "%s%d" % [b[0], int(b[1])]
+		var label := str(b[0]) if int(b[1]) <= 1 and b[0] != "计" else "%s%d" % [b[0], int(b[1])]
 		var fs := int(bs * (0.62 if label.length() == 1 else 0.48))
 		_text(Vector2(rect.position.x - 4, rect.position.y + bs * 0.5 + fs * 0.38), label, fs, Color.WHITE, _bold, bs + 8, HORIZONTAL_ALIGNMENT_CENTER, 2, Color(0, 0, 0, 0.6))
 	if knocked:
@@ -563,3 +575,17 @@ func _can_drop_data(_at_position: Vector2, payload: Variant) -> bool:
 
 func _drop_data(_at_position: Vector2, payload: Variant) -> void:
 	if drop_action.is_valid(): drop_action.call(payload)
+
+
+func _countdown_badge(center: Vector2, radius: float, remaining: int) -> void:
+	# Pink hourglass silhouette visible in the reference recording. The number
+	# comes from the rule timer; the renderer never advances it itself.
+	var pts := PackedVector2Array()
+	for point in [Vector2(-1, -1.25), Vector2(1, -1.25), Vector2(0.8, -0.83), Vector2(0.35, 0), Vector2(0.8, 0.83), Vector2(1, 1.25), Vector2(-1, 1.25), Vector2(-0.8, 0.83), Vector2(-0.35, 0), Vector2(-0.8, -0.83)]:
+		pts.append(center + point * radius)
+	draw_colored_polygon(pts, Color("b85f8d"))
+	pts.append(pts[0])
+	draw_polyline(pts, Color("683e5f"), 2, true)
+	for direction in [-1, 1]:
+		draw_line(center + Vector2(-radius, direction * radius * 1.25), center + Vector2(radius, direction * radius * 1.25), Color("d69bb8"), 2, true)
+	_text(center + Vector2(-radius * 1.4, radius * 0.66), str(remaining), int(radius * 1.9), Color("f6e3db"), _bold, radius * 2.8, HORIZONTAL_ALIGNMENT_CENTER, 2, Color("503543"))

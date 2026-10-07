@@ -1,0 +1,59 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+OpenGL API 4.1 Metal - 91.7 - Compatibility - Using Device: Apple - Apple M5
+
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/01-menu.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/02-formation.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/02b-card-inspector.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/03-deck.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/04-codex.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/05-collection.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/05b-sealed-cards.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/05c-first-reveal.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/05d-revealed-cards.png
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/06a-opening-choice.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/06-battle.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/06a-card-preview.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/06b-front-lines.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/06e-twelve-cards.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/06f-hand-hover.png
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/06c-response.png
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/06d-divination.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/07-result.png
+SHOT /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-video-style-20261006/iteration-1/08-settings.png
+CAPTURE_DONE

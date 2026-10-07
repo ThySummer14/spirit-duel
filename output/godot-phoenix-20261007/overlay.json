@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "phoenix-guide-2020",
+      "url": "https://www.taptap.cn/moment/15220265260682773",
+      "evidence": "官方攻略账号刊登原作者西园寺世界：凤凰火八牌、基础与觉醒、击杀条件、对牌手伤害次数含出击；重复觉醒只叠身材。"
+    },
+    {
+      "id": "phoenix-balance-2020-02-27",
+      "url": "https://news.17173.com/z/ssr/content/02272020/134855815.shtml",
+      "evidence": "署名官方的维护公告存档：凤鸣3伤害改2伤害。未发现后续正式回调；旧快照冲突保留。"
+    },
+    {
+      "id": "phoenix-card-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "12400–12408原牌文、4/6与5/6形态、觉醒+1/+1；凤鸣3伤害与后续公告冲突。"
+    },
+    {
+      "id": "phoenix-pierce-rules",
+      "url": "https://www.taptap.cn/moment/391974253349570771",
+      "evidence": "原作者关键词实测：贯通独立分配到牌手，不屈/屏障仅保护式神；凤火允许选择己方式神。"
+    },
+    {
+      "id": "phoenix-use-faq-2020",
+      "url": "https://www.taptap.cn/moment/15225930238658237",
+      "evidence": "原作者兔实测 FAQ（2020-01-25）：凤火或引燃杀死自己后，仍触发基础投射；引燃杀死己方式神对己方牌手造成第二段。"
+    },
+    {
+      "id": "phoenix-use-process-2022",
+      "url": "https://www.bilibili.com/opus/709901963270029348",
+      "evidence": "原作者 LL起翼夜鹰《百闻规则集·蓄力》区分蓄力操作与实际使用牌，后者可触发凤凰火；不作为反制后触发的直接证明。"
+    }
+  ],
+  "units": {
+    "fenghuanghuo": {
+      "verifiedRules": true,
+      "attack": 2,
+      "maxHp": 4,
+      "phoenixSpellTrigger": true,
+      "passive": {
+        "id": "phoenix-spell-projectile",
+        "name": "凤火投射",
+        "text": "当凤凰火使用法术牌时，投射：造成1点伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "phoenix-team-spell-projectile",
+        "name": "凤火投射",
+        "text": "当己方式神使用法术牌时，投射：造成1点伤害。",
+        "hooks": []
+      },
+      "verificationPending": [
+        "魔音反制后触发的直接实测尚缺；按“使用法术牌时”独立保留已宣布的使用能力帧，本体无效不抹去使用事件。施法自杀仍投射已有原作者实测支持。响应中变形、焚羽在气绝前后是否快照加伤仍待核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c12401": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发。对敌方牌手造成2点伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "formHooks": [],
+      "effect": "damage",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "enemy-avatar",
+          "value": 2
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 2,
+      "verificationPending": [
+        "2020-02-27官方维护公告将凤鸣由3改2；当前官方资料快照仍为3，尚未查到后续回调公告，按明确维护记录取2，待指定录像版本实机核对。"
+      ]
+    },
+    "c12402": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对所有敌方式神造成1点伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "damage",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "all-enemy-units",
+          "value": 1
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 1,
+      "phoenixArea": true
+    },
+    "c12403": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "4力量/6生命。凤凰火造成的所有非战斗伤害+1。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "凤凰火造成的所有非战斗伤害+1。",
+      "formRules": {
+        "nonCombatDamageBonus": 1
+      }
+    },
+    "c12404": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对一个式神造成5点伤害。",
+      "target": "any-living-unit",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "damage",
+      "value": 5,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage",
+          "target": "selected-any",
+          "value": 5
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 5
+    },
+    "c12405": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "贯通。投射：造成5点伤害。增强：本局游戏凤凰火每对敌方牌手造成一次伤害，此牌伤害+1。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "projectile",
+        "pierce"
+      ],
+      "tags": [],
+      "formHooks": [],
+      "effect": "damage-enemy-front",
+      "value": 5,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage-enemy-front",
+          "target": "auto",
+          "value": 5
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 5,
+      "phoenixEnhancement": true,
+      "verificationPending": [
+        "贯通已保留穿过式神屏障的牌手溢出伤害；屏障同时叠加护甲/破甲、伤害转化与替代的精细分配仍需对应版本实机核对，不能由当前测试视为全部确认。"
+      ]
+    },
+    "c12406": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "5力量/6生命。当凤凰火使用法术牌时，运势4：将一张「凤火」置入手牌。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "当凤凰火使用法术牌时，运势4：将一张「凤火」置入手牌。",
+      "formRules": {
+        "fortuneGenerate": {
+          "threshold": 4,
+          "card": "c12404"
+        }
+      },
+      "verificationPending": [
+        "同次施法投射与出云运势的先后、反制或本体气绝后已触发出云以及其他式神改骰组合仍缺直接实测。当前按使用事件记录出云，本体→投射→运势；已排队能力不依附被反制移除的本体。"
+      ]
+    },
+    "c12407": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对一个式神造成2点伤害，若击杀则再对它的牌手造成2点伤害。",
+      "target": "any-living-unit",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "phoenix-ignite",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "phoenix-ignite",
+          "target": "selected-any",
+          "value": 2
+        }
+      ],
+      "phoenixSpell": true,
+      "phoenixBaseDamage": 2
+    },
+    "c12408": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "+1力量/+1生命。觉醒：当己方式神使用法术牌时，投射：造成1点伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "awaken-phoenix",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken-phoenix",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "awakening": true
+    }
+  }
+}

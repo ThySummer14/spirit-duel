@@ -1,0 +1,4 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SPELL_EFFECT_FAIL switching forms uses the transformation motif rather than claiming a curse or a hit
+SPELL_EFFECTS checks=97 failures=1

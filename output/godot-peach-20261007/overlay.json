@@ -1,0 +1,323 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "peach-official-guide",
+      "url": "https://www.taptap.cn/moment/15203252383515913",
+      "evidence": "官方攻略账号发布西园寺世界原作者攻略（2020-02-25）：八张牌、临时与永久成长、目标范围、形态身材、无群体迅捷。"
+    },
+    {
+      "id": "peach-swift-trial",
+      "url": "https://www.taptap.cn/moment/15218505548825832",
+      "evidence": "狸猫会纳豆酱原作者迅捷试炼：下一次普通出击免火，不增加回合出击次数，未使用跨回合保留。"
+    },
+    {
+      "id": "peach-supplement",
+      "url": "https://www.taptap.cn/moment/15227883832214628",
+      "evidence": "狸猫会原作者辅助篇：定向检索、形态进场能力、可在气绝时使用群体复活。"
+    },
+    {
+      "id": "peach-patch-followup",
+      "url": "https://www.gamedog.cn/news/3349086.html",
+      "evidence": "2023-10-12维护公告转载线索：修复桃花妖气绝后桃华灼灼可能仍有瞬发。原始公告链接未找到，条件本身另有官方攻略牌文支撑。"
+    },
+    {
+      "id": "peach-printed-awakening",
+      "url": "https://img2-tc.tapimg.com/bbcode/images/a69872ce10e1ff48dabc15fa6b3c8345.png/_tap_ugc.jpg",
+      "evidence": "2020官方攻略中的觉醒原卡图：三级法术、印刷+2力量/+1生命；已下载并目视核验。"
+    }
+  ],
+  "units": {
+    "taohuayao": {
+      "attack": 1,
+      "maxHp": 6,
+      "peachRestoration": true,
+      "formLifecycle": {},
+      "passive": {
+        "id": "peach-restoration",
+        "name": "花信",
+        "text": "桃花妖治疗或复活己方式神时，使该式神获得1力量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "peach-restoration-awake",
+        "name": "灼灼其华",
+        "text": "桃花妖治疗或复活己方式神时，使该式神永久获得2力量及2生命。",
+        "hooks": []
+      },
+      "verificationPending": [
+        "对满血式神进行零实际恢复时是否触发成长，以及桃花妖自身气绝时群体复活后的成长时点，仍需录像版本客户端边界复测。"
+      ]
+    }
+  },
+  "cards": {
+    "c10801": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "为一个角色恢复5点生命。",
+      "target": "any-character",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "peach-heal",
+      "value": 5,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-heal",
+          "target": "selected-character",
+          "value": 5
+        }
+      ],
+      "formHooks": [],
+      "verificationPending": [
+        "零实际恢复是否触发桃花妖成长，仍缺原版客户端实测；当前只在生命实际恢复时成长。"
+      ]
+    },
+    "c10802": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发。选择一个己方式神，从牌库中随机抽一张该式神的牌。",
+      "target": "ally-unit-any-state",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "INSTANT"
+      ],
+      "tags": [],
+      "effect": "peach-search",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-search",
+          "target": "selected-character",
+          "value": null
+        }
+      ],
+      "formHooks": []
+    },
+    "c10803": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "不消耗鬼火。鼓舞：获得+2力量与+2护甲。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "ENCOURAGE"
+      ],
+      "tags": [],
+      "effect": "peach-encourage",
+      "value": {
+        "attack": 2,
+        "shield": 2
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-encourage",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "shield": 2
+          }
+        }
+      ],
+      "formHooks": [],
+      "encourage": null
+    },
+    "c10804": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "入场和己方回合开始时，随机为一个己方受伤式神恢复3点生命。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "入场和己方回合开始时，随机为一个己方受伤式神恢复3点生命。",
+      "formRules": {
+        "peachRandomHeal": {
+          "amount": 3,
+          "repeats": 1
+        }
+      }
+    },
+    "c10805": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "入场和己方回合开始时，随机为一个己方受伤式神恢复2点生命，将此过程再重复2次。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "入场和己方回合开始时，随机为一个己方受伤式神恢复2点生命，将此过程再重复2次。",
+      "formRules": {
+        "peachRandomHeal": {
+          "amount": 2,
+          "repeats": 3
+        }
+      }
+    },
+    "c10807": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "若桃花妖未气绝，此牌获得瞬发。复活所有己方式神。（桃花妖气绝时可用）",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "effect": "peach-revive-all",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-revive-all",
+          "target": "source",
+          "value": null
+        }
+      ],
+      "formHooks": [],
+      "allowKnockedSource": true,
+      "aliveSourceInstant": true,
+      "verificationPending": [
+        "桃花妖自身气绝时群体复活：当前先全体复活再统一触发成长，避免站位顺序影响；自身和同组其他式神是否都获得成长仍需对应版本实测。"
+      ]
+    },
+    "c10808": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "复活一个己方式神并使其获得迅捷。",
+      "target": "knocked-ally-any-level",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "复活",
+        "迅捷"
+      ],
+      "effect": "peach-revive",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-revive",
+          "target": "selected-character",
+          "value": null
+        }
+      ],
+      "formHooks": []
+    },
+    "c10809": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "觉醒：桃花妖治疗或复活己方式神时，使该式神永久获得2力量及2生命。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "effect": "peach-awaken",
+      "value": {
+        "attack": 2,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "peach-awaken",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 1
+          }
+        }
+      ],
+      "formHooks": []
+    }
+  }
+}

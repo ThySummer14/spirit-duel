@@ -1,0 +1,48 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PHOENIX_FAIL two damage instances count separately
+PHOENIX_FAIL spell resolves then projectile hits surviving front
+PHOENIX_FAIL projectile re-evaluates front after spell kill
+PHOENIX_FAIL only exposed avatar projectile counts
+PHOENIX_FAIL swarm damages every enemy unit once
+PHOENIX_FAIL swarm has only passive avatar damage
+PHOENIX_FAIL repeated awakening stacks body only, no duplicate projectile
+PHOENIX_FAIL knocked phoenix cannot project teammate spells
+PHOENIX_FAIL history and awakened state survive knockout
+PHOENIX_FAIL unawakened phoenix ignores teammate spell
+PHOENIX_FAIL stun blocks own plays but not teammate ability trigger
+PHOENIX_FAIL surviving target does not take unconditional avatar followup
+PHOENIX_FAIL killing reserve deals exact followup then front projectile
+PHOENIX_FAIL passive killing survivor does not retroactively trigger ignite reward
+PHOENIX_FAIL barrier blocks ignite kill condition
+PHOENIX_FAIL armor prevents ignite kill condition
+PHOENIX_FAIL play c12407
+PHOENIX_FAIL friendly kill follows target controller, passive stays hostile
+PHOENIX_FAIL play c12407
+PHOENIX_FAIL self knockout cannot project after own completed spell
+PHOENIX_FAIL burning feathers has printed 4/6 body
+PHOENIX_FAIL burning feathers buffs both noncombat damage instances once
+PHOENIX_FAIL live targeted card description includes own bonus
+PHOENIX_FAIL ignite buffs initial hit and kill followup independently
+PHOENIX_FAIL burning feathers never buffs ordinary combat
+PHOENIX_FAIL cloud form replaces feather damage bonus
+SCRIPT ERROR: Invalid access to property or key 'last' on a base object of type 'Dictionary'.
+          at: _forms (res://scripts/verify_phoenix.gd:147)
+          GDScript backtrace (most recent call first):
+              [0] _forms (res://scripts/verify_phoenix.gd:147)
+              [1] _initialize (res://scripts/verify_phoenix.gd:36)
+PHOENIX_FAIL ordinary combat contributes exactly one historical hit
+PHOENIX_FAIL history accumulates spell and ability hits
+PHOENIX_FAIL dance display follows total historical damage instances
+PHOENIX_FAIL dance damage uses prior history then records its own hit and passive
+PHOENIX_FAIL dance overflow subtracts armor and HP, then passive targets exposed avatar
+SCRIPT ERROR: Invalid access to property or key 'phoenixAvatarHits' on a base object of type 'Dictionary'.
+          at: _enhancement (res://scripts/verify_phoenix.gd:190)
+          GDScript backtrace (most recent call first):
+              [0] _enhancement (res://scripts/verify_phoenix.gd:190)
+              [1] _initialize (res://scripts/verify_phoenix.gd:37)
+PHOENIX_FAIL any-unit includes both teams
+PHOENIX_FAIL any-unit rejects inactive and knocked targets
+PHOENIX_FAIL AI recognizes enhanced piercing lethal
+PHOENIX_FAIL snapshot version conflict is retained in audit
+PHOENIX checks=76 failures=35

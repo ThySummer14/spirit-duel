@@ -1,0 +1,52 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+ERROR: Invalid polygon data, triangulation failed.
+   at: canvas_item_add_polygon (servers/rendering/renderer_canvas_cull.cpp:1770)
+   GDScript backtrace (most recent call first):
+       [0] _art_polygon (res://scripts/ui/card_face.gd:191)
+       [1] _draw_portrait (res://scripts/ui/card_face.gd:218)
+       [2] _draw (res://scripts/ui/card_face.gd:123)
+PRESENTATION checks=120 failures=0
+PRESENTATION_OK

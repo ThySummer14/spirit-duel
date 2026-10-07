@@ -1,0 +1,5 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+STEEL_WIND_FAIL revival does not double-tick preserved timer
+STEEL_WIND_FAIL living countdown advances at owner's turn start
+STEEL_WIND checks=115 failures=2

@@ -1,0 +1,13 @@
+{
+  "sample": "targeted-response-opponent-turn",
+  "seed": 777004,
+  "match": true,
+  "finalDiffs": [],
+  "stepDiffs": [],
+  "summary": {
+    "finalDiffCount": 0,
+    "stepDiffCount": 0,
+    "jsSteps": 4,
+    "godotSteps": 4
+  }
+}

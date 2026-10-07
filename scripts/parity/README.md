@@ -1,6 +1,6 @@
 # 双实现对拍（浏览器 JS ↔ Godot）
 
-目的：用同一确定性样本验证 `game-core.js` 与 `godot/scripts/game_state.gd` 在可观察状态上一致，作为纵向切片的迁移门槛。
+目的：用同一确定性样本验证 `game-core.js` 与 `godot/scripts/game_state.gd` 在可观察状态上一致，作为共享基础行为的回归检查。原版资料优先于历史 JS 映射；`godot/content/verified_rules.json` 中的已核对卡牌不能为迁就对拍而改回旧近似效果。该样本集不证明全库规则还原。
 
 ## 运行
 
@@ -24,7 +24,7 @@
 | `sample-self-damage-rewards.json` | 自伤与抽牌/鬼火/觉醒组合；自动目标牌拒绝额外目标，缺失指定目标不改打核心 |
 | `sample-signed-debuff.json` | 指定敌方的带符号属性变化；正值与无指定目标的全体效果保留 JS 当前语义 |
 | `sample-bounce-spell.json` | 风神一扇将存活敌方移回准备区，随后法术被动命中空场核心 |
-| `sample-shield-team.json` | 风符·护给存活己方加盾，气绝队友不加盾 |
+| `sample-shield-team.json` | 历史错误映射样本：旧 JS 把风符·护当作全队护盾；已核对 Godot 改为牌手护甲，预期不再一致，正确回归见 `verify_yimulian.gd` |
 | `sample-self-damage.json` | 切腹先对来源式神造成伤害，气绝后不再获得后续成长 |
 | `sample-turn-token.json` | 回合抽牌先于被动生成牌，验证起手与后续回合的手牌顺序 |
 | `sample-growth.json` | 受伤角色觉醒时生命上限只增长一次，不额外治疗已有伤势 |
@@ -57,7 +57,7 @@
 
 - 开局发牌、LCG RNG（`rng = rng*1664525+1013904223`）、Fisher–Yates 洗牌
 - 首位角色免费 1 勾、齐头并进升勾、回合开始抽 1、战斗区回退时机
-- 出入前线、空前线打核心、气绝 +1 核心、不屈、晶裂
+- 出入前线、空前线打核心、气绝本身不额外造成核心伤害、不屈、晶裂
 - 贯通溢出 / 连击追伤 / 先攻免反击 / 远程不进前线不反击 / 暴击翻倍
 - 形态数值与 formHooks（被动注册表同名 effect）
 - **结束回合不强制升勾**（升勾只卡出牌/出击），与 JS 一致
@@ -82,3 +82,5 @@
 `injectHp` 可为指定 `player` / `unit` 设置合法范围内的 `hp`，用于受伤状态的回归样本；不影响正式对局创建。
 
 快照同时比较 `handCards` 与 `deckCards` 的 definitionId 顺序，避免张数相同却抽错、烧错或洗错牌被误判一致。
+
+2026-10-07：Godot 鼓舞改为仅出击消耗，普通战斗牌不消耗；一目连形态使用印刷基础身材及真实进退场规则。旧 JS 对拍不能覆盖这批规则，来源与替代回归见 [核对记录](../../research-notes/12-yimulian-form-lifecycle.md)。

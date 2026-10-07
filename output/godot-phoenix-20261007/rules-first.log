@@ -1,0 +1,89 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Function "_resolve_combat_entered()" not found in base self.
+          at: GDScript::reload (res://scripts/game_state.gd:755)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/verify_phoenix.gd:0)
+ERROR: Failed to load script "res://scripts/verify_phoenix.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:50)
+SCRIPT ERROR: Invalid call. Nonexistent function 'create' in base 'GDScript'.
+          at: fixture (res://scripts/verify_phoenix.gd:15)
+          GDScript backtrace (most recent call first):
+              [0] fixture (res://scripts/verify_phoenix.gd:15)
+              [1] _basic (res://scripts/verify_phoenix.gd:45)
+              [2] _initialize (res://scripts/verify_phoenix.gd:34)
+SCRIPT ERROR: Invalid call. Nonexistent function 'player' in base 'Nil'.
+          at: _basic (res://scripts/verify_phoenix.gd:46)
+          GDScript backtrace (most recent call first):
+              [0] _basic (res://scripts/verify_phoenix.gd:46)
+              [1] _initialize (res://scripts/verify_phoenix.gd:34)
+SCRIPT ERROR: Invalid call. Nonexistent function 'create' in base 'GDScript'.
+          at: fixture (res://scripts/verify_phoenix.gd:15)
+          GDScript backtrace (most recent call first):
+              [0] fixture (res://scripts/verify_phoenix.gd:15)
+              [1] _ignite (res://scripts/verify_phoenix.gd:91)
+              [2] _initialize (res://scripts/verify_phoenix.gd:35)
+SCRIPT ERROR: Invalid call. Nonexistent function 'player' in base 'Nil'.
+          at: _ignite (res://scripts/verify_phoenix.gd:92)
+          GDScript backtrace (most recent call first):
+              [0] _ignite (res://scripts/verify_phoenix.gd:92)
+              [1] _initialize (res://scripts/verify_phoenix.gd:35)
+SCRIPT ERROR: Invalid call. Nonexistent function 'create' in base 'GDScript'.
+          at: fixture (res://scripts/verify_phoenix.gd:15)
+          GDScript backtrace (most recent call first):
+              [0] fixture (res://scripts/verify_phoenix.gd:15)
+              [1] _forms (res://scripts/verify_phoenix.gd:129)
+              [2] _initialize (res://scripts/verify_phoenix.gd:36)
+SCRIPT ERROR: Invalid access to property or key 'next_card_id' on a base object of type 'Nil'.
+          at: give (res://scripts/verify_phoenix.gd:26)
+          GDScript backtrace (most recent call first):
+              [0] give (res://scripts/verify_phoenix.gd:26)
+              [1] play (res://scripts/verify_phoenix.gd:31)
+              [2] _forms (res://scripts/verify_phoenix.gd:130)
+              [3] _initialize (res://scripts/verify_phoenix.gd:36)
+SCRIPT ERROR: Invalid call. Nonexistent function 'play_card' in base 'Nil'.
+          at: play (res://scripts/verify_phoenix.gd:31)
+          GDScript backtrace (most recent call first):
+              [0] play (res://scripts/verify_phoenix.gd:31)
+              [1] _forms (res://scripts/verify_phoenix.gd:130)
+              [2] _initialize (res://scripts/verify_phoenix.gd:36)
+SCRIPT ERROR: Invalid call. Nonexistent function 'player' in base 'Nil'.
+          at: _forms (res://scripts/verify_phoenix.gd:131)
+          GDScript backtrace (most recent call first):
+              [0] _forms (res://scripts/verify_phoenix.gd:131)
+              [1] _initialize (res://scripts/verify_phoenix.gd:36)
+SCRIPT ERROR: Invalid call. Nonexistent function 'create' in base 'GDScript'.
+          at: fixture (res://scripts/verify_phoenix.gd:15)
+          GDScript backtrace (most recent call first):
+              [0] fixture (res://scripts/verify_phoenix.gd:15)
+              [1] _enhancement (res://scripts/verify_phoenix.gd:167)
+              [2] _initialize (res://scripts/verify_phoenix.gd:37)
+SCRIPT ERROR: Invalid call. Nonexistent function 'basic_attack' in base 'Nil'.
+          at: _enhancement (res://scripts/verify_phoenix.gd:168)
+          GDScript backtrace (most recent call first):
+              [0] _enhancement (res://scripts/verify_phoenix.gd:168)
+              [1] _initialize (res://scripts/verify_phoenix.gd:37)
+SCRIPT ERROR: Invalid call. Nonexistent function 'create' in base 'GDScript'.
+          at: fixture (res://scripts/verify_phoenix.gd:15)
+          GDScript backtrace (most recent call first):
+              [0] fixture (res://scripts/verify_phoenix.gd:15)
+              [1] _targets_ai (res://scripts/verify_phoenix.gd:207)
+              [2] _initialize (res://scripts/verify_phoenix.gd:38)
+SCRIPT ERROR: Invalid call. Nonexistent function 'valid_targets' in base 'Nil'.
+          at: _targets_ai (res://scripts/verify_phoenix.gd:209)
+          GDScript backtrace (most recent call first):
+              [0] _targets_ai (res://scripts/verify_phoenix.gd:209)
+              [1] _initialize (res://scripts/verify_phoenix.gd:38)
+SCRIPT ERROR: Invalid call. Nonexistent function 'create' in base 'GDScript'.
+          at: fixture (res://scripts/verify_phoenix.gd:15)
+          GDScript backtrace (most recent call first):
+              [0] fixture (res://scripts/verify_phoenix.gd:15)
+              [1] _boundaries (res://scripts/verify_phoenix.gd:235)
+              [2] _initialize (res://scripts/verify_phoenix.gd:39)
+SCRIPT ERROR: Invalid call. Nonexistent function 'player' in base 'Nil'.
+          at: _boundaries (res://scripts/verify_phoenix.gd:236)
+          GDScript backtrace (most recent call first):
+              [0] _boundaries (res://scripts/verify_phoenix.gd:236)
+              [1] _initialize (res://scripts/verify_phoenix.gd:39)
+PHOENIX checks=0 failures=0
+PHOENIX_OK

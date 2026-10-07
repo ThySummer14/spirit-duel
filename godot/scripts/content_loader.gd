@@ -3,6 +3,7 @@ extends RefCounted
 ## Loads shared content.json and exposes playable subsets that tolerate growth.
 
 const CONTENT_PATH := "res://content/content.json"
+const VERIFIED_RULES_PATH := "res://content/verified_rules.json"
 
 const RULE_DEFAULTS := {
 	"lineupSize": 4,
@@ -29,6 +30,26 @@ static func load_content(force: bool = false) -> Dictionary:
 		return _cache
 	var units: Array = payload.get("units", [])
 	var cards: Array = payload.get("cards", [])
+	# Audited native rules take precedence over historical playable approximations.
+	# The overlay is checked in, source-backed, and survives shared-content exports.
+	var verified = JSON.parse_string(FileAccess.get_file_as_string(VERIFIED_RULES_PATH))
+	if not verified is Dictionary or int(verified.get("schema", 0)) != 1:
+		push_error("Invalid verified rules contract")
+		return {}
+	for group in ["units", "cards"]:
+		var definitions: Array = units if group == "units" else cards
+		for id in verified.get(group, {}):
+			var found := false
+			for definition in definitions:
+				if definition.get("id") == id:
+					if group == "cards": definition.sourceSnapshotText = definition.get("officialText", "")
+					definition.merge(verified[group][id].duplicate(true), true)
+					if group == "cards": definition.officialText = definition.text
+					found = true
+					break
+			if not found:
+				push_error("Verified rule references missing definition: " + str(id))
+				return {}
 	var rules: Dictionary = RULE_DEFAULTS.duplicate()
 	var raw_rules = payload.get("rules")
 	if raw_rules is Dictionary:

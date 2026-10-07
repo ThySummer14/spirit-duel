@@ -74,7 +74,7 @@ func _run() -> void:
 	_cast("wardline", "realm", "realm", "auto")
 	_cast("soul-tithe", "resource", "resource", "auto")
 	# 群体伤害必须覆盖全部实际受伤目标；不能只给显式 target 放一个光团。
-	var area := _fixture("c10503")
+	var area := _fixture("c10506")
 	var initial := _snapshot(area)
 	_check(area.play_card(0, 0), "wind area spell resolves")
 	var area_cues := Cues.build(initial, _snapshot(area), area.command_log)

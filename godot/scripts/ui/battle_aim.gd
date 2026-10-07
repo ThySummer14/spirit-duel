@@ -4,6 +4,7 @@ var origin := Vector2.ZERO
 var endpoint := Vector2.ZERO
 var valid := false
 var over_target := false
+var hint := ""
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -26,3 +27,10 @@ func _draw() -> void:
 	draw_circle(origin, 4.0, color)
 	if over_target:
 		draw_arc(endpoint, 22.0, 0, TAU, 40, Color(color, 0.75), 2.0, true)
+	if valid and not hint.is_empty():
+		var font := ThemeBuilder.sys_font()
+		var extent := font.get_string_size(hint, HORIZONTAL_ALIGNMENT_LEFT, -1, 16)
+		var at := endpoint + Vector2(-extent.x * 0.5, -48)
+		at.x = clampf(at.x, 12, maxf(12, size.x - extent.x - 12))
+		draw_style_box(ThemeBuilder.glass(0.94, color, 6), Rect2(at + Vector2(-8, -22), extent + Vector2(16, 10)))
+		draw_string(font, at, hint, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("e9f7eb"))

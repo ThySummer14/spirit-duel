@@ -187,6 +187,19 @@ static func make_unit_popover(unit: Dictionary) -> PanelContainer:
 	if int(unit.get("armorBreak", 0)) > 0: chips.add_child(ThemeBuilder.chip("破甲 %d" % int(unit.armorBreak), ThemeBuilder.WARN))
 	if int(unit.get("brittle", 0)) > 0: chips.add_child(ThemeBuilder.chip("晶裂 ×%d" % int(unit.brittle), Color("e08aa2")))
 	if int(unit.get("charge", 0)) > 0: chips.add_child(ThemeBuilder.chip("充能 %d" % int(unit.charge), ThemeBuilder.INFO))
+	if unit.get("barrier", false): chips.add_child(ThemeBuilder.chip("屏障 · 抵挡下一次伤害", ThemeBuilder.INFO))
+	if unit.get("swift", false): chips.add_child(ThemeBuilder.chip("迅捷 · 下次普通出击不消耗鬼火", ThemeBuilder.OK))
+	if unit.has("spellsUsed"): chips.add_child(ThemeBuilder.chip("已使用法术 %d" % int(unit.spellsUsed), ThemeBuilder.INFO))
+	var pending_shield := 0
+	for pending in unit.get("pendingShields", []): pending_shield += int(pending.amount)
+	if pending_shield > 0: chips.add_child(ThemeBuilder.chip("下回合护甲 +%d" % pending_shield, ThemeBuilder.INFO))
+	var countdown: Dictionary = CountdownRules.timer(unit)
+	if not countdown.is_empty():
+		var ability_name := str(CountdownRules.mode(unit).get("name", "")) if countdown.has("mode") else str(countdown.card.name)
+		chips.add_child(ThemeBuilder.chip("倒计时 %d · %s%s" % [int(countdown.remaining), ability_name, "（气绝暂停）" if int(unit.hp) <= 0 else ""], ThemeBuilder.INFO))
+	if not unit.get("formCountdown", {}).is_empty() and unit.formCountdown.card.formRules.get("countdownEffects", []).any(func(e): return e.action == "expanding-random-damage"):
+		chips.add_child(ThemeBuilder.chip("龙 · 下次最多%d个目标" % mini(5, int(unit.formCountdown.triggers) + 1), ThemeBuilder.INFO))
+	if unit.has("formExpiresTurn"): chips.add_child(ThemeBuilder.chip("本回合结束自毁", ThemeBuilder.WARN))
 	if unit.get("unyielding", false): chips.add_child(ThemeBuilder.chip("不屈", ThemeBuilder.GOLD))
 	if unit.get("awakened", false): chips.add_child(ThemeBuilder.chip("已觉醒", ThemeBuilder.TYPE_AWAKEN))
 	if unit.get("form") is Dictionary and not (unit.form as Dictionary).is_empty():
@@ -195,6 +208,17 @@ static func make_unit_popover(unit: Dictionary) -> PanelContainer:
 	else: chips.free()
 	vbox.add_child(ThemeBuilder.hline())
 	var def := ContentLoader.unit_def(str(unit.get("id", "")))
+	if not unit.get("abilityCountdown", {}).is_empty():
+		var ability := CountdownRules.mode(unit)
+		var poison: bool = def.get("countdownAbility", {}).get("poisonHistory", false)
+		vbox.add_child(_titled(("当前能力 · " if poison else "当前曲目 · ") + str(ability.name), "倒计时%d：" % int(unit.abilityCountdown.reset) + str(ability.text), ThemeBuilder.GOLD, false))
+		if not poison:
+			var history: Array[String] = []
+			for key in unit.get("abilityHistory", []): history.append(str(CountdownRules.mode(unit, str(key)).name))
+			vbox.add_child(_titled("大合奏已记录", "、".join(history) if not history.is_empty() else "尚未触发基础能力", ThemeBuilder.INFO, false))
+		if unit.get("formAbility"):
+			vbox.add_child(_titled("形态能力", str(unit.formAbility), ThemeBuilder.TYPE_FORM, false))
+		return panel
 	var passive = def.get("passive", {})
 	if passive is Dictionary and passive.get("text"):
 		vbox.add_child(_titled("被动 · %s" % passive.get("name", ""), str(passive.text), ThemeBuilder.GOLD, unit.get("awakened", false)))

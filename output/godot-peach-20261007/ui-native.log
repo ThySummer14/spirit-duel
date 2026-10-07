@@ -1,0 +1,93 @@
+WorkerThreadPool: 10 threads, 3 max low-priority.
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+TextServer: Added interface "Dummy" (dummy)
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)" (advanced)
+SDL: Init OK!
+Accessibility: AccessKit driver loaded.
+Accessibility: window 0 adapter created.
+Using "default" pen tablet driver...
+OpenGL debugging not supported!
+Shader 'CanvasSdfShaderGLES3' SHA256: 2c02992750422d0a2684894bb0c504f90877a42e1d9d6a4e8f61c8e7ec2c7a57
+Shader 'SkeletonShaderGLES3' SHA256: 4c4add4b54bec61d7d80ac9f0d05ffe8ddc0c5aba3830b88332cc060221d8057
+Shader 'ParticlesShaderGLES3' SHA256: 65e1f71f6896c7c360eb859792191d3006466121b89fcacd8d2321492a6d655a
+Shader 'ParticlesCopyShaderGLES3' SHA256: a6e252b517ecb45c5a2969bf6728b9ffa4a18b2cee30c6cdb2daa32f3a71b67a
+Shader 'CopyShaderGLES3' SHA256: 8554343db2d85f101a2215a4139e262eae9f0a8f4432fa311c7dfba56fbb0ca6
+Shader 'CubemapFilterShaderGLES3' SHA256: 71561c9c9500513aae7b9f3bfa5d4cff990b6dd31177ed3706219661f92c522b
+Shader 'GlowShaderGLES3' SHA256: 1a87a7cf19f4d56af9eae09f5c6825e559eac17d3053548ec6e7dc2080560dae
+Shader 'PostShaderGLES3' SHA256: 992b5e6acec81ac1364c47bcfc4f5f23ab28e84b3c69173a580688d58b6f0b5c
+Shader 'FeedShaderGLES3' SHA256: 187c3c4d3974f2c687e49fc4d3769bc976a9ec8788e828fac9e288846761c378
+Shader 'CanvasShaderGLES3' SHA256: 02d65dec2f7383555a0e375e838a0f671c89a9dc5d68c8d4b06036511a425019
+Shader 'CanvasOcclusionShaderGLES3' SHA256: 1f33c9844bf4e76cabb3218323a6d8b98712d2a09af19e27eb0b74a70818a0e1
+Shader 'SceneShaderGLES3' SHA256: 50cce82fb173e3637cfd3468435bd2d5f2e798fc4cbf34e593dd4ddfc3d313df
+Shader 'SkyShaderGLES3' SHA256: d4ee2d50942e0303146528f9cf45376bde206fe0898f86895ada12af3e63eef0
+Shader 'TexBlitShaderGLES3' SHA256: d85ccb2ac36d53afad4ec33abd575567928bb034afcae6cb17b52489382e610a
+OpenGL API 4.1 Metal - 91.7 - Compatibility - Using Device: Apple - Apple M5
+CoreAudio: detected 2 channels
+CoreAudio: output sampling rate: 48000 Hz
+CoreAudio: output audio buffer frames: 512 calculated latency: 10ms
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)" (advanced).
+TextureStreaming settings: enabled=0, budget_mb=512, min_lod=0, max_lod=3
+CORE API HASH: 1240022292
+EDITOR API HASH: 2891737124
+Loading resource: res://scripts/verify_peach_ui.gd remapped: res://scripts/verify_peach_ui.gd
+Completed load for: 'res://scripts/verify_peach_ui.gd' remapped 'res://scripts/verify_peach_ui.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Loading resource: res://assets/fonts/NotoSansSC.ttf remapped: res://assets/fonts/NotoSansSC.ttf
+Loading resource: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata remapped: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata
+Completed load for: 'res://assets/fonts/NotoSansSC.ttf' remapped 'res://assets/fonts/NotoSansSC.ttf' at thread -1
+Loading resource: res://assets/scenery/battle-pond-v2.png remapped: res://assets/scenery/battle-pond-v2.png
+Loading resource: res://.godot/imported/battle-pond-v2.png-8f6dbab867ef7e34c212dd8c9c4d1677.ctex remapped: res://.godot/imported/battle-pond-v2.png-8f6dbab867ef7e34c212dd8c9c4d1677.ctex
+Completed load for: 'res://assets/scenery/battle-pond-v2.png' remapped 'res://assets/scenery/battle-pond-v2.png' at thread -1
+Loading resource: res://assets/fonts/NotoSerifSC.ttf remapped: res://assets/fonts/NotoSerifSC.ttf
+Loading resource: res://.godot/imported/NotoSerifSC.ttf-f9681ab396cd468c5f1aa660d91a9cf1.fontdata remapped: res://.godot/imported/NotoSerifSC.ttf-f9681ab396cd468c5f1aa660d91a9cf1.fontdata
+Completed load for: 'res://assets/fonts/NotoSerifSC.ttf' remapped 'res://assets/fonts/NotoSerifSC.ttf' at thread -1
+Loading resource: res://assets/redrawn/classic/taohuayao.png remapped: res://assets/redrawn/classic/taohuayao.png
+Loading resource: res://.godot/imported/taohuayao.png-68752b35a1966e0515e970fff10ee04b.ctex remapped: res://.godot/imported/taohuayao.png-68752b35a1966e0515e970fff10ee04b.ctex
+Completed load for: 'res://assets/redrawn/classic/taohuayao.png' remapped 'res://assets/redrawn/classic/taohuayao.png' at thread -1
+Loading resource: res://assets/ink.svg remapped: res://assets/ink.svg
+Loading resource: res://.godot/imported/ink.svg-bc38f2bcf6391a433c194cc7778502fb.ctex remapped: res://.godot/imported/ink.svg-bc38f2bcf6391a433c194cc7778502fb.ctex
+Completed load for: 'res://assets/ink.svg' remapped 'res://assets/ink.svg' at thread -1
+Loading resource: res://assets/audio/bgm_battle.wav remapped: res://assets/audio/bgm_battle.wav
+Loading resource: res://.godot/imported/bgm_battle.wav-21248085976eea3dec3574fbb2308a3f.sample remapped: res://.godot/imported/bgm_battle.wav-21248085976eea3dec3574fbb2308a3f.sample
+Completed load for: 'res://assets/audio/bgm_battle.wav' remapped 'res://assets/audio/bgm_battle.wav' at thread -1
+Loading resource: res://assets/redrawn/classic/yimulian.png remapped: res://assets/redrawn/classic/yimulian.png
+Loading resource: res://.godot/imported/yimulian.png-37199b8d16a332ef101af919ab84d56e.ctex remapped: res://.godot/imported/yimulian.png-37199b8d16a332ef101af919ab84d56e.ctex
+Completed load for: 'res://assets/redrawn/classic/yimulian.png' remapped 'res://assets/redrawn/classic/yimulian.png' at thread -1
+Loading resource: res://assets/redrawn/classic/zhen.png remapped: res://assets/redrawn/classic/zhen.png
+Loading resource: res://.godot/imported/zhen.png-aae7537d2dd96bf388472ad83b52cb7b.ctex remapped: res://.godot/imported/zhen.png-aae7537d2dd96bf388472ad83b52cb7b.ctex
+Completed load for: 'res://assets/redrawn/classic/zhen.png' remapped 'res://assets/redrawn/classic/zhen.png' at thread -1
+Loading resource: res://assets/redrawn/origin/basalt.png remapped: res://assets/redrawn/origin/basalt.png
+Loading resource: res://.godot/imported/basalt.png-693906ab69de26285faa8fe85e8bee89.ctex remapped: res://.godot/imported/basalt.png-693906ab69de26285faa8fe85e8bee89.ctex
+Completed load for: 'res://assets/redrawn/origin/basalt.png' remapped 'res://assets/redrawn/origin/basalt.png' at thread -1
+Loading resource: res://assets/audio/card_draw.wav remapped: res://assets/audio/card_draw.wav
+Loading resource: res://.godot/imported/card_draw.wav-3058533a9903911fb40c994d5f5b99ee.sample remapped: res://.godot/imported/card_draw.wav-3058533a9903911fb40c994d5f5b99ee.sample
+Completed load for: 'res://assets/audio/card_draw.wav' remapped 'res://assets/audio/card_draw.wav' at thread -1
+Loading resource: res://assets/audio/card_hover.wav remapped: res://assets/audio/card_hover.wav
+Loading resource: res://.godot/imported/card_hover.wav-5e21f3dbc07af630b288b4c71ab7f44f.sample remapped: res://.godot/imported/card_hover.wav-5e21f3dbc07af630b288b4c71ab7f44f.sample
+Completed load for: 'res://assets/audio/card_hover.wav' remapped 'res://assets/audio/card_hover.wav' at thread -1
+Loading resource: res://assets/audio/ui_click.wav remapped: res://assets/audio/ui_click.wav
+Loading resource: res://.godot/imported/ui_click.wav-27a1a14815f4272c438d6dd4385cee0b.sample remapped: res://.godot/imported/ui_click.wav-27a1a14815f4272c438d6dd4385cee0b.sample
+Completed load for: 'res://assets/audio/ui_click.wav' remapped 'res://assets/audio/ui_click.wav' at thread -1
+Loading resource: res://assets/audio/card_play.wav remapped: res://assets/audio/card_play.wav
+Loading resource: res://.godot/imported/card_play.wav-413f02181f35d346e9ab1f24b3840a88.sample remapped: res://.godot/imported/card_play.wav-413f02181f35d346e9ab1f24b3840a88.sample
+Completed load for: 'res://assets/audio/card_play.wav' remapped 'res://assets/audio/card_play.wav' at thread -1
+Loading resource: res://assets/audio/heal.wav remapped: res://assets/audio/heal.wav
+Loading resource: res://.godot/imported/heal.wav-931ca7a754542f5b94f13b00622da730.sample remapped: res://.godot/imported/heal.wav-931ca7a754542f5b94f13b00622da730.sample
+Completed load for: 'res://assets/audio/heal.wav' remapped 'res://assets/audio/heal.wav' at thread -1
+Loading resource: res://assets/audio/attack.wav remapped: res://assets/audio/attack.wav
+Loading resource: res://.godot/imported/attack.wav-825b62c1f9509f7d19a957a51a526957.sample remapped: res://.godot/imported/attack.wav-825b62c1f9509f7d19a957a51a526957.sample
+Completed load for: 'res://assets/audio/attack.wav' remapped 'res://assets/audio/attack.wav' at thread -1
+Loading resource: res://assets/audio/core_hit.wav remapped: res://assets/audio/core_hit.wav
+Loading resource: res://.godot/imported/core_hit.wav-673e838d2e735159c881503efab27bba.sample remapped: res://.godot/imported/core_hit.wav-673e838d2e735159c881503efab27bba.sample
+Completed load for: 'res://assets/audio/core_hit.wav' remapped 'res://assets/audio/core_hit.wav' at thread -1
+Loading resource: res://assets/scenery/battle-pond-v2.png remapped: res://assets/scenery/battle-pond-v2.png
+Loading resource: res://.godot/imported/battle-pond-v2.png-8f6dbab867ef7e34c212dd8c9c4d1677.ctex remapped: res://.godot/imported/battle-pond-v2.png-8f6dbab867ef7e34c212dd8c9c4d1677.ctex
+Completed load for: 'res://assets/scenery/battle-pond-v2.png' remapped 'res://assets/scenery/battle-pond-v2.png' at thread -1
+PEACH_UI checks=48 failures=0
+PEACH_UI_OK
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Accessibility: window 0 adapter destroyed.

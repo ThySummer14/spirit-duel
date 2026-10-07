@@ -1,0 +1,47 @@
+WorkerThreadPool: 10 threads, 3 max low-priority.
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+TextServer: Added interface "Dummy" (dummy)
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)" (advanced)
+SDL: Init OK!
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)" (advanced).
+TextureStreaming settings: enabled=0, budget_mb=512, min_lod=0, max_lod=3
+CORE API HASH: 1240022292
+EDITOR API HASH: 2891737124
+Loading resource: res://scripts/verify_phoenix_ui.gd remapped: res://scripts/verify_phoenix_ui.gd
+Completed load for: 'res://scripts/verify_phoenix_ui.gd' remapped 'res://scripts/verify_phoenix_ui.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Loading resource: res://assets/fonts/NotoSansSC.ttf remapped: res://assets/fonts/NotoSansSC.ttf
+Loading resource: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata remapped: res://.godot/imported/NotoSansSC.ttf-53e7d2951cb723449d16fcecb813db38.fontdata
+Completed load for: 'res://assets/fonts/NotoSansSC.ttf' remapped 'res://assets/fonts/NotoSansSC.ttf' at thread -1
+Loading resource: res://assets/scenery/battle-pond-v2.png remapped: res://assets/scenery/battle-pond-v2.png
+Loading resource: res://.godot/imported/battle-pond-v2.png-8f6dbab867ef7e34c212dd8c9c4d1677.ctex remapped: res://.godot/imported/battle-pond-v2.png-8f6dbab867ef7e34c212dd8c9c4d1677.ctex
+Completed load for: 'res://assets/scenery/battle-pond-v2.png' remapped 'res://assets/scenery/battle-pond-v2.png' at thread -1
+Loading resource: res://assets/fonts/NotoSerifSC.ttf remapped: res://assets/fonts/NotoSerifSC.ttf
+Loading resource: res://.godot/imported/NotoSerifSC.ttf-f9681ab396cd468c5f1aa660d91a9cf1.fontdata remapped: res://.godot/imported/NotoSerifSC.ttf-f9681ab396cd468c5f1aa660d91a9cf1.fontdata
+Completed load for: 'res://assets/fonts/NotoSerifSC.ttf' remapped 'res://assets/fonts/NotoSerifSC.ttf' at thread -1
+Loading resource: res://assets/redrawn/classic/fenghuanghuo.png remapped: res://assets/redrawn/classic/fenghuanghuo.png
+Loading resource: res://.godot/imported/fenghuanghuo.png-cdd14e0853229eb46afd8dc3dee8ca6c.ctex remapped: res://.godot/imported/fenghuanghuo.png-cdd14e0853229eb46afd8dc3dee8ca6c.ctex
+Completed load for: 'res://assets/redrawn/classic/fenghuanghuo.png' remapped 'res://assets/redrawn/classic/fenghuanghuo.png' at thread -1
+Loading resource: res://assets/ink.svg remapped: res://assets/ink.svg
+Loading resource: res://.godot/imported/ink.svg-bc38f2bcf6391a433c194cc7778502fb.ctex remapped: res://.godot/imported/ink.svg-bc38f2bcf6391a433c194cc7778502fb.ctex
+Completed load for: 'res://assets/ink.svg' remapped 'res://assets/ink.svg' at thread -1
+Loading resource: res://assets/redrawn/classic/datiangou.png remapped: res://assets/redrawn/classic/datiangou.png
+Loading resource: res://.godot/imported/datiangou.png-97d7c0c8b55011969b3c0c49f39e5777.ctex remapped: res://.godot/imported/datiangou.png-97d7c0c8b55011969b3c0c49f39e5777.ctex
+Completed load for: 'res://assets/redrawn/classic/datiangou.png' remapped 'res://assets/redrawn/classic/datiangou.png' at thread -1
+Loading resource: res://assets/redrawn/classic/yaoginshi.png remapped: res://assets/redrawn/classic/yaoginshi.png
+Loading resource: res://.godot/imported/yaoginshi.png-4e29d0bbf3c9ba058f4ede1a8f6e01dc.ctex remapped: res://.godot/imported/yaoginshi.png-4e29d0bbf3c9ba058f4ede1a8f6e01dc.ctex
+Completed load for: 'res://assets/redrawn/classic/yaoginshi.png' remapped 'res://assets/redrawn/classic/yaoginshi.png' at thread -1
+Loading resource: res://assets/redrawn/origin/basalt.png remapped: res://assets/redrawn/origin/basalt.png
+Loading resource: res://.godot/imported/basalt.png-693906ab69de26285faa8fe85e8bee89.ctex remapped: res://.godot/imported/basalt.png-693906ab69de26285faa8fe85e8bee89.ctex
+Completed load for: 'res://assets/redrawn/origin/basalt.png' remapped 'res://assets/redrawn/origin/basalt.png' at thread -1
+Loading resource: res://assets/scenery/battle-pond-v2.png remapped: res://assets/scenery/battle-pond-v2.png
+Loading resource: res://.godot/imported/battle-pond-v2.png-8f6dbab867ef7e34c212dd8c9c4d1677.ctex remapped: res://.godot/imported/battle-pond-v2.png-8f6dbab867ef7e34c212dd8c9c4d1677.ctex
+Completed load for: 'res://assets/scenery/battle-pond-v2.png' remapped 'res://assets/scenery/battle-pond-v2.png' at thread -1
+PHOENIX_UI checks=45 failures=0
+PHOENIX_UI_OK
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

@@ -1,0 +1,13 @@
+{
+  "sample": "turn-draw-before-token-hooks",
+  "seed": 424242,
+  "match": true,
+  "finalDiffs": [],
+  "stepDiffs": [],
+  "summary": {
+    "finalDiffCount": 0,
+    "stepDiffCount": 0,
+    "jsSteps": 2,
+    "godotSteps": 2
+  }
+}

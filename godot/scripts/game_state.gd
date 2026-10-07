@@ -3,6 +3,7 @@ extends RefCounted
 ## Pure rules for the vertical slice. No UI. Seeded RNG + command log for replay.
 
 const ContentLoader := preload("res://scripts/content_loader.gd")
+const VerifiedRules := preload("res://scripts/verified_card_rules.gd")
 
 signal log_emitted(text: String, tone: String)
 signal state_changed
@@ -29,6 +30,9 @@ var resolution_stack: Array = []
 var response_window: Dictionary = {}
 var is_resolving: bool = false
 var next_resolution_id: int = 1
+var rule_events: Array = []
+var next_rule_event_id: int = 1
+var _card_effect_context: Dictionary = {}
 var phase: String = "main"
 var pending_choice: Dictionary = {}
 const MAX_RESOLUTION_STACK_LENGTH := 64
@@ -267,7 +271,7 @@ func _prepare_encourage(p_idx: int) -> Dictionary:
 	var shield := int(usage.get("shield", 0))
 	if attack <= 0 and shield <= 0:
 		return {"attack": 0, "shield": 0, "active": false}
-	# 消耗全部鼓舞（与 JS consumeCombatActivation 一致）
+	# 鼓舞只由出击消耗；普通战斗牌不会消耗。
 	usage["attack"] = 0
 	usage["shield"] = 0
 	_log("%s 出击鼓舞生效 +%d攻/+%d甲。" % [player(p_idx).name, attack, shield], TONE_SUCCESS)
@@ -310,6 +314,7 @@ func _create_player(pid: String, pname: String, deck_definition: Dictionary) -> 
 			"knockout": 0,
 			"frozen": 0,
 			"brittle": 0,
+			"armorBreak": 0,
 			"unyielding": false,
 			"level": 0,
 			"front": 0,
@@ -321,6 +326,7 @@ func _create_player(pid: String, pname: String, deck_definition: Dictionary) -> 
 			"charge": 0,
 			"passive_hooks": def.get("passive", {}).get("hooks", []) if def.get("passive") is Dictionary else [],
 		})
+		VerifiedRules.Countdown.initialize(units.back(), def)
 	var deck: Array = []
 	for card_id in deck_definition.get("cardIds", []):
 		deck.append({"instanceId": "%s-c%d" % [pid, next_card_id], "definitionId": card_id})
@@ -331,6 +337,8 @@ func _create_player(pid: String, pname: String, deck_definition: Dictionary) -> 
 		"name": pname,
 		"avatarHp": int(rules.get("startingAvatarHp", 30)),
 		"maxAvatarHp": int(rules.get("startingAvatarHp", 30)),
+		"avatarArmor": 0,
+		"avatarArmorBreak": 0,
 		"energy": 0,
 		"maxEnergy": int(rules.get("maxEnergy", 2)),
 		"deck": deck,
@@ -427,7 +435,13 @@ func hand_card_def(p_idx: int, hand_index: int) -> Dictionary:
 	var p := player(p_idx)
 	if hand_index < 0 or hand_index >= p.hand.size():
 		return {}
-	return ContentLoader.card_def(p.hand[hand_index].definitionId)
+	var card: Dictionary = VerifiedRules.Firefly.describe_card(self, p_idx, p.hand[hand_index], ContentLoader.card_def(p.hand[hand_index].definitionId))
+	var src := _source_index(p_idx, card)
+	if src >= 0:
+		card = VerifiedRules.Peach.prepare_hand_card(card, p.units[src])
+		card = VerifiedRules.Phoenix.describe_card(card, p.units[src])
+		card = VerifiedRules.SpellReplay.prepare_hand_card(card, p.units[src])
+	return card
 
 
 func _source_index(p_idx: int, card: Dictionary) -> int:
@@ -443,21 +457,37 @@ func valid_targets(p_idx: int, card: Dictionary) -> Array:
 	var own := player(p_idx)
 	var foe := player(enemy_index(p_idx))
 	var out: Array = []
-	if t == "ally-unit":
+	if t in ["any-unit", "any-living-unit", "any-character", "any-living-character"]:
+		for owner in [p_idx, enemy_index(p_idx)]:
+			for unit in player(owner).units:
+				if int(unit.hp) > 0: out.append(unit.uid)
+			if t in ["any-character", "any-living-character"]: out.append("avatar-%d" % owner)
+	elif t == "ally-unit-any-state":
+		for unit in own.units: out.append(unit.uid)
+	elif t == "enemy-front-unit":
+		var front := front_unit(enemy_index(p_idx))
+		if not front.is_empty(): out.append(front.uid)
+	elif t in ["any-unit-including-knocked", "enemy-unit-including-knocked"]:
+		for owner in ([p_idx, enemy_index(p_idx)] if t == "any-unit-including-knocked" else [enemy_index(p_idx)]):
+			for unit in player(owner).units:
+				if int(unit.level) >= 1: out.append(unit.uid)
+	elif t == "ally-unit":
 		for i in own.units.size():
 			var u: Dictionary = own.units[i]
 			if int(u.hp) > 0 and int(u.level) >= 1:
 				out.append(u.uid)
-	elif t == "knocked-ally":
+	elif t in ["knocked-ally", "knocked-ally-any-level"]:
 		for i in own.units.size():
 			var u: Dictionary = own.units[i]
-			if int(u.hp) <= 0 and int(u.level) >= 1:
+			if int(u.hp) <= 0 and (int(u.level) >= 1 or t == "knocked-ally-any-level"):
 				out.append(u.uid)
 	elif t == "enemy-unit":
 		for i in foe.units.size():
 			var u: Dictionary = foe.units[i]
 			if int(u.hp) > 0 and int(u.level) >= 1:
 				out.append(u.uid)
+		if card.get("combatOption", {}).get("pursuit", false) and front_index(enemy_index(p_idx)) < 0:
+			out.append("avatar-%d" % enemy_index(p_idx))
 	return out
 
 
@@ -500,7 +530,13 @@ func effective_card_cost(p_idx: int, card: Dictionary) -> int:
 	return int(card.get("cost", 0))
 
 
-func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> Dictionary:
+func playable_card(p_idx: int, hand_index: int, use_origin: bool = false) -> Dictionary:
+	var card := hand_card_def(p_idx, hand_index)
+	if use_origin: return card.get("originCard", {})
+	return card
+
+
+func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null, use_origin: bool = false) -> Dictionary:
 	if phase == "opening":
 		return {"ok": false, "reason": "请先确认起手牌。"}
 	if winner >= 0:
@@ -518,7 +554,7 @@ func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> Di
 	var p := player(p_idx)
 	if hand_index < 0 or hand_index >= p.hand.size():
 		return {"ok": false, "reason": "没有找到这张牌。"}
-	var card := ContentLoader.card_def(p.hand[hand_index].definitionId)
+	var card := playable_card(p_idx, hand_index, use_origin)
 	if card.is_empty():
 		return {"ok": false, "reason": "未知卡牌。"}
 	if not response_window.is_empty() and not card_matches_response_window(card):
@@ -530,12 +566,12 @@ func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> Di
 	if src < 0:
 		return {"ok": false, "reason": "缺少所属角色。"}
 	var su: Dictionary = p.units[src]
-	if int(su.hp) <= 0:
+	if int(su.hp) <= 0 and not card.get("allowKnockedSource", false):
 		return {"ok": false, "reason": "%s 已气绝，无法使用其牌。" % su.name}
 	if int(su.level) < int(card.get("level", 1)):
 		return {"ok": false, "reason": "%s 勾玉不足，需要 %d 勾。" % [su.name, int(card.get("level", 1))]}
-	if int(su.frozen) > 0 and card.get("type") == "combat":
-		return {"ok": false, "reason": "%s 处于眩晕，无法发动战斗牌。" % su.name}
+	if int(su.frozen) > 0 and (card.get("type") == "combat" or card.get("verifiedRules", false)):
+		return {"ok": false, "reason": "%s 处于眩晕，无法使用此牌。" % su.name}
 	if card.has("chargeCost") and int(su.get("charge", 0)) < int(card.get("chargeCost", 0)):
 		return {"ok": false, "reason": "充能不足：需要 %d，%s 当前为 %d。" % [int(card.chargeCost), su.name, int(su.get("charge", 0))]}
 	var t: String = card.get("target", "auto")
@@ -548,8 +584,8 @@ func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> Di
 	return {"ok": true, "reason": "", "card": card, "source_index": src}
 
 
-func play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> bool:
-	var check := can_play_card(p_idx, hand_index, target_id)
+func play_card(p_idx: int, hand_index: int, target_id: Variant = null, use_origin: bool = false) -> bool:
+	var check := can_play_card(p_idx, hand_index, target_id, use_origin)
 	if not check.ok:
 		_log(str(check.reason), TONE_DANGER)
 		return false
@@ -562,7 +598,10 @@ func play_card(p_idx: int, hand_index: int, target_id: Variant = null) -> bool:
 	var response_ctx := response_window.duplicate(true)
 	if is_response:
 		response_depth = int(response_ctx.get("depth", 0)) + 1
-	_record("play_card", {"hand": hand_index, "target": target_id, "card": inst.definitionId}, p_idx)
+	var record_args := {"hand": hand_index, "target": target_id, "card": inst.definitionId}
+	if use_origin: record_args.origin = true
+	if card.has("spellEnhancement") or card.get("phoenixSpell", false) or card.get("enhanceWhileSourceForm", false) or card.get("aliveSourceInstant", false) or card.get("formAuraDraw", false): record_args.cardView = card.duplicate(true)
+	_record("play_card", record_args, p_idx)
 	var cost := effective_card_cost(p_idx, card)
 	p.energy = int(p.energy) - cost
 	if _kw(card, "instant") and cost == 0:
@@ -619,7 +658,7 @@ func _card_matches_response(card: Dictionary) -> bool:
 	return card_matches_response_window(card)
 
 
-func _push_card_frames(p_idx: int, definition_id: String, target_id, card: Dictionary, src: int, response_depth: int) -> void:
+func _push_card_frames(p_idx: int, definition_id: String, target_id, card: Dictionary, src: int, response_depth: int, automatic: bool = false, combat_response_id: int = -1) -> void:
 	var rid := next_resolution_id
 	next_resolution_id += 1
 	var base := {
@@ -629,7 +668,11 @@ func _push_card_frames(p_idx: int, definition_id: String, target_id, card: Dicti
 		"targetId": target_id,
 		"sourceIndex": src,
 		"responseDepth": response_depth,
+		"automatic": automatic,
+		"combatResponseId": combat_response_id,
+		"affectedUnits": [],
 	}
+	if automatic or card.get("verifiedRules", false) or str(card.get("id", "")) != definition_id: base.cardOverride = card.duplicate(true)
 	var effects := _effect_list(card)
 	var complete := {
 		"kind": "card-complete",
@@ -643,28 +686,41 @@ func _push_card_frames(p_idx: int, definition_id: String, target_id, card: Dicti
 		var fr := {
 			"kind": "card-effect",
 			"effectIndex": i,
-			"respondable": i == 0 and response_depth < MAX_RESPONSE_DEPTH,
+			"respondable": not automatic and i == 0 and response_depth < MAX_RESPONSE_DEPTH,
 			"responseOffered": false,
 		}
 		fr.merge(base, true)
 		resolution_stack.append(fr)
+	var start := {"kind": "card-start", "respondable": false}
+	start.merge(base, true)
+	resolution_stack.append(start)
+	var announce := base.duplicate(true)
+	announce.kind = "card-announce"
+	resolution_stack.append(announce)
 	if resolution_stack.size() > MAX_RESOLUTION_STACK_LENGTH:
 		_log("结算栈超过安全上限。", TONE_DANGER)
 		resolution_stack.clear()
 
 
 func _create_response_window(frame: Dictionary) -> Dictionary:
-	var card := ContentLoader.card_def(str(frame.get("definitionId", "")))
+	var card: Dictionary = frame.get("cardOverride", ContentLoader.card_def(str(frame.get("definitionId", ""))))
 	var effects := _effect_list(card)
 	var idx := int(frame.get("effectIndex", 0))
 	var effect: Dictionary = effects[idx] if idx >= 0 and idx < effects.size() else {}
+	# A source-specific executor still exposes the underlying effect class to
+	# existing response cards. Choosing a friendly point-light target is growth.
+	var action := str(effect.get("action", ""))
+	var response_actions := {"phoenix-ignite": "damage", "damage-character": "damage", "peach-heal": "heal", "peach-revive": "revive", "peach-revive-all": "revive-all", "firefly-flash": "set-attack-zero-this-turn"}
+	if action == "firefly-dual-target":
+		action = "buff-stats" if _unit_index_by_uid(int(frame.playerIndex), frame.get("targetId")) >= 0 else "damage"
+	else: action = str(response_actions.get(action, action))
 	return {
 		"id": "response-%s-%s" % [frame.get("resolutionId"), frame.get("responseDepth")],
 		"playerIndex": 1 - int(frame.get("playerIndex", 0)),
 		"sourcePlayerIndex": int(frame.get("playerIndex", 0)),
 		"resolutionId": int(frame.get("resolutionId", -1)),
 		"definitionId": str(frame.get("definitionId", "")),
-		"action": str(effect.get("action", "")),
+		"action": action,
 		"target": str(effect.get("target", "")),
 		"targetId": frame.get("targetId"),
 		"consecutivePasses": 0,
@@ -702,25 +758,59 @@ func _resolve_resolution_stack() -> void:
 
 
 func _resolve_frame(frame: Dictionary) -> void:
+	if VerifiedRules.Phoenix.resolve_frame(self, frame): return
+	if frame.get("kind") == "response-complete": return
+	if frame.get("kind") == "combat-entered":
+		_resolve_combat_entered(frame)
+		return
+	if frame.get("kind") == "combat-hit":
+		_resolve_combat_hit(frame)
+		return
+	if VerifiedRules.Countdown.resolve_frame(self, frame): return
+	if VerifiedRules.Forms.resolve_frame(self, frame): return
+	if frame.get("kind") == "countdown-change":
+		VerifiedRules.Countdown.change(self, int(frame.playerIndex), int(frame.sourceIndex), int(frame.delta))
+		return
+	if frame.get("kind") == "card-announce":
+		VerifiedRules.announce_card(self, frame)
+		return
+	if frame.get("kind") == "card-counter-check":
+		VerifiedRules.cancel_pending_card(self, frame)
+		return
 	var p_idx := int(frame.get("playerIndex", 0))
-	var card := ContentLoader.card_def(str(frame.get("definitionId", "")))
+	var card: Dictionary = frame.get("cardOverride", ContentLoader.card_def(str(frame.get("definitionId", ""))))
 	var src := int(frame.get("sourceIndex", -1))
 	if card.is_empty() or src < 0:
+		return
+	if frame.get("kind") == "card-start":
+		if frame.get("automatic", false):
+			_log("%s 倒计时触发，自动使用「%s」。" % [player(p_idx).units[src].name, card.name], TONE_CARD)
+			VerifiedRules.event(self, "automatic-card", {"card": card, "uid": player(p_idx).units[src].uid, "player": p_idx, "target": frame.get("targetId")})
+		VerifiedRules.card_started(self, p_idx, src, card, bool(frame.get("automatic", false)))
 		return
 	var target_id = frame.get("targetId")
 	var target_unit := _unit_by_uid(_all_units(), target_id) if target_id != null else {}
 	if str(frame.get("kind", "")) == "card-complete":
+		_card_effect_context = frame if card.get("type") == "spell" else {}
+		VerifiedRules.SpellReplay.completed(self, frame, card)
+		VerifiedRules.Countdown.card_completed(self, p_idx, src, card)
 		if str(card.get("type", "")) == "form" and int(player(p_idx).units[src].get("hp", 0)) > 0:
 			# 形态共鸣已在 _apply_form 内回满；此处补 card-played 钩子
 			pass
 		_fire_hooks(p_idx, src, "card-played", {"card": card, "cardType": str(card.get("type", ""))})
 		_run_form_hooks(p_idx, src, "card-played", {"card": card, "cardType": str(card.get("type", ""))})
+		_card_effect_context = {}
 		return
 	var effects := _effect_list(card)
 	var idx := int(frame.get("effectIndex", 0))
 	if idx < 0 or idx >= effects.size():
 		return
+	if int(frame.get("combatResponseId", -1)) >= 0 and effects[idx].get("action") == "assault":
+		VerifiedRules.ArmorBreak.respond_combat(self, int(frame.combatResponseId), p_idx, src, card)
+		return
+	_card_effect_context = frame if card.get("type") == "spell" else {}
 	_resolve_one_effect(p_idx, src, card, effects[idx], target_id, target_unit)
+	_card_effect_context = {}
 
 
 func _resolve_one_effect(p_idx: int, src: int, card: Dictionary, effect: Dictionary, target_id, target_unit: Dictionary) -> void:
@@ -826,6 +916,7 @@ func _resolve_card_effects(p_idx: int, src: int, card: Dictionary, target_id, ta
 
 
 func _resolve_action(p_idx: int, src: int, card: Dictionary, effect: Dictionary, target_id, target_unit: Dictionary) -> void:
+	if VerifiedRules.resolve_action(self, p_idx, src, card, effect, target_unit, target_id): return
 	var action: String = str(effect.get("action", ""))
 	var value = effect.get("value", card.get("value"))
 	var et: String = str(effect.get("target", card.get("target", "auto")))
@@ -835,6 +926,13 @@ func _resolve_action(p_idx: int, src: int, card: Dictionary, effect: Dictionary,
 	match action:
 		"assault":
 			var bonus := _num(value)
+			if card.get("verifiedRules", false):
+				var options: Dictionary = card.get("combatOption", {})
+				source.shield = int(source.shield) + int(options.get("shield", 0))
+				source.shieldExpires = int(source.get("shieldExpires", 0)) + int(options.get("shield", 0))
+				_record("assault", {"unit": src, "target": target_id, "bonus": bonus}, p_idx)
+				_resolve_combat(p_idx, src, bonus, false, false, false, false, target_id, false, options)
+				return
 			var kws: Array = card.get("keywords", []) if card.get("keywords") is Array else []
 			var has_kw := false
 			for k in kws:
@@ -902,6 +1000,7 @@ func _resolve_action(p_idx: int, src: int, card: Dictionary, effect: Dictionary,
 		"shield":
 			for u in _ally_targets(p_idx, et, src, target_id, target_unit):
 				u.shield = int(u.shield) + _num(value)
+				if card.get("verifiedRules", false): u.shieldExpires = int(u.get("shieldExpires", 0)) + _num(value)
 				_log("%s 获得 %d 点护盾。" % [u.name, _num(value)], TONE_SUCCESS)
 		"fortify":
 			# enter front + shield source
@@ -1048,11 +1147,12 @@ func _enemy_targets(p_idx: int, et: String, target_unit: Dictionary) -> Array:
 func _apply_damage_action(p_idx: int, et: String, value, target_unit: Dictionary) -> void:
 	var amount := _num(value)
 	var e_idx := enemy_index(p_idx)
-	if et == "all-enemy-units":
+	if et in ["all-enemy-units", "all-enemies"]:
 		var foe := player(e_idx)
 		for i in foe.units.size():
 			if int(foe.units[i].hp) > 0:
 				_damage_unit(e_idx, i, amount, p_idx)
+		if et == "all-enemies": _damage_avatar(e_idx, amount, p_idx)
 	elif et == "enemy-avatar" or et == "ally-avatar":
 		_damage_avatar(e_idx, amount, p_idx)
 	elif et == "enemy-front":
@@ -1093,18 +1193,35 @@ func _recalc(unit: Dictionary) -> void:
 
 
 func _apply_form(p_idx: int, src: int, card: Dictionary, value: Dictionary = {}) -> void:
+	var unit: Dictionary = player(p_idx).units[src]
+	if not unit.get("form", {}).is_empty() and ContentLoader.unit_def(unit.id).has("formLifecycle"):
+		resolution_stack.append({"kind": "form-install", "playerIndex": p_idx, "sourceIndex": src, "card": card.duplicate(true), "value": value.duplicate(true)})
+		VerifiedRules.Forms.remove(self, p_idx, src, "被替换")
+		return
+	_install_form(p_idx, src, card, value)
+
+
+func _install_form(p_idx: int, src: int, card: Dictionary, value: Dictionary = {}) -> void:
 	var u: Dictionary = player(p_idx).units[src]
 	var v := value if not value.is_empty() else _value_dict(card.get("value"))
 	var atk := _num(v.get("attack", 0))
 	var hp := _num(v.get("hp", 0))
+	if v.get("setBase", false):
+		atk -= int(u.baseAttack)
+		hp -= int(u.baseMaxHp)
 	var ability: String = str(card.get("formAbility", card.get("text", "")))
 	u.form = {"attackBonus": atk, "hpBonus": hp, "name": card.get("name", "形态"), "cardId": card.get("id")}
 	u.formAbility = ability
 	u["formHooks"] = card.get("formHooks", []) if card.get("formHooks") is Array else []
+	u["formRules"] = card.get("formRules", {}).duplicate(true)
+	u.formInstalledOrder = next_rule_event_id
+	VerifiedRules.event(self, "form-installed", {"player": p_idx, "uid": u.uid, "card": card})
 	_recalc(u)
 	if int(u.hp) > 0:
 		u.hp = int(u.maxHp)
 	_log("%s 化作「%s」（+%d攻/+%d生命）。" % [u.name, card.get("name", "形态"), atk, hp], TONE_CARD)
+	VerifiedRules.Forms.attach(self, p_idx, src, card)
+	VerifiedRules.Peach.form_entered(self, p_idx, src, card)
 	if ability != "":
 		_log("形态提醒：%s" % ability, TONE_NEUTRAL)
 
@@ -1140,6 +1257,8 @@ func _deploy_realm(p_idx: int, card: Dictionary) -> void:
 		"triggerEffects": realm.get("triggerEffects", []),
 		"countdown": _num(realm.get("countdown", 0)),
 		"countdownReset": _num(realm.get("countdownReset", 0)),
+		"handCountdown": _num(realm.get("handCountdown", 0)),
+		"avatarLinked": bool(realm.get("avatarLinked", false)),
 	})
 	_log("%s 部署幻境「%s」。" % [p.name, card.get("name", "?")], TONE_CARD)
 	_fire_hooks(p_idx, -1, "realm-deployed", {})
@@ -1166,20 +1285,39 @@ func _heal_avatar(p_idx: int, amount: int) -> void:
 	_log("%s 的核心恢复 %d 点生命。" % [p.name, healed], TONE_SUCCESS)
 
 
+func _record_spell_damage(victim: int, target: String, amount: int, blocked: bool = false) -> void:
+	if _card_effect_context.is_empty(): return
+	var context := _card_effect_context
+	var card: Dictionary = context.get("cardOverride", ContentLoader.card_def(str(context.get("definitionId", ""))))
+	if card.is_empty(): return
+	var owner := int(context.playerIndex)
+	var src := int(context.sourceIndex)
+	VerifiedRules.event(self, "damage-resolved", {"player": owner, "uid": player(owner).units[src].uid, "target": target, "victimPlayer": victim, "amount": amount, "blocked": blocked, "card": card, "resolutionId": int(context.get("resolutionId", -1))})
+
+
 func _damage_unit(p_idx: int, unit_index: int, amount: int, _src_player: int) -> Dictionary:
-	# 与 game-core.js damageUnit 对齐：气绝不在此处额外打核心（由出击结算 +1）
+	# Knockout changes the unit only; avatar damage requires its own effect.
 	var p := player(p_idx)
 	if unit_index < 0 or unit_index >= p.units.size():
 		return {"damage": 0, "knocked": false, "overkill": 0}
 	var u: Dictionary = p.units[unit_index]
 	if int(u.hp) <= 0 or amount <= 0:
 		return {"damage": 0, "knocked": false, "overkill": 0}
-	var dmg := amount
+	if not _card_effect_context.is_empty() and int(_card_effect_context.playerIndex) != p_idx:
+		if not _card_effect_context.affectedUnits.has(u.uid): _card_effect_context.affectedUnits.append(u.uid)
+	if u.get("barrier", false):
+		u.barrier = false
+		_log("%s 的屏障抵挡了本次伤害。" % u.name, TONE_SUCCESS)
+		VerifiedRules.event(self, "barrier-broken", {"uid": u.uid, "player": p_idx})
+		_record_spell_damage(p_idx, str(u.uid), 0, true)
+		return {"damage": 0, "knocked": false, "overkill": 0}
+	var dmg := amount + VerifiedRules.ArmorBreak.consume(self, p_idx, unit_index)
 	if int(u.brittle) > 0:
 		dmg += 1
 		u.brittle = int(u.brittle) - 1
 	var absorbed := mini(int(u.shield), dmg)
 	u.shield = int(u.shield) - absorbed
+	u.shieldExpires = maxi(0, int(u.get("shieldExpires", 0)) - absorbed)
 	var unshielded := dmg - absorbed
 	var unyielding_save: bool = u.unyielding and int(u.hp) > 1 and unshielded >= int(u.hp)
 	var effective: int = (int(u.hp) - 1) if unyielding_save else unshielded
@@ -1195,22 +1333,58 @@ func _damage_unit(p_idx: int, unit_index: int, amount: int, _src_player: int) ->
 	var knocked := false
 	if int(u.hp) <= 0:
 		knocked = true
-		u.front = 0
-		u.knockout = int(rules.get("knockoutCountdown", 2))
-		u.shield = 0
-		u.frozen = 0
-		u.brittle = 0
-		_log("%s 气绝，将在 %d 个己方回合后归队。" % [u.name, int(u.knockout)], TONE_DANGER)
-	return {"damage": taken, "knocked": knocked, "overkill": overkill}
+		_knockout_unit(u)
+	_record_spell_damage(p_idx, str(u.uid), taken, taken == 0)
+	return {"damage": taken, "dealt": unshielded, "knocked": knocked, "overkill": overkill}
 
 
-func _damage_avatar(p_idx: int, amount: int, _src_player: int = -1) -> void:
+func _knockout_unit(u: Dictionary) -> void:
+	# Direct destruction uses the same lifecycle without fabricating damage.
+	VerifiedRules.Firefly.knocked_out(u)
+	VerifiedRules.Peach.knocked_out(u)
+	u.hp = 0
+	u.front = 0
+	u.knockout = int(rules.get("knockoutCountdown", 2))
+	u.shield = 0
+	u.frozen = 0
+	u.brittle = 0
+	u.armorBreak = 0
+	if ContentLoader.unit_def(u.id).has("formLifecycle"):
+		for owner in 2:
+			var idx := _unit_index_by_uid(owner, u.uid)
+			if idx >= 0: VerifiedRules.Forms.remove(self, owner, idx, "随式神气绝")
+	VerifiedRules.knocked_out(u)
+	u.shieldExpires = 0
+	_recalc(u)
+	_log("%s 气绝，将在 %d 个己方回合后归队。" % [u.name, int(u.knockout)], TONE_DANGER)
+
+
+func _damage_avatar(p_idx: int, amount: int, _src_player: int = -1, source_index: int = -1) -> int:
 	var p := player(p_idx)
 	if amount <= 0 or winner >= 0:
-		return
+		return 0
+	amount += VerifiedRules.ArmorBreak.consume(self, p_idx, -1)
+	var absorbed := mini(amount, int(p.get("avatarArmor", 0)))
+	p.avatarArmor = int(p.get("avatarArmor", 0)) - absorbed
+	amount -= absorbed
+	if absorbed > 0: _log("%s 的牌手护甲抵挡%d点伤害。" % [p.name, absorbed], TONE_NEUTRAL)
+	if amount <= 0:
+		_record_spell_damage(p_idx, "", 0, true)
+		return 0
+	var actual_loss := mini(int(p.avatarHp), amount)
 	p.avatarHp = maxi(0, int(p.avatarHp) - amount)
+	# Verified illusion durability follows damage to its owner as on the card.
+	for realm in p.realms.duplicate():
+		if realm.get("avatarLinked", false):
+			realm.hp = maxi(0, int(realm.hp) - amount)
+			if int(realm.hp) == 0:
+				p.realms.erase(realm)
+				_log("幻境「%s」破碎。" % realm.name, TONE_DANGER)
 	_log("%s 的核心受到 %d 点伤害。" % [p.name, amount], TONE_DANGER)
+	VerifiedRules.Phoenix.avatar_damaged(self, _src_player, source_index, p_idx, amount)
+	_record_spell_damage(p_idx, "", actual_loss)
 	_check_winner()
+	return amount
 
 
 func _check_winner() -> void:
@@ -1232,11 +1406,11 @@ func can_basic_attack(p_idx: int, unit_index: int) -> Dictionary:
 	var p := player(p_idx)
 	if p.attackUsed:
 		return {"ok": false, "reason": "本回合已经出击过。"}
-	if int(p.energy) < 1:
-		return {"ok": false, "reason": "鬼火不足。"}
 	if unit_index < 0 or unit_index >= p.units.size():
 		return {"ok": false, "reason": "该角色无法出击。"}
 	var u: Dictionary = p.units[unit_index]
+	if int(p.energy) < (0 if u.get("swift", false) else 1):
+		return {"ok": false, "reason": "鬼火不足。"}
 	if int(u.hp) <= 0:
 		return {"ok": false, "reason": "该角色无法出击。"}
 	if int(u.frozen) > 0:
@@ -1258,10 +1432,12 @@ func basic_attack(p_idx: int, unit_index: int, target_id = null) -> bool:
 		_log(str(check.reason), TONE_DANGER)
 		return false
 	var p := player(p_idx)
-	p.energy = int(p.energy) - 1
+	p.energy = int(p.energy) - (0 if p.units[unit_index].get("swift", false) else 1)
+	p.units[unit_index].swift = false
 	p.attackUsed = true
 	_record("basic_attack", {"unit": unit_index, "target": target_id}, p_idx)
-	_resolve_combat(p_idx, unit_index, 0, false, false, false, false, target_id)
+	_resolve_combat(p_idx, unit_index, 0, false, false, false, false, target_id, false, {"basicAttack": true})
+	_resolve_resolution_stack()
 	_check_winner()
 	state_changed.emit()
 	return true
@@ -1287,7 +1463,7 @@ func _kw(card: Dictionary, key: String) -> bool:
 	return false
 
 
-func _resolve_combat(p_idx: int, unit_index: int, bonus: int, pierce: bool, remote: bool, combo: bool, first_strike: bool, target_id = null, crit: bool = false) -> void:
+func _resolve_combat(p_idx: int, unit_index: int, bonus: int, pierce: bool, remote: bool, combo: bool, first_strike: bool, target_id = null, crit: bool = false, options: Dictionary = {}) -> void:
 	var p := player(p_idx)
 	var e_idx := enemy_index(p_idx)
 	var foe := player(e_idx)
@@ -1306,47 +1482,116 @@ func _resolve_combat(p_idx: int, unit_index: int, bonus: int, pierce: bool, remo
 			_log("%s 从准备区进入前线。" % attacker.name, TONE_TURN)
 			_fire_hooks(p_idx, unit_index, "unit-entered-front", {})
 			_run_form_hooks(p_idx, unit_index, "unit-entered-front", {})
-	var enc := _prepare_encourage(p_idx)
+	var entry := {"kind": "combat-entered", "playerIndex": p_idx, "sourceIndex": unit_index, "bonus": bonus, "pierce": pierce, "remote": remote, "combo": combo, "firstStrike": first_strike, "targetId": target_id, "crit": crit, "options": options.duplicate(true), "fromReserve": entered_from_reserve, "flashSerial": int(attacker.get("flashZeroSerial", 0)), "encourage": _prepare_encourage(p_idx) if options.get("basicAttack", false) else {}}
+	# The entering response finishes before attack power is read. Resuming a
+	# serialized continuation does not move the attacker or consume inspire twice.
+	if entered_from_reserve and VerifiedRules.automatic_response(self, e_idx, "enemy-entered-front", attacker.uid, entry): return
+	_resolve_combat_entered(entry)
+
+
+func _resolve_combat_entered(frame: Dictionary) -> void:
+	var p_idx := int(frame.playerIndex)
+	var unit_index := int(frame.sourceIndex)
+	var e_idx := 1 - p_idx
+	var foe := player(e_idx)
+	var attacker: Dictionary = player(p_idx).units[unit_index]
+	if int(attacker.hp) <= 0 or winner >= 0: return
+	var bonus := int(frame.bonus)
+	var pierce := bool(frame.pierce)
+	var remote := bool(frame.remote)
+	var combo := bool(frame.combo)
+	var first_strike := bool(frame.firstStrike)
+	var target_id = frame.targetId
+	var crit := bool(frame.crit)
+	var options: Dictionary = frame.options
+	var entered_from_reserve := bool(frame.fromReserve)
+	var enc: Dictionary = frame.encourage
+	if int(attacker.get("flashZeroSerial", 0)) != int(frame.flashSerial):
+		bonus = 0
+		enc.attack = 0
 	var base_power := int(attacker.attack) + bonus + int(enc.get("attack", 0))
 	if int(enc.get("shield", 0)) > 0:
 		attacker.shield = int(attacker.shield) + int(enc.shield)
+		attacker.shieldExpires = int(attacker.get("shieldExpires", 0)) + int(enc.shield)
 	var power := base_power * 2 if crit else base_power
 	var fi: int = front_index(e_idx)
+	if options.get("pursuit", false):
+		if str(target_id) == "avatar-%d" % e_idx:
+			if fi >= 0: return
+		else:
+			fi = _unit_index_by_uid(e_idx, target_id)
+			if fi < 0 or int(foe.units[fi].hp) <= 0: return
+	options = VerifiedRules.ArmorBreak.prepare_combat(self, e_idx, fi, options)
 	if fi < 0:
+		VerifiedRules.event(self, "combat-hit", {"player": p_idx, "uid": attacker.uid, "target": ""})
 		_log("%s 突破空缺前线。" % attacker.name, TONE_SUCCESS)
-		_damage_avatar(e_idx, power, p_idx)
+		var hit := VerifiedRules.ArmorBreak.combat_damage(self, p_idx, unit_index, e_idx, -1, power, bool(options.get("convertCombatToArmorBreak", false)))
+		VerifiedRules.ArmorBreak.after_combat_damage(self, p_idx, unit_index, e_idx, -1, hit, options)
+		if power > 0 and int(options.get("countdownOnAvatarDamage", 0)) > 0:
+			VerifiedRules.reduce_countdown(self, p_idx, unit_index, int(options.countdownOnAvatarDamage))
 		_fire_hooks(p_idx, unit_index, "combat-resolved", {"defender": null, "from_reserve": entered_from_reserve})
 		_run_form_hooks(p_idx, unit_index, "combat-resolved", {"defender": null, "from_reserve": entered_from_reserve})
 		return
-	var defender: Dictionary = foe.units[fi]
+	var continuation := {"kind": "combat-hit", "playerIndex": p_idx, "sourceIndex": unit_index, "defenderIndex": fi, "power": power, "remote": remote, "pierce": pierce, "combo": combo, "firstStrike": first_strike, "fromReserve": entered_from_reserve, "options": options.duplicate(true)}
+	continuation.combatId = next_resolution_id
+	next_resolution_id += 1
+	if VerifiedRules.automatic_response(self, e_idx, "unit-attacked", foe.units[fi].uid, continuation): return
+	_resolve_combat_hit(continuation)
+
+
+func _resolve_combat_hit(frame: Dictionary) -> void:
+	var p_idx := int(frame.playerIndex)
+	var e_idx := 1 - p_idx
+	var unit_index := int(frame.sourceIndex)
+	var fi := int(frame.defenderIndex)
+	var attacker: Dictionary = player(p_idx).units[unit_index]
+	var defender: Dictionary = player(e_idx).units[fi]
+	if int(attacker.hp) <= 0 or int(defender.hp) <= 0: return
+	var power := int(frame.power)
+	var remote := bool(frame.remote)
+	var pierce := bool(frame.pierce)
+	var combo := bool(frame.combo)
+	var first_strike := bool(frame.firstStrike)
+	var entered_from_reserve := bool(frame.fromReserve)
+	var options: Dictionary = frame.options
+	VerifiedRules.event(self, "combat-hit", {"player": p_idx, "uid": attacker.uid, "target": defender.uid})
 	if remote:
 		_log("%s 向 %s 发起远程出击。" % [attacker.name, defender.name], TONE_TURN)
 	else:
 		_log("%s 向 %s 发起出击。" % [attacker.name, defender.name], TONE_TURN)
 	# Snapshot retaliation before damage: knockout clears frozen, but must not
 	# grant a stunned defender a counterattack (same order as JS resolveCombat).
-	var counter_power := int(defender.attack)
+	var counter_power := int(defender.attack) + int(frame.get("defenderBonus", 0))
 	var counter_allowed := (not remote) and int(defender.frozen) == 0
-	var result := _damage_unit(e_idx, fi, power, p_idx)
+	var convert := bool(options.get("convertCombatToArmorBreak", false))
+	# Original combo is an extra first hit, followed by ordinary combat only
+	# if the defender survived. It is conditional on attacking a shikigami.
+	if options.get("comboAgainstUnit", false):
+		var first := VerifiedRules.ArmorBreak.combat_damage(self, p_idx, unit_index, e_idx, fi, power, convert)
+		VerifiedRules.ArmorBreak.after_combat_damage(self, p_idx, unit_index, e_idx, fi, first, options)
+		if first.knocked:
+			var first_ctx := {"defender": defender, "from_reserve": entered_from_reserve, "killed": true}
+			_fire_hooks(p_idx, unit_index, "combat-resolved", first_ctx)
+			_run_form_hooks(p_idx, unit_index, "combat-resolved", first_ctx)
+			return
+	var result := VerifiedRules.ArmorBreak.combat_damage(self, p_idx, unit_index, e_idx, fi, power, convert)
+	VerifiedRules.ArmorBreak.after_combat_damage(self, p_idx, unit_index, e_idx, fi, result, options)
 	var defender_down: bool = result.knocked
 	# 贯通：溢出伤害转移核心
 	if pierce and result.knocked and int(result.get("overkill", 0)) > 0 and winner < 0:
 		_log("%s 的贯通对核心造成 %d 点伤害。" % [attacker.name, int(result.overkill)], TONE_DANGER)
-		_damage_avatar(e_idx, int(result.overkill), p_idx)
-	if result.knocked and winner < 0:
-		_damage_avatar(e_idx, 1, p_idx)
+		_damage_avatar(e_idx, int(result.overkill), p_idx, unit_index)
 	# 连击：目标仍存活时追加一次等量战斗伤害
 	if combo and winner < 0 and int(defender.hp) > 0:
-		var combo_result := _damage_unit(e_idx, fi, power, p_idx)
+		var combo_result := VerifiedRules.ArmorBreak.combat_damage(self, p_idx, unit_index, e_idx, fi, power, convert)
+		VerifiedRules.ArmorBreak.after_combat_damage(self, p_idx, unit_index, e_idx, fi, combo_result, options)
 		defender_down = defender_down or combo_result.knocked
-		if combo_result.knocked and winner < 0:
-			_damage_avatar(e_idx, 1, p_idx)
 	# 先攻：首次伤害即气绝则不反击
 	# 与 JS 对齐：目标已气绝仍可反击（先攻除外），不要求 defender.hp > 0
 	if first_strike and defender_down:
 		counter_allowed = false
 	if counter_allowed and int(attacker.hp) > 0 and winner < 0 and counter_power > 0:
-		_damage_unit(p_idx, unit_index, counter_power, e_idx)
+		VerifiedRules.ArmorBreak.combat_damage(self, e_idx, fi, p_idx, unit_index, counter_power, convert, bool(options.get("immuneCombat", false)))
 	var ctx := {"defender": defender, "from_reserve": entered_from_reserve, "killed": defender_down}
 	_fire_hooks(p_idx, unit_index, "combat-resolved", ctx)
 	_run_form_hooks(p_idx, unit_index, "combat-resolved", ctx)
@@ -1532,7 +1777,7 @@ func _run_passive_effect(p_idx: int, unit_index: int, effect: String, params, ct
 				u.shield = int(u.shield) + int(pdict.shield)
 			_log("%s 退回准备区。" % u.name, TONE_NEUTRAL)
 		"passive-armor-break-self-on-damaged":
-			u["armorBreak"] = int(u.get("armorBreak", 0)) + _num(ctx.get("damage", amount))
+			VerifiedRules.ArmorBreak.give(self, p_idx, unit_index, p_idx, unit_index, _num(ctx.get("damage", amount)))
 			if pdict.get("hp", 0):
 				_grow_unit(u, 0, int(pdict.hp))
 		"passive-armor-break-enemy-on-damage":
@@ -1540,24 +1785,24 @@ func _run_passive_effect(p_idx: int, unit_index: int, effect: String, params, ct
 			if defender is Dictionary and int(defender.hp) > 0:
 				for i in player(e_idx).units.size():
 					if player(e_idx).units[i].get("uid") == defender.get("uid"):
-						player(e_idx).units[i]["armorBreak"] = int(player(e_idx).units[i].get("armorBreak", 0)) + amount
+						VerifiedRules.ArmorBreak.give(self, p_idx, unit_index, e_idx, i, amount)
 		"passive-armor-break-enemy-avatar":
-			player(e_idx)["avatarArmorBreak"] = int(player(e_idx).get("avatarArmorBreak", 0)) + amount
+			VerifiedRules.ArmorBreak.give(self, p_idx, unit_index, e_idx, -1, amount)
 		"passive-armor-break-enemy-front":
 			var fi: int = front_index(e_idx)
 			if fi >= 0:
-				player(e_idx).units[fi]["armorBreak"] = int(player(e_idx).units[fi].get("armorBreak", 0)) + amount
+				VerifiedRules.ArmorBreak.give(self, p_idx, unit_index, e_idx, fi, amount)
 		"passive-armor-break-defender":
 			var defender = ctx.get("defender")
 			if defender is Dictionary and int(defender.hp) > 0:
 				for i in player(e_idx).units.size():
 					if player(e_idx).units[i].get("uid") == defender.get("uid"):
-						player(e_idx).units[i]["armorBreak"] = int(player(e_idx).units[i].get("armorBreak", 0)) + amount
+						VerifiedRules.ArmorBreak.give(self, p_idx, unit_index, e_idx, i, amount)
 		"passive-armor-break-enemies-on-damaged":
 			if _num(ctx.get("damage", 0)) >= _num(pdict.get("threshold", 3)):
 				for eu in player(e_idx).units:
 					if int(eu.hp) > 0:
-						eu["armorBreak"] = int(eu.get("armorBreak", 0)) + amount
+						VerifiedRules.ArmorBreak.give(self, p_idx, unit_index, e_idx, _unit_index_by_uid(e_idx, eu.uid), amount)
 		"passive-shield-on-overheal":
 			u.shield = int(u.shield) + amount
 			if pdict.get("attack", 0):
@@ -1594,6 +1839,10 @@ func end_turn(p_idx: int) -> bool:
 	if winner >= 0 or current_player != p_idx:
 		return false
 	_record("end_turn", {}, p_idx)
+	VerifiedRules.end_turn(self, p_idx)
+	if winner >= 0:
+		state_changed.emit()
+		return true
 	var p := player(p_idx)
 	for u in p.units:
 		if int(u.frozen) > 0:
@@ -1607,6 +1856,8 @@ func end_turn(p_idx: int) -> bool:
 
 func _begin_turn(p_idx: int) -> void:
 	var p := player(p_idx)
+	p.avatarArmor = 0
+	p.avatarArmorBreak = 0
 	p.attackUsed = false
 	p.levelUpUsed = false
 	p.cardsPlayedThisTurn = 0
@@ -1616,6 +1867,14 @@ func _begin_turn(p_idx: int) -> void:
 		p.bonusUpgrades = int(p.bonusUpgrades) + 1
 		_log("%s 获得一次额外升勾机会。" % p.name, TONE_SUCCESS)
 	p["turnsTaken"] = int(p.get("turnsTaken", 0)) + 1
+	# Remove expiring armor first. Death countdowns resolve before ability timers.
+	for i in p.units.size():
+		var unit: Dictionary = p.units[i]
+		unit.armorBreak = 0
+		unit.shield = maxi(0, int(unit.shield) - int(unit.get("shieldExpires", 0)))
+		unit.shieldExpires = 0
+	VerifiedRules.SpellReplay.begin_turn(self)
+	VerifiedRules.Firefly.begin_turn(self, p_idx)
 	# 充能：回合开始 +1（有 charge 关键词或已有 charge 槽的角色）
 	for u in p.units:
 		if int(u.hp) <= 0:
@@ -1640,18 +1899,37 @@ func _begin_turn(p_idx: int) -> void:
 				u.hp = int(u.maxHp)
 				u.shield = 0
 				_log("%s 自行归队，生命回复至满。" % u.name, TONE_SUCCESS)
+	# Snapshot after natural revival; a unit revived by another timer below does
+	# not get a second, artificial turn-start reduction in the same traversal.
+	var ticking: Array = []
+	for i in p.units.size():
+		var unit: Dictionary = p.units[i]
+		if int(unit.hp) > 0 and int(unit.level) >= 1 and not VerifiedRules.Countdown.timer(unit).is_empty(): ticking.append(i)
 	# realms
 	_trigger_realms(p_idx)
 	# JS beginTurn draws before emitting turn-started/passive hooks. This also
 	# prevents passives from firing after deck exhaustion has ended the match.
 	if winner < 0:
 		_draw(p_idx, 1)
+	for idx in ticking:
+		VerifiedRules.reduce_countdown(self, p_idx, int(idx), 1)
+		_resolve_resolution_stack()
 	if winner < 0:
 		_log("%s 获得行动权。" % p.name, TONE_TURN)
 		for i in p.units.size():
 			if int(p.units[i].hp) > 0:
 				_run_unit_hooks(p_idx, i, "turn-started", {})
-				_run_form_hooks(p_idx, i, "turn-started", {})
+		# Continuous form abilities trigger in their installation order, so a
+		# full-party recovery can change the injured pool of the following form.
+		var forms: Array = []
+		for i in p.units.size():
+			if int(p.units[i].hp) > 0 and not p.units[i].get("form", {}).is_empty(): forms.append(i)
+		forms.sort_custom(func(a, b): return int(p.units[a].get("formInstalledOrder", 0)) < int(p.units[b].get("formInstalledOrder", 0)))
+		for i in forms:
+			if int(p.units[i].hp) <= 0 or winner >= 0: continue
+			_run_form_hooks(p_idx, i, "turn-started", {})
+			VerifiedRules.Peach.turn_started(self, p_idx, i)
+			VerifiedRules.Firefly.form_turn_start(self, p_idx, i)
 	# 回合开始时战斗区回退准备区（与 JS beginTurn 末尾对齐）
 	for u in p.units:
 		if int(u.front) == 1:
@@ -1664,6 +1942,9 @@ func _trigger_realms(p_idx: int) -> void:
 	var e_idx := enemy_index(p_idx)
 	var kept: Array = []
 	for realm in p.realms:
+		if realm.get("trigger") == "hand-card-used":
+			kept.append(realm)
+			continue
 		if int(realm.get("countdown", 0)) > 0:
 			realm.countdown = int(realm.countdown) - 1
 			if int(realm.countdown) > 0:
@@ -1724,6 +2005,7 @@ func snapshot() -> Dictionary:
 		"log_size": log.size(),
 		"commands": command_log.size(),
 		"commandLog": command_log.duplicate(),
+		"ruleEvents": rule_events.duplicate(true),
 	}
 
 

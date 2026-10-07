@@ -1,0 +1,13 @@
+{
+  "sample": "instant-first-free-and-turn-reset",
+  "seed": 424242,
+  "match": true,
+  "finalDiffs": [],
+  "stepDiffs": [],
+  "summary": {
+    "finalDiffCount": 0,
+    "stepDiffCount": 0,
+    "jsSteps": 6,
+    "godotSteps": 6
+  }
+}
