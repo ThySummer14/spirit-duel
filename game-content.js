@@ -1,4 +1,5 @@
 import { CARD_KEYWORDS } from './game-keywords.js?v=ae8562bd';
+import { mergeVerifiedDefinition, verifiedCardPatch, verifiedUnitPatch } from './game-verified-merge.js';
 import {
   CLASSIC_CARD_DEFINITIONS,
   CLASSIC_PACK_ID,
@@ -903,17 +904,33 @@ export const CARD_DEFINITIONS = Object.freeze([
 
 const UNIT_MAP = new Map(UNIT_DEFINITIONS.map((unit) => [unit.id, unit]));
 const CARD_MAP = new Map(CARD_DEFINITIONS.map((definition) => [definition.id, definition]));
+const MERGED_UNIT_CACHE = new Map();
+const MERGED_CARD_CACHE = new Map();
 
 export function getPackOfUnit(unitId) {
   return getUnitDefinition(unitId)?.pack ?? 'origin';
 }
 
 export function getUnitDefinition(unitId) {
-  return UNIT_MAP.get(unitId);
+  const base = UNIT_MAP.get(unitId);
+  if (!base) return undefined;
+  const patch = verifiedUnitPatch(unitId);
+  if (!patch) return base;
+  if (!MERGED_UNIT_CACHE.has(unitId)) {
+    MERGED_UNIT_CACHE.set(unitId, mergeVerifiedDefinition(base, patch));
+  }
+  return MERGED_UNIT_CACHE.get(unitId);
 }
 
 export function getCardDefinition(definitionId) {
-  return CARD_MAP.get(definitionId);
+  const base = CARD_MAP.get(definitionId);
+  if (!base) return undefined;
+  const patch = verifiedCardPatch(definitionId);
+  if (!patch) return base;
+  if (!MERGED_CARD_CACHE.has(definitionId)) {
+    MERGED_CARD_CACHE.set(definitionId, mergeVerifiedDefinition(base, patch));
+  }
+  return MERGED_CARD_CACHE.get(definitionId);
 }
 
 export function getCardsForUnit(unitId) {
