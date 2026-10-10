@@ -1,216 +1,132 @@
-# 已核对原版规则 vs 当前可玩实现差距表
+# 已核对原版规则 vs 实现差距表（Godot 验收轮）
 
-> 范围：`godot/content/verified_rules.json` 中 **8 式神 + 68 张专属卡**（另有萤草 3 张衍生 token 条目）。  
-> 依据：`verified_rules.json` 来源索引、`research-notes/09`–`16`、`阴阳师百闻牌-机制全景.md`、`AGENTS.md`、用户指定录像路径（见 `verified_rules.json` → `video-200`）。  
-> 生成说明：全库 `npm run audit:rules` 仍失败；本文只覆盖**已写入核对库**的角色，不宣称全库还原完成。
+> **范围：** `godot/content/verified_rules.json` 中 **8 式神 + 68 张专属卡**（萤草另含 3 条衍生 token 条目）。  
+> **依据：** 核对库来源索引、`research-notes/09`–`16`、`阴阳师百闻牌-机制全景.md`、`AGENTS.md`、录像 `video-200`（叶隐/钢风片段）。  
+> **本轮范围（Hal 纠正）：** 仅 **Godot** 可玩竖切按核对规则验收；**Web/JS 本轮不做**（分支上历史凤凰火 Web 改动保留，不再扩展）。
 
-## 总览
+## 验收结论（2026-10-10）
 
-| 维度 | Godot 可玩端 | Web/JS（`game-core.js`） |
-| --- | --- | --- |
-| 卡面/数值数据 | `ContentLoader` 启动时 merge `verified_rules.json` | **本 PR 起** `getCardDefinition` / `getUnitDefinition` 懒合并核对数据 |
-| 结算专规 | `verified_card_rules.gd` + 分角色 `*_rules.gd` + `verify_*.gd` 正反例 | **仅凤凰火**接入 `game-phoenix-rules.js`；其余 7 式神仍走旧 effect 映射 |
-| 审计 | 专测脚本（见下表） | `tests/game-phoenix-verified.test.js`（4 组）；全库 audit 仍大量 `known-approximation` |
-
-| 式神 | 核对卡数 | Godot 专测 | Web 结算（本 PR 后） |
-| --- | ---: | --- | --- |
-| 钢风·大天狗 `datiangou-gangfeng` | 8 | `verify_steel_wind.gd` | 未接入专规 |
-| 妖琴师 `yaoginshi` | 8 | `verify_yaoginshi.gd` | 未接入专规 |
-| 大天狗 `datiangou` | 9 | `verify_datiangou.gd` | 未接入专规 |
-| 一目连 `yimulian` | 8 | `verify_yimulian.gd` | 未接入专规 |
-| 鸩 `zhen` | 8 | `verify_zhen.gd` | 未接入专规 |
-| 凤凰火 `fenghuanghuo` | 8 | `verify_phoenix.gd` | **已接入**（投射/引燃/焚羽/炎舞增强/出云运势/觉醒叠身） |
-| 桃花妖 `taohuayao` | 8 | `verify_peach.gd` | 未接入专规 |
-| 萤草 `yingcao` | 8+3 token | `verify_firefly.gd` | 未接入专规 |
-
----
-
-## 1. 钢风·大天狗（`datiangou-gangfeng`）
-
-证据：`research-notes/09-steel-wind-video-rules.md`、`verified_rules` 来源 `video-200`、`balance-2023-11-23`、`origin-design-2023`。
-
-### 被动 / 觉醒
-
-| 项 | 原版应有机制 | 当前实现 | 证据 |
-| --- | --- | --- | --- |
-| 起源再临 / 龙卷钢风 | 使用**战斗牌**时倒计时 2（觉醒 1）：再使用该牌**起源法术**；气绝不移除（钢风） | Godot：`verified_card_rules` 战斗起源倒计时 + `verify_steel_wind.gd` | `verified_rules.units.datiangou-gangfeng` |
-| Web | 同上 | 仍用 `game-content` 可玩化 assault/加甲近似；**无**起源替换、无战斗倒计时 | `game-content-classic.js` 290xx 段 |
-
-### 卡牌（c29001–c29008）
-
-| 卡 | 原版要点 | Web 旧映射问题 | Godot |
-| --- | --- | --- | --- |
-| c29001 钢羽之刃 | 1 护甲 + 起源风神一扇（投射 2 + 击退） | 缺起源链、护甲与公告后数值 | 已专测 |
-| c29002 叶隐 | 瞬发移动 + 倒计时或抽牌 | 常为移动/抽牌简化 | 已专测 |
-| c29003 钢风形态 | 进场护甲 + 回合末有护甲者倒计时 | 形态身材/倒计时简化 | 已专测 |
-| c29004–c29008 | 起源战斗、连击、魔音、正义随机法术等 | 缺起源/复读/反制边界 | 已专测 |
-
-**本 PR 修复：** 无（Godot 已有专测；Web 未改）。
-
----
-
-## 2. 妖琴师（`yaoginshi`）
-
-证据：`research-notes/10-yaoginshi-countdown-rules.md`、`balance-2023-10-26`、`yaoginshi-encyclopedia`。
-
-### 被动 / 觉醒
-
-| 项 | 原版 | Web | Godot |
-| --- | --- | --- | --- |
-| 三歌倒计时 | 3 回合轮换：余韵群疗 / 入阵歌随机 5 伤 / 神乐歌队友倒计时与成长 / 镇魂歌抽牌+鬼火；觉醒替换能力；大合奏记录**实际生效种类** | 多为固定治疗或加攻近似 | `countdown_rules.gd` + `verify_yaoginshi.gd` |
-
-### 卡牌 c12801–c12808
-
-核对库含 `random-damage`、`countdown-change`、`awaken-yaoginshi` 等原生 action。Web 仍为抽牌/加力/直伤类 hooks。**Godot 已专测。**
-
-**待核实（核对库已标）：** 入阵歌与大合奏动态文案、觉醒施法减倒计时与魔音交互 — `verificationPending` on c12805/c12808 等。
-
----
-
-## 3. 大天狗（`datiangou`）
-
-证据：`research-notes/11-datiangou-spell-replay.md`、`datiangou-balance-2020`、`balance-2021-05-20`。
-
-### 被动 / 觉醒
-
-法术使用后倒计时 2（觉醒 1）**复读同一法术**（非战斗牌）。
-
-| 端 | 状态 |
-| --- | --- |
-| Godot | `spell_replay_rules.gd` + `verify_datiangou.gd` |
-| Web | 无复读栈；法术多为单次 damage/draw |
-
-### 卡牌 c10501–c10509
-
-含吾即正义随机取得等级不高于自身的专属法术、暴风全体 3 伤等。Web 映射未实现随机法术取得与倒计时。**Godot 已专测。**
-
----
-
-## 4. 一目连（`yimulian`）
-
-证据：`research-notes/12-yimulian-form-lifecycle.md`、`yimulian-encyclopedia`、`balance-2020-11-26`。
-
-### 被动 / 觉醒
-
-形态**进场/离场（消灭）**触发倒计时；风符·龙逐次增目标等。
-
-| 端 | 状态 |
-| --- | --- |
-| Godot | `form_countdown_rules.gd` + `verify_yimulian.gd` |
-| Web | 形态多为 +身材；无离场倒计时、无风符多段 |
-
-**待核实：** 风符·龙同波目标上限、与屏障叠加分配 — `verificationPending`（龙相关来源 `dragon-detail-2020`）。
-
----
-
-## 5. 鸩（`zhen`）
-
-证据：`research-notes/13-zhen-armor-break.md`、`zhen-official-intro`、`balance-2020-01-20`。
-
-### 被动 / 觉醒
-
-倒计时给敌方牌手破甲；觉醒按历史触发次数成长。
-
-| 端 | 状态 |
-| --- | --- |
-| Godot | `armor_break_rules.gd` + `verify_zhen.gd` |
-| Web | 破甲/毒伤多为固定伤害或加攻 |
-
-**待核实：** 觉醒历史次数是否计入当前触发 — `units.zhen.verificationPending`。
-
----
-
-## 6. 凤凰火（`fenghuanghuo`）— **本 PR Web 已修一批**
-
-证据：`research-notes/14-phoenix-rules.md`、`phoenix-balance-2020-02-27`、`phoenix-use-faq-2020`。
-
-### 被动 / 觉醒
-
-| 项 | 原版 | Web（本 PR 前） | Web（本 PR 后） | Godot |
+| 式神 | Godot 规则层 | 规则专测 | UI/目标专测 | 本轮 Godot |
 | --- | --- | --- | --- | --- |
-| 凤火投射 | 凤凰火使用法术 → 投射 1（焚羽 +1 非战斗） | 无独立投射帧 | `phoenix-spell-used` 结算栈 | `phoenix_rules.gd` |
-| 觉醒投射 | 己方式神使用法术 → 投射 1 | 觉醒仅改被动文案/加身材 | 同 Godot 触发条件 | 已专测 |
+| 钢风 `datiangou-gangfeng` | `verified_card_rules` + 起源战斗倒计时 | `verify_steel_wind` 115 ✓ | `verify_steel_wind_ui` 44 ✓ | **已对齐核对库** |
+| 妖琴师 `yaoginshi` | `countdown_rules.gd` | `verify_yaoginshi` 126 ✓ | `verify_yaoginshi_ui` 30 ✓ | **已对齐核对库** |
+| 大天狗 `datiangou` | `spell_replay_rules.gd` | `verify_datiangou` 115 ✓ | `verify_datiangou_ui` 38 ✓ | **已对齐核对库** |
+| 一目连 `yimulian` | `form_countdown_rules.gd` | `verify_yimulian` 128 ✓ | `verify_yimulian_ui` 52 ✓ | **已对齐核对库** |
+| 鸩 `zhen` | `armor_break_rules.gd` | `verify_zhen` 122 ✓ | `verify_zhen_ui` 48 ✓ | **已对齐核对库** |
+| 凤凰火 `fenghuanghuo` | `phoenix_rules.gd` | `verify_phoenix` 122 ✓ | `verify_phoenix_ui` 57 ✓ | **已对齐核对库** |
+| 桃花妖 `taohuayao` | `peach_rules.gd` | `verify_peach` 114 ✓ | `verify_peach_ui` 48 ✓ | **已对齐核对库** |
+| 萤草 `yingcao` | `firefly_rules.gd` | `verify_firefly` 126 ✓ | `verify_firefly_ui` 54 ✓ | **已对齐核对库** |
+| 交叉 | 多式神同局 | `verify_parallel_rules` 41 ✓ | — | **已对齐核对库** |
 
-### 卡牌
+**复现命令（需 Godot 4.4+ headless，建议先 `export` + `--import`）：**
 
-| 卡 | 原版 | Web 旧实现 | 本 PR |
+```bash
+export GODOT_BIN=/path/to/Godot_v4.4.1-stable_linux.x86_64
+./scripts/godot-verified-eight.sh
+```
+
+数据：`ContentLoader` 载入 `content.json` 后 **merge** `verified_rules.json`（与 `research-notes` 一致，不删历史「简化」导出文案）。
+
+### Web/JS（本轮不做）
+
+| 项目 | 状态 |
+| --- | --- |
+| `game-content*.js` 可玩化映射 | 未改；全库仍大量简化标记 |
+| `npm run audit:rules` | 仍失败（`known-approximation` / `unreviewed` 占绝大多数） |
+| 分支历史 | 曾接入凤凰火 Web overlay/专规；**本轮不再扩展 Web** |
+
+---
+
+## `verificationPending` 汇总（未删、未猜）
+
+下列条目在核对库中**刻意保留**，表示缺指定录像/版本实机，Godot 采用牌文+公告+专测锁定的**保守实现**；专测中有断言「pending 仍存在」以防误标完成。
+
+| 归属 | 卡/单位 | 待核实内容 | Godot 当前取舍 |
 | --- | --- | --- | --- |
-| c12401 凤鸣 | 瞬发，对牌手 **2** 伤（2020 公告；资料快照 3 冲突） | 3 伤直伤 | 合并核对 2 伤 + 投射 |
-| c12402 瑞翔 | 全体敌方式神 1 伤 | 近似 | 合并 + 投射 |
-| c12403 焚羽 | 4/6 **替换基础**；非战斗 +1 | +4/+6 叠加 | `setBase` + `formRules.nonCombatDamageBonus` |
-| c12404 凤火 | 可选任意存活式神 | 仅敌方 | `any-living-unit` / `selected-any` |
-| c12405 炎舞 | 贯通投射 5 + 每次对牌手伤害 +1 | 固定 5  front | 增强计数 `phoenixAvatarHits` + 贯通溢出 |
-| c12406 出云 | 5/6 + 用法术时运势 4 得凤火 | 仅身材 | 运势生成（简化骰子，无改骰组合） |
-| c12407 引燃 | 击杀后再对**该式神牌手** 2 伤 | 无条件第二段直伤 | `phoenix-ignite` |
-| c12408 觉醒 | +1/+1，可重复叠身；觉醒被动 | 一次性 awaken | `awaken-phoenix` |
+| 鸩 | `zhen` 觉醒 | 历史次数是否计入**当前**触发 | 按已完成次数增强；专测覆盖基础 2 破甲与成长 |
+| 凤凰火 | `fenghuanghuo` | 魔音反制后「使用法术」帧；气绝前后焚羽快照 | 独立 `phoenix-spell-used` 帧；反制清本体不清已排队投射 |
+| 桃花妖 | `taohuayao` | 零实际恢复是否成长；气绝后群复活成长时点 | 仅实际恢复触发；群复活后统一成长（专测） |
+| 一目连 | `c11807` 风符·龙 | 两龙不共享次数、同波目标不重复 | 按 2020 细则转载实现；缺原作者视频交叉 |
+| 鸩 | `c11604` 毒蚀 | 与屏障、碧羽散华同时存在时的优先级 | 专测有屏障/转换正反例；复杂叠层待录像 |
+| 鸩 | `c11605` 觉醒 | 减计时与替换先后、历史是否含当次 | 牌文顺序+已完成次数；专测保留 pending 标记 |
+| 鸩 | `c11607` 毒之华 | 奇数生命向下取整 | 向下取整；专测保留 pending |
+| 凤凰火 | `c12401` 凤鸣 | 公告 3→2 与旧快照冲突 | **按 2020-02-27 公告取 2** |
+| 凤凰火 | `c12405` 炎舞 | 屏障+贯通+破甲精细分配 | 贯通溢出已实现；多层分配待录像 |
+| 凤凰火 | `c12406` 出云 | 投射/运势/反制/气绝先后 | 使用事件→投射→运势；专测保留 pending |
+| 桃花妖 | `c10801` 等 | 零恢复成长 | 不触发成长；`verify_peach` 断言 pending 非空 |
+| 桃花妖 | `c10809` 群复活 | 气绝时自身是否也得成长 | 先复活再统一成长；pending 保留 |
+| 萤草 | `c10708` 虹彩等 | 闪烁层叠、多闪烁响应串接 | 力量归零+响应原战斗；多闪烁共用首张合法响应 |
 
-**仍待核实（核对库已标）：** 魔音反制后是否保留「使用法术」事件、屏障+贯通精细分配、出云与反制/气绝顺序 — `verificationPending` on unit/c12405/c12406。
-
-**测试：** `tests/game-phoenix-verified.test.js`；Godot：`verify_phoenix.gd`（本环境未装 Godot，未执行）。
+**未写入 pending 的 8 式神：** 钢风、妖琴师、大天狗、一目连（除上表 c11807）、萤草（除上表）在核对库单位级无 `verificationPending`；边界靠 `research-notes` + 专测覆盖。
 
 ---
 
-## 7. 桃花妖（`taohuayao`）
+## 分式神要点（Godot = 核对实现；Web = 本轮不做）
 
-证据：`research-notes/15-peach-rules.md`、`peach-official-guide`、`peach-swift-trial`。
+### 1. 钢风·大天狗 `datiangou-gangfeng`
 
-### 被动 / 觉醒
+- **证据：** `research-notes/09-steel-wind-video-rules.md`，`video-200`，`balance-2023-11-23`，起源替换 `origin-design-2023`。
+- **Godot：** 战斗牌起源倒计时（气绝不移除）、叶隐移动/倒计时或抽牌、形态护甲联动倒计时、吾即正义随机法术等 — `verify_steel_wind`。
+- **Web：** 本轮不做（仍为旧 assault/加甲映射）。
 
-治疗/复活友方时给予力量（觉醒永久 +2/+2）。迅捷试炼、气绝时群疗等。
+### 2. 妖琴师 `yaoginshi`
 
-| 端 | 状态 |
+- **证据：** `research-notes/10-yaoginshi-countdown-rules.md`，`balance-2023-10-26`。
+- **Godot：** 四歌倒计时、入阵歌 5 点随机分配、觉醒大合奏记录实际种类、魔音与自动复读边界 — `verify_yaoginshi`。
+- **Web：** 本轮不做。
+
+### 3. 大天狗 `datiangou`
+
+- **证据：** `research-notes/11-datiangou-spell-replay.md`。
+- **Godot：** 法术复读倒计时、吾即正义等级约束随机法术、暴风等 — `verify_datiangou`。
+- **Web：** 本轮不做。
+
+### 4. 一目连 `yimulian`
+
+- **证据：** `research-notes/12-yimulian-form-lifecycle.md`。
+- **Godot：** 形态进场/消灭触发、风符倒计时、罡风/鼓舞/瞬响应 — `verify_yimulian`；`c11807` 见 pending 表。
+- **Web：** 本轮不做。
+
+### 5. 鸩 `zhen`
+
+- **证据：** `research-notes/13-zhen-armor-break.md`，`balance-2020-01-20`。
+- **Godot：** 牌手/式神破甲、毒伤转破甲、战斗双向转化、碧羽散华等 — `verify_zhen`；觉醒/毒蚀/毒之华见 pending 表。
+- **Web：** 本轮不做。
+
+### 6. 凤凰火 `fenghuanghuo`
+
+- **证据：** `research-notes/14-phoenix-rules.md`。
+- **Godot：** 完整 8 牌 + 投射链 — `verify_phoenix`；凤鸣/炎舞/出云见 pending 表。
+- **Web：** 本轮不做（分支遗留早期 Web 接入，不扩展）。
+
+### 7. 桃花妖 `taohuayao`
+
+- **证据：** `research-notes/15-peach-rules.md`。
+- **Godot：** 治疗/复活成长、检索、形态、迅捷、气绝可用群疗 — `verify_peach`；见 pending 表。
+- **Web：** 本轮不做。
+
+### 8. 萤草 `yingcao`
+
+- **证据：** `research-notes/16-firefly-rules.md`，`firefly-may2020-balance`。
+- **Godot：** 形态瞬发抽牌、鼓舞、点点手牌增强、虹彩生成 — `verify_firefly`；闪烁边界见 pending 表。
+- **Web：** 本轮不做。
+
+---
+
+## `npm run audit:rules`（Web 卡库扫描）
+
+仍 **失败**（预期）：扫描的是 `game-content.js` 全库导出，非 Godot 合并后定义。典型摘要：
+
+- 式神：`known-approximation` ~154，`unreviewed` ~88，`source-backed-native` 少量  
+- 卡牌：`known-approximation` ~1071，`unreviewed` ~975  
+
+**不等于** Godot 八式神未还原；仅表示 **Web 全库** 尚未逐条核对。
+
+---
+
+## 变更日志（本分支）
+
+| 轮次 | 内容 |
 | --- | --- |
-| Godot | `peach_rules.gd` + `verify_peach.gd` |
-| Web | 多为 heal + 固定 buff |
-
-**待核实：** 满血零恢复是否触发成长、气绝后群复活时点 — `units.taohuayao.verificationPending`。
-
----
-
-## 8. 萤草（`yingcao`）
-
-证据：`research-notes/16-firefly-rules.md`、`firefly-official-guide`、`firefly-may2020-balance`。
-
-### 被动 / 觉醒
-
-形态瞬发抽牌（觉醒：全体形态）；鼓舞仅普攻消耗；点点手牌增强等。
-
-| 端 | 状态 |
-| --- | --- |
-| Godot | `firefly_rules.gd` + `verify_firefly.gd` |
-| Web | 形态/治疗简化 |
-
-衍生 token：`yingcao-zhiyu` 等 3 条在核对库中，Web 未实现生成链。
-
----
-
-## `npm run audit:rules` 仍失败的原因（本 PR 后）
-
-全库约 **250+ 式神 / 2100+ 卡** 仍在 `game-content*.js` 中保留「可玩化映射」或未经核对。审计摘要（仅统计卡库文本标记，不代表语义等价）：
-
-- 式神：`known-approximation` 154，`unreviewed` 88，`source-backed-native` 5，`pending-verification` 3  
-- 卡牌：`known-approximation` 1071，`unreviewed` 975，`source-backed-native` 58，`pending-verification` 10  
-
-**清零条件：** 所有条目 `source-backed-native` 且无 `verificationPending` 未决项 — 当前远未达成。
-
----
-
-## 本 PR 实际修复范围（摘要）
-
-1. **文档：** 本差距表。  
-2. **数据层：** `game-verified-merge.js` + `getCardDefinition` / `getUnitDefinition` 懒合并 `verified_rules.json`。  
-3. **规则层（Web）：** 凤凰火 8 张卡 + 被动投射链（`game-phoenix-rules.js` + `game-core.js` 扩展）。  
-4. **测试：** `tests/game-phoenix-verified.test.js`；`npm test` 168 项通过。  
-
-**未修复：** 其余 7 式神在 Web 端的倒计时/起源/破甲/形态生命周期/妖琴师大合奏等；全库 audit 未通过。
-
----
-
-## 建议后续优先级（证据硬度）
-
-1. **妖琴师** — 公告+百科+专测齐全，Web 差距大且独立模块已存在于 Godot。  
-2. **鸩** — 破甲系统 `armor_break_rules.gd` 可平移。  
-3. **钢风** — 录像+公告硬证据；起源战斗与魔音边界已有 notes。  
-4. **大天狗法术复读** — 与钢风共享 countdown/spell 基础设施。  
-
-（优先级供排期参考，不代表用户已授权批量改写。）
+| 前序 | 差距表初稿；Web 凤凰火试验性接入 |
+| **本轮** | Godot 八式神专测全绿；`scripts/godot-verified-eight.sh`；`verified_card_rules` / 专测脚本 `ContentLoader` preload；本文档改为 Godot 验收口径 |

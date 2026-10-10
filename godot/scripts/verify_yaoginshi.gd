@@ -1,5 +1,6 @@
 extends SceneTree
 const GS := preload("res://scripts/game_state.gd")
+const ContentLoader := preload("res://scripts/content_loader.gd")
 const Rules := preload("res://scripts/verified_card_rules.gd")
 const Countdown := preload("res://scripts/countdown_rules.gd")
 const AI := preload("res://scripts/game_ai.gd")

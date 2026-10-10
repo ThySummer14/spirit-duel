@@ -1,5 +1,6 @@
 extends SceneTree
 const GS := preload("res://scripts/game_state.gd")
+const ContentLoader := preload("res://scripts/content_loader.gd")
 const Phoenix := preload("res://scripts/phoenix_rules.gd")
 const AI := preload("res://scripts/game_ai.gd")
 var checks := 0
