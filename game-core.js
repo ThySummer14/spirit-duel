@@ -2705,12 +2705,13 @@ function dispatchPassiveHooks(state, event) {
 
 export function validateContentCatalog() {
   const errors = [];
-  const knownTargets = new Set(['auto', 'ally-unit', 'knocked-ally', 'enemy-unit']);
+  const knownTargets = new Set(['auto', 'ally-unit', 'knocked-ally', 'enemy-unit', 'any-living-unit']);
   const knownEffectTargets = new Set([
     'source',
     'auto',
     'selected-ally',
     'selected-enemy',
+    'selected-any',
     'all-enemy-units',
     'all-ally-units',
     'all-other-allies',
