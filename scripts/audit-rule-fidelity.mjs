@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CARD_DEFINITIONS, UNIT_DEFINITIONS } from '../game-content.js';
+import { CARD_DEFINITIONS, UNIT_DEFINITIONS, getCardDefinition, getUnitDefinition } from '../game-content.js';
 
 // This is an inventory, not a natural-language proof of semantic equivalence.
 // Absence of a simplification marker means unreviewed, never restored.
@@ -17,7 +17,7 @@ for (const [kind, definitions] of [['units', UNIT_DEFINITIONS], ['cards', CARD_D
   }
   for (const original of definitions) {
     const patch = patches[original.id];
-    const effective = { ...original, ...patch };
+    const effective = kind === 'units' ? (getUnitDefinition(original.id) ?? original) : (getCardDefinition(original.id) ?? original);
     const texts = kind === 'units'
       ? [effective.passive?.text, effective.awakenedPassive?.text]
       : [effective.text, effective.formAbility];
@@ -39,7 +39,7 @@ for (const kind of ['units', 'cards']) {
 }
 const fullCatalogRestored = errors.length === 0 && rows.every((row) => row.status === 'source-backed-native');
 const report = { schema: 1, engine: 'godot', fullCatalogRestored, summary, errors,
-  limitations: ['仅扫描显式简化标记；未标记内容仍需逐条比对。', 'source-backed-native 表示已建立资料和原生实现，不能替代原版实机交互核验。', '旧 JS 卡牌效果没有应用 Godot 核对数据。'], rows };
+  limitations: ['仅扫描显式简化标记；未标记内容仍需逐条比对。', 'source-backed-native 表示已建立资料和原生实现，不能替代原版实机交互核验。', 'JS 侧通过 getCardDefinition/getUnitDefinition 懒合并 verified_rules；结算专规仍按角色分批接入（本仓库凤凰火 Web 引擎已接入）。'], rows };
 const outputIndex = process.argv.indexOf('--out');
 if (outputIndex >= 0) {
   if (!process.argv[outputIndex + 1]) throw new Error('--out requires a path');

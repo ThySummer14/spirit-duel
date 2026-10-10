@@ -1,5 +1,6 @@
 class_name VerifiedCardRules
 extends RefCounted
+const ContentLoader := preload("res://scripts/content_loader.gd")
 const Countdown := preload("res://scripts/countdown_rules.gd")
 const Forms := preload("res://scripts/form_countdown_rules.gd")
 const SpellReplay := preload("res://scripts/spell_replay_rules.gd")

@@ -31,6 +31,12 @@ import {
   validatePlayerKeywordUsage,
   validateUnitKeywordConfiguration,
 } from './game-keywords.js?v=ae8562bd';
+import {
+  isPhoenixSpellSource,
+  phoenixDamagePreview,
+  phoenixTriggersForSpell,
+  recordPhoenixAvatarHit,
+} from './game-phoenix-rules.js';
 
 export {
   CARD_DEFINITIONS,
@@ -249,6 +255,7 @@ function assertGameStateStructure(state) {
       && typeof frame.respondable === 'boolean';
     if (!commonValid) return false;
     if (frame.kind === 'card-complete') return frame.respondable === false;
+    if (frame.kind === 'phoenix-spell-used') return Array.isArray(frame.triggers);
     return frame.kind === 'card-effect'
       && Number.isInteger(frame.effectIndex)
       && frame.effectIndex >= 0
@@ -594,11 +601,14 @@ export function drawCards(state, playerIndex, count = 1) {
   }
 }
 
-function damageAvatar(state, playerIndex, amount, sourcePlayerIndex = null) {
+function damageAvatar(state, playerIndex, amount, sourcePlayerIndex = null, sourceUnitIndex = null) {
   const player = state.players[playerIndex];
   const damage = Math.max(0, amount);
   player.avatarHp = Math.max(0, player.avatarHp - damage);
   if (sourcePlayerIndex !== null) state.players[sourcePlayerIndex].damageDealt += damage;
+  if (sourcePlayerIndex !== null && sourceUnitIndex !== null && damage > 0) {
+    recordPhoenixAvatarHit(state, sourcePlayerIndex, sourceUnitIndex, playerIndex, damage);
+  }
   recordEvent(
     state,
     GAME_EVENTS.AVATAR_DAMAGED,
@@ -941,11 +951,18 @@ function applyForm(state, playerIndex, sourceIndex, card) {
     attackBonus: bonuses.attack ?? 0,
     hpBonus: bonuses.hp ?? 0,
   };
+  unit.formRules = card.formRules ? { ...card.formRules } : null;
   // 增幅属于当前形态，切换时替换，避免旧形态能力永久残留。
   unit.passiveAmp = card.passiveAmp ? { ...card.passiveAmp } : null;
-  // 形态加成与永久成长叠加；保留当前已损伤势
-  unit.attack = unit.baseAttack + (unit.attackBonus ?? 0) + (bonuses.attack ?? 0);
-  unit.maxHp = unit.baseMaxHp + (unit.maxHpBonus ?? 0) + (bonuses.hp ?? 0);
+  if (bonuses.setBase) {
+    unit.baseAttack = bonuses.attack ?? unit.baseAttack;
+    unit.baseMaxHp = bonuses.hp ?? unit.baseMaxHp;
+    unit.attack = unit.baseAttack + (unit.attackBonus ?? 0);
+    unit.maxHp = unit.baseMaxHp + (unit.maxHpBonus ?? 0);
+  } else {
+    unit.attack = unit.baseAttack + (unit.attackBonus ?? 0) + (bonuses.attack ?? 0);
+    unit.maxHp = unit.baseMaxHp + (unit.maxHpBonus ?? 0) + (bonuses.hp ?? 0);
+  }
   unit.hp = unit.hp > 0 ? Math.max(1, unit.maxHp - damageTaken) : 0;
   recordEvent(
     state,
@@ -1220,7 +1237,24 @@ export function getValidTargets(state, playerIndex, definitionId) {
   if (card.target === 'ally-unit') return own.units.filter((unit) => unit.hp > 0 && unit.level >= 1).map((unit) => unit.uid);
   if (card.target === 'knocked-ally') return own.units.filter((unit) => unit.hp <= 0 && unit.level >= 1).map((unit) => unit.uid);
   if (card.target === 'enemy-unit') return enemy.units.filter((unit) => unit.hp > 0 && unit.level >= 1).map((unit) => unit.uid);
+  if (card.target === 'any-living-unit') {
+    const targets = [];
+    state.players.forEach((side) => {
+      side.units.forEach((unit) => {
+        if (unit.hp > 0 && unit.level >= 1) targets.push(unit.uid);
+      });
+    });
+    return targets;
+  }
   return [];
+}
+
+function unitOwnerAndIndexByUid(state, unitUid) {
+  for (let playerIndex = 0; playerIndex < state.players.length; playerIndex += 1) {
+    const unitIndex = unitIndexByUid(state.players[playerIndex], unitUid);
+    if (unitIndex >= 0) return { playerIndex, unitIndex };
+  }
+  return null;
 }
 
 export function getValidCombatTargets(state, playerIndex) {
@@ -1452,15 +1486,21 @@ const EFFECT_HANDLERS = new Map([
     },
   }],
   ['damage', {
-    resolve: ({ state, enemyIndex, targetUnitIndex, card, playerIndex, effect }) => {
-      const amount = effect.value ?? card.value;
+    resolve: ({ state, enemyIndex, targetUnitIndex, card, playerIndex, sourceIndex, effect, targetId }) => {
+      const source = state.players[playerIndex].units[sourceIndex];
+      const amount = card.phoenixSpell ? phoenixDamagePreview(card, source) : (effect.value ?? card.value);
       const route = getKeywordDamageRoute({ state, enemyIndex, playerIndex, card, effect });
       if (route?.type === 'unit') {
         damageUnit(state, enemyIndex, route.unitIndex, amount, playerIndex);
         return;
       }
       if (route?.type === 'avatar') {
-        damageAvatar(state, enemyIndex, amount, playerIndex);
+        damageAvatar(state, enemyIndex, amount, playerIndex, sourceIndex);
+        return;
+      }
+      if (effect.target === 'selected-any' && targetId) {
+        const located = unitOwnerAndIndexByUid(state, targetId);
+        if (located) damageUnit(state, located.playerIndex, located.unitIndex, amount, playerIndex);
         return;
       }
       if (['selected-enemy', 'enemy-unit'].includes(effect.target)) {
@@ -1473,7 +1513,17 @@ const EFFECT_HANDLERS = new Map([
         });
         return;
       }
-      if (effect.target === 'enemy-avatar') damageAvatar(state, enemyIndex, amount, playerIndex);
+      if (effect.target === 'enemy-avatar') damageAvatar(state, enemyIndex, amount, playerIndex, sourceIndex);
+    },
+  }],
+  ['phoenix-ignite', {
+    resolve: ({ state, card, playerIndex, sourceIndex, effect, targetId }) => {
+      const source = state.players[playerIndex].units[sourceIndex];
+      const amount = phoenixDamagePreview(card, source);
+      const located = targetId ? unitOwnerAndIndexByUid(state, targetId) : null;
+      if (!located) return;
+      const hit = damageUnit(state, located.playerIndex, located.unitIndex, amount, playerIndex);
+      if (hit.knockedOut) damageAvatar(state, located.playerIndex, amount, playerIndex, sourceIndex);
     },
   }],
   ['burn-all', {
@@ -1545,6 +1595,19 @@ const EFFECT_HANDLERS = new Map([
       const target = state.players[enemyIndex].units[targetUnitIndex];
       target.frozen = Math.max(amount, target.frozen);
       recordEvent(state, GAME_EVENTS.CARD_PLAYED, { enemyIndex, targetId, effect: 'freeze' }, `${target.name} 被眩晕。`, 'card');
+    },
+  }],
+  ['awaken-phoenix', {
+    resolve: ({ state, playerIndex, source, sourceIndex, card, effect }) => {
+      const definition = getUnitDefinition(card.unitId);
+      const awakenedPassive = definition?.awakenedPassive;
+      if (!source.awakened && awakenedPassive) {
+        source.awakened = true;
+        source.passive = clone(awakenedPassive);
+        if (definition.awakenedArt) source.art = definition.awakenedArt;
+        recordEvent(state, GAME_EVENTS.UNIT_AWAKENED, { playerIndex, unitIndex: sourceIndex, unitId: source.uid, passiveId: awakenedPassive.id }, `${source.name} 觉醒！被动升级为「${awakenedPassive.name}」。`, 'success');
+      }
+      applyUnitGrowth(source, { attack: effect.value?.attack ?? 1, hp: effect.value?.hp ?? 1 });
     },
   }],
   ['awaken', {
@@ -1714,20 +1777,25 @@ const EFFECT_HANDLERS = new Map([
     },
   }],
   ['damage-enemy-front', {
-    resolve: ({ state, enemyIndex, playerIndex, effect, card }) => {
-      const amount = effect.value ?? card.value ?? 0;
+    resolve: ({ state, enemyIndex, playerIndex, sourceIndex, effect, card }) => {
+      const source = state.players[playerIndex].units[sourceIndex];
+      const amount = card.phoenixSpell ? phoenixDamagePreview(card, source) : (effect.value ?? card.value ?? 0);
+      const pierce = card.keywords?.includes(CARD_KEYWORDS.PIERCE) || card.keywords?.includes('pierce');
       const route = getKeywordDamageRoute({ state, enemyIndex, playerIndex, card, effect });
       if (route?.type === 'unit') {
-        damageUnit(state, enemyIndex, route.unitIndex, amount, playerIndex);
+        const hit = damageUnit(state, enemyIndex, route.unitIndex, amount, playerIndex);
+        if (pierce && hit.overkill > 0) damageAvatar(state, enemyIndex, hit.overkill, playerIndex, sourceIndex);
         return;
       }
       if (route?.type === 'avatar') {
-        damageAvatar(state, enemyIndex, amount, playerIndex);
+        damageAvatar(state, enemyIndex, amount, playerIndex, sourceIndex);
         return;
       }
       const frontIndex = frontIndexOf(state.players[enemyIndex]);
-      if (frontIndex >= 0) damageUnit(state, enemyIndex, frontIndex, amount, playerIndex);
-      else damageAvatar(state, enemyIndex, amount, playerIndex);
+      if (frontIndex >= 0) {
+        const hit = damageUnit(state, enemyIndex, frontIndex, amount, playerIndex);
+        if (pierce && hit.overkill > 0) damageAvatar(state, enemyIndex, hit.overkill, playerIndex, sourceIndex);
+      } else damageAvatar(state, enemyIndex, amount, playerIndex, sourceIndex);
     },
   }],
   ['noop', {
@@ -1853,6 +1921,54 @@ const EFFECT_HANDLERS = new Map([
   }],
 ]);
 
+function phoenixProjectile(state, ownerIndex, sourceIndex, amount, pierce) {
+  const enemyIndex = 1 - ownerIndex;
+  const frontIndex = frontIndexOf(state.players[enemyIndex]);
+  if (frontIndex < 0) {
+    damageAvatar(state, enemyIndex, amount, ownerIndex, sourceIndex);
+    return;
+  }
+  const hit = damageUnit(state, enemyIndex, frontIndex, amount, ownerIndex);
+  const overflow = hit.overkill ?? 0;
+  if (pierce && overflow > 0) damageAvatar(state, enemyIndex, overflow, ownerIndex, sourceIndex);
+}
+
+function rollFortune(state, threshold, sides = 6) {
+  const roll = Math.floor(nextRandom(state) * sides) + 1;
+  return { roll, success: roll >= threshold, sides, threshold };
+}
+
+function generatePhoenixFortuneCard(state, ownerIndex, sourceIndex, cardId) {
+  const player = state.players[ownerIndex];
+  const definition = getCardDefinition(cardId);
+  if (!definition) return;
+  if (player.hand.length >= GAME_RULES.maxHandSize) {
+    recordEvent(state, GAME_EVENTS.HAND_BURNED, { playerIndex: ownerIndex, definitionId: cardId }, `手牌已满，获得的「${definition.name}」被烧毁。`, 'danger');
+    return;
+  }
+  player.hand.push({ instanceId: `${player.name}-${state.nextCardId++}`, definitionId: cardId, isHolo: false });
+  recordEvent(state, GAME_EVENTS.CARD_DRAWN, { playerIndex: ownerIndex, definitionId: cardId, source: 'phoenix-fortune' }, `获得「${definition.name}」。`, 'card');
+}
+
+function resolvePhoenixSpellUsedFrame(state, frame) {
+  const ownerIndex = frame.playerIndex;
+  const player = state.players[ownerIndex];
+  for (const trigger of frame.triggers ?? []) {
+    if (state.winner !== null) break;
+    const idx = trigger.sourceIndex;
+    const unit = player.units[idx];
+    if (!unit || unit.uid !== trigger.uid) continue;
+    const amount = 1 + (unit.formRules?.nonCombatDamageBonus ?? 0);
+    const pierce = false;
+    phoenixProjectile(state, ownerIndex, idx, amount, pierce);
+    if (trigger.fortune && state.winner === null) {
+      const fortune = rollFortune(state, Number(trigger.fortune.threshold ?? 4));
+      recordEvent(state, GAME_EVENTS.FORTUNE_ROLLED, { playerIndex: ownerIndex, ...fortune }, `运势 ${fortune.roll}/${fortune.sides}。`, fortune.success ? 'success' : 'neutral');
+      if (fortune.success) generatePhoenixFortuneCard(state, ownerIndex, idx, trigger.fortune.card);
+    }
+  }
+}
+
 // 群体/来源目标解析：返回受效果影响的友方单位列表（选定目标回退到 targetUnitIndex）
 function effectAllyTargets(player, effect, sourceIndex, targetUnitIndex) {
   if (effect?.target === 'source') return [player.units[sourceIndex]];
@@ -1875,6 +1991,16 @@ function createCardResolutionFrames(state, playerIndex, instanceId, card, target
     isHolo: options.isHolo === true,
   };
   state.resolutionStack.push({ ...baseFrame, kind: 'card-complete', respondable: false });
+  const sourceIndex = sourceUnitFor(state.players[playerIndex], card);
+  const phoenixTriggers = phoenixTriggersForSpell(state, playerIndex, card, sourceIndex);
+  if (phoenixTriggers.length > 0) {
+    state.resolutionStack.push({
+      ...baseFrame,
+      kind: 'phoenix-spell-used',
+      triggers: phoenixTriggers,
+      respondable: false,
+    });
+  }
   const effects = getCardEffects(card);
   for (let effectIndex = effects.length - 1; effectIndex >= 0; effectIndex -= 1) {
     state.resolutionStack.push({
@@ -1899,7 +2025,10 @@ function resolveCardEffectFrame(state, frame) {
   const sourceIndex = sourceUnitFor(player, card);
   const source = player.units[sourceIndex];
   const targetOwner = card.target === 'enemy-unit' ? state.players[enemyIndex] : player;
-  const targetUnitIndex = frame.targetId ? unitIndexByUid(targetOwner, frame.targetId) : null;
+  const located = frame.targetId ? unitOwnerAndIndexByUid(state, frame.targetId) : null;
+  const targetUnitIndex = card.target === 'any-living-unit' && located
+    ? (located.playerIndex === frame.playerIndex ? located.unitIndex : unitIndexByUid(state.players[enemyIndex], frame.targetId))
+    : (frame.targetId ? unitIndexByUid(targetOwner, frame.targetId) : null);
   const context = {
     state,
     player,
@@ -2034,6 +2163,7 @@ function resolveResolutionStack(state) {
 
       state.resolutionStack.pop();
       if (frame.kind === 'card-effect') resolveCardEffectFrame(state, frame);
+      else if (frame.kind === 'phoenix-spell-used') resolvePhoenixSpellUsedFrame(state, frame);
       else resolveCardCompleteFrame(state, frame);
       if (state.pendingChoice) return;
     }
@@ -2575,12 +2705,13 @@ function dispatchPassiveHooks(state, event) {
 
 export function validateContentCatalog() {
   const errors = [];
-  const knownTargets = new Set(['auto', 'ally-unit', 'knocked-ally', 'enemy-unit']);
+  const knownTargets = new Set(['auto', 'ally-unit', 'knocked-ally', 'enemy-unit', 'any-living-unit']);
   const knownEffectTargets = new Set([
     'source',
     'auto',
     'selected-ally',
     'selected-enemy',
+    'selected-any',
     'all-enemy-units',
     'all-ally-units',
     'all-other-allies',

@@ -1,5 +1,6 @@
 extends SceneTree
 const GS := preload("res://scripts/game_state.gd")
+const ContentLoader := preload("res://scripts/content_loader.gd")
 const Cues := preload("res://scripts/ui/battle_effect_cues.gd")
 var checks := 0
 var failures := 0
