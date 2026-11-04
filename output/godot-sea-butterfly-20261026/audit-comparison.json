@@ -1,0 +1,48 @@
+{
+  "before": {
+    "units": {
+      "known-approximation": 98,
+      "unreviewed": 43,
+      "pending-verification": 94,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 557,
+      "unreviewed": 660,
+      "pending-verification": 703,
+      "source-backed-native": 207
+    }
+  },
+  "after": {
+    "units": {
+      "known-approximation": 97,
+      "unreviewed": 43,
+      "pending-verification": 95,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 551,
+      "unreviewed": 658,
+      "pending-verification": 711,
+      "source-backed-native": 207
+    }
+  },
+  "errorsUnchanged": true,
+  "diagnosticCount": 19,
+  "fullCatalogRestored": false,
+  "overlayDelta": {
+    "units": [
+      "linghaidie"
+    ],
+    "cards": [
+      "c28707",
+      "c28701",
+      "c28706",
+      "c28703",
+      "c28704",
+      "c28708",
+      "c28705",
+      "c28702"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "engine": "Godot 4.6.3 stable",
+  "published": false,
+  "files": {
+    "index.apple-touch-icon.png": {
+      "bytes": 14721,
+      "sha256": "623c589e3078d59fbbcaf0eecb0dba402a19704d253a99f5f974ca27a6b0245e"
+    },
+    "index.wasm": {
+      "bytes": 37700666,
+      "sha256": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6"
+    },
+    "index.icon.png": {
+      "bytes": 2649,
+      "sha256": "d5b4f9a8b98c07c4398f56fab532f134180b9a04d1ca7f31abf537709d77b350"
+    },
+    "index.html": {
+      "bytes": 3241,
+      "sha256": "22a845edd2faef3839023c4a579d46903b09b122c8a6dc101474d6a38a0696e8"
+    },
+    "index.png": {
+      "bytes": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    "index.audio.worklet.js": {
+      "bytes": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    "index.js": {
+      "bytes": 315759,
+      "sha256": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981"
+    },
+    "index.audio.position.worklet.js": {
+      "bytes": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    "index.pck": {
+      "bytes": 51594596,
+      "sha256": "33e5e06abc95eddfa3ecb79253021c7baae7661278df52bdc7417168ed613689"
+    }
+  }
+}

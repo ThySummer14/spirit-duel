@@ -44,7 +44,9 @@ static func load_content(force: bool = false) -> Dictionary:
 				if definition.get("id") == id:
 					if group == "cards": definition.sourceSnapshotText = definition.get("officialText", "")
 					definition.merge(verified[group][id].duplicate(true), true)
-					if group == "cards": definition.officialText = definition.text
+					if group == "cards":
+						definition.officialText = definition.text
+						if definition.get("type")=="form" and not verified[group][id].has("formAbility"): definition.formAbility=definition.text
 					found = true
 					break
 			if not found:
@@ -85,6 +87,12 @@ static func load_content(force: bool = false) -> Dictionary:
 		"rules": rules,
 	}
 	return _cache
+
+static func is_spell(card: Dictionary) -> bool:
+	return str(card.get("type", "")) in ["spell", "awakening"]
+
+static func runtime_unit_def(unit: Dictionary) -> Dictionary:
+	return {} if unit.get("baseRulesSuppressed", false) else unit_def(str(unit.get("id", "")))
 
 static func rules() -> Dictionary:
 	return load_content().get("rules", RULE_DEFAULTS)

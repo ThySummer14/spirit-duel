@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/206_净琉璃御前/20601_无染_形态.png",
+    "target": "godot/assets/official/cards/c20601.png",
+    "sha256": "484856aa194ad859582a2eaaaefc2174ed5deef263a27d31d395072fc568ff31"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/206_净琉璃御前/20602_明澈_战斗.png",
+    "target": "godot/assets/official/cards/c20602.png",
+    "sha256": "17427d08c6289870a6bcd472935a5b1dfb4e6d8cf6ccae591ac428c29fc11f27"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/206_净琉璃御前/20603_启示_法术.png",
+    "target": "godot/assets/official/cards/c20603.png",
+    "sha256": "d618ecf31675a42fbd54baf199d3889bd6fc9e3451b9af83476f44f7010b72b8"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/206_净琉璃御前/20604_琉璃光境_结界.png",
+    "target": "godot/assets/official/cards/c20604.png",
+    "sha256": "742b2202e3a8e2f63922cd6682b48a41979ba99b401397d71eb6cd5d5b6ff8ad"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/206_净琉璃御前/20605_双生_形态.png",
+    "target": "godot/assets/official/cards/c20605.png",
+    "sha256": "7d2bef162a1707f518069cc7fc9289a2dfa786032f11ade444472cfe0bfc001a"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/206_净琉璃御前/20606_觉醒·净琉璃御前_法术.png",
+    "target": "godot/assets/official/cards/c20606.png",
+    "sha256": "f4e054e7a61cddf271030d8d4404b3b718696b001d4c037cb2dba73b8382c9c2"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/206_净琉璃御前/20607_暗羽_法术.png",
+    "target": "godot/assets/official/cards/c20607.png",
+    "sha256": "3f10f0433f5584c20ed1eea11d2a05177d28e7a9dbd57df35303d3dc2c3902ae"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/206_净琉璃御前/20608_净琉璃_战斗.png",
+    "target": "godot/assets/official/cards/c20608.png",
+    "sha256": "ca7ac76be658bab48e03958b74663bfe82a7ee30302a61dfc188bdca92e18a86"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/207_樱雪姬/20701_意临_法术.png",
+    "target": "godot/assets/official/cards/c20701.png",
+    "sha256": "2069c5aaab1b19d64ff195552a62043532ceab5465c9974fee6cb98988dddadd"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/207_樱雪姬/20702_窥秘之瞳_形态.png",
+    "target": "godot/assets/official/cards/c20702.png",
+    "sha256": "851dc663ed60082c35b4fc799b369352d13bc8324575e7f7da9b57b48327ca54"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/207_樱雪姬/20703_勾勒_法术.png",
+    "target": "godot/assets/official/cards/c20703.png",
+    "sha256": "e08d99de1ab1e1c643f39941bdc0480d0b8b155b2e219a1ba18420fa11083a6d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/207_樱雪姬/20704_画境苏生_形态.png",
+    "target": "godot/assets/official/cards/c20704.png",
+    "sha256": "ce844f7f8513e658cc9e2930cb553dd3da8db08e4de87e601dda3866fd060c9e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/207_樱雪姬/20705_红染之樱_结界.png",
+    "target": "godot/assets/official/cards/c20705.png",
+    "sha256": "26f3ae9accbe0df6c4a7e9c9235bde0a8b3b93d11c9a77d028bb0db3e84be4e6"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/207_樱雪姬/20706_觉醒·樱雪姬_法术.png",
+    "target": "godot/assets/official/cards/c20706.png",
+    "sha256": "2c2a92e5acd9d2434c1cf3985f4ac0de85923b7076ed9f4227f1dcd9967b1598"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/207_樱雪姬/20707_写意_法术.png",
+    "target": "godot/assets/official/cards/c20707.png",
+    "sha256": "77bf40aa5b0252b583658f6d907b563717d67a9823c74fb5df0873332f2d24aa"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/207_樱雪姬/20708_山之石雪之雫_结界.png",
+    "target": "godot/assets/official/cards/c20708.png",
+    "sha256": "0cd5cfa395f40f15ad1fcf64bdbfecba9e79a8044a797f53c40455c898a7c635"
+  }
+]

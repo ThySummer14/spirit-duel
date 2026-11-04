@@ -1,0 +1,42 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/06_沧海刀鸣/189_御馔津/18901_驱魔符·驱魔箭_法术.png",
+    "target": "godot/assets/official/cards/c18901.png",
+    "sha256": "cddc7ea7278d267d4bbbc947e5c40039a7b6c3bfd1fd4af4484a17ec1257867d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/06_沧海刀鸣/189_御馔津/18902_御狩之愿_形态.png",
+    "target": "godot/assets/official/cards/c18902.png",
+    "sha256": "2dc6f56a1e866e92fde09ce957910b31863bf7d63ea2e4375c32cc6985771d46"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/06_沧海刀鸣/189_御馔津/18903_丰穗_法术.png",
+    "target": "godot/assets/official/cards/c18903.png",
+    "sha256": "d0163a6b029ef5c642dd6186b3537569e638e9305aae6882f6da9ff755b8c324"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/06_沧海刀鸣/189_御馔津/18904_封魔符·封魔箭_法术.png",
+    "target": "godot/assets/official/cards/c18904.png",
+    "sha256": "0c435d48f4bb723998c0324f4f51017599be08d93a43f22cd19ed77a58f73d02"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/06_沧海刀鸣/189_御馔津/18905_觉醒·御馔津_法术.png",
+    "target": "godot/assets/official/cards/c18905.png",
+    "sha256": "9d9781074a902b6869a41dfd235d26720a0e5ad0f968378684b3483d5ea6f81d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/06_沧海刀鸣/189_御馔津/18906_狐狩界_结界.png",
+    "target": "godot/assets/official/cards/c18906.png",
+    "sha256": "d00a6465556d8dfe4f147cc53e36d0b1db38b9b26bfcc3c68df2bab59271991e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/06_沧海刀鸣/189_御馔津/18907_破魔符·破魔箭_法术.png",
+    "target": "godot/assets/official/cards/c18907.png",
+    "sha256": "844e04957edd80f6b8380ffd63e81a72d4483bb94020353e6f1d64a15b19d3de"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/06_沧海刀鸣/189_御馔津/18908_奉祝之愿_形态.png",
+    "target": "godot/assets/official/cards/c18908.png",
+    "sha256": "09e6b8376c7860706cae13e4dfe9fac46536a1928b247c635283ea5d211f0d07"
+  }
+]

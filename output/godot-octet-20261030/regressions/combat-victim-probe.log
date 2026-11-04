@@ -1,0 +1,5 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+YUJ_SAME_VICTIM played=true own-mark=1 victim-before=29 victim-after=28 attacker-attack=1 face=30
+GUARD_SOURCE id=tiaotiaodidi
+PUPPET_GUARD form=true attack=true enemy-hand=1 enemy-face=29 own-face=30 response-events=[]

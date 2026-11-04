@@ -1,0 +1,59 @@
+{
+  "newMainFaces": [
+    {
+      "id": "c27601",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/276_一条/27601_此心安处_战斗.png",
+      "destination": "godot/assets/official/cards/c27601.png",
+      "sha256": "13bb86e60b8715d67b76c924b4990e5ea3a35004998ccc331e080d93c3fb39fd"
+    },
+    {
+      "id": "c27602",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/276_一条/27602_卫戍_战斗.png",
+      "destination": "godot/assets/official/cards/c27602.png",
+      "sha256": "44d4c37c5fdb40f9c1c6ea6250fb703e38f6cc5c0ee118dd2ef3abca651b43ab"
+    },
+    {
+      "id": "c27603",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/276_一条/27603_架势·守_形态.png",
+      "destination": "godot/assets/official/cards/c27603.png",
+      "sha256": "d7c4b2d5de63eb6b4df06edd77ca7017e25face6e01e1763c7fbfcb8775b014e"
+    },
+    {
+      "id": "c27604",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/276_一条/27604_架势·攻_形态.png",
+      "destination": "godot/assets/official/cards/c27604.png",
+      "sha256": "e490313f25a81b7b97b9cf6c9ac7a0394e437f448cb5c89287e370128607b356"
+    },
+    {
+      "id": "c27605",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/276_一条/27605_孤斗_法术.png",
+      "destination": "godot/assets/official/cards/c27605.png",
+      "sha256": "2e5fa4a9713138c49dd5b3fd1d3b45e96020c896d31f4493c462a766c0c60bf2"
+    },
+    {
+      "id": "c27606",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/276_一条/27606_重任在肩_法术.png",
+      "destination": "godot/assets/official/cards/c27606.png",
+      "sha256": "7fb736181809b527ff7616c928a97be688ad7d68264f1ce4f866e660b6d446a3"
+    },
+    {
+      "id": "c27607",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/276_一条/27607_架势·居合_形态.png",
+      "destination": "godot/assets/official/cards/c27607.png",
+      "sha256": "47e05394a81684338523bc14bd1845e6cd67b12dc0109ecbebe0dbee76abf5fa"
+    },
+    {
+      "id": "c27608",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/276_一条/27608_觉醒·一条_法术.png",
+      "destination": "godot/assets/official/cards/c27608.png",
+      "sha256": "36d30674470d9ff8244f74ec8375c7b7703c15304073975a31879439d323067a"
+    }
+  ],
+  "totalMainFaces": 416,
+  "totalMainUnits": 52,
+  "totalFullFaces": 419,
+  "tokenFacesMissing": [
+    "yitiao-training"
+  ],
+  "note": "Training has actual generated card/label/rules and unit-art fallback; Chinese original token PNG still missing."
+}

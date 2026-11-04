@@ -1,0 +1,60 @@
+{
+  "sources": [
+    {
+      "id": "rabbit-blessing-20210330",
+      "title": "官方2021年3月30日维护公告常规平衡性改动",
+      "url": "https://www.taptap.cn/moment/125748579607252242",
+      "scope": "送祝福限己方；三次6额外+2/+2和迅捷"
+    }
+  ],
+  "units": {},
+  "cards": {
+    "c12702": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "使一个己方式神获得1力量与1生命。\n增强：本局游戏若你骰子投出三次6点，该式神额外获得2力量与2生命和迅捷。",
+      "target": "ally-unit",
+      "effect": "fortune-blessing",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "fortune-blessing",
+          "target": "selected-ally",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428",
+        "rabbit-blessing-20210330"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "fortuneEnhancement": "sixes-blessing",
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      },
+      "officialText": "使一个己方式神获得1力量与1生命。增强：本局游戏若你骰子投出三次6点，该式神额外获得2力量与2生命和迅捷。"
+    }
+  }
+}

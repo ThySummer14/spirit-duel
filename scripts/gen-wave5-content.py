@@ -950,6 +950,12 @@ CARD_MAP: dict[int, dict] = {
 
 # 衍生/食材 token（可入手牌使用）
 TOKENS = [
+    dict(id="tengji-huanyi", unitId="tengji", name="幻役", type="summon", level=1, cost=0, rarity="common",
+         text="召唤一个0/0的幻役并为其结附一个藤色。", target="auto", deckLimit=0,
+         effects=[("always", "vine-phantom", "source", 0)], token=True, tags=["token"]),
+    dict(id="puppet-awaken-form", unitId="kuileishi", name="觉醒·傀儡术", type="form", level=2, cost=1, rarity="common",
+         text="融合。永久结附。", target="auto", deckLimit=0,
+         effects=[("always", "form", "source", {"attack": 3, "hp": 3, "setBase": True})], token=True, tags=["token"]),
     dict(id="tengji-huanse", unitId="tengji", name="藤色", type="spell", level=1, cost=0, rarity="common",
          text="使一个己方式神获得 1 点力量与 1 点生命。", target="ally-unit",
          effects=[("always", "buff-stats", "selected-ally", {"attack": 1, "hp": 1})], token=True, tags=["token", "藤色"]),
@@ -1203,6 +1209,42 @@ def normalize_starters() -> None:
                     total += room
 
 
+EXTRA_TOKENS += [{'id': 'qianji-song', 'unitId': 'qianji', 'name': '咏流', 'type': 'spell', 'level': 1, 'cost': 1, 'text': '召唤一个海原贝戟。增强：当千姬使用牌时，此牌获得瞬发。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'rt-summon', 'source', 0]]}]
+
+
+EXTRA_UNITS = []
+
+
+EXTRA_UNITS += [{'id': 'qianji-spear', 'name': '海原贝戟', 'title': '千姬召唤物', 'attack': 0, 'maxHp': 2, 'art': 'assets/official/tokens/qianji-spear.png', 'color': '#87c4de', 'pack': 'wave5', 'selectable': False, 'token': True, 'summoned': True, 'countsAsShikigami': True, 'verifiedRules': True, 'passive': {'id': 'rt-spear-leave', 'name': '海原贝戟', 'text': '离场时，若你手牌中没有「咏流」，则将一张「咏流」置入手牌。', 'hooks': []}, 'sources': ['rabbit-tide-spear-derivative', 'rabbit-tide-official-20220414'], 'verificationPending': ['派生身材及完整牌文采用日文相关卡补证；中文完整tooltip及原客户端边界待核。'], 'awakenedArt': 'assets/official/tokens/qianji-spear.png'}]
+
+
+EXTRA_TOKENS += [{'id': 'cooking-mountain', 'unitId': '', 'name': '山珍', 'type': 'spell', 'level': 0, 'cost': 1, 'text': '山珍：中立法术，效果由生成时的真实食材实例保留。', 'target': 'food-target', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'cooking-food', 'selected', 0]]}]
+
+
+EXTRA_TOKENS += [{'id': 'cooking-sea', 'unitId': '', 'name': '海味', 'type': 'spell', 'level': 0, 'cost': 1, 'text': '海味：中立法术，效果由生成时的真实食材实例保留。', 'target': 'food-target', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'cooking-food', 'selected', 0]]}]
+
+
+EXTRA_TOKENS += [{'id': 'cooking-vegetable', 'unitId': '', 'name': '时蔬', 'type': 'spell', 'level': 0, 'cost': 1, 'text': '时蔬：中立法术，效果由生成时的真实食材实例保留。', 'target': 'food-target', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'cooking-food', 'selected', 0]]}]
+
+
+EXTRA_TOKENS += [{'id': 'cooking-dark', 'unitId': '', 'name': '黑暗料理', 'type': 'spell', 'level': 0, 'cost': 1, 'text': '黑暗料理：中立法术，效果由生成时的真实食材实例保留。', 'target': 'food-target', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'cooking-food', 'selected', 0]]}]
+
+
+EXTRA_UNITS += [{'id': 'cat-one', 'name': '一条', 'title': '猫掌柜召唤物', 'role': '召唤物', 'strategy': '', 'attack': 3, 'maxHp': 4, 'pack': 'wave5', 'subpack': 'xuanhua', 'art': 'assets/official/summons/one.png', 'awakenedArt': 'assets/official/summons/one.png', 'color': '#e0b070', 'token': True, 'selectable': False, 'summoned': True, 'verificationPending': ['派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。'], 'countsAsShikigami': True, 'passive': {'id': 'cat-one-base', 'name': '基础能力', 'text': '当你对一条使用食材时，抽一张牌。', 'hooks': []}, 'verifiedRules': True, 'sources': ['cat-summon-jp-20261103']}]
+
+
+EXTRA_UNITS += [{'id': 'cat-four', 'name': '四饼', 'title': '猫掌柜召唤物', 'role': '召唤物', 'strategy': '', 'attack': 3, 'maxHp': 4, 'pack': 'wave5', 'subpack': 'xuanhua', 'art': 'assets/official/summons/four.jpg', 'awakenedArt': 'assets/official/summons/four.jpg', 'color': '#e0b070', 'token': True, 'selectable': False, 'summoned': True, 'verificationPending': ['派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。'], 'countsAsShikigami': True, 'passive': {'id': 'cat-four-base', 'name': '基础能力', 'text': '当你对四饼使用食材时，本局游戏中猫掌柜的所有召唤物永久获得1力量。', 'hooks': []}, 'verifiedRules': True, 'sources': ['cat-summon-jp-20261103']}]
+
+
+EXTRA_UNITS += [{'id': 'cat-two', 'name': '二瞳', 'title': '猫掌柜召唤物', 'role': '召唤物', 'strategy': '', 'attack': 3, 'maxHp': 4, 'pack': 'wave5', 'subpack': 'xuanhua', 'art': 'assets/official/summons/two.png', 'awakenedArt': 'assets/official/summons/two.png', 'color': '#e0b070', 'token': True, 'selectable': False, 'summoned': True, 'verificationPending': ['派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。'], 'countsAsShikigami': True, 'passive': {'id': 'cat-two-base', 'name': '基础能力', 'text': '当你对二瞳使用食材时，对一个随机敌方式神造成3点伤害。', 'hooks': []}, 'verifiedRules': True, 'sources': ['cat-summon-jp-20261103']}]
+
+
+EXTRA_UNITS += [{'id': 'sugar-small', 'name': '小糖人', 'title': '饴细工召唤物', 'role': '召唤物', 'strategy': '', 'attack': 2, 'maxHp': 2, 'pack': 'wave5', 'subpack': 'xuanhua', 'art': 'assets/official/summons/small.png', 'awakenedArt': 'assets/official/summons/small.png', 'color': '#e0b070', 'token': True, 'selectable': False, 'summoned': True, 'verificationPending': ['派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。'], 'countsAsShikigami': True, 'passive': {'id': 'sugar-small-base', 'name': '基础能力', 'text': '融合。', 'hooks': []}, 'verifiedRules': True, 'sources': ['sugar-summon-jp-20261103']}]
+
+
+EXTRA_UNITS += [{'id': 'sugar-big', 'name': '大糖人', 'title': '饴细工召唤物', 'role': '召唤物', 'strategy': '', 'attack': 4, 'maxHp': 4, 'pack': 'wave5', 'subpack': 'xuanhua', 'art': 'assets/official/summons/big.png', 'awakenedArt': 'assets/official/summons/big.png', 'color': '#e0b070', 'token': True, 'selectable': False, 'summoned': True, 'verificationPending': ['派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。'], 'countsAsShikigami': True, 'passive': {'id': 'sugar-big-base', 'name': '基础能力', 'text': '融合。不屈。', 'hooks': []}, 'verifiedRules': True, 'sources': ['sugar-summon-jp-20261103']}]
+
+
 def main() -> None:
     shiks = {s["name"]: s for s in json.loads((DATA / "shikigami.json").read_text(encoding="utf-8"))}
     cards = json.loads((DATA / "cards.json").read_text(encoding="utf-8"))
@@ -1271,6 +1313,9 @@ def main() -> None:
         lines.append("    passive: passive(" + js_str(pid["id"]) + ", " + js_str(pid["name"]) + ", " + js_str(pid["text"]) + ", [\n" + pid_h + "\n    ]),")
         lines.append("    awakenedPassive: passive(" + js_str(aid["id"]) + ", " + js_str(aid["name"]) + ", " + js_str(aid["text"]) + ", [\n" + aid_h + "\n    ]),")
         lines.append("  },")
+
+    for extra_unit in EXTRA_UNITS:
+        lines.append("  " + json.dumps(extra_unit, ensure_ascii=False) + ",")
 
     lines.append("]);")
     lines.append("")
@@ -1382,7 +1427,7 @@ def main() -> None:
             f"cost: {int(tok.get('cost', 0))}",
             f"rarity: {js_str(tok.get('rarity', 'common'))}",
             f"starter: 0",
-            f"deckLimit: 2",
+            f"deckLimit: {int(tok.get('deckLimit', 2))}",
             f"token: true",
             f"text: {js_str(tok['text'])}",
             f"officialText: {js_str(tok['text'])}",
@@ -1399,7 +1444,7 @@ def main() -> None:
             ) for c, a, t, v in effs
         )
         body.append("effects: [\n" + eff_s + ",\n    ]")
-        body.append(f"subpack: {js_str(unit_subpack[tok['unitId']])}")
+        body.append(f"subpack: {js_str(unit_subpack.get(tok['unitId'], 'xuanhua'))}")
         lines.append(f"  wave5Card(0, {js_str(tok['unitId'])}, {{")
         lines.append("    " + ",\n    ".join(body) + ",")
         lines.append("  }),")

@@ -1,0 +1,408 @@
+{
+  "units": {
+    "yujiazhu": {
+      "verifiedRules": true,
+      "yujiazhuRules": true,
+      "nativeCharge": true,
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "yuj-talisman",
+        "name": "符咒转化",
+        "text": "充能。御馔津的符咒牌都具有「爆能3：转化为战斗牌并改为攻击任一敌方式神」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "yuj-talisman-awake",
+        "name": "符咒转化",
+        "text": "充能。御馔津的符咒牌都具有「爆能3：转化为战斗牌并改为攻击任一敌方式神，本次战斗获得免疫战斗伤害」。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "yuj-original-20261029",
+        "yuj-official-intro-20201008",
+        "yuj-official-balance-20201015"
+      ],
+      "verificationPending": [
+        "按18900–18908完整原PNG及基础牌文接入；丰穗、奉祝与旧官网快照的差异已记录，指定录像未逐牌核验。",
+        "符咒转化、自动响应、奉祝自动用符与其他响应全序、狐狩界折扣多源组合仍待原客户端核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c18901": {
+      "verifiedRules": true,
+      "yujiazhuRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "使一个有形态的敌方式神获得「本回合受到伤害时使其气绝」。",
+      "officialText": "使一个有形态的敌方式神获得「本回合受到伤害时使其气绝」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "yuj-original-20261029",
+        "yuj-official-intro-20201008",
+        "yuj-official-balance-20201015"
+      ],
+      "verificationPending": [
+        "按18900–18908完整原PNG及基础牌文接入；丰穗、奉祝与旧官网快照的差异已记录，指定录像未逐牌核验。",
+        "符咒转化、自动响应、奉祝自动用符与其他响应全序、狐狩界折扣多源组合仍待原客户端核验。"
+      ],
+      "level": 1,
+      "movementRules": true,
+      "movementBurstOptions": [
+        3
+      ],
+      "yujTalisman": true,
+      "effect": "yuj-talisman",
+      "value": 0,
+      "effects": [
+        {
+          "action": "yuj-talisman",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c18902": {
+      "verifiedRules": true,
+      "yujiazhuRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "攻击敌方式神时获得连击。",
+      "officialText": "攻击敌方式神时获得连击。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "yujHunt": true
+      },
+      "formHooks": [],
+      "formAbility": "攻击敌方式神时获得连击。",
+      "sources": [
+        "yuj-original-20261029",
+        "yuj-official-intro-20201008",
+        "yuj-official-balance-20201015"
+      ],
+      "verificationPending": [
+        "按18900–18908完整原PNG及基础牌文接入；丰穗、奉祝与旧官网快照的差异已记录，指定录像未逐牌核验。",
+        "符咒转化、自动响应、奉祝自动用符与其他响应全序、狐狩界折扣多源组合仍待原客户端核验。"
+      ],
+      "level": 2,
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c18903": {
+      "verifiedRules": true,
+      "yujiazhuRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "御馔津获得3能量，抽一张牌。",
+      "officialText": "御馔津获得3能量，抽一张牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "yuj-original-20261029",
+        "yuj-official-intro-20201008",
+        "yuj-official-balance-20201015"
+      ],
+      "verificationPending": [
+        "按18900–18908完整原PNG及基础牌文接入；丰穗、奉祝与旧官网快照的差异已记录，指定录像未逐牌核验。",
+        "符咒转化、自动响应、奉祝自动用符与其他响应全序、狐狩界折扣多源组合仍待原客户端核验。"
+      ],
+      "level": 1,
+      "effect": "yuj-harvest",
+      "value": 0,
+      "effects": [
+        {
+          "action": "yuj-harvest",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c18904": {
+      "verifiedRules": true,
+      "yujiazhuRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "眩晕一个敌方式神并使其本回合力量变为0。\n响应：当御馔津被攻击时，自动对攻击她的式神使用。",
+      "officialText": "眩晕一个敌方式神并使其本回合力量变为0。\n响应：当御馔津被攻击时，自动对攻击她的式神使用。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "yuj-original-20261029",
+        "yuj-official-intro-20201008",
+        "yuj-official-balance-20201015"
+      ],
+      "verificationPending": [
+        "按18900–18908完整原PNG及基础牌文接入；丰穗、奉祝与旧官网快照的差异已记录，指定录像未逐牌核验。",
+        "符咒转化、自动响应、奉祝自动用符与其他响应全序、狐狩界折扣多源组合仍待原客户端核验。"
+      ],
+      "level": 2,
+      "movementRules": true,
+      "movementBurstOptions": [
+        3
+      ],
+      "yujTalisman": true,
+      "autoResponse": "source-attacked",
+      "responseModifiesCombat": true,
+      "effect": "yuj-talisman",
+      "value": 0,
+      "effects": [
+        {
+          "action": "yuj-talisman",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c18905": {
+      "verifiedRules": true,
+      "yujiazhuRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：充能。御馔津的符咒牌都具有「爆能3：转化为战斗牌并改为攻击任一敌方式神，本次战斗获得免疫战斗伤害」。",
+      "officialText": "觉醒：充能。御馔津的符咒牌都具有「爆能3：转化为战斗牌并改为攻击任一敌方式神，本次战斗获得免疫战斗伤害」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "yuj-original-20261029",
+        "yuj-official-intro-20201008",
+        "yuj-official-balance-20201015"
+      ],
+      "verificationPending": [
+        "按18900–18908完整原PNG及基础牌文接入；丰穗、奉祝与旧官网快照的差异已记录，指定录像未逐牌核验。",
+        "符咒转化、自动响应、奉祝自动用符与其他响应全序、狐狩界折扣多源组合仍待原客户端核验。"
+      ],
+      "level": 2,
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c18906": {
+      "verifiedRules": true,
+      "yujiazhuRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "你的所有爆能消耗-1。你的所有符咒牌都获得瞬发。",
+      "officialText": "你的所有爆能消耗-1。你的所有符咒牌都获得瞬发。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "yuj-original-20261029",
+        "yuj-official-intro-20201008",
+        "yuj-official-balance-20201015"
+      ],
+      "verificationPending": [
+        "按18900–18908完整原PNG及基础牌文接入；丰穗、奉祝与旧官网快照的差异已记录，指定录像未逐牌核验。",
+        "符咒转化、自动响应、奉祝自动用符与其他响应全序、狐狩界折扣多源组合仍待原客户端核验。"
+      ],
+      "level": 2,
+      "realm": {
+        "hp": 8,
+        "nativeRealm": "yuj-fox-hunt",
+        "triggerEffect": ""
+      },
+      "effect": "realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c18907": {
+      "verifiedRules": true,
+      "yujiazhuRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "使一个敌方式神本回合获得「对其攻击的式神获得暴击和贯通」。",
+      "officialText": "使一个敌方式神本回合获得「对其攻击的式神获得暴击和贯通」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "yuj-original-20261029",
+        "yuj-official-intro-20201008",
+        "yuj-official-balance-20201015"
+      ],
+      "verificationPending": [
+        "按18900–18908完整原PNG及基础牌文接入；丰穗、奉祝与旧官网快照的差异已记录，指定录像未逐牌核验。",
+        "符咒转化、自动响应、奉祝自动用符与其他响应全序、狐狩界折扣多源组合仍待原客户端核验。"
+      ],
+      "level": 3,
+      "movementRules": true,
+      "movementBurstOptions": [
+        3
+      ],
+      "yujTalisman": true,
+      "effect": "yuj-talisman",
+      "value": 0,
+      "effects": [
+        {
+          "action": "yuj-talisman",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c18908": {
+      "verifiedRules": true,
+      "yujiazhuRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "追猎。\n出击时对被攻击的式神使用每种本局游戏御馔津使用过的符咒牌。\n本局游戏每使用过一种符咒牌，御馔津获得+1力量和+1生命。",
+      "officialText": "追猎。\n出击时对被攻击的式神使用每种本局游戏御馔津使用过的符咒牌。\n本局游戏每使用过一种符咒牌，御馔津获得+1力量和+1生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "yujPrayer": true,
+        "combatKeywords": [
+          "pursuit"
+        ],
+        "yujPrayerCount": 0
+      },
+      "formHooks": [],
+      "formAbility": "追猎。\n出击时对被攻击的式神使用每种本局游戏御馔津使用过的符咒牌。\n本局游戏每使用过一种符咒牌，御馔津获得+1力量和+1生命。",
+      "sources": [
+        "yuj-original-20261029",
+        "yuj-official-intro-20201008",
+        "yuj-official-balance-20201015"
+      ],
+      "verificationPending": [
+        "按18900–18908完整原PNG及基础牌文接入；丰穗、奉祝与旧官网快照的差异已记录，指定录像未逐牌核验。",
+        "符咒转化、自动响应、奉祝自动用符与其他响应全序、狐狩界折扣多源组合仍待原客户端核验。"
+      ],
+      "level": 1,
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "yuj-original-20261029",
+      "path": "art-reference-official/卡面-按版本/06_沧海刀鸣/189_御馔津",
+      "evidence": "九张完整原PNG：基础3/4、八牌等级/身材/牌文及奉祝去重符咒成长。"
+    },
+    {
+      "id": "yuj-official-intro-20201008",
+      "url": "https://www.taptap.cn/moment/63371912369145376",
+      "evidence": "官方式神教程确认三符爆能转战斗、保留符咒效果、御狩与奉祝攻击行为。"
+    },
+    {
+      "id": "yuj-official-balance-20201015",
+      "url": "https://www.taptap.cn/moment/65548006706908103",
+      "evidence": "官方维护说明：破魔箭改+1力量/+1护甲、丰穗改得3能量抽1；奉祝可选无形态目标、驱魔0伤不气绝及封魔响应支付修复。"
+    }
+  ]
+}

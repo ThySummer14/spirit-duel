@@ -1,0 +1,5 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+ARMOR_LIMIT_FAIL cyclone deals actual capped armor rather than requested armor
+ARMOR_LIMIT_FAIL AI uses legal target and actual capped armor value
+ARMOR_LIMIT checks=72 failures=2

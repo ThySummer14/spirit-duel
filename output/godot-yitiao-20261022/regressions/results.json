@@ -1,0 +1,74 @@
+[
+  {
+    "script": "verify_butterfly",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "BUTTERFLY_OK checks=151 failures=0 rules_only=true"
+  },
+  {
+    "script": "verify_garuda",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "GARUDA_OK checks=133 failures=0 rules_only=true"
+  },
+  {
+    "script": "verify_huibishou",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "HUIBISHOU checks=50 failures=0"
+  },
+  {
+    "script": "verify_blessing_continuation",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "BLESSING_CONTINUATION checks=44 failures=0"
+  },
+  {
+    "script": "verify_peach",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "PEACH_OK"
+  },
+  {
+    "script": "verify_dog_demon",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "DOG_DEMON_OK"
+  },
+  {
+    "script": "verify_bingyong",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "BINGYONG_CHECKS=112 FAILURES=0"
+  },
+  {
+    "script": "verify_combat",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "COMBAT_REGRESSION_OK cases=16"
+  },
+  {
+    "script": "verify_instant",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "INSTANT_OK checks=12"
+  },
+  {
+    "script": "verify_battle_status",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "BATTLE_STATUS_OK checks=139"
+  },
+  {
+    "script": "verify_spider_lily",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "SPIDER_LILY checks=133 failures=0"
+  },
+  {
+    "script": "verify_yaoginshi",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "YAOQIN_OK"
+  }
+]

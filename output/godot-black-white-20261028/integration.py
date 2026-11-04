@@ -1,0 +1,27 @@
+from pathlib import Path
+import json
+root=Path(__file__).resolve().parents[2]
+def edit(name,a,b):
+ p=root/name;s=p.read_text();assert s.count(a)==1,(name,a,s.count(a));p.write_text(s.replace(a,b,1))
+p=root/'godot/content/verified_rules.json';v=json.loads(p.read_text());overlay=json.loads((Path(__file__).parent/'overlay.json').read_text());v['units'].update(overlay['units']);v['cards'].update(overlay['cards']);v['sources'].extend(overlay['sources']);p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
+edit('godot/scripts/verified_card_rules.gd','const Lantern :=','const BlackWhite := preload("res://scripts/black_white_rules.gd")\nconst Lantern :=')
+edit('godot/scripts/verified_card_rules.gd','\tif Lantern.resolve_action(gs,p_idx,src,card,effect,target_id): return true','\tif BlackWhite.resolve_action(gs,p_idx,src,card,effect,target,target_id): return true\n\tif Lantern.resolve_action(gs,p_idx,src,card,effect,target_id): return true')
+edit('godot/scripts/verified_card_rules.gd','\tLantern.knocked_out(unit)','\tBlackWhite.knocked_out(unit)\n\tLantern.knocked_out(unit)')
+edit('godot/scripts/game_state.gd','func resolve_divination_choice(p_idx: int, instance_id: String) -> bool:\n','func resolve_divination_choice(p_idx: int, instance_id: String) -> bool:\n\tif pending_choice.get("type")=="black-white-second":return VerifiedRules.BlackWhite.resolve_choice(self,p_idx,instance_id)\n')
+edit('godot/scripts/game_state.gd','\tcard = VerifiedRules.Lantern.describe_card(self,p_idx,card)','\tcard = VerifiedRules.BlackWhite.describe_card(self,p_idx,inst,card)\n\tcard = VerifiedRules.Lantern.describe_card(self,p_idx,card)')
+edit('godot/scripts/game_state.gd','func valid_targets(p_idx: int, card: Dictionary) -> Array:\n','func valid_targets(p_idx: int, card: Dictionary) -> Array:\n\tvar black_white_targets=VerifiedRules.BlackWhite.targets(self,p_idx,card)\n\tif black_white_targets!=null:return black_white_targets\n')
+edit('godot/scripts/game_state.gd','func _resolve_frame(frame: Dictionary) -> void:\n','func _resolve_frame(frame: Dictionary) -> void:\n\tif VerifiedRules.BlackWhite.resolve_frame(self,frame):return\n')
+edit('godot/scripts/game_state.gd','\tVerifiedRules.Butterfly.form_entered(self,p_idx,src,card)','\tVerifiedRules.BlackWhite.form_entered(self,p_idx,src,card)\n\tVerifiedRules.Butterfly.form_entered(self,p_idx,src,card)')
+edit('godot/scripts/game_state.gd','\tVerifiedRules.Lantern.damaged(self,p_idx,unit_index,taken)','\tVerifiedRules.BlackWhite.damaged(self,p_idx,unit_index,taken)\n\tVerifiedRules.Lantern.damaged(self,p_idx,unit_index,taken)')
+edit('godot/scripts/game_state.gd','\tif u.get("crabCombatImmune", false):','\tif u.get("crabCombatImmune", false) or (combat and VerifiedRules.BlackWhite.combat_immune(u)):')
+edit('godot/scripts/game_state.gd','\tVerifiedRules.Lantern.turn_start(self,p_idx)','\tVerifiedRules.BlackWhite.turn_start(self,p_idx)\n\tVerifiedRules.Lantern.turn_start(self,p_idx)')
+edit('godot/scripts/combat_keyword_rules.gd','static func has(unit: Dictionary, keyword: String) -> bool:\n','static func has(unit: Dictionary, keyword: String) -> bool:\n\tif keyword=="veil" and preload("res://scripts/black_white_rules.gd").veil(unit):return true\n')
+edit('godot/scripts/combat_keyword_rules.gd','\timmune=immune or gs.VerifiedRules.SilkNinja.damage_immune(gs,owner,src,victim,idx,amount,options)','\timmune=immune or (idx>=0 and gs.VerifiedRules.BlackWhite.combat_immune(gs.player(victim).units[idx])) or gs.VerifiedRules.SilkNinja.damage_immune(gs,owner,src,victim,idx,amount,options)')
+edit('godot/scripts/game_ai.gd','static func _resolve_choice(gs: GameState, p_idx: int) -> bool:\n','static func _resolve_choice(gs: GameState, p_idx: int) -> bool:\n\tvar black_white_choice=gs.VerifiedRules.BlackWhite.ai_choice(gs,p_idx)\n\tif black_white_choice!=null:return bool(black_white_choice)\n')
+edit('godot/scripts/game_ai.gd','\tvar lantern_score=','\tvar black_white_score=_gs.VerifiedRules.BlackWhite.score_card(_gs,p_idx,card,_target)\n\tif black_white_score!=null:return int(black_white_score)\n\tvar lantern_score=')
+edit('godot/scripts/ui/battle_status.gd','\tview.lanternMarks=','\tview.blackWhiteMarks=gs.VerifiedRules.BlackWhite.marks(gs,owner,idx)\n\tview.lanternMarks=')
+edit('godot/scripts/ui/battle_status.gd','\tfor detail in unit.get("lanternMarks",[]):','\tfor detail in unit.get("blackWhiteMarks",[]):result.append(mark("black-white-rule",str(detail),str(detail),"dedbcc"))\n\tfor detail in unit.get("lanternMarks",[]):')
+edit('godot/scripts/ui/battle_screen.gd','\t\tvar mountain_choice_card=','\t\tvar black_white_choice_card=gs.VerifiedRules.BlackWhite.choice_card(gs,PLAYER,str(iid))\n\t\tif black_white_choice_card!=null:def=black_white_choice_card\n\t\tvar mountain_choice_card=')
+edit('godot/scripts/game_state.gd','"蓄力完成" if card.get("lanternReleased",false) else','"羁绊进场" if card.get("blackWhiteBondCast",false) else "蓄力完成" if card.get("lanternReleased",false) else')
+edit('scripts/godot-verify.sh','verify_box_maiden verify_combat','verify_box_maiden verify_black_white verify_combat')
+print('BLACK_WHITE_INTEGRATED')

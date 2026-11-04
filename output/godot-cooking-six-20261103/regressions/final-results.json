@@ -1,0 +1,158 @@
+[
+  {
+    "name": "ape_sleeve",
+    "passed": true,
+    "summary": [
+      "APE_SLEEVE_VERIFY checks=194 failures=0"
+    ]
+  },
+  {
+    "name": "arakawa",
+    "passed": true,
+    "summary": [
+      "ARAKAWA_VERIFY {\"checks\":83,\"failures\":0,\"ui\":false}"
+    ]
+  },
+  {
+    "name": "armor_blood",
+    "passed": true,
+    "summary": [
+      "ARMOR_BLOOD checks=154 failures=0"
+    ]
+  },
+  {
+    "name": "black_white",
+    "passed": true,
+    "summary": [
+      "BLACK_WHITE_OK checks=204 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "bond_dream",
+    "passed": true,
+    "summary": [
+      "BOND_DREAM checks=120 failures=0"
+    ]
+  },
+  {
+    "name": "box_maiden",
+    "passed": true,
+    "summary": [
+      "BOX_MAIDEN_OK checks=141 failures=0"
+    ]
+  },
+  {
+    "name": "classic_core",
+    "passed": true,
+    "summary": [
+      "CLASSIC_CORE checks=30 failures=0",
+      "CLASSIC_CORE_OK"
+    ]
+  },
+  {
+    "name": "fox_suzuka",
+    "passed": true,
+    "summary": [
+      "FOX_SUZUKA checks=91 failures=0"
+    ]
+  },
+  {
+    "name": "fusion_trio",
+    "passed": true,
+    "summary": [
+      "FUSION_TRIO checks=33 failures=0"
+    ]
+  },
+  {
+    "name": "growth",
+    "passed": true,
+    "summary": [
+      "GROWTH_REGRESSION_OK checks=24"
+    ]
+  },
+  {
+    "name": "house",
+    "passed": true,
+    "summary": [
+      "HOUSE_CHECKS 112 FAILURES 0"
+    ]
+  },
+  {
+    "name": "instant",
+    "passed": true,
+    "summary": [
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "name": "koi_fragrance",
+    "passed": true,
+    "summary": [
+      "KOI_FRAGRANCE_OK checks=277 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "movement_continuation",
+    "passed": true,
+    "summary": [
+      "MOVEMENT_CONTINUATION checks=599 failures=0 matches=12"
+    ]
+  },
+  {
+    "name": "phoenix",
+    "passed": true,
+    "summary": [
+      "PHOENIX checks=122 failures=0",
+      "PHOENIX_OK"
+    ]
+  },
+  {
+    "name": "pipe_fox",
+    "passed": true,
+    "summary": [
+      "PIPE_FOX checks=161 failures=0"
+    ]
+  },
+  {
+    "name": "rednight_walnut",
+    "passed": true,
+    "summary": [
+      "REDNIGHT_WALNUT_OK checks=313 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "sun_smoke",
+    "passed": true,
+    "summary": [
+      "SUN_SMOKE checks=154 failures=0"
+    ]
+  },
+  {
+    "name": "turn_order",
+    "passed": true,
+    "summary": [
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "name": "weaver",
+    "passed": true,
+    "summary": [
+      "WEAVER_CHECKS 134 FAILURES 0"
+    ]
+  },
+  {
+    "name": "whale",
+    "passed": true,
+    "summary": [
+      "WHALE_OK checks=140 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "zhenjian_duel",
+    "passed": true,
+    "summary": [
+      "ZHENJIAN_OK checks=225 failures=0 rules_only=true"
+    ]
+  }
+]

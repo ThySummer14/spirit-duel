@@ -1,0 +1,1493 @@
+{
+  "sources": [
+    {
+      "id": "movement-official-snapshot",
+      "title": "网易官方卡牌制作工具快照（旧版本，逐条覆盖后续更新）",
+      "url": "https://ssr.res.netease.com/cardmaker/index.html",
+      "local": "research-data/cards.json",
+      "scope": "原主体牌；version1003，不据此推断当前版本"
+    },
+    {
+      "id": "weasel-balance-20200428",
+      "title": "官方社区S4平衡说明与调整前后牌面图片",
+      "url": "https://www.taptap.cn/moment/15226566611042541",
+      "scope": "常规对战，3/5、戟+1甲爆能4、棒爆能7"
+    },
+    {
+      "id": "deer-self-20230810",
+      "title": "官方8月10日平衡性调整说明",
+      "url": "https://www.taptap.cn/moment/438417787577175822?group_id=188707",
+      "scope": "常规对战，自强之愿每实际回合一次获得1能量1护甲"
+    },
+    {
+      "id": "weasel-fix-20210715",
+      "title": "官方7月15日维护公告",
+      "url": "https://www.taptap.cn/moment/164475406232060998",
+      "scope": "同生共死可防止暴击致死"
+    },
+    {
+      "id": "deer-guide-20210610",
+      "title": "官方社区小鹿男解析（小果酱渣）",
+      "url": "https://www.taptap.cn/moment/151653485677381073",
+      "scope": "主体牌/复活/形态；具体数值仍须后续公告核验"
+    },
+    {
+      "id": "movement-firsthand-20200413",
+      "title": "石秋瞳原创实机充能套详解",
+      "url": "https://www.sohu.com/a/387647882_120196496",
+      "scope": "随机声东击西含牌手、鹿角吸血回复牌手；旧测试版本不据此采用旧爆能档位"
+    },
+    {
+      "id": "weasel-followup-20210422",
+      "title": "2021年4月22日更新后原创天梯周报（待补官方公告）",
+      "url": "https://www.iyingdi.com/tz/post/2375203",
+      "scope": "同心协力一勾、声东击西二勾+2力量；原公告待核验"
+    },
+    {
+      "id": "movement-combat-timing-20201229",
+      "title": "RR抒情夜莺原创实机战斗流程核验",
+      "url": "https://www.iyingdi.com/tz/post/2335072",
+      "scope": "额外战斗在战斗结束步骤、戟棒后续在结束后；插入战斗复杂交叉待核验"
+    }
+  ],
+  "units": {
+    "xiaolunan": {
+      "verifiedRules": true,
+      "movementRole": "deer",
+      "nativeCharge": true,
+      "attack": 2,
+      "maxHp": 6,
+      "officialAbility": "充能。小鹿男复活时获得2能量。",
+      "keywords": [
+        "charge"
+      ],
+      "passive": {
+        "id": "xiaolunan-native",
+        "name": "原生能力",
+        "text": "充能。小鹿男复活时获得2能量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "xiaolunan-awake",
+        "name": "觉醒能力",
+        "text": "复活小鹿男。\n觉醒：充能。小鹿男复活时获得2能量，且他的形态牌都获得「气绝时可消耗3能量使用，复活小鹿男」。",
+        "hooks": []
+      },
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      }
+    },
+    "lianyou": {
+      "verifiedRules": true,
+      "movementRole": "weasel",
+      "nativeCharge": true,
+      "attack": 3,
+      "maxHp": 4,
+      "officialAbility": "充能。当镰鼬对牌手造成伤害时，获得1能量。",
+      "keywords": [
+        "charge"
+      ],
+      "passive": {
+        "id": "lianyou-native",
+        "name": "原生能力",
+        "text": "充能。当镰鼬对牌手造成伤害时，获得1能量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "lianyou-awake",
+        "name": "觉醒能力",
+        "text": "觉醒：充能。当镰鼬对牌手造成伤害时，获得1能量。你鬼火和出击次数都为0时，镰鼬可以消耗3能量出击。",
+        "hooks": []
+      },
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      }
+    },
+    "yatiangou": {
+      "verifiedRules": true,
+      "movementRole": "crow",
+      "nativeCharge": false,
+      "attack": 1,
+      "maxHp": 6,
+      "officialAbility": "当鸦天狗移动时，投射：造成1点伤害。",
+      "keywords": [],
+      "passive": {
+        "id": "yatiangou-native",
+        "name": "原生能力",
+        "text": "当鸦天狗移动时，投射：造成1点伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "yatiangou-awake",
+        "name": "觉醒能力",
+        "text": "觉醒：当鸦天狗移动时，发动一次攻击，本次攻击具远程。",
+        "hooks": []
+      },
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      }
+    }
+  },
+  "cards": {
+    "c16301": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "form",
+      "level": 1,
+      "cost": 1,
+      "text": "$（得&(buff技能(1630804))&)$当小鹿男攻击或被攻击时，随机使你的一个其他具有充能的式神获得1能量。",
+      "target": "auto",
+      "effect": "movement-form",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "deerCombat": "blessing"
+      },
+      "formAbility": "$（得&(buff技能(1630804))&)$当小鹿男攻击或被攻击时，随机使你的一个其他具有充能的式神获得1能量。",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "combatOption": {},
+      "movementMode": "deer-blessing",
+      "officialText": "$（得&(buff技能(1630804))&)$当小鹿男攻击或被攻击时，随机使你的一个其他具有充能的式神获得1能量。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c16302": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "spell",
+      "level": 1,
+      "cost": 1,
+      "text": "使一个己方式神获得1力量、1生命和1护甲。\n爆能2：目标改为所有己方式神。",
+      "target": "ally-unit",
+      "effect": "movement-blessing",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 0,
+      "combatOption": {},
+      "movementMode": "forest-aid",
+      "movementBurstOptions": [
+        2
+      ],
+      "officialText": "使一个己方式神获得1力量、1生命和1护甲。\n爆能2：目标改为所有己方式神。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-blessing",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c16303": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "spell",
+      "level": 2,
+      "cost": 1,
+      "text": "眩晕一个式神并造成3点伤害。爆能2：获得瞬发。",
+      "target": "any-unit",
+      "effect": "movement-forest-force",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 0,
+      "combatOption": {},
+      "movementMode": "forest-force",
+      "movementBurstOptions": [
+        2
+      ],
+      "officialText": "眩晕一个式神并造成3点伤害。爆能2：获得瞬发。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-forest-force",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c16304": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "form",
+      "level": 2,
+      "cost": 1,
+      "text": "每回合一次，当小鹿男攻击或被攻击时，获得1能量和1护甲。",
+      "target": "auto",
+      "effect": "movement-form",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "deerCombat": "self"
+      },
+      "formAbility": "每回合一次，当小鹿男攻击或被攻击时，获得1能量和1护甲。",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": {
+        "attack": 4,
+        "hp": 6,
+        "setBase": true
+      },
+      "combatOption": {},
+      "movementMode": "deer-self",
+      "officialText": "每回合一次，当小鹿男攻击或被攻击时，获得1能量和1护甲。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c16305": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "spell",
+      "level": 2,
+      "cost": 1,
+      "text": "使你的一个式神获得帷幕。",
+      "target": "ally-unit",
+      "effect": "movement-veil",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 0,
+      "combatOption": {},
+      "movementMode": "deer-veil",
+      "officialText": "使你的一个式神获得帷幕。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-veil",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c16306": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "combat",
+      "level": 3,
+      "cost": 1,
+      "text": "贯通\n爆能2：额外获得+1力量与吸血。\n爆能4：再额外获得+1力量与免疫战斗伤害。\n爆能8：再额外获得+1力量与连击。",
+      "target": "auto",
+      "effect": "movement-combat",
+      "keywords": [
+        "pierce"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 2,
+      "combatOption": {
+        "shield": 2
+      },
+      "movementMode": "deer-collision",
+      "movementBurstOptions": [
+        2,
+        4,
+        8
+      ],
+      "officialText": "贯通\n爆能2：额外获得+1力量与吸血。\n爆能4：再额外获得+1力量与免疫战斗伤害。\n爆能8：再额外获得+1力量与连击。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-combat",
+          "target": "source",
+          "value": 2
+        }
+      ]
+    },
+    "c16307": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "form",
+      "level": 3,
+      "cost": 1,
+      "text": "$（得&(buff技能(1630804))&)$当小鹿男攻击或被攻击时，消耗1能量，投射：造成3点伤害。",
+      "target": "auto",
+      "effect": "movement-form",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "deerCombat": "life"
+      },
+      "formAbility": "$（得&(buff技能(1630804))&)$当小鹿男攻击或被攻击时，消耗1能量，投射：造成3点伤害。",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": {
+        "attack": 4,
+        "hp": 9,
+        "setBase": true
+      },
+      "combatOption": {},
+      "movementMode": "deer-life",
+      "officialText": "$（得&(buff技能(1630804))&)$当小鹿男攻击或被攻击时，消耗1能量，投射：造成3点伤害。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c16308": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "awakening",
+      "level": 2,
+      "cost": 1,
+      "text": "复活小鹿男。\n觉醒：充能。小鹿男复活时获得2能量，且他的形态牌都获得「气绝时可消耗3能量使用，复活小鹿男」。",
+      "target": "auto",
+      "effect": "movement-deer-awaken",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": {
+        "attack": 0,
+        "hp": 1
+      },
+      "combatOption": {},
+      "movementMode": "deer-awaken",
+      "allowKnockedSource": true,
+      "officialText": "复活小鹿男。\n觉醒：充能。小鹿男复活时获得2能量，且他的形态牌都获得「气绝时可消耗3能量使用，复活小鹿男」。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-deer-awaken",
+          "target": "source",
+          "value": {
+            "attack": 0,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c13301": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "combat",
+      "level": 1,
+      "cost": 1,
+      "text": "爆能3：此牌+3力量。",
+      "target": "auto",
+      "effect": "movement-combat",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 1,
+      "combatOption": {
+        "shield": 1
+      },
+      "movementMode": "axe",
+      "movementBurstOptions": [
+        3
+      ],
+      "officialText": "爆能3：此牌+3力量。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-combat",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c13302": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "spell",
+      "level": 1,
+      "cost": 1,
+      "text": "瞬发\n获得1能量。将一张此牌的复制置入你的牌库并抓一张牌。",
+      "target": "auto",
+      "effect": "movement-cooperate",
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 0,
+      "combatOption": {},
+      "movementMode": "weasel-cooperate",
+      "officialText": "瞬发\n获得1能量。将一张此牌的复制置入你的牌库并抓一张牌。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-cooperate",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c13303": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "form",
+      "level": 1,
+      "cost": 1,
+      "text": "镰鼬每有2能量便获得1力量。",
+      "target": "auto",
+      "effect": "movement-form",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "chargePower": true
+      },
+      "formAbility": "镰鼬每有2能量便获得1力量。",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "combatOption": {},
+      "movementMode": "weasel-crowd",
+      "officialText": "镰鼬每有2能量便获得1力量。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c13304": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "combat",
+      "level": 2,
+      "cost": 1,
+      "text": "对敌方角色造成伤害后，使其获得2破甲。\n爆能4：额外使用「三太郎之斧」。",
+      "target": "auto",
+      "effect": "movement-combat",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 0,
+      "combatOption": {
+        "shield": 1,
+        "movementCombat": "spear"
+      },
+      "movementMode": "spear",
+      "movementBurstOptions": [
+        4
+      ],
+      "officialText": "对敌方角色造成伤害后，使其获得2破甲。\n爆能4：额外使用「三太郎之斧」。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-combat",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c13305": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "combat",
+      "level": 2,
+      "cost": 1,
+      "text": "镰鼬本次交战目标改为另一个敌方角色并免疫战斗伤害。\n响应：当镰鼬被攻击时，自动使用此牌。",
+      "target": "auto",
+      "effect": "movement-combat",
+      "keywords": [
+        "response"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 2,
+      "combatOption": {
+        "shield": 0
+      },
+      "movementMode": "weasel-redirect",
+      "autoResponse": "source-attacked",
+      "responseModifiesCombat": true,
+      "officialText": "镰鼬本次交战目标改为另一个敌方角色并免疫战斗伤害。\n响应：当镰鼬被攻击时，自动使用此牌。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-combat",
+          "target": "source",
+          "value": 2
+        }
+      ]
+    },
+    "c13306": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "form",
+      "level": 2,
+      "cost": 1,
+      "text": "当镰鼬将受到致死伤害时，消耗3能量，免疫本次伤害并移回准备区。",
+      "target": "auto",
+      "effect": "movement-form",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "weaselImmortal": true
+      },
+      "formAbility": "当镰鼬将受到致死伤害时，消耗3能量，免疫本次伤害并移回准备区。",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "combatOption": {},
+      "movementMode": "weasel-immortal",
+      "officialText": "当镰鼬将受到致死伤害时，消耗3能量，免疫本次伤害并移回准备区。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c13307": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "awakening",
+      "level": 3,
+      "cost": 1,
+      "text": "觉醒：充能。当镰鼬对牌手造成伤害时，获得1能量。你鬼火和出击次数都为0时，镰鼬可以消耗3能量出击。",
+      "target": "auto",
+      "effect": "movement-awaken",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "combatOption": {},
+      "movementMode": "weasel-awaken",
+      "officialText": "觉醒：充能。当镰鼬对牌手造成伤害时，获得1能量。你鬼火和出击次数都为0时，镰鼬可以消耗3能量出击。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c13308": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "combat",
+      "level": 3,
+      "cost": 1,
+      "text": "对敌方角色造成伤害后，使其眩晕且本回合力量变为0。\n爆能3：额外使用「二太郎之戟」。\n爆能7：再额外使用「三太郎之斧」。",
+      "target": "auto",
+      "effect": "movement-combat",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 2,
+      "combatOption": {
+        "shield": 2,
+        "movementCombat": "club"
+      },
+      "movementMode": "club",
+      "movementBurstOptions": [
+        3,
+        7
+      ],
+      "officialText": "对敌方角色造成伤害后，使其眩晕且本回合力量变为0。\n爆能3：额外使用「二太郎之戟」。\n爆能7：再额外使用「三太郎之斧」。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-combat",
+          "target": "source",
+          "value": 2
+        }
+      ]
+    },
+    "c13901": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "spell",
+      "level": 1,
+      "cost": 1,
+      "text": "瞬发\n移动鸦天狗，抽一张牌。",
+      "target": "auto",
+      "effect": "movement-crow-move",
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 1,
+      "combatOption": {},
+      "movementMode": "crow-wind",
+      "officialText": "瞬发\n移动鸦天狗，抽一张牌。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-crow-move",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c13902": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "combat",
+      "level": 2,
+      "cost": 1,
+      "text": "若己方战斗区有其他式神，使其先攻击一次。",
+      "target": "auto",
+      "effect": "movement-combat",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 1,
+      "combatOption": {
+        "shield": 2
+      },
+      "movementMode": "crow-justice",
+      "officialText": "若己方战斗区有其他式神，使其先攻击一次。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-combat",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c13903": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "spell",
+      "level": 2,
+      "cost": 1,
+      "text": "将一个敌方式神移入战斗区并使其眩晕，然后移动鸦天狗。",
+      "target": "enemy-unit",
+      "effect": "movement-crow-feather",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 0,
+      "combatOption": {},
+      "movementMode": "crow-feather",
+      "officialText": "将一个敌方式神移入战斗区并使其眩晕，然后移动鸦天狗。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-crow-feather",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c13904": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "form",
+      "level": 2,
+      "cost": 1,
+      "text": "己方回合结束时若鸦天狗在战斗区，对敌方所有式神造成1点伤害，鸦天狗恢复等量生命。",
+      "target": "auto",
+      "effect": "movement-form",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "crowDrain": true
+      },
+      "formAbility": "己方回合结束时若鸦天狗在战斗区，对敌方所有式神造成1点伤害，鸦天狗恢复等量生命。",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": {
+        "attack": 2,
+        "hp": 8,
+        "setBase": true
+      },
+      "combatOption": {},
+      "movementMode": "crow-drain",
+      "officialText": "己方回合结束时若鸦天狗在战斗区，对敌方所有式神造成1点伤害，鸦天狗恢复等量生命。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c13905": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "spell",
+      "level": 2,
+      "cost": 1,
+      "text": "响应：当鸦天狗被攻击时，自动使用此牌并取消本次攻击。\n移动，然后再次移动。",
+      "target": "auto",
+      "effect": "movement-crow-dodge",
+      "keywords": [
+        "response"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 0,
+      "combatOption": {},
+      "movementMode": "crow-dodge",
+      "autoResponse": "source-attacked",
+      "responseModifiesCombat": true,
+      "officialText": "响应：当鸦天狗被攻击时，自动使用此牌并取消本次攻击。\n移动，然后再次移动。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-crow-dodge",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c13906": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "combat",
+      "level": 1,
+      "cost": 1,
+      "text": "增强：本回合鸦天狗每移动过一次，此牌获得+2力量。",
+      "target": "auto",
+      "effect": "movement-combat",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 0,
+      "combatOption": {
+        "shield": 0
+      },
+      "movementMode": "crow-victory",
+      "officialText": "增强：本回合鸦天狗每移动过一次，此牌获得+2力量。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-combat",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c13907": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "spell",
+      "level": 3,
+      "cost": 1,
+      "text": "使一个敌方式神保持眩晕，直到鸦天狗使用牌、攻击或气绝。",
+      "target": "enemy-unit",
+      "effect": "movement-crow-hold",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": 0,
+      "combatOption": {},
+      "movementMode": "crow-hold",
+      "officialText": "使一个敌方式神保持眩晕，直到鸦天狗使用牌、攻击或气绝。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-crow-hold",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c13908": {
+      "verifiedRules": true,
+      "movementRules": true,
+      "type": "awakening",
+      "level": 3,
+      "cost": 1,
+      "text": "觉醒：当鸦天狗移动时，发动一次攻击，本次攻击具远程。",
+      "target": "auto",
+      "effect": "movement-awaken",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "movement-official-snapshot",
+        "weasel-balance-20200428",
+        "deer-self-20230810",
+        "weasel-fix-20210715",
+        "deer-guide-20210610",
+        "movement-firsthand-20200413",
+        "weasel-followup-20210422",
+        "movement-combat-timing-20201229"
+      ],
+      "verificationPending": [
+        "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+        "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未展示本组三位全部主体牌；2023以后后续公告尚未穷尽，保留版本验收待核对。",
+          "随机候选依据牌文与实机资料；均匀分布及少数跨模块插入战斗时序尚缺当前实机验证。"
+        ]
+      },
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "combatOption": {},
+      "movementMode": "crow-awaken",
+      "officialText": "觉醒：当鸦天狗移动时，发动一次攻击，本次攻击具远程。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "movement-awaken",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ]
+    }
+  }
+}

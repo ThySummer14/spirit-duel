@@ -1,0 +1,74 @@
+[
+  {
+    "name": "combat",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 0.87
+  },
+  {
+    "name": "movement",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 0.96
+  },
+  {
+    "name": "instant",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 0.86
+  },
+  {
+    "name": "sun_smoke",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 0.87
+  },
+  {
+    "name": "lantern",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 1.08
+  },
+  {
+    "name": "glutton",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 0.97
+  },
+  {
+    "name": "armor_limit",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 0.87
+  },
+  {
+    "name": "battle_status",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 0.96
+  },
+  {
+    "name": "fortune_pair",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 0.96
+  },
+  {
+    "name": "spider_lily",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 0.98
+  },
+  {
+    "name": "butterfly",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 1.07
+  },
+  {
+    "name": "sparrow",
+    "ok": true,
+    "exitCode": 0,
+    "seconds": 1.06
+  }
+]

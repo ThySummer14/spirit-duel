@@ -1,0 +1,343 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "shuten-guide-2020",
+      "url": "https://www.taptap.cn/moment/15217759050793977",
+      "evidence": "官方账号刊载西园寺世界2020-03-08式神百谈：8张主体牌、鬼王自伤4、神子6/8、不屈触发一次、无尽愤怒需己方伤害、百鬼夜行含队友。"
+    },
+    {
+      "id": "shuten-sanmoku-2020",
+      "url": "https://www.taptap.cn/moment/60823671022814494",
+      "evidence": "官方2020-10-01三目自传：扫除时间使酒吞受到10伤害并不屈，百鬼夜行全场打10，证明按伤害值而不是实际损失生命统计。"
+    },
+    {
+      "id": "shuten-original-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "10200–10208官方快照：印刷2/5、形态5/10和6/8、觉醒法术+1/+3、狂气+1、无尽+2；10234同规则鬼王皮肤不在现有生产卡库。"
+    },
+    {
+      "id": "shuten-guide-2019",
+      "url": "https://www.taptap.cn/moment/15218530131643593",
+      "evidence": "纳豆酱2019百科记录旧鬼王自伤3、神子7/8、狂气加护甲；与后续资料冲突部分不采用。"
+    },
+    {
+      "id": "shuten-knockout-basics",
+      "url": "https://www.taptap.cn/moment/15218562876573034",
+      "evidence": "官方新手气绝规则：非永久效果和形态气绝移除。酒吞普通受伤力量无永久标记；觉醒牌数值为永久。"
+    },
+    {
+      "id": "shuten-keywords-2023",
+      "url": "https://www.taptap.cn/moment/467093870207830538",
+      "evidence": "原作者蔡明军关键词机制第15条：不屈生效后移除，伤害仍按未截断伤害值计算，举三目任务与垢尝护甲为证；旧2019可治疗重复触发攻略不适用。"
+    },
+    {
+      "id": "shuten-balance-2020-01-20",
+      "url": "https://m.3839.com/gamehistorylog/109747.htm",
+      "evidence": "发行维护文案归档2020-01-20：鬼王进场自伤改4，与2020-03官方刊载牌文一致。归档不是官方网站，不据此冒充直接读取官方公告。"
+    }
+  ],
+  "units": {
+    "jutun-tongzi": {
+      "verifiedRules": true,
+      "attack": 2,
+      "maxHp": 5,
+      "damageRage": true,
+      "passive": {
+        "id": "shuten-rage",
+        "name": "鬼王之怒",
+        "text": "每当酒吞童子受到伤害时，获得1力量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "shuten-rage-awakened",
+        "name": "鬼王之怒",
+        "text": "每当酒吞童子受到伤害时，每受1点伤害获得1力量。",
+        "hooks": []
+      },
+      "verificationPending": [
+        "护甲全额抵消、致死受伤、先攻/连击反击时力量刷新与狂啸1血零扣血的当前原版交叉实测待补；伤害量按护甲后原始伤害含不屈阻止的扣血部分，依据官方扫除时间+百鬼夜行案例。"
+      ]
+    }
+  },
+  "cards": {
+    "c10201": {
+      "verifiedRules": true,
+      "shutenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发。酒吞童子对自己造成1点伤害，抽一张牌。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "formHooks": [],
+      "effect": "shuten-self-damage",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shuten-self-damage",
+          "target": "source",
+          "value": 1
+        },
+        {
+          "condition": "always",
+          "action": "draw",
+          "target": "ally-player",
+          "value": 1
+        }
+      ]
+    },
+    "c10202": {
+      "verifiedRules": true,
+      "shutenRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "本次战斗+1力量，获得不屈。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "assault",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "combatOption": {
+        "unyielding": true
+      }
+    },
+    "c10203": {
+      "verifiedRules": true,
+      "shutenRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发。不屈。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "formHooks": [],
+      "effect": "form",
+      "value": {
+        "attack": 6,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "shutenUnyielding": true
+      },
+      "formAbility": "不屈。"
+    },
+    "c10204": {
+      "verifiedRules": true,
+      "shutenRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场时对酒吞童子造成4点伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 10,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 10,
+            "setBase": true
+          }
+        },
+        {
+          "condition": "always",
+          "action": "shuten-self-damage",
+          "target": "source",
+          "value": 4
+        }
+      ],
+      "formRules": {
+        "shutenForm": true
+      },
+      "formAbility": "进场时对自己造成4点伤害。"
+    },
+    "c10205": {
+      "verifiedRules": true,
+      "shutenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "永久+1力量、+3生命。觉醒：每当酒吞童子受到伤害时，每受1点伤害获得1力量。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "awakening"
+      ],
+      "tags": [],
+      "formHooks": [],
+      "effect": "shuten-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 3
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shuten-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 3
+          }
+        }
+      ]
+    },
+    "c10206": {
+      "verifiedRules": true,
+      "shutenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发。对其他所有式神各造成X点伤害，X为酒吞童子本回合所受伤害之和。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "formHooks": [],
+      "effect": "shuten-night-parade",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shuten-night-parade",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c10207": {
+      "verifiedRules": true,
+      "shutenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "本回合酒吞童子生命不会降到1以下。响应：当酒吞童子将受到伤害时，自动使用该牌。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "response"
+      ],
+      "tags": [],
+      "formHooks": [],
+      "effect": "shuten-howl",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "shuten-howl",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "autoResponse": "source-damaged",
+      "verificationPending": [
+        "狂啸与屏障/护甲全挡的响应优先序、多张狂啸同事件依次触发、同次伤害中响应又被反制的当前实机案例待补。"
+      ],
+      "responseModifiesCombat": false
+    },
+    "c10208": {
+      "verifiedRules": true,
+      "shutenRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "本次战斗+2力量。若本回合酒吞童子受到过己方伤害，此牌额外+2力量。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "formHooks": [],
+      "effect": "assault",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "shutenFriendlyEnhance": true,
+      "combatOption": {}
+    }
+  }
+}

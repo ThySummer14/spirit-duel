@@ -1,0 +1,10 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+THREAD_TURN 23 before 23 shield 2 turns 3 mark { "owner": 0, "src": 1, "sourceUid": "player:xiaoxiuzhishou", "usedTurn": 1 } units [["ai:bingyong", 23, <null>], ["ai:fenghuanghuo", 20, <null>], ["ai:yaodaoji", 24, <null>], ["ai:baizangzhu", 23, <null>]]
+APE_SLEEVE_FAIL thread regains trigger on next actual own turn
+THREAD_TARGETS []
+APE_SLEEVE_FAIL actual card use c29606 请选择一个有效目标。
+APE_SLEEVE_FAIL unique thread relocates and removes old permanent reattachment
+APE_SLEEVE_FAIL dispel removes active charm while permanent future reattachment remains
+APE_SLEEVE_FAIL real revival reattaches previously dispelled permanent thread
+APE_SLEEVE_VERIFY checks=145 failures=5

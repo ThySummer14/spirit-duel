@@ -1,0 +1,71 @@
+{
+  "units": [
+    {
+      "id": "qianji-spear",
+      "name": "海原贝戟",
+      "title": "千姬召唤物",
+      "attack": 0,
+      "maxHp": 2,
+      "art": "assets/official/tokens/qianji-spear.png",
+      "color": "#87c4de",
+      "pack": "wave5",
+      "selectable": false,
+      "token": true,
+      "summoned": true,
+      "countsAsShikigami": true,
+      "verifiedRules": true,
+      "passive": {
+        "id": "rt-spear-leave",
+        "name": "海原贝戟",
+        "text": "离场时，若你手牌中没有「咏流」，则将一张「咏流」置入手牌。",
+        "hooks": []
+      },
+      "sources": [
+        "rabbit-tide-spear-derivative",
+        "rabbit-tide-official-20220414"
+      ],
+      "verificationPending": [
+        "派生身材及完整牌文采用日文相关卡补证；中文完整tooltip及原客户端边界待核。"
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": "qianji-song",
+      "name": "咏流",
+      "unitId": "qianji",
+      "token": true,
+      "derivedFrom": "qianji-spear",
+      "pack": "wave5",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "target": "auto",
+      "text": "召唤一个海原贝戟。增强：当千姬使用牌时，此牌获得瞬发。",
+      "officialText": "召唤一个海原贝戟。增强：当千姬使用牌时，此牌获得瞬发。",
+      "keywords": [],
+      "effect": "rt-summon",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rt-summon",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "rabbitTideRules": true,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "sources": [
+        "rabbit-tide-spear-derivative"
+      ],
+      "verificationPending": [
+        "派生身材及完整牌文采用日文相关卡补证；中文完整tooltip及原客户端边界待核。"
+      ]
+    }
+  ]
+}

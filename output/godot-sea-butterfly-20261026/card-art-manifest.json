@@ -1,0 +1,42 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/287_灵海蝶/28701_波缀_法术.png",
+    "target": "godot/assets/official/cards/c28701.png",
+    "sha256": "f17d3817dffb889c1f779ff8028f1b51130f239989b4dd073aed8c412ade77eb"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/287_灵海蝶/28702_灵巡_法术.png",
+    "target": "godot/assets/official/cards/c28702.png",
+    "sha256": "62a900ec2a66c7c3f80007d943a5a60202d985e622c891e5b18ed034a3293d92"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/287_灵海蝶/28703_碧海之蝶_形态.png",
+    "target": "godot/assets/official/cards/c28703.png",
+    "sha256": "a9f3f21955e05e9ef16ba455452d93b16fe638ea78355d3084f7e3204b789f4d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/287_灵海蝶/28704_觉醒·灵海蝶_法术.png",
+    "target": "godot/assets/official/cards/c28704.png",
+    "sha256": "a5b254fe8366b3789b83dfc1075494ad33c7b839e1bfc3a8369cd9f23581486e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/287_灵海蝶/28705_迁溯_法术.png",
+    "target": "godot/assets/official/cards/c28705.png",
+    "sha256": "4886e7c640482504fd0d643f92f9573e40434a90b4ed697654c593a45b72b8ef"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/287_灵海蝶/28706_幽波之灵_形态.png",
+    "target": "godot/assets/official/cards/c28706.png",
+    "sha256": "659de69f5cafa3a177de20d63b67201ef62845cc57c7ed801304f4ac1487a1e3"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/287_灵海蝶/28707_月珊瑚_法术.png",
+    "target": "godot/assets/official/cards/c28707.png",
+    "sha256": "16c56857d70523b1b4fdbf1ad8b48c88141b59809039fe8aff071d5c37e024e5"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/287_灵海蝶/28708_海心落_结界.png",
+    "target": "godot/assets/official/cards/c28708.png",
+    "sha256": "e60fb4f2228addfb5e00c1c0a7f82298d8638a753ca5056e134e9dc02f89e4f5"
+  }
+]

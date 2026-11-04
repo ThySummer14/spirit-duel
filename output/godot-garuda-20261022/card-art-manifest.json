@@ -1,0 +1,50 @@
+[
+  {
+    "card": "c27701",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/277_迦楼罗/27701_摧枯拉朽_战斗.png",
+    "destination": "godot/assets/official/cards/c27701.png",
+    "sha256": "721ec78c116320adafef9cb9b8faa4e1e6243802d08a686ffbc3f4f154b4a1aa"
+  },
+  {
+    "card": "c27702",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/277_迦楼罗/27702_翼刃浮金_法术.png",
+    "destination": "godot/assets/official/cards/c27702.png",
+    "sha256": "487bde5fea18c4981cdefc374ad8efd4d906a9494dbfcff275bcacee7d0c7a93"
+  },
+  {
+    "card": "c27703",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/277_迦楼罗/27703_天衣妙翅_形态.png",
+    "destination": "godot/assets/official/cards/c27703.png",
+    "sha256": "23f4a1f12920d73edfa52f5c69304e4e77d164a8aaf66b0c008fc419c8b609ff"
+  },
+  {
+    "card": "c27704",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/277_迦楼罗/27704_化生戟_战斗.png",
+    "destination": "godot/assets/official/cards/c27704.png",
+    "sha256": "98215fd304b2cd53eb19e26ff352b7ff14aa94898711dd7afe8646ebfe4ec297"
+  },
+  {
+    "card": "c27705",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/277_迦楼罗/27705_龙息炽羽_战斗.png",
+    "destination": "godot/assets/official/cards/c27705.png",
+    "sha256": "619e23fd21531858a3f203e798b0ff79991417be45ac7c33ffe10ea9ce283f13"
+  },
+  {
+    "card": "c27706",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/277_迦楼罗/27706_觉醒·迦楼罗_法术.png",
+    "destination": "godot/assets/official/cards/c27706.png",
+    "sha256": "44fc5d04daf27e2c0ee7b2351df3ea78f8c74ff12a638c7f6ac3dddff5c44d0d"
+  },
+  {
+    "card": "c27707",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/277_迦楼罗/27707_龙巢魔主_形态.png",
+    "destination": "godot/assets/official/cards/c27707.png",
+    "sha256": "e60bf42d804ac060b089eac0ae1fc7bcd3e986e4c84de9685128c0c3b01cb004"
+  },
+  {
+    "card": "c27708",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/277_迦楼罗/27708_飒踏疾驰_战斗.png",
+    "destination": "godot/assets/official/cards/c27708.png",
+    "sha256": "27e8159b81858e2d9ca0a06daaaf984ca48635ac33d472c9dc5aeb9b46fbe1fc"
+  }
+]

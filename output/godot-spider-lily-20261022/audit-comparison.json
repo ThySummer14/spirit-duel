@@ -1,0 +1,74 @@
+{
+  "before": {
+    "units": {
+      "known-approximation": 107,
+      "unreviewed": 50,
+      "pending-verification": 78,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 642,
+      "unreviewed": 703,
+      "pending-verification": 573,
+      "source-backed-native": 207
+    }
+  },
+  "after": {
+    "units": {
+      "known-approximation": 106,
+      "unreviewed": 50,
+      "pending-verification": 79,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 635,
+      "unreviewed": 702,
+      "pending-verification": 581,
+      "source-backed-native": 207
+    }
+  },
+  "beforeErrors": [
+    "Missing executable reviewed rules: w11-fanqie-01",
+    "Missing executable reviewed rules: w11-fanqie-02",
+    "Missing executable reviewed rules: w11-fanqie-03",
+    "Approximation in reviewed cards: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-05",
+    "Missing executable reviewed rules: w11-fanqie-06",
+    "Missing executable reviewed rules: w11-fanqie-07",
+    "Missing executable reviewed rules: w11-fanqie-08",
+    "Approximation in reviewed cards: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-02",
+    "Missing executable reviewed rules: w11-jinran-buye-03",
+    "Missing executable reviewed rules: w11-jinran-buye-04",
+    "Missing executable reviewed rules: w11-jinran-buye-05",
+    "Missing executable reviewed rules: w11-jinran-buye-06",
+    "Missing executable reviewed rules: w11-jinran-buye-07",
+    "Missing executable reviewed rules: w11-jinran-buye-08",
+    "Missing executable reviewed rules: c11108"
+  ],
+  "afterErrors": [
+    "Missing executable reviewed rules: w11-fanqie-01",
+    "Missing executable reviewed rules: w11-fanqie-02",
+    "Missing executable reviewed rules: w11-fanqie-03",
+    "Approximation in reviewed cards: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-05",
+    "Missing executable reviewed rules: w11-fanqie-06",
+    "Missing executable reviewed rules: w11-fanqie-07",
+    "Missing executable reviewed rules: w11-fanqie-08",
+    "Approximation in reviewed cards: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-02",
+    "Missing executable reviewed rules: w11-jinran-buye-03",
+    "Missing executable reviewed rules: w11-jinran-buye-04",
+    "Missing executable reviewed rules: w11-jinran-buye-05",
+    "Missing executable reviewed rules: w11-jinran-buye-06",
+    "Missing executable reviewed rules: w11-jinran-buye-07",
+    "Missing executable reviewed rules: w11-jinran-buye-08",
+    "Missing executable reviewed rules: c11108"
+  ],
+  "errorsUnchanged": true,
+  "fullCatalogRestored": false
+}

@@ -1,0 +1,36 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ARMOR_LIMIT_FAIL armor cap target-1 initial65534
+ARMOR_LIMIT_FAIL armor reports actual gain target-1 initial65534
+ARMOR_LIMIT_FAIL armor cap target-1 initial65535
+ARMOR_LIMIT_FAIL armor reports actual gain target-1 initial65535
+ARMOR_LIMIT_FAIL avatar cancellation precedes cap
+ARMOR_LIMIT_FAIL armor cap target0 initial65534
+ARMOR_LIMIT_FAIL armor reports actual gain target0 initial65534
+ARMOR_LIMIT_FAIL armor cap target0 initial65535
+ARMOR_LIMIT_FAIL armor reports actual gain target0 initial65535
+ARMOR_LIMIT_FAIL unit cancellation precedes cap
+ARMOR_LIMIT_FAIL overflow cannot become expiring armor
+ARMOR_LIMIT_FAIL break cap target-1 initial65534
+ARMOR_LIMIT_FAIL event records actual break gain
+ARMOR_LIMIT_FAIL break cap target-1 initial65535
+ARMOR_LIMIT_FAIL no acquired-break event at cap
+ARMOR_LIMIT_FAIL event records actual break gain
+ARMOR_LIMIT_FAIL break cancels armor then caps remainder
+ARMOR_LIMIT_FAIL damage consumes capped status once
+ARMOR_LIMIT_FAIL break cap target0 initial65534
+ARMOR_LIMIT_FAIL event records actual break gain
+ARMOR_LIMIT_FAIL break cap target0 initial65535
+ARMOR_LIMIT_FAIL no acquired-break event at cap
+ARMOR_LIMIT_FAIL event records actual break gain
+ARMOR_LIMIT_FAIL overflow cannot mark first gain
+ARMOR_LIMIT_FAIL break cancels armor then caps remainder
+ARMOR_LIMIT_FAIL damage consumes capped status once
+SCRIPT ERROR: Invalid access to property or key 'formRules' on a base object of type 'Dictionary'.
+          at: _break (res://scripts/verify_armor_limit.gd:83)
+          GDScript backtrace (most recent call first):
+              [0] _break (res://scripts/verify_armor_limit.gd:83)
+              [1] _initialize (res://scripts/verify_armor_limit.gd:25)
+ARMOR_LIMIT_FAIL white bone follows shared cap
+ARMOR_LIMIT_FAIL whale derived power uses capped armor
+ARMOR_LIMIT checks=53 failures=28

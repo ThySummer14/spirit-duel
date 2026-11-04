@@ -1,0 +1,13 @@
+{
+  "sourceFilesChecked": 381,
+  "pagesBytes": 123903574,
+  "playBytes": 120054122,
+  "entryFiles": {
+    "index.html": 3241,
+    "index.js": 315759,
+    "index.wasm": 37700666,
+    "index.pck": 81985372
+  },
+  "noRemotePublish": true,
+  "noTestScreenshotsInSourceCopy": true
+}

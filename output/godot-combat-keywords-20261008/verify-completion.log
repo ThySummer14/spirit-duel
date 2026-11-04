@@ -1,0 +1,62 @@
+== verify_archer_mountain ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ARCHER_MOUNTAIN checks=146 failures=0
+
+== verify_combat ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+COMBAT_REGRESSION_OK cases=16
+
+== verify_steel_wind ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+STEEL_WIND checks=115 failures=0
+STEEL_WIND_OK
+
+== verify_spell_effects ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SPELL_EFFECTS checks=97 failures=0
+SPELL_EFFECTS_OK
+
+== verify_aim_pointer ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+AIM_POINTER checks=19 failures=0
+AIM_POINTER_OK
+
+== verify_video_layout ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+VIDEO_LAYOUT checks=884 failures=0
+VIDEO_LAYOUT_OK
+
+== verify_art ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ART checks=5283 failures=0 redrawn_units=250
+ART_OK
+
+== verify_roster ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ROSTER checks=5304 failures=0 units=250 portraits=500 matches=63 covered=250 opponents=117
+ROSTER_OK
+
+== playtest_burst ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PLAYTEST matches=60 completed=60 wins=[30, 30] stalls=0 avg_turn=16.0
+PLAYTEST_OK
+
+== playtest_focus ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FOCUS rounds=20 completed=20 wins=[10, 10] stalls=0 response_games=6 choice_games=1
+FOCUS_OK
+
+== boot ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+

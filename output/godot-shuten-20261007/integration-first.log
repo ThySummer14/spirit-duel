@@ -1,0 +1,6 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SHUTEN_FAIL combat unyielding applies before retaliation and leaves actual rage
+SHUTEN_FAIL night parade damages every other allied living unit using defenses
+SHUTEN_FAIL night parade includes enemy front/reserve and skips dead
+SHUTEN_RULES checks=81 failures=3

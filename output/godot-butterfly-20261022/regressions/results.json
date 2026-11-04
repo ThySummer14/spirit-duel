@@ -1,0 +1,100 @@
+[
+  {
+    "name": "combat",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.78,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "name": "turn_order",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.76,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "name": "instant",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.67,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "name": "spider_lily",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.95,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "SPIDER_LILY checks=133 failures=0"
+    ]
+  },
+  {
+    "name": "cotton",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.96,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "COTTON checks=103 failures=0"
+    ]
+  },
+  {
+    "name": "tomato_fire",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 1.35,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "TOMATO_FIRE checks=342 failures=0"
+    ]
+  },
+  {
+    "name": "moon_bamboo",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 8.32,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "MOON_BAMBOO checks=185 failures=0"
+    ]
+  },
+  {
+    "name": "movement",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.85,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "MOVEMENT checks=244 failures=0"
+    ]
+  },
+  {
+    "name": "samurai",
+    "exitCode": 0,
+    "errors": [],
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "SAMURAI checks=73 failures=0"
+    ]
+  }
+]

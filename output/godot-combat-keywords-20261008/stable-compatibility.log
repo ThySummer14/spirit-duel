@@ -1,0 +1,10 @@
+== verify_archer_mountain ==
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+ARCHER_MOUNTAIN checks=146 failures=0
+
+== verify_archer_mountain_ui ==
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+ARCHER_MOUNTAIN_UI checks=58 failures=0
+

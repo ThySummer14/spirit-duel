@@ -1,0 +1,23 @@
+# Project Evolution Readiness
+
+- Root: `/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel`
+- Git: yes
+- Branch: `main`
+- Working tree: dirty
+
+## Durable Context
+- Instructions: `AGENTS.md`
+- Documentation roots: `docs`
+- Decision records: Not detected
+- Behavior specs: Not detected
+- Codemaps: Not detected
+
+## Executable Evidence
+- Test directories: `tests`
+- Conventional test files: 12
+- CI: `.github/workflows`
+- Inferred quality commands: `npm run test`
+
+## Suggested Actions
+- **LOW** Create an ADR location only when the project makes its first consequential, hard-to-reverse decision. Evidence: No conventional decision-record directory was found.
+- **INFO** Understand and preserve existing working-tree changes before editing. Evidence: The Git working tree is dirty.

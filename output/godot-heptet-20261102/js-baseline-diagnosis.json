@@ -1,0 +1,6 @@
+{
+  "baselineCatalogCards": 2127,
+  "baselineStartupFailed": true,
+  "error": "饱腹 使用了未注册效果 glutton-charm-token。 饱腹 的第 1 个效果使用了未注册动作 glutton-charm-token。 饱腹 的牌组同名上限不合法。 幻役 使用了未注册效果 vine-phantom。 幻役 的第 1 个效果使用了未注册动作 vine-phantom。 幻役 的牌组同名上限不合法。 觉醒·傀儡术 的牌组同名上限不合法。 怨缚草人 使用了未注册效果 doll-token。 怨缚草人 的第 1 个效果使用了未注册动作 doll-token。 怨缚草人 的牌组同名上限不合法。 诅咒草人 使用了未注册效果 doll-token。 诅咒草人 的第 1 个效果使用了未注册动作 doll-token。 诅咒草人 的牌组同名上限不合法。 替身草人 使用了未注册效果 doll-token。 替身草人 的第 1 个效果使用了未注册动作 doll-token。 替身草人 的牌组同名上限不合法。 勤勉修行 使用了未注册效果 yitiao-skill-grow。 勤勉修行 的第 1 个效果使用了未注册动作 yitiao-skill-grow。 勤勉修行 的第 2 个效果使用了未注册动作 yitiao-combat。 勤勉修行 的牌组同名上限不合法。 达知 使用了未注册效果 baize-dazhi。 达知 的第 1 个效果使用了未注册动作 baize-dazhi。 达知 的牌组同名上限不合法。 髭切 使用了未注册效果 onikiri-attach。 髭切 的第 1 个效果使用了未注册动作 onikiri-attach。 髭切 的牌组同名上限不合法。 友切 使用了未注册效果 onikiri-attach。 友切 的第 1 个效果使用了未注册动作 onikiri-attach。 友切 的牌组同名上限不合法。 狮子之子 使用了未注册效果 onikiri-attach。 狮子之子 的第 1 个效果使用了未注册动作 onikiri-attach。 狮子之子 的牌组同名上限不合法。 八尺琼曲玉 使用了未注册效果 otake-jade-token。 八尺琼曲玉 的第 1 个效果使用了未注册动作 otake-jade-token。 八尺琼曲玉 的牌组同名上限不合法。 妖怪屋 使用了未注册效果 house-token。 妖怪屋 的第 1 个效果使用了未注册动作 house-token。 妖怪屋 的牌组同名上限不合法。",
+  "method": "Diagnostic copy of current unchanged JS validator, using current raw units/cards with only this batch three new derivatives excluded; production code and validation unchanged."
+}

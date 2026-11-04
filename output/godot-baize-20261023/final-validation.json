@@ -1,0 +1,16 @@
+{
+  "gitDiffCheck": true,
+  "batchTrailingWhitespace": [],
+  "textFiles": 19,
+  "originalPNGs": 8,
+  "cumulativeOriginalPNGs": 451,
+  "buildHashCount": 721,
+  "sourceAndBuildHashesMatch": true,
+  "pureRuleChecks": 197,
+  "nativeChecksIncludingRules": 233,
+  "relatedRegressionGroups": 14,
+  "auditExitCode": 1,
+  "fullCatalogRestored": false,
+  "auditDiagnosticsUnchanged": 19,
+  "officialSnapshotFieldsMatched": 9
+}

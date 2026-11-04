@@ -120,9 +120,10 @@ func _status() -> void:
 	Rules.ArmorBreak.give(gs, 0, 0, 1, 3, 3)
 	Rules.ArmorBreak.give(gs, 0, 0, 1, 3, 2)
 	check(u.armorBreak == 5 and u.hp == 12, "poison stacks without immediate damage")
-	u.shield = 3
+	gs._grant_unit_armor(u, 3)
+	check(u.shield == 0 and u.armorBreak == 2, "armor removes poison immediately before any hit")
 	var hit := gs._damage_unit(1, 3, 1, 0)
-	check(hit.damage == 3 and u.hp == 9 and u.shield == 0 and u.armorBreak == 0, "real damage combines poison before armor")
+	check(hit.damage == 3 and u.hp == 9 and u.shield == 0 and u.armorBreak == 0, "real damage consumes residual poison")
 	gs._damage_unit(1, 3, 1, 0)
 	check(u.hp == 8, "poison is not applied twice")
 	u.armorBreak = 4
@@ -131,15 +132,18 @@ func _status() -> void:
 	check(u.barrier and u.armorBreak == 4 and u.hp == 8, "zero damage consumes neither barrier nor poison")
 	gs._damage_unit(1, 3, 1, 0)
 	check(not u.barrier and u.armorBreak == 4 and u.hp == 8, "barrier prevents damage and preserves poison")
-	u.shield = 20
+	gs._grant_unit_armor(u, 20)
+	check(u.shield == 16 and u.armorBreak == 0, "excess armor remains after poison cancellation")
 	gs._damage_unit(1, 3, 1, 0)
 	check(u.shield == 15 and u.armorBreak == 0 and u.hp == 8, "armor absorbs combined amount without life loss")
 	gs.player(1).avatarArmorBreak = 4
-	gs.player(1).avatarArmor = 3
+	gs._grant_avatar_armor(1, 3)
 	gs.player(1).realms.append({"name": "test", "hp": 10, "avatarLinked": true})
 	check(gs._damage_avatar(1, 1, 0) == 2, "avatar damage returns damage after armor and poison")
 	check(gs.player(1).avatarHp == 28 and gs.player(1).realms[0].hp == 8 and gs.player(1).avatarArmorBreak == 0, "linked realm receives actual residual damage")
-	u.armorBreak = 5
+	u.shield = 0
+	u.shieldExpires = 0
+	Rules.ArmorBreak.give(gs, 0, 0, 1, 3, 5)
 	gs.player(1).avatarArmorBreak = 5
 	gs._begin_turn(0)
 	check(u.armorBreak == 5 and gs.player(1).avatarArmorBreak == 5, "opposing turn start preserves status")
@@ -182,7 +186,7 @@ func _combat() -> void:
 	var enemy: Dictionary = gs.player(1).units[3]
 	enemy.front = 1
 	enemy.armorBreak = 5
-	enemy.shield = 20
+	gs._grant_unit_armor(enemy, 20)
 	gs.player(0).avatarHp = 10
 	play(gs, "c11608")
 	check(gs.player(0).avatarHp == 10 and enemy.hp == 12 and enemy.shield == 11, "absorbed damage never heals")
@@ -198,14 +202,15 @@ func _combat() -> void:
 	enemy = gs.player(1).units[3]
 	enemy.front = 1
 	enemy.attack = 3
-	enemy.shield = 7
 	enemy.barrier = true
 	enemy.armorBreak = 2
+	gs._grant_unit_armor(enemy, 7)
+	check(enemy.shield == 5 and enemy.armorBreak == 0, "armor immediately cancels pre-existing poison")
 	play(gs, "c11604")
-	check(enemy.hp == 12 and enemy.shield == 7 and enemy.barrier and enemy.armorBreak == 8, "conversion creates poison instead of a damage event")
+	check(enemy.hp == 12 and enemy.shield == 0 and enemy.barrier and enemy.armorBreak == 1, "converted poison cancels armor immediately without dealing damage or breaking barrier")
 	check(gs.player(0).units[0].armorBreak == 3 and gs.player(0).units[0].attack == 2, "conversion and printed bonus last for one combat only")
 	gs._damage_unit(1, 3, 1, 0)
-	check(not enemy.barrier and enemy.armorBreak == 8, "later real hit goes through barrier normally")
+	check(not enemy.barrier and enemy.armorBreak == 1, "later real hit goes through barrier normally")
 	gs = fixture()
 	play(gs, "c11604")
 	check(gs.player(1).avatarHp == 30 and gs.player(1).avatarArmorBreak == 6, "toxic combat also converts attacks on avatar")

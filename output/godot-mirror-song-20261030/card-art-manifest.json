@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/242_云外镜/24201_落影_法术.png",
+    "target": "godot/assets/official/cards/c24201.png",
+    "sha256": "9fb800c3f46b92629028d811ccdd9573a5a1b5b788a478f6a0e1a9233e6a42c1"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/242_云外镜/24202_浮世万象_形态.png",
+    "target": "godot/assets/official/cards/c24202.png",
+    "sha256": "35652ec0cf477a42b3fe0034e342564504eb09c9b5004de30959aa695792541f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/242_云外镜/24203_斗转_战斗.png",
+    "target": "godot/assets/official/cards/c24203.png",
+    "sha256": "3f5eaf397038089904d9034381ccffb6036b3c8df49202097f22ce32ac61cbd8"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/242_云外镜/24204_昙无_法术.png",
+    "target": "godot/assets/official/cards/c24204.png",
+    "sha256": "ec9ad88282716c985c3f43d1bb0bc76d3b52d6c6393bc0431feb33800f157cf6"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/242_云外镜/24205_镜花水月_形态.png",
+    "target": "godot/assets/official/cards/c24205.png",
+    "sha256": "659541ddadec1bc5d9bbd9030bc6c57025badf02add1579d440d43b31aa36e2f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/242_云外镜/24206_觉醒·云外镜_法术.png",
+    "target": "godot/assets/official/cards/c24206.png",
+    "sha256": "e329015402baf188f24a4699d67ec1393e1a6013c16550808866fc768316f6af"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/242_云外镜/24207_镜怒_战斗.png",
+    "target": "godot/assets/official/cards/c24207.png",
+    "sha256": "210a6f47e5f04c8361d20d50f33af2899a23cec11e94cad3e775ba1103b937f9"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/242_云外镜/24208_通悟_法术.png",
+    "target": "godot/assets/official/cards/c24208.png",
+    "sha256": "0ebd525ff6c3e9ea12c22c1fdb99d18dbd6d8c8af27ba519071eaef97e986dbe"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/244_松/24401_词章洗练_战斗.png",
+    "target": "godot/assets/official/cards/c24401.png",
+    "sha256": "9120934f5e713e8d04ea88863a7cd8f02639e6be47cb175c0d09ac8aecd3f48b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/244_松/24402_觉醒·松_法术.png",
+    "target": "godot/assets/official/cards/c24402.png",
+    "sha256": "0871f6a207f6cb02c19f4b6cdf3b3bc434932f481e28b16e4f04f7d16d8709ab"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/244_松/24403_十二段草子_法术.png",
+    "target": "godot/assets/official/cards/c24403.png",
+    "sha256": "e1f4cef9242b844ad38ceba91cc1a075b95dfaa328b4e1d084fefa8c6caf4a58"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/244_松/24404_绮丽_战斗.png",
+    "target": "godot/assets/official/cards/c24404.png",
+    "sha256": "cf386cc785c0f0b6b51feb0e5a4029724118f6df6b6bb4026ec0de5654f7d893"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/244_松/24405_拨弦_法术.png",
+    "target": "godot/assets/official/cards/c24405.png",
+    "sha256": "670c8c0d73d57d9cc0da268aa3bcf9fc74f5145a69095fa7fbb8862b9aeb9346"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/244_松/24406_人形使_形态.png",
+    "target": "godot/assets/official/cards/c24406.png",
+    "sha256": "6a8871160795f1c2ade7840a65c1e504e32083af37644e70016c243239abb61e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/244_松/24407_夜乐屋_结界.png",
+    "target": "godot/assets/official/cards/c24407.png",
+    "sha256": "0c2bcdc3fbc621e87c9b6a8dcf967a57fed1afc686a089fb96b69d3bc56d0743"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/244_松/24408_梦浮世_形态.png",
+    "target": "godot/assets/official/cards/c24408.png",
+    "sha256": "700cc84de234dffe880c33c794fc7b148c8a52bff3109a52d372a5d84475450d"
+  }
+]

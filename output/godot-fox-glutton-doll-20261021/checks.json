@@ -1,0 +1,41 @@
+{
+  "roles": {
+    "three-tail": {
+      "headless": 105,
+      "native": 121,
+      "screenshots": 2
+    },
+    "glutton": {
+      "headless": 107,
+      "native": 121,
+      "screenshots": 2
+    },
+    "doll": {
+      "headless": 102,
+      "native": 116,
+      "screenshots": 2
+    }
+  },
+  "headlessTotal": 314,
+  "nativeTotal": 358,
+  "crossRole": 34,
+  "focusedTotal": 392,
+  "relatedRegressionGroups": 12,
+  "relatedRegressionChecks": 1219,
+  "relatedRegressionCases": 16,
+  "sourceHashes": 630,
+  "allCurrentSourceHashesMatchBuild": true,
+  "screenshotsViewed": 6,
+  "mainCards": 24,
+  "newDerivedCards": 4,
+  "originalArtFiles": 379,
+  "originalArtRoles": 47,
+  "mainOriginalArtFiles": 376,
+  "derivedOriginalArtFiles": 3,
+  "strictAuditExitCode": 1,
+  "strictAuditDiagnosticsUnchanged": true,
+  "fullCatalogRestored": false,
+  "changedTextFiles": 48,
+  "gitDiffCheck": true,
+  "textWhitespaceCheck": true
+}

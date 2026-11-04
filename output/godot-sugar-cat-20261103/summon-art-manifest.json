@@ -1,0 +1,47 @@
+[
+  {
+    "definitionId": "cat-one",
+    "source": "output/godot-sugar-cat-20261103/summon-reference/one.png",
+    "sourceUrl": "https://cdn.gamerch.com/contents/wiki/1667/entry/7fzglIhm.png",
+    "target": "godot/assets/official/summons/one.png",
+    "sha256": "1de06f93f6952d92a33edea4289e26cec32aa60ab29927a22b52a6160e6bbfe3",
+    "referenceLanguage": "ja",
+    "completeCard": true
+  },
+  {
+    "definitionId": "cat-four",
+    "source": "output/godot-sugar-cat-20261103/summon-reference/four.jpg",
+    "sourceUrl": "https://cdn.gamerch.com/contents/wiki/1667/entry/zllnTytC.jpg",
+    "target": "godot/assets/official/summons/four.jpg",
+    "sha256": "73f64f7882d1e43a9c8cabb935676170f16eac93ac5e381542066f40efeca7e8",
+    "referenceLanguage": "ja",
+    "completeCard": true
+  },
+  {
+    "definitionId": "cat-two",
+    "source": "output/godot-sugar-cat-20261103/summon-reference/two.png",
+    "sourceUrl": "https://cdn.gamerch.com/contents/wiki/1667/entry/Yvy08TO2.png",
+    "target": "godot/assets/official/summons/two.png",
+    "sha256": "a7224a0940fc083c0c085afb2330a4879f72b157d31128b91dc3750a8b361ed4",
+    "referenceLanguage": "ja",
+    "completeCard": true
+  },
+  {
+    "definitionId": "sugar-small",
+    "source": "output/godot-sugar-cat-20261103/summon-reference/small.png",
+    "sourceUrl": "https://cdn.gamerch.com/contents/wiki/1667/entry/JhvV93fy.png",
+    "target": "godot/assets/official/summons/small.png",
+    "sha256": "ed14714f6c15262af5342351bfbfbedd4032829c1760a91854862016ffae4807",
+    "referenceLanguage": "ja",
+    "completeCard": true
+  },
+  {
+    "definitionId": "sugar-big",
+    "source": "output/godot-sugar-cat-20261103/summon-reference/big.png",
+    "sourceUrl": "https://cdn.gamerch.com/contents/wiki/1667/entry/Xpx9kym8.png",
+    "target": "godot/assets/official/summons/big.png",
+    "sha256": "acc73cd51c175863e25273872e802e54a0a49f377e4aa8f41131d3cd842200e3",
+    "referenceLanguage": "ja",
+    "completeCard": true
+  }
+]

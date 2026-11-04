@@ -1,0 +1,110 @@
+[
+  {
+    "id": 27100,
+    "name": "荒川之主",
+    "role": 271,
+    "type": "式神",
+    "xiyoudu": null,
+    "stage": null,
+    "ll": 2,
+    "sm": 5,
+    "desc": "每回合当你使用第二张牌后，对一个力量最大的敌方式神造成1点伤害。&2710003",
+    "keyword": null
+  },
+  {
+    "id": 27101,
+    "name": "归流",
+    "role": 271,
+    "type": "法术",
+    "xiyoudu": null,
+    "stage": null,
+    "ll": null,
+    "sm": null,
+    "desc": "获得1点鬼火。#r从手牌使用后再次蓄力归流。",
+    "keyword": null
+  },
+  {
+    "id": 27102,
+    "name": "聚流",
+    "role": 271,
+    "type": "法术",
+    "xiyoudu": null,
+    "stage": null,
+    "ll": null,
+    "sm": null,
+    "desc": "投射：造成2点伤害。#r从手牌使用后再次蓄力聚流",
+    "keyword": null
+  },
+  {
+    "id": 27103,
+    "name": "泱泱之川",
+    "role": 271,
+    "type": "形态",
+    "xiyoudu": null,
+    "stage": null,
+    "ll": 2,
+    "sm": 5,
+    "desc": "当你本回合使用第二张牌后，召唤一个「游鱼」。",
+    "keyword": null
+  },
+  {
+    "id": 27104,
+    "name": "激流",
+    "role": 271,
+    "type": "法术",
+    "xiyoudu": null,
+    "stage": null,
+    "ll": null,
+    "sm": null,
+    "desc": "对一个式神造成4点伤害。#r增强：本回合你每使用过一张其他牌，此牌伤害+1。&2710402",
+    "keyword": null
+  },
+  {
+    "id": 27105,
+    "name": "溯水归乡",
+    "role": 271,
+    "type": "形态",
+    "xiyoudu": null,
+    "stage": null,
+    "ll": 5,
+    "sm": 5,
+    "desc": "当你使用牌时，若是本回合使用的第二张则对所有敌方角色造成1点伤害；若是第三张则占卜2；若是第四张则为所有己方角色恢复3#[生命]。",
+    "keyword": null
+  },
+  {
+    "id": 27106,
+    "name": "逐流",
+    "role": 271,
+    "type": "形态",
+    "xiyoudu": null,
+    "stage": null,
+    "ll": null,
+    "sm": null,
+    "desc": "占卜2，抽一张牌。#r从手牌使用后再次蓄力逐流。",
+    "keyword": null
+  },
+  {
+    "id": 27107,
+    "name": "吞噬",
+    "role": 271,
+    "type": "法术",
+    "xiyoudu": null,
+    "stage": null,
+    "ll": null,
+    "sm": null,
+    "desc": "选择一个式神，蓄力一张「湮灭」。#r于荒川之主蓄力期间，该式神保持眩晕。",
+    "keyword": null
+  },
+  {
+    "id": 27108,
+    "name": "觉醒·荒川之主",
+    "role": 271,
+    "type": "法术",
+    "xiyoudu": null,
+    "stage": null,
+    "ll": 1,
+    "sm": 1,
+    "desc": "觉醒：每回合当你使用第二张牌后，对敌方牌手造成2点伤害并将其眩晕。&2710003",
+    "keyword": null
+  }
+]

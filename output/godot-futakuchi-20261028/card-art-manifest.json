@@ -1,0 +1,50 @@
+[
+  {
+    "cardId": "c29501",
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/295_二口女/29501_意外收获_战斗.png",
+    "target": "godot/assets/official/cards/c29501.png",
+    "sha256": "d909a4b58bfe0d745624932d6752648382c51f0a06d7803bf844fbd45cf0ea32"
+  },
+  {
+    "cardId": "c29502",
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/295_二口女/29502_附体_形态.png",
+    "target": "godot/assets/official/cards/c29502.png",
+    "sha256": "67945dc65b84f3b4d749f15bec7c111c2624a7301383af19b09b0ecb675be84a"
+  },
+  {
+    "cardId": "c29503",
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/295_二口女/29503_恐惧_结界.png",
+    "target": "godot/assets/official/cards/c29503.png",
+    "sha256": "7cfee8d6267003774323f0fe2b4ef64df3d7a64a373c6b286d4030c9606f8d79"
+  },
+  {
+    "cardId": "c29504",
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/295_二口女/29504_血口_战斗.png",
+    "target": "godot/assets/official/cards/c29504.png",
+    "sha256": "f9f38490ae6f3c0a0e87e1efa0c2eb1cda05a970708b9cbc23954c729472e89a"
+  },
+  {
+    "cardId": "c29505",
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/295_二口女/29505_觉醒·二口女_法术.png",
+    "target": "godot/assets/official/cards/c29505.png",
+    "sha256": "f9bbaa1da7f6e2afa20423ed059bdd2345608c034313ace9a9eedd03c4dbc529"
+  },
+  {
+    "cardId": "c29506",
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/295_二口女/29506_共生_形态.png",
+    "target": "godot/assets/official/cards/c29506.png",
+    "sha256": "b03238451b22b0240d49b28e6db3f321d38c7e78e1dcde482751d5b253c8cfe0"
+  },
+  {
+    "cardId": "c29507",
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/295_二口女/29507_歉意_战斗.png",
+    "target": "godot/assets/official/cards/c29507.png",
+    "sha256": "dc7d2e5e8f28ecc6e7aacd8e27b7603e7ff62ca737c7106f47371e199a3184e3"
+  },
+  {
+    "cardId": "c29508",
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/295_二口女/29508_妖噬_法术.png",
+    "target": "godot/assets/official/cards/c29508.png",
+    "sha256": "13828bfef84f01f94498e3bec2ad78adc5c0339328756af146a3e7903704ada3"
+  }
+]

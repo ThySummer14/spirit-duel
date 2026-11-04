@@ -1,0 +1,5 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+YUJIAZHU_FAIL actual use c16303 burst2 请选择一个有效目标。
+YUJIAZHU_FAIL movement burst uses reduced cost but nominal effect/history
+YUJIAZHU_OK checks=156 failures=2 rules_only=true

@@ -1,0 +1,470 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "yaodao-official-card-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "10100–10108及10109原版数值/牌型；不祥之刃旧版牌文必须由2020-12-24公告覆盖。"
+    },
+    {
+      "id": "yaodao-balance-2020-12-24",
+      "url": "https://www.taptap.cn/moment/90930908776893040",
+      "evidence": "官方账号维护公告：不祥之刃调整为消灭敌方式神时抽一张牌；战斗牌能力持续到对应战斗结束。"
+    },
+    {
+      "id": "yaodao-fix-2022-01-26",
+      "url": "https://www.taptap.cn/moment/235144264613364682",
+      "evidence": "官方修复不祥击杀独眼小僧后妖刀被其投射气绝时未抽牌，证明已满足击杀条件不受之后气绝取消。"
+    },
+    {
+      "id": "yaodao-tanukikai-review",
+      "url": "https://www.taptap.cn/moment/15223033941722667",
+      "evidence": "原作者狼眼公测卡评：基础打脸给战斗牌瞬发、觉醒永久迅捷、万华先额外击中再普通交战。"
+    },
+    {
+      "id": "yaodao-instant-faq",
+      "url": "https://www.bilibili.com/opus/333469661823472230",
+      "evidence": "原作者式神浅谈：打脸后先使用一闪会浪费瞬发；瞬发与队友共享一次；全部五种战斗牌。"
+    },
+    {
+      "id": "yaodao-combat-faq",
+      "url": "https://www.taptap.cn/moment/15225930238658237",
+      "evidence": "原作者实测FAQ：万华先击致死不受反击，打牌手有两次独立命中，战斗护甲只获得一次。该帖旧版不祥打脸抽牌被后续公告淘汰。"
+    },
+    {
+      "id": "yaodao-armor-lifetime",
+      "url": "https://www.taptap.cn/moment/15218393770626608",
+      "evidence": "官方基础卡面属性：护甲自己回合开始清除；与2020战斗牌力量和能力期限分开。"
+    },
+    {
+      "id": "yaodao-combat-armor-example",
+      "url": "https://www.taptap.cn/moment/15218530131643593",
+      "evidence": "官方酒吞百科明确狂气战斗牌取得的护甲到下个己方回合消失，支持战斗护甲的共享寿命。"
+    }
+  ],
+  "units": {
+    "yaodaoji": {
+      "verifiedRules": true,
+      "attack": 3,
+      "maxHp": 4,
+      "yaodaoFlurry": true,
+      "passive": {
+        "id": "yaodao-avatar-instant",
+        "name": "呪刃连袭",
+        "text": "当妖刀姬对敌方牌手造成伤害时，她的战斗牌本回合获得瞬发。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "yaodao-avatar-free",
+        "name": "万华一意",
+        "text": "迅捷。当妖刀姬对敌方牌手造成伤害时，她的战斗牌本回合不消耗鬼火。",
+        "hooks": []
+      },
+      "verificationPending": [
+        "同回合先触发基础瞬发后觉醒，再触发免费战斗牌时，旧瞬发与无火的层叠顺序尚缺当前版本实机证据；暂保留两个已产生的回合效果。"
+      ]
+    }
+  },
+  "cards": {
+    "c10101": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "assault",
+      "formHooks": [],
+      "level": 1,
+      "value": 0,
+      "text": "本次战斗+1护甲。消灭敌方式神时，抽一张牌。",
+      "combatOption": {
+        "shield": 1,
+        "yaodaoKillDraw": true
+      },
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c10102": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "response"
+      ],
+      "tags": [],
+      "target": "auto",
+      "effect": "assault",
+      "formHooks": [],
+      "level": 1,
+      "value": 1,
+      "text": "本次战斗+1力量，免疫战斗伤害。响应：当妖刀姬被攻击时，自动使用该牌。",
+      "combatOption": {
+        "shield": 0,
+        "immuneCombat": true
+      },
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "autoResponse": "source-attacked",
+      "responseModifiesCombat": true,
+      "verificationPending": [
+        "同时持有多张见切的自动响应是否逐张叠加，尚缺当前原版案例；与现有自动响应执行器一致，每个受击事件选首张合法响应。"
+      ]
+    },
+    "c10103": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "assault",
+      "formHooks": [],
+      "level": 2,
+      "value": 2,
+      "text": "本次战斗+2力量、+2护甲。",
+      "combatOption": {
+        "shield": 2
+      },
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ]
+    },
+    "c10104": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "assault",
+      "formHooks": [],
+      "level": 2,
+      "value": 0,
+      "text": "不消耗鬼火。出击。",
+      "combatOption": {
+        "shield": 0
+      },
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c10108": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "assault",
+      "formHooks": [],
+      "level": 2,
+      "value": 0,
+      "text": "本次战斗+2护甲。增强：本局游戏妖刀姬每消灭一个式神，此牌获得+2力量。",
+      "combatOption": {
+        "shield": 2
+      },
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "yaodaoKillEnhancement": true,
+      "baseCombatAttack": 0
+    },
+    "c10105": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "form",
+      "formHooks": [],
+      "level": 3,
+      "text": "3力量/8生命。妖刀姬战斗时，将额外先击中对手一次。",
+      "value": {
+        "attack": 3,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "战斗时额外先击中对手一次。",
+      "formRules": {
+        "extraFirstHit": true
+      },
+      "verificationPending": [
+        "双方同时具有万华等额外先击时的排序，以及防守方眩晕与额外先击的全部交叉组合，尚缺当前原版录像；按攻击方先处理额外击中、受眩晕防守方不反击的显式模型，不能宣称该边界已核验。"
+      ]
+    },
+    "skin-yaodaoji-93149": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "form",
+      "formHooks": [],
+      "level": 3,
+      "text": "3力量/8生命。妖刀姬战斗时，将额外先击中对手一次。",
+      "value": {
+        "attack": 3,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "战斗时额外先击中对手一次。",
+      "formRules": {
+        "extraFirstHit": true
+      },
+      "verificationPending": [
+        "双方同时具有万华等额外先击时的排序，以及防守方眩晕与额外先击的全部交叉组合，尚缺当前原版录像；按攻击方先处理额外击中、受眩晕防守方不反击的显式模型，不能宣称该边界已核验。"
+      ]
+    },
+    "c10106": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "yaodao-killing-intent",
+      "formHooks": [],
+      "level": 3,
+      "value": 3,
+      "text": "随机将三张妖刀姬的战斗牌置入手牌。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "yaodao-killing-intent",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "generatedCards": [
+        "c10101",
+        "c10102",
+        "c10103",
+        "c10104",
+        "c10108"
+      ],
+      "verificationPending": [
+        "五种真实战斗牌均在生成池；随机生成的内部权重及重复抽样算法无官方明确披露，目前采用等概率有放回抽样，待实机分布核验。"
+      ]
+    },
+    "c10107": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "yaodao-awaken",
+      "formHooks": [],
+      "level": 3,
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "text": "+1力量/+1生命。觉醒：迅捷。当妖刀姬对敌方牌手造成伤害时，她的战斗牌本回合不消耗鬼火。",
+      "effects": [
+        {
+          "condition": "always",
+          "action": "yaodao-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "yingdao-jianqie": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "assault",
+      "formHooks": [],
+      "level": 1,
+      "value": 0,
+      "text": "本次战斗+1护甲。消灭敌方式神时，抽一张牌。",
+      "combatOption": {
+        "shield": 1,
+        "yaodaoKillDraw": true
+      },
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "token": true,
+      "starterCopies": 0
+    },
+    "yingdao-zhanyi": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "assault",
+      "formHooks": [],
+      "level": 2,
+      "value": 2,
+      "text": "本次战斗+2力量、+2护甲。",
+      "combatOption": {
+        "shield": 2
+      },
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "token": true,
+      "starterCopies": 0
+    },
+    "yingdao-yishan": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 0,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "tags": [],
+      "target": "auto",
+      "effect": "assault",
+      "formHooks": [],
+      "level": 2,
+      "value": 0,
+      "text": "不消耗鬼火。出击。",
+      "combatOption": {
+        "shield": 0
+      },
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "token": true,
+      "starterCopies": 0
+    }
+  }
+}

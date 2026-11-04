@@ -1,0 +1,28 @@
+{
+  "roles": {
+    "goldfish": {
+      "headless": 124,
+      "native": 148,
+      "screenshots": 2
+    },
+    "vine": {
+      "headless": 104,
+      "native": 118,
+      "screenshots": 2
+    },
+    "wind-raccoon": {
+      "headless": 140,
+      "native": 150,
+      "screenshots": 2
+    }
+  },
+  "nativeTotal": 416,
+  "crossRole": 41,
+  "focusedTotal": 457,
+  "relatedRegressionGroups": 11,
+  "sourceHashes": 565,
+  "allCurrentSourceHashesMatchBuild": true,
+  "screenshotsViewed": 6,
+  "strictAuditExitCode": 1,
+  "strictAuditDiagnosticsUnchanged": true
+}

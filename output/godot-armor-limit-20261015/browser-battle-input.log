@@ -1,0 +1,33 @@
+### Ran Playwright code
+```js
+// Move mouse to (1139, 621)
+await page.mouse.move(1139, 621);
+```
+### Ran Playwright code
+```js
+// Press mouse down
+await page.mouse.down();
+```
+### Ran Playwright code
+```js
+// Press mouse up
+await page.mouse.up();
+```
+### Page
+- Page URL: http://127.0.0.1:8773/play/
+- Page Title: 灵枢战线
+### Snapshot
+```yaml
+- generic "灵枢战线游戏画面" [active] [ref=e2]: 浏览器需要支持 Canvas。
+```
+### Result
+- [Screenshot of viewport](output/playwright/armor-limit-20261015/web-battle.png)
+### Ran Playwright code
+```js
+// Screenshot viewport and save it as output/playwright/armor-limit-20261015/web-battle.png
+await page.screenshot({
+  path: 'output/playwright/armor-limit-20261015/web-battle.png',
+  scale: 'css',
+  type: 'png'
+});
+```

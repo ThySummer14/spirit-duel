@@ -1,0 +1,23 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+SCRIPT ERROR: Invalid call. Nonexistent function 'basic_attack_cost' in base 'RefCounted (GameState)'.
+          at: permanent_form (res://scripts/verify_mirror_song.gd:135)
+          GDScript backtrace (most recent call first):
+              [0] permanent_form (res://scripts/verify_mirror_song.gd:135)
+              [1] run (res://scripts/verify_mirror_song.gd:323)
+MIRROR_SONG_FAIL piercing spell lifesteal cannot count the same allocated overflow twice
+MIRROR_SONG_FAIL actual swap precedes signed card bonus and counter: source1
+MIRROR_SONG_FAIL twelve sections first lets player arrange own real deck
+MIRROR_SONG_FAIL same player then arranges opponent's deck
+SCRIPT ERROR: Invalid access to property or key 'sourceUid' on a base object of type 'Dictionary'.
+          at: turn_start (res://scripts/mirror_song_rules.gd:341)
+          GDScript backtrace (most recent call first):
+              [0] turn_start (res://scripts/mirror_song_rules.gd:341)
+              [1] _begin_turn (res://scripts/game_state.gd:3278)
+              [2] _switch_turn (res://scripts/game_state.gd:3210)
+              [3] _advance_turn (res://scripts/game_state.gd:3204)
+              [4] end_turn (res://scripts/game_state.gd:3184)
+              [5] divination_realms_and_dream (res://scripts/verify_mirror_song.gd:239)
+              [6] run (res://scripts/verify_mirror_song.gd:323)
+MIRROR_SONG_FAIL night realm persists with source knocked out and stunned enemy damages its own avatar
+MIRROR_SONG_OK checks=226 failures=5 rules_only=true

@@ -1,0 +1,104 @@
+{
+  "newMainFaces": [
+    {
+      "id": "c28201",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/282_鲤鱼精/28201_泡泡之护_法术.png",
+      "destination": "godot/assets/official/cards/c28201.png",
+      "sha256": "8e0fb935193e141105ccc1e9ee423207efbe9d840cbb3c5eb0cc307dccbb258c"
+    },
+    {
+      "id": "c28202",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/282_鲤鱼精/28202_泡泡之愈_法术.png",
+      "destination": "godot/assets/official/cards/c28202.png",
+      "sha256": "c675bf361afe135425015ccd6f1b5a0ab02b9d151d8b750b20c210012a690adb"
+    },
+    {
+      "id": "c28203",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/282_鲤鱼精/28203_赤鲤跃波_形态.png",
+      "destination": "godot/assets/official/cards/c28203.png",
+      "sha256": "896de9422b78d0fa75d2fa9354d11f41f7089fb8aa4d1d006253133743db69f8"
+    },
+    {
+      "id": "c28204",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/282_鲤鱼精/28204_溪流欢歌_结界.png",
+      "destination": "godot/assets/official/cards/c28204.png",
+      "sha256": "ad10ef8276b7c42545dee5a9b133afa57343ea01dff0504943fd64d2408e906a"
+    },
+    {
+      "id": "c28205",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/282_鲤鱼精/28205_尾鞭_法术.png",
+      "destination": "godot/assets/official/cards/c28205.png",
+      "sha256": "1db82f9695faa377e08d268d3e2dd3884d4a8898977c487c09107660871519ad"
+    },
+    {
+      "id": "c28206",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/282_鲤鱼精/28206_觉醒·鲤鱼精_法术.png",
+      "destination": "godot/assets/official/cards/c28206.png",
+      "sha256": "d0cea1b20a57880fdd0920c337b6476d5d3eabfdc6435e2fcc85436eb6f3597b"
+    },
+    {
+      "id": "c28207",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/282_鲤鱼精/28207_嬉游_法术.png",
+      "destination": "godot/assets/official/cards/c28207.png",
+      "sha256": "f02fdefa6baba72c277661739c651b2c0907de498ff77a53918ca3167af94d5f"
+    },
+    {
+      "id": "c28208",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/282_鲤鱼精/28208_水镜红锦_形态.png",
+      "destination": "godot/assets/official/cards/c28208.png",
+      "sha256": "8386ef30c08c85b46d431574b1d7d804dab940dbfaf94e08a1a070cada3c5095"
+    },
+    {
+      "id": "c28801",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/288_寻香行/28801_燃香_法术.png",
+      "destination": "godot/assets/official/cards/c28801.png",
+      "sha256": "df3816304c5e43e17daa4da402d2017b2f6a25410f42c63fead1c1b37160d543"
+    },
+    {
+      "id": "c28802",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/288_寻香行/28802_承愿寻香_形态.png",
+      "destination": "godot/assets/official/cards/c28802.png",
+      "sha256": "cacf30c393e6b9c4c6ed6ab2bc95f85ec8423ea0f000f83be250ec7cda62ab2a"
+    },
+    {
+      "id": "c28803",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/288_寻香行/28803_明香境_结界.png",
+      "destination": "godot/assets/official/cards/c28803.png",
+      "sha256": "c695dde0a96b5727f80463c0f1179f3a05bef160cc46908532c56c86c1b9461b"
+    },
+    {
+      "id": "c28804",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/288_寻香行/28804_缚魂香_法术.png",
+      "destination": "godot/assets/official/cards/c28804.png",
+      "sha256": "03fe977698d1e6f27e0b963473523e35ce5037f87b7e718bbfd771b04b3729e9"
+    },
+    {
+      "id": "c28805",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/288_寻香行/28805_觉醒·寻香行_法术.png",
+      "destination": "godot/assets/official/cards/c28805.png",
+      "sha256": "89add8976d23c8113ee74b3fd97ca69fe7da3c37f0392037789ffedb4414eb9f"
+    },
+    {
+      "id": "c28806",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/288_寻香行/28806_菩提愿_法术.png",
+      "destination": "godot/assets/official/cards/c28806.png",
+      "sha256": "06a0a0c0482930504b89888cfca894e3ed06faf974182403b5221f0b04756d2d"
+    },
+    {
+      "id": "c28807",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/288_寻香行/28807_御香引_法术.png",
+      "destination": "godot/assets/official/cards/c28807.png",
+      "sha256": "cf5482c8727e675df61b275ac38c4a806a20f10c70d927aa972dab88e69eec0f"
+    },
+    {
+      "id": "c28808",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/288_寻香行/28808_缚梦明香_形态.png",
+      "destination": "godot/assets/official/cards/c28808.png",
+      "sha256": "9b0b1374acef1a1b83e616d486db72d7cc06016dbc4966ba1e0af823742d4ae2"
+    }
+  ],
+  "cumulativeMainFaces": 472,
+  "cumulativeDerivedFaces": 3,
+  "cumulativeOriginalFaces": 475,
+  "cumulativeUnits": 59
+}

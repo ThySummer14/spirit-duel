@@ -1,0 +1,10 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ARCHER_MOUNTAIN_FAIL real mountain overflow is one
+ARCHER_MOUNTAIN_FAIL barrier prevents unit hit but not overflow
+ARCHER_MOUNTAIN_FAIL 2022 bow grants two power
+ARCHER_MOUNTAIN_FAIL modern zanshin replaces body and preserves spell buff
+ARCHER_MOUNTAIN_FAIL clumsy has zero power on opposing turn
+ARCHER_MOUNTAIN_FAIL awakened mountain rejects enemy noncombat damage
+ARCHER_MOUNTAIN_FAIL kai selects an enemy unit instead of hitting avatar
+ARCHER_MOUNTAIN checks=12 failures=7

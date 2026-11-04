@@ -1,0 +1,1970 @@
+[
+  {
+    "card": "c17501",
+    "path": "godot/assets/official/cards/c17501.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/175_山风/17501_烈_形态.png",
+    "sha256": "be119304517f2501ccf0bbe219b913c53d961f3406c9fcb3a83169fe92ac7924"
+  },
+  {
+    "card": "c17502",
+    "path": "godot/assets/official/cards/c17502.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/175_山风/17502_迅_法术.png",
+    "sha256": "158b1780823bc20138ba7f6734fc47ca4db037f23dcb2d8a049747173f953e2d"
+  },
+  {
+    "card": "c17503",
+    "path": "godot/assets/official/cards/c17503.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/175_山风/17503_势_形态.png",
+    "sha256": "86a35b8d3a7f3b204ab6c9e36ada5a4a82420b86c1ae0c6021526a0d3c0583f0"
+  },
+  {
+    "card": "c17504",
+    "path": "godot/assets/official/cards/c17504.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/175_山风/17504_刚_形态.png",
+    "sha256": "6eeb8a056740501cfcca6adb0b31dfb06a6b0a12f77d9fab294812c8dfa38db1"
+  },
+  {
+    "card": "c17505",
+    "path": "godot/assets/official/cards/c17505.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/175_山风/17505_斩_形态.png",
+    "sha256": "8eaf74e3297e3de6b75d1f06d018f44aa8847ff6146c2f9f1ff3fef81fd73a08"
+  },
+  {
+    "card": "c17506",
+    "path": "godot/assets/official/cards/c17506.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/175_山风/17506_突_法术.png",
+    "sha256": "4d9a52c60d641817a47442563970c16798d5fc3a4a6450303c6fb8ff560a6c4d"
+  },
+  {
+    "card": "c17507",
+    "path": "godot/assets/official/cards/c17507.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/175_山风/17507_岚_法术.png",
+    "sha256": "f65f7d358dad4312aae768bf8482c816d75be317d883f4c3824734423ec738e1"
+  },
+  {
+    "card": "c17508",
+    "path": "godot/assets/official/cards/c17508.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/175_山风/17508_觉醒·山风_法术.png",
+    "sha256": "a12225983001c709f90092ee8455a4b72ac1776a4daa9fac2ae668de221ea53a"
+  },
+  {
+    "card": "c17601",
+    "path": "godot/assets/official/cards/c17601.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/176_辉夜姬/17601_燕子安贝_结界.png",
+    "sha256": "69c422e84beb596b4b974c629627530532a43aebdd8605b86bca668308b90c8f"
+  },
+  {
+    "card": "c17602",
+    "path": "godot/assets/official/cards/c17602.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/176_辉夜姬/17602_火鼠裘_结界.png",
+    "sha256": "1892ce79f7fee03ae814a618c9db23178efae54036b00027274a13d97755a6ea"
+  },
+  {
+    "card": "c17603",
+    "path": "godot/assets/official/cards/c17603.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/176_辉夜姬/17603_五道难题_法术.png",
+    "sha256": "a9664a5568bb42fd7f23e78c38de668c7ca7824067b9b792e2fca478ad19e638"
+  },
+  {
+    "card": "c17604",
+    "path": "godot/assets/official/cards/c17604.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/176_辉夜姬/17604_佛前石钵_结界.png",
+    "sha256": "48894988c9bf5477a32934884ddd1d71c006fc8f37a462f1cbffb210e47cead6"
+  },
+  {
+    "card": "c17605",
+    "path": "godot/assets/official/cards/c17605.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/176_辉夜姬/17605_龙首之玉_结界.png",
+    "sha256": "51866d992d754c83e7037786547c4ad6c3912f9aee09ff6c793f571a5e80d980"
+  },
+  {
+    "card": "c17606",
+    "path": "godot/assets/official/cards/c17606.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/176_辉夜姬/17606_觉醒·辉夜姬_法术.png",
+    "sha256": "de8f494a1416702ede4de0b5040cf40a9aec90ad2eb72e8795f6e41438ae97d9"
+  },
+  {
+    "card": "c17607",
+    "path": "godot/assets/official/cards/c17607.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/176_辉夜姬/17607_蓬莱玉枝_结界.png",
+    "sha256": "e5dc1741d79fa8c938b445012ec38251b1223daffbe9fba91f564d5158c8c137"
+  },
+  {
+    "card": "c17608",
+    "path": "godot/assets/official/cards/c17608.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/176_辉夜姬/17608_竹取物语_形态.png",
+    "sha256": "3f1f99adfa18ef2e09bf5e9eaae8ffbe72b34007736d2817e9d76e18fdae9f5b"
+  },
+  {
+    "card": "c17701",
+    "path": "godot/assets/official/cards/c17701.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/177_泷夜叉姬/17701_曜断_战斗.png",
+    "sha256": "79786f3fbeaec9fbfce28bb502a6e624bb28021fae9de13cd2006bae3b019695"
+  },
+  {
+    "card": "c17702",
+    "path": "godot/assets/official/cards/c17702.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/177_泷夜叉姬/17702_残阳无影_战斗.png",
+    "sha256": "169afeb0519f932a6aa274c13f39e3cddf736c900dbf2a4e12a87410a8aab173"
+  },
+  {
+    "card": "c17703",
+    "path": "godot/assets/official/cards/c17703.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/177_泷夜叉姬/17703_新月之哀_结界.png",
+    "sha256": "284e81ca4002fa4b1d12690ea63ebd9e71c6423b2e69d9c514f7f48c3b15dc6d"
+  },
+  {
+    "card": "c17704",
+    "path": "godot/assets/official/cards/c17704.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/177_泷夜叉姬/17704_日轮之城_结界.png",
+    "sha256": "957546a3f9c48a566f0e8155f107599a4e9767fe154d11823eea510a9459b6bd"
+  },
+  {
+    "card": "c17705",
+    "path": "godot/assets/official/cards/c17705.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/177_泷夜叉姬/17705_觉醒·泷夜叉姬_法术.png",
+    "sha256": "47ec7e0652d202b41f78915ce7f0df3cbc723b4bb10227baecd5559bd4308c1b"
+  },
+  {
+    "card": "c17706",
+    "path": "godot/assets/official/cards/c17706.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/177_泷夜叉姬/17706_月之奥义_战斗.png",
+    "sha256": "fdf56a8b22db286c781a0cbce3ee065cb1913266586a974ee94511ef5b66bf0f"
+  },
+  {
+    "card": "c17707",
+    "path": "godot/assets/official/cards/c17707.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/177_泷夜叉姬/17707_胧月无眠_战斗.png",
+    "sha256": "32c5984c1634f6d6f2423d3e3914d1b2ffbf5fb7ddf2bee02505bf19cf2566d3"
+  },
+  {
+    "card": "c177081",
+    "path": "godot/assets/official/cards/c177081.png",
+    "original": "art-reference-official/卡面-按版本/05_月夜幻响/177_泷夜叉姬/177081_永劫轮回_形态.png",
+    "sha256": "6e18e8836ae528474b5c1490b183d9380fffaab11a3005ec72a9ebba5ca7a181"
+  },
+  {
+    "card": "c18101",
+    "path": "godot/assets/official/cards/c18101.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/181_人面树/18101_扎根_形态.png",
+    "sha256": "2ce94e6337ba2d8b72ac272ef244c6f77013650cf31510110f1b93acd93ebdb3"
+  },
+  {
+    "card": "c18102",
+    "path": "godot/assets/official/cards/c18102.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/181_人面树/18102_神木诅咒_法术.png",
+    "sha256": "b764f36cbc12d207f437ac04e10b17a3697e2d8cb750cda4f90551b1e63162b7"
+  },
+  {
+    "card": "c18103",
+    "path": "godot/assets/official/cards/c18103.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/181_人面树/18103_汲取养分_形态.png",
+    "sha256": "0901b85029317f7e6fca4cbf244a8cdafd2f43693239996f9d59a4a423f703f0"
+  },
+  {
+    "card": "c18104",
+    "path": "godot/assets/official/cards/c18104.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/181_人面树/18104_神木庇佑_法术.png",
+    "sha256": "47a47e2f746e77f329d6facd18ba3047a4d7c6b633e43c0b8d61ec83bbb30ab3"
+  },
+  {
+    "card": "c18105",
+    "path": "godot/assets/official/cards/c18105.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/181_人面树/18105_灾厄之花_法术.png",
+    "sha256": "aaf9e74ec9e223a32a26b53a5e770a91b620ded1c2da76a7a0afde8685fc3c86"
+  },
+  {
+    "card": "c18106",
+    "path": "godot/assets/official/cards/c18106.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/181_人面树/18106_祸根_形态.png",
+    "sha256": "37f0c5f538c568328e9cf867d646262510ad667b6f6d484bb24b1d9d2c4b1b50"
+  },
+  {
+    "card": "c18107",
+    "path": "godot/assets/official/cards/c18107.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/181_人面树/18107_凋零之森_结界.png",
+    "sha256": "a93a0d3dfd91603705b208e3489f7736b04e1bb9c8b2c3af1427c5a9d34c6435"
+  },
+  {
+    "card": "c18108",
+    "path": "godot/assets/official/cards/c18108.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/181_人面树/18108_觉醒·人面树_法术.png",
+    "sha256": "f8fb7246cb4bf63a720c9f16b875797d24b13da0e00501be90a6c2f4a004d72f"
+  },
+  {
+    "card": "c18401",
+    "path": "godot/assets/official/cards/c18401.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/184_樱花妖/18401_樱落_法术.png",
+    "sha256": "c5fe9dbc0ac64e34ee67899c0da163b564353ce8b98ac4a98712bd7eeb4d7d6a"
+  },
+  {
+    "card": "c18402",
+    "path": "godot/assets/official/cards/c18402.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/184_樱花妖/18402_弥生之舞_形态.png",
+    "sha256": "a20660a570c5a9d4d5edbfa1b2b0aaeada15d463ab9d7d3a936a916e5ac97ed8"
+  },
+  {
+    "card": "c18403",
+    "path": "godot/assets/official/cards/c18403.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/184_樱花妖/18403_绽放_法术.png",
+    "sha256": "ebea096d1cbfb785cbdc54bcb7acaf31b9109a791c5b5e4d0db382ea70b006eb"
+  },
+  {
+    "card": "c18404",
+    "path": "godot/assets/official/cards/c18404.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/184_樱花妖/18404_绚烂之舞_形态.png",
+    "sha256": "4cd30785aa83b4b8edcf15f39bfba6c6188277bd5d5044fe89ad697dbe7800ca"
+  },
+  {
+    "card": "c18405",
+    "path": "godot/assets/official/cards/c18405.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/184_樱花妖/18405_觉醒·樱花妖_法术.png",
+    "sha256": "1b1fa38511f2e4e3013d184342a0c6578103c22238e8aace5a312df121484866"
+  },
+  {
+    "card": "c18406",
+    "path": "godot/assets/official/cards/c18406.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/184_樱花妖/18406_花云之誓_法术.png",
+    "sha256": "5253aa730708a9d53b8e8e4b6739aa9864825e477a5e17a6614e60d1a86fdc6e"
+  },
+  {
+    "card": "c18407",
+    "path": "godot/assets/official/cards/c18407.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/184_樱花妖/18407_樱吹雪_法术.png",
+    "sha256": "dcdec595f534f622549206ea572cdc75d072e517ddef7fb166963ef080a8c1b6"
+  },
+  {
+    "card": "c18408",
+    "path": "godot/assets/official/cards/c18408.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/184_樱花妖/18408_飘零之舞_形态.png",
+    "sha256": "2ecfae76ee83c1e5ea55dd5bb3537c15f5698d0f665fb3638eb54d94eadf70b8"
+  },
+  {
+    "card": "c18601",
+    "path": "godot/assets/official/cards/c18601.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/186_薰/18601_鸮之利爪_形态.png",
+    "sha256": "8bf9520924fbcb447e5a61437943c0815f2f5e35c7d8b50733d575ae5bcfd12d"
+  },
+  {
+    "card": "c18602",
+    "path": "godot/assets/official/cards/c18602.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/186_薰/18602_温柔的守护_法术.png",
+    "sha256": "a0dc4dc562ff0b9d69634b4027aef98c3d430ea234eaa26afc3b03fe2c5415e0"
+  },
+  {
+    "card": "c18603",
+    "path": "godot/assets/official/cards/c18603.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/186_薰/18603_决意_形态.png",
+    "sha256": "ef7ab39dd8a2171127fb4837e42a1a3efe3702f213e0c9d2295c3694c6f93544"
+  },
+  {
+    "card": "c18604",
+    "path": "godot/assets/official/cards/c18604.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/186_薰/18604_干扰投掷_法术.png",
+    "sha256": "56926c8213bb072c45d1b57975a399ba7231ebdd646d7ab7fcb3c9d76d32fe14"
+  },
+  {
+    "card": "c18605",
+    "path": "godot/assets/official/cards/c18605.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/186_薰/18605_鸮之警惕_形态.png",
+    "sha256": "c17cb0e8f57bff987185cdb3ff830322cc3c7c041e1ff4e370a59b7197568f2c"
+  },
+  {
+    "card": "c18606",
+    "path": "godot/assets/official/cards/c18606.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/186_薰/18606_觉醒·薰_法术.png",
+    "sha256": "d155f09b93258501cdaeda9b7c41a4374ef13810a4a73ea03bfa2cf15e3b9d7f"
+  },
+  {
+    "card": "c18607",
+    "path": "godot/assets/official/cards/c18607.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/186_薰/18607_祈愿之翼_法术.png",
+    "sha256": "5bd03bc66135a406bf8f8d16636596f15c32fd74fb8db8f85d1174040d87bf62"
+  },
+  {
+    "card": "c18608",
+    "path": "godot/assets/official/cards/c18608.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/186_薰/18608_鸮之庇佑_形态.png",
+    "sha256": "479d6aa510d5b0da284b490761916c67dab88dd9db1e982892010a81ac41d392"
+  },
+  {
+    "card": "c18701",
+    "path": "godot/assets/official/cards/c18701.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/187_食梦貘/18701_入眠_法术.png",
+    "sha256": "c09f3afd7df3a84a8481a85fab650d6ec47364fd9e8454e050f518cc371bd2bc"
+  },
+  {
+    "card": "c18702",
+    "path": "godot/assets/official/cards/c18702.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/187_食梦貘/18702_梦中低语_结界.png",
+    "sha256": "c909d9a0a52b33972d13704392b7862d7e6018dc203eaf4611e6ad61f97f88bf"
+  },
+  {
+    "card": "c18703",
+    "path": "godot/assets/official/cards/c18703.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/187_食梦貘/18703_惊梦_战斗.png",
+    "sha256": "e22fcabf39b107bbadfffd20cef582eb1e56e15e7533aa0326cc5d51477b1754"
+  },
+  {
+    "card": "c18704",
+    "path": "godot/assets/official/cards/c18704.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/187_食梦貘/18704_觉醒·食梦貘_法术.png",
+    "sha256": "2a493305e4f9f7d53263628677d66924483bd6635889ff380ec4d02ff7643805"
+  },
+  {
+    "card": "c18705",
+    "path": "godot/assets/official/cards/c18705.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/187_食梦貘/18705_梦境浮现_形态.png",
+    "sha256": "21df34839f60d71206d67c6e52d0d43a42ed8f03fcec2039a29fb23774f9c076"
+  },
+  {
+    "card": "c18706",
+    "path": "godot/assets/official/cards/c18706.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/187_食梦貘/18706_永眠之梦_结界.png",
+    "sha256": "87f9fee658a853959a62d729791600e886599418a89b7ad2133aeb5740ead064"
+  },
+  {
+    "card": "c18707",
+    "path": "godot/assets/official/cards/c18707.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/187_食梦貘/18707_食梦_法术.png",
+    "sha256": "f27ed9e74dd5c95531859572442c9c64aaa70401dca6e4c8c299e545339d5c8a"
+  },
+  {
+    "card": "c18708",
+    "path": "godot/assets/official/cards/c18708.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/187_食梦貘/18708_梦境中的支配者_形态.png",
+    "sha256": "2be85b5a1142cda5d0a692840b4a6174a88b4160b63a06d5f1d62ea3919bddd4"
+  },
+  {
+    "card": "c18801",
+    "path": "godot/assets/official/cards/c18801.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/188_独眼小僧/18801_布施_法术.png",
+    "sha256": "640181000f2f3eab5a5f295105fcd6b5c1a34fa360c56c2f23c5dcdac7d83a6b"
+  },
+  {
+    "card": "c18802",
+    "path": "godot/assets/official/cards/c18802.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/188_独眼小僧/18802_心经_形态.png",
+    "sha256": "519878404d9f03930b3023c76eb4ae26c08357e8ee8a7a21a76f8b1d42909aac"
+  },
+  {
+    "card": "c18803",
+    "path": "godot/assets/official/cards/c18803.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/188_独眼小僧/18803_投石_法术.png",
+    "sha256": "38e149488b8d449bccc24cc55e19336b870693dbc5596d7948e0a4eed4ad13af"
+  },
+  {
+    "card": "c18804",
+    "path": "godot/assets/official/cards/c18804.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/188_独眼小僧/18804_金刚经_形态.png",
+    "sha256": "5a98f20671b503d15ea9bb5b5921b03f6572bad626e15529aef6db7641dab137"
+  },
+  {
+    "card": "c18805",
+    "path": "godot/assets/official/cards/c18805.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/188_独眼小僧/18805_觉醒·独眼小僧_法术.png",
+    "sha256": "84693b6f7b115ebce662dac93c716b48ecab5708a731e726137109d8a5406bfa"
+  },
+  {
+    "card": "c18806",
+    "path": "godot/assets/official/cards/c18806.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/188_独眼小僧/18806_石像冲击_战斗.png",
+    "sha256": "15b2924e1ca421527d48d6aff8c9daea3c54627316917b6a1c34b5f79c071596"
+  },
+  {
+    "card": "c18807",
+    "path": "godot/assets/official/cards/c18807.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/188_独眼小僧/18807_无欲则刚_形态.png",
+    "sha256": "c215d258062b4533d333e316a41f2a31b14f9c90eb199e26881deb3a6419ba2e"
+  },
+  {
+    "card": "c18808",
+    "path": "godot/assets/official/cards/c18808.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/188_独眼小僧/18808_怒目金刚_形态.png",
+    "sha256": "ce5501d4fa7517d00417b5ac5244792a04d0253255c7d19415e4f235baa56609"
+  },
+  {
+    "card": "c19201",
+    "path": "godot/assets/official/cards/c19201.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/192_巫蛊师/19201_施蛊_法术.png",
+    "sha256": "4866a6e0ac134abe1ec9701a1fd38ae0ac74de77a9b742a2d1cdb643153528fa"
+  },
+  {
+    "card": "c19202",
+    "path": "godot/assets/official/cards/c19202.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/192_巫蛊师/19202_无尽蛊_形态.png",
+    "sha256": "7229808c61c1d9d8ca8b9c891b5c47cffa1540de1f403e1f5ff80fc17c2c7716"
+  },
+  {
+    "card": "c19203",
+    "path": "godot/assets/official/cards/c19203.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/192_巫蛊师/19203_增殖_法术.png",
+    "sha256": "3ed494b706dfbdfa33952911bc4274a68aca12189dc55d438d3891c8803449c4"
+  },
+  {
+    "card": "c19204",
+    "path": "godot/assets/official/cards/c19204.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/192_巫蛊师/19204_食魂蛊_形态.png",
+    "sha256": "4c3202c917f036da014c214ffe551f36bd02a02ff25138de6fb17276e655e3ca"
+  },
+  {
+    "card": "c19205",
+    "path": "godot/assets/official/cards/c19205.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/192_巫蛊师/19205_噬命蛊_法术.png",
+    "sha256": "fc692696a4b3cc34953c6556eb186e74e4bcc85b3d75838d084873a156effe69"
+  },
+  {
+    "card": "c19206",
+    "path": "godot/assets/official/cards/c19206.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/192_巫蛊师/19206_魔蛊毒爆_法术.png",
+    "sha256": "b337ae84a9b5320b4ddc24e0c05ef1849a55a60a036c0fe994000d20d57aee38"
+  },
+  {
+    "card": "c19207",
+    "path": "godot/assets/official/cards/c19207.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/192_巫蛊师/19207_觉醒·巫蛊师_法术.png",
+    "sha256": "3841fc9ea061cf12889b7fa88c3ead52fbec81c445e52a70f384bd934c6323d1"
+  },
+  {
+    "card": "c19208",
+    "path": "godot/assets/official/cards/c19208.png",
+    "original": "art-reference-official/卡面-按版本/06_沧海刀鸣/192_巫蛊师/19208_缚蝶蛊狱_结界.png",
+    "sha256": "a968a9d83ed4231286c8e920b388b02833bceb4e4f05d45c48f7ea43c52eddc8"
+  },
+  {
+    "card": "c19301",
+    "path": "godot/assets/official/cards/c19301.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/193_武士之灵/19301_武士之心_战斗.png",
+    "sha256": "d447060bc13a22f43b2ce9823d9273ee9de4f853ffef2cb06e57761c2d43275f"
+  },
+  {
+    "card": "c19302",
+    "path": "godot/assets/official/cards/c19302.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/193_武士之灵/19302_切腹_法术.png",
+    "sha256": "3b7ae227493db37f6d3168dd2ad4b58f909fc0d4d7e771e5d1ae105e1e941b2b"
+  },
+  {
+    "card": "c19303",
+    "path": "godot/assets/official/cards/c19303.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/193_武士之灵/19303_唐竹_战斗.png",
+    "sha256": "1f8bbf579b9222dff2a085c02a9406783d579f90d37f18052ee0c15a2f996fd1"
+  },
+  {
+    "card": "c19304",
+    "path": "godot/assets/official/cards/c19304.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/193_武士之灵/19304_不甘之怒_战斗.png",
+    "sha256": "70364d65b318a3b61541e34cc4aa01eff6fe49a11462080c11bc0c2b677fd752"
+  },
+  {
+    "card": "c19305",
+    "path": "godot/assets/official/cards/c19305.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/193_武士之灵/19305_荣耀终刻_战斗.png",
+    "sha256": "0785be295eb8c91d750020ee11edc74bb0489c89fc7e8ba519113ba0ef08b3b9"
+  },
+  {
+    "card": "c19306",
+    "path": "godot/assets/official/cards/c19306.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/193_武士之灵/19306_怨灵斩_战斗.png",
+    "sha256": "ec4cdfd39c12abe65406655a450413dd02321c60105dcfc2d14eb88bc371b1c9"
+  },
+  {
+    "card": "c19307",
+    "path": "godot/assets/official/cards/c19307.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/193_武士之灵/19307_灭魂_战斗.png",
+    "sha256": "74c556b58ea63019a4096ec887be21a13c2680d6e43ca37efc2aa6754ea4f561"
+  },
+  {
+    "card": "c19308",
+    "path": "godot/assets/official/cards/c19308.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/193_武士之灵/19308_觉醒·武士之灵_法术.png",
+    "sha256": "d8d8bcb478b465fe09fdcef0adfe84ad26a1e072568a2213a2a756f51a201439"
+  },
+  {
+    "card": "c19601",
+    "path": "godot/assets/official/cards/c19601.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/196_百目鬼/19601_瞥视未来_法术.png",
+    "sha256": "6f08bf5c7732a26352d18b9e533003391abb705fff4c501a7140debe0030c181"
+  },
+  {
+    "card": "c19602",
+    "path": "godot/assets/official/cards/c19602.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/196_百目鬼/19602_瞳炎_法术.png",
+    "sha256": "fbaad536cdcdfc07ff1bab3982bdf9861da838f7a8c954181c9fe4963dca072a"
+  },
+  {
+    "card": "c19603",
+    "path": "godot/assets/official/cards/c19603.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/196_百目鬼/19603_洞察之眼_形态.png",
+    "sha256": "a112ad377b83d1cc973c76245155d80bacd3299983b76f264e303b3f60bf4dc3"
+  },
+  {
+    "card": "c19604",
+    "path": "godot/assets/official/cards/c19604.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/196_百目鬼/19604_念袭_法术.png",
+    "sha256": "26192c7e87110e0a03a4bf5f7243eead13d8a82d82288cda4f5df1bd62a4f223"
+  },
+  {
+    "card": "c19605",
+    "path": "godot/assets/official/cards/c19605.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/196_百目鬼/19605_觉醒·百目鬼_法术.png",
+    "sha256": "6e42c73800278d177ff1823fe76a766684af35d22128068203da59149e4e5012"
+  },
+  {
+    "card": "c19606",
+    "path": "godot/assets/official/cards/c19606.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/196_百目鬼/19606_鬼眸_法术.png",
+    "sha256": "66928183c9704a5b8b26fdc52e5391533e802f98d121ba82acdfaa56c6809988"
+  },
+  {
+    "card": "c19607",
+    "path": "godot/assets/official/cards/c19607.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/196_百目鬼/19607_全知之眼_法术.png",
+    "sha256": "af6f3e9f29b6da5cb807270380e1c5b739171eb023a86531baaa26f72020495e"
+  },
+  {
+    "card": "c19608",
+    "path": "godot/assets/official/cards/c19608.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/196_百目鬼/19608_诅咒之眼_形态.png",
+    "sha256": "dd4fcc496354952548a331ae11f424042ac5af5d0f7a179641729658987fdd14"
+  },
+  {
+    "card": "c19701",
+    "path": "godot/assets/official/cards/c19701.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/197_追月神/19701_月海潮生_法术.png",
+    "sha256": "ac57c298cd7c1c91254687a89280766e53a2e943f9b9b6b3dba3fe773332dfe2"
+  },
+  {
+    "card": "c19702",
+    "path": "godot/assets/official/cards/c19702.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/197_追月神/19702_满月_法术.png",
+    "sha256": "98eb00dbe6045a9323cde6891eeb79af08027388a8132ede964f479b3bea77b6"
+  },
+  {
+    "card": "c19703",
+    "path": "godot/assets/official/cards/c19703.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/197_追月神/19703_邀月_法术.png",
+    "sha256": "b2b7e3876a260ceccd454b6da18feea0c002de8add160dfc1c6a6a03ae1a89a8"
+  },
+  {
+    "card": "c19704",
+    "path": "godot/assets/official/cards/c19704.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/197_追月神/19704_月盈则亏_法术.png",
+    "sha256": "de2e0bf1c92ebed58c6e8a1600b8b96453ec4e8589c764ad82688bf64d64087d"
+  },
+  {
+    "card": "c19705",
+    "path": "godot/assets/official/cards/c19705.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/197_追月神/19705_月食_法术.png",
+    "sha256": "b554f38a48295b58d1a9c1bca1680a7ac49acc1b5c90d160905f3796911c7b0f"
+  },
+  {
+    "card": "c19706",
+    "path": "godot/assets/official/cards/c19706.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/197_追月神/19706_觉醒·追月神_法术.png",
+    "sha256": "185885e91b1cf31d00bab4c0daecdee58940340279daf82911498d11af075d02"
+  },
+  {
+    "card": "c19707",
+    "path": "godot/assets/official/cards/c19707.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/197_追月神/19707_清辉月华_形态.png",
+    "sha256": "57c2447546c28054698e4173df3decf07fc799c31c436033f38a0822d1979dcb"
+  },
+  {
+    "card": "c19708",
+    "path": "godot/assets/official/cards/c19708.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/197_追月神/19708_神无月之佑_结界.png",
+    "sha256": "3a13be1981b90dcb9b69e34fc7297c9445d7c70ef2d705dba07598eed216c779"
+  },
+  {
+    "card": "c20101",
+    "path": "godot/assets/official/cards/c20101.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/201_九命猫/20101_猫爪_战斗.png",
+    "sha256": "b040a27b02492076bc7543cf007bdb12753ace8d2d81dad8818ad0795a3bf0c4"
+  },
+  {
+    "card": "c20102",
+    "path": "godot/assets/official/cards/c20102.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/201_九命猫/20102_铃铛_形态.png",
+    "sha256": "23f7fa43e8c2f53beafbd1f806194e033de8778522b2148de476c43b2d8ca6c1"
+  },
+  {
+    "card": "c20103",
+    "path": "godot/assets/official/cards/c20103.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/201_九命猫/20103_延命_形态.png",
+    "sha256": "c27155d5f2f6fe9584d3bc39013f06c62f28b40b0059089625cf5321841e5bb6"
+  },
+  {
+    "card": "c20104",
+    "path": "godot/assets/official/cards/c20104.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/201_九命猫/20104_猫车_形态.png",
+    "sha256": "14937a5240dfa158cb0f46235052db121a395949fbb21ad38c81bc79ca63f2a8"
+  },
+  {
+    "card": "c20105",
+    "path": "godot/assets/official/cards/c20105.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/201_九命猫/20105_报复_战斗.png",
+    "sha256": "4712b00a9030363613e378d02468f71c19f7f9c482898a65b27ee6aecd3bc47c"
+  },
+  {
+    "card": "c20106",
+    "path": "godot/assets/official/cards/c20106.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/201_九命猫/20106_猫乱步_战斗.png",
+    "sha256": "ebb74783cd5b9a6d06fb1b53db0b5e81f53eff1d38da4eb846abcb3cd2444dce"
+  },
+  {
+    "card": "c20107",
+    "path": "godot/assets/official/cards/c20107.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/201_九命猫/20107_向死而生_法术.png",
+    "sha256": "6ca3b0c18c787e75bdc81f190e24ef3efaad5a5748adf2ba42b5400b50c30f72"
+  },
+  {
+    "card": "c20108",
+    "path": "godot/assets/official/cards/c20108.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/201_九命猫/20108_觉醒·九命猫_法术.png",
+    "sha256": "81d9b5a7648b8998f742e0bce7b3f9e98dd940552f99f6b861a2d7c555012cb6"
+  },
+  {
+    "card": "c21001",
+    "path": "godot/assets/official/cards/c21001.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/210_蟹姬/21001_睡觉觉_法术.png",
+    "sha256": "5be2cf76552b48097a8ea35d3bf7569dceb95875b1a82e1970bdf7b4d4c6661b"
+  },
+  {
+    "card": "c21002",
+    "path": "godot/assets/official/cards/c21002.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/210_蟹姬/21002_夹住你咯_战斗.png",
+    "sha256": "3cc069c8ef8f86b2890498b1747f5dbbeea4a8436608681b18ffdfad5a2499df"
+  },
+  {
+    "card": "c21003",
+    "path": "godot/assets/official/cards/c21003.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/210_蟹姬/21003_吃饱饱_法术.png",
+    "sha256": "60d041eaabbff7b1de28fe0d7688de0dafe3d18ff68d48829d4abf95fada816d"
+  },
+  {
+    "card": "c21004",
+    "path": "godot/assets/official/cards/c21004.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/210_蟹姬/21004_这下有劲了_形态.png",
+    "sha256": "5c1ddcb1f39eb35b7978bacb0b1f3882a4c4b55227f19058e684301652929ac6"
+  },
+  {
+    "card": "c21005",
+    "path": "godot/assets/official/cards/c21005.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/210_蟹姬/21005_螺螺锤_法术.png",
+    "sha256": "d295d35e20c7469258e516be8e4ebdb43c4a5fe5406fd332f972bb86cb0eb4e1"
+  },
+  {
+    "card": "c21006",
+    "path": "godot/assets/official/cards/c21006.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/210_蟹姬/21006_梦里啥都有_结界.png",
+    "sha256": "40080eda9e00710e3b6bad7890c090a85237d59755a0c9303904dc1dd3ffefc5"
+  },
+  {
+    "card": "c21007",
+    "path": "godot/assets/official/cards/c21007.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/210_蟹姬/21007_觉醒·蟹姬_法术.png",
+    "sha256": "1b05c02877e9e81558613183bb7fc2768ec54a6cfad98fe3ccdcbaea07308793"
+  },
+  {
+    "card": "c21008",
+    "path": "godot/assets/official/cards/c21008.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/210_蟹姬/21008_少主救救我_形态.png",
+    "sha256": "cd3becbb47ecf52a7dd3c6d88fd4675a9b4d8fc630cf69f102abd8ff72f64c18"
+  },
+  {
+    "card": "c21101",
+    "path": "godot/assets/official/cards/c21101.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/211_垢尝/21101_涂泡泡_战斗.png",
+    "sha256": "210a2447e707fd8fce1802ce42988ec835cb70df3f64f6382c9e9840278cef71"
+  },
+  {
+    "card": "c21102",
+    "path": "godot/assets/official/cards/c21102.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/211_垢尝/21102_亮闪闪_法术.png",
+    "sha256": "d8faf5053adc354ec4efce5305e014418fb944414fa511db8870278118928331"
+  },
+  {
+    "card": "c21103",
+    "path": "godot/assets/official/cards/c21103.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/211_垢尝/21103_快去洗澡！_战斗.png",
+    "sha256": "e766042e4db6066e974edc04ca22e91fc7e36bff08c91361d9cd76b51abe7bbd"
+  },
+  {
+    "card": "c21104",
+    "path": "godot/assets/official/cards/c21104.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/211_垢尝/21104_霉球研究_形态.png",
+    "sha256": "6e4c746b7674ef2665e79fa46d62686069541b1090428e63d51b19c18c445a47"
+  },
+  {
+    "card": "c21105",
+    "path": "godot/assets/official/cards/c21105.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/211_垢尝/21105_浴中歌_结界.png",
+    "sha256": "ee9cb5d973a26649576ee9e9a5be29313f56facd5f84673141322caf9c3db621"
+  },
+  {
+    "card": "c21106",
+    "path": "godot/assets/official/cards/c21106.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/211_垢尝/21106_觉醒·垢尝_法术.png",
+    "sha256": "cf78fc9312988aafce2daa1e8b32a5b221a02e043c897e786c71b16bffb71569"
+  },
+  {
+    "card": "c21107",
+    "path": "godot/assets/official/cards/c21107.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/211_垢尝/21107_一篓打尽_战斗.png",
+    "sha256": "a55adce3a77a7c0818832cc9fe2c7f58e68fde7ff6a83355c8c82bbc403e4fe2"
+  },
+  {
+    "card": "c21108",
+    "path": "godot/assets/official/cards/c21108.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/211_垢尝/21108_阶前雪_形态.png",
+    "sha256": "c3f2caa2e92e3ab1c86f1610ce04b3fcc9d3fda7f55cc9197eccdda6e1bf638f"
+  },
+  {
+    "card": "c21201",
+    "path": "godot/assets/official/cards/c21201.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/212_铁鼠/21201_敛财_战斗.png",
+    "sha256": "3cbec80bff0e6ff1245e949b2594fb3d36cd1ef1157c450222aa57d682bc49b2"
+  },
+  {
+    "card": "c21202",
+    "path": "godot/assets/official/cards/c21202.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/212_铁鼠/21202_生财有术_形态.png",
+    "sha256": "19004b001ac9cc4c70c2a6f6c18f6e623ed213a174d0e689f62d96bbffa578f7"
+  },
+  {
+    "card": "c21203",
+    "path": "godot/assets/official/cards/c21203.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/212_铁鼠/21203_钱儿响叮当_战斗.png",
+    "sha256": "cb8695631f8a69953bb2ebfd3d5cec90d12a0b9a51e39be5976a357da26f40c1"
+  },
+  {
+    "card": "c21204",
+    "path": "godot/assets/official/cards/c21204.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/212_铁鼠/21204_有鼠如宝_形态.png",
+    "sha256": "c3fa4fd3539e5f9283f1601da962bed27ed0869ab6ef16cc09daf1ffd5a42b15"
+  },
+  {
+    "card": "c21205",
+    "path": "godot/assets/official/cards/c21205.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/212_铁鼠/21205_骗局_战斗.png",
+    "sha256": "fb6434849767b6cd4063c3a43fea8c907ddd09a7df97208e80f0d70b8b40baef"
+  },
+  {
+    "card": "c21206",
+    "path": "godot/assets/official/cards/c21206.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/212_铁鼠/21206_钱多不压身_形态.png",
+    "sha256": "55f666e6e9a039556beb476bb9cbc5c1e70d54d5cc3f31194cb441414465e996"
+  },
+  {
+    "card": "c21207",
+    "path": "godot/assets/official/cards/c21207.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/212_铁鼠/21207_天降横财_法术.png",
+    "sha256": "5f6049e2b8d34003c9400a163505478eaefa9fd0276a2c1e95803a479fa61de7"
+  },
+  {
+    "card": "c21208",
+    "path": "godot/assets/official/cards/c21208.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/212_铁鼠/21208_觉醒·铁鼠_法术.png",
+    "sha256": "0ae98a9a740b4855b151819c7c86ef7e0e3d3507a975156e43b58056111c8d3b"
+  },
+  {
+    "card": "c21301",
+    "path": "godot/assets/official/cards/c21301.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/213_河童/21301_河中窥探_法术.png",
+    "sha256": "353f9b871df89be274aff92f02e1ce1ca105d05b661fd4dd730a9e55433b571a"
+  },
+  {
+    "card": "c21302",
+    "path": "godot/assets/official/cards/c21302.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/213_河童/21302_水流弹_法术.png",
+    "sha256": "4351cf976d5a73c7925774f0b434d1ff3536e7c51efb39c44414f422af4a0d2d"
+  },
+  {
+    "card": "c21303",
+    "path": "godot/assets/official/cards/c21303.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/213_河童/21303_鲤之缘_形态.png",
+    "sha256": "5a2f9fcd8b0486a0db563739224704d40b4871a908dc6ce48c90434c5e00b17c"
+  },
+  {
+    "card": "c21304",
+    "path": "godot/assets/official/cards/c21304.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/213_河童/21304_夏之河童_形态.png",
+    "sha256": "2c2a14aee58d84c31f9384c93215175ec33d250247794b8fff85d8238897701f"
+  },
+  {
+    "card": "c21305",
+    "path": "godot/assets/official/cards/c21305.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/213_河童/21305_觉醒·河童_法术.png",
+    "sha256": "42be15746425218377e89dfc754b6162ba59efe900c0669cc1b6cf4cb90ed9ce"
+  },
+  {
+    "card": "c21306",
+    "path": "godot/assets/official/cards/c21306.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/213_河童/21306_大河之歌_法术.png",
+    "sha256": "3a914fa99c2fba8125695c7bbfb58471c7e5f71a329d05f804cf2442b02ba33e"
+  },
+  {
+    "card": "c21307",
+    "path": "godot/assets/official/cards/c21307.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/213_河童/21307_乱流_结界.png",
+    "sha256": "d516642ee3a773fb6518d58a493313471990742e091b4e59b951bdb9a9287a96"
+  },
+  {
+    "card": "c21308",
+    "path": "godot/assets/official/cards/c21308.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/213_河童/21308_川沼怪谈_形态.png",
+    "sha256": "b026a8941bb5efedba41dd8f84a1d7da00c2cd96b557ace844448019b107db83"
+  },
+  {
+    "card": "c21401",
+    "path": "godot/assets/official/cards/c21401.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/214_鬼童丸/21401_嗜杀冲动_形态.png",
+    "sha256": "9beef5e4f1c139057045d91472366cbb18378a9a118d3e4974ab9284c2515ac1"
+  },
+  {
+    "card": "c21402",
+    "path": "godot/assets/official/cards/c21402.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/214_鬼童丸/21402_降诛_战斗.png",
+    "sha256": "c3974b94bc6b2ee7b9c2794e26402b6fde2835d5b420d75f4c97657ddab2b8ca"
+  },
+  {
+    "card": "c21403",
+    "path": "godot/assets/official/cards/c21403.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/214_鬼童丸/21403_引路人_形态.png",
+    "sha256": "6286f85dfd611302f3620bbe31a0888d82b8b83a1515369dce2cda1bf76957d4"
+  },
+  {
+    "card": "c21404",
+    "path": "godot/assets/official/cards/c21404.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/214_鬼童丸/21404_觉醒·鬼童丸_法术.png",
+    "sha256": "56520b47bc7b36e5d07a01e162f1853bebcafc1ba76659c9d35dc4df90989081"
+  },
+  {
+    "card": "c21405",
+    "path": "godot/assets/official/cards/c21405.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/214_鬼童丸/21405_修罗之鬼_形态.png",
+    "sha256": "f81eed21a3d59fd033fc4893e58484cfc2ba28f1bd6c6cc9efd473a817ec60ec"
+  },
+  {
+    "card": "c21406",
+    "path": "godot/assets/official/cards/c21406.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/214_鬼童丸/21406_猎魂狂杀_战斗.png",
+    "sha256": "380aff499188c8e23f2ab128978386adbae1dc0e76e473c7f1f03fb62c1c744c"
+  },
+  {
+    "card": "c21407",
+    "path": "godot/assets/official/cards/c21407.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/214_鬼童丸/21407_修罗骸锁_战斗.png",
+    "sha256": "bb040fde75ce00dcf483e6af6ca6bbfededc175fb07d5e7f31ae54b2ab9f9439"
+  },
+  {
+    "card": "c21408",
+    "path": "godot/assets/official/cards/c21408.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/214_鬼童丸/21408_残月鬼衣_形态.png",
+    "sha256": "b16332c39ce0802df318000b02ecfa3b72ffdd9c13cb4f7e4f7fd279d713792c"
+  },
+  {
+    "card": "c21501",
+    "path": "godot/assets/official/cards/c21501.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/215_般若/21501_鬼袭_战斗.png",
+    "sha256": "14c398a5c028e93d2b265733457ad06fceccb85cf3c43ab200b9e71f4ded6ade"
+  },
+  {
+    "card": "c21502",
+    "path": "godot/assets/official/cards/c21502.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/215_般若/21502_换面_战斗.png",
+    "sha256": "dea0703549a3616a49eef4076416a91515abe642219dd06db33fe4dbcd1f60cd"
+  },
+  {
+    "card": "c21503",
+    "path": "godot/assets/official/cards/c21503.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/215_般若/21503_怨海唤声_战斗.png",
+    "sha256": "9195c499f101e26557b0923af786cb2acd2487631ec952d53a5627e7549e2af9"
+  },
+  {
+    "card": "c21504",
+    "path": "godot/assets/official/cards/c21504.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/215_般若/21504_嫉恨之心_战斗.png",
+    "sha256": "2ac83fd8016bd82cdd72f5899dcf84924b3daa994d2253df427359b3381b0e7c"
+  },
+  {
+    "card": "c21505",
+    "path": "godot/assets/official/cards/c21505.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/215_般若/21505_恶戏_战斗.png",
+    "sha256": "7d3f716a6afd56ba6c501046e0957047c29adac0f88a6d6fc6d85a738ab206a6"
+  },
+  {
+    "card": "c21506",
+    "path": "godot/assets/official/cards/c21506.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/215_般若/21506_妒生千面_战斗.png",
+    "sha256": "68b8165d45aa407fe780b5c44779d441eadb2f64ce916aefbc61f24435253eb4"
+  },
+  {
+    "card": "c21507",
+    "path": "godot/assets/official/cards/c21507.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/215_般若/21507_复仇之香_形态.png",
+    "sha256": "2a4719e06525131c5ea1ec37de82425338ac391ff1ef9be16f19a5908c46dc8b"
+  },
+  {
+    "card": "c21508",
+    "path": "godot/assets/official/cards/c21508.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/215_般若/21508_觉醒·般若_法术.png",
+    "sha256": "e798ab6c0b739fb4fcd05e1018904ad0f81230f168e43e95abf0cdc0ddbea94b"
+  },
+  {
+    "card": "c21601",
+    "path": "godot/assets/official/cards/c21601.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/216_缘结神/21601_旅人_法术.png",
+    "sha256": "bc07bf1c48c314b88ad856b2b6bab40afdcb113f636230d962f468c8163197c9"
+  },
+  {
+    "card": "c21602",
+    "path": "godot/assets/official/cards/c21602.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/216_缘结神/21602_结缘女神_形态.png",
+    "sha256": "a22bdff8abf9254f98e2cedcbc8272456ff81ae828051def895ef28e3fc368f3"
+  },
+  {
+    "card": "c21603",
+    "path": "godot/assets/official/cards/c21603.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/216_缘结神/21603_绯色花月_结界.png",
+    "sha256": "819bdb23a9835ea9f93ec5724fefe28cb61c479223cecb9dedd33ca2592493e2"
+  },
+  {
+    "card": "c21604",
+    "path": "godot/assets/official/cards/c21604.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/216_缘结神/21604_木偶商人_形态.png",
+    "sha256": "0c4271dea177b5fbc7bfd38ab379af808ce2f6aa218cc8a689fdbe4695ae8668"
+  },
+  {
+    "card": "c21605",
+    "path": "godot/assets/official/cards/c21605.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/216_缘结神/21605_神赐良缘_形态.png",
+    "sha256": "b95bc0dcef2a016d0713ce8a3cb52d632bd8583ed90bc684bb6cdc125ca34635"
+  },
+  {
+    "card": "c21606",
+    "path": "godot/assets/official/cards/c21606.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/216_缘结神/21606_月下花_法术.png",
+    "sha256": "ec2d0855097537dbf08e333151cb61be1d6357508175387206cef2de10fa4b1d"
+  },
+  {
+    "card": "c21607",
+    "path": "godot/assets/official/cards/c21607.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/216_缘结神/21607_都要在一起！_法术.png",
+    "sha256": "3d9db50966ab5084c07662a48b338bad5bc014db56242a70bb06c215c403b449"
+  },
+  {
+    "card": "c21608",
+    "path": "godot/assets/official/cards/c21608.png",
+    "original": "art-reference-official/卡面-按版本/07_吉运缘结/216_缘结神/21608_觉醒·缘结神_法术.png",
+    "sha256": "36fb2b1b8205a3426f615db0907d3b2f0091d03e7c829ac91737680f53279010"
+  },
+  {
+    "card": "c22101",
+    "path": "godot/assets/official/cards/c22101.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/221_玉藻前/22101_灵击_法术.png",
+    "sha256": "56c92674f2f635cc8d48b5df4812804bb11120940f9d6c8edfeb1329990c0084"
+  },
+  {
+    "card": "c22102",
+    "path": "godot/assets/official/cards/c22102.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/221_玉藻前/22102_狐火_法术.png",
+    "sha256": "0a02d2180f436511cffad3884ecfc6f2cb5d88d294f94f05b9cd29a318d853bd"
+  },
+  {
+    "card": "c22103",
+    "path": "godot/assets/official/cards/c22103.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/221_玉藻前/22103_堕天_法术.png",
+    "sha256": "827ee2527d1144dfa0416dd77f86b262562fa470a1c4dde524942602b1c193f5"
+  },
+  {
+    "card": "c22104",
+    "path": "godot/assets/official/cards/c22104.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/221_玉藻前/22104_祈念_形态.png",
+    "sha256": "03479d516e0fe9759da9fc186a095b255e806cd49a0aac2faa9f990ceb1ab763"
+  },
+  {
+    "card": "c22105",
+    "path": "godot/assets/official/cards/c22105.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/221_玉藻前/22105_幽梦_结界.png",
+    "sha256": "6a2e355a540221e9bf85e822651868352f41b99bc5a80eeb837e21cb879b611f"
+  },
+  {
+    "card": "c22106",
+    "path": "godot/assets/official/cards/c22106.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/221_玉藻前/22106_燃雪_战斗.png",
+    "sha256": "ad010817bbc8d7138c1cceb9db05a6027e4404cfe86ce9c3b31faba6b73ff22d"
+  },
+  {
+    "card": "c22107",
+    "path": "godot/assets/official/cards/c22107.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/221_玉藻前/22107_觉醒·玉藻前_法术.png",
+    "sha256": "e586d412e89f84c82b6bb3212a26b01ebddb6b88bed8ee33fc200fd26482d47d"
+  },
+  {
+    "card": "c22108",
+    "path": "godot/assets/official/cards/c22108.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/221_玉藻前/22108_九尾煌炎_形态.png",
+    "sha256": "ca3ec30637f4e81a115d6328c0e2f40dcb43ca3656e145d50b217e4bcc11c59a"
+  },
+  {
+    "card": "c22401",
+    "path": "godot/assets/official/cards/c22401.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/224_阿修罗/22401_黑暗之子_形态.png",
+    "sha256": "66d0270274213703ed1037954b9ea449cd7b6e9375cc282d57254d7bf03e95e5"
+  },
+  {
+    "card": "c22402",
+    "path": "godot/assets/official/cards/c22402.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/224_阿修罗/22402_征伐_战斗.png",
+    "sha256": "28f3dd2780948b3f008b795c8415645b14895f4c3502d3817931ad8f2af0d3b9"
+  },
+  {
+    "card": "c22403",
+    "path": "godot/assets/official/cards/c22403.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/224_阿修罗/22403_浴血_战斗.png",
+    "sha256": "056f544f55dc54bf2800cdaeae1c2bda141e8cf805ddfd547f6c551c1005f380"
+  },
+  {
+    "card": "c22404",
+    "path": "godot/assets/official/cards/c22404.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/224_阿修罗/22404_狱渊魔神_形态.png",
+    "sha256": "0c3dcb295cf25195533a33a5b03518fb03e2b1365af80481c1e45fd84947f73e"
+  },
+  {
+    "card": "c22405",
+    "path": "godot/assets/official/cards/c22405.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/224_阿修罗/22405_破渊_战斗.png",
+    "sha256": "ed438c3a2ced929862eae0dad822f18c9ea7f0ba7a5c1cdce0fb52a7dbe9c887"
+  },
+  {
+    "card": "c22406",
+    "path": "godot/assets/official/cards/c22406.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/224_阿修罗/22406_无生炼狱_结界.png",
+    "sha256": "109a157dbe77f975c27130cf412e6d132a326eaf0883ea704d1c4a4e635ff5b7"
+  },
+  {
+    "card": "c22407",
+    "path": "godot/assets/official/cards/c22407.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/224_阿修罗/22407_觉醒·阿修罗_法术.png",
+    "sha256": "8420488ffedbbd3371be2502647933e7e3b384bf498d5e32b20592eed5dced02"
+  },
+  {
+    "card": "c22408",
+    "path": "godot/assets/official/cards/c22408.png",
+    "original": "art-reference-official/卡面-按版本/09_四相琉璃/224_阿修罗/22408_无尽业火_战斗.png",
+    "sha256": "028d4d789635d53050b850840936ac3aed6bd8e7de4027e39f1c928059686f1b"
+  },
+  {
+    "card": "c22501",
+    "path": "godot/assets/official/cards/c22501.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/225_帝释天/22501_恩赐_法术.png",
+    "sha256": "10e4c90c23b46e086fc9ac64d15ea47efc502cc186255ef4ef9c7f7cac03faa5"
+  },
+  {
+    "card": "c22502",
+    "path": "godot/assets/official/cards/c22502.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/225_帝释天/22502_圣洁之王_形态.png",
+    "sha256": "38edac6c6e071f2ac3bb91e7c29eb52c19485ecffd29d6b573836f7569997b77"
+  },
+  {
+    "card": "c22503",
+    "path": "godot/assets/official/cards/c22503.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/225_帝释天/22503_诸善奉行_法术.png",
+    "sha256": "c4b2632a33694bbbffb722bedd8b144ed0989387dd1f7ea928fd635362eb76a2"
+  },
+  {
+    "card": "c22504",
+    "path": "godot/assets/official/cards/c22504.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/225_帝释天/22504_十善业道_法术.png",
+    "sha256": "a21b59b3b670fb39358a3590bfe0bf1d0c1aad882e6fbd4941754703ba2a4ef0"
+  },
+  {
+    "card": "c22505",
+    "path": "godot/assets/official/cards/c22505.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/225_帝释天/22505_觉醒·帝释天_法术.png",
+    "sha256": "0b16a2726129a2a9fbeccd18da196562e7b3a4f599e57a7692686421572707eb"
+  },
+  {
+    "card": "c22506",
+    "path": "godot/assets/official/cards/c22506.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/225_帝释天/22506_理想国_结界.png",
+    "sha256": "fea7eceb65a0c33d8ae41cc10426b338134d0b2c268397f774f08e0e6f02af3f"
+  },
+  {
+    "card": "c22507",
+    "path": "godot/assets/official/cards/c22507.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/225_帝释天/22507_仁慈之王_形态.png",
+    "sha256": "c4808bac06a826985dda623368c3e1d9b065be3f683e12cfde02f218a4ca9da4"
+  },
+  {
+    "card": "c22508",
+    "path": "godot/assets/official/cards/c22508.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/225_帝释天/22508_圣子_形态.png",
+    "sha256": "3c42186d489d98f63dd40f20302f4fb3a6db149cc4ea9b2860e9e0b83dd20f43"
+  },
+  {
+    "card": "c22601",
+    "path": "godot/assets/official/cards/c22601.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/226_荒骷髅/22601_毒雾冲击_战斗.png",
+    "sha256": "ad5e8e4a10022f2897ded07b04f059acc5caf4970876ede7f6b8321efed3ebf4"
+  },
+  {
+    "card": "c22602",
+    "path": "godot/assets/official/cards/c22602.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/226_荒骷髅/22602_诘问_法术.png",
+    "sha256": "bd76a84f7f416116b74f2c13cf7b7a7b4f5b22bea604c55b2d17f5dbd4f248ad"
+  },
+  {
+    "card": "c22603",
+    "path": "godot/assets/official/cards/c22603.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/226_荒骷髅/22603_彼岸的召唤_形态.png",
+    "sha256": "d89b299fd5199ca0af945575aa75d4375ef6a2f4b227fd85d861f47f38dffb82"
+  },
+  {
+    "card": "c22604",
+    "path": "godot/assets/official/cards/c22604.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/226_荒骷髅/22604_不灭的忠诚_法术.png",
+    "sha256": "b8d9f820288fb0b69c26cc1699456b1fff525e6b0ce2e4c03f09b3b846950d29"
+  },
+  {
+    "card": "c22605",
+    "path": "godot/assets/official/cards/c22605.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/226_荒骷髅/22605_亡者的宴会_法术.png",
+    "sha256": "0548b230dc2dfd16627a4d9f6650ce4451bcdd1cd883b17701da66eb904092ed"
+  },
+  {
+    "card": "c22606",
+    "path": "godot/assets/official/cards/c22606.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/226_荒骷髅/22606_三途之骨_形态.png",
+    "sha256": "3821e361fbd20bd7ae263930c2a58f7408046b21f0fdf63c6a4379a1c8c133d1"
+  },
+  {
+    "card": "c22607",
+    "path": "godot/assets/official/cards/c22607.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/226_荒骷髅/22607_花海突刺_战斗.png",
+    "sha256": "9da26faef171ac130536e2b3a6f85fe95494360b390c529b8808a09aff1d8036"
+  },
+  {
+    "card": "c22608",
+    "path": "godot/assets/official/cards/c22608.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/226_荒骷髅/22608_觉醒·荒骷髅_法术.png",
+    "sha256": "475cb11870e7f44bc1dad8d2be7fb600139a6c650c66044b6016102c0b25adbe"
+  },
+  {
+    "card": "c22701",
+    "path": "godot/assets/official/cards/c22701.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22701_金鱼·应援_法术.png",
+    "sha256": "4a2afbeaa5e598fb0544c1cb21c8b4cc0fabc9a513bf18c9118eb0ec73a4fcb4"
+  },
+  {
+    "card": "c22702",
+    "path": "godot/assets/official/cards/c22702.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22702_金鱼·修行_战斗.png",
+    "sha256": "6e7363d2373fff9d0391b209874f2bf5adf6bb8009eedbb582ced6badee2ebfb"
+  },
+  {
+    "card": "c22703",
+    "path": "godot/assets/official/cards/c22703.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22703_金鱼·休憩_法术.png",
+    "sha256": "3be666960f6dfe3892332f061725d6261c0b78b859a130f8e23b3fd8746449eb"
+  },
+  {
+    "card": "c22704",
+    "path": "godot/assets/official/cards/c22704.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22704_鱼鱼，我们走！_法术.png",
+    "sha256": "b4973ef633b5082f8fcbb23953d65d9dc722e0aaf535e90b15662a851a7af96c"
+  },
+  {
+    "card": "c22705",
+    "path": "godot/assets/official/cards/c22705.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22705_鱼鱼，在这里！_法术.png",
+    "sha256": "8ab21d17b3a7728628160983b50c4fd45462b19e2d7a98cd5bcd06f508afc494"
+  },
+  {
+    "card": "c22706",
+    "path": "godot/assets/official/cards/c22706.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22706_觉醒·金鱼姬_法术.png",
+    "sha256": "c83d45dceb14bbe88c51cc1a99895cb54af71827b6ee328beb5e0fa187302a67"
+  },
+  {
+    "card": "c22707",
+    "path": "godot/assets/official/cards/c22707.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22707_扇舞_法术.png",
+    "sha256": "1e4528a01d0da2cda1944d75dec433a2ec0b136d069919d35baa29da36b271c0"
+  },
+  {
+    "card": "c22708",
+    "path": "godot/assets/official/cards/c22708.png",
+    "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22708_荒川的金鱼姬_形态.png",
+    "sha256": "e99660132fa8fed7ce7b4fc89c29f5eca6cf2baff6b3af310772ef400467d5c4"
+  },
+  {
+    "card": "c22801",
+    "path": "godot/assets/official/cards/c22801.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22801_紫藤舞_法术.png",
+    "sha256": "5ba7a00979138f6342f401d25efccccf58f674f0915c588a862b4f43681a1826"
+  },
+  {
+    "card": "c22802",
+    "path": "godot/assets/official/cards/c22802.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22802_繁花之庭_形态.png",
+    "sha256": "8e6ea93aecdb506ae71debff47e969110a816a9a6d363880322df9e32e95321a"
+  },
+  {
+    "card": "c22803",
+    "path": "godot/assets/official/cards/c22803.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22803_解忧_法术.png",
+    "sha256": "4e350d5d1668163020794da418ef012bcea57185a488aa24c6e35bdd802e9eee"
+  },
+  {
+    "card": "c22804",
+    "path": "godot/assets/official/cards/c22804.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22804_织梦_法术.png",
+    "sha256": "397dcb5865f75b9967dd5a47fea9dd3049d60c6210ad713f368939089b1cb3cf"
+  },
+  {
+    "card": "c22805",
+    "path": "godot/assets/official/cards/c22805.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22805_觉醒·藤姬_法术.png",
+    "sha256": "b8c8cf3df32e0a208e8d2f18a194a0ee248614c2063f85b28a3ff7218cc40232"
+  },
+  {
+    "card": "c22806",
+    "path": "godot/assets/official/cards/c22806.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22806_幽玄之响_法术.png",
+    "sha256": "0348395f68c7c255ffe0293c27d90b5d08bbffc4e0f7891c167413aa86b2efed"
+  },
+  {
+    "card": "c22807",
+    "path": "godot/assets/official/cards/c22807.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22807_幻夜回声_法术.png",
+    "sha256": "fbafe9beb32f63d1cd769b986ff69121853e0c25d535977b7bf499b74be8fefb"
+  },
+  {
+    "card": "c22808",
+    "path": "godot/assets/official/cards/c22808.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22808_千年华_结界.png",
+    "sha256": "2efe7737903cc57fbd19f0b2794ac776b802006067cc9503695c122404fb19ac"
+  },
+  {
+    "card": "c22901",
+    "path": "godot/assets/official/cards/c22901.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/229_花鸟卷/22901_花鸟风月_法术.png",
+    "sha256": "c88c64cb6cd4ca9429fc6e24d43def7a1b98c57ff424a47560a9cf9597e466a2"
+  },
+  {
+    "card": "c22902",
+    "path": "godot/assets/official/cards/c22902.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/229_花鸟卷/22902_归鸟_法术.png",
+    "sha256": "3aa2fe081457a71c3d46f5635516557aa5ee483ec3bd98a293e51f83ad8e019f"
+  },
+  {
+    "card": "c22903",
+    "path": "godot/assets/official/cards/c22903.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/229_花鸟卷/22903_画中少女_形态.png",
+    "sha256": "7e41a17234165b02c381affe4d87c8a8e71cef19f90a3539d4f4e75ffda24e5a"
+  },
+  {
+    "card": "c22904",
+    "path": "godot/assets/official/cards/c22904.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/229_花鸟卷/22904_觉醒·花鸟卷_法术.png",
+    "sha256": "7dbf2717bcedaa2ffda5fb66954b8070ba669237b1677031c2de8517ede8ede2"
+  },
+  {
+    "card": "c22905",
+    "path": "godot/assets/official/cards/c22905.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/229_花鸟卷/22905_芬芳_法术.png",
+    "sha256": "025bb22ab52f999138d3209e03e27399d888b9f98b5f8feffc9881977dd92bb3"
+  },
+  {
+    "card": "c22906",
+    "path": "godot/assets/official/cards/c22906.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/229_花鸟卷/22906_花鸟相闻_法术.png",
+    "sha256": "69232f023e24175eebc973ce5436945568cc3c874e473fcd76ca3b6d3b707231"
+  },
+  {
+    "card": "c22907",
+    "path": "godot/assets/official/cards/c22907.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/229_花鸟卷/22907_入画_法术.png",
+    "sha256": "7ac0f2211b12d427a6736119da24c4909bf01ea6f6de2b727302cbda05760ab7"
+  },
+  {
+    "card": "c22908",
+    "path": "godot/assets/official/cards/c22908.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/229_花鸟卷/22908_画魂_法术.png",
+    "sha256": "3bb532898423a497e8b04ee201c9f19cf47d1375a8d738104d647cee42439af3"
+  },
+  {
+    "card": "c23001",
+    "path": "godot/assets/official/cards/c23001.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23001_夺魂_法术.png",
+    "sha256": "f9aa12eff77826c3d3bba2362bb0ff0ab6127b1fa615499481edae90e94d1a6a"
+  },
+  {
+    "card": "c23002",
+    "path": "godot/assets/official/cards/c23002.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23002_阎魔之目_形态.png",
+    "sha256": "08ec5935d628df0e2f712d4ae81c31447414e5460e01845b692409c7c45a333f"
+  },
+  {
+    "card": "c23003",
+    "path": "godot/assets/official/cards/c23003.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23003_业镜_结界.png",
+    "sha256": "476d79076d04f4afbb23a0992bea0684456c05d30f827803015eca21e9eb789f"
+  },
+  {
+    "card": "c23004",
+    "path": "godot/assets/official/cards/c23004.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23004_审判之司_形态.png",
+    "sha256": "7e5a25bb4cb54d9ac7c2fc6c52ed3aa6570fc470f11bcfedac4221b626c6faa7"
+  },
+  {
+    "card": "c23005",
+    "path": "godot/assets/official/cards/c23005.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23005_怨魂重压_法术.png",
+    "sha256": "02228e1076069a64aa28e1c45ab9c348d3220f856e451f3d583c6e689e4ea354"
+  },
+  {
+    "card": "c23006",
+    "path": "godot/assets/official/cards/c23006.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23006_觉醒·阎魔_法术.png",
+    "sha256": "b7cf0c0bd492dc947d6a2114d4c1e0ec6455920fa9d3fb554f3f8a7a4134363c"
+  },
+  {
+    "card": "c23007",
+    "path": "godot/assets/official/cards/c23007.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23007_慈爱之惠_形态.png",
+    "sha256": "169625f97f457b10330021ca2048f373b52d3e169d423ce0790b3a366bf13154"
+  },
+  {
+    "card": "c23008",
+    "path": "godot/assets/official/cards/c23008.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23008_冥府之主_形态.png",
+    "sha256": "6bdbbc375b53510ae84d88246424433d2edaa49dc6032a20b133cd20e1256784"
+  },
+  {
+    "card": "c23101",
+    "path": "godot/assets/official/cards/c23101.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23101_布线_法术.png",
+    "sha256": "cf8056c4356022effb78314cd08c752fcfe500d49461e411c8c4dc0c8e9806d5"
+  },
+  {
+    "card": "c23102",
+    "path": "godot/assets/official/cards/c23102.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23102_机关·傀儡术_形态.png",
+    "sha256": "fa660623d6bd1880531a9286730869416fb1de7d8ec3a9b8d4504920adb21f39"
+  },
+  {
+    "card": "c23103",
+    "path": "godot/assets/official/cards/c23103.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23103_庇护·傀儡术_形态.png",
+    "sha256": "ac2270d2bc30da02d8609d05f6292af1acc32e411cce35a3795e4cba55d97d2f"
+  },
+  {
+    "card": "c23104",
+    "path": "godot/assets/official/cards/c23104.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23104_操控·傀儡术_形态.png",
+    "sha256": "bfdb8852755ec64d39be6e6800808c28d2fbc261854f68910abae6f2de768d55"
+  },
+  {
+    "card": "c23105",
+    "path": "godot/assets/official/cards/c23105.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23105_出击·傀儡术_形态.png",
+    "sha256": "591c2a9245d35e86f4d1b4875a8ccb1bede1b47fad6d7f8d89e51eba2118f9eb"
+  },
+  {
+    "card": "c23106",
+    "path": "godot/assets/official/cards/c23106.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23106_觉醒·傀儡师_法术.png",
+    "sha256": "270a9d1c727ef77e6d1094560479c60fbb40dd3f9e6fc90fe11ec243a4b24a6d"
+  },
+  {
+    "card": "c23107",
+    "path": "godot/assets/official/cards/c23107.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23107_牵丝_法术.png",
+    "sha256": "a214b701a5748f76fb49aafec3a1c6370d78973184efb5bd9485be7f32ad0d00"
+  },
+  {
+    "card": "c23108",
+    "path": "godot/assets/official/cards/c23108.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23108_同心·傀儡术_形态.png",
+    "sha256": "81e77b91ae7000670d49f2649fa4427b640e348a0dd20263f79c9156d44974ab"
+  },
+  {
+    "card": "c23201",
+    "path": "godot/assets/official/cards/c23201.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23201_龙卷·手里剑_战斗.png",
+    "sha256": "743ae2728648d370b7b904c5047b9fddb20f40d1ea5e5fde07c53530007b1036"
+  },
+  {
+    "card": "c23202",
+    "path": "godot/assets/official/cards/c23202.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23202_残影·替身术_战斗.png",
+    "sha256": "017e31d5d22d1e9bf91a3d66fc1ff662079b2a59fe1f1f23e6d125894ed472c7"
+  },
+  {
+    "card": "c23203",
+    "path": "godot/assets/official/cards/c23203.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23203_残影·分身术_法术.png",
+    "sha256": "cbc684b5497d7162e58dfd4d9270cd4671b1f01280c218d9d8ece9369c90462b"
+  },
+  {
+    "card": "c23204",
+    "path": "godot/assets/official/cards/c23204.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23204_风车·雷火弹_战斗.png",
+    "sha256": "5adfa7051bf00577711a0af00a72c82cbe10ba82897f956e0cfdaaaba05c3ecb"
+  },
+  {
+    "card": "c23205",
+    "path": "godot/assets/official/cards/c23205.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23205_狸隐术_战斗.png",
+    "sha256": "b88c3f8184c01bb9d736a2bf20b0e2cdd721f3392f5f6bbdf29625592a0c3b53"
+  },
+  {
+    "card": "c23206",
+    "path": "godot/assets/official/cards/c23206.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23206_足跃_战斗.png",
+    "sha256": "6b124941389801066d020c6f36cbc6c4fbc332adcef6a4f3865d3fb6a7f86983"
+  },
+  {
+    "card": "c23207",
+    "path": "godot/assets/official/cards/c23207.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23207_觉醒·风狸_法术.png",
+    "sha256": "7a1c5afd4ef41099d0fe71e30717db131b195a346cfb02202f8d4c9471cfba23"
+  },
+  {
+    "card": "c23208",
+    "path": "godot/assets/official/cards/c23208.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23208_六甲秘祝_形态.png",
+    "sha256": "a8ebf35be1dc938ce6eef3fb84e6b458803d5732e64cb1fd8acc44a447be3a64"
+  },
+  {
+    "card": "c23301",
+    "path": "godot/assets/official/cards/c23301.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/233_白藏主/23301_守护誓约_形态.png",
+    "sha256": "801740e24f2f603c57ef15f450b60300d9456a9e01c82f7f7c6629acbeb5ed79"
+  },
+  {
+    "card": "c23302",
+    "path": "godot/assets/official/cards/c23302.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/233_白藏主/23302_枕霜而眠_法术.png",
+    "sha256": "dab80774405ea07e844f11f7e0b6d54d6738a07876780f9a84605a338973f927"
+  },
+  {
+    "card": "c23303",
+    "path": "godot/assets/official/cards/c23303.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/233_白藏主/23303_交给小白吧！_法术.png",
+    "sha256": "1198eb3b536dbd6f69d05afcc50a678d854309e85ddb87cefdfd547600e3bc85"
+  },
+  {
+    "card": "c23304",
+    "path": "godot/assets/official/cards/c23304.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/233_白藏主/23304_狂烈_法术.png",
+    "sha256": "8c8d422b94f5fc6c591662a064d1709766901bbfc12c3a1482b1d506eccaa523"
+  },
+  {
+    "card": "c23305",
+    "path": "godot/assets/official/cards/c23305.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/233_白藏主/23305_觉醒·白藏主_法术.png",
+    "sha256": "2ab43b644336730298245f4017cab3e4f2a47cce06089956663608c44421ec15"
+  },
+  {
+    "card": "c23306",
+    "path": "godot/assets/official/cards/c23306.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/233_白藏主/23306_无垢之心_形态.png",
+    "sha256": "3f4d2ab10e94ea1344fec75ba928478d097d66b1cb7770142bda69e487a1fdf1"
+  },
+  {
+    "card": "c23307",
+    "path": "godot/assets/official/cards/c23307.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/233_白藏主/23307_残炎_法术.png",
+    "sha256": "01ec18ff250f4298b17c0eb4348c74ffc973bf1b16795202005957f594544410"
+  },
+  {
+    "card": "c23308",
+    "path": "godot/assets/official/cards/c23308.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/233_白藏主/23308_梦山狐影_形态.png",
+    "sha256": "a0cf8dc87ff696cfb954f4c2bc7bc084edb14a9a73b86a4d0a3408e71e263d02"
+  },
+  {
+    "card": "c23501",
+    "path": "godot/assets/official/cards/c23501.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/235_管狐/23501_竹林飞弹_法术.png",
+    "sha256": "d7b32bb20654f1cba13f70904ace31a51a48639beafcc8798603a2308ffe10a4"
+  },
+  {
+    "card": "c23502",
+    "path": "godot/assets/official/cards/c23502.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/235_管狐/23502_破竹之势_形态.png",
+    "sha256": "8c8546fab10e3dea875053ba8e90e2bef1983dfda2602895fc3a812f8636767d"
+  },
+  {
+    "card": "c23503",
+    "path": "godot/assets/official/cards/c23503.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/235_管狐/23503_震撼弹_法术.png",
+    "sha256": "a64e4d7a86d892433027c6ab1001c01162ca905829eeb0309bd3d9b36bb80040"
+  },
+  {
+    "card": "c23504",
+    "path": "godot/assets/official/cards/c23504.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/235_管狐/23504_饭纲契约_战斗.png",
+    "sha256": "8c9f61f9f0c85524cd16e4d0d26891666ef05e3b4302ed97ced49ef065a3e22e"
+  },
+  {
+    "card": "c23505",
+    "path": "godot/assets/official/cards/c23505.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/235_管狐/23505_觉醒·管狐_法术.png",
+    "sha256": "94820ada41928c0bb8e62a5160eb977b29d44b557023ff2ffd404f3ad303f070"
+  },
+  {
+    "card": "c23506",
+    "path": "godot/assets/official/cards/c23506.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/235_管狐/23506_竹管投掷_战斗.png",
+    "sha256": "0fe2dca1d50a4896b12f75d849bb42ee4c9f1c0f98aaf81241df7e90169c41de"
+  },
+  {
+    "card": "c23507",
+    "path": "godot/assets/official/cards/c23507.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/235_管狐/23507_雷云爆弹_法术.png",
+    "sha256": "deba5df6b9e5fb392d7a87c9673af800fa9f1b0af72663b5eef7630917c6c1e1"
+  },
+  {
+    "card": "c23508",
+    "path": "godot/assets/official/cards/c23508.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/235_管狐/23508_爆破之势_形态.png",
+    "sha256": "2e38fb74a41c85672158113757a71b2cbe9d4ff395892126a90635512eb1cdda"
+  },
+  {
+    "card": "c23601",
+    "path": "godot/assets/official/cards/c23601.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23601_哀恸_法术.png",
+    "sha256": "599201d63f4f7ff3b35876786a05284d10337df1a60f3677e8db2d97a9c88134"
+  },
+  {
+    "card": "c23602",
+    "path": "godot/assets/official/cards/c23602.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23602_相合伞_法术.png",
+    "sha256": "99f51e986a22533de391ae05aa5abb0a63e958fc7ea6c27c16118aa229488f9e"
+  },
+  {
+    "card": "c23603",
+    "path": "godot/assets/official/cards/c23603.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23603_粉妆_法术.png",
+    "sha256": "e83595f9e14105da6502f1c264f58bee024b06a8699049c76ed579d465fe8804"
+  },
+  {
+    "card": "c23604",
+    "path": "godot/assets/official/cards/c23604.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23604_纳棺人_形态.png",
+    "sha256": "03787c832bc3ab3d805d53f247c8098b536fa869ab469c223198893c6eea5b26"
+  },
+  {
+    "card": "c23605",
+    "path": "godot/assets/official/cards/c23605.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23605_觉醒·入殓师_法术.png",
+    "sha256": "84396fd49f2f52b0bffaef9873ac70813ad3a1f370395df0804cbe7b6735fb03"
+  },
+  {
+    "card": "c23606",
+    "path": "godot/assets/official/cards/c23606.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23606_离魂_法术.png",
+    "sha256": "c31a10beec145eaacd6a63c75b36efa12aa203f1cd424595a178d1cd8ddd7ca1"
+  },
+  {
+    "card": "c23607",
+    "path": "godot/assets/official/cards/c23607.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23607_葬仪_法术.png",
+    "sha256": "c34f2f16078c260688a358e4807d74b44eefd0e5fb6bf5b0f6c34203276a00ba"
+  },
+  {
+    "card": "c23608",
+    "path": "godot/assets/official/cards/c23608.png",
+    "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23608_荼蘼盛放之棺_法术.png",
+    "sha256": "93dfaa309f17463deb68d627191cf6dc191b3525d0188aef310ca9cf57c6d285"
+  },
+  {
+    "card": "c24501",
+    "path": "godot/assets/official/cards/c24501.png",
+    "original": "art-reference-official/卡面-按版本/12_浮生方醒/245_小松丸/24501_好奇_形态.png",
+    "sha256": "c223fe1e7dce61e17b9786ec5e89e6831b7a8ab0a8aa577c89c6801a9a9abc3a"
+  },
+  {
+    "card": "c24502",
+    "path": "godot/assets/official/cards/c24502.png",
+    "original": "art-reference-official/卡面-按版本/12_浮生方醒/245_小松丸/24502_松果搬运_法术.png",
+    "sha256": "87d1aaa5314a61b43b3d3589fefb3ba3ccfd0d5abc338621667662d3002e074e"
+  },
+  {
+    "card": "c24503",
+    "path": "godot/assets/official/cards/c24503.png",
+    "original": "art-reference-official/卡面-按版本/12_浮生方醒/245_小松丸/24503_松果一击_法术.png",
+    "sha256": "858d52c4e74c757ec5f7c28bac78a435086d9e07b726f9332b2b3ea564c76411"
+  },
+  {
+    "card": "c24504",
+    "path": "godot/assets/official/cards/c24504.png",
+    "original": "art-reference-official/卡面-按版本/12_浮生方醒/245_小松丸/24504_胆怯_形态.png",
+    "sha256": "9219f2f1b00cd5065047561976eb56a80774d553c86719fe5fb9f31b703c6f37"
+  },
+  {
+    "card": "c24505",
+    "path": "godot/assets/official/cards/c24505.png",
+    "original": "art-reference-official/卡面-按版本/12_浮生方醒/245_小松丸/24505_森林偶像_形态.png",
+    "sha256": "e0c7eb4edbcc24bd8d2883c1dba8ddd600c0e68d3306688c0b7d8080b06fc864"
+  },
+  {
+    "card": "c24506",
+    "path": "godot/assets/official/cards/c24506.png",
+    "original": "art-reference-official/卡面-按版本/12_浮生方醒/245_小松丸/24506_灵敏跃击_战斗.png",
+    "sha256": "a88113f797534a17cb1e4bfa62b138b099bca405c8e6847309965716094486eb"
+  },
+  {
+    "card": "c24507",
+    "path": "godot/assets/official/cards/c24507.png",
+    "original": "art-reference-official/卡面-按版本/12_浮生方醒/245_小松丸/24507_觉醒·小松丸_法术.png",
+    "sha256": "331fb619a54b68903e88d749b5e08a0b48701b2ba3176eeeef1cdc7f4d18b34d"
+  },
+  {
+    "card": "c24508",
+    "path": "godot/assets/official/cards/c24508.png",
+    "original": "art-reference-official/卡面-按版本/12_浮生方醒/245_小松丸/24508_秋收冬藏_形态.png",
+    "sha256": "8110b66b6ba77e5e138417891e9bd791a3f2d41cdd50ce9a8641212fb4ebdd76"
+  },
+  {
+    "card": "c24801",
+    "path": "godot/assets/official/cards/c24801.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/248_狸猫/24801_劝酒_法术.png",
+    "sha256": "9dd2358f1f821c9e5ae57e7fb6815d471c1a81c076504c4f2b3786714f06e66a"
+  },
+  {
+    "card": "c24802",
+    "path": "godot/assets/official/cards/c24802.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/248_狸猫/24802_换杯_战斗.png",
+    "sha256": "c4d32ee564f896cbe101328f53e3494eeb5f510915187e6f64d96fe3141227d1"
+  },
+  {
+    "card": "c24803",
+    "path": "godot/assets/official/cards/c24803.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/248_狸猫/24803_品酒专家_形态.png",
+    "sha256": "a7c6fd0213e738cedd54d50438bd0954ceb1406328d43c53290ab6aee1f6511d"
+  },
+  {
+    "card": "c24804",
+    "path": "godot/assets/official/cards/c24804.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/248_狸猫/24804_觉醒·狸猫_法术.png",
+    "sha256": "708182c6921778719d23eea2fd85d84d647e1da1552863f46155c4e08185cb3d"
+  },
+  {
+    "card": "c24805",
+    "path": "godot/assets/official/cards/c24805.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/248_狸猫/24805_嗜酒如命_形态.png",
+    "sha256": "67a1c26cb339a56d762bc47ef2a4f2253f5585371b8f95a57dd981bc1abf5b6b"
+  },
+  {
+    "card": "c24806",
+    "path": "godot/assets/official/cards/c24806.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/248_狸猫/24806_醉翁之意_形态.png",
+    "sha256": "fa0787d1a5526c241ef49fc6d34460f96edaa502f8d5441fa7aabbb44cc0a5e6"
+  },
+  {
+    "card": "c24807",
+    "path": "godot/assets/official/cards/c24807.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/248_狸猫/24807_烈焰之酒_法术.png",
+    "sha256": "59bc9b9248dd47f1adf8f07311b53f063a62b1e1adb13e4d92de6aee65b62018"
+  },
+  {
+    "card": "c24808",
+    "path": "godot/assets/official/cards/c24808.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/248_狸猫/24808_饮啖醉饱_结界.png",
+    "sha256": "81b4e6198c6a2e32c2133a74939c362452212cbc48111a2248849df0bbf9d9d0"
+  },
+  {
+    "card": "c25101",
+    "path": "godot/assets/official/cards/c25101.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/251_星熊童子/25101_听咱一言_法术.png",
+    "sha256": "95a2c73acbca7170909d712ce4edef76ae4baa019a92cdc1a739a3dfcd17e269"
+  },
+  {
+    "card": "c25102",
+    "path": "godot/assets/official/cards/c25102.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/251_星熊童子/25102_众矢之的_法术.png",
+    "sha256": "10c578a16abc0df3147dd4946a6eac6bc0cf23c8ba2cf27ae4616550d2e8c530"
+  },
+  {
+    "card": "c25103",
+    "path": "godot/assets/official/cards/c25103.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/251_星熊童子/25103_暴力禁止_形态.png",
+    "sha256": "541d16f0ca7c55a71870932b2fc13b685307ef00eed78ae67fbb2da0dd0439f8"
+  },
+  {
+    "card": "c25104",
+    "path": "godot/assets/official/cards/c25104.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/251_星熊童子/25104_刀下留人_法术.png",
+    "sha256": "648265aa72023a2e4c745a839f476e23dcfa4a03d28a8e956a5a20ad2649bbe6"
+  },
+  {
+    "card": "c25105",
+    "path": "godot/assets/official/cards/c25105.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/251_星熊童子/25105_悠然自乐_形态.png",
+    "sha256": "9eb1849e988fa6eff6d75a0f4b45f9e8be268fb80da24d5c7f9ce8b30462833a"
+  },
+  {
+    "card": "c25106",
+    "path": "godot/assets/official/cards/c25106.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/251_星熊童子/25106_觉醒·星熊童子_法术.png",
+    "sha256": "b95417ccdb1dd28eda04305cb49bc6cd0f2ddcfcd294d18275d4b3d83e20fe57"
+  },
+  {
+    "card": "c25107",
+    "path": "godot/assets/official/cards/c25107.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/251_星熊童子/25107_离间之音_形态.png",
+    "sha256": "7e21585614b21117218ff38072c04a8d59802d2e78432579f4ff3bf4faa9a1c4"
+  },
+  {
+    "card": "c25108",
+    "path": "godot/assets/official/cards/c25108.png",
+    "original": "art-reference-official/卡面-按版本/13_喧哗烩战/251_星熊童子/25108_敌在酒碗处_法术.png",
+    "sha256": "b51696dbc8cd8c0f4161c1f2be349ecab83dc49a06518e3abe74ab15c9d0c123"
+  },
+  {
+    "card": "c25701",
+    "path": "godot/assets/official/cards/c25701.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/257_入内雀/25701_雀啄_法术.png",
+    "sha256": "ab92183cd908786f140cff87623f1efd1fcf8a9d7e7125e465188f5ca6b4e947"
+  },
+  {
+    "card": "c25702",
+    "path": "godot/assets/official/cards/c25702.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/257_入内雀/25702_雀群无声_形态.png",
+    "sha256": "f7dd9f52ff1b203ae710c19a216fa2a407948bfdc8219cc7212cc55d49066442"
+  },
+  {
+    "card": "c25703",
+    "path": "godot/assets/official/cards/c25703.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/257_入内雀/25703_朝雀鸣晨_战斗.png",
+    "sha256": "d683a8efd043173935e1ff88ed615f23bc7661a829bef658a3faf808ab426419"
+  },
+  {
+    "card": "c25704",
+    "path": "godot/assets/official/cards/c25704.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/257_入内雀/25704_庭院幽寂_形态.png",
+    "sha256": "3d9ab9cd00d5190a61c59bb5bc0ddd8d9daa08a0b16d52e6c16cfbf8ece465e4"
+  },
+  {
+    "card": "c25705",
+    "path": "godot/assets/official/cards/c25705.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/257_入内雀/25705_收割_战斗.png",
+    "sha256": "368ccea87444cf0f520b53c944bd079a8039d1f2d3610c0ef2aeed4ad9c764c3"
+  },
+  {
+    "card": "c25706",
+    "path": "godot/assets/official/cards/c25706.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/257_入内雀/25706_觉醒·入内雀_法术.png",
+    "sha256": "e7390a126451fa297d752138c0217259b28a92b28c6dad666875cf23c107fce5"
+  },
+  {
+    "card": "c25707",
+    "path": "godot/assets/official/cards/c25707.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/257_入内雀/25707_腐化之羽_形态.png",
+    "sha256": "c744297e41727feaf7e1b84f136e8f481150d52b33d9ab7c95177905393eb6ac"
+  },
+  {
+    "card": "c25708",
+    "path": "godot/assets/official/cards/c25708.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/257_入内雀/25708_夜雀长栖_结界.png",
+    "sha256": "5e8e1e9f3d5fb98971b533b85a332402b1acb9d5b70cd3eb22b3179a6f554282"
+  },
+  {
+    "card": "c25901",
+    "path": "godot/assets/official/cards/c25901.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/259_鬼女红叶/25901_爆炸之符_法术.png",
+    "sha256": "8e7fc9134cf5c6e37022075fe76cbe573b5f6a77fd405bc3280ec1e7d6f2c1fb"
+  },
+  {
+    "card": "c25902",
+    "path": "godot/assets/official/cards/c25902.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/259_鬼女红叶/25902_爆炸之咒_法术.png",
+    "sha256": "7ec6b1c49256f82fb91effd16f5d8ef45763338d6ac2c02e4912968933bf7976"
+  },
+  {
+    "card": "c25903",
+    "path": "godot/assets/official/cards/c25903.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/259_鬼女红叶/25903_血枫之姬_形态.png",
+    "sha256": "1d1e1d3501ee9e1d34ba7b2ad635b2192ce59ebf3b38dfc90a91cdb13b7afb11"
+  },
+  {
+    "card": "c25904",
+    "path": "godot/assets/official/cards/c25904.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/259_鬼女红叶/25904_跹舞之姿_形态.png",
+    "sha256": "5f241aedb220694a345e80e029e51e79ebe29110cb61d61e0caa692fed8291f5"
+  },
+  {
+    "card": "c25905",
+    "path": "godot/assets/official/cards/c25905.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/259_鬼女红叶/25905_散逸之枫_法术.png",
+    "sha256": "5a9631221f37566cced5069f54a15fe067288babe0f739f38de53a36a571e160"
+  },
+  {
+    "card": "c25906",
+    "path": "godot/assets/official/cards/c25906.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/259_鬼女红叶/25906_死亡之舞_法术.png",
+    "sha256": "1d0a395ca727b72f2e81ba1f3bc7260610fe4f214df6c0b29b84345e32921742"
+  },
+  {
+    "card": "c25907",
+    "path": "godot/assets/official/cards/c25907.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/259_鬼女红叶/25907_枫飞舞裂_形态.png",
+    "sha256": "448f32f96835d0fdb76012b2e4d387ff682252f100ae7851f1188847690c9d7a"
+  },
+  {
+    "card": "c25908",
+    "path": "godot/assets/official/cards/c25908.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/259_鬼女红叶/25908_觉醒·鬼女红叶_法术.png",
+    "sha256": "da81f135f5a4788b0590a01597ac26d875bb164970d5383b0c6404c3d2ae6940"
+  },
+  {
+    "card": "c26001",
+    "path": "godot/assets/official/cards/c26001.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/260_首无/26001_迅影强袭_战斗.png",
+    "sha256": "8a22c4528c82d376f64bf814479e10a474b9ff9e276c2460df241b6ed4b8c74b"
+  },
+  {
+    "card": "c26002",
+    "path": "godot/assets/official/cards/c26002.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/260_首无/26002_飞颅谑戏_法术.png",
+    "sha256": "f8a541c94658f08361b64ac5dea990ed9330cce6b226531811acd5834cd62754"
+  },
+  {
+    "card": "c26003",
+    "path": "godot/assets/official/cards/c26003.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/260_首无/26003_身首分离_战斗.png",
+    "sha256": "f9f6b6ed99670ca87eeeb4cbd42a08e3adbe532d457d03b756c59a23dad86450"
+  },
+  {
+    "card": "c26004",
+    "path": "godot/assets/official/cards/c26004.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/260_首无/26004_恐吓重击_战斗.png",
+    "sha256": "853172b060afe68af1c10deea869d5c4b253082093447a353c943cf7b21ea156"
+  },
+  {
+    "card": "c26005",
+    "path": "godot/assets/official/cards/c26005.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/260_首无/26005_提首行骸_形态.png",
+    "sha256": "c5b916b27b62c263df457eb34b6f8574974900c8d8f6f7904acd54212a8ca5b4"
+  },
+  {
+    "card": "c26006",
+    "path": "godot/assets/official/cards/c26006.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/260_首无/26006_觉醒·首无_法术.png",
+    "sha256": "b2c77eeb410cd935a863a5eb54030b8723afb6f46cf6a6eb5977ae2ae60bfcf7"
+  },
+  {
+    "card": "c26007",
+    "path": "godot/assets/official/cards/c26007.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/260_首无/26007_虚无冥火_结界.png",
+    "sha256": "0e42d55ee13d30aaf88f813a266b1abbb099fcb53ed75170d5b9354624761f3c"
+  },
+  {
+    "card": "c26008",
+    "path": "godot/assets/official/cards/c26008.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/260_首无/26008_神出鬼没_战斗.png",
+    "sha256": "41d7590d73979d7f67a795accc148893ad2af2cba36eeb474aa8cd1f4783710a"
+  },
+  {
+    "card": "c26201",
+    "path": "godot/assets/official/cards/c26201.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/262_夜叉/26201_屠戮_战斗.png",
+    "sha256": "b5a33c714742266d1febce420da52d760af74d13b0e6f0350d187bbbf10e61f6"
+  },
+  {
+    "card": "c26202",
+    "path": "godot/assets/official/cards/c26202.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/262_夜叉/26202_修罗_形态.png",
+    "sha256": "ae78fd4d1ce5f456b66764a66ec3b8fe7a4a9521f09a28866495b35bdb2ac177"
+  },
+  {
+    "card": "c26203",
+    "path": "godot/assets/official/cards/c26203.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/262_夜叉/26203_黄泉之海_结界.png",
+    "sha256": "cdc332d8284b2682b6821bb8c11db81a8826a9f5343f8aea281a242ca1488a25"
+  },
+  {
+    "card": "c26204",
+    "path": "godot/assets/official/cards/c26204.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/262_夜叉/26204_觉醒·夜叉_法术.png",
+    "sha256": "ba9e2a592422cc44ef65d29cf29632faba843549b7a4ce91cbaf83bc56408b43"
+  },
+  {
+    "card": "c26205",
+    "path": "godot/assets/official/cards/c26205.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/262_夜叉/26205_恶鬼_形态.png",
+    "sha256": "11cb11f26fb1d4bdabb444c3ad86941a7023a790d3d2a98a2795aa20ea43f0d4"
+  },
+  {
+    "card": "c26206",
+    "path": "godot/assets/official/cards/c26206.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/262_夜叉/26206_劫掠_战斗.png",
+    "sha256": "3362f5605dd78f89411c675c7f61d0395ffd07c366aa077207756975e9ab031d"
+  },
+  {
+    "card": "c26207",
+    "path": "godot/assets/official/cards/c26207.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/262_夜叉/26207_比良坂之刹_形态.png",
+    "sha256": "7c5ab0ea845900e4acd9682e1605bb4758d27b49df3d7a67b820f15b908a113f"
+  },
+  {
+    "card": "c26208",
+    "path": "godot/assets/official/cards/c26208.png",
+    "original": "art-reference-official/卡面-按版本/14_空弦绮话/262_夜叉/26208_鬼魅_战斗.png",
+    "sha256": "30b4a7d0df16a3306d9307bbcc4838e48b9546c834d5cb0f2c8d21f26f0e32c5"
+  },
+  {
+    "card": "c28001",
+    "path": "godot/assets/official/cards/c28001.png",
+    "original": "art-reference-official/卡面-按版本/16_远山遥泽/280_不见岳/28001_云衣_结界.png",
+    "sha256": "2bb82d84d51705de7728bf3bff80967c8c455de32bc9b1115992f9e81f1e0af6"
+  },
+  {
+    "card": "c28002",
+    "path": "godot/assets/official/cards/c28002.png",
+    "original": "art-reference-official/卡面-按版本/16_远山遥泽/280_不见岳/28002_山色_结界.png",
+    "sha256": "5faee7b340283edf0651cd55316b6a0124a38785511a00bacce79296af45e9c0"
+  },
+  {
+    "card": "c28003",
+    "path": "godot/assets/official/cards/c28003.png",
+    "original": "art-reference-official/卡面-按版本/16_远山遥泽/280_不见岳/28003_寻径_法术.png",
+    "sha256": "04d36de750f5ae5e6a34b7b6ef4c2bcb8ba88de3d930b08c2bcd287e629c41e6"
+  },
+  {
+    "card": "c28004",
+    "path": "godot/assets/official/cards/c28004.png",
+    "original": "art-reference-official/卡面-按版本/16_远山遥泽/280_不见岳/28004_重峦_结界.png",
+    "sha256": "f14dca96de4ff6bad1c05ac497cde3ca7d8b66f989d3942c642d124756aebba1"
+  },
+  {
+    "card": "c28005",
+    "path": "godot/assets/official/cards/c28005.png",
+    "original": "art-reference-official/卡面-按版本/16_远山遥泽/280_不见岳/28005_古山之神_结界.png",
+    "sha256": "e7bc9b4866324642a9380cb335d747a64b57f06d609f4ec2116f2cc125527835"
+  },
+  {
+    "card": "c28006",
+    "path": "godot/assets/official/cards/c28006.png",
+    "original": "art-reference-official/卡面-按版本/16_远山遥泽/280_不见岳/28006_觉醒·不见岳_法术.png",
+    "sha256": "ba9927c0c26d9b60970977db9b24a27a2686dea2b8ae055e9385a97df4758161"
+  },
+  {
+    "card": "c28007",
+    "path": "godot/assets/official/cards/c28007.png",
+    "original": "art-reference-official/卡面-按版本/16_远山遥泽/280_不见岳/28007_峰回路转_法术.png",
+    "sha256": "c17dad3fb1da4d6fdc6727c0c317c51b9f900da82b5cc599aefe7331124603d1"
+  },
+  {
+    "card": "c28008",
+    "path": "godot/assets/official/cards/c28008.png",
+    "original": "art-reference-official/卡面-按版本/16_远山遥泽/280_不见岳/28008_水宿山行_结界.png",
+    "sha256": "b9e00841900806fb26b43803c8befe924ef5f1fdfe0c17a1980cdb1bad3d0ba9"
+  }
+]

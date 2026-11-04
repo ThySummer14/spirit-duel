@@ -1,0 +1,40 @@
+{
+  "roles": {
+    "otakemaru": {
+      "headless": 120,
+      "native": 136,
+      "screenshots": 2
+    },
+    "onikiri": {
+      "headless": 109,
+      "native": 123,
+      "screenshots": 2
+    },
+    "house": {
+      "headless": 112,
+      "native": 126,
+      "screenshots": 2
+    }
+  },
+  "headlessTotal": 341,
+  "nativeTotal": 385,
+  "crossRole": 38,
+  "focusedTotal": 423,
+  "relatedRegressionGroups": 10,
+  "relatedRegressionChecks": 900,
+  "relatedRegressionCases": 16,
+  "sourceHashes": 596,
+  "allCurrentSourceHashesMatchBuild": true,
+  "screenshotsViewed": 6,
+  "mainCards": 24,
+  "derivedCards": 8,
+  "newDerivedDefinitions": 5,
+  "originalArtFiles": 352,
+  "originalArtRoles": 44,
+  "strictAuditExitCode": 1,
+  "strictAuditDiagnosticsUnchanged": true,
+  "fullCatalogRestored": false,
+  "changedTextFiles": 44,
+  "gitDiffCheck": true,
+  "textWhitespaceCheck": true
+}

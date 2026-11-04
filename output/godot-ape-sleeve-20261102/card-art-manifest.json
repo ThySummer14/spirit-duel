@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/294_川猿/29401_变幻自在_法术.png",
+    "target": "godot/assets/official/cards/c29401.png",
+    "sha256": "5b1016b66c0b59a4f9bbf1d98b16968cc627cfb9fecfa7b6bb373cd84d19582a"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/294_川猿/29402_猿形毕露_法术.png",
+    "target": "godot/assets/official/cards/c29402.png",
+    "sha256": "aa95df809179642629f71b2723fed7adcb018a8a489a7d7b12c8b411750fd57f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/294_川猿/29403_仿模_战斗.png",
+    "target": "godot/assets/official/cards/c29403.png",
+    "sha256": "cad4bf9ca49e661e60a9ac5256f17602c717c459adc2253cfa30226bb6a516f7"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/294_川猿/29404_花纸散_法术.png",
+    "target": "godot/assets/official/cards/c29404.png",
+    "sha256": "6cee1a4bba146224f0d9a577a3db47eda065eda916d28d7abd4cd3f3a20b20cc"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/294_川猿/29405_诸象皆流_法术.png",
+    "target": "godot/assets/official/cards/c29405.png",
+    "sha256": "6591a98df2c5271535c13220a15d22612d198edbb82aec3ff3bbf4174050e290"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/294_川猿/29406_觉醒·川猿_法术.png",
+    "target": "godot/assets/official/cards/c29406.png",
+    "sha256": "bf76f7e27345e5517f4e12a3a59c818a7c74dd1499b3b1fa8f3f6ff11ad35967"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/294_川猿/29407_天衣无缝_战斗.png",
+    "target": "godot/assets/official/cards/c29407.png",
+    "sha256": "5550b8c63058f07bd7802ecdda62a828f50d6afcd9ea30ba3bfccdb2ce4bc0c9"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/294_川猿/29408_猿猴夺月_形态.png",
+    "target": "godot/assets/official/cards/c29408.png",
+    "sha256": "47161e0168beedea7b4ff4599defcfeac0d9d4f64be5fbf2b3b63070836d4ad3"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/296_小袖之手/29601_纫针_法术.png",
+    "target": "godot/assets/official/cards/c29601.png",
+    "sha256": "4985e925add40450daeda39a90fba238e25a9d01d487578484d628cd1b2a6b3d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/296_小袖之手/29602_缝补_法术.png",
+    "target": "godot/assets/official/cards/c29602.png",
+    "sha256": "738ee49c83fca51529e36c714686ee0a35d7c1cc5dee36222469a4f6c89a6f4f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/296_小袖之手/29603_补缀添香_形态.png",
+    "target": "godot/assets/official/cards/c29603.png",
+    "sha256": "6f32c26f9385a0fa85d6b828e2b38edd58724d5b6c1e27966bc66b4855fe3b2c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/296_小袖之手/29604_绵里藏针_法术.png",
+    "target": "godot/assets/official/cards/c29604.png",
+    "sha256": "06fa83255299f2b9f5a7f2a39ae731d0fad11f57ce860a6636dd7bd0792a735f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/296_小袖之手/29605_丝缕相连_形态.png",
+    "target": "godot/assets/official/cards/c29605.png",
+    "sha256": "295e8b8c3b02bc0dadb06ff5c0fef7f9b092c9178313efa115806839eb852358"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/296_小袖之手/29606_穿针引线_法术.png",
+    "target": "godot/assets/official/cards/c29606.png",
+    "sha256": "20244cd82b4a9e6ad672652a9fa2e7020e438c9ca841705c92f28ba48cce0373"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/296_小袖之手/29607_千针刺_法术.png",
+    "target": "godot/assets/official/cards/c29607.png",
+    "sha256": "22bcb56253edd590f27aeaf34e30a63ccc62ce9147d28e790209c1a34cbc9298"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/296_小袖之手/29608_觉醒·小袖之手_法术.png",
+    "target": "godot/assets/official/cards/c29608.png",
+    "sha256": "b3bcb218ba2ca1be736a0248c446a7c94948c41e72ad2079784fb6ed097e741e"
+  }
+]

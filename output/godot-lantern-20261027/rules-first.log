@@ -1,0 +1,8 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Cannot assign a value of type "VerifiedCardRules" as "Dictionary".
+          at: GDScript::reload (res://scripts/verify_lantern.gd:97)
+SCRIPT ERROR: Parse Error: Cannot assign a value of type VerifiedCardRules to variable "view" with specified type Dictionary.
+          at: GDScript::reload (res://scripts/verify_lantern.gd:97)
+ERROR: Failed to load script "res://scripts/verify_lantern.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript.cpp:2907)

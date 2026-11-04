@@ -1,0 +1,10 @@
+### Browser `mengpo-final` opened with pid 60857.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4188/play/');
+```
+### Page
+- Page URL: http://127.0.0.1:4188/play/
+- Page Title: 灵枢战线 · 网页测试版
+### Snapshot
+- [Snapshot](.playwright-cli/page-2026-10-16T15-34-15-875Z.yml)

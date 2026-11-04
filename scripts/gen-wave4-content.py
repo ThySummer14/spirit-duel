@@ -1057,7 +1057,7 @@ TOKENS = [
          token=True, tags=["token", "缘结"]),
 ]
 
-EXTRA_TOKENS: list = []
+EXTRA_TOKENS: list = [{'id': 'glutton-satiation', 'unitId': 'egui', 'name': '饱腹', 'type': 'charm', 'level': 1, 'cost': 0, 'text': '唯一。饿鬼获得2力量。倒计时2：移除此灵咒。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'rarity': 'common', 'effects': [('always', 'glutton-charm-token', 'source', None)]}]
 
 # 被动映射：uid -> (passive, awakenedPassive)
 PASSIVES = {
@@ -1530,7 +1530,7 @@ def main() -> None:
             f"cost: {int(tok.get('cost', 0))}",
             f"rarity: {js_str(tok.get('rarity', 'common'))}",
             f"starter: 0",
-            f"deckLimit: 2",
+            f"deckLimit: {int(tok.get('deckLimit', 2))}",
             f"token: true",
             f"text: {js_str(tok['text'])}",
             f"officialText: {js_str(tok['text'])}",

@@ -11,7 +11,7 @@ const FormationScreen := preload("res://scripts/ui/formation_screen.gd")
 const SaveStore := preload("res://scripts/save_store.gd")
 
 const ALLY := ["ember", "basalt", "lumen", "rime"]
-const FOE := ["yaodaoji", "storm", "ink", "taohuayao"]
+const FOE := ["yaodaoji", "rime", "ink", "taohuayao"]
 
 var _checks := 0
 var _failures: Array = []
@@ -100,8 +100,10 @@ func _run() -> void:
 	_check(gs.player(0).hand.is_empty() and gs.command_log.any(func(command): return command.c == "play_card" and int(command.p) == 0), "human plays a targeted response through unit buttons")
 	battle.free()
 
+	# Manual response scheduling uses the original test roster card. Verified
+	# Yaodao see-through responds automatically only when its own source is attacked.
 	gs = _game()
-	_inject(gs, 1, "c10102")
+	_inject(gs, 1, "hoar-barrier")
 	attack = _inject(gs, 0, "flash-thrust")
 	_check(gs.play_card(0, attack), "human attack is legal")
 	battle = _battle(gs)
@@ -140,7 +142,7 @@ func _run() -> void:
 	battle.free()
 
 	gs = _game()
-	_inject(gs, 1, "c10102")
+	_inject(gs, 1, "hoar-barrier")
 	_inject(gs, 0, "flash-thrust")
 	gs.play_card(0, 0)
 	gs.pass_response(1)

@@ -1,0 +1,42 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/238_两面佛/23801_神威_战斗.png",
+    "dest": "godot/assets/official/cards/c23801.png",
+    "sha256": "70408b15431fcb49d97230e8ec6917f9f436c1c88cda5cf52ce9921bc5e49508"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/238_两面佛/23802_声闻_法术.png",
+    "dest": "godot/assets/official/cards/c23802.png",
+    "sha256": "a1d92324aecc9f02fd031f594e71d27f64d96f8d0ccff8fd43a04b57fdd8a737"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/238_两面佛/23803_觉醒·两面佛_法术.png",
+    "dest": "godot/assets/official/cards/c23803.png",
+    "sha256": "66719b7d104d315181ce1a23b53646367e39f69a40b6b5c4756c933959f0f389"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/238_两面佛/23804_雷嗔电怒_战斗.png",
+    "dest": "godot/assets/official/cards/c23804.png",
+    "sha256": "e7ea7fc33478dfdef3f27b3b553a4754f4168a20d8b4045d60b7b39eda3f3dc3"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/238_两面佛/23805_风起云涌_法术.png",
+    "dest": "godot/assets/official/cards/c23805.png",
+    "sha256": "d8c62d62e5974b7edabe20696fad83571b60f1d8e61b25289ee09c40619bae28"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/238_两面佛/23806_惊雷_战斗.png",
+    "dest": "godot/assets/official/cards/c23806.png",
+    "sha256": "9951accff808875bb374dbe04aff09c0ac098298258851a7ac3db0677e155054"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/238_两面佛/23807_烈风_法术.png",
+    "dest": "godot/assets/official/cards/c23807.png",
+    "sha256": "7fd0765d07200fe62d97075ba09deb3268cbc5e34cf3abb4032a86a200c0134e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/238_两面佛/23808_风雷万象_形态.png",
+    "dest": "godot/assets/official/cards/c23808.png",
+    "sha256": "19e5e787bdf6947c081b22100adfde8da83b0aafc4aee1ae939393f1de4b8ea9"
+  }
+]

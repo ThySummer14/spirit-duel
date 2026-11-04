@@ -1,0 +1,114 @@
+{
+  "sources": [
+    {
+      "bvid": "BV1vg4y1q7m1",
+      "sha256Matches": true,
+      "bytes": 9666094
+    },
+    {
+      "bvid": "BV1mVGFzoEBm",
+      "sha256Matches": true,
+      "bytes": 53790545
+    },
+    {
+      "bvid": "BV1r54y1C7d6",
+      "sha256Matches": true,
+      "bytes": 12959987
+    },
+    {
+      "bvid": "BV1ZjGg6sELz",
+      "sha256Matches": true,
+      "bytes": 5843554
+    },
+    {
+      "bvid": "BV1dV41127D6",
+      "sha256Matches": true,
+      "bytes": 160775
+    }
+  ],
+  "clips": [
+    {
+      "path": "clips/feather-entrance.mp4",
+      "duration": 12.0,
+      "sourceStart": 20
+    },
+    {
+      "path": "clips/ink-entrance.mp4",
+      "duration": 17.0,
+      "sourceStart": 128
+    },
+    {
+      "path": "clips/huang-swift-vigor.mp4",
+      "duration": 34.0,
+      "sourceStart": 345
+    },
+    {
+      "path": "clips/cosmic-effect.mp4",
+      "duration": 24.0,
+      "sourceStart": 756
+    },
+    {
+      "path": "clips/arrow-combat.mp4",
+      "duration": 40.0,
+      "sourceStart": 104
+    },
+    {
+      "path": "clips/xun-attachment.mp4",
+      "duration": 24.0,
+      "sourceStart": 17
+    }
+  ],
+  "passed": true,
+  "browserMedia": [
+    {
+      "src": "clips/huang-swift-vigor.mp4",
+      "duration": 34,
+      "width": 640,
+      "height": 286,
+      "played": true,
+      "error": null
+    },
+    {
+      "src": "clips/xun-attachment.mp4",
+      "duration": 24,
+      "width": 640,
+      "height": 282,
+      "played": true,
+      "error": null
+    },
+    {
+      "src": "clips/arrow-combat.mp4",
+      "duration": 40,
+      "width": 640,
+      "height": 360,
+      "played": true,
+      "error": null
+    },
+    {
+      "src": "clips/feather-entrance.mp4",
+      "duration": 12,
+      "width": 640,
+      "height": 360,
+      "played": true,
+      "error": null
+    },
+    {
+      "src": "clips/ink-entrance.mp4",
+      "duration": 17,
+      "width": 640,
+      "height": 360,
+      "played": true,
+      "error": null
+    },
+    {
+      "src": "clips/cosmic-effect.mp4",
+      "duration": 24,
+      "width": 640,
+      "height": 286,
+      "played": true,
+      "error": null
+    }
+  ],
+  "browserErrors": 0,
+  "browserWarnings": 0
+}

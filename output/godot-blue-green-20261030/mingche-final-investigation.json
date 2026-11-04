@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-02",
+  "scope": "有限追加检索明澈完整随机强化池；未改规则、卡池或核对标记。",
+  "officialBuffIds": [
+    1002,
+    1003,
+    1007,
+    1006,
+    1009,
+    1011,
+    1013,
+    1019,
+    1140,
+    1012
+  ],
+  "confirmedIdMappings": {
+    "1003": {
+      "keyword": "不屈",
+      "singleIdCards": [
+        21405,
+        12706,
+        12736
+      ]
+    },
+    "1007": {
+      "keyword": "连击",
+      "singleIdCards": [
+        17306
+      ]
+    }
+  },
+  "additionalSources": [
+    {
+      "url": "https://gamerch.com/onmyojicard/351761",
+      "finding": "列举7词条，无法解释官方10ID，且不包含官方1007已确证的连击，不能作为完整池。"
+    },
+    {
+      "url": "https://www.taptap.cn/moment/136561818402291925",
+      "finding": "官方2021-04-29公告仅说明优化明澈增强提示，没有公布随机池释义。"
+    },
+    {
+      "url": "https://onmyoji.fandom.com/wiki/Joururi_Gozen",
+      "finding": "描述随机强化但没有完整ID映射，不能据此补池。"
+    }
+  ],
+  "conclusion": "没有取得完整可靠释义。保留c20602 verifiedRules=false、bgMingchePool=[]。搜索不到不证明不存在，待原客户端或可靠完整词典确认。"
+}

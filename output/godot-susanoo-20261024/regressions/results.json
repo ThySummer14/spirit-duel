@@ -1,0 +1,98 @@
+[
+  {
+    "name": "combat",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.87
+  },
+  {
+    "name": "growth",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.87
+  },
+  {
+    "name": "resource_effects",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.98
+  },
+  {
+    "name": "turn_order",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.88
+  },
+  {
+    "name": "rebirth",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 15.95
+  },
+  {
+    "name": "fortune_pair",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.86
+  },
+  {
+    "name": "light_healer",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 2.52
+  },
+  {
+    "name": "moon_bamboo",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 8.32
+  },
+  {
+    "name": "whale",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.97
+  },
+  {
+    "name": "crocodile",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.96
+  },
+  {
+    "name": "armor_blood",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 2.51
+  },
+  {
+    "name": "classic_core",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.77
+  },
+  {
+    "name": "battle_status",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.87
+  },
+  {
+    "name": "ghost_mountain_maple",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.77
+  },
+  {
+    "name": "spider_lily",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.97
+  },
+  {
+    "name": "onikiri",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.97
+  }
+]

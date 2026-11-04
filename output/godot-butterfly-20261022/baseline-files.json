@@ -1,0 +1,14 @@
+{
+  "godot/content/verified_rules.json": "a7fc6e97ed5eaef0d026de984fcd31b0fda327afdce01dba7035db281b6991f0",
+  "godot/scripts/game_state.gd": "989f5acf1b895ef7901fe1b489d81e54aed2cdbab2f3307c2e4ff858efb13149",
+  "godot/scripts/verified_card_rules.gd": "6c49d38e63357d4981f20b41185a2981f5c5933caeb9b203b5e5924e530f8941",
+  "godot/scripts/game_ai.gd": "c89b76c91cd1b90f972e9abc0cd23b5abb997f0e8a3979bd665d3c05dc65f83a",
+  "godot/scripts/tomato_fire_rules.gd": "4bebbcb0aaeadbf2faab1a0b253a15652f54c600e9acdcbebe0053bed1c53ebf",
+  "godot/scripts/ui/battle_screen.gd": "cfe27ba073dfbc366dfc9e1a5177b216f45bdee73c41e6bcd47e0778c46425cd",
+  "godot/scripts/ui/battle_status.gd": "e779035bc9eba81eaf4f464d6604b893cb7a4ccc82d88d7d344cdafeeb82f178",
+  "godot/scripts/ui/keyword_glossary.gd": "570e9f1c4e7d63c143bf240d3d0898ca05f887b581f5cce2def58b4c8a9d8035",
+  "README.md": "d30868dc4e26955c371626e2618ec918f0bfd35d3d8d5d92a87dbe2c8247c5b9",
+  "godot/README.md": "fa15b0e03d287ca18fa5b4d0ef20c3447eb38bca22c53076ef16a95d90b1c76e",
+  "godot/assets/official/README.md": "a0734a01712202626354dbc0b644a898161836eca59ebf151f8f465d2159282e",
+  "scripts/godot-verify.sh": "e278ad483f42fcca2cd5f073525ee9f4c28e521b9b23196130108b13ff08cb4b"
+}

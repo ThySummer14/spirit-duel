@@ -13,7 +13,7 @@ static func artwork(unit: Dictionary, awakened: bool = false) -> Dictionary:
 			var payload = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST_PATH))
 			if payload is Dictionary and int(payload.get("schema", 0)) == 1 and payload.get("units") is Dictionary:
 				_units = payload.units
-	var entry = _units.get(str(unit.get("id", "")), {})
+	var entry = _units.get(str(unit.get("presentationId", unit.get("id", ""))), {})
 	if entry is Dictionary:
 		var path := "res://" + str(entry.get("path", "")).trim_prefix("res://")
 		if path != "res://" and ResourceLoader.exists(path):

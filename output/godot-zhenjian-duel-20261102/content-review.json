@@ -1,0 +1,104 @@
+{
+  "units": 2,
+  "subjectCards": 16,
+  "derivatives": 1,
+  "overlaysMatch": true,
+  "artHashesMatch": 16,
+  "rows": [
+    {
+      "kind": "units",
+      "id": "jicanghai",
+      "equal": true
+    },
+    {
+      "kind": "units",
+      "id": "wuchen",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26401",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26402",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26403",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26404",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26405",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26406",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26407",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26408",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26501",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26502",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26503",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26504",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26505",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26506",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26507",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "c26508",
+      "equal": true
+    },
+    {
+      "kind": "cards",
+      "id": "wuchen-followup",
+      "equal": true
+    }
+  ]
+}

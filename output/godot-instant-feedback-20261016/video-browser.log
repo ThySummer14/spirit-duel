@@ -1,0 +1,11 @@
+### Result
+{"duration":7.633333,"currentTime":1.214048,"paused":false,"width":1600,"height":740,"error":null}
+### Ran Playwright code
+```js
+await (async (page) => { await page.goto("http://127.0.0.1:4187/instant-feedback.mp4"); await page.waitForFunction(() => document.querySelector("video")?.readyState >= 2); await page.locator("video").evaluate(async v => { v.muted = true; v.currentTime = 0.6; await v.play(); }); await page.waitForTimeout(650); return await page.locator("video").evaluate(v => ({duration:v.duration,currentTime:v.currentTime,paused:v.paused,width:v.videoWidth,height:v.videoHeight,error:v.error?.message ?? null})); })(page);
+```
+### Page
+- Page URL: http://127.0.0.1:4187/instant-feedback.mp4
+- Console: 1 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli/console-2026-10-16T14-31-30-651Z.log#L4

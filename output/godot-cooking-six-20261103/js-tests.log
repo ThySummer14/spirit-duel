@@ -1,0 +1,353 @@
+
+> spirit-duel@0.1.0 test
+> node --test
+
+TAP version 13
+# Subtest: ResourceTracker frees shared geometry/material/texture once and detaches objects
+ok 1 - ResourceTracker frees shared geometry/material/texture once and detaches objects
+  ---
+  duration_ms: 1.112125
+  type: 'test'
+  ...
+# Subtest: reduced motion and disabled mode never import Three or allocate a context
+ok 2 - reduced motion and disabled mode never import Three or allocate a context
+  ---
+  duration_ms: 0.876417
+  type: 'test'
+  ...
+# Subtest: CDN failure degrades once without rejecting DOM presentation or retry loops
+ok 3 - CDN failure degrades once without rejecting DOM presentation or retry loops
+  ---
+  duration_ms: 0.838417
+  type: 'test'
+  ...
+# Subtest: leaving while Three loads prevents late renderer initialization
+ok 4 - leaving while Three loads prevents late renderer initialization
+  ---
+  duration_ms: 0.102875
+  type: 'test'
+  ...
+# Subtest: cached Three module re-enters three times without a stale loading promise or new context
+ok 5 - cached Three module re-enters three times without a stale loading promise or new context
+  ---
+  duration_ms: 0.506041
+  type: 'test'
+  ...
+# Subtest: collection hover settles without continuous RAF, resumes on move, and releases on leave
+ok 6 - collection hover settles without continuous RAF, resumes on move, and releases on leave
+  ---
+  duration_ms: 3.053834
+  type: 'test'
+  ...
+# Subtest: preview replacement releases detached cards even after pointer RAF has stopped
+ok 7 - preview replacement releases detached cards even after pointer RAF has stopped
+  ---
+  duration_ms: 1.55675
+  type: 'test'
+  ...
+# Subtest: dynamic reduced motion cancels active animation, clears variables, and restores pointer handling
+ok 8 - dynamic reduced motion cancels active animation, clears variables, and restores pointer handling
+  ---
+  duration_ms: 2.014875
+  type: 'test'
+  ...
+# Subtest: initial reduced motion can be disabled without rebinding preview listeners
+ok 9 - initial reduced motion can be disabled without rebinding preview listeners
+  ---
+  duration_ms: 1.543958
+  type: 'test'
+  ...
+# file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js?v=ae8562bd:2835
+# if (!contentValidation.valid) throw new Error(contentValidation.errors.join(' '));
+#                                     ^
+# Error: 海原贝戟 的卡池至少需要 8 种卡。 海原贝戟 的起始构筑需要 8 张卡。 海原贝戟 缺少被动定义。 海原贝戟 缺少觉醒被动定义。 海原贝戟 必须恰好有 1 张觉醒牌，当前 0 张。 饱腹 使用了未注册效果 glutton-charm-token。 饱腹 的第 1 个效果使用了未注册动作 glutton-charm-token。 饱腹 的牌组同名上限不合法。 幻役 使用了未注册效果 vine-phantom。 幻役 的第 1 个效果使用了未注册动作 vine-phantom。 幻役 的牌组同名上限不合法。 觉醒·傀儡术 的牌组同名上限不合法。 咏流 使用了未注册效果 rt-summon。 咏流 的第 1 个效果使用了未注册动作 rt-summon。 咏流 的牌组同名上限不合法。 山珍 引用了未知角色 。 山珍 使用了未知目标类型 food-target。 山珍 使用了未注册效果 cooking-food。 山珍 的第 1 个效果使用了未注册动作 cooking-food。 山珍 的第 1 个效果使用了未知目标 selected。 山珍 的牌组同名上限不合法。 海味 引用了未知角色 。 海味 使用了未知目标类型 food-target。 海味 使用了未注册效果 cooking-food。 海味 的第 1 个效果使用了未注册动作 cooking-food。 海味 的第 1 个效果使用了未知目标 selected。 海味 的牌组同名上限不合法。 时蔬 引用了未知角色 。 时蔬 使用了未知目标类型 food-target。 时蔬 使用了未注册效果 cooking-food。 时蔬 的第 1 个效果使用了未注册动作 cooking-food。 时蔬 的第 1 个效果使用了未知目标 selected。 时蔬 的牌组同名上限不合法。 黑暗料理 引用了未知角色 。 黑暗料理 使用了未知目标类型 food-target。 黑暗料理 使用了未注册效果 cooking-food。 黑暗料理 的第 1 个效果使用了未注册动作 cooking-food。 黑暗料理 的第 1 个效果使用了未知目标 selected。 黑暗料理 的牌组同名上限不合法。 怨缚草人 使用了未注册效果 doll-token。 怨缚草人 的第 1 个效果使用了未注册动作 doll-token。 怨缚草人 的牌组同名上限不合法。 诅咒草人 使用了未注册效果 doll-token。 诅咒草人 的第 1 个效果使用了未注册动作 doll-token。 诅咒草人 的牌组同名上限不合法。 替身草人 使用了未注册效果 doll-token。 替身草人 的第 1 个效果使用了未注册动作 doll-token。 替身草人 的牌组同名上限不合法。 勤勉修行 使用了未注册效果 yitiao-skill-grow。 勤勉修行 的第 1 个效果使用了未注册动作 yitiao-skill-grow。 勤勉修行 的第 2 个效果使用了未注册动作 yitiao-combat。 勤勉修行 的牌组同名上限不合法。 达知 使用了未注册效果 baize-dazhi。 达知 的第 1 个效果使用了未注册动作 baize-dazhi。 达知 的牌组同名上限不合法。 湮灭 使用了未知目标类型 any-unit。 湮灭 使用了未注册效果 ark-annihilate。 湮灭 的第 1 个效果使用了未注册动作 ark-annihilate。 湮灭 的第 1 个效果使用了未知目标 selected。 湮灭 的牌组同名上限不合法。 追加攻击 使用了未注册效果 zd-combat。 追加攻击 的第 1 个效果使用了未注册动作 zd-combat。 追加攻击 的牌组同名上限不合法。 剑气 使用了未注册效果 rw-card。 剑气 的第 1 个效果使用了未注册动作 rw-card。 剑气 的牌组同名上限不合法。 髭切 使用了未注册效果 onikiri-attach。 髭切 的第 1 个效果使用了未注册动作 onikiri-attach。 髭切 的牌组同名上限不合法。 友切 使用了未注册效果 onikiri-attach。 友切 的第 1 个效果使用了未注册动作 onikiri-attach。 友切 的牌组同名上限不合法。 狮子之子 使用了未注册效果 onikiri-attach。 狮子之子 的第 1 个效果使用了未注册动作 onikiri-attach。 狮子之子 的牌组同名上限不合法。 八尺琼曲玉 使用了未注册效果 otake-jade-token。 八尺琼曲玉 的第 1 个效果使用了未注册动作 otake-jade-token。 八尺琼曲玉 的牌组同名上限不合法。 妖怪屋 使用了未注册效果 house-token。 妖怪屋 的第 1 个效果使用了未注册动作 house-token。 妖怪屋 的牌组同名上限不合法。
+#     at file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js?v=ae8562bd:2835:37
+#     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+#     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+# Node.js v22.23.1
+# Subtest: tests/game-ai.test.js
+not ok 3 - tests/game-ai.test.js
+  ---
+  duration_ms: 155.428459
+  type: 'test'
+  location: '/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/tests/game-ai.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835
+# if (!contentValidation.valid) throw new Error(contentValidation.errors.join(' '));
+#                                     ^
+# Error: 海原贝戟 的卡池至少需要 8 种卡。 海原贝戟 的起始构筑需要 8 张卡。 海原贝戟 缺少被动定义。 海原贝戟 缺少觉醒被动定义。 海原贝戟 必须恰好有 1 张觉醒牌，当前 0 张。 饱腹 使用了未注册效果 glutton-charm-token。 饱腹 的第 1 个效果使用了未注册动作 glutton-charm-token。 饱腹 的牌组同名上限不合法。 幻役 使用了未注册效果 vine-phantom。 幻役 的第 1 个效果使用了未注册动作 vine-phantom。 幻役 的牌组同名上限不合法。 觉醒·傀儡术 的牌组同名上限不合法。 咏流 使用了未注册效果 rt-summon。 咏流 的第 1 个效果使用了未注册动作 rt-summon。 咏流 的牌组同名上限不合法。 山珍 引用了未知角色 。 山珍 使用了未知目标类型 food-target。 山珍 使用了未注册效果 cooking-food。 山珍 的第 1 个效果使用了未注册动作 cooking-food。 山珍 的第 1 个效果使用了未知目标 selected。 山珍 的牌组同名上限不合法。 海味 引用了未知角色 。 海味 使用了未知目标类型 food-target。 海味 使用了未注册效果 cooking-food。 海味 的第 1 个效果使用了未注册动作 cooking-food。 海味 的第 1 个效果使用了未知目标 selected。 海味 的牌组同名上限不合法。 时蔬 引用了未知角色 。 时蔬 使用了未知目标类型 food-target。 时蔬 使用了未注册效果 cooking-food。 时蔬 的第 1 个效果使用了未注册动作 cooking-food。 时蔬 的第 1 个效果使用了未知目标 selected。 时蔬 的牌组同名上限不合法。 黑暗料理 引用了未知角色 。 黑暗料理 使用了未知目标类型 food-target。 黑暗料理 使用了未注册效果 cooking-food。 黑暗料理 的第 1 个效果使用了未注册动作 cooking-food。 黑暗料理 的第 1 个效果使用了未知目标 selected。 黑暗料理 的牌组同名上限不合法。 怨缚草人 使用了未注册效果 doll-token。 怨缚草人 的第 1 个效果使用了未注册动作 doll-token。 怨缚草人 的牌组同名上限不合法。 诅咒草人 使用了未注册效果 doll-token。 诅咒草人 的第 1 个效果使用了未注册动作 doll-token。 诅咒草人 的牌组同名上限不合法。 替身草人 使用了未注册效果 doll-token。 替身草人 的第 1 个效果使用了未注册动作 doll-token。 替身草人 的牌组同名上限不合法。 勤勉修行 使用了未注册效果 yitiao-skill-grow。 勤勉修行 的第 1 个效果使用了未注册动作 yitiao-skill-grow。 勤勉修行 的第 2 个效果使用了未注册动作 yitiao-combat。 勤勉修行 的牌组同名上限不合法。 达知 使用了未注册效果 baize-dazhi。 达知 的第 1 个效果使用了未注册动作 baize-dazhi。 达知 的牌组同名上限不合法。 湮灭 使用了未知目标类型 any-unit。 湮灭 使用了未注册效果 ark-annihilate。 湮灭 的第 1 个效果使用了未注册动作 ark-annihilate。 湮灭 的第 1 个效果使用了未知目标 selected。 湮灭 的牌组同名上限不合法。 追加攻击 使用了未注册效果 zd-combat。 追加攻击 的第 1 个效果使用了未注册动作 zd-combat。 追加攻击 的牌组同名上限不合法。 剑气 使用了未注册效果 rw-card。 剑气 的第 1 个效果使用了未注册动作 rw-card。 剑气 的牌组同名上限不合法。 髭切 使用了未注册效果 onikiri-attach。 髭切 的第 1 个效果使用了未注册动作 onikiri-attach。 髭切 的牌组同名上限不合法。 友切 使用了未注册效果 onikiri-attach。 友切 的第 1 个效果使用了未注册动作 onikiri-attach。 友切 的牌组同名上限不合法。 狮子之子 使用了未注册效果 onikiri-attach。 狮子之子 的第 1 个效果使用了未注册动作 onikiri-attach。 狮子之子 的牌组同名上限不合法。 八尺琼曲玉 使用了未注册效果 otake-jade-token。 八尺琼曲玉 的第 1 个效果使用了未注册动作 otake-jade-token。 八尺琼曲玉 的牌组同名上限不合法。 妖怪屋 使用了未注册效果 house-token。 妖怪屋 的第 1 个效果使用了未注册动作 house-token。 妖怪屋 的牌组同名上限不合法。
+#     at file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835:37
+#     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+#     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+# Node.js v22.23.1
+# Subtest: tests/game-awakening.test.js
+not ok 4 - tests/game-awakening.test.js
+  ---
+  duration_ms: 163.285833
+  type: 'test'
+  location: '/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/tests/game-awakening.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: initial collection owns starter copies (deckLimit-capped for awakening cards) and nothing else
+ok 12 - initial collection owns starter copies (deckLimit-capped for awakening cards) and nothing else
+  ---
+  duration_ms: 2.264292
+  type: 'test'
+  ...
+# Subtest: holo pulls are independent from rarity and persist as owned variants
+ok 13 - holo pulls are independent from rarity and persist as owned variants
+  ---
+  duration_ms: 8.4125
+  type: 'test'
+  ...
+# Subtest: opening a pack costs balance, returns five cards, and resets pity on epic
+ok 14 - opening a pack costs balance, returns five cards, and resets pity on epic
+  ---
+  duration_ms: 1.267125
+  type: 'test'
+  ...
+# Subtest: duplicate cards convert into currency and never exceed the cap
+ok 15 - duplicate cards convert into currency and never exceed the cap
+  ---
+  duration_ms: 1.060917
+  type: 'test'
+  ...
+# Subtest: pity forces an epic at the 25th pack since the last epic
+ok 16 - pity forces an epic at the 25th pack since the last epic
+  ---
+  duration_ms: 8.58275
+  type: 'test'
+  ...
+# Subtest: insufficient balance refuses to open a pack
+ok 17 - insufficient balance refuses to open a pack
+  ---
+  duration_ms: 0.756542
+  type: 'test'
+  ...
+# Subtest: crafting charges rarity cost and stops at the copy cap
+ok 18 - crafting charges rarity cost and stops at the copy cap
+  ---
+  duration_ms: 3.017542
+  type: 'test'
+  ...
+# Subtest: match rewards track wins and losses
+ok 19 - match rewards track wins and losses
+  ---
+  duration_ms: 2.098
+  type: 'test'
+  ...
+# Subtest: collection survives a serialization round trip and drops ghost cards
+ok 20 - collection survives a serialization round trip and drops ghost cards
+  ---
+  duration_ms: 46.984958
+  type: 'test'
+  ...
+# Subtest: version 1 collections migrate without losing progress
+ok 21 - version 1 collections migrate without losing progress
+  ---
+  duration_ms: 40.029917
+  type: 'test'
+  ...
+# Subtest: trial availability never grants ownership and respects individual limits
+ok 22 - trial availability never grants ownership and respects individual limits
+  ---
+  duration_ms: 1.244667
+  type: 'test'
+  ...
+# Subtest: testing rewards grant three packs per win and one and a half per loss without unlocking cards
+ok 23 - testing rewards grant three packs per win and one and a half per loss without unlocking cards
+  ---
+  duration_ms: 1.2815
+  type: 'test'
+  ...
+# file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835
+# if (!contentValidation.valid) throw new Error(contentValidation.errors.join(' '));
+#                                     ^
+# Error: 海原贝戟 的卡池至少需要 8 种卡。 海原贝戟 的起始构筑需要 8 张卡。 海原贝戟 缺少被动定义。 海原贝戟 缺少觉醒被动定义。 海原贝戟 必须恰好有 1 张觉醒牌，当前 0 张。 饱腹 使用了未注册效果 glutton-charm-token。 饱腹 的第 1 个效果使用了未注册动作 glutton-charm-token。 饱腹 的牌组同名上限不合法。 幻役 使用了未注册效果 vine-phantom。 幻役 的第 1 个效果使用了未注册动作 vine-phantom。 幻役 的牌组同名上限不合法。 觉醒·傀儡术 的牌组同名上限不合法。 咏流 使用了未注册效果 rt-summon。 咏流 的第 1 个效果使用了未注册动作 rt-summon。 咏流 的牌组同名上限不合法。 山珍 引用了未知角色 。 山珍 使用了未知目标类型 food-target。 山珍 使用了未注册效果 cooking-food。 山珍 的第 1 个效果使用了未注册动作 cooking-food。 山珍 的第 1 个效果使用了未知目标 selected。 山珍 的牌组同名上限不合法。 海味 引用了未知角色 。 海味 使用了未知目标类型 food-target。 海味 使用了未注册效果 cooking-food。 海味 的第 1 个效果使用了未注册动作 cooking-food。 海味 的第 1 个效果使用了未知目标 selected。 海味 的牌组同名上限不合法。 时蔬 引用了未知角色 。 时蔬 使用了未知目标类型 food-target。 时蔬 使用了未注册效果 cooking-food。 时蔬 的第 1 个效果使用了未注册动作 cooking-food。 时蔬 的第 1 个效果使用了未知目标 selected。 时蔬 的牌组同名上限不合法。 黑暗料理 引用了未知角色 。 黑暗料理 使用了未知目标类型 food-target。 黑暗料理 使用了未注册效果 cooking-food。 黑暗料理 的第 1 个效果使用了未注册动作 cooking-food。 黑暗料理 的第 1 个效果使用了未知目标 selected。 黑暗料理 的牌组同名上限不合法。 怨缚草人 使用了未注册效果 doll-token。 怨缚草人 的第 1 个效果使用了未注册动作 doll-token。 怨缚草人 的牌组同名上限不合法。 诅咒草人 使用了未注册效果 doll-token。 诅咒草人 的第 1 个效果使用了未注册动作 doll-token。 诅咒草人 的牌组同名上限不合法。 替身草人 使用了未注册效果 doll-token。 替身草人 的第 1 个效果使用了未注册动作 doll-token。 替身草人 的牌组同名上限不合法。 勤勉修行 使用了未注册效果 yitiao-skill-grow。 勤勉修行 的第 1 个效果使用了未注册动作 yitiao-skill-grow。 勤勉修行 的第 2 个效果使用了未注册动作 yitiao-combat。 勤勉修行 的牌组同名上限不合法。 达知 使用了未注册效果 baize-dazhi。 达知 的第 1 个效果使用了未注册动作 baize-dazhi。 达知 的牌组同名上限不合法。 湮灭 使用了未知目标类型 any-unit。 湮灭 使用了未注册效果 ark-annihilate。 湮灭 的第 1 个效果使用了未注册动作 ark-annihilate。 湮灭 的第 1 个效果使用了未知目标 selected。 湮灭 的牌组同名上限不合法。 追加攻击 使用了未注册效果 zd-combat。 追加攻击 的第 1 个效果使用了未注册动作 zd-combat。 追加攻击 的牌组同名上限不合法。 剑气 使用了未注册效果 rw-card。 剑气 的第 1 个效果使用了未注册动作 rw-card。 剑气 的牌组同名上限不合法。 髭切 使用了未注册效果 onikiri-attach。 髭切 的第 1 个效果使用了未注册动作 onikiri-attach。 髭切 的牌组同名上限不合法。 友切 使用了未注册效果 onikiri-attach。 友切 的第 1 个效果使用了未注册动作 onikiri-attach。 友切 的牌组同名上限不合法。 狮子之子 使用了未注册效果 onikiri-attach。 狮子之子 的第 1 个效果使用了未注册动作 onikiri-attach。 狮子之子 的牌组同名上限不合法。 八尺琼曲玉 使用了未注册效果 otake-jade-token。 八尺琼曲玉 的第 1 个效果使用了未注册动作 otake-jade-token。 八尺琼曲玉 的牌组同名上限不合法。 妖怪屋 使用了未注册效果 house-token。 妖怪屋 的第 1 个效果使用了未注册动作 house-token。 妖怪屋 的牌组同名上限不合法。
+#     at file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835:37
+#     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+#     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+# Node.js v22.23.1
+# Subtest: tests/game-core.test.js
+not ok 6 - tests/game-core.test.js
+  ---
+  duration_ms: 160.333834
+  type: 'test'
+  location: '/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/tests/game-core.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835
+# if (!contentValidation.valid) throw new Error(contentValidation.errors.join(' '));
+#                                     ^
+# Error: 海原贝戟 的卡池至少需要 8 种卡。 海原贝戟 的起始构筑需要 8 张卡。 海原贝戟 缺少被动定义。 海原贝戟 缺少觉醒被动定义。 海原贝戟 必须恰好有 1 张觉醒牌，当前 0 张。 饱腹 使用了未注册效果 glutton-charm-token。 饱腹 的第 1 个效果使用了未注册动作 glutton-charm-token。 饱腹 的牌组同名上限不合法。 幻役 使用了未注册效果 vine-phantom。 幻役 的第 1 个效果使用了未注册动作 vine-phantom。 幻役 的牌组同名上限不合法。 觉醒·傀儡术 的牌组同名上限不合法。 咏流 使用了未注册效果 rt-summon。 咏流 的第 1 个效果使用了未注册动作 rt-summon。 咏流 的牌组同名上限不合法。 山珍 引用了未知角色 。 山珍 使用了未知目标类型 food-target。 山珍 使用了未注册效果 cooking-food。 山珍 的第 1 个效果使用了未注册动作 cooking-food。 山珍 的第 1 个效果使用了未知目标 selected。 山珍 的牌组同名上限不合法。 海味 引用了未知角色 。 海味 使用了未知目标类型 food-target。 海味 使用了未注册效果 cooking-food。 海味 的第 1 个效果使用了未注册动作 cooking-food。 海味 的第 1 个效果使用了未知目标 selected。 海味 的牌组同名上限不合法。 时蔬 引用了未知角色 。 时蔬 使用了未知目标类型 food-target。 时蔬 使用了未注册效果 cooking-food。 时蔬 的第 1 个效果使用了未注册动作 cooking-food。 时蔬 的第 1 个效果使用了未知目标 selected。 时蔬 的牌组同名上限不合法。 黑暗料理 引用了未知角色 。 黑暗料理 使用了未知目标类型 food-target。 黑暗料理 使用了未注册效果 cooking-food。 黑暗料理 的第 1 个效果使用了未注册动作 cooking-food。 黑暗料理 的第 1 个效果使用了未知目标 selected。 黑暗料理 的牌组同名上限不合法。 怨缚草人 使用了未注册效果 doll-token。 怨缚草人 的第 1 个效果使用了未注册动作 doll-token。 怨缚草人 的牌组同名上限不合法。 诅咒草人 使用了未注册效果 doll-token。 诅咒草人 的第 1 个效果使用了未注册动作 doll-token。 诅咒草人 的牌组同名上限不合法。 替身草人 使用了未注册效果 doll-token。 替身草人 的第 1 个效果使用了未注册动作 doll-token。 替身草人 的牌组同名上限不合法。 勤勉修行 使用了未注册效果 yitiao-skill-grow。 勤勉修行 的第 1 个效果使用了未注册动作 yitiao-skill-grow。 勤勉修行 的第 2 个效果使用了未注册动作 yitiao-combat。 勤勉修行 的牌组同名上限不合法。 达知 使用了未注册效果 baize-dazhi。 达知 的第 1 个效果使用了未注册动作 baize-dazhi。 达知 的牌组同名上限不合法。 湮灭 使用了未知目标类型 any-unit。 湮灭 使用了未注册效果 ark-annihilate。 湮灭 的第 1 个效果使用了未注册动作 ark-annihilate。 湮灭 的第 1 个效果使用了未知目标 selected。 湮灭 的牌组同名上限不合法。 追加攻击 使用了未注册效果 zd-combat。 追加攻击 的第 1 个效果使用了未注册动作 zd-combat。 追加攻击 的牌组同名上限不合法。 剑气 使用了未注册效果 rw-card。 剑气 的第 1 个效果使用了未注册动作 rw-card。 剑气 的牌组同名上限不合法。 髭切 使用了未注册效果 onikiri-attach。 髭切 的第 1 个效果使用了未注册动作 onikiri-attach。 髭切 的牌组同名上限不合法。 友切 使用了未注册效果 onikiri-attach。 友切 的第 1 个效果使用了未注册动作 onikiri-attach。 友切 的牌组同名上限不合法。 狮子之子 使用了未注册效果 onikiri-attach。 狮子之子 的第 1 个效果使用了未注册动作 onikiri-attach。 狮子之子 的牌组同名上限不合法。 八尺琼曲玉 使用了未注册效果 otake-jade-token。 八尺琼曲玉 的第 1 个效果使用了未注册动作 otake-jade-token。 八尺琼曲玉 的牌组同名上限不合法。 妖怪屋 使用了未注册效果 house-token。 妖怪屋 的第 1 个效果使用了未注册动作 house-token。 妖怪屋 的牌组同名上限不合法。
+#     at file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835:37
+#     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+#     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+# Node.js v22.23.1
+# Subtest: tests/game-expansion.test.js
+not ok 7 - tests/game-expansion.test.js
+  ---
+  duration_ms: 162.609667
+  type: 'test'
+  location: '/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/tests/game-expansion.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: keyword registry exposes immutable reusable definitions
+ok 26 - keyword registry exposes immutable reusable definitions
+  ---
+  duration_ms: 2.073875
+  type: 'test'
+  ...
+# Subtest: instant uses the shared turn state and card cost lifecycle
+ok 27 - instant uses the shared turn state and card cost lifecycle
+  ---
+  duration_ms: 0.473667
+  type: 'test'
+  ...
+# Subtest: keyword cost queries do not mutate missing usage state
+ok 28 - keyword cost queries do not mutate missing usage state
+  ---
+  duration_ms: 0.091375
+  type: 'test'
+  ...
+# Subtest: combat keywords contribute composable options without coupling to card ids
+ok 29 - combat keywords contribute composable options without coupling to card ids
+  ---
+  duration_ms: 5.724208
+  type: 'test'
+  ...
+# Subtest: encourage accumulates as player state and is consumed only after combat
+ok 30 - encourage accumulates as player state and is consumed only after combat
+  ---
+  duration_ms: 0.528208
+  type: 'test'
+  ...
+# Subtest: charge grows per unit, gates cards, and is paid through the resolution hook
+ok 31 - charge grows per unit, gates cards, and is paid through the resolution hook
+  ---
+  duration_ms: 0.66625
+  type: 'test'
+  ...
+# Subtest: countdown owns its realm trigger lifecycle and resets after resolution
+ok 32 - countdown owns its realm trigger lifecycle and resets after resolution
+  ---
+  duration_ms: 0.242417
+  type: 'test'
+  ...
+# Subtest: keyword validation rejects unknown, duplicate, and incompatible declarations
+ok 33 - keyword validation rejects unknown, duplicate, and incompatible declarations
+  ---
+  duration_ms: 0.422375
+  type: 'test'
+  ...
+# Subtest: unyielding status exposes its active and one-hp conditions
+ok 34 - unyielding status exposes its active and one-hp conditions
+  ---
+  duration_ms: 0.348916
+  type: 'test'
+  ...
+# Subtest: parity harness ships neutral samples and compare tool
+ok 35 - parity harness ships neutral samples and compare tool
+  ---
+  duration_ms: 0.879791
+  type: 'test'
+  ...
+# Subtest: parity snapshots after a match run stay consistent when present
+ok 36 - parity snapshots after a match run stay consistent when present
+  ---
+  duration_ms: 0.291208
+  type: 'test'
+  ...
+# file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835
+# if (!contentValidation.valid) throw new Error(contentValidation.errors.join(' '));
+#                                     ^
+# Error: 海原贝戟 的卡池至少需要 8 种卡。 海原贝戟 的起始构筑需要 8 张卡。 海原贝戟 缺少被动定义。 海原贝戟 缺少觉醒被动定义。 海原贝戟 必须恰好有 1 张觉醒牌，当前 0 张。 饱腹 使用了未注册效果 glutton-charm-token。 饱腹 的第 1 个效果使用了未注册动作 glutton-charm-token。 饱腹 的牌组同名上限不合法。 幻役 使用了未注册效果 vine-phantom。 幻役 的第 1 个效果使用了未注册动作 vine-phantom。 幻役 的牌组同名上限不合法。 觉醒·傀儡术 的牌组同名上限不合法。 咏流 使用了未注册效果 rt-summon。 咏流 的第 1 个效果使用了未注册动作 rt-summon。 咏流 的牌组同名上限不合法。 山珍 引用了未知角色 。 山珍 使用了未知目标类型 food-target。 山珍 使用了未注册效果 cooking-food。 山珍 的第 1 个效果使用了未注册动作 cooking-food。 山珍 的第 1 个效果使用了未知目标 selected。 山珍 的牌组同名上限不合法。 海味 引用了未知角色 。 海味 使用了未知目标类型 food-target。 海味 使用了未注册效果 cooking-food。 海味 的第 1 个效果使用了未注册动作 cooking-food。 海味 的第 1 个效果使用了未知目标 selected。 海味 的牌组同名上限不合法。 时蔬 引用了未知角色 。 时蔬 使用了未知目标类型 food-target。 时蔬 使用了未注册效果 cooking-food。 时蔬 的第 1 个效果使用了未注册动作 cooking-food。 时蔬 的第 1 个效果使用了未知目标 selected。 时蔬 的牌组同名上限不合法。 黑暗料理 引用了未知角色 。 黑暗料理 使用了未知目标类型 food-target。 黑暗料理 使用了未注册效果 cooking-food。 黑暗料理 的第 1 个效果使用了未注册动作 cooking-food。 黑暗料理 的第 1 个效果使用了未知目标 selected。 黑暗料理 的牌组同名上限不合法。 怨缚草人 使用了未注册效果 doll-token。 怨缚草人 的第 1 个效果使用了未注册动作 doll-token。 怨缚草人 的牌组同名上限不合法。 诅咒草人 使用了未注册效果 doll-token。 诅咒草人 的第 1 个效果使用了未注册动作 doll-token。 诅咒草人 的牌组同名上限不合法。 替身草人 使用了未注册效果 doll-token。 替身草人 的第 1 个效果使用了未注册动作 doll-token。 替身草人 的牌组同名上限不合法。 勤勉修行 使用了未注册效果 yitiao-skill-grow。 勤勉修行 的第 1 个效果使用了未注册动作 yitiao-skill-grow。 勤勉修行 的第 2 个效果使用了未注册动作 yitiao-combat。 勤勉修行 的牌组同名上限不合法。 达知 使用了未注册效果 baize-dazhi。 达知 的第 1 个效果使用了未注册动作 baize-dazhi。 达知 的牌组同名上限不合法。 湮灭 使用了未知目标类型 any-unit。 湮灭 使用了未注册效果 ark-annihilate。 湮灭 的第 1 个效果使用了未注册动作 ark-annihilate。 湮灭 的第 1 个效果使用了未知目标 selected。 湮灭 的牌组同名上限不合法。 追加攻击 使用了未注册效果 zd-combat。 追加攻击 的第 1 个效果使用了未注册动作 zd-combat。 追加攻击 的牌组同名上限不合法。 剑气 使用了未注册效果 rw-card。 剑气 的第 1 个效果使用了未注册动作 rw-card。 剑气 的牌组同名上限不合法。 髭切 使用了未注册效果 onikiri-attach。 髭切 的第 1 个效果使用了未注册动作 onikiri-attach。 髭切 的牌组同名上限不合法。 友切 使用了未注册效果 onikiri-attach。 友切 的第 1 个效果使用了未注册动作 onikiri-attach。 友切 的牌组同名上限不合法。 狮子之子 使用了未注册效果 onikiri-attach。 狮子之子 的第 1 个效果使用了未注册动作 onikiri-attach。 狮子之子 的牌组同名上限不合法。 八尺琼曲玉 使用了未注册效果 otake-jade-token。 八尺琼曲玉 的第 1 个效果使用了未注册动作 otake-jade-token。 八尺琼曲玉 的牌组同名上限不合法。 妖怪屋 使用了未注册效果 house-token。 妖怪屋 的第 1 个效果使用了未注册动作 house-token。 妖怪屋 的牌组同名上限不合法。
+#     at file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835:37
+#     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+#     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+# Node.js v22.23.1
+# Subtest: tests/game-phoenix-verified.test.js
+not ok 10 - tests/game-phoenix-verified.test.js
+  ---
+  duration_ms: 151.863458
+  type: 'test'
+  location: '/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/tests/game-phoenix-verified.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835
+# if (!contentValidation.valid) throw new Error(contentValidation.errors.join(' '));
+#                                     ^
+# Error: 海原贝戟 的卡池至少需要 8 种卡。 海原贝戟 的起始构筑需要 8 张卡。 海原贝戟 缺少被动定义。 海原贝戟 缺少觉醒被动定义。 海原贝戟 必须恰好有 1 张觉醒牌，当前 0 张。 饱腹 使用了未注册效果 glutton-charm-token。 饱腹 的第 1 个效果使用了未注册动作 glutton-charm-token。 饱腹 的牌组同名上限不合法。 幻役 使用了未注册效果 vine-phantom。 幻役 的第 1 个效果使用了未注册动作 vine-phantom。 幻役 的牌组同名上限不合法。 觉醒·傀儡术 的牌组同名上限不合法。 咏流 使用了未注册效果 rt-summon。 咏流 的第 1 个效果使用了未注册动作 rt-summon。 咏流 的牌组同名上限不合法。 山珍 引用了未知角色 。 山珍 使用了未知目标类型 food-target。 山珍 使用了未注册效果 cooking-food。 山珍 的第 1 个效果使用了未注册动作 cooking-food。 山珍 的第 1 个效果使用了未知目标 selected。 山珍 的牌组同名上限不合法。 海味 引用了未知角色 。 海味 使用了未知目标类型 food-target。 海味 使用了未注册效果 cooking-food。 海味 的第 1 个效果使用了未注册动作 cooking-food。 海味 的第 1 个效果使用了未知目标 selected。 海味 的牌组同名上限不合法。 时蔬 引用了未知角色 。 时蔬 使用了未知目标类型 food-target。 时蔬 使用了未注册效果 cooking-food。 时蔬 的第 1 个效果使用了未注册动作 cooking-food。 时蔬 的第 1 个效果使用了未知目标 selected。 时蔬 的牌组同名上限不合法。 黑暗料理 引用了未知角色 。 黑暗料理 使用了未知目标类型 food-target。 黑暗料理 使用了未注册效果 cooking-food。 黑暗料理 的第 1 个效果使用了未注册动作 cooking-food。 黑暗料理 的第 1 个效果使用了未知目标 selected。 黑暗料理 的牌组同名上限不合法。 怨缚草人 使用了未注册效果 doll-token。 怨缚草人 的第 1 个效果使用了未注册动作 doll-token。 怨缚草人 的牌组同名上限不合法。 诅咒草人 使用了未注册效果 doll-token。 诅咒草人 的第 1 个效果使用了未注册动作 doll-token。 诅咒草人 的牌组同名上限不合法。 替身草人 使用了未注册效果 doll-token。 替身草人 的第 1 个效果使用了未注册动作 doll-token。 替身草人 的牌组同名上限不合法。 勤勉修行 使用了未注册效果 yitiao-skill-grow。 勤勉修行 的第 1 个效果使用了未注册动作 yitiao-skill-grow。 勤勉修行 的第 2 个效果使用了未注册动作 yitiao-combat。 勤勉修行 的牌组同名上限不合法。 达知 使用了未注册效果 baize-dazhi。 达知 的第 1 个效果使用了未注册动作 baize-dazhi。 达知 的牌组同名上限不合法。 湮灭 使用了未知目标类型 any-unit。 湮灭 使用了未注册效果 ark-annihilate。 湮灭 的第 1 个效果使用了未注册动作 ark-annihilate。 湮灭 的第 1 个效果使用了未知目标 selected。 湮灭 的牌组同名上限不合法。 追加攻击 使用了未注册效果 zd-combat。 追加攻击 的第 1 个效果使用了未注册动作 zd-combat。 追加攻击 的牌组同名上限不合法。 剑气 使用了未注册效果 rw-card。 剑气 的第 1 个效果使用了未注册动作 rw-card。 剑气 的牌组同名上限不合法。 髭切 使用了未注册效果 onikiri-attach。 髭切 的第 1 个效果使用了未注册动作 onikiri-attach。 髭切 的牌组同名上限不合法。 友切 使用了未注册效果 onikiri-attach。 友切 的第 1 个效果使用了未注册动作 onikiri-attach。 友切 的牌组同名上限不合法。 狮子之子 使用了未注册效果 onikiri-attach。 狮子之子 的第 1 个效果使用了未注册动作 onikiri-attach。 狮子之子 的牌组同名上限不合法。 八尺琼曲玉 使用了未注册效果 otake-jade-token。 八尺琼曲玉 的第 1 个效果使用了未注册动作 otake-jade-token。 八尺琼曲玉 的牌组同名上限不合法。 妖怪屋 使用了未注册效果 house-token。 妖怪屋 的第 1 个效果使用了未注册动作 house-token。 妖怪屋 的牌组同名上限不合法。
+#     at file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835:37
+#     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+#     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+# Node.js v22.23.1
+# Subtest: tests/game-presentation.test.js
+not ok 11 - tests/game-presentation.test.js
+  ---
+  duration_ms: 143.8135
+  type: 'test'
+  location: '/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/tests/game-presentation.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835
+# if (!contentValidation.valid) throw new Error(contentValidation.errors.join(' '));
+#                                     ^
+# Error: 海原贝戟 的卡池至少需要 8 种卡。 海原贝戟 的起始构筑需要 8 张卡。 海原贝戟 缺少被动定义。 海原贝戟 缺少觉醒被动定义。 海原贝戟 必须恰好有 1 张觉醒牌，当前 0 张。 饱腹 使用了未注册效果 glutton-charm-token。 饱腹 的第 1 个效果使用了未注册动作 glutton-charm-token。 饱腹 的牌组同名上限不合法。 幻役 使用了未注册效果 vine-phantom。 幻役 的第 1 个效果使用了未注册动作 vine-phantom。 幻役 的牌组同名上限不合法。 觉醒·傀儡术 的牌组同名上限不合法。 咏流 使用了未注册效果 rt-summon。 咏流 的第 1 个效果使用了未注册动作 rt-summon。 咏流 的牌组同名上限不合法。 山珍 引用了未知角色 。 山珍 使用了未知目标类型 food-target。 山珍 使用了未注册效果 cooking-food。 山珍 的第 1 个效果使用了未注册动作 cooking-food。 山珍 的第 1 个效果使用了未知目标 selected。 山珍 的牌组同名上限不合法。 海味 引用了未知角色 。 海味 使用了未知目标类型 food-target。 海味 使用了未注册效果 cooking-food。 海味 的第 1 个效果使用了未注册动作 cooking-food。 海味 的第 1 个效果使用了未知目标 selected。 海味 的牌组同名上限不合法。 时蔬 引用了未知角色 。 时蔬 使用了未知目标类型 food-target。 时蔬 使用了未注册效果 cooking-food。 时蔬 的第 1 个效果使用了未注册动作 cooking-food。 时蔬 的第 1 个效果使用了未知目标 selected。 时蔬 的牌组同名上限不合法。 黑暗料理 引用了未知角色 。 黑暗料理 使用了未知目标类型 food-target。 黑暗料理 使用了未注册效果 cooking-food。 黑暗料理 的第 1 个效果使用了未注册动作 cooking-food。 黑暗料理 的第 1 个效果使用了未知目标 selected。 黑暗料理 的牌组同名上限不合法。 怨缚草人 使用了未注册效果 doll-token。 怨缚草人 的第 1 个效果使用了未注册动作 doll-token。 怨缚草人 的牌组同名上限不合法。 诅咒草人 使用了未注册效果 doll-token。 诅咒草人 的第 1 个效果使用了未注册动作 doll-token。 诅咒草人 的牌组同名上限不合法。 替身草人 使用了未注册效果 doll-token。 替身草人 的第 1 个效果使用了未注册动作 doll-token。 替身草人 的牌组同名上限不合法。 勤勉修行 使用了未注册效果 yitiao-skill-grow。 勤勉修行 的第 1 个效果使用了未注册动作 yitiao-skill-grow。 勤勉修行 的第 2 个效果使用了未注册动作 yitiao-combat。 勤勉修行 的牌组同名上限不合法。 达知 使用了未注册效果 baize-dazhi。 达知 的第 1 个效果使用了未注册动作 baize-dazhi。 达知 的牌组同名上限不合法。 湮灭 使用了未知目标类型 any-unit。 湮灭 使用了未注册效果 ark-annihilate。 湮灭 的第 1 个效果使用了未注册动作 ark-annihilate。 湮灭 的第 1 个效果使用了未知目标 selected。 湮灭 的牌组同名上限不合法。 追加攻击 使用了未注册效果 zd-combat。 追加攻击 的第 1 个效果使用了未注册动作 zd-combat。 追加攻击 的牌组同名上限不合法。 剑气 使用了未注册效果 rw-card。 剑气 的第 1 个效果使用了未注册动作 rw-card。 剑气 的牌组同名上限不合法。 髭切 使用了未注册效果 onikiri-attach。 髭切 的第 1 个效果使用了未注册动作 onikiri-attach。 髭切 的牌组同名上限不合法。 友切 使用了未注册效果 onikiri-attach。 友切 的第 1 个效果使用了未注册动作 onikiri-attach。 友切 的牌组同名上限不合法。 狮子之子 使用了未注册效果 onikiri-attach。 狮子之子 的第 1 个效果使用了未注册动作 onikiri-attach。 狮子之子 的牌组同名上限不合法。 八尺琼曲玉 使用了未注册效果 otake-jade-token。 八尺琼曲玉 的第 1 个效果使用了未注册动作 otake-jade-token。 八尺琼曲玉 的牌组同名上限不合法。 妖怪屋 使用了未注册效果 house-token。 妖怪屋 的第 1 个效果使用了未注册动作 house-token。 妖怪屋 的牌组同名上限不合法。
+#     at file:///Users/thysummer/GitHub%E9%A1%B9%E7%9B%AE%E9%9B%86/08-%E6%B8%B8%E6%88%8F/%E7%99%BE%E9%97%BB%E7%89%8C-duel/game-core.js:2835:37
+#     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+#     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+# Node.js v22.23.1
+# Subtest: tests/game-session.test.js
+not ok 12 - tests/game-session.test.js
+  ---
+  duration_ms: 152.143875
+  type: 'test'
+  location: '/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/tests/game-session.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..39
+# tests 39
+# suites 0
+# pass 32
+# fail 7
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 821.627708

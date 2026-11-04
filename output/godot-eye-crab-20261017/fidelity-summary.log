@@ -1,0 +1,45 @@
+
+> spirit-duel@0.1.0 audit:rules
+> node scripts/audit-rule-fidelity.mjs --out output/godot-eye-crab-20261017/fidelity-report.json
+
+{
+  "fullCatalogRestored": false,
+  "summary": {
+    "units": {
+      "known-approximation": 134,
+      "unreviewed": 63,
+      "pending-verification": 38,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 889,
+      "unreviewed": 785,
+      "pending-verification": 233,
+      "source-backed-native": 207
+    }
+  },
+  "errors": [
+    "Missing executable reviewed rules: w11-fanqie-01",
+    "Missing executable reviewed rules: w11-fanqie-02",
+    "Missing executable reviewed rules: w11-fanqie-03",
+    "Approximation in reviewed cards: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-05",
+    "Missing executable reviewed rules: w11-fanqie-06",
+    "Missing executable reviewed rules: w11-fanqie-07",
+    "Missing executable reviewed rules: w11-fanqie-08",
+    "Approximation in reviewed cards: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-02",
+    "Missing executable reviewed rules: w11-jinran-buye-03",
+    "Missing executable reviewed rules: w11-jinran-buye-04",
+    "Missing executable reviewed rules: w11-jinran-buye-05",
+    "Missing executable reviewed rules: w11-jinran-buye-06",
+    "Missing executable reviewed rules: w11-jinran-buye-07",
+    "Missing executable reviewed rules: w11-jinran-buye-08",
+    "Missing executable reviewed rules: c11108"
+  ]
+}
+RULE_FIDELITY_INCOMPLETE: 全库仍存在简化或未核对内容。稳定性测试通过不等于效果还原。
+
+exitCode=1

@@ -1,0 +1,212 @@
+{
+  "batch": "godot-octet-20261030",
+  "reviewed_at": "2026-11-02",
+  "roles": [
+    "yunwaijing",
+    "song"
+  ],
+  "main_cards": [
+    "c24201",
+    "c24202",
+    "c24203",
+    "c24204",
+    "c24205",
+    "c24206",
+    "c24207",
+    "c24208",
+    "c24401",
+    "c24402",
+    "c24403",
+    "c24404",
+    "c24405",
+    "c24406",
+    "c24407",
+    "c24408"
+  ],
+  "logs": {
+    "rules-final.log": {
+      "checks": 259,
+      "failures": 0,
+      "script_errors": false,
+      "sha256": "202c25db7126453562ffef8813ffabf9c582411366577fa6a046bb34560b4b12"
+    },
+    "rules-final2.log": {
+      "checks": 312,
+      "failures": 2,
+      "script_errors": false,
+      "sha256": "d7587059bc5872c1b05ec3ff7521d78587476ae0af2b7a53bc8b50c1e886019b"
+    },
+    "rules-final3.log": {
+      "checks": 312,
+      "failures": 0,
+      "script_errors": false,
+      "sha256": "c8a25065a20e769c1330c90965fff43c375ae10715f62be5dedba8dadca48a38"
+    },
+    "native-first.log": {
+      "checks": 295,
+      "failures": 0,
+      "script_errors": false,
+      "sha256": "0e9c4b88123e1728bfe086b6c7ea13ffa224c2e362632dace129be5d5635e522"
+    },
+    "rules-lifesteal-first.log": {
+      "checks": 330,
+      "failures": 2,
+      "script_errors": false,
+      "sha256": "914ded4f74c3cebb5e4ee557b6e21cdcdf0049f4df69b4f0579311b2eae48ae2"
+    },
+    "rules-lifesteal-before-fix.log": {
+      "checks": 336,
+      "failures": 2,
+      "script_errors": false,
+      "sha256": "04cfc5737cbb1befa6dc430f9aede2e46befcbd761238d2c3d753ee8eeb14f44"
+    },
+    "rules-final4.log": {
+      "checks": 336,
+      "failures": 0,
+      "script_errors": false,
+      "sha256": "7fec32665bf4c2ac9ce30d79cd118fbee76491078d58bd03fb6fe6769bc36a70"
+    }
+  },
+  "final_pure": {
+    "status": "passed",
+    "log": "rules-final4.log",
+    "checks": 336,
+    "failures": 0,
+    "script_errors": false
+  },
+  "native": {
+    "log": "native-first.log",
+    "checks": 295,
+    "rules_checks": 259,
+    "interaction_checks": 20,
+    "original_texture_checks": 16,
+    "sizes": [
+      [
+        1280,
+        800
+      ],
+      [
+        1600,
+        740
+      ]
+    ],
+    "screenshots_reviewed": [
+      "1280-01-mirror-link.png",
+      "1280-02-song-four-choice.png",
+      "1280-03-beauty-receiver.png",
+      "1280-04-command-resolved.png",
+      "1600-01-mirror-link.png",
+      "1600-02-song-four-choice.png",
+      "1600-03-beauty-receiver.png",
+      "1600-04-command-resolved.png"
+    ],
+    "latest_new_cases": "pure rules only; no new UI path added"
+  },
+  "art_checks": [
+    {
+      "card": "c24201",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24202",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24203",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24204",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24205",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24206",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24207",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24208",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24401",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24402",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24403",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24404",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24405",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24406",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24407",
+      "source_matches": true,
+      "target_matches": true
+    },
+    {
+      "card": "c24408",
+      "source_matches": true,
+      "target_matches": true
+    }
+  ],
+  "frozen_files": {
+    "godot/scripts/mirror_song_rules.gd": "edc5ddaf743635dce2209cc0450a75c6b771a6b66e1e68e07f72d04ce3c539e7",
+    "godot/scripts/verify_mirror_song.gd": "e63027fd983604f01db6f7cf0271bc4108fc0e5142b6078051ca9cb9e98a0093"
+  },
+  "unresolved": [
+    "未逐牌覆盖指定录像",
+    "连引/蓄力/反制/洗牌观察者/附加使用效果复杂全序",
+    "浮世万象所有回收路径与同名效果叠加",
+    "绮丽屏障/破甲/贯通/多段转移完整边界",
+    "同侧指挥攻击下所有专有被动组合"
+  ],
+  "overlay_production_differences": [],
+  "barrier_lifesteal": {
+    "before_fix_log": "rules-lifesteal-before-fix.log",
+    "after_fix_log": "rules-final4.log",
+    "scenarios": [
+      "actual linked落影+斗转",
+      "actual回库再连引保留吸血/贯通的浮世万象+普通落影"
+    ],
+    "actual_avatar_damage_each": 2,
+    "actual_heal_before_each": 0,
+    "actual_heal_after_each": 2,
+    "actual_unit_hp_loss_each": 0,
+    "scope": "only heal actual avatar overflow not already credited in unit dealt minus damage; barrier/pierce damage allocation unchanged"
+  }
+}

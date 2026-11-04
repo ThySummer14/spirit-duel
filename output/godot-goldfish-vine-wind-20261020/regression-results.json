@@ -1,0 +1,112 @@
+[
+  {
+    "script": "combat",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "script": "moon_bamboo",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "MOON_BAMBOO checks=185 failures=0"
+    ]
+  },
+  {
+    "script": "sun_smoke",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "SUN_SMOKE checks=154 failures=0"
+    ]
+  },
+  {
+    "script": "tomato_fire",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "TOMATO_FIRE checks=342 failures=0"
+    ]
+  },
+  {
+    "script": "enma",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "ENMA checks=137 failures=0"
+    ]
+  },
+  {
+    "script": "weaver",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "WEAVER_CHECKS 134 FAILURES 0"
+    ]
+  },
+  {
+    "script": "fusion_trio",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "FUSION_TRIO checks=33 failures=0"
+    ]
+  },
+  {
+    "script": "rebirth",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "REBIRTH checks=129 failures=0"
+    ]
+  },
+  {
+    "script": "fox_lotus",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "FOX_LOTUS checks=164 failures=0"
+    ]
+  },
+  {
+    "script": "instant",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "script": "battle_status_ui",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "BATTLE_STATUS_UI_OK checks=88 failures=0"
+    ]
+  }
+]

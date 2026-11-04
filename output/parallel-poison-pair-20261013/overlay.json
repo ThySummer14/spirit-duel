@@ -1,0 +1,756 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "poison-pair-card-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "11400–11409、11500–11508 普通经典版牌文；以有模式归属的官方后续公告覆盖。"
+    },
+    {
+      "id": "poison-pair-balance-2020-02-27",
+      "url": "https://ssr.163.com/news/update/20200226/30294_866061.html",
+      "evidence": "常规平衡：喷泉改为转移；瘴疠力量3，肿胀力量4。原始 HTML 已归档。"
+    },
+    {
+      "id": "poison-pair-balance-2021-11-25",
+      "url": "https://www.taptap.cn/moment/212634043550796949",
+      "evidence": "常规平衡：肿胀体质4/16，进场获得2破甲。"
+    },
+    {
+      "id": "poison-pair-mode-2023-03-09",
+      "url": "https://www.taptap.cn/moment/382609474805825905",
+      "evidence": "觉醒清姬全体1伤、剧毒之盾屏障投射、喷泉自身1破甲属于有个牌局调整；未推广常规。"
+    },
+    {
+      "id": "poison-pair-jumper-guide",
+      "url": "https://www.taptap.cn/moment/15221946199312146",
+      "evidence": "官方攻略组跳跳弟弟百科：承伤/永久生命、破甲角色仍可被萤草回复。"
+    },
+    {
+      "id": "poison-pair-tank-analysis",
+      "url": "https://www.taptap.cn/moment/15221196425529867",
+      "evidence": "狸猫会原作者：腐坏直拳相当至少+2伤；甜蜜的负担护牌手，尸毒受到超14伤仍触发。"
+    },
+    {
+      "id": "poison-pair-control-analysis",
+      "url": "https://www.taptap.cn/moment/15227166597842769",
+      "evidence": "狸猫会原作者：公测清姬改为未破甲转换、蛇行击逐张成长回手、剧毒之盾战斗伤害后破甲、形态时机。"
+    },
+    {
+      "id": "poison-pair-priority-analysis",
+      "url": "https://www.taptap.cn/moment/467093870207830538",
+      "evidence": "原作者机制记录：伤害转换优于伤害转移/通常防护，破甲不是中毒。"
+    },
+    {
+      "id": "poison-snake-balance-2020-06-24",
+      "url": "https://ssr.163.com/news/update/20200623/30294_888590.html",
+      "evidence": "常规平衡：蛇行击改为2伤，使用后回手并失去此能力；覆盖旧1伤按破甲无限成长。原始HTML已归档。"
+    }
+  ],
+  "units": {
+    "tiaotiaodidi": {
+      "verifiedRules": true,
+      "armorBreakRole": "jumper",
+      "passive": {
+        "id": "tiaotiaodidi-native",
+        "name": "腐毒之体",
+        "text": "当跳跳弟弟受到伤害时，获得等量的破甲。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "tiaotiaodidi-awake-native",
+        "name": "尸毒觉醒",
+        "text": "当跳跳弟弟受到伤害时，获得等量的破甲并永久获得1生命。",
+        "hooks": []
+      },
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [
+        "致命伤害仍触发形态阈值；觉醒致命受伤成长只加上限不复活，缺指定录像对应边界。"
+      ]
+    },
+    "qingshe": {
+      "verifiedRules": true,
+      "armorBreakRole": "snake",
+      "passive": {
+        "id": "qingshe-native",
+        "name": "蛇毒转化",
+        "text": "清姬对无破甲角色造成的伤害会转化为等量的破甲。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "qingshe-awake-native",
+        "name": "焚身之毒",
+        "text": "清姬对无破甲角色造成的伤害会转化为等量的破甲。敌方角色的破甲不会在回合开始时清除。",
+        "hooks": []
+      },
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [
+        "与毒蚀双向战斗转换、必杀/屏障同时出现时的精确替换优先级待实机对照。"
+      ]
+    }
+  },
+  "cards": {
+    "c11401": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "本次获得2破甲。将自己的破甲转移到被攻击的式神上。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "poison-punch",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "poison-punch",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "responseAction": "assault"
+    },
+    "c11402": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "对跳跳弟弟造成战斗伤害的式神获得3破甲。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "breakCombatAttacker": true
+      },
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "对跳跳弟弟造成战斗伤害的式神获得3破甲。"
+    },
+    "c11403": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [
+        "增强瞬发在持牌副本上永久保留，后来抽到不追溯；缺指定录像对应操作片段。"
+      ],
+      "text": "将跳跳弟弟的破甲转移到所有敌方式神上。增强：若己方回合开始你的战斗区有式神，此牌得瞬发。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "poison-fountain",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "poison-fountain",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "poisonFountain": true,
+      "keywords": [],
+      "responseAction": "apply-armor-break"
+    },
+    "c11404": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "进场时使跳跳弟弟获得2破甲。跳跳弟弟的破甲在己方回合开始时不会清除。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "entryArmorBreak": 2,
+        "retainOwnArmorBreak": true
+      },
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 16,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 16,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "进场时使跳跳弟弟获得2破甲。跳跳弟弟的破甲在己方回合开始时不会清除。"
+    },
+    "c11405": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [
+        "致命伤害仍触发形态阈值；觉醒致命受伤成长只加上限不复活，缺指定录像对应边界。"
+      ],
+      "text": "当跳跳弟弟受到≥6的伤害时，所有敌方角色获得3破甲。当跳跳弟弟受到≥15的伤害时，敌方牌手获得10破甲。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "corpseThresholds": true
+      },
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 14,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 14,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "当跳跳弟弟受到≥6的伤害时，所有敌方角色获得3破甲。当跳跳弟弟受到≥15的伤害时，敌方牌手获得10破甲。"
+    },
+    "c11406": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "瞬发，贯通。获得等同于自己破甲的本次力量。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "poison-stiff",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "poison-stiff",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant",
+        "pierce"
+      ],
+      "responseAction": "assault"
+    },
+    "c11408": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "觉醒：当跳跳弟弟受到伤害时，获得等量的破甲并永久获得1生命。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "poison-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "poison-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "keywords": [
+        "awaken"
+      ],
+      "responseAction": "awaken"
+    },
+    "c11409": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [
+        "直击牌手时改目标到准备区跳跳弟弟；与其他护脸响应优先级缺同局实测。"
+      ],
+      "text": "瞬发。本次+3力量。响应：当你的牌手被攻击时，自动使用此牌并使跳跳弟弟抵挡本次攻击。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "assault",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "autoResponse": "avatar-attacked",
+      "responseModifiesCombat": true,
+      "poisonGuard": true,
+      "keywords": [
+        "instant",
+        "response"
+      ]
+    },
+    "c11501": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-snake-balance-2020-06-24"
+      ],
+      "verificationPending": [],
+      "text": "瞬发。对一个式神造成2点伤害。使用后将此牌回手并失去此能力。",
+      "target": "any-living-unit",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "poison-snake-strike",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "poison-snake-strike",
+          "target": "selected",
+          "value": 2
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "responseAction": "damage"
+    },
+    "c11502": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "对所有敌方角色造成2点伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "poison-toxin",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "poison-toxin",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "keywords": [],
+      "responseAction": "damage"
+    },
+    "c11503": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "敌方回合结束时，敌方战斗区式神获得2破甲。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "breakEnemyFrontAtEnd": true
+      },
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "敌方回合结束时，敌方战斗区式神获得2破甲。"
+    },
+    "c11504": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "瞬发。投射：造成4点伤害。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "damage-enemy-front",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage-enemy-front",
+          "target": "source",
+          "value": 4
+        }
+      ],
+      "keywords": [
+        "instant",
+        "projectile"
+      ]
+    },
+    "c11505": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "使一个角色获得2破甲，然后对所有拥有破甲的敌方角色造成3点伤害。",
+      "target": "any-living-character",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "poison-scorch",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "poison-scorch",
+          "target": "selected",
+          "value": 3
+        }
+      ],
+      "keywords": [],
+      "responseAction": "damage"
+    },
+    "c11506": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [
+        "觉醒保留破甲要求清姬能力有效；气绝期间失效，缺指定录像对应边界。"
+      ],
+      "text": "觉醒：清姬对无破甲角色造成的伤害转化为等量破甲。敌方角色的破甲不会在回合开始时清除。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "poison-awaken",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "poison-awaken",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "keywords": [
+        "awaken"
+      ],
+      "responseAction": "awaken"
+    },
+    "c11507": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "使一个己方式神获得2护甲且本回合获得「使受到它战斗伤害的式神获得3破甲」。响应：当你战斗区式神被攻击时，自动对其使用。",
+      "target": "ally-unit",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "poison-shield",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "poison-shield",
+          "target": "selected",
+          "value": 2
+        }
+      ],
+      "autoResponse": "front-attacked",
+      "keywords": [
+        "response"
+      ],
+      "responseAction": "shield"
+    },
+    "c11508": {
+      "verifiedRules": true,
+      "poisonRules": true,
+      "sources": [
+        "poison-pair-card-snapshot",
+        "poison-pair-balance-2020-02-27",
+        "poison-pair-balance-2021-11-25",
+        "poison-pair-mode-2023-03-09",
+        "poison-pair-jumper-guide",
+        "poison-pair-tank-analysis",
+        "poison-pair-control-analysis"
+      ],
+      "verificationPending": [],
+      "text": "敌方回合开始时使所有敌方角色获得1破甲。敌方有破甲的式神降低等于其破甲的力量。",
+      "target": "auto",
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "breakEnemyTurnStart": true,
+        "breakWeakensEnemy": true
+      },
+      "combatOption": {},
+      "copies": 2,
+      "deckLimit": 2,
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "formAbility": "敌方回合开始时使所有敌方角色获得1破甲。敌方有破甲的式神降低等于其破甲的力量。"
+    }
+  }
+}

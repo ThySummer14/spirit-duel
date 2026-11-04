@@ -1,0 +1,4 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+MIANQILING_FAIL negative spell damage remains invalid and cannot gain armor through the zero channel
+MIANQILING_OK checks=183 failures=1 rules_only=true

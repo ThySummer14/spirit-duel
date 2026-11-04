@@ -1,0 +1,26 @@
+{
+  "textFiles": [
+    "README.md",
+    "docs/verified-vs-simplified-gap.md",
+    "godot/README.md",
+    "godot/assets/official/README.md",
+    "godot/content/verified_rules.json",
+    "godot/scripts/armor_blood_rules.gd",
+    "godot/scripts/armor_break_rules.gd",
+    "godot/scripts/combat_keyword_rules.gd",
+    "godot/scripts/game_ai.gd",
+    "godot/scripts/game_state.gd",
+    "godot/scripts/movement_rules.gd",
+    "godot/scripts/ui/battle_status.gd",
+    "godot/scripts/verified_card_rules.gd",
+    "scripts/godot-verify.sh",
+    "godot/scripts/monk_cleaner_rules.gd",
+    "godot/scripts/monk_cleaner_rules.gd.uid",
+    "godot/scripts/verify_monk_cleaner.gd",
+    "godot/scripts/verify_monk_cleaner.gd.uid",
+    "research-notes/50-monk-cleaner-rules.md"
+  ],
+  "originalCardManifest": "card-art-manifest.json",
+  "baseline": "baseline/",
+  "notes": "仅列本批快照差异，保留工作区更早的未提交修改；新增PNG与原素材SHA另列清单，Godot导入元数据由引擎生成。"
+}

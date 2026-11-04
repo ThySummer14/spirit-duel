@@ -1,0 +1,356 @@
+{
+  "sources": [
+    {
+      "id": "xuenv-official-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "10600及10602–10610原版牌文、觉醒+2/+1；过期流霰、本体和冰风暴数值由后续官方公告覆盖。"
+    },
+    {
+      "id": "xuenv-original-guide",
+      "url": "https://www.taptap.cn/moment/15226776540151963",
+      "evidence": "官方攻略账号署名西园寺世界：八牌和雪球目标、瞬发；寒冰之盾眩晕受到其战斗伤害者；冰墙替换及离场规则。"
+    },
+    {
+      "id": "xuenv-balance-20200723",
+      "url": "https://www.taptap.cn/moment/35106451286394490",
+      "evidence": "官方维护公告：雪女基础改2/5，冰风暴改3/5。"
+    },
+    {
+      "id": "xuenv-balance-20210729",
+      "url": "https://www.taptap.cn/moment/169528710922242294",
+      "evidence": "官方维护公告：流霰改为对一个敌方角色自动用一张雪球，本局每从手牌用过一张额外重复一次；不再瞬发/消耗全部手牌。"
+    },
+    {
+      "id": "xuenv-icewall-original",
+      "url": "https://www.taptap.cn/moment/143310130094541107",
+      "evidence": "原作者小果酱渣2021实测：冰墙0/4、受到实际战斗伤害眩晕攻击者、敌回合眩晕持续至其下回合末；冰风暴护甲挡住伤害不触发眩晕。"
+    }
+  ],
+  "units": {
+    "xuenv": {
+      "attack": 2,
+      "maxHp": 5,
+      "officialAbility": "每回合一次，当你眩晕敌方式神时，将一张「雪球」置入手牌。",
+      "passive": {
+        "name": "基础能力",
+        "text": "每回合一次，当你眩晕敌方式神时，将一张「雪球」置入手牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "name": "觉醒能力",
+        "text": "眩晕受到雪女伤害的式神。每回合一次，当你眩晕敌方式神时，将一张「雪球」置入手牌。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "snowWoman": true,
+      "sources": [
+        "xuenv-official-snapshot",
+        "xuenv-balance-20200723",
+        "xuenv-original-guide"
+      ],
+      "verificationPending": [
+        "指定2026-10-04录像中未定位雪女出场片段，采用已检索到的最新正式公告与原作者实测；重复眩晕已眩晕目标是否再触发基础能力待同版本实机核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c10602": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "response"
+      ],
+      "target": "ally-unit",
+      "text": "使一个己方式神获得2护甲，且本回合获得「眩晕受到其战斗伤害的式神」。响应：当你战斗区式神被攻击时，自动对其使用。",
+      "officialText": "使一个己方式神获得2护甲，且本回合获得「眩晕受到其战斗伤害的式神」。响应：当你战斗区式神被攻击时，自动对其使用。",
+      "formHooks": [],
+      "formRules": {},
+      "xuenvRule": "shield",
+      "effect": "xuenv-shield",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "xuenv-shield",
+          "target": "ally-unit",
+          "value": 2
+        }
+      ],
+      "sources": [
+        "xuenv-official-snapshot",
+        "xuenv-original-guide"
+      ],
+      "level": 1,
+      "autoResponse": "front-attacked"
+    },
+    "c10603": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "any-living-unit",
+      "text": "消灭一个眩晕的式神，或眩晕一个未眩晕的式神。",
+      "officialText": "消灭一个眩晕的式神，或眩晕一个未眩晕的式神。",
+      "formHooks": [],
+      "formRules": {},
+      "xuenvRule": "collapse",
+      "effect": "xuenv-collapse",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "xuenv-collapse",
+          "target": "any-living-unit",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "xuenv-official-snapshot",
+        "xuenv-original-guide"
+      ],
+      "level": 2
+    },
+    "c10604": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "每当敌方式神攻击后，对其造成1点伤害，然后眩晕受到此伤害的式神。",
+      "officialText": "每当敌方式神攻击后，对其造成1点伤害，然后眩晕受到此伤害的式神。",
+      "formHooks": [],
+      "formRules": {
+        "snowstorm": true
+      },
+      "xuenvRule": "storm",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 3,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "xuenv-official-snapshot",
+        "xuenv-balance-20200723",
+        "xuenv-icewall-original"
+      ],
+      "level": 2,
+      "formAbility": "敌方式神攻击后，对其造成1伤害；造成实际伤害才眩晕。"
+    },
+    "c10605": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "any-character",
+      "text": "造成3点伤害，将一张「雪球」置入手牌。",
+      "officialText": "造成3点伤害，将一张「雪球」置入手牌。",
+      "formHooks": [],
+      "formRules": {},
+      "xuenvRule": "damage",
+      "effect": "xuenv-damage",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "xuenv-damage",
+          "target": "any-character",
+          "value": 3
+        },
+        {
+          "condition": "always",
+          "action": "xuenv-token",
+          "target": "ally-player",
+          "value": 1
+        }
+      ],
+      "sources": [
+        "xuenv-official-snapshot",
+        "xuenv-original-guide"
+      ],
+      "level": 1
+    },
+    "c10606": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "永久获得+2力量/+1生命。觉醒：眩晕受到雪女伤害的式神。每回合一次，当你眩晕敌方式神时，将一张「雪球」置入手牌。",
+      "officialText": "永久获得+2力量/+1生命。觉醒：眩晕受到雪女伤害的式神。每回合一次，当你眩晕敌方式神时，将一张「雪球」置入手牌。",
+      "formHooks": [],
+      "formRules": {},
+      "xuenvRule": "awaken",
+      "effect": "xuenv-awaken",
+      "value": {
+        "attack": 2,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "xuenv-awaken",
+          "target": "auto",
+          "value": {
+            "attack": 2,
+            "hp": 1
+          }
+        }
+      ],
+      "sources": [
+        "xuenv-official-snapshot",
+        "xuenv-original-guide"
+      ],
+      "level": 3
+    },
+    "c10607": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "enemy-character",
+      "text": "对一个敌方角色使用一张「雪球」，本局游戏你每从手牌使用过一张「雪球」额外重复一次。",
+      "officialText": "对一个敌方角色使用一张「雪球」，本局游戏你每从手牌使用过一张「雪球」额外重复一次。",
+      "formHooks": [],
+      "formRules": {},
+      "xuenvRule": "flurry",
+      "effect": "xuenv-flurry",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "xuenv-flurry",
+          "target": "enemy-character",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "xuenv-balance-20210729"
+      ],
+      "level": 3
+    },
+    "c10609": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "在战斗区召唤一个0/4冰墙。冰墙不能攻击；眩晕对其造成战斗伤害的式神；离开战斗区时移除。",
+      "officialText": "在战斗区召唤一个0/4冰墙。冰墙不能攻击；眩晕对其造成战斗伤害的式神；离开战斗区时移除。",
+      "formHooks": [],
+      "formRules": {},
+      "xuenvRule": "wall",
+      "effect": "xuenv-wall",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "xuenv-wall",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "xuenv-original-guide",
+        "xuenv-icewall-original"
+      ],
+      "level": 1
+    },
+    "c10610": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "将两张「雪球」置入手牌。本局游戏你所有「雪球」的伤害+1。",
+      "officialText": "将两张「雪球」置入手牌。本局游戏你所有「雪球」的伤害+1。",
+      "formHooks": [],
+      "formRules": {},
+      "xuenvRule": "heart",
+      "effect": "xuenv-heart",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "xuenv-heart",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "xuenv-official-snapshot",
+        "xuenv-original-guide"
+      ],
+      "level": 2
+    },
+    "xueqiu": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "enemy-unit",
+      "text": "瞬发。对一个敌方式神造成1点伤害。",
+      "officialText": "瞬发。对一个敌方式神造成1点伤害。",
+      "formHooks": [],
+      "formRules": {},
+      "xuenvRule": "snowball",
+      "effect": "xuenv-damage",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "xuenv-damage",
+          "target": "enemy-unit",
+          "value": 1
+        }
+      ],
+      "sources": [
+        "xuenv-original-guide"
+      ],
+      "level": 1,
+      "snowball": true
+    }
+  }
+}

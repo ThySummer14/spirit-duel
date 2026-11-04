@@ -1,0 +1,9 @@
+### Browser `mengpo-video` opened with pid 58327.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4187/melody-choice.mp4');
+```
+### Page
+- Page URL: http://127.0.0.1:4187/melody-choice.mp4
+### Snapshot
+- [Snapshot](.playwright-cli/page-2026-10-16T15-26-49-147Z.yml)

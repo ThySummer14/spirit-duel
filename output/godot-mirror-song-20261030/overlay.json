@@ -1,0 +1,789 @@
+{
+  "units": {
+    "yunwaijing": {
+      "verifiedRules": true,
+      "mirrorSongRole": "mirror",
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "yunwaijing-link",
+        "name": "镜像连引",
+        "text": "云外镜使用牌时，连引一张他的牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "yunwaijing-link-awake",
+        "name": "镜像连引",
+        "text": "云外镜使用牌时，连引一张他的牌。若连引的是同名牌，两者都获得瞬发。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ]
+    },
+    "song": {
+      "verifiedRules": true,
+      "mirrorSongRole": "song",
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "song-link",
+        "name": "琴弦连引",
+        "text": "当松使用牌时，连引一张己方战斗区其他式神的牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "song-link-awake",
+        "name": "琴弦连引",
+        "text": "当松使用牌时，连引所有己方其他未气绝式神各一张牌。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ]
+    }
+  },
+  "cards": {
+    "c24201": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-character",
+      "text": "与此牌连引时，参与连引的牌都获得吸血。\n对一个敌方角色造成3点伤害。",
+      "officialText": "与此牌连引时，参与连引的牌都获得吸血。\n对一个敌方角色造成3点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "ms-damage",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ms-damage",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c24202": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "此牌参与连引时，获得1力量与1生命。\n永久保留连引时获得的额外效果。",
+      "officialText": "此牌参与连引时，获得1力量与1生命。\n永久保留连引时获得的额外效果。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "此牌参与连引时，获得1力量与1生命。\n永久保留连引时获得的额外效果。",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c24203": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "追猎。与此牌连引时，参与连引的牌都获得贯通。\n本次战斗交换云外镜和目标式神的力量。",
+      "officialText": "追猎。与此牌连引时，参与连引的牌都获得贯通。\n本次战斗交换云外镜和目标式神的力量。",
+      "keywords": [
+        "pursuit"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "pursuit": true
+      },
+      "responseAction": "assault",
+      "effect": "ms-combat",
+      "value": -2,
+      "effects": [
+        {
+          "action": "ms-combat",
+          "target": "selected",
+          "value": -2
+        }
+      ]
+    },
+    "c24204": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "与此牌连引时，参与连引的牌都获得使用时投射：造成2点伤害。\n投射：造成4点伤害。",
+      "officialText": "与此牌连引时，参与连引的牌都获得使用时投射：造成2点伤害。\n投射：造成4点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "ms-projectile",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ms-projectile",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c24205": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "与此牌连引时，参与连引的形态牌都获得迅捷。",
+      "officialText": "与此牌连引时，参与连引的形态牌都获得迅捷。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "与此牌连引时，参与连引的形态牌都获得迅捷。",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c24206": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "与此牌连引时，参与连引的牌都获得瞬发。\n觉醒：云外镜使用牌时，连引一张他的牌。若连引的是同名牌，两者都获得瞬发。",
+      "officialText": "与此牌连引时，参与连引的牌都获得瞬发。\n觉醒：云外镜使用牌时，连引一张他的牌。若连引的是同名牌，两者都获得瞬发。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c24207": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "与此牌连引时，参与连引的牌都获得暴击。",
+      "officialText": "与此牌连引时，参与连引的牌都获得暴击。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "combatOption": {
+        "shield": 4
+      },
+      "responseAction": "assault",
+      "effect": "ms-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ms-combat",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c24208": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "与此牌连引时，参与连引的牌都获得使用时抽一张牌。\n对敌方所有角色造成2点伤害。",
+      "officialText": "与此牌连引时，参与连引的牌都获得使用时抽一张牌。\n对敌方所有角色造成2点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "ms-area",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ms-area",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c24401": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "远程。移动敌方准备区式神。",
+      "officialText": "远程。移动敌方准备区式神。",
+      "keywords": [
+        "remote"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "pursuit": true
+      },
+      "responseAction": "assault",
+      "effect": "ms-move-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "ms-move-combat",
+          "target": "selected",
+          "value": 1
+        }
+      ]
+    },
+    "c24402": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：当松使用牌时，连引所有己方其他未气绝式神各一张牌。",
+      "officialText": "觉醒：当松使用牌时，连引所有己方其他未气绝式神各一张牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c24403": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发。占卜1，然后为敌方牌手占卜1。",
+      "officialText": "瞬发。占卜1，然后为敌方牌手占卜1。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "ms-divination",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ms-divination",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c24404": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "本次战斗松受到的战斗伤害改由另一个敌方式神承受。\n响应：当己方战斗区式神被攻击时，自动使用此牌。",
+      "officialText": "本次战斗松受到的战斗伤害改由另一个敌方式神承受。\n响应：当己方战斗区式神被攻击时，自动使用此牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "combatOption": {
+        "shield": 0
+      },
+      "responseAction": "assault",
+      "autoResponse": "front-attacked",
+      "responseModifiesCombat": true,
+      "effect": "ms-beauty",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ms-beauty",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c24405": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-unit",
+      "text": "使敌方战斗区式神攻击一个其他式神。",
+      "officialText": "使敌方战斗区式神攻击一个其他式神。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "ms-command",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ms-command",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c24406": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当松攻击时，使敌方战斗区式神攻击敌方牌手。",
+      "officialText": "当松攻击时，使敌方战斗区式神攻击敌方牌手。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "songPuppet": true
+      },
+      "formHooks": [],
+      "formAbility": "当松攻击时，使敌方战斗区式神攻击敌方牌手。",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c24407": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，随机眩晕一个敌方式神。\n敌方回合开始时，使每个眩晕的敌方式神对敌方牌手造成等同其力量的伤害。",
+      "officialText": "进场和己方回合开始时，随机眩晕一个敌方式神。\n敌方回合开始时，使每个眩晕的敌方式神对敌方牌手造成等同其力量的伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "song-night",
+        "triggerEffect": ""
+      },
+      "effect": "ms-night",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ms-night",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c24408": {
+      "verifiedRules": true,
+      "mirrorSongRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "己方式神连引时，对敌方所有式神造成1点伤害。",
+      "officialText": "己方式神连引时，对敌方所有式神造成1点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "songDream": true
+      },
+      "formHooks": [],
+      "formAbility": "己方式神连引时，对敌方所有式神造成1点伤害。",
+      "sources": [
+        "mirror-song-original-20261030",
+        "link-explanation-20211209",
+        "mirror-form-retention-explanation",
+        "song-dream-community"
+      ],
+      "verificationPending": [
+        "按24200–24208／24400–24408完整原PNG和基础牌文接入，未逐牌覆盖指定录像。",
+        "连引与蓄力/反制、浮世万象永久增强、绮丽承伤/屏障/贯通及被指挥攻击触发的复杂全序仍待原客户端核验；斗转按交换式神面板力量后应用战斗牌加成。"
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "mirror-song-original-20261030",
+      "path": "art-reference-official/卡面-按版本/12_浮生方醒/",
+      "evidence": "24200–24208与24400–24408完整原PNG逐图核对；昙无采用原PNG投射4，觉醒松连引其他未气绝式神各一张。"
+    },
+    {
+      "id": "link-explanation-20211209",
+      "url": "https://m.ali213.net/news/gl2112/745429.html",
+      "evidence": "转载机制Q&A：原牌须可用、每个被连引式神按其当前等级筛选，最终只使用一张，其余先洗回；连引检索不视为抽牌。"
+    },
+    {
+      "id": "mirror-form-retention-explanation",
+      "url": "https://m.ali213.net/news/gl2201/769555.html",
+      "evidence": "基础机制解析：浮世万象为唯一保留历次参与连引所得效果的卡牌，其余卡的增强用于本次连引。"
+    },
+    {
+      "id": "song-dream-community",
+      "url": "https://www.taptap.cn/moment/341546240254673892",
+      "evidence": "社区机制记录：梦浮世一次连引固定触发一次，不按参与牌数重复；绮丽承伤目标最多承受松生命边界内的伤害，过量贯通仍打松牌手。保留原客户端核验。"
+    }
+  ]
+}

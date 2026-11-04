@@ -10,10 +10,11 @@ static func initialize(unit: Dictionary, definition: Dictionary) -> void:
 	unit.abilityHistory = []
 
 static func timer(unit: Dictionary) -> Dictionary:
+	if unit.get("baseRulesSuppressed", false): return {}
 	return unit.get("formCountdown", unit.get("abilityCountdown", unit.get("spellCountdown", {})))
 
 static func mode(unit: Dictionary, key: String = "") -> Dictionary:
-	var cfg: Dictionary = ContentLoader.unit_def(str(unit.id)).get("countdownAbility", {})
+	var cfg: Dictionary = ContentLoader.runtime_unit_def(unit).get("countdownAbility", {})
 	var value: Dictionary = cfg.get("modes", {}).get(key if key != "" else str(unit.get("abilityCountdown", {}).get("mode", "")), {})
 	if cfg.get("poisonHistory", false) and not value.is_empty():
 		value = value.duplicate(true)
@@ -60,14 +61,15 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 		gs._resolve_one_effect(p_idx, src, card, card.effects[int(frame.effectIndex)], null, {})
 	return true
 
-static func change(gs, p_idx: int, src: int, delta: int) -> void:
+static func change(gs, p_idx: int, src: int, delta: int, card_owner: int = -1) -> void:
 	var unit: Dictionary = gs.player(p_idx).units[src]
 	if delta < 0:
-		gs.VerifiedRules.reduce_countdown(gs, p_idx, src, -delta)
+		gs.VerifiedRules.reduce_countdown(gs, p_idx, src, -delta, card_owner)
 	elif delta > 0:
+		var charm_changed: bool=gs.VerifiedRules.Glutton.reduce_timer(gs,p_idx,src,-delta)
 		if int(unit.hp) <= 0 and int(unit.knockout) > 0: unit.knockout = int(unit.knockout) + delta
 		elif not timer(unit).is_empty(): timer(unit).remaining = int(timer(unit).remaining) + delta
-		else: return
+		elif not charm_changed: return
 		gs._log("%s 的倒计时增加%d。" % [unit.name, delta], gs.TONE_CARD)
 		gs.VerifiedRules.event(gs, "countdown-increased", {"uid": unit.uid, "amount": delta, "player": p_idx})
 
@@ -85,16 +87,16 @@ static func resolve_action(gs, p_idx: int, src: int, card: Dictionary, effect: D
 			for ally in gs.player(p_idx).units: gs._heal_unit(ally, int(effect.value))
 		"countdown-change":
 			var et := str(effect.target)
-			if et == "source": change(gs, p_idx, src, int(effect.value))
+			if et == "source": change(gs, p_idx, src, int(effect.value), p_idx if card.get("type") != "ability" else -1)
 			elif et == "living-other-allies":
 				# Push individual changes to preserve formation order, including chains.
 				for i in range(gs.player(p_idx).units.size() - 1, -1, -1):
 					if i != src and int(gs.player(p_idx).units[i].hp) > 0:
-						gs.resolution_stack.append({"kind": "countdown-change", "playerIndex": p_idx, "sourceIndex": i, "delta": int(effect.value)})
+						gs.resolution_stack.append({"kind": "countdown-change", "playerIndex": p_idx, "sourceIndex": i, "delta": int(effect.value), "cardOwner": p_idx if card.get("type") != "ability" else -1})
 			elif not target.is_empty():
 				for owner in 2:
 					var idx: int = gs._unit_index_by_uid(owner, target.uid)
-					if idx >= 0: change(gs, owner, idx, int(effect.value))
+					if idx >= 0: change(gs, owner, idx, int(effect.value), p_idx if card.get("type") != "ability" else -1)
 		"awaken-countdown":
 			if int(unit.hp) <= 0: return true
 			unit.awakened = true
@@ -110,7 +112,7 @@ static func resolve_action(gs, p_idx: int, src: int, card: Dictionary, effect: D
 				# Death countdown can revive, but that unit does not gain the living
 				# stat bonus from this same effect. Snapshot eligibility before reduction.
 				gs.resolution_stack.append({"kind": "countdown-grow", "playerIndex": p_idx, "sourceIndex": i, "eligible": int(ally.hp) > 0, "attack": int(effect.value.attack), "hp": int(effect.value.hp)})
-				gs.resolution_stack.append({"kind": "countdown-change", "playerIndex": p_idx, "sourceIndex": i, "delta": -int(effect.value.countdown)})
+				gs.resolution_stack.append({"kind": "countdown-change", "playerIndex": p_idx, "sourceIndex": i, "delta": -int(effect.value.countdown), "cardOwner": p_idx if card.get("type") != "ability" else -1})
 		"repeat-countdown-history":
 			var history: Array = unit.get("abilityHistory", []).duplicate()
 			for i in range(history.size() - 1, -1, -1): queue_ability(gs, p_idx, src, str(history[i]), false)

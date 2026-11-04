@@ -1,0 +1,170 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "Godot suite exit0",
+      "passed": true
+    },
+    {
+      "check": "full suite completed without error diagnostics",
+      "passed": true
+    },
+    {
+      "check": "all90 configured scripts ran in order",
+      "passed": true
+    },
+    {
+      "check": "new feedback checks passed in full suite",
+      "passed": true
+    },
+    {
+      "check": "random60 and focused20 completed",
+      "passed": true
+    },
+    {
+      "check": "roster250 covered",
+      "passed": true
+    },
+    {
+      "check": "native real mouse60 passed",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 01-instant-payment",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 02-instant-extra-cost",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 03-opponent-instant-response",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 01-instant-payment",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 02-instant-extra-cost",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 03-opponent-instant-response",
+      "passed": true
+    },
+    {
+      "check": "Node168 passed",
+      "passed": true
+    },
+    {
+      "check": "UI audit390 passed",
+      "passed": true
+    },
+    {
+      "check": "strict fidelity audit remains incomplete and unchanged",
+      "passed": true
+    },
+    {
+      "check": "suite and exported sources identical",
+      "passed": true
+    },
+    {
+      "check": "source unchanged during validation",
+      "passed": true
+    },
+    {
+      "check": "stable4.6.3 Web build and3 focused checks passed",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.html",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.js",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.pck",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.wasm",
+      "passed": true
+    },
+    {
+      "check": "game browser console clean",
+      "passed": true
+    },
+    {
+      "check": "browser boot displayed",
+      "passed": true
+    },
+    {
+      "check": "browser opening displayed",
+      "passed": true
+    },
+    {
+      "check": "browser battle displayed",
+      "passed": true
+    },
+    {
+      "check": "native movie duration and dimensions",
+      "passed": true
+    },
+    {
+      "check": "movie fully decodes",
+      "passed": true
+    },
+    {
+      "check": "movie capture exercised both real payments",
+      "passed": true
+    },
+    {
+      "check": "movie plays in browser without media error",
+      "passed": true
+    },
+    {
+      "check": "isolated video browser console clean",
+      "passed": true
+    }
+  ],
+  "godotScripts": 90,
+  "nativeChecks": 60,
+  "sourceFiles": 163,
+  "audit": {
+    "units": {
+      "known-approximation": 143,
+      "unreviewed": 63,
+      "pending-verification": 29,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 952,
+      "unreviewed": 795,
+      "pending-verification": 160,
+      "source-backed-native": 207
+    }
+  },
+  "auditDiagnostics": 19,
+  "movie": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1600,
+        "height": 740
+      },
+      {
+        "codec_name": "aac"
+      }
+    ],
+    "format": {
+      "duration": "7.633333",
+      "size": "913350"
+    }
+  },
+  "movieSHA256": "ab8beee308a373c88cf7b39c047988545093c79aa938114ca3005a33ea7b4d84"
+}

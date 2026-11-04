@@ -1,0 +1,34 @@
+[
+  {
+    "name": "cooking_core",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "COOKING_CORE_VERIFY {\"checks\":152,\"failures\":0,\"ui\":false}"
+    ]
+  },
+  {
+    "name": "sugar_cat",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SUGAR_CAT checks=157 failures=0"
+    ]
+  },
+  {
+    "name": "rabbit_tide",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "RABBIT_TIDE checks=126 failures=0"
+    ]
+  },
+  {
+    "name": "food_cross",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "FOOD_CROSS_OK checks=64"
+    ]
+  }
+]

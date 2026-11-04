@@ -1,0 +1,130 @@
+{
+  "url": "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js",
+  "retrieved": "2026-10-22 (same-day Garuda batch saved response reused)",
+  "sha256": "524a557540ea9cb4b8835a51e08dccbf81b0622e5d59613be380f1ed78163ad6",
+  "matchedFields": [
+    "name",
+    "type",
+    "desc",
+    "stage",
+    "ll",
+    "sm"
+  ],
+  "allNineMatchLocalSnapshot": true,
+  "cards": [
+    {
+      "id": 27600,
+      "name": "一条",
+      "role": 276,
+      "type": "式神",
+      "xiyoudu": null,
+      "stage": null,
+      "ll": 2,
+      "sm": 5,
+      "desc": "当一条升级时，将一张「勤勉修行」置入手牌。#r一条的战技效果气绝时不会移除。#r&2760003",
+      "keyword": "勤勉修行"
+    },
+    {
+      "id": 27601,
+      "name": "此心安处",
+      "role": 276,
+      "type": "战斗",
+      "xiyoudu": "SSR",
+      "stage": 1,
+      "ll": 0,
+      "sm": 0,
+      "desc": "战技#r从手牌中使用时，使一条的战技效果额外获得等同于一条等级的#[力量]和#[护甲]。",
+      "keyword": "战技"
+    },
+    {
+      "id": 27602,
+      "name": "卫戍",
+      "role": 276,
+      "type": "战斗",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": null,
+      "sm": null,
+      "desc": "追猎#r增强：此牌获得+X#[力量]和+X#[护甲]，X为本局游戏一条的战技效果获得的额外加成值。&2760203",
+      "keyword": "追猎,增强"
+    },
+    {
+      "id": 27603,
+      "name": "架势·守",
+      "role": 276,
+      "type": "形态",
+      "xiyoudu": "SR",
+      "stage": 1,
+      "ll": 2,
+      "sm": 6,
+      "desc": "进场时将一张「勤勉修行」置入手牌。#r敌方回合时获得+X#[力量]，X为本局游戏一条使用过的战技牌数量。&2760302",
+      "keyword": "勤勉修行"
+    },
+    {
+      "id": 27604,
+      "name": "架势·攻",
+      "role": 276,
+      "type": "形态",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": 4,
+      "sm": 5,
+      "desc": "进场时将一张「勤勉修行」置入手牌。#r一条的战斗牌获得瞬发。",
+      "keyword": "勤勉修行,瞬发"
+    },
+    {
+      "id": 27605,
+      "name": "孤斗",
+      "role": 276,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 2,
+      "ll": null,
+      "sm": null,
+      "desc": "一条获得2#[力量]、不屈和贯通。",
+      "keyword": "不屈,贯通"
+    },
+    {
+      "id": 27606,
+      "name": "重任在肩",
+      "role": 276,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 2,
+      "ll": null,
+      "sm": null,
+      "desc": "一条获得屏障并自动使用一张「勤勉修行」。#r响应：当你其他式神被敌方攻击时，自动使用并将攻击目标改为一条。",
+      "keyword": "屏障,勤勉修行,响应"
+    },
+    {
+      "id": 27607,
+      "name": "架势·居合",
+      "role": 276,
+      "type": "形态",
+      "xiyoudu": "R",
+      "stage": 3,
+      "ll": 2,
+      "sm": 6,
+      "desc": "进场时选择：一条出击时获得吸血；或一条出击时获得暴击。&2760712&2760722",
+      "keyword": "吸血,暴击"
+    },
+    {
+      "id": 27608,
+      "name": "觉醒·一条",
+      "role": 276,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 3,
+      "ll": 4,
+      "sm": null,
+      "desc": "气绝时可用。#r觉醒：迅捷#r一条气绝状态下可以使用战斗牌并使效果改为复活自己。#r一条的战技效果气绝时不会移除。",
+      "keyword": "觉醒,迅捷"
+    }
+  ],
+  "adoptedVersion": "Full PNG: awakening +4 attack / +0 HP",
+  "trainingSupplement": {
+    "url": "https://gamerch.com/onmyojicard/629801",
+    "responseUrl": "https://gamerch.com/onmyojicard/629807",
+    "status": "secondary transcription; Chinese client token still pending"
+  }
+}

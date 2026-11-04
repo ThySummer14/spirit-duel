@@ -1,0 +1,18 @@
+[
+  "README.md",
+  "docs/verified-vs-simplified-gap.md",
+  "godot/README.md",
+  "godot/content/verified_rules.json",
+  "godot/assets/official/README.md",
+  "scripts/godot-verify.sh",
+  "godot/scripts/bond_dream_rules.gd",
+  "godot/scripts/game_state.gd",
+  "godot/scripts/verified_card_rules.gd",
+  "godot/scripts/form_countdown_rules.gd",
+  "godot/scripts/game_ai.gd",
+  "godot/scripts/combat_keyword_rules.gd",
+  "godot/scripts/ui/battle_status.gd",
+  "godot/scripts/oni_asura_rules.gd",
+  "godot/scripts/verify_oni_asura.gd",
+  "research-notes/55-oni-asura-rules.md"
+]

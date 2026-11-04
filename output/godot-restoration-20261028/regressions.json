@@ -1,0 +1,126 @@
+[
+  {
+    "script": "verify_combat.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_armor_limit.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_monk_cleaner.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_owl_insect.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_instant.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_battle_status.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_movement.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_whale.gd",
+    "exitCode": 0,
+    "passed": true,
+    "initialLog": "regression-whale.log",
+    "initialPassed": false,
+    "finalLog": "regression-whale-final.log",
+    "fix": "保留无折扣/非免付爆能的原badge，折扣与免支付时展示实际费用。"
+  },
+  {
+    "script": "verify_box_maiden.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_sun_smoke.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_puppet.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_garuda.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_oni_asura.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_moon_bamboo.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_book_jue.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_eye_crab.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_bond_dream.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_wind_night_mask.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_link_cross.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_spider_lily.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_butterfly.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_yaoginshi.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_koi_fragrance.gd",
+    "exitCode": 0,
+    "passed": true
+  },
+  {
+    "script": "verify_signed_debuff.gd",
+    "exitCode": 0,
+    "passed": true
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "removed": [
+    {
+      "path": ".build/godot-web-src",
+      "bytes": 842564437,
+      "reason": "本轮生成且可再生成的导出中间工程/Python缓存，或已由最终原生检查替代的中间日志"
+    },
+    {
+      "path": "scripts/__pycache__",
+      "bytes": 7150,
+      "reason": "本轮生成且可再生成的导出中间工程/Python缓存，或已由最终原生检查替代的中间日志"
+    },
+    {
+      "path": "output/godot-bond-dream-20261017/focused-headless.log",
+      "bytes": 102,
+      "reason": "本轮生成且可再生成的导出中间工程/Python缓存，或已由最终原生检查替代的中间日志"
+    }
+  ],
+  "bytes": 842571689,
+  "preserved": [
+    ".build/pages",
+    ".build/tools/web_nothreads_release.zip",
+    "godot/.godot",
+    "源码及已有修改",
+    "研究参考及历史验收资料"
+  ]
+}

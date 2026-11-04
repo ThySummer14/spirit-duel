@@ -1,0 +1,42 @@
+{
+  "units": [],
+  "cards": [
+    {
+      "id": "arakawa-annihilate",
+      "unitId": "huangchuanzhizhu",
+      "name": "湮灭",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 0,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "text": "消灭吞噬所选择的式神。",
+      "officialText": "消灭吞噬所选择的式神。",
+      "target": "any-unit",
+      "keywords": [],
+      "effect": "ark-annihilate",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ark-annihilate",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "arakawaRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "sources": [
+        "arakawa-original-20261102",
+        "arakawa-preview-20220929"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文实现主要机制，指定录像未逐牌核验。自动用牌计数、形态生效与用牌后触发顺序、多源蓄力和死亡/复活的完整全序仍待实机核验。",
+        "游鱼和湮灭无独立本地原PNG，沿用同期介绍的基础规则，不追逐后续季节平衡。游鱼派系暂无独立原图证据，保留未知。"
+      ]
+    }
+  ]
+}

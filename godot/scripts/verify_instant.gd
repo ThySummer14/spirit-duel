@@ -9,9 +9,9 @@ func _initialize() -> void:
 	_check(gs.effective_card_cost(0, card) == 0, "first instant is free")
 	_check(gs.player(0).keywordUsage.instant.used == false, "cost query does not consume instant")
 	_check(gs.effective_card_cost(0, {"cost": 2}) == 2, "ordinary card keeps cost")
-	_check(gs.effective_card_cost(1, card) == 2, "opponent turn does not discount")
+	_check(gs.effective_card_cost(1, card) == 0, "opponent turn has its own instant allowance")
 	gs.response_window = {"playerIndex": 0}
-	_check(gs.effective_card_cost(0, card) == 2, "response window does not discount")
+	_check(gs.effective_card_cost(0, card) == 0, "response window uses this turn instant allowance")
 	gs.response_window = {}
 	gs.kw_usage(0, "instant").used = true
 	_check(gs.effective_card_cost(0, card) == 2, "later instant keeps cost")

@@ -1,0 +1,37 @@
+{
+  "changed_from_turn_baseline": [
+    "godot/scripts/armor_break_rules.gd",
+    "godot/scripts/game_state.gd",
+    "godot/scripts/verified_card_rules.gd",
+    "godot/scripts/form_countdown_rules.gd",
+    "godot/scripts/game_ai.gd",
+    "godot/scripts/combat_keyword_rules.gd",
+    "godot/scripts/ui/battle_status.gd",
+    "godot/scripts/ui/battle_screen.gd",
+    "godot/content/verified_rules.json",
+    "scripts/godot-verify.sh"
+  ],
+  "new_implementation_and_checks": [
+    "godot/scripts/panguan_rules.gd",
+    "godot/scripts/haifangzhu_rules.gd",
+    "godot/scripts/verify_judge_tide.gd",
+    "godot/scripts/verify_judge_tide_ui.gd"
+  ],
+  "sha256": {
+    "godot/content/verified_rules.json": "3d40c5acb73b110aeacd6a741e36ac1392ae9a4c4248a88158dc694ba77f79fa",
+    "godot/scripts/armor_break_rules.gd": "b89a1351d16e8aa7b854263f16942d6a36d4c1e542be8378d603328802442478",
+    "godot/scripts/combat_keyword_rules.gd": "518fcd428176ee2fb04ba0f837c11ddf2121a20eea126870ae26fb31b52502ad",
+    "godot/scripts/form_countdown_rules.gd": "f61755a79863a3996f58bc945a30d0cb3528161826f1ded42981ba95b117cba7",
+    "godot/scripts/game_ai.gd": "cfd3bbf56c3af0ac3bc4481433a592bfc9231c14f4133f04ddc7d6db008074b8",
+    "godot/scripts/game_state.gd": "246691c23ae103e4b46fb2f106424e96b723149455adde8def89710b2d87df8c",
+    "godot/scripts/haifangzhu_rules.gd": "342270c6f56b2883b657c1bc71dd37e373ec44ad82385390eff682f7084498ce",
+    "godot/scripts/panguan_rules.gd": "8fefd9c79ccccfd4d93746968c2f39eed03d8929661f294776270b5844463523",
+    "godot/scripts/ui/battle_screen.gd": "7332be163f7bddd90e07bf49f380a2fed318a1062de12abc57e372f2737acf0e",
+    "godot/scripts/ui/battle_status.gd": "f2e85da9dcd7940d7a37160b2f1168094bcfa38f66e1ddbef291eb592b07cd06",
+    "godot/scripts/verified_card_rules.gd": "45b132561439410d557fc33e826ffaa0dfe833d489e914450049c3794cbbf3a7",
+    "godot/scripts/verify_judge_tide.gd": "76bf0650e64c8d3ea75a2aa406f9fbc4b6cd336c15ba1c8bbe059e1125b804b0",
+    "godot/scripts/verify_judge_tide_ui.gd": "163be557ca0df0e66089e0b5aee658a1a3724b582083b8e54110c9354106661d",
+    "scripts/godot-verify.sh": "9bd00e99835e5b0ba89caa896a88be81a3e7238dc9a4e1709f4b8ab4a4d8a2e2"
+  },
+  "web_source_mismatches": []
+}

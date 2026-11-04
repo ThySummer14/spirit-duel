@@ -1,0 +1,10 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SNOW_CRANE_FAIL frost wind stuns avatar before real 4 power combat
+SNOW_CRANE_FAIL frost wind grants printed two armor
+SNOW_CRANE_FAIL snow country is a conditional 7/7 form
+SNOW_CRANE_FAIL cloud crane directly attacks with actual power plus two
+SNOW_CRANE_FAIL sky slash picks only enemy reserve
+SNOW_CRANE_FAIL stunned defenders still counterattack
+SNOW_CRANE_FAIL end-turn ambush works with instant at zero fire
+SNOW_CRANE checks=10 failures=7

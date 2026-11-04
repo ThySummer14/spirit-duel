@@ -1,0 +1,6 @@
+{
+  "path": "game-content-wave6.js",
+  "sourceAndLocalPagesMatch": true,
+  "sha256": "843aa52991b8cbe349d5d7470413be19751b0f345cf4a8a9b839c0c527548c7c",
+  "reason": "Preserve the raw token INSTANT enum in the legacy static copy; Godot hashes are unchanged."
+}

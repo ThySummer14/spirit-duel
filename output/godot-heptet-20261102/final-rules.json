@@ -1,0 +1,50 @@
+[
+  {
+    "name": "verify_arakawa",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "ARAKAWA_VERIFY {\"checks\":83,\"failures\":0,\"ui\":false}"
+    ]
+  },
+  {
+    "name": "verify_zhenjian_duel",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "ZHENJIAN_OK checks=225 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "verify_ape_sleeve",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "APE_SLEEVE_VERIFY checks=194 failures=0"
+    ]
+  },
+  {
+    "name": "verify_rednight_walnut",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "REDNIGHT_WALNUT_OK checks=313 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "verify_ability_sources",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "ABILITY_SOURCES_VERIFY checks=88 failures=0"
+    ]
+  },
+  {
+    "name": "verify_heptet_cross",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "HEPTET_CROSS_VERIFY {\"checks\":21,\"failures\":0}"
+    ]
+  }
+]

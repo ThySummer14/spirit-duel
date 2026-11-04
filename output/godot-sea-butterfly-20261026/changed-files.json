@@ -1,0 +1,139 @@
+[
+  {
+    "path": "godot/scripts/pipe_fox_rules.gd",
+    "kind": "modified",
+    "before": "dbdeec552f5637066ed40690b35cd6f19e8f969ea112676dc5feb6648351c45f",
+    "after": "bbbcf4194e2ef3d6c650b6ae105dbac1a6dff6d04b75b04de23781b2e6097305"
+  },
+  {
+    "path": "godot/scripts/game_state.gd",
+    "kind": "modified",
+    "before": "d9f603f6e64eea375e77b2e5e48a6255f9d7d4f95d43c5debf4ccf38f189ae8b",
+    "after": "b8a8c45bc9b0f432f7c1885deb82c31cda1684a0baac38dba34af3c82d1c6eee"
+  },
+  {
+    "path": "godot/scripts/verified_card_rules.gd",
+    "kind": "modified",
+    "before": "3c3d628c617fb93b9e43c39ba2e49869804e320c4e4cbba421895241bd9aa778",
+    "after": "aad8e362b636c8538359eff5a2165cda24711be4bfe083016f6f03b4e1a48f37"
+  },
+  {
+    "path": "godot/scripts/game_ai.gd",
+    "kind": "modified",
+    "before": "6080aabf788064b20ba22aa5dd04e9bae139c62f881ff9b71d3bbf7ccbdfb4e6",
+    "after": "990b8f1d847f4babc60a3d67a6ae8f2bfad355ca2d5b14da6bd526f38c90a7db"
+  },
+  {
+    "path": "godot/scripts/ui/keyword_glossary.gd",
+    "kind": "modified",
+    "before": "7674ad33b092300475f19634aa0bb4e592be1d25bd2ab3312285e68cfd03a2a1",
+    "after": "a1b855a3d7dd99a77d79b847f1476425bfb5cd458c51d118ab1e39a738785357"
+  },
+  {
+    "path": "godot/scripts/ui/battle_status.gd",
+    "kind": "modified",
+    "before": "34f60696b397c16cb96afbdf1a372adb3ec80646d81bc8ea19c559b0222420ef",
+    "after": "16a4c1add6964a94d8c46e7c54a8a88c50696fd5b38b5623b19404f1ca905be0"
+  },
+  {
+    "path": "godot/scripts/ui/battle_screen.gd",
+    "kind": "modified",
+    "before": "1e019077b97879341780c81c45f7f8464562e5b85dd8579f67e4c5b5f5466c03",
+    "after": "6db343aa014dfe5130fb08ba7582a5323681abec328ec783ead88de777461963"
+  },
+  {
+    "path": "godot/content/verified_rules.json",
+    "kind": "modified",
+    "before": "524d0390e6618e51c8d436fbe5970125f3134bc50af9d184bd9a411b5e41aa64",
+    "after": "f9683f3d196783b48945c65f07c18ea93d61d3c483edb6cf522a9004cf73f3ed"
+  },
+  {
+    "path": "README.md",
+    "kind": "modified",
+    "before": "cc7fa981cff5a6f2bd390488daef403334669bd3e2858d0413476ec7deab86f9",
+    "after": "704f241e13cf67ebea69205c914114f464252ff5469cbed578d55b87e3d0b1ca"
+  },
+  {
+    "path": "godot/README.md",
+    "kind": "modified",
+    "before": "9d97dd23f202c7f25ba32434e6c9ebb52d20affa396c803849d29af0083efbd8",
+    "after": "415a06e051f6ff67cd0fbf7112b750290fa7e7a3b97f4241b0af3dd937c728b0"
+  },
+  {
+    "path": "godot/assets/official/README.md",
+    "kind": "modified",
+    "before": "318051293e4a1cdd3043affa1621f6758bb814e357d70f9a56f4ff6327d03195",
+    "after": "85c4c7e85c925fae51906aa038f97ee202d296bc95c87967d8e6ef87930bcbef"
+  },
+  {
+    "path": "scripts/godot-verify.sh",
+    "kind": "modified",
+    "before": "d946f204e921aa15033478bae1f93282c931c67383633bd9cbade680248e033e",
+    "after": "77e043d03f4bba85a6627da336bde34bfe1fa1a5c324a1dfed2861858d6e3cac"
+  },
+  {
+    "path": "godot/scripts/sea_butterfly_rules.gd",
+    "kind": "added",
+    "after": "dff72ea5e7b302fb246d788300428348bb788ab3fbccda3c7a75e12157f4c6c5"
+  },
+  {
+    "path": "godot/scripts/sea_butterfly_rules.gd.uid",
+    "kind": "added",
+    "after": "be7e9df473f8b0db3be7d0c96fa4c456ecb38cae21004dcc31a2ec3e4c316153"
+  },
+  {
+    "path": "godot/scripts/verify_sea_butterfly.gd",
+    "kind": "added",
+    "after": "98bcff7ec990b903bf38d3024cefcc101d394a7abcf3925bbd8e92952393ac0f"
+  },
+  {
+    "path": "research-notes/79-sea-butterfly-rules.md",
+    "kind": "added",
+    "after": "03050206372f2c9149fa10ea6443b4d72a7c6abdc0f460d504b60aee8ebaadc1"
+  },
+  {
+    "path": "output/godot-sea-butterfly-20261026/acceptance.md",
+    "kind": "added",
+    "after": "b305f6b9d041f222b88991df0845667c84dba9ca8e721ead26b56f2b75cd6db3"
+  },
+  {
+    "path": "godot/assets/official/cards/c28701.png",
+    "kind": "added",
+    "after": "f17d3817dffb889c1f779ff8028f1b51130f239989b4dd073aed8c412ade77eb"
+  },
+  {
+    "path": "godot/assets/official/cards/c28702.png",
+    "kind": "added",
+    "after": "62a900ec2a66c7c3f80007d943a5a60202d985e622c891e5b18ed034a3293d92"
+  },
+  {
+    "path": "godot/assets/official/cards/c28703.png",
+    "kind": "added",
+    "after": "a9f3f21955e05e9ef16ba455452d93b16fe638ea78355d3084f7e3204b789f4d"
+  },
+  {
+    "path": "godot/assets/official/cards/c28704.png",
+    "kind": "added",
+    "after": "a5b254fe8366b3789b83dfc1075494ad33c7b839e1bfc3a8369cd9f23581486e"
+  },
+  {
+    "path": "godot/assets/official/cards/c28705.png",
+    "kind": "added",
+    "after": "4886e7c640482504fd0d643f92f9573e40434a90b4ed697654c593a45b72b8ef"
+  },
+  {
+    "path": "godot/assets/official/cards/c28706.png",
+    "kind": "added",
+    "after": "659de69f5cafa3a177de20d63b67201ef62845cc57c7ed801304f4ac1487a1e3"
+  },
+  {
+    "path": "godot/assets/official/cards/c28707.png",
+    "kind": "added",
+    "after": "16c56857d70523b1b4fdbf1ad8b48c88141b59809039fe8aff071d5c37e024e5"
+  },
+  {
+    "path": "godot/assets/official/cards/c28708.png",
+    "kind": "added",
+    "after": "e60fb4f2228addfb5e00c1c0a7f82298d8638a753ca5056e134e9dc02f89e4f5"
+  }
+]

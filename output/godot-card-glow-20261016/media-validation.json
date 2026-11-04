@@ -1,0 +1,26 @@
+{
+  "demo": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1600,
+        "height": 740,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "12.866016"
+    }
+  },
+  "files": {
+    "output/godot-card-glow-20261016/official-20250821.jpg": "a8ac40e4fab34fdd2af8557911406b2f971b93b606889ef1624608887875deb1",
+    "output/godot-card-glow-20261016/official-20250821-crop.png": "411fb27c0e73a1915aa30070e2c9317c4436f6a1d669b8575fb39049c240859f",
+    "output/godot-card-glow-20261016/aura-demo.mp4": "39043269a20bbb86ac14f02d678fd4831df879c69fde817f1cbdc79bee5bd7f9"
+  }
+}

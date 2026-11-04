@@ -1,0 +1,566 @@
+{
+  "sources": [
+    {
+      "id": "dog-demon-official-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "11100–11108、12100–12109 原始牌型与基础数值；后续维护覆盖过期项。"
+    },
+    {
+      "id": "dog-author-guide-2020",
+      "url": "https://www.taptap.cn/moment/15221628245901428",
+      "evidence": "原作者西园寺世界：心身炼磨永久成长、心技一体进场锁定、守护响应、觉醒回合结束复活。"
+    },
+    {
+      "id": "demon-official-guide",
+      "url": "https://www.taptap.cn/moment/15221938808949419",
+      "evidence": "官方式神百科：鬼之手移入战斗区、地狱之手追击、断臂最高力量。"
+    },
+    {
+      "id": "demon-balance-2021-11-25",
+      "url": "https://www.taptap.cn/moment/212634043550796949",
+      "evidence": "罗生门增强条件从在手牌改为本局游戏。"
+    },
+    {
+      "id": "demon-balance-2022-04-14",
+      "url": "https://www.taptap.cn/moment/263405689433490897",
+      "evidence": "地狱之手添加追猎；罗生门之鬼身材改为3/5。"
+    },
+    {
+      "id": "dog-jue-balance-2021-02-04",
+      "url": "https://www.taptap.cn/moment/106165737759969184",
+      "evidence": "心即归处增加瞬发，觉醒犬神改+1/+1，记仇改为消灭本回合造成过伤害的敌方式神。"
+    }
+  ],
+  "units": {
+    "quanshen": {
+      "verifiedRules": true,
+      "dogTraining": true,
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "dog-training",
+        "name": "心身炼磨",
+        "text": "犬神升级时，将一张心身炼磨置入手牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "dog-rebirth",
+        "name": "心即归处",
+        "text": "己方回合结束时，复活犬神并永久获得1力量和1生命。",
+        "hooks": []
+      },
+      "verificationPending": [
+        "心身炼磨被魔音反制后仍计入使用历史，按「使用过」文义实现，缺对应版本录像交叉确认。"
+      ]
+    },
+    "caitongzi": {
+      "verifiedRules": true,
+      "demonStrength": true,
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "demon-strength",
+        "name": "罗生门之力",
+        "text": "己方回合开始时，获得1力量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "demon-strength-double",
+        "name": "地狱之握",
+        "text": "己方回合开始时，力量翻倍。",
+        "hooks": []
+      },
+      "verificationPending": [
+        "罗生门之鬼随机增强的分段候选池、各项权重、身材增益仍未核清；该牌保留未完成标记，不将该角色计作整套还原。",
+        "断臂最高力量是否包含战斗牌临时力量，缺对应版本直接实测；当前记录式神面板力量。"
+      ]
+    }
+  },
+  "cards": {
+    "c12101": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "dog-heal-full",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "dog-heal-full",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "text": "恢复犬神所有生命。",
+      "officialText": "恢复犬神所有生命。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": ""
+    },
+    "c12102": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "assault",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "text": "本次战斗+2护甲。",
+      "officialText": "本次战斗+2护甲。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "combatOption": {
+        "shield": 2
+      }
+    },
+    "c12103": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "dog-revive",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "dog-revive",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "text": "瞬发。仅在犬神气绝时可用。复活犬神。",
+      "officialText": "瞬发。仅在犬神气绝时可用。复活犬神。",
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "allowKnockedSource": true,
+      "requiresKnockedSource": true
+    },
+    "c12104": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "assault",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 4
+        }
+      ],
+      "text": "本次战斗+4力量。",
+      "officialText": "本次战斗+4力量。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "combatOption": {
+        "shield": 0
+      }
+    },
+    "c12105": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "text": "犬神的牌获得瞬发。",
+      "officialText": "犬神的牌获得瞬发。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "犬神的牌获得瞬发。",
+      "formRules": {
+        "dogInstant": true
+      }
+    },
+    "c12106": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "dog-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "dog-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "text": "+1力量/+1生命。觉醒：己方回合结束时，复活犬神并永久获得1力量和1生命。",
+      "officialText": "+1力量/+1生命。觉醒：己方回合结束时，复活犬神并永久获得1力量和1生命。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "copies": 2,
+      "deckLimit": 2
+    },
+    "c12108": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "text": "增强：本局游戏每使用过一张心身炼磨，犬神的战斗牌额外获得+1力量与+1护甲。",
+      "officialText": "增强：本局游戏每使用过一张心身炼磨，犬神的战斗牌额外获得+1力量与+1护甲。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "增强：本局游戏每使用过一张心身炼磨，犬神的战斗牌额外获得+1力量与+1护甲。",
+      "formRules": {
+        "dogTraining": true
+      },
+      "dogTrainingForm": true
+    },
+    "c12109": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "assault",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "text": "本次战斗+4护甲。响应：其他己方式神被攻击时，自动使用此牌。",
+      "officialText": "本次战斗+4护甲。响应：其他己方式神被攻击时，自动使用此牌。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "combatOption": {
+        "shield": 4
+      },
+      "autoResponse": "other-ally-attacked",
+      "responseModifiesCombat": true,
+      "dogGuard": true
+    },
+    "xinshen-lianmo": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "dog-training",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "dog-training",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "text": "犬神永久获得1力量和1生命。",
+      "officialText": "犬神永久获得1力量和1生命。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "dogTrainingCard": true
+    },
+    "c11101": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "assault",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "text": "远程。",
+      "officialText": "远程。",
+      "keywords": [
+        "remote"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "combatOption": {
+        "shield": 0
+      }
+    },
+    "c11102": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "assault",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "demon-pull",
+          "target": "selected-enemy",
+          "value": 0
+        },
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "text": "若敌方战斗区没有式神，将一个敌方式神移入战斗区。",
+      "officialText": "若敌方战斗区没有式神，将一个敌方式神移入战斗区。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "combatOption": {
+        "shield": 0
+      },
+      "demonPull": true
+    },
+    "c11103": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "demon-strength",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "demon-strength",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "text": "获得3力量。",
+      "officialText": "获得3力量。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": ""
+    },
+    "c11104": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "text": "茨木童子消灭敌方战斗区式神时，对敌方准备区式神各造成2点伤害。",
+      "officialText": "茨木童子消灭敌方战斗区式神时，对敌方准备区式神各造成2点伤害。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "茨木童子消灭敌方战斗区式神时，对敌方准备区式神各造成2点伤害。",
+      "formRules": {
+        "demonReserveWrath": true
+      }
+    },
+    "c11105": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "target": "enemy-unit",
+      "effect": "assault",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "source-ready",
+          "action": "assault",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "text": "追猎。本次战斗中若消灭式神，再次随机攻击一个敌方生命最低的式神。",
+      "officialText": "追猎。本次战斗中若消灭式神，再次随机攻击一个敌方生命最低的式神。",
+      "keywords": [
+        "pursuit"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "combatOption": {
+        "shield": 0,
+        "pursuit": true,
+        "demonHellChain": true
+      }
+    },
+    "c11106": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "demon-awaken",
+      "value": {
+        "attack": 0,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "demon-awaken",
+          "target": "source",
+          "value": {
+            "attack": 0,
+            "hp": 1
+          }
+        }
+      ],
+      "text": "+1生命。觉醒：己方回合开始时，茨木童子的力量翻倍。",
+      "officialText": "+1生命。觉醒：己方回合开始时，茨木童子的力量翻倍。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": "",
+      "copies": 2,
+      "deckLimit": 2
+    },
+    "c11107": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "target": "auto",
+      "effect": "demon-restore-peak",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "demon-restore-peak",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "text": "茨木童子的力量变为本局游戏的最大值。",
+      "officialText": "茨木童子的力量变为本局游戏的最大值。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formAbility": ""
+    },
+    "c11108": {
+      "verifiedRules": false,
+      "verificationPending": [
+        "官方2021-11-25改为全局击杀增强，2022-04-14身材改为3/5。随机增强仍缺分段候选池、权重与身材变动的确切证据；历史击杀+1攻为待修复缺陷，不能沿用为规范。"
+      ]
+    }
+  }
+}

@@ -14,24 +14,35 @@ static func attach(gs, owner: int, src: int, card: Dictionary) -> void:
 			queue_trigger(gs, owner, src, unit.formCountdown, "进场")
 	if cfg.get("destroyAtTurnEnd", false): unit.formExpiresTurn = gs.turn_counter
 
-static func remove(gs, owner: int, src: int, reason: String) -> void:
+static func remove(gs, owner: int, src: int, reason: String, returning_to_deck: bool = false) -> void:
+	var poison_hp:=int(gs.player(owner).units[src].hp) if gs.player(owner).units[src].get("toxicPoisoned",false) else -1
 	var unit: Dictionary = gs.player(owner).units[src]
 	if unit.get("form", {}).is_empty(): return
+	if not returning_to_deck:gs.VerifiedRules.Garuda.form_removed(gs,owner,src)
+	gs.VerifiedRules.Puppet.form_removed(gs,owner,src,returning_to_deck)
+	if not returning_to_deck:gs.VerifiedRules.OniAsura.form_removed(gs,owner,src)
+	gs.VerifiedRules.PipeFox.form_removed(unit)
 	var old: Dictionary = unit.get("formCountdown", {})
+	var light_rules: Dictionary = unit.get("formRules", {}).duplicate(true)
 	var name := str(unit.form.get("name", "形态"))
 	unit.form = {}
 	unit.formRules = {}
 	unit.formHooks = []
 	unit.formAbility = ""
+	gs.VerifiedRules.OwlInsect.refresh(gs)
+	gs.VerifiedRules.Poison.refresh_all(gs)
+	gs.VerifiedRules.Enma.refresh(gs)
+	gs.VerifiedRules.Light.form_removed(gs, owner, src, light_rules)
 	unit.erase("formCountdown")
 	unit.erase("formExpiresTurn")
 	gs._recalc(unit)
 	# Removing a form restores the living shikigami's underlying full health.
 	# Death never revives the source, but its departing ability still resolves.
-	if int(unit.hp) > 0: unit.hp = int(unit.maxHp)
+	if poison_hp>0: unit.hp=poison_hp
+	elif int(unit.hp) > 0: unit.hp = int(unit.maxHp)
 	gs._log("%s 的「%s」%s，移除形态。" % [unit.name, name, reason], gs.TONE_CARD)
 	gs.VerifiedRules.event(gs, "form-removed", {"player": owner, "uid": unit.uid, "name": name, "reason": reason})
-	if not old.is_empty() and ContentLoader.unit_def(unit.id).get("formLifecycle", {}).get("destroyed", false):
+	if not returning_to_deck and not old.is_empty() and ContentLoader.unit_def(unit.id).get("formLifecycle", {}).get("destroyed", false):
 		queue_trigger(gs, owner, src, old, reason)
 
 static func queue_trigger(gs, owner: int, src: int, timer: Dictionary, reason: String) -> void:
@@ -64,8 +75,8 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 			# on the stack until every selected target has received this effect.
 			for idx in targets:
 				if gs.winner >= 0: break
-				if idx < 0: gs._damage_avatar(enemy, int(effect.value), owner)
-				else: gs._damage_unit(enemy, idx, int(effect.value), owner)
+				if idx < 0: gs._damage_avatar(enemy, int(effect.value), owner, src)
+				else: gs._damage_unit(enemy, idx, int(effect.value), owner, src)
 				gs.VerifiedRules.event(gs, "random-hit", {"player": owner, "uid": unit.uid, "card": card, "target": "" if idx < 0 else gs.player(enemy).units[idx].uid, "victimPlayer": enemy})
 		else:
 			gs._resolve_one_effect(owner, src, card, effect, null, {})
@@ -88,14 +99,12 @@ static func resolve_action(gs, owner: int, src: int, _card: Dictionary, effect: 
 			unit.passive_hooks = []
 			gs._grow_unit(unit, int(effect.value.attack), int(effect.value.hp))
 		"avatar-armor":
-			gs.player(owner).avatarArmor = int(gs.player(owner).get("avatarArmor", 0)) + int(effect.value)
-			gs._log("%s 的牌手获得%d护甲。" % [unit.name, int(effect.value)], gs.TONE_SUCCESS)
+			var gained: int = gs._grant_avatar_armor(owner, int(effect.value))
+			gs._log("%s 的牌手获得%d护甲。" % [unit.name, gained], gs.TONE_SUCCESS)
 		"destroy-enemy-front":
 			var enemy := 1 - owner
 			var idx: int = gs.front_index(enemy)
 			if idx >= 0:
-				var target: Dictionary = gs.player(enemy).units[idx]
-				gs._knockout_unit(target)
-				gs.VerifiedRules.event(gs, "unit-destroyed", {"player": owner, "uid": unit.uid, "target": target.uid, "card": _card})
+				gs.VerifiedRules.Panguan.destroy(gs, owner, src, enemy, idx, _card)
 		_: return false
 	return true

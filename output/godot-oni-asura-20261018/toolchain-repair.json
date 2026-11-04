@@ -1,0 +1,11 @@
+{
+  "officialRelease": "https://github.com/godotengine/godot-builds/releases/download/4.6.3-stable/Godot_v4.6.3-stable_macos.universal.zip",
+  "repairedBundle": ".build/tools/godot-4.6.3.app",
+  "version": "4.6.3.stable.official.7d41c59c4",
+  "binarySha256": "40fb1c588438ed98efbdd4aeb71b90aec6e269b1abb5f18419755340ef8e1514",
+  "binaryUnchanged": true,
+  "strictCodeSignatureVerification": "/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/.build/tools/godot-4.6.3.app: valid on disk\n/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/.build/tools/godot-4.6.3.app: satisfies its Designated Requirement",
+  "restoredFiles": "Official metadata, resources and CodeResources restored from archive entries with individual CRC32 verification. No complete archive checksum claimed.",
+  "originalToolDirectoryChanged": false,
+  "systemSecuritySettingsChanged": false
+}

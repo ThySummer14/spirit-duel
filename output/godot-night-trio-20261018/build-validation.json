@@ -1,0 +1,14 @@
+{
+  "sourceHashes": 503,
+  "matchedSourceAndStaging": true,
+  "pagesBytes": 140083230,
+  "playBytes": 136233778,
+  "entries": [
+    "index.html",
+    "index.js",
+    "index.wasm",
+    "index.pck"
+  ],
+  "originalCardFaces": 280,
+  "screenshotsReviewed": 6
+}

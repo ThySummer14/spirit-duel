@@ -1,0 +1,59 @@
+{
+  "newMainFaces": [
+    {
+      "id": "c27301",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/273_白泽/27301_观史通今_形态.png",
+      "destination": "godot/assets/official/cards/c27301.png",
+      "sha256": "c9b5408dce9a62c11aa728273f998e371f46209e50b6e4c30560e479b9229ead"
+    },
+    {
+      "id": "c27302",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/273_白泽/27302_溯世命_法术.png",
+      "destination": "godot/assets/official/cards/c27302.png",
+      "sha256": "d7e48b7468d97a5a1b579db56a96380f41735bdb86e2355bdc5c4486628bd799"
+    },
+    {
+      "id": "c27303",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/273_白泽/27303_晓万物_法术.png",
+      "destination": "godot/assets/official/cards/c27303.png",
+      "sha256": "4c5a98d09d1d81876d6e80b731e391cc45cddedab95934cdfc041080a0d44af5"
+    },
+    {
+      "id": "c27304",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/273_白泽/27304_驱邪祸_法术.png",
+      "destination": "godot/assets/official/cards/c27304.png",
+      "sha256": "05a57276f333552ff0728071f57aac3397402e4ed12b0080e150fcab1e5427ce"
+    },
+    {
+      "id": "c27305",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/273_白泽/27305_造化时流_法术.png",
+      "destination": "godot/assets/official/cards/c27305.png",
+      "sha256": "3b88500b467d40447c6ffea0f21cc326b3230a19663f5ffae24b683b24b0aa44"
+    },
+    {
+      "id": "c27306",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/273_白泽/27306_觉醒·白泽_法术.png",
+      "destination": "godot/assets/official/cards/c27306.png",
+      "sha256": "7f929d2b23526454e27ab9651a0c253f670634e3b2af91e45e6b651903ad1c99"
+    },
+    {
+      "id": "c27307",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/273_白泽/27307_迢迢尘间_法术.png",
+      "destination": "godot/assets/official/cards/c27307.png",
+      "sha256": "f068901bfe25d47c1a9858432ea13ccc5f513806f8b0f4587c7290fdd7805211"
+    },
+    {
+      "id": "c27308",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/273_白泽/27308_承因续果_形态.png",
+      "destination": "godot/assets/official/cards/c27308.png",
+      "sha256": "3511d2ddacd3c7a64116ddee2b2f4e3bb7273ea07ac85cf36c687db2d2e528c1"
+    }
+  ],
+  "cumulativeMainCharacters": 56,
+  "cumulativeMainFaces": 448,
+  "additionalDollTokens": 3,
+  "cumulativePNGFiles": 451,
+  "missingDerivedOriginalFaces": [
+    "baize-dazhi"
+  ]
+}

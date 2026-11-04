@@ -1,0 +1,22 @@
+{
+  "removed": [
+    {
+      "path": ".build/godot-web-src",
+      "bytes": 834376520,
+      "reason": "本轮生成、可再生成的构建副本或Python缓存"
+    },
+    {
+      "path": "scripts/__pycache__",
+      "bytes": 7150,
+      "reason": "本轮生成、可再生成的构建副本或Python缓存"
+    }
+  ],
+  "bytes": 834383670,
+  "preserved": [
+    ".build/pages",
+    ".build/tools/web_nothreads_release.zip",
+    "godot/.godot",
+    "源码及已有修改",
+    "研究参考与历史验收资料"
+  ]
+}

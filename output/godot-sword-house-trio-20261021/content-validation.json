@@ -1,0 +1,52 @@
+{
+  "mainCards": [
+    "c16801",
+    "c16802",
+    "c16803",
+    "c16804",
+    "c16805",
+    "c16806",
+    "c16807",
+    "c16808",
+    "c19001",
+    "c19002",
+    "c19004",
+    "c19005",
+    "c19006",
+    "c19007",
+    "c19008",
+    "c19009",
+    "c19101",
+    "c19102",
+    "c19103",
+    "c19104",
+    "c19105",
+    "c19106",
+    "c19107",
+    "c19108"
+  ],
+  "derivedCards": [
+    "onikiri-hige",
+    "onikiri-tomo",
+    "onikiri-lion",
+    "otakemaru-jade",
+    "tianjingxia-yaowu",
+    "nuoyi",
+    "yaowu-lingli",
+    "yaowu-quan"
+  ],
+  "newDefinitions": [
+    "onikiri-hige",
+    "onikiri-tomo",
+    "onikiri-lion",
+    "otakemaru-jade",
+    "tianjingxia-yaowu"
+  ],
+  "allScopedPendingWithSources": true,
+  "newDerivedZeroStartingCopies": true,
+  "generatorAST": true,
+  "jsSyntax": true,
+  "originalArtFiles": 352,
+  "originalArtByteIdentical": true,
+  "rawCatalogCards": 2121
+}

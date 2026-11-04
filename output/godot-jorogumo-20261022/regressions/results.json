@@ -1,0 +1,98 @@
+[
+  {
+    "script": "verify_yitiao",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "YITIAO_OK checks=134 failures=0 rules_only=true"
+  },
+  {
+    "script": "verify_butterfly",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "BUTTERFLY_OK checks=151 failures=0 rules_only=true"
+  },
+  {
+    "script": "verify_garuda",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "GARUDA_OK checks=133 failures=0 rules_only=true"
+  },
+  {
+    "script": "verify_combat",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "COMBAT_REGRESSION_OK cases=16"
+  },
+  {
+    "script": "verify_battle_status",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "BATTLE_STATUS_OK checks=139"
+  },
+  {
+    "script": "verify_instant",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "INSTANT_OK checks=12"
+  },
+  {
+    "script": "verify_resource_effects",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "RESOURCE_EFFECTS_OK checks=149"
+  },
+  {
+    "script": "verify_pipe_fox",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "PIPE_FOX checks=161 failures=0"
+  },
+  {
+    "script": "verify_moon_bamboo",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "MOON_BAMBOO checks=185 failures=0"
+  },
+  {
+    "script": "verify_armor_blood",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "ARMOR_BLOOD checks=154 failures=0"
+  },
+  {
+    "script": "verify_bingyong",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "BINGYONG_CHECKS=112 FAILURES=0"
+  },
+  {
+    "script": "verify_sparrow",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "SPARROW checks=188 failures=0"
+  },
+  {
+    "script": "verify_weaver",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "WEAVER_CHECKS 152 FAILURES 0"
+  },
+  {
+    "script": "verify_doll",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "DOLL checks=116 failures=0"
+  },
+  {
+    "script": "verify_phoenix",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "PHOENIX_OK"
+  },
+  {
+    "script": "verify_monk_cleaner",
+    "exitCode": 0,
+    "passed": true,
+    "summary": "MONK_CLEANER checks=102 failures=0"
+  }
+]

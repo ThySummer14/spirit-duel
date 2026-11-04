@@ -1,0 +1,74 @@
+[
+  {
+    "name": "combat",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.77
+  },
+  {
+    "name": "movement",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.86
+  },
+  {
+    "name": "bond_dream",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 9.94
+  },
+  {
+    "name": "armor_blood",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 2.62
+  },
+  {
+    "name": "armor_limit",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.77
+  },
+  {
+    "name": "silk_ninja",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 1.06
+  },
+  {
+    "name": "whale",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.96
+  },
+  {
+    "name": "jorogumo",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.96
+  },
+  {
+    "name": "yaodao",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.96
+  },
+  {
+    "name": "baize",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.95
+  },
+  {
+    "name": "pipe_fox",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 10.48
+  },
+  {
+    "name": "battle_status",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 1.01
+  }
+]

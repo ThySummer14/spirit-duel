@@ -1,0 +1,17 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YAODAO_UI_FAIL mouse attack resolves both four-point hits with permanent swift
+YAODAO_UI_FAIL mouse swift attack spends team attack allowance
+YAODAO_UI_FAIL hand displays awakened free-combat cost
+YAODAO_UI_FAIL hand displays actual temporary discount
+YAODAO_UI_FAIL free battle-intent click resolves two six-point hits
+YAODAO_UI_FAIL battle bonus ends while unused armor persists
+YAODAO_UI_FAIL newly generated combat card inherits current free-combat effect
+YAODAO_UI_FAIL mouse attack resolves both four-point hits with permanent swift
+YAODAO_UI_FAIL mouse swift attack spends team attack allowance
+YAODAO_UI_FAIL hand displays awakened free-combat cost
+YAODAO_UI_FAIL hand displays actual temporary discount
+YAODAO_UI_FAIL free battle-intent click resolves two six-point hits
+YAODAO_UI_FAIL battle bonus ends while unused armor persists
+YAODAO_UI_FAIL newly generated combat card inherits current free-combat effect
+YAODAO_UI checks=65 failures=14

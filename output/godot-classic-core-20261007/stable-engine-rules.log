@@ -1,0 +1,29 @@
+== Godot 4.6.3 verify_yaodao ==
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+YAODAO checks=277 failures=0
+YAODAO_OK
+
+== Godot 4.6.3 verify_shuten ==
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+SHUTEN_RULES checks=97 failures=0
+SHUTEN_RULES_OK
+
+== Godot 4.6.3 verify_bingyong ==
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+BINGYONG_CHECKS=112 FAILURES=0
+
+== Godot 4.6.3 verify_classic_core ==
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+CLASSIC_CORE checks=30 failures=0
+CLASSIC_CORE_OK
+
+== Godot 4.6.3 verify_turn_order ==
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+TURN_ORDER_OK checks=10
+
+STABLE_ENGINE_RULES_OK

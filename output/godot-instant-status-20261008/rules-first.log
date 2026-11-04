@@ -1,0 +1,18 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SCRIPT ERROR: Invalid access to property or key 'cost' on a base object of type 'Dictionary'.
+          at: _payment (res://scripts/verify_battle_status.gd:63)
+          GDScript backtrace (most recent call first):
+              [0] _payment (res://scripts/verify_battle_status.gd:63)
+              [1] _initialize (res://scripts/verify_battle_status.gd:10)
+BATTLE_STATUS_FAIL active status represented: charge
+BATTLE_STATUS_FAIL active status represented: armor-break
+BATTLE_STATUS_FAIL active status represented: brittle
+BATTLE_STATUS_FAIL active status represented: stun
+BATTLE_STATUS_FAIL active status represented: unyielding
+BATTLE_STATUS_FAIL active status represented: awakened
+BATTLE_STATUS_FAIL overflow explicitly counts omitted marks
+BATTLE_STATUS_FAIL overflow explicitly counts omitted marks
+BATTLE_STATUS_FAIL overflow explicitly counts omitted marks
+BATTLE_STATUS_FAIL knockout keeps only persistent awakening
+BATTLE_STATUS_FAIL checks=53

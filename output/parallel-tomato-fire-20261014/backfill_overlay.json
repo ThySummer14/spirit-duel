@@ -1,0 +1,4 @@
+{
+ "sources":[{"id":"poison-snake-balance-2020-06-24","url":"https://ssr.163.com/news/update/20200623/30294_888590.html","evidence":"常规平衡：蛇行击改为2伤，使用后回手并失去此能力；覆盖旧1伤按破甲无限成长。原始HTML已归档。"}],
+ "cards":{"c11501":{"text":"瞬发。对一个式神造成2点伤害。使用后将此牌回手并失去此能力。","value":2,"effects":[{"condition":"always","action":"poison-snake-strike","target":"selected","value":2}],"sources":["poison-pair-card-snapshot","poison-snake-balance-2020-06-24"],"verificationPending":[]}}
+}

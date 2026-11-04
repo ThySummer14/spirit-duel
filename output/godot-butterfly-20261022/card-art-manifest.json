@@ -1,0 +1,50 @@
+[
+  {
+    "card": "c27401",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/274_蝴蝶精/27401_醉春风_法术.png",
+    "destination": "godot/assets/official/cards/c27401.png",
+    "sha256": "0dfe700fa380e304f97febf1b1d22e6b0e5a28acf8d7cfea105c160c5efe15ae"
+  },
+  {
+    "card": "c27402",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/274_蝴蝶精/27402_金缕歌_法术.png",
+    "destination": "godot/assets/official/cards/c27402.png",
+    "sha256": "c829e3b097e92c55558c17d4843148709c15b0a9fae989002cabf9819bae09b6"
+  },
+  {
+    "card": "c27403",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/274_蝴蝶精/27403_看花回_形态.png",
+    "destination": "godot/assets/official/cards/c27403.png",
+    "sha256": "5aac42da9dd879e34ebfc9c1ebf7e58abb4303f059d499e3d94da09604bc5052"
+  },
+  {
+    "card": "c27404",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/274_蝴蝶精/27404_一夜梦_法术.png",
+    "destination": "godot/assets/official/cards/c27404.png",
+    "sha256": "3075e2f0588d029ac8b8c9b933487bab6aee0696276456a9d778b337c4ef0b8a"
+  },
+  {
+    "card": "c27405",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/274_蝴蝶精/27405_蝶恋花_法术.png",
+    "destination": "godot/assets/official/cards/c27405.png",
+    "sha256": "cb98e532c9a39deb5f0289c03b2465d5984cd4cdc1e73f562edbd5396fb12e27"
+  },
+  {
+    "card": "c27406",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/274_蝴蝶精/27406_觉醒·蝴蝶精_法术.png",
+    "destination": "godot/assets/official/cards/c27406.png",
+    "sha256": "72b1441a2c0124f2cbc54dc28d93d8c7b3ba3087c69e76aefc56cfc21257c469"
+  },
+  {
+    "card": "c27407",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/274_蝴蝶精/27407_玲珑蝶影_形态.png",
+    "destination": "godot/assets/official/cards/c27407.png",
+    "sha256": "8c4b40d9cb3ac35efda7dbbc6832b71c8750dfa77f3a87582fc69f76b72ce476"
+  },
+  {
+    "card": "c27408",
+    "source": "art-reference-official/卡面-按版本/16_远山遥泽/274_蝴蝶精/27408_引驾行_结界.png",
+    "destination": "godot/assets/official/cards/c27408.png",
+    "sha256": "6ec5c042db8f81b0292c94b030b7c43fb5db7e87418cd16415dd4dd100fd7d0f"
+  }
+]

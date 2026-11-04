@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/285_於菊虫/28501_毒丝_法术.png",
+    "target": "godot/assets/official/cards/c28501.png",
+    "sha256": "14af900fc10341e90d85d668b9299cfa31fc8038fb92b1136bb52cd7c0a666be"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/285_於菊虫/28502_暮啼_结界.png",
+    "target": "godot/assets/official/cards/c28502.png",
+    "sha256": "13a607bd03fe687dcbe682aa69c609825261b224ebe17deb30a5eae5649ef36d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/285_於菊虫/28503_若虫_形态.png",
+    "target": "godot/assets/official/cards/c28503.png",
+    "sha256": "758c8514dad3b5309023804cdb9c5e67d71fc728279ee535ecf049cdc2ca7aba"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/285_於菊虫/28504_夜噬_形态.png",
+    "target": "godot/assets/official/cards/c28504.png",
+    "sha256": "047fee9866035d3a6ed10fc40fbd9c1cbde039abcbad9516d692501435e56dda"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/285_於菊虫/28505_朝鸣_法术.png",
+    "target": "godot/assets/official/cards/c28505.png",
+    "sha256": "906f2de94fc384942eafd65e479ffd3c842a63be7b1bb80f059f6e96654debd1"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/285_於菊虫/28506_觉醒·於菊虫_法术.png",
+    "target": "godot/assets/official/cards/c28506.png",
+    "sha256": "0c430b11aa96f0181147aa85a1cd66a54ff708644e5d15f2865eaf7f6945036f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/285_於菊虫/28507_昼梦_法术.png",
+    "target": "godot/assets/official/cards/c28507.png",
+    "sha256": "f23295bf6f9bcd067c9553ede50dd1cbc44abbf7f5843e01fcf95fc865b4f487"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/285_於菊虫/28508_破茧_法术.png",
+    "target": "godot/assets/official/cards/c28508.png",
+    "sha256": "a0ea6d9ebd4e63c4801012ceebec5436ae382ae1c8dee4c137ca440c8dc6c97c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/286_海忍/28601_千刃_战斗.png",
+    "target": "godot/assets/official/cards/c28601.png",
+    "sha256": "bfce8dcb56b89e304ac0e15d2bb4c7de21c004f81b91f993c275325843832e00"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/286_海忍/28602_潜影_法术.png",
+    "target": "godot/assets/official/cards/c28602.png",
+    "sha256": "800e334cbd1844e93c4fff6e2df6c2d0305e83533d7dc13a59f1537da6430508"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/286_海忍/28603_忍杀_战斗.png",
+    "target": "godot/assets/official/cards/c28603.png",
+    "sha256": "4e63575eb46b70903fbb9879fdaf23cf8cb85ee362392d68e8f262a7504a17ca"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/286_海忍/28604_觉醒·海忍_法术.png",
+    "target": "godot/assets/official/cards/c28604.png",
+    "sha256": "feddf8ab1ddb36af3121710865d892bb4a38503977b45e29d71cf06264eda723"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/286_海忍/28605_影出_战斗.png",
+    "target": "godot/assets/official/cards/c28605.png",
+    "sha256": "1c72dc48087f684ffae70a6c62f2737295be9265a17ad8854f0910021ec614bd"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/286_海忍/28606_沧海孤忍_形态.png",
+    "target": "godot/assets/official/cards/c28606.png",
+    "sha256": "f46e0e45da0d3aa269614e37092899dff4e81162650cc55c677dbfd523bcd382"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/286_海忍/28607_宿怨_战斗.png",
+    "target": "godot/assets/official/cards/c28607.png",
+    "sha256": "9a7c09877a956acd4fe8fb9f7519de7386106f12ab47179b12dae4f647f5392c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/286_海忍/28608_影逝花杀_形态.png",
+    "target": "godot/assets/official/cards/c28608.png",
+    "sha256": "19e3e2cc02c557001c8a9d9a62e63446d20d62b31adcd112961f3a376b51440b"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/246_猫掌柜/24601_食材购入_法术.png",
+    "target": "godot/assets/official/cards/c24601.png",
+    "sha256": "ee833ebd01658d1f666d6695f4edd5389f7279448b0ec7b29633b04b3b695e26"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/246_猫掌柜/24602_一条召来_法术.png",
+    "target": "godot/assets/official/cards/c24602.png",
+    "sha256": "ecf30f3d8654bd2cf24e353aa624ff042fa26011000137b19d913ba869ecca0c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/246_猫掌柜/24603_四饼出阵_法术.png",
+    "target": "godot/assets/official/cards/c24603.png",
+    "sha256": "c0dfae0597ed7f2be934fb992c9e9f4467123fd630ebdb5129cf93a2b0163a96"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/246_猫掌柜/24604_觉醒·猫掌柜_法术.png",
+    "target": "godot/assets/official/cards/c24604.png",
+    "sha256": "53da0dfe3c6c23cbb1aecb0d9a071ac293502dedeabfb6dba0e498b62df2832e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/246_猫掌柜/24605_二瞳助战_法术.png",
+    "target": "godot/assets/official/cards/c24605.png",
+    "sha256": "3c02e8e17f06661b544ca5fcde75c8293a843ff99155c7918261cabdcca5080a"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/246_猫掌柜/24606_猫合战_法术.png",
+    "target": "godot/assets/official/cards/c24606.png",
+    "sha256": "09bf42b6bbf29059d8686699a7097f45f54c7bdad4ed1deed286f732f9a412cb"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/246_猫掌柜/24607_猫乱斗_法术.png",
+    "target": "godot/assets/official/cards/c24607.png",
+    "sha256": "40b3f0f7719aedcef33f44fd1e9a0b2e0b45cfc410040b6253e42d64bcc30e8f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/246_猫掌柜/24608_猫又屋之主_形态.png",
+    "target": "godot/assets/official/cards/c24608.png",
+    "sha256": "b9c01369549d518a281612604e59d842a3f9029580f5669c5565a592f1b1dd44"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/249_饴细工/24901_大火熬糖_法术.png",
+    "target": "godot/assets/official/cards/c24901.png",
+    "sha256": "35630b8a327271374ea4945c7b46853b9b9f2331ac74dd52b8ee547b55a55373"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/249_饴细工/24902_回炉成浆_法术.png",
+    "target": "godot/assets/official/cards/c24902.png",
+    "sha256": "3444d054ebd57e1ebe5af16d3d511c838808d7b596d1c6027af0ee42b1c82aa2"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/249_饴细工/24903_糖人大师_形态.png",
+    "target": "godot/assets/official/cards/c24903.png",
+    "sha256": "708856f104ae73b20ad5e032209d02e3ac00a05140eb6ecd2136490ee788f533"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/249_饴细工/24904_融芯化火_法术.png",
+    "target": "godot/assets/official/cards/c24904.png",
+    "sha256": "80ff3ab787b1327a16cf393ba4f69535480a8d0180cf76dc59760e96eaf2fdcd"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/249_饴细工/24905_一物一心_形态.png",
+    "target": "godot/assets/official/cards/c24905.png",
+    "sha256": "22b2edd879c77b70da6ff6d36b6a284b2f915880a14748c51027f6f81fc9a797"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/249_饴细工/24906_觉醒·饴细工_法术.png",
+    "target": "godot/assets/official/cards/c24906.png",
+    "sha256": "355737732656caadd51bf36fc93911e8385e36b5ae390a01307f6b88f57fecdf"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/249_饴细工/24907_苦中作甜_法术.png",
+    "target": "godot/assets/official/cards/c24907.png",
+    "sha256": "e1d17a140f91197ffac30de47b693b11583131b22131f2fbea13c5c4f9a7eed4"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/249_饴细工/24908_甘如暖阳_法术.png",
+    "target": "godot/assets/official/cards/c24908.png",
+    "sha256": "e54d0885e0548ede9ece797f900f995055e1193265fc6a3fc30767c47e6bdc7a"
+  }
+]

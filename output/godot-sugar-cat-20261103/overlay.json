@@ -1,0 +1,787 @@
+{
+  "sources": [
+    {
+      "id": "sugar-cat-original-20261103",
+      "path": "art-reference-official/卡面-按版本/13_喧哗烩战/",
+      "evidence": "246/249的18张完整原PNG。c24601瞬发及弹回；糖人大师中文为1勾2/6，以原图优先。"
+    },
+    {
+      "id": "cat-summon-jp-20261103",
+      "url": "https://gamerch.com/onmyojicard/353786",
+      "evidence": "三猫补充实体定义；一条3/4食材后抽1、四饼3/4永久全局+1力量、二瞳3/4随机敌式神3伤；353788/353790交叉。"
+    },
+    {
+      "id": "sugar-summon-jp-20261103",
+      "url": "https://gamerch.com/onmyojicard/353926",
+      "evidence": "小糖人2/2融合；大糖人4/4融合不屈，与2022年同期攻略相符。"
+    },
+    {
+      "id": "sugar-feast-pool-gap",
+      "url": "https://gamerch.com/onmyojicard/353931",
+      "evidence": "甘如暖阳直接佳肴可含普通烹饪没有的追猎/必杀/远程，完整池未取得，不伪造三食材随机替代。"
+    }
+  ],
+  "units": {
+    "maozhanggui": {
+      "verifiedRules": true,
+      "sugarCatRole": "cat",
+      "attack": 2,
+      "maxHp": 5,
+      "formLifecycle": {},
+      "passive": {
+        "id": "sc-cat",
+        "name": "猫又屋",
+        "text": "当猫掌柜的召唤物进场时，随机从手牌对其使用一张「食材」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "sc-cat-awake",
+        "name": "猫又屋",
+        "text": "己方回合开始时，随机将一张食材置入手牌。当你的召唤物进场时，随机从手牌对其使用一张食材。",
+        "hooks": []
+      },
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "yixigong": {
+      "verifiedRules": true,
+      "sugarCatRole": "sugar",
+      "attack": 2,
+      "maxHp": 5,
+      "formLifecycle": {},
+      "passive": {
+        "id": "sc-sugar",
+        "name": "烹糖",
+        "text": "每回合一次，当饴细工使用法术牌时，烹饪。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "sc-sugar-awake",
+        "name": "烹糖",
+        "text": "每回合一次，当己方式神使用法术牌时，烹饪。",
+        "hooks": []
+      },
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "cat-one": {
+      "verifiedRules": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "sources": [
+        "cat-summon-jp-20261103"
+      ]
+    },
+    "cat-four": {
+      "verifiedRules": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "sources": [
+        "cat-summon-jp-20261103"
+      ]
+    },
+    "cat-two": {
+      "verifiedRules": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "sources": [
+        "cat-summon-jp-20261103"
+      ]
+    },
+    "sugar-small": {
+      "verifiedRules": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "sources": [
+        "sugar-summon-jp-20261103"
+      ]
+    },
+    "sugar-big": {
+      "verifiedRules": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "sources": [
+        "sugar-summon-jp-20261103"
+      ]
+    }
+  },
+  "cards": {
+    "c24601": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发，弹回\n选择一张「食材」置入手牌。",
+      "officialText": "瞬发，弹回\n选择一张「食材」置入手牌。",
+      "keywords": [
+        "instant",
+        "bounce"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24602": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "召唤一条并使其发动一次攻击，本次攻击免疫战斗伤害。",
+      "officialText": "召唤一条并使其发动一次攻击，本次攻击免疫战斗伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24603": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "召唤四饼并使其发动一次攻击，本次攻击免疫战斗伤害。",
+      "officialText": "召唤四饼并使其发动一次攻击，本次攻击免疫战斗伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24604": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "随机将一张「食材」置入手牌。\n觉醒：己方回合开始时，随机将一张「食材」置入你的手牌。当你的召唤物进场时，随机从手牌对其使用一张「食材」。",
+      "officialText": "随机将一张「食材」置入手牌。\n觉醒：己方回合开始时，随机将一张「食材」置入你的手牌。当你的召唤物进场时，随机从手牌对其使用一张「食材」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24605": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "召唤二瞳并使其发动一次攻击，本次攻击免疫战斗伤害。",
+      "officialText": "召唤二瞳并使其发动一次攻击，本次攻击免疫战斗伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24606": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "选择并召唤一个猫掌柜的召唤物，对敌方牌手造成2点伤害。",
+      "officialText": "选择并召唤一个猫掌柜的召唤物，对敌方牌手造成2点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24607": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "依次召唤本局游戏已召唤过的猫掌柜的召唤物，并使其随机攻击一个敌方式神。",
+      "officialText": "依次召唤本局游戏已召唤过的猫掌柜的召唤物，并使其随机攻击一个敌方式神。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24608": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，随机将一张「食材」置入手牌且随机召唤一个猫掌柜的召唤物。\n猫掌柜召唤物的基础能力额外触发一次。",
+      "officialText": "进场和己方回合开始时，随机将一张「食材」置入手牌且随机召唤一个猫掌柜的召唤物。\n猫掌柜召唤物的基础能力额外触发一次。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "scHouse": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方回合开始时，随机将一张「食材」置入手牌且随机召唤一个猫掌柜的召唤物。\n猫掌柜召唤物的基础能力额外触发一次。",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24901": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-character",
+      "text": "对一个角色造成3点伤害，你手牌中每有一张「食材」或「佳肴」便恢复你1#[生命]。",
+      "officialText": "对一个角色造成3点伤害，你手牌中每有一张「食材」或「佳肴」便恢复你1#[生命]。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ],
+      "responseAction": "damage"
+    },
+    "c24902": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "抽两张牌。增强：若你本局游戏获得了3张「佳肴」，此牌得瞬发。\n",
+      "officialText": "抽两张牌。增强：若你本局游戏获得了3张「佳肴」，此牌得瞬发。\n",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24903": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时召唤一个「小糖人」。\n当你从手牌使用「佳肴」时，召唤一个「大糖人」。",
+      "officialText": "进场时召唤一个「小糖人」。\n当你从手牌使用「佳肴」时，召唤一个「大糖人」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": {
+        "attack": 2,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "sugarMaster": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时召唤一个「小糖人」。\n当你从手牌使用「佳肴」时，召唤一个「大糖人」。",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24904": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-unit",
+      "text": "对一个式神造成4点伤害，你手牌中每有一张「食材」或「佳肴」便伤害+1。",
+      "officialText": "对一个式神造成4点伤害，你手牌中每有一张「食材」或「佳肴」便伤害+1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ],
+      "responseAction": "damage"
+    },
+    "c24905": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "己方回合开始时烹饪。\n你的「佳肴」可以对气绝状态式神使用并使其复活。",
+      "officialText": "己方回合开始时烹饪。\n你的「佳肴」可以对气绝状态式神使用并使其复活。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "sugarReviveFood": true
+      },
+      "formHooks": [],
+      "formAbility": "己方回合开始时烹饪。\n你的「佳肴」可以对气绝状态式神使用并使其复活。",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24906": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：每回合一次，当己方式神使用法术牌时，烹饪。",
+      "officialText": "觉醒：每回合一次，当己方式神使用法术牌时，烹饪。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24907": {
+      "verifiedRules": true,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "你手牌中每有一张「食材」，召唤一个「小糖人」。\n你手牌中每有一张「佳肴」，召唤一个「大糖人」。",
+      "officialText": "你手牌中每有一张「食材」，召唤一个「小糖人」。\n你手牌中每有一张「佳肴」，召唤一个「大糖人」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。"
+      ]
+    },
+    "c24908": {
+      "verifiedRules": false,
+      "sugarCatRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发\n获得一张「佳肴」。若你本局游戏获得了6张「佳肴」，使你的所有式神永久获得5#[力量]和5#[生命]，为你恢复10#[生命]。\n",
+      "officialText": "瞬发\n获得一张「佳肴」。若你本局游戏获得了6张「佳肴」，使你的所有式神永久获得5#[力量]和5#[生命]，为你恢复10#[生命]。\n",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sc-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sc-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sugar-cat-original-20261103",
+        "cat-summon-jp-20261103",
+        "sugar-summon-jp-20261103",
+        "sugar-feast-pool-gap"
+      ],
+      "verificationPending": [
+        "按中文完整原PNG与基础牌文接入主要机制，指定录像未逐牌核验。三猫与糖人派生基础定义借助日文原卡／同期说明，中文独立原PNG暂缺。融合、多源食物自动使用、死亡及复活的全序仍待原客户端核验。",
+        "特殊佳肴完整随机词缀池尚无可靠资料：仅保留已知6张阈值永久成长/治疗代码与明确未实现事件，不以普通3食材随机替代；本牌不计主要机制全部接入。"
+      ],
+      "implementationStatus": "partial",
+      "cookingDirectFeastPool": []
+    }
+  }
+}

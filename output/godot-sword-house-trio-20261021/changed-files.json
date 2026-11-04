@@ -1,0 +1,275 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "status": "modified",
+      "sha256": "92aee68dcd1d89147d03fa7c2839afc816998d51e4fa4a83cc2c1e6223c09fbe",
+      "bytes": 39553
+    },
+    {
+      "path": "godot/README.md",
+      "status": "modified",
+      "sha256": "6db230066b4054a5c2fdc987f0817c875a434b64094c12d9447bd28ced84d4c9",
+      "bytes": 43168
+    },
+    {
+      "path": "godot/content/verified_rules.json",
+      "status": "modified",
+      "sha256": "1934285f2d029ae9b4ff388629f3b5b193acfe906af1ada1ca43134e4db3f654",
+      "bytes": 1127944
+    },
+    {
+      "path": "godot/content/content.json",
+      "status": "modified",
+      "sha256": "6e4b1d4d3d6c572fe413c85b8a277e0a531983f602bc0ce6ae3e52bc22a8b279",
+      "bytes": 2752222
+    },
+    {
+      "path": "godot/assets/official/README.md",
+      "status": "modified",
+      "sha256": "4d88f64d368a7a5bf765af936cc7027cc90aac609e7f11e08d277e62dbc41991",
+      "bytes": 2549
+    },
+    {
+      "path": "scripts/godot-verify.sh",
+      "status": "modified",
+      "sha256": "a921be6c49dc75df7a46214087bcb226fe05a53852ba830c7a4f690ee1634c57",
+      "bytes": 3661
+    },
+    {
+      "path": "godot/scripts/armor_break_rules.gd",
+      "status": "modified",
+      "sha256": "27bd3a1718e8b7c505e2fd71600610ce223a2b6a9593bda0d1761de041fbe999",
+      "bytes": 9916
+    },
+    {
+      "path": "godot/scripts/bamboo_rules.gd",
+      "status": "modified",
+      "sha256": "70f6551eddde9884ca338485a0439da7e55c7023d587a6b9f37fe27b6dc50f61",
+      "bytes": 11923
+    },
+    {
+      "path": "godot/scripts/enma_rules.gd",
+      "status": "modified",
+      "sha256": "5d030281b4f1d2e1f13b6fa8729482391f81f8c263c8a8fa665e143edcfb5a67",
+      "bytes": 15738
+    },
+    {
+      "path": "godot/scripts/game_ai.gd",
+      "status": "modified",
+      "sha256": "96470b98d431062163a49113a4a599afcc0fa653c08d9c2489c07ac04dd452a2",
+      "bytes": 19122
+    },
+    {
+      "path": "godot/scripts/game_state.gd",
+      "status": "modified",
+      "sha256": "355162c235ee5dcf1480bc407c004c6036bdd6aabe11f30a6eb9d8b6304505ff",
+      "bytes": 148428
+    },
+    {
+      "path": "godot/scripts/moon_rules.gd",
+      "status": "modified",
+      "sha256": "d113e291e26dd59f2bb941da64880abef0c69a69e1f8f4b3478ebaa2aa05b9f0",
+      "bytes": 10129
+    },
+    {
+      "path": "godot/scripts/movement_rules.gd",
+      "status": "modified",
+      "sha256": "e1cd40d346b37184a23b25db8fa2895581006415e751f5e5858d95dbc5033ad9",
+      "bytes": 24908
+    },
+    {
+      "path": "godot/scripts/paint_rules.gd",
+      "status": "modified",
+      "sha256": "9cb8f52dd78fdbacaff0d09e29a3bb0d9032d788fd141cf142d9686c716a73f2",
+      "bytes": 13744
+    },
+    {
+      "path": "godot/scripts/panguan_rules.gd",
+      "status": "modified",
+      "sha256": "8beee89d06bba887401192b26de1a41dc3d4722350ac9e2d836f6f4cdda88ab3",
+      "bytes": 5980
+    },
+    {
+      "path": "godot/scripts/pine_rules.gd",
+      "status": "modified",
+      "sha256": "b0dc2e4d774e742711fa060ded119ce1ca3a6e2401f59d9f9f600e9e8e19618f",
+      "bytes": 13429
+    },
+    {
+      "path": "godot/scripts/pipe_fox_rules.gd",
+      "status": "modified",
+      "sha256": "ef2580cf339e1f5a222e96326b2756eaf45ada3666d16ed5389fa5daaa89c0e2",
+      "bytes": 15352
+    },
+    {
+      "path": "godot/scripts/stun_rules.gd",
+      "status": "modified",
+      "sha256": "2e4c25ce55ee4da428c33a66fa5c2494c984b628049f8c843805818099cc1a4a",
+      "bytes": 2595
+    },
+    {
+      "path": "godot/scripts/sun_smoke_rules.gd",
+      "status": "modified",
+      "sha256": "e2fe1d57b2b514f1780dabdec5299b7cfd788e1aa544d23a346bcca0045f8492",
+      "bytes": 24607
+    },
+    {
+      "path": "godot/scripts/tomato_fire_rules.gd",
+      "status": "modified",
+      "sha256": "c411e231e84b01d6493d0fe3ed7dbbde7ed1d924ae80ab57524ec355ae3cd0ee",
+      "bytes": 21138
+    },
+    {
+      "path": "godot/scripts/ui/battle_screen.gd",
+      "status": "modified",
+      "sha256": "317e783c03fad7823563559838e57f369c6c2276abd8ea8f3980aa67aa7838a8",
+      "bytes": 113077
+    },
+    {
+      "path": "godot/scripts/ui/battle_status.gd",
+      "status": "modified",
+      "sha256": "9ec81862716fcaf57100a8185c5bb21b1f9d3af85e4db2039810db4512fc0314",
+      "bytes": 45771
+    },
+    {
+      "path": "godot/scripts/verified_card_rules.gd",
+      "status": "modified",
+      "sha256": "d4f2b2d32f5979cc02fe6a29cb26c7edfe173c27c92049f63ea0c10fd713ba35",
+      "bytes": 25497
+    },
+    {
+      "path": "godot/scripts/vine_rules.gd",
+      "status": "modified",
+      "sha256": "0ad5cba02399041dd87afc866f1228fef94780611579baecce1c63f24d8f5c30",
+      "bytes": 14075
+    },
+    {
+      "path": "godot/scripts/weaver_rules.gd",
+      "status": "modified",
+      "sha256": "fad3b779789b92e334728e62aa55dfc1cf9e5b142e36feb805254f575b11789d",
+      "bytes": 19094
+    },
+    {
+      "path": "godot/scripts/wind_raccoon_rules.gd",
+      "status": "modified",
+      "sha256": "1f5f01776a62c5c510dc29ecabf2db09084d1348228a08da30eb42077fa1be99",
+      "bytes": 14466
+    },
+    {
+      "path": "godot/scripts/xuenv_rules.gd",
+      "status": "modified",
+      "sha256": "eb31d13146bddf021f391acaa74909f022bdb5759a6acfcc105b87b8531dd381",
+      "bytes": 10762
+    },
+    {
+      "path": "game-content-wave3.js",
+      "status": "modified",
+      "sha256": "4a8b4a23fe2e482a013c64b6df0027e239bb80c9479e9e8d0991dd7144740948",
+      "bytes": 124791
+    },
+    {
+      "path": "scripts/gen-wave3-content.py",
+      "status": "modified",
+      "sha256": "a469ff6f32b96ba4e43f4d90f341478779896acffff67b3fe240f8bad9e51f1b",
+      "bytes": 99625
+    },
+    {
+      "path": "godot/scripts/house_rules.gd",
+      "status": "added",
+      "sha256": "77c9945b713d11ffcecebf0da3a716ec3c0508a9fc6d8bf0fc5121c06dbb7b54",
+      "bytes": 16761
+    },
+    {
+      "path": "godot/scripts/house_rules.gd.uid",
+      "status": "added",
+      "sha256": "55865673297d6369b86aacb96f2b2bb67527301d271f56663591f6d6ecc661b6",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/onikiri_rules.gd",
+      "status": "added",
+      "sha256": "539655ec3669f295ebd535c6df49b0f0b43bc4070919a8c24afb907cd63a445e",
+      "bytes": 17202
+    },
+    {
+      "path": "godot/scripts/onikiri_rules.gd.uid",
+      "status": "added",
+      "sha256": "52c4ee354f71b0a8244cc89cc5e9887ce0d0c2200a4d13e9762c8ff7530e319e",
+      "bytes": 19
+    },
+    {
+      "path": "godot/scripts/otakemaru_rules.gd",
+      "status": "added",
+      "sha256": "caa066cfc73f92158f5a9e13d6102182585850ee28817b74a5874f4dbf38e3e8",
+      "bytes": 12806
+    },
+    {
+      "path": "godot/scripts/otakemaru_rules.gd.uid",
+      "status": "added",
+      "sha256": "e4ff02bf1cb6dec556ab03b89826220583f2f9421c8b0fb080feacf2d1f7ee6f",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_house.gd",
+      "status": "added",
+      "sha256": "8e05ff380b1099a708a60d6a1396c1414cbb7e9b5c619b9025529341655e8bfd",
+      "bytes": 19354
+    },
+    {
+      "path": "godot/scripts/verify_house.gd.uid",
+      "status": "added",
+      "sha256": "31b57d8b8965b485a46e7c3aaa650bca1a1ea5c96a236b5beb26cf9306acef90",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_onikiri.gd",
+      "status": "added",
+      "sha256": "c41660cb597b778139e55cff6a2f33077f36e4ef6cbaa0f1c2944c957d8091b7",
+      "bytes": 17547
+    },
+    {
+      "path": "godot/scripts/verify_onikiri.gd.uid",
+      "status": "added",
+      "sha256": "a6dbbf99697ed831d8c134bfa9224236d61719b99ff2bef292a2abc796a6caf4",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_otakemaru.gd",
+      "status": "added",
+      "sha256": "e7abe2c91a14fcfbcab3a68b675bd399c9d90bf71c8cdfd457314fa88ac1a955",
+      "bytes": 15969
+    },
+    {
+      "path": "godot/scripts/verify_otakemaru.gd.uid",
+      "status": "added",
+      "sha256": "48e14db305d01dc8b246e2f24e8675f216b4f2038ab5a8d3f799bbe8d8bc5951",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_sword_house_trio.gd",
+      "status": "added",
+      "sha256": "123069ddc4b2aaac687a0ac8c1b5579d95a43c57b13334d4d2130ca12ff9e288",
+      "bytes": 5689
+    },
+    {
+      "path": "godot/scripts/verify_sword_house_trio.gd.uid",
+      "status": "added",
+      "sha256": "9b1e0d41098b70f8f16955412c23d0f4cbb58ea70670ff444f364ee8f9cd5b69",
+      "bytes": 20
+    },
+    {
+      "path": "research-notes/64-sword-house-trio-rules.md",
+      "status": "added",
+      "sha256": "f5dba6c72f13f896bb6187cab652723fa2055e70d93cba20dea00f6234b86bf4",
+      "bytes": 8072
+    }
+  ],
+  "modified": 29,
+  "added": 15,
+  "totalTextFiles": 44,
+  "artManifest": "card-art-manifest.json",
+  "artAddedThisBatch": 24,
+  "trailingWhitespaceCheck": true,
+  "baselinePreservesPriorWorkspaceEdits": true
+}

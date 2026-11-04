@@ -18,11 +18,11 @@ static func prepare_hand_card(card: Dictionary, unit: Dictionary) -> Dictionary:
 	return view
 
 static func completed(gs, frame: Dictionary, card: Dictionary) -> void:
-	if card.get("type") != "spell": return
+	if not ContentLoader.is_spell(card): return
 	var owner := int(frame.playerIndex)
 	var src := int(frame.sourceIndex)
 	var unit: Dictionary = gs.player(owner).units[src]
-	var cfg: Dictionary = ContentLoader.unit_def(str(unit.id)).get("spellCountdown", {})
+	var cfg: Dictionary = ContentLoader.runtime_unit_def(unit).get("spellCountdown", {})
 	if cfg.get("on") == "spell":
 		unit.spellsUsed = int(unit.get("spellsUsed", 0)) + 1
 		if int(unit.hp) > 0 and not card.get("excludeSpellReplay", false):
@@ -44,7 +44,7 @@ static func random_target(gs, owner: int, card: Dictionary):
 	return null if targets.is_empty() else targets[int(floor(gs.randf01() * targets.size()))]
 
 static func generation_pool(unit: Dictionary, card: Dictionary) -> Array:
-	return ContentLoader.cards_for_unit(str(unit.id)).filter(func(c): return c.type == "spell" and int(c.level) <= int(unit.level) and c.id != card.id and not c.get("skin", false) and not c.get("token", false))
+	return ContentLoader.cards_for_unit(str(unit.id)).filter(func(c): return ContentLoader.is_spell(c) and int(c.level) <= int(unit.level) and c.id != card.id and not c.get("skin", false) and not c.get("token", false))
 
 static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: Dictionary, target: Dictionary) -> bool:
 	var unit: Dictionary = gs.player(owner).units[src]
@@ -54,8 +54,8 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			unit.awakened = true
 			gs._grow_unit(unit, int(effect.value.attack), int(effect.value.hp))
 			if unit.has("spellCountdown"):
-				unit.spellCountdown.reset = int(ContentLoader.unit_def(str(unit.id)).spellCountdown.awakenedTurns)
-			gs.VerifiedRules.reduce_countdown(gs, owner, src, int(effect.value.countdown))
+				unit.spellCountdown.reset = int(ContentLoader.runtime_unit_def(unit).spellCountdown.awakenedTurns)
+			gs.VerifiedRules.reduce_countdown(gs, owner, src, int(effect.value.countdown), owner)
 		"generate-own-spell":
 			var pool := generation_pool(unit, card)
 			if pool.is_empty(): return true
@@ -72,16 +72,14 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			for idx in gs.player(1 - owner).units.size():
 				var victim: Dictionary = gs.player(1 - owner).units[idx]
 				if int(victim.hp) > 0:
-					gs._knockout_unit(victim)
-					gs.VerifiedRules.event(gs, "unit-destroyed", {"player": owner, "uid": unit.uid, "target": victim.uid})
+					gs.VerifiedRules.Panguan.destroy(gs, owner, src, 1-owner, idx, card)
 		"shield-next-turn":
 			if target.is_empty() or int(target.hp) <= 0: return true
 			var amount := int(effect.value)
-			target.shield = int(target.shield) + amount
-			target.shieldExpires = int(target.get("shieldExpires", 0)) + amount
+			var gained: int = gs._grant_unit_armor(target, amount)
 			if not target.has("pendingShields"): target.pendingShields = []
 			target.pendingShields.append({"turn": gs.turn_counter + 1, "amount": amount})
-			gs.VerifiedRules.event(gs, "shield-granted", {"player": owner, "uid": unit.uid, "target": target.uid, "amount": amount})
+			gs.VerifiedRules.event(gs, "shield-granted", {"player": owner, "uid": unit.uid, "target": target.uid, "amount": gained})
 		_: return false
 	return true
 
@@ -94,7 +92,6 @@ static func begin_turn(gs) -> void:
 				if int(pending.turn) > gs.turn_counter: continue
 				unit.pendingShields.erase(pending)
 				if int(unit.hp) <= 0: continue
-				unit.shield = int(unit.shield) + int(pending.amount)
-				unit.shieldExpires = int(unit.get("shieldExpires", 0)) + int(pending.amount)
-				gs._log("%s 获得上回合暴风之盾的%d护甲。" % [unit.name, int(pending.amount)], gs.TONE_SUCCESS)
-				gs.VerifiedRules.event(gs, "delayed-shield", {"player": owner, "uid": unit.uid, "amount": pending.amount})
+				var gained: int = gs._grant_unit_armor(unit, int(pending.amount))
+				gs._log("%s 获得上回合暴风之盾的%d护甲。" % [unit.name, gained], gs.TONE_SUCCESS)
+				gs.VerifiedRules.event(gs, "delayed-shield", {"player": owner, "uid": unit.uid, "amount": gained})

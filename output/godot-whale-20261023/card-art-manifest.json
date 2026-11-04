@@ -1,0 +1,57 @@
+{
+  "newMainFaces": [
+    {
+      "id": "c27801",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/278_化鲸/27801_齿甲_法术.png",
+      "destination": "godot/assets/official/cards/c27801.png",
+      "sha256": "c8885c369cf8cbe5ae8f5e2f9d29cd8e8e791262b8c0945268eadd7628f01471"
+    },
+    {
+      "id": "c27802",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/278_化鲸/27802_体甲_法术.png",
+      "destination": "godot/assets/official/cards/c27802.png",
+      "sha256": "cc9b400a2f9523c0ab66a51c5c16535d5d20cb92000353a193f72e62627ea051"
+    },
+    {
+      "id": "c27803",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/278_化鲸/27803_水袭_法术.png",
+      "destination": "godot/assets/official/cards/c27803.png",
+      "sha256": "baf9ca36096a0b679759f7500a40635f0e3e6d11d0dd24dd01843f2a9be1a9a7"
+    },
+    {
+      "id": "c27804",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/278_化鲸/27804_泣海_结界.png",
+      "destination": "godot/assets/official/cards/c27804.png",
+      "sha256": "486b3d3273c2b23c56edd3145d7324877c49b59f4cb5925570632fe56c87961a"
+    },
+    {
+      "id": "c27805",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/278_化鲸/27805_遥候_战斗.png",
+      "destination": "godot/assets/official/cards/c27805.png",
+      "sha256": "3ad0088286b19ae46650e099df685be53714787275a89fd98f37c1250c7d5111"
+    },
+    {
+      "id": "c27806",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/278_化鲸/27806_觉醒·化鲸_法术.png",
+      "destination": "godot/assets/official/cards/c27806.png",
+      "sha256": "68d2e29c6720e6dce52e3273c5e47554105847a4d9acde09be431caa9e5addb8"
+    },
+    {
+      "id": "c27807",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/278_化鲸/27807_孤鲸_形态.png",
+      "destination": "godot/assets/official/cards/c27807.png",
+      "sha256": "2ba46cbf065c4634852840d127c190268e9b96321ff852970311749d630bf401"
+    },
+    {
+      "id": "c27808",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/278_化鲸/27808_虚妄之忆_法术.png",
+      "destination": "godot/assets/official/cards/c27808.png",
+      "sha256": "6b14e54ba4e7c52461882b4124dd1fcc094a4d5b1847a3d258e077061b77658f"
+    }
+  ],
+  "cumulativeMainFaces": 432,
+  "cumulativeMainUnits": 54,
+  "existingDerivedFaces": 3,
+  "cumulativeFaces": 435,
+  "guardianFace": "Chinese original not found; existing fallback rendering retained"
+}

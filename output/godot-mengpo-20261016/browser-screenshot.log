@@ -1,0 +1,11 @@
+### Result
+- [Screenshot of viewport](output/playwright/mengpo-20261016-boot.png)
+### Ran Playwright code
+```js
+// Screenshot viewport and save it as output/playwright/mengpo-20261016-boot.png
+await page.screenshot({
+  path: 'output/playwright/mengpo-20261016-boot.png',
+  scale: 'css',
+  type: 'png'
+});
+```

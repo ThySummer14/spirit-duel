@@ -1,0 +1,136 @@
+{
+  "finishedOn": "2026-11-02",
+  "roles": [
+    "jingliuliqian",
+    "yingxueji"
+  ],
+  "mainCardCount": 16,
+  "fullyImplementedMainCards": 15,
+  "partialMainCards": [
+    "c20602"
+  ],
+  "derivatives": [
+    "julijialuo-wan"
+  ],
+  "rules": {
+    "checks": 219,
+    "failures": 0,
+    "log": "rules-final-shared.log"
+  },
+  "native": {
+    "checks": 251,
+    "failures": 0,
+    "includesRules": 219,
+    "originalTextures": 16,
+    "interactionChecks": 16,
+    "resolutions": [
+      [
+        1280,
+        800
+      ],
+      [
+        1600,
+        740
+      ]
+    ],
+    "log": "native-final.log",
+    "exitCode": 0,
+    "scriptErrors": false
+  },
+  "screenshotsReviewed": [
+    "screenshots-final/1280-01-intent-target.png",
+    "screenshots-final/1280-02-outline-divination.png",
+    "screenshots-final/1280-03-direct-attack.png",
+    "screenshots-final/1600-01-intent-target.png",
+    "screenshots-final/1600-02-outline-divination.png",
+    "screenshots-final/1600-03-direct-attack.png"
+  ],
+  "art": [
+    {
+      "target": "godot/assets/official/cards/c20601.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20602.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20603.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20604.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20605.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20606.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20607.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20608.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20701.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20702.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20703.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20704.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20705.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20706.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20707.png",
+      "matchesSource": true
+    },
+    {
+      "target": "godot/assets/official/cards/c20708.png",
+      "matchesSource": true
+    }
+  ],
+  "overlayProductionDiffs": [],
+  "unresolved": [
+    "c20602随机强化池完整10个buff ID释义未确认；bgMingchePool=[]，verifiedRules=false，卡牌部分实现不能算完全还原。",
+    "所有定义保留verificationPending；指定录像未逐牌覆盖及复杂替代/响应顺序边界仍待核验。"
+  ],
+  "sourceHashesAtNative": {
+    "godot/scripts/blue_green_rules.gd": "d8751a7bf589034f8c56edb420ebef79da66541b2be6f63f93117211bf7607a2",
+    "godot/scripts/verify_blue_green.gd": "e544fc584ca705fb1ebbb5c44fb33f208fb47ee4b03daa3ab02bdbc16eaed875"
+  },
+  "finalSharedRefreshRegression": {
+    "status": "passed",
+    "checks": 219,
+    "failures": 0,
+    "log": "rules-final-shared.log",
+    "reason": "贡献变化才刷新；共享修复后串行复验通过，未修改原生布局。"
+  },
+  "sourceHashesAtSharedRefreshRules": {
+    "godot/scripts/blue_green_rules.gd": "d8751a7bf589034f8c56edb420ebef79da66541b2be6f63f93117211bf7607a2",
+    "godot/scripts/verify_blue_green.gd": "e544fc584ca705fb1ebbb5c44fb33f208fb47ee4b03daa3ab02bdbc16eaed875",
+    "godot/scripts/red_purple_rules.gd": "fa0d9efb092ec63d473342917c6f96790c4ecab43b0b7a5e1ffa70a6c63cbdc6",
+    "godot/scripts/game_state.gd": "20ec08fe6937095dac0ea3a07a0a1ba4f83cb700d5fd28492040ffd2121a4cff"
+  }
+}

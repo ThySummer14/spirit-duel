@@ -1,0 +1,123 @@
+{
+  "removed": [
+    {
+      "path": ".build/wave2-movement",
+      "bytes": 1328971671
+    },
+    {
+      "path": ".build/mengpo-20261016",
+      "bytes": 919626033
+    },
+    {
+      "path": ".build/light-healer",
+      "bytes": 1344101586
+    },
+    {
+      "path": ".build/instant-status-20261008",
+      "bytes": 917797906
+    },
+    {
+      "path": ".build/fortune-pair",
+      "bytes": 1328618572
+    },
+    {
+      "path": ".build/card-glow-20261016",
+      "bytes": 919659852
+    },
+    {
+      "path": ".build/dog-demon-20261010",
+      "bytes": 555594728
+    },
+    {
+      "path": ".build/armor-blood-20261015",
+      "bytes": 919422680
+    },
+    {
+      "path": ".build/poison-pair",
+      "bytes": 1328621341
+    },
+    {
+      "path": ".build/wave2-sun-smoke",
+      "bytes": 1328748347
+    },
+    {
+      "path": ".build/armor-limit-20261015",
+      "bytes": 919444699
+    },
+    {
+      "path": ".build/wave2-20261014",
+      "bytes": 919385745
+    },
+    {
+      "path": ".build/instant-feedback-20261016",
+      "bytes": 919542575
+    },
+    {
+      "path": ".build/judge-tide-20261009",
+      "bytes": 917819746
+    },
+    {
+      "path": ".build/huang-20261015",
+      "bytes": 919524018
+    },
+    {
+      "path": ".build/huibishou-20261017",
+      "bytes": 919705914
+    },
+    {
+      "path": ".build/book-jue",
+      "bytes": 1328540483
+    },
+    {
+      "path": ".build/combat-keywords-20261008",
+      "bytes": 917898681
+    },
+    {
+      "path": ".build/wave2-tomato-fire",
+      "bytes": 1340874158
+    },
+    {
+      "path": ".build/continuation-20261013",
+      "bytes": 918682689
+    },
+    {
+      "path": ".playwright-cli",
+      "bytes": 6536631
+    },
+    {
+      "path": "scripts/__pycache__",
+      "bytes": 7150
+    },
+    {
+      "path": "output/parallel-xuenv-20261010/test-godot/.godot",
+      "bytes": 551598448
+    }
+  ],
+  "reclaimedLogicalBytes": 21470723653,
+  "preserved": [
+    ".build/tools",
+    ".build/pages",
+    "godot/.godot",
+    "output 验收/参考资料",
+    "源码和未提交修改"
+  ],
+  "removedBuildIntermediates": [
+    {
+      "path": ".build/godot-web-src",
+      "bytes": 825172008
+    },
+    {
+      "path": ".build/tools/Godot_v4.6.3-stable_export_templates.tpz",
+      "bytes": 1171456
+    },
+    {
+      "path": "scripts/__pycache__",
+      "bytes": 7150
+    },
+    {
+      "path": "output/parallel-book-jue-20261013/__pycache__",
+      "bytes": 18886
+    }
+  ],
+  "reclaimedLogicalBytesIncludingCurrentIntermediates": 22297093153
+}

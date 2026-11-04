@@ -1,0 +1,55 @@
+{
+  "newMainFaces": [
+    {
+      "id": "c27501",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/275_络新妇/27501_噬心食髓_结界.png",
+      "destination": "godot/assets/official/cards/c27501.png",
+      "sha256": "33b173254eb0fcb5bc27ef4e76387b3ecb6c55e2e299b7a45b578409c1aad784"
+    },
+    {
+      "id": "c27502",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/275_络新妇/27502_毒针_法术.png",
+      "destination": "godot/assets/official/cards/c27502.png",
+      "sha256": "eccda0ec2c123972b85d79414cc99c19ab57f9dfc43d62b371eb3a72f42e4c74"
+    },
+    {
+      "id": "c27503",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/275_络新妇/27503_猎杀_战斗.png",
+      "destination": "godot/assets/official/cards/c27503.png",
+      "sha256": "4d8660af5b9456932985d42b2d2b24e9dce3913cfdc3cc8f26e8c458100de948"
+    },
+    {
+      "id": "c27504",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/275_络新妇/27504_御蛛鬼姬_形态.png",
+      "destination": "godot/assets/official/cards/c27504.png",
+      "sha256": "d03986d10cabbbd4ff11c8c18b596373cf10a2ad1181b79276b25bf0e304bec7"
+    },
+    {
+      "id": "c27505",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/275_络新妇/27505_觉醒·络新妇_法术.png",
+      "destination": "godot/assets/official/cards/c27505.png",
+      "sha256": "d55a040c139d0aefe84c3fd8fbeab134a0d25038e68f0833a72bc0994620220d"
+    },
+    {
+      "id": "c27506",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/275_络新妇/27506_寻丝_战斗.png",
+      "destination": "godot/assets/official/cards/c27506.png",
+      "sha256": "ec55a4493a727519ca650f201486e51438a8772a4c2ca53a58dfc53010c275c1"
+    },
+    {
+      "id": "c27507",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/275_络新妇/27507_罗网缠织_形态.png",
+      "destination": "godot/assets/official/cards/c27507.png",
+      "sha256": "c5735461a49c59eb613948412aecab067f7db6e6d290cb236041ec2aafbeec4c"
+    },
+    {
+      "id": "c27508",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/275_络新妇/27508_诛灭_法术.png",
+      "destination": "godot/assets/official/cards/c27508.png",
+      "sha256": "dc8733b5bfc64a6f48e5c08df0127e653d999b50dbe9ec5bdabc396c6b7efaa7"
+    }
+  ],
+  "totalMainFaces": 424,
+  "totalMainUnits": 53,
+  "totalFullFaces": 427
+}

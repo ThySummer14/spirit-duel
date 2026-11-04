@@ -1,0 +1,122 @@
+[
+  {
+    "name": "verify_combat",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "name": "verify_charged_pair",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "CHARGED_PAIR_OK checks=191 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_octet_cross",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "OCTET_CROSS_OK checks=72 failures=0"
+    ]
+  },
+  {
+    "name": "verify_turn_order",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "name": "verify_instant",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "name": "verify_resource_effects",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "RESOURCE_EFFECTS_OK checks=149"
+    ]
+  },
+  {
+    "name": "verify_blue_green",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BLUE_GREEN_OK checks=251 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_phoenix",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "PHOENIX_OK"
+    ]
+  },
+  {
+    "name": "verify_judge_tide",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "JUDGE_TIDE checks=147 failures=0"
+    ]
+  },
+  {
+    "name": "verify_light_healer",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "LIGHT_HEALER checks=593 failures=0"
+    ]
+  },
+  {
+    "name": "verify_headless",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "HEADLESS checks=132 failures=0"
+    ]
+  },
+  {
+    "name": "verify_jorogumo",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "JOROGUMO_OK checks=140 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_three_tail",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "THREE_TAIL checks=121 failures=0"
+    ]
+  },
+  {
+    "name": "verify_save",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SAVE_OK lineup=[\"ember\", \"basalt\", \"lumen\", \"rime\"] deck0=8 steps=20"
+    ]
+  },
+  {
+    "name": "verify_interactions",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "INTERACTIONS_OK"
+    ]
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "name": "verify_archer_mountain",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "ARCHER_MOUNTAIN checks=146 failures=0"
+    ]
+  },
+  {
+    "name": "verify_book_jue",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BOOK_JUE checks=129 failures=0"
+    ]
+  },
+  {
+    "name": "verify_fox_suzuka",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "FOX_SUZUKA checks=91 failures=0"
+    ]
+  },
+  {
+    "name": "verify_movement",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MOVEMENT checks=244 failures=0"
+    ]
+  },
+  {
+    "name": "verify_monk_cleaner",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MONK_CLEANER checks=102 failures=0"
+    ]
+  },
+  {
+    "name": "verify_pipe_fox",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "PIPE_FOX checks=161 failures=0"
+    ]
+  },
+  {
+    "name": "verify_fox_lotus",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "FOX_LOTUS checks=164 failures=0"
+    ]
+  },
+  {
+    "name": "verify_maple",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MAPLE checks=115 failures=0"
+    ]
+  },
+  {
+    "name": "verify_spider_lily",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SPIDER_LILY checks=151 failures=0"
+    ]
+  },
+  {
+    "name": "verify_koi_fragrance",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "KOI_FRAGRANCE_OK checks=297 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_silk_ninja",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SILK_NINJA_OK checks=200 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_sea_butterfly",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SEA_BUTTERFLY_OK checks=174 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_lantern",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "LANTERN_OK checks=163 failures=0 rules_only=false"
+    ]
+  }
+]

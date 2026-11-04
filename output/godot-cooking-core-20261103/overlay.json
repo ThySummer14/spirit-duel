@@ -1,0 +1,1114 @@
+{
+  "sources": [
+    {
+      "id": "cooking-original-20261103",
+      "path": "art-reference-official/卡面-按版本/13_喧哗烩战/",
+      "evidence": "五丸/食灵完整中文原PNG各9张。猫咪日和包含进场烹饪；快速烹饪含瞬发、弹回。"
+    },
+    {
+      "id": "cooking-cn-20220409",
+      "url": "https://www.sohu.com/a/536525662_268907",
+      "evidence": "同期NGA作者实战说明：按勾玉取得食材，烹饪时从右侧合成三个食材；佳肴保留其效果。"
+    },
+    {
+      "id": "cooking-jp-glossary",
+      "url": "https://gamerch.com/onmyojicard/217550",
+      "evidence": "日文补充：食品是费用1的中立牌，生成者气绝仍可使用；时蔬按等级扩展随机关键词，合成先于手牌上限。"
+    },
+    {
+      "id": "cooking-20220414-keyword-uniqueness",
+      "url": "https://www.gamedog.cn/news/3143818.html",
+      "evidence": "2022-04-14维护公告：时蔬优先不与手中其他食材重复关键词；无法避免时改山珍/海味。"
+    },
+    {
+      "id": "cooking-unknown-dark-jp",
+      "url": "https://gamerch.com/onmyojicard/354060",
+      "evidence": "日文争食补充定义：不明食材4破甲，参与合成改黑暗料理，黑暗料理瞬发6破甲。"
+    }
+  ],
+  "units": {
+    "wuwu": {
+      "verifiedRules": true,
+      "cookingRole": "cat",
+      "attack": 3,
+      "maxHp": 4,
+      "formLifecycle": {},
+      "passive": {
+        "id": "cooking-cat",
+        "name": "料理",
+        "text": "当五丸对敌方牌手造成战斗伤害时，烹饪。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "cooking-cat-awake",
+        "name": "觉醒·料理",
+        "text": "连击。当五丸造成战斗伤害时，烹饪。",
+        "hooks": []
+      },
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ],
+      "awakenedCombatKeywords": [
+        "combo"
+      ]
+    },
+    "shiling": {
+      "verifiedRules": true,
+      "cookingRole": "chef",
+      "attack": 2,
+      "maxHp": 6,
+      "formLifecycle": {},
+      "passive": {
+        "id": "cooking-chef",
+        "name": "料理",
+        "text": "每当己方式神烹饪时，食灵获得1力量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "cooking-chef-awake",
+        "name": "觉醒·料理",
+        "text": "每当己方式神烹饪时，食灵获得1力量。每当你获得「佳肴」时，复活食灵。",
+        "hooks": []
+      },
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c25201": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "增强：本回合若你使用过「佳肴」，此牌获得瞬发。",
+      "officialText": "增强：本回合若你使用过「佳肴」，此牌获得瞬发。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-cat-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "cooking-cat-combat",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ],
+      "combatOption": {
+        "shield": 1,
+        "firstStrike": false,
+        "pierce": false,
+        "pursuit": false
+      },
+      "responseAction": "assault"
+    },
+    "c25202": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "增强：本局游戏五丸每被使用过一张「食材」，此牌便获得1力量；每被使用过一张「佳肴」，此牌便获得2力量。",
+      "officialText": "增强：本局游戏五丸每被使用过一张「食材」，此牌便获得1力量；每被使用过一张「佳肴」，此牌便获得2力量。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-cat-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-cat-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "firstStrike": false,
+        "pierce": false,
+        "pursuit": false
+      },
+      "responseAction": "assault"
+    },
+    "c25203": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发\n随机从手牌对五丸使用一张「佳肴」，抽一张牌。     ",
+      "officialText": "瞬发\n随机从手牌对五丸使用一张「佳肴」，抽一张牌。     ",
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-play-feast",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-play-feast",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "c25204": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "先攻\n从手牌对五丸使用一张「佳肴」。",
+      "officialText": "先攻\n从手牌对五丸使用一张「佳肴」。",
+      "keywords": [
+        "firstStrike"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-cat-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-cat-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "firstStrike": true,
+        "pierce": false,
+        "pursuit": false
+      },
+      "responseAction": "assault"
+    },
+    "c25205": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时烹饪。\n己方回合当五丸被使用「佳肴」时，获得屏障且发起一次攻击。",
+      "officialText": "进场时烹饪。\n己方回合当五丸被使用「佳肴」时，获得屏障且发起一次攻击。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "cooking-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "cookingCatDay": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时烹饪。\n己方回合当五丸被使用「佳肴」时，获得屏障且发起一次攻击。",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "c25206": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "贯通\n增强：本回合若你使用过「佳肴」，此牌获得追猎。",
+      "officialText": "贯通\n增强：本回合若你使用过「佳肴」，此牌获得追猎。",
+      "keywords": [
+        "pierce"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-cat-combat",
+      "value": 2,
+      "effects": [
+        {
+          "action": "cooking-cat-combat",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ],
+      "combatOption": {
+        "shield": 1,
+        "firstStrike": false,
+        "pierce": true,
+        "pursuit": false
+      },
+      "responseAction": "assault"
+    },
+    "c25207": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当五丸被使用「佳肴」时，抽一张牌并获得1点鬼火。",
+      "officialText": "当五丸被使用「佳肴」时，抽一张牌并获得1点鬼火。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-form",
+      "value": {
+        "attack": 4,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "cooking-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "cookingCatWork": true
+      },
+      "formHooks": [],
+      "formAbility": "当五丸被使用「佳肴」时，抽一张牌并获得1点鬼火。",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "c25208": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：连击。当五丸造成战斗伤害时，烹饪。",
+      "officialText": "觉醒：连击。当五丸造成战斗伤害时，烹饪。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "cooking-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "c25301": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "己方回合结束时若食灵在战斗区，烹饪。",
+      "officialText": "己方回合结束时若食灵在战斗区，烹饪。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-form",
+      "value": {
+        "attack": 2,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "cooking-form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "cookingOnEndFront": true
+      },
+      "formHooks": [],
+      "formAbility": "己方回合结束时若食灵在战斗区，烹饪。",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "c25302": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "烹饪",
+      "officialText": "烹饪",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-chef-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-cook",
+          "target": "source",
+          "value": 0
+        },
+        {
+          "action": "cooking-chef-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ],
+      "combatOption": {
+        "shield": 1,
+        "firstStrike": false,
+        "pierce": false,
+        "pursuit": false
+      },
+      "responseAction": "assault"
+    },
+    "c25303": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时烹饪。\n当你获得「佳肴」时，抽一张牌。",
+      "officialText": "进场时烹饪。\n当你获得「佳肴」时，抽一张牌。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-realm",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "cooking-dream",
+        "trigger": "native-continuous"
+      }
+    },
+    "c25304": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "烹饪\n觉醒：每当己方式神烹饪时，食灵获得1力量。\n每当你获得「佳肴」时，复活食灵。",
+      "officialText": "烹饪\n觉醒：每当己方式神烹饪时，食灵获得1力量。\n每当你获得「佳肴」时，复活食灵。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "cooking-cook",
+          "target": "source",
+          "value": 0
+        },
+        {
+          "action": "cooking-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "c25305": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每当己方式神烹饪时，鼓舞：获得1力量和1护甲。",
+      "officialText": "每当己方式神烹饪时，鼓舞：获得1力量和1护甲。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-form",
+      "value": {
+        "attack": 5,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "cooking-form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "cookingHotChef": true
+      },
+      "formHooks": [],
+      "formAbility": "每当己方式神烹饪时，鼓舞：获得1力量和1护甲。",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "c25306": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发，弹回\n烹饪",
+      "officialText": "瞬发，弹回\n烹饪",
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-cook",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-cook",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ],
+      "bounce": true
+    },
+    "c25307": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "追猎\n增强：本局游戏你每获得一张「佳肴」，此牌便获得+2力量和+2护甲。",
+      "officialText": "追猎\n增强：本局游戏你每获得一张「佳肴」，此牌便获得+2力量和+2护甲。",
+      "keywords": [
+        "pursuit"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-chef-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-chef-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "firstStrike": false,
+        "pierce": false,
+        "pursuit": true
+      },
+      "responseAction": "assault"
+    },
+    "c25308": {
+      "verifiedRules": true,
+      "cookingRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当你对己方式神使用「食材」或「佳肴」时，对所有其他己方式神都额外使用一次。\n每回合一次，你的「食材」和「佳肴」不消耗鬼火。",
+      "officialText": "当你对己方式神使用「食材」或「佳肴」时，对所有其他己方式神都额外使用一次。\n每回合一次，你的「食材」和「佳肴」不消耗鬼火。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-form",
+      "value": {
+        "attack": 6,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "cooking-form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "cookingDivinity": true
+      },
+      "formHooks": [],
+      "formAbility": "当你对己方式神使用「食材」或「佳肴」时，对所有其他己方式神都额外使用一次。\n每回合一次，你的「食材」和「佳肴」不消耗鬼火。",
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "cooking-mountain": {
+      "id": "cooking-mountain",
+      "unitId": "",
+      "name": "山珍",
+      "type": "spell",
+      "typeLabel": "中立法术牌",
+      "level": 0,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "neutralFood": true,
+      "text": "山珍：中立法术，效果由生成时的真实食材实例保留。",
+      "officialText": "山珍：中立法术，效果由生成时的真实食材实例保留。",
+      "target": "food-target",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-food",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-food",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "cooking-sea": {
+      "id": "cooking-sea",
+      "unitId": "",
+      "name": "海味",
+      "type": "spell",
+      "typeLabel": "中立法术牌",
+      "level": 0,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "neutralFood": true,
+      "text": "海味：中立法术，效果由生成时的真实食材实例保留。",
+      "officialText": "海味：中立法术，效果由生成时的真实食材实例保留。",
+      "target": "food-target",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-food",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-food",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "cooking-vegetable": {
+      "id": "cooking-vegetable",
+      "unitId": "",
+      "name": "时蔬",
+      "type": "spell",
+      "typeLabel": "中立法术牌",
+      "level": 0,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "neutralFood": true,
+      "text": "时蔬：中立法术，效果由生成时的真实食材实例保留。",
+      "officialText": "时蔬：中立法术，效果由生成时的真实食材实例保留。",
+      "target": "food-target",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-food",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-food",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "shi-cai": {
+      "id": "shi-cai",
+      "unitId": "",
+      "name": "不明食材",
+      "type": "spell",
+      "typeLabel": "中立法术牌",
+      "level": 0,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "neutralFood": true,
+      "text": "不明食材：中立法术，效果由生成时的真实食材实例保留。",
+      "officialText": "不明食材：中立法术，效果由生成时的真实食材实例保留。",
+      "target": "food-target",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-food",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-food",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "jia-yao": {
+      "id": "jia-yao",
+      "unitId": "",
+      "name": "佳肴",
+      "type": "spell",
+      "typeLabel": "中立法术牌",
+      "level": 0,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "neutralFood": true,
+      "text": "佳肴：中立法术，效果由生成时的真实食材实例保留。",
+      "officialText": "佳肴：中立法术，效果由生成时的真实食材实例保留。",
+      "target": "food-target",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-food",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-food",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    },
+    "cooking-dark": {
+      "id": "cooking-dark",
+      "unitId": "",
+      "name": "黑暗料理",
+      "type": "spell",
+      "typeLabel": "中立法术牌",
+      "level": 0,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "neutralFood": true,
+      "text": "黑暗料理：中立法术，效果由生成时的真实食材实例保留。",
+      "officialText": "黑暗料理：中立法术，效果由生成时的真实食材实例保留。",
+      "target": "food-target",
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "tags": [],
+      "effect": "cooking-food",
+      "value": 0,
+      "effects": [
+        {
+          "action": "cooking-food",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "sources": [
+        "cooking-original-20261103",
+        "cooking-cn-20220409",
+        "cooking-jp-glossary",
+        "cooking-20220414-keyword-uniqueness",
+        "cooking-unknown-dark-jp"
+      ],
+      "verificationPending": [
+        "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
+        "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
+      ]
+    }
+  }
+}

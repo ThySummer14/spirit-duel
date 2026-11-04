@@ -1,0 +1,136 @@
+{
+  "url": "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js",
+  "retrieved": "2026-10-22 saved response reused 2026-10-24",
+  "sha256": "524a557540ea9cb4b8835a51e08dccbf81b0622e5d59613be380f1ed78163ad6",
+  "allNineMatchLocalSnapshot": true,
+  "cards": [
+    {
+      "id": 28100,
+      "name": "须佐之男",
+      "role": 281,
+      "type": "式神",
+      "xiyoudu": null,
+      "stage": null,
+      "ll": 2,
+      "sm": 5,
+      "desc": "当须佐之男攻击式神时，获得+1#[力量]。若被攻击的式神#[生命]为1，本次攻击获得贯通。",
+      "keyword": "贯通"
+    },
+    {
+      "id": 28101,
+      "name": "雷霆万钧",
+      "role": 281,
+      "type": "战斗",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": null,
+      "sm": null,
+      "desc": "瞬发，追猎#r只能以#[生命]为1的式神为目标，本次攻击免疫战斗伤害。",
+      "keyword": "瞬发,追猎"
+    },
+    {
+      "id": 28102,
+      "name": "天威",
+      "role": 281,
+      "type": "战斗",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": null,
+      "sm": 1,
+      "desc": "追猎#r将击杀的敌方非「雷冢」基础式神变为「雷冢」。",
+      "keyword": "追猎,雷冢"
+    },
+    {
+      "id": 28103,
+      "name": "神之领域",
+      "role": 281,
+      "type": "结界",
+      "xiyoudu": "SR",
+      "stage": 1,
+      "ll": null,
+      "sm": 5,
+      "desc": "进场时，鼓舞：获得+1#[力量]和+1#[护甲]。#r须佐之男出击时击杀的敌方式神变为「雷冢」。",
+      "keyword": "鼓舞,雷冢"
+    },
+    {
+      "id": 28104,
+      "name": "雷奔云谲",
+      "role": 281,
+      "type": "战斗",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": null,
+      "sm": 2,
+      "desc": "必杀#r将击杀的敌方非「雷冢」基础式神变为「雷冢」。",
+      "keyword": "必杀,雷冢"
+    },
+    {
+      "id": 28105,
+      "name": "神明之护",
+      "role": 281,
+      "type": "形态",
+      "xiyoudu": "R",
+      "stage": 2,
+      "ll": 4,
+      "sm": 7,
+      "desc": "增强：若场上有#[生命]为1的敌方式神，此牌获得气绝时可用，且使用时复活须佐之男。",
+      "keyword": "增强"
+    },
+    {
+      "id": 28106,
+      "name": "觉醒·须佐之男",
+      "role": 281,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": 1,
+      "sm": 1,
+      "desc": "将一张「雷霆万钧」置入手牌。#r觉醒：贯通，须佐之男攻击式神时+1#[力量]。",
+      "keyword": "雷霆万钧,觉醒,贯通"
+    },
+    {
+      "id": 28107,
+      "name": "雷切",
+      "role": 281,
+      "type": "战斗",
+      "xiyoudu": "R",
+      "stage": 3,
+      "ll": null,
+      "sm": 1,
+      "desc": "对一个敌方式神造成3点伤害，再随机对另一个敌方式神造成3点伤害。#r将击杀的敌方非「雷冢」基础式神变为「雷冢」。",
+      "keyword": "雷冢"
+    },
+    {
+      "id": 28108,
+      "name": "天雷万象",
+      "role": 281,
+      "type": "形态",
+      "xiyoudu": "SSR",
+      "stage": 3,
+      "ll": 4,
+      "sm": 10,
+      "desc": "须佐之男与式神交战时，双方交战式神获得不屈。#r进场和己方回合开始时随机对一个#[生命]最低的敌方式神发起一次攻击。",
+      "keyword": "不屈"
+    }
+  ],
+  "publication": {
+    "url": "https://www.taptap.cn/moment/385036106959160862?group_id=188707",
+    "tokenBody": {
+      "attack": 0,
+      "hp": 1,
+      "cannotAttack": true,
+      "restore": "Original owner end of turn, revive original at 1 HP"
+    },
+    "previewMainVersionsNotAdopted": true,
+    "files": [
+      {
+        "path": "official-publication-1.jpg",
+        "sha256": "21e54e4d037b743c0cdf8a1fced27060fe4cfb0a9726a1314a6bd946886bd02a"
+      },
+      {
+        "path": "official-publication-2.jpg",
+        "sha256": "a4ae306666c5f3de7dcaca02e4620ed577aeb96282bbffa465d5c6e8dcd1db6c"
+      }
+    ]
+  }
+}

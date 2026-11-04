@@ -1,0 +1,11 @@
+[
+  "README.md",
+  "godot/README.md",
+  "godot/assets/official/README.md",
+  "godot/content/verified_rules.json",
+  "godot/scripts/game_state.gd",
+  "godot/scripts/verified_card_rules.gd",
+  "godot/scripts/game_ai.gd",
+  "godot/scripts/ui/battle_status.gd",
+  "scripts/godot-verify.sh"
+]

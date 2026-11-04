@@ -1,0 +1,114 @@
+[
+  {
+    "name": "verify_huang",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "HUANG checks=595 failures=0"
+    ]
+  },
+  {
+    "name": "verify_red_purple",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "RED_PURPLE_OK checks=297 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_sparrow",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SPARROW checks=188 failures=0"
+    ]
+  },
+  {
+    "name": "verify_mountain_realm",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MOUNTAIN checks=120 failures=0"
+    ]
+  },
+  {
+    "name": "verify_moon_bamboo",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MOON_BAMBOO checks=185 failures=0"
+    ]
+  },
+  {
+    "name": "verify_baize",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BAIZE_OK checks=233 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_turn_order",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "name": "verify_book_jue",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BOOK_JUE checks=129 failures=0"
+    ]
+  },
+  {
+    "name": "verify_eye_crab",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "EYE_CRAB checks=130 failures=0"
+    ]
+  },
+  {
+    "name": "verify_charged_pair",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "CHARGED_PAIR_OK checks=191 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_yaoginshi",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "YAOQIN_OK"
+    ]
+  },
+  {
+    "name": "verify_bingyong",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BINGYONG_CHECKS=112 FAILURES=0"
+    ]
+  },
+  {
+    "name": "verify_yimulian",
+    "status": 0,
+    "errors": true,
+    "summary": [
+      "YIMULIAN_OK"
+    ]
+  },
+  {
+    "name": "verify_steel_wind",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "STEEL_WIND_OK"
+    ]
+  }
+]

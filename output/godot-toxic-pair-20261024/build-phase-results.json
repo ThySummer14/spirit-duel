@@ -1,0 +1,14 @@
+[
+  {
+    "phase": "import",
+    "exitCode": 0
+  },
+  {
+    "phase": "export",
+    "exitCode": 0
+  },
+  {
+    "phase": "incremental-export-after-verification-whitespace",
+    "exitCode": 0
+  }
+]

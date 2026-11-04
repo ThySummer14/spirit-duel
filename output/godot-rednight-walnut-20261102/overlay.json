@@ -1,0 +1,813 @@
+{
+  "sources": [
+    {
+      "id": "rednight-walnut-original-20261102",
+      "path": "art-reference-official/卡面-按版本/15_振剑归川/",
+      "evidence": "266宁红夜和267土御门胡桃完整原PNG各9张；本地同期官方版式介绍大图。净天地低耐久按原图对双方所有式神造成伤害；万刃轮原图+2力量。"
+    },
+    {
+      "id": "rednight-20221027-description-fix",
+      "url": "https://m.youxi369.com/gonglue/142422.html",
+      "evidence": "2022-10-27维护公告转载：散射仅敌方是描述修正；蓄力射击仍允许友方。不是后续平衡替换。"
+    },
+    {
+      "id": "walnut-introduction-items",
+      "url": "https://note.com/vongole8940/n/n2c524f462e08",
+      "evidence": "2022-10-13同期介绍译注，补足落物堆五种随机物品和剑气定义；飓风客选项分组仍待原客户端核验。"
+    }
+  ],
+  "units": {
+    "ninghongye": {
+      "verifiedRules": true,
+      "rednightWalnutRole": "rednight",
+      "attack": 3,
+      "maxHp": 4,
+      "formLifecycle": {},
+      "passive": {
+        "id": "rednight-native",
+        "name": "红夜",
+        "text": "当己方式神使用已蓄力的牌时，投射：造成1点伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "rednight-awake",
+        "name": "觉醒",
+        "text": "当己方式神蓄力或蓄力使用牌时，投射：造成2点伤害，眩晕受到此伤害的角色。",
+        "hooks": []
+      },
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    },
+    "tayumenhutao": {
+      "verifiedRules": true,
+      "rednightWalnutRole": "walnut",
+      "attack": 2,
+      "maxHp": 5,
+      "formLifecycle": {},
+      "passive": {
+        "id": "walnut-native",
+        "name": "庇佑",
+        "text": "当土御门胡桃出击时，若己方有气绝的式神，使所有己方式神气绝倒计时-1，本次攻击不造成战斗伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "walnut-awake",
+        "name": "觉醒",
+        "text": "迅捷\n当土御门胡桃攻击时，若己方有气绝的式神，复活所有己方气绝式神。",
+        "hooks": []
+      },
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    }
+  },
+  "cards": {
+    "c26601": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "当宁红夜对敌方式神造成非战斗伤害时，该式神下个回合不能出击。\n蓄力：进场时随机对一个敌方式神造成3点伤害。",
+      "officialText": "当宁红夜对敌方式神造成非战斗伤害时，该式神下个回合不能出击。\n蓄力：进场时随机对一个敌方式神造成3点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formRules": {
+        "rwLock": true
+      },
+      "formAbility": "当宁红夜对敌方式神造成非战斗伤害时，该式神下个回合不能出击。\n蓄力：进场时随机对一个敌方式神造成3点伤害。",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ],
+      "canCharge": true
+    },
+    "c26602": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "target": "any-unit",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对一个式神造成3点伤害。\n蓄力：额外造成2点伤害。",
+      "officialText": "对一个式神造成3点伤害。\n蓄力：额外造成2点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ],
+      "canCharge": true,
+      "responseAction": "damage"
+    },
+    "c26603": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "远程\n蓄力：对所有准备区敌方式神造成1点伤害。",
+      "officialText": "远程\n蓄力：对所有准备区敌方式神造成1点伤害。",
+      "keywords": [
+        "remote"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 1,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ],
+      "canCharge": true,
+      "combatOption": {
+        "remote": true
+      },
+      "responseAction": "damage"
+    },
+    "c26604": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "target": "any-unit",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发\n眩晕一个式神并移除他的蓄力状态。",
+      "officialText": "瞬发\n眩晕一个式神并移除他的蓄力状态。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ],
+      "responseAction": "freeze"
+    },
+    "c26605": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "target": "any-unit",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对一个敌方式神和随机另一个敌方式神各造成3点伤害。蓄力：此牌伤害+1。",
+      "officialText": "对一个敌方式神和随机另一个敌方式神各造成3点伤害。蓄力：此牌伤害+1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ],
+      "canCharge": true,
+      "responseAction": "damage"
+    },
+    "c26606": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "迅捷\n宁红夜出击时若不是蓄力状态，改为蓄力一张「剑气」。",
+      "officialText": "迅捷\n宁红夜出击时若不是蓄力状态，改为蓄力一张「剑气」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formRules": {
+        "rwPhoenix": true
+      },
+      "formAbility": "迅捷\n宁红夜出击时若不是蓄力状态，改为蓄力一张「剑气」。",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    },
+    "c26607": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 3,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "觉醒：当己方式神蓄力或蓄力使用牌时，投射：造成2点伤害，眩晕受到此伤害的角色。",
+      "officialText": "觉醒：当己方式神蓄力或蓄力使用牌时，投射：造成2点伤害，眩晕受到此伤害的角色。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    },
+    "c26608": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "target": "enemy-unit",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "眩晕一个敌方式神。\n蓄力：改为眩晕所有敌方式神。",
+      "officialText": "眩晕一个敌方式神。\n蓄力：改为眩晕所有敌方式神。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ],
+      "canCharge": true,
+      "responseAction": "freeze"
+    },
+    "c26701": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "target": "ally-unit",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场时选择一个己方式神。（可选择气绝式神）\n进场和己方回合开始时，恢复所选择的式神3点生命或使其气绝倒计时-1。",
+      "officialText": "进场时选择一个己方式神。（可选择气绝式神）\n进场和己方回合开始时，恢复所选择的式神3点生命或使其气绝倒计时-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": {
+        "attack": 2,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "selected",
+          "value": {
+            "attack": 2,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formRules": {
+        "rwProtect": true
+      },
+      "formAbility": "进场时选择一个己方式神。（可选择气绝式神）\n进场和己方回合开始时，恢复所选择的式神3点生命或使其气绝倒计时-1。",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    },
+    "c26702": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "随机标记一个敌方式神，该式神气绝时你抽两张牌。",
+      "officialText": "随机标记一个敌方式神，该式神气绝时你抽两张牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    },
+    "c26703": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "当土御门胡桃攻击式神或被式神攻击时，运势4：对其造成3点伤害，若该式神处在蓄力状态，则改为消灭该式神。",
+      "officialText": "当土御门胡桃攻击式神或被式神攻击时，运势4：对其造成3点伤害，若该式神处在蓄力状态，则改为消灭该式神。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": {
+        "attack": 4,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formRules": {
+        "rwParry": true
+      },
+      "formAbility": "当土御门胡桃攻击式神或被式神攻击时，运势4：对其造成3点伤害，若该式神处在蓄力状态，则改为消灭该式神。",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    },
+    "c26704": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 1,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和己方回合开始时，随机获得一个落物堆物品的效果。\n己方回合数大于等于5时，落物堆物品效果翻倍。",
+      "officialText": "进场和己方回合开始时，随机获得一个落物堆物品的效果。\n己方回合数大于等于5时，落物堆物品效果翻倍。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "rw-loot",
+        "trigger": "native-continuous"
+      }
+    },
+    "c26705": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和己方回合开始时，若此牌耐久大于等于4，则恢复所有己方式神2生命，过量的治疗转化为护甲。否则自毁并对所有式神造成2点伤害。",
+      "officialText": "进场和己方回合开始时，若此牌耐久大于等于4，则恢复所有己方式神2生命，过量的治疗转化为护甲。否则自毁并对所有式神造成2点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ],
+      "realm": {
+        "hp": 8,
+        "nativeRealm": "rw-pure",
+        "trigger": "native-continuous"
+      }
+    },
+    "c26706": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和己方回合开始时，随机选择一个敌方式神（包括已气绝式神），若该式神未气绝则对他造成4点伤害。",
+      "officialText": "进场和己方回合开始时，随机选择一个敌方式神（包括已气绝式神），若该式神未气绝则对他造成4点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ],
+      "realm": {
+        "hp": 6,
+        "nativeRealm": "rw-earth",
+        "trigger": "native-continuous"
+      }
+    },
+    "c26707": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 3,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "觉醒：迅捷\n当土御门胡桃攻击时，若己方有气绝的式神，复活所有己方气绝式神。",
+      "officialText": "觉醒：迅捷\n当土御门胡桃攻击时，若己方有气绝的式神，复活所有己方气绝式神。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    },
+    "c26708": {
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "target": "auto",
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "选择两个飓风客物品的效果。增强：己方回合数大于等于10时，飓风客物品效果翻倍。",
+      "officialText": "选择两个飓风客物品的效果。增强：己方回合数大于等于10时，飓风客物品效果翻倍。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    },
+    "rednight-sword-aura": {
+      "id": "rednight-sword-aura",
+      "unitId": "ninghongye",
+      "name": "剑气",
+      "verifiedRules": true,
+      "rednightWalnutRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 0,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "target": "auto",
+      "effect": "rw-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rw-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "text": "获得2护甲。本次攻击免疫战斗伤害。攻击后投射：造成3点伤害。",
+      "officialText": "0力量/2护甲，免疫战斗伤害，攻击后投射3点伤害。",
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "combatOption": {
+        "shield": 2,
+        "immuneCombat": true
+      },
+      "sources": [
+        "rednight-walnut-original-20261102",
+        "rednight-20221027-description-fix",
+        "walnut-introduction-items"
+      ],
+      "verificationPending": [
+        "按基础牌文和完整原PNG实现主要机制；指定录像未逐牌核验。蓄力、非战斗伤害触发与复活/响应的完整先后仍待原客户端核验。",
+        "飓风客先攻击物品三选一、结算后再辅助物品三选一：现有2023攻略与初版同期译注的随机三项表述有差别；采用可见攻防两组，不宣称选项池抽样已实机核对。落物堆五种物品取同期译注，尚缺单独官方物品原图。"
+      ]
+    }
+  }
+}

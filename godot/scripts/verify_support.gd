@@ -15,6 +15,26 @@ static func isolate_stores() -> String:
 	return directory
 
 
+static func cleanup_audio() -> void:
+	# Native UI checks create the same audio hub as the game. Stop playback
+	# before releasing cached streams so exit diagnostics reflect real leaks.
+	if Sfx._music_tween != null and is_instance_valid(Sfx._music_tween):
+		Sfx._music_tween.kill()
+	Sfx._music_tween = null
+	Sfx._music_name = ""
+	if Sfx._hub != null and is_instance_valid(Sfx._hub):
+		for voice in Sfx._hub.get_children():
+			if voice is AudioStreamPlayer:
+				voice.stop()
+				voice.stream = null
+		Sfx._hub.queue_free()
+	Sfx._voices.clear()
+	Sfx._music = null
+	Sfx._hub = null
+	Sfx._streams.clear()
+	Sfx._last_played.clear()
+
+
 static func cleanup_stores(directory: String) -> void:
 	for name in ["save.json", "collection.json", "settings.json"]:
 		var path := directory.path_join(name)

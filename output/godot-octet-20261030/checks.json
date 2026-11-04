@@ -1,0 +1,146 @@
+{
+  "checkedOn": "2026-11-02",
+  "roles": [
+    "huoqumo",
+    "yuanjiulanghu",
+    "yingxueji",
+    "jingliuliqian",
+    "yunwaijing",
+    "song",
+    "wannianzhu",
+    "shuzhu"
+  ],
+  "mainCards": 64,
+  "mainCardsWithReviewedExecutableRules": 63,
+  "partialMainCards": [
+    "c20602"
+  ],
+  "allNewDefinitionsRetainVerificationPending": true,
+  "ruleChecks": [
+    {
+      "name": "red_purple",
+      "exitCode": 0,
+      "checks": 265,
+      "passed": true,
+      "log": "output/godot-red-purple-20261030/rules-final-shared.log"
+    },
+    {
+      "name": "blue_green",
+      "exitCode": 0,
+      "checks": 219,
+      "passed": true,
+      "log": "output/godot-blue-green-20261030/rules-final-shared.log"
+    },
+    {
+      "name": "mirror_song",
+      "exitCode": 0,
+      "checks": 336,
+      "passed": true,
+      "log": "output/godot-mirror-song-20261030/rules-final4.log"
+    },
+    {
+      "name": "charged_pair",
+      "exitCode": 0,
+      "checks": 163,
+      "passed": true,
+      "log": "output/godot-charged-pair-20261030/rules-final-shared.log"
+    },
+    {
+      "name": "octet_cross",
+      "exitCode": 0,
+      "checks": 72,
+      "passed": true,
+      "log": "output/godot-octet-20261030/cross-rules-final.log"
+    }
+  ],
+  "pureRoleChecks": 983,
+  "crossChecks": 72,
+  "nativeChecks": [
+    {
+      "group": "red-purple",
+      "checks": 297,
+      "includedRules": 265,
+      "textures": 16,
+      "interactionChecks": 16,
+      "passed": true,
+      "log": "output/godot-red-purple-20261030/native.log"
+    },
+    {
+      "group": "blue-green",
+      "checks": 251,
+      "includedRules": 219,
+      "textures": 16,
+      "interactionChecks": 16,
+      "passed": true,
+      "log": "output/godot-blue-green-20261030/native-final.log"
+    },
+    {
+      "group": "mirror-song",
+      "checks": 295,
+      "includedRules": 259,
+      "textures": 16,
+      "interactionChecks": 20,
+      "passed": true,
+      "log": "output/godot-mirror-song-20261030/native-first.log"
+    },
+    {
+      "group": "charged-pair",
+      "checks": 187,
+      "includedRules": 159,
+      "textures": 16,
+      "interactionChecks": 12,
+      "passed": true,
+      "log": "output/godot-charged-pair-20261030/native-first.log"
+    }
+  ],
+  "nativeScreenshotsReviewed": 26,
+  "uniqueOldRegressionGroups": 34,
+  "uniqueOldRegressionChecks": 4994,
+  "uniqueOldRegressionCases": 16,
+  "oldVerifyScriptsUnchanged": 160,
+  "originalArtMatches": 64,
+  "build": {
+    "passed": true,
+    "sourceHashesMatched": 964,
+    "sizeBytes": 203098508,
+    "sizeMiB": 193.7,
+    "path": ".build/octet-20261030/pages/play",
+    "packageProbe": {
+      "exitCode": 0,
+      "passed": true,
+      "source": "actual exported index.pck",
+      "workingDirectory": ".build/octet-20261030/package-probe",
+      "roles": 8,
+      "mainCards": 64,
+      "mainCardsFullyImplemented": 63,
+      "partialCards": [
+        "c20602"
+      ],
+      "derivatives": 1,
+      "factions": 215
+    }
+  },
+  "strictAudit": {
+    "exitCode": 1,
+    "fullCatalogRestored": false,
+    "summary": {
+      "units": {
+        "known-approximation": 83,
+        "unreviewed": 40,
+        "pending-verification": 112,
+        "source-backed-native": 15
+      },
+      "cards": {
+        "known-approximation": 450,
+        "unreviewed": 622,
+        "pending-verification": 848,
+        "source-backed-native": 207
+      }
+    },
+    "errorCount": 20,
+    "retainedOldErrors": 19,
+    "newErrors": [
+      "Missing executable reviewed rules: c20602"
+    ]
+  }
+}

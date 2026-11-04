@@ -1,0 +1,20 @@
+[
+  "README.md",
+  "godot/README.md",
+  "godot/content/verified_rules.json",
+  "godot/assets/official/README.md",
+  "scripts/godot-verify.sh",
+  "godot/scripts/peach_rules.gd",
+  "godot/scripts/moon_rules.gd",
+  "godot/scripts/bond_dream_rules.gd",
+  "godot/scripts/movement_rules.gd",
+  "godot/scripts/game_state.gd",
+  "godot/scripts/tomato_fire_rules.gd",
+  "godot/scripts/verified_card_rules.gd",
+  "godot/scripts/game_ai.gd",
+  "godot/scripts/ui/battle_status.gd",
+  "godot/scripts/ui/card_face.gd",
+  "godot/scripts/rebirth_rules.gd",
+  "godot/scripts/verify_rebirth.gd",
+  "research-notes/56-cat-skeleton-rules.md"
+]

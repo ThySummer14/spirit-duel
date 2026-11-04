@@ -1,0 +1,673 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "dog-jue-balance-2021-02-04",
+      "url": "https://www.taptap.cn/moment/106165737759969184",
+      "evidence": "官方2021-02-04平衡：记仇改为消灭本回合造成过伤害的敌方式神；牌手受到敌方式神伤害时自动对其使用。"
+    },
+    {
+      "id": "book-jue-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "11900–11908、12000–12008印刷身材与原版卡文；已被后续公告替换的牌文不直接沿用。"
+    },
+    {
+      "id": "book-guide-20200322",
+      "url": "https://www.taptap.cn/moment/15204895732793606",
+      "evidence": "官方攻略账号式神百谈：墨染向下取整、纪行实际牌手伤害、明心检索、云游调度、书翁觉醒按抽牌事件而非牌数且跨气绝。"
+    },
+    {
+      "id": "jue-guide-20200320",
+      "url": "https://www.taptap.cn/moment/15202073024924775",
+      "evidence": "官方攻略账号：展示、模仿动态增强、读心包括专属衍生牌、强索三次调度、灵视、记仇先原法术后复制、迷宫对瞬发。该版本觉醒持续展示和成长以2020维护替换。"
+    },
+    {
+      "id": "jue-balance-20200520-repost",
+      "url": "https://m.3839.com/gamehistorylog/109747.htm",
+      "evidence": "维护日志转载：觉醒·觉由持续展示改为立即展示以及己方回合开始展示。原官方页检索未获取，保留来源缺口。"
+    },
+    {
+      "id": "book-ink-20210826",
+      "url": "https://www.iyingdi.com/tz/post/5110863",
+      "evidence": "阴阳师百闻牌账号发布平衡说明：墨染增加先抽一张牌。"
+    },
+    {
+      "id": "jue-fix-20240111",
+      "url": "https://www.taptap.cn/moment/494265267065455318",
+      "evidence": "官方公告：觉醒与心灵迷宫不会重复征收鬼火。"
+    },
+    {
+      "id": "book-mechanic-20231029",
+      "url": "https://www.taptap.cn/moment/467093870207830538",
+      "evidence": "玩家实测补充：多张抽牌同一事件只触发10伤一次；明心是检索，空库既不判负也不触发觉醒。"
+    }
+  ],
+  "units": {
+    "shuweng": {
+      "attack": 1,
+      "maxHp": 5,
+      "bookOpeningCards": 1,
+      "passive": {
+        "id": "book-opening",
+        "name": "纪行",
+        "text": "起始手牌数量+1。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "book-empty-draw",
+        "name": "觉醒·书翁",
+        "text": "本局游戏剩余时间内，每当你抽牌时若牌库里没有牌，改为对敌方牌手造成10点伤害，你不会因此输掉游戏。",
+        "hooks": []
+      },
+      "sources": [
+        "book-jue-snapshot",
+        "book-guide-20200322"
+      ]
+    },
+    "jue": {
+      "attack": 2,
+      "maxHp": 5,
+      "jueReveal": true,
+      "passive": {
+        "id": "jue-reveal",
+        "name": "读心",
+        "text": "己方回合开始时，随机展示一张敌方手牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "jue-turn-reveal",
+        "name": "觉醒·觉",
+        "text": "己方回合开始时，展示敌方所有手牌。",
+        "hooks": []
+      },
+      "sources": [
+        "book-jue-snapshot",
+        "jue-balance-20200520-repost"
+      ],
+      "verificationPending": [
+        "2020-05-20觉醒调整只有维护转载，尚未取到原官方页及指定录像该角色片段。"
+      ]
+    }
+  },
+  "cards": {
+    "c11901": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "抽两张牌。",
+      "officialText": "抽两张牌。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "draw",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "draw",
+          "target": "auto",
+          "value": 2
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "book-guide-20200322"
+      ]
+    },
+    "c11902": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "迅捷。当书翁对敌方牌手造成伤害时，抽一张牌。",
+      "officialText": "迅捷。当书翁对敌方牌手造成伤害时，抽一张牌。",
+      "formHooks": [],
+      "formRules": {
+        "bookAvatarDraw": true
+      },
+      "formAbility": "迅捷。当书翁对敌方牌手造成伤害时，抽一张牌。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 2,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "book-guide-20200322"
+      ]
+    },
+    "c11903": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "any-living-unit",
+      "text": "抽一张牌，对一个式神造成等同于你手牌数量一半的伤害（向下取整）。",
+      "officialText": "抽一张牌，对一个式神造成等同于你手牌数量一半的伤害（向下取整）。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "book-ink",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "book-ink",
+          "target": "any-living-unit",
+          "value": null
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "book-guide-20200322",
+        "book-ink-20210826"
+      ]
+    },
+    "c11904": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "回合开始的抽牌改为检视牌库顶三张牌然后选择一张置入手牌。",
+      "officialText": "回合开始的抽牌改为检视牌库顶三张牌然后选择一张置入手牌。",
+      "formHooks": [],
+      "formRules": {
+        "bookMindChoice": true
+      },
+      "formAbility": "回合开始的抽牌改为检视牌库顶三张牌然后选择一张置入手牌。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "book-guide-20200322",
+        "book-mechanic-20231029"
+      ]
+    },
+    "c11905": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "每有一张其它手牌，此牌便获得1力量与1生命。",
+      "officialText": "每有一张其它手牌，此牌便获得1力量与1生命。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "每有一张其它手牌，此牌便获得1力量与1生命。",
+      "effect": "form",
+      "value": {
+        "attack": 1,
+        "hp": 1,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 1,
+            "hp": 1,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "book-guide-20200322"
+      ],
+      "bookHandForm": true
+    },
+    "c11906": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "auto",
+      "text": "瞬发。随机将其他己方式神的各一张牌置入手牌。",
+      "officialText": "瞬发。随机将其他己方式神的各一张牌置入手牌。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "book-universe",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "book-universe",
+          "target": "auto",
+          "value": null
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "book-guide-20200322"
+      ],
+      "verificationPending": [
+        "官方快照为自身瞬发；2020攻略文称生成牌本回合瞬发，未取得后续变更公告，当前按官方快照实现，生成牌临时瞬发仍待当前实机核对。",
+        "完整候选池的异画权重及非构筑专属衍生牌边界缺当前客户端证据。"
+      ]
+    },
+    "c11907": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "auto",
+      "text": "瞬发。调度你的手牌（3次调度次数）。",
+      "officialText": "瞬发。调度你的手牌（3次调度次数）。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "book-dispatch",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "book-dispatch",
+          "target": "auto",
+          "value": null
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "book-guide-20200322"
+      ],
+      "verificationPending": [
+        "调度的逐次选择已实现；退回牌在全部调度后洗回，仍需当前客户端核对分批退回及重复选择新牌的细节。"
+      ]
+    },
+    "c11908": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "觉醒：本局游戏剩余时间内，每当你抽牌时若牌库里没有牌，改为对敌方牌手造成10点伤害，你不会因此输掉游戏。",
+      "officialText": "觉醒：本局游戏剩余时间内，每当你抽牌时若牌库里没有牌，改为对敌方牌手造成10点伤害，你不会因此输掉游戏。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "book-awaken",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "book-awaken",
+          "target": "auto",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "book-guide-20200322",
+        "book-mechanic-20231029"
+      ],
+      "deckLimit": 2,
+      "copies": 2
+    },
+    "c12001": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "enemy-unit-any-state",
+      "text": "瞬发。选择一个敌方式神，从对方手牌展示所有该式神的专属牌。",
+      "officialText": "瞬发。选择一个敌方式神，从对方手牌展示所有该式神的专属牌。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "jue-read",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "jue-read",
+          "target": "enemy-unit-any-state",
+          "value": null
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "jue-guide-20200320"
+      ]
+    },
+    "c12002": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "any-living-unit",
+      "text": "对一个式神造成2点伤害，该式神每有一张已展示的专属牌，伤害+2。",
+      "officialText": "对一个式神造成2点伤害，该式神每有一张已展示的专属牌，伤害+2。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "jue-bomb",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "jue-bomb",
+          "target": "any-living-unit",
+          "value": null
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "jue-guide-20200320"
+      ]
+    },
+    "c12003": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "auto",
+      "text": "瞬发。调度对手已展示的手牌，抽一张牌（3次调度次数）。",
+      "officialText": "瞬发。调度对手已展示的手牌，抽一张牌（3次调度次数）。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "jue-dispatch",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "jue-dispatch",
+          "target": "auto",
+          "value": null
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "jue-guide-20200320"
+      ],
+      "verificationPending": [
+        "新换入牌保持未展示；调度退回牌在全部调度后洗回的细节仍需当前客户端核对。"
+      ]
+    },
+    "c12004": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "当敌方牌手使用已展示的手牌时，他受到2点伤害且你恢复2点生命。",
+      "officialText": "当敌方牌手使用已展示的手牌时，他受到2点伤害且你恢复2点生命。",
+      "formHooks": [],
+      "formRules": {
+        "jueSpiritSight": true
+      },
+      "formAbility": "当敌方牌手使用已展示的手牌时，他受到2点伤害且你恢复2点生命。",
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 5,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "jue-guide-20200320"
+      ]
+    },
+    "c12005": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "response"
+      ],
+      "target": "enemy-damaged-unit-this-turn",
+      "text": "消灭一个本回合造成过伤害的敌方式神。响应：当你受到敌方式神伤害时，自动对其使用。",
+      "officialText": "消灭一个本回合造成过伤害的敌方式神。响应：当你受到敌方式神伤害时，自动对其使用。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "jue-grudge",
+      "value": null,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "jue-grudge",
+          "target": "enemy-damaged-unit-this-turn",
+          "value": null
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "dog-jue-balance-2021-02-04"
+      ],
+      "autoResponse": "enemy-unit-damaged-avatar"
+    },
+    "c12006": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "对手使用已展示的手牌时需额外消耗一点鬼火。增强：若敌方手牌全部已展示，此牌获得瞬发。",
+      "officialText": "对手使用已展示的手牌时需额外消耗一点鬼火。增强：若敌方手牌全部已展示，此牌获得瞬发。",
+      "formHooks": [],
+      "formRules": {
+        "jueHandTax": true
+      },
+      "formAbility": "对手使用已展示的手牌时需额外消耗一点鬼火。增强：若敌方手牌全部已展示，此牌获得瞬发。",
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 5,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "jue-guide-20200320",
+        "jue-fix-20240111"
+      ],
+      "jueMazeEnhance": true
+    },
+    "c12007": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "展示敌方所有手牌。觉醒：己方回合开始时，展示敌方所有手牌。",
+      "officialText": "展示敌方所有手牌。觉醒：己方回合开始时，展示敌方所有手牌。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "jue-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "jue-awaken",
+          "target": "auto",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "jue-balance-20200520-repost",
+        "jue-fix-20240111"
+      ],
+      "deckLimit": 2,
+      "copies": 2,
+      "verificationPending": [
+        "旧快照含使用已展示牌成长；2020维护转载的新效果未保留该句，当前按完整替换处理，待原官方牌面及当前实机最终核对。"
+      ]
+    },
+    "c12008": {
+      "verifiedRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "增强：对手每有一张已展示的法术牌，此牌便获得+1护甲。每有一张已展示的其他牌，便获得+1力量。",
+      "officialText": "增强：对手每有一张已展示的法术牌，此牌便获得+1护甲。每有一张已展示的其他牌，便获得+1力量。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "assault",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "book-jue-snapshot",
+        "jue-guide-20200320"
+      ],
+      "jueMimic": true,
+      "combatOption": {
+        "shield": 0
+      }
+    }
+  }
+}

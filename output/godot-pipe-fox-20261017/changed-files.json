@@ -1,0 +1,22 @@
+[
+  "README.md",
+  "docs/verified-vs-simplified-gap.md",
+  "godot/README.md",
+  "godot/content/verified_rules.json",
+  "godot/assets/official/README.md",
+  "scripts/godot-verify.sh",
+  "godot/scripts/content_loader.gd",
+  "godot/scripts/stun_rules.gd",
+  "godot/scripts/moon_rules.gd",
+  "godot/scripts/game_state.gd",
+  "godot/scripts/verified_card_rules.gd",
+  "godot/scripts/form_countdown_rules.gd",
+  "godot/scripts/game_ai.gd",
+  "godot/scripts/owl_insect_rules.gd",
+  "godot/scripts/combat_keyword_rules.gd",
+  "godot/scripts/ui/battle_status.gd",
+  "godot/scripts/ui/battle_screen.gd",
+  "godot/scripts/pipe_fox_rules.gd",
+  "godot/scripts/verify_pipe_fox.gd",
+  "research-notes/54-pipe-white-fox-rules.md"
+]

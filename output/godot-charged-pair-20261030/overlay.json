@@ -1,0 +1,767 @@
+{
+  "sources": [
+    {
+      "id": "charged-pair-original-20261030",
+      "path": "art-reference-official/卡面-按版本/15_振剑归川/",
+      "evidence": "26800–26808、26900–26908完整原PNG；按印刷勾玉与牌型覆盖旧导出，含林中秘宝3勾、茂林深篁1勾、心如磐石2勾与不二法门3勾。"
+    },
+    {
+      "id": "charged-mechanism-player-20220926",
+      "url": "https://www.bilibili.com/opus/709901963270029348",
+      "evidence": "玩家规则研究补充蓄力并非使用、记录目标、每式神一张、眩晕延迟、气绝移除；与连引特例及复杂顺序仍待原客户端核验。"
+    }
+  ],
+  "units": {
+    "wannianzhu": {
+      "verifiedRules": true,
+      "chargedPairRole": "bamboo",
+      "attack": 2,
+      "maxHp": 5,
+      "formLifecycle": {},
+      "passive": {
+        "id": "charged-bamboo",
+        "name": "竹间清音",
+        "text": "万年竹的牌都可以蓄力。己方式神使用已蓄力的牌时，获得1力量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "charged-bamboo-awake",
+        "name": "竹间清音",
+        "text": "万年竹的牌都可以蓄力。己方式神使用已蓄力的牌时，获得1力量且抽1张牌。",
+        "hooks": []
+      },
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ]
+    },
+    "shuzhu": {
+      "verifiedRules": true,
+      "chargedPairRole": "beads",
+      "attack": 2,
+      "maxHp": 5,
+      "formLifecycle": {},
+      "passive": {
+        "id": "charged-beads",
+        "name": "禅意",
+        "text": "当数珠蓄力时，获得1力量和1生命。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "charged-beads-awake",
+        "name": "禅意",
+        "text": "当数珠蓄力时，永久获得1力量和1生命。",
+        "hooks": []
+      },
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ]
+    }
+  },
+  "cards": {
+    "c26801": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-unit",
+      "text": "使一个式神获得2力量，抽一张牌。若该式神处于蓄力状态，则额外获得2护甲。",
+      "officialText": "使一个式神获得2力量，抽一张牌。若该式神处于蓄力状态，则额外获得2护甲。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "canCharge": true,
+      "effect": "charged-grow-draw",
+      "value": 0,
+      "effects": [
+        {
+          "action": "charged-grow-draw",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c26802": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "先攻。每有一个蓄力状态的式神，此牌获得1力量。",
+      "officialText": "先攻。每有一个蓄力状态的式神，此牌获得1力量。",
+      "keywords": [
+        "first-strike"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 0,
+        "firstStrike": true
+      },
+      "canCharge": true,
+      "effect": "charged-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "charged-combat",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c26803": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，己方未蓄力的式神使用战斗牌或非觉醒法术牌后，将其复制并蓄力，目标选择相同。",
+      "officialText": "每回合一次，己方未蓄力的式神使用战斗牌或非觉醒法术牌后，将其复制并蓄力，目标选择相同。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "chargedCopy": true
+      },
+      "formHooks": [],
+      "formAbility": "每回合一次，己方未蓄力的式神使用战斗牌或非觉醒法术牌后，将其复制并蓄力，目标选择相同。",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "canCharge": true,
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c26804": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当己方蓄力状态的式神气绝时，投射：造成4点伤害。",
+      "officialText": "当己方蓄力状态的式神气绝时，投射：造成4点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "chargedDeath": true
+      },
+      "formHooks": [],
+      "formAbility": "当己方蓄力状态的式神气绝时，投射：造成4点伤害。",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "canCharge": true,
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c26805": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时为所有己方式神恢复2生命。己方蓄力状态的式神获得帷幕。",
+      "officialText": "进场时为所有己方式神恢复2生命。己方蓄力状态的式神获得帷幕。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "realm": {
+        "hp": 6,
+        "nativeRealm": "charged-forest",
+        "triggerEffect": ""
+      },
+      "canCharge": true,
+      "effect": "charged-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "charged-realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26806": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-unit",
+      "text": "瞬发。使一个蓄力状态的式神使用他已蓄力的牌。",
+      "officialText": "瞬发。使一个蓄力状态的式神使用他已蓄力的牌。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "canCharge": true,
+      "effect": "charged-release",
+      "value": 0,
+      "effects": [
+        {
+          "action": "charged-release",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c26807": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "所有己方未蓄力的式神随机蓄力一张本局游戏他使用过的牌（随机为这些牌选择目标），然后将一张「清风徐来」置入你的手牌。",
+      "officialText": "所有己方未蓄力的式神随机蓄力一张本局游戏他使用过的牌（随机为这些牌选择目标），然后将一张「清风徐来」置入你的手牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "canCharge": true,
+      "effect": "charged-history",
+      "value": 0,
+      "effects": [
+        {
+          "action": "charged-history",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26808": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：万年竹的牌都可以蓄力。己方式神使用已蓄力的牌时，获得1力量且抽1张牌。",
+      "officialText": "觉醒：万年竹的牌都可以蓄力。己方式神使用已蓄力的牌时，获得1力量且抽1张牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "chargedAwaken": true,
+      "canCharge": true,
+      "effect": "charged-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "charged-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c26901": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "为数珠和你恢复3生命。从手牌使用后再次蓄力此牌。",
+      "officialText": "为数珠和你恢复3生命。从手牌使用后再次蓄力此牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "effect": "charged-heal",
+      "value": 0,
+      "effects": [
+        {
+          "action": "charged-heal",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26902": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "蓄力：获得一张「降魔杖」。",
+      "officialText": "蓄力：获得一张「降魔杖」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 0
+      },
+      "canCharge": true,
+      "effect": "charged-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "charged-combat",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26903": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "蓄力：追猎。",
+      "officialText": "蓄力：追猎。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "蓄力：追猎。",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "canCharge": true,
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c26904": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "蓄力：获得屏障。当数珠被式神攻击时，若此牌蓄力中则自动使用。",
+      "officialText": "蓄力：获得屏障。当数珠被式神攻击时，若此牌蓄力中则自动使用。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 1
+      },
+      "canCharge": true,
+      "effect": "charged-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "charged-combat",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c26905": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "蓄力：消灭敌方战斗区式神。",
+      "officialText": "蓄力：消灭敌方战斗区式神。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 2
+      },
+      "canCharge": true,
+      "effect": "charged-combat",
+      "value": 2,
+      "effects": [
+        {
+          "action": "charged-combat",
+          "target": "source",
+          "value": 2
+        }
+      ]
+    },
+    "c26906": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "昂扬。蓄力：获得迅捷。",
+      "officialText": "昂扬。蓄力：获得迅捷。",
+      "keywords": [
+        "inspired"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "昂扬。蓄力：获得迅捷。",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "canCharge": true,
+      "effect": "form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c26907": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "气绝时可用，复活数珠。觉醒：当数珠蓄力时，永久获得1力量和1生命。",
+      "officialText": "气绝时可用，复活数珠。觉醒：当数珠蓄力时，永久获得1力量和1生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "chargedAwaken": true,
+      "allowKnockedSource": true,
+      "effect": "charged-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "charged-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c26908": {
+      "verifiedRules": true,
+      "chargedPairCard": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当数珠气绝时，复活数珠并蓄力此牌。蓄力：进场时发起一次攻击且本次攻击免疫战斗伤害。",
+      "officialText": "当数珠气绝时，复活数珠并蓄力此牌。蓄力：进场时发起一次攻击且本次攻击免疫战斗伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "chargedReviveForm": true
+      },
+      "formHooks": [],
+      "formAbility": "当数珠气绝时，复活数珠并蓄力此牌。蓄力：进场时发起一次攻击且本次攻击免疫战斗伤害。",
+      "sources": [
+        "charged-pair-original-20261030",
+        "charged-mechanism-player-20220926"
+      ],
+      "verificationPending": [
+        "按完整原PNG和基础牌文接入主要机制，指定录像未逐牌覆盖；蓄力与回合开始、响应、气绝/复活及其他自动使用的完整顺序仍待原客户端核验。",
+        "林中秘宝与万变竹影的随机牌/目标权重、已有永久增强和连引特例的全部组合仍待原客户端核验；不以历史已知bug代替基础规则。"
+      ],
+      "canCharge": true,
+      "effect": "form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    }
+  }
+}

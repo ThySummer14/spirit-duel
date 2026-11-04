@@ -1,0 +1,28 @@
+{
+  "roles": {
+    "puppet": {
+      "headless": 103,
+      "native": 117,
+      "screenshots": 2
+    },
+    "enma": {
+      "headless": 137,
+      "native": 151,
+      "screenshots": 2
+    },
+    "weaver": {
+      "headless": 134,
+      "native": 152,
+      "screenshots": 2
+    }
+  },
+  "nativeTotal": 420,
+  "crossRole": 33,
+  "focusedTotal": 453,
+  "relatedRegressionGroups": 10,
+  "sourceHashes": 534,
+  "allCurrentSourceHashesMatchBuild": true,
+  "screenshotsViewed": 6,
+  "strictAuditExitCode": 1,
+  "strictAuditDiagnosticsUnchanged": true
+}

@@ -16,11 +16,12 @@ static func knocked_out(unit: Dictionary) -> void:
 
 static func _grow_after_restore(gs, owner: int, src: int, target: Dictionary) -> void:
 	var source: Dictionary = gs.player(owner).units[src]
-	if int(source.hp) <= 0 or not ContentLoader.unit_def(str(source.id)).has("peachRestoration"): return
+	if int(source.hp) <= 0 or not ContentLoader.runtime_unit_def(source).has("peachRestoration"): return
 	if int(source.level) < 1 or gs._unit_index_by_uid(owner, target.uid) < 0: return
 	var awakened := bool(source.awakened)
 	var attack := 2 if awakened else 1
 	var health := 2 if awakened else 0
+	if awakened: gs.VerifiedRules.Glutton.record_permanent(target,attack,health)
 	gs._grow_unit(target, attack, health)
 	if not awakened: target.peachTemporaryAttack = int(target.get("peachTemporaryAttack", 0)) + attack
 	gs._log("%s 获得%s+%d力量/+%d生命。" % [target.name, "永久" if awakened else "", attack, health], gs.TONE_SUCCESS)
@@ -37,14 +38,15 @@ static func heal(gs, owner: int, src: int, target_owner: int, target: Dictionary
 	return restored
 
 static func revive(gs, owner: int, src: int, target: Dictionary, swift: bool = false, grow: bool = true) -> bool:
-	if target.is_empty() or int(target.hp) > 0: return false
+	if target.is_empty() or target.get("summoned", false) or int(target.hp)>0 or not gs.VerifiedRules.Rebirth.can_revive(target): return false
 	target.knockout = 0
 	target.hp = int(target.maxHp)
 	target.shield = 0
 	target.shieldExpires = 0
 	target.front = 0
 	gs._log("%s 复活，恢复全部生命。" % target.name, gs.TONE_SUCCESS)
-	gs.VerifiedRules.event(gs, "peach-revive", {"player": owner, "uid": gs.player(owner).units[src].uid, "target": target.uid})
+	gs.VerifiedRules.event(gs, "peach-revive", {"player": owner, "uid": gs.player(owner).units[src].uid if src >= 0 else "avatar-%d" % owner, "target": target.uid})
+	gs.VerifiedRules.Movement.revived(gs, owner, gs._unit_index_by_uid(owner, target.uid))
 	if grow: _grow_after_restore(gs, owner, src, target)
 	if swift:
 		target.swift = true
@@ -86,6 +88,7 @@ static func search_deck(gs, owner: int, target: Dictionary) -> void:
 		return
 	var idx := int(matches[int(floor(gs.randf01() * matches.size()))])
 	var drawn: Dictionary = player.deck.pop_at(idx)
+	gs.VerifiedRules.BondDream.fetched(gs, drawn)
 	player.hand.append(drawn)
 	gs._log("花信风抽到%s的「%s」。" % [target.name, ContentLoader.card_def(str(drawn.definitionId)).name], gs.TONE_SUCCESS)
 	gs.VerifiedRules.event(gs, "peach-search", {"player": owner, "target": target.uid, "cardId": drawn.definitionId})
@@ -110,7 +113,7 @@ static func resolve_action(gs, owner: int, src: int, _card: Dictionary, effect: 
 		"peach-encourage": gs._apply_encourage(owner, int(effect.value.attack), int(effect.value.shield))
 		"peach-revive": revive(gs, owner, src, target, true)
 		"peach-revive-all":
-			var dead: Array = gs.player(owner).units.filter(func(u): return int(u.hp) <= 0)
+			var dead: Array = gs.player(owner).units.filter(func(u): return int(u.hp) <= 0 and not u.get("summoned", false))
 			# The resurrection group is simultaneous: all return before its
 			# restoration triggers. No dependence on lineup position.
 			for unit in dead: revive(gs, owner, src, unit, false, false)
@@ -144,7 +147,7 @@ static func score_card(gs, owner: int, card: Dictionary, target_id) -> Variant:
 			return -100
 		"peach-revive": return 65 + int(target.attack) * 2 if not target.is_empty() and int(target.hp) <= 0 else -100
 		"peach-revive-all":
-			var dead: int = gs.player(owner).units.filter(func(u): return int(u.hp) <= 0).size()
+			var dead: int = gs.player(owner).units.filter(func(u): return int(u.hp) <= 0 and not u.get("summoned", false)).size()
 			return 60 + dead * 20 if dead > 0 else -100
 		"peach-awaken": return 55
 	return null

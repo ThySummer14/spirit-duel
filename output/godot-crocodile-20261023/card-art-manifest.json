@@ -1,0 +1,57 @@
+{
+  "newMainFaces": [
+    {
+      "id": "c27901",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/279_影鳄/27901_匿息_法术.png",
+      "destination": "godot/assets/official/cards/c27901.png",
+      "sha256": "b76619ae4c2bc721caae8466d75e271d1947f1690e494a27d7f15187c34ba7d8"
+    },
+    {
+      "id": "c27902",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/279_影鳄/27902_出蛰_战斗.png",
+      "destination": "godot/assets/official/cards/c27902.png",
+      "sha256": "612f15c26467d4a7eb52a768c8a875c2435a87a504e85df9ddb6d20d3a5130b4"
+    },
+    {
+      "id": "c27903",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/279_影鳄/27903_如影随形_结界.png",
+      "destination": "godot/assets/official/cards/c27903.png",
+      "sha256": "d47e2cd959c1b6073b9b22246934cc76350e1e7181f7711388851ea665692e86"
+    },
+    {
+      "id": "c27904",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/279_影鳄/27904_觉醒·影鳄_法术.png",
+      "destination": "godot/assets/official/cards/c27904.png",
+      "sha256": "3189be839e5c7314e8d4fa85df338d738c11f94afc77b01c131a488658ce3d2d"
+    },
+    {
+      "id": "c27905",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/279_影鳄/27905_幕影盖地_战斗.png",
+      "destination": "godot/assets/official/cards/c27905.png",
+      "sha256": "a7c9940fb315b6a459fe95c70374de2d5edbad1227e3b83137ccf11915f739c2"
+    },
+    {
+      "id": "c27906",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/279_影鳄/27906_伏猎_法术.png",
+      "destination": "godot/assets/official/cards/c27906.png",
+      "sha256": "eff313de0ed2afa3643ee276465d87c95944457ff57b522b7997b055fd8c6426"
+    },
+    {
+      "id": "c27907",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/279_影鳄/27907_诡影重重_形态.png",
+      "destination": "godot/assets/official/cards/c27907.png",
+      "sha256": "c1393da665cdd7bbc4ae0ccc78c099e6025559c2e3e9ed87801f311b69f98b0c"
+    },
+    {
+      "id": "c27908",
+      "source": "art-reference-official/卡面-按版本/16_远山遥泽/279_影鳄/27908_啖噬_战斗.png",
+      "destination": "godot/assets/official/cards/c27908.png",
+      "sha256": "fee2fd0739abc6925f942f1dcec0a7c8be5744191e7530b9956ae25981ba8e5e"
+    }
+  ],
+  "cumulativeMainUnits": 55,
+  "cumulativeMainFaces": 440,
+  "existingDerivedFaces": 3,
+  "cumulativeFaces": 443,
+  "charmFace": "Original Chinese 鬼鳄 separate face not found"
+}

@@ -1,0 +1,11 @@
+{
+  "hashCount": 711,
+  "sourceHashesMatch": true,
+  "pagesBytes": 166971144,
+  "entryFiles": {
+    "index.html": true,
+    "index.js": true,
+    "index.wasm": true,
+    "index.pck": true
+  }
+}

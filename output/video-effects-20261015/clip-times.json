@@ -1,0 +1,38 @@
+[
+  {
+    "bvid": "BV1vg4y1q7m1",
+    "startSeconds": 20,
+    "durationSeconds": 12,
+    "path": "clips/feather-entrance.mp4"
+  },
+  {
+    "bvid": "BV1vg4y1q7m1",
+    "startSeconds": 128,
+    "durationSeconds": 17,
+    "path": "clips/ink-entrance.mp4"
+  },
+  {
+    "bvid": "BV1mVGFzoEBm",
+    "startSeconds": 345,
+    "durationSeconds": 34,
+    "path": "clips/huang-swift-vigor.mp4"
+  },
+  {
+    "bvid": "BV1mVGFzoEBm",
+    "startSeconds": 756,
+    "durationSeconds": 24,
+    "path": "clips/cosmic-effect.mp4"
+  },
+  {
+    "bvid": "BV1r54y1C7d6",
+    "startSeconds": 104,
+    "durationSeconds": 40,
+    "path": "clips/arrow-combat.mp4"
+  },
+  {
+    "bvid": "BV1ZjGg6sELz",
+    "startSeconds": 17,
+    "durationSeconds": 24,
+    "path": "clips/xun-attachment.mp4"
+  }
+]

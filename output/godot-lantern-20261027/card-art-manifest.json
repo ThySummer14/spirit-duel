@@ -1,0 +1,42 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/293_古笼火/29301_引路火苗_法术.png",
+    "target": "godot/assets/official/cards/c29301.png",
+    "sha256": "c5047da655bd8be0d181b63bd11bb0cb33112fb505ad7899231e92a80d3a225f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/293_古笼火/29302_恶戏之火_战斗.png",
+    "target": "godot/assets/official/cards/c29302.png",
+    "sha256": "6c3c8c4b0ec42ac8069f43bc6fe0d2105df8d70721ca4420dfbb1e4d4f0cc101"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/293_古笼火/29303_燃尽_法术.png",
+    "target": "godot/assets/official/cards/c29303.png",
+    "sha256": "926dc258829be92e5ada348adb2833aac7025ac7d62fdd5b6020e7bf64cfc8dc"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/293_古笼火/29304_飘摇鬼火_形态.png",
+    "target": "godot/assets/official/cards/c29304.png",
+    "sha256": "5c606687b3a6c04a3f31e3f23fc64567d6629d3164faeabe8436db4f4279dfac"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/293_古笼火/29305_觉醒·古笼火_法术.png",
+    "target": "godot/assets/official/cards/c29305.png",
+    "sha256": "f1396a02a23f8d28a596348f5546ee9c93687ba510b35781ecc5844d2cdbb61d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/293_古笼火/29306_火风车_战斗.png",
+    "target": "godot/assets/official/cards/c29306.png",
+    "sha256": "cc2b8813dd49051be3841dab945d7a4360bd7039fec0866cf5d4adb4edaac996"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/293_古笼火/29307_灵运_结界.png",
+    "target": "godot/assets/official/cards/c29307.png",
+    "sha256": "636bc297c0f97cdcef6970ddbdb314ab101d8d057cebd92ecfabc80b23ec92b8"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/18_燃灯志异/293_古笼火/29308_歧路笼火_法术.png",
+    "target": "godot/assets/official/cards/c29308.png",
+    "sha256": "1a646f508fffc2d60c6e5e41d0e4b554f72642b873ec52bb664f0ddc92ab6ad6"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/204_火取魔/20401_夜袭_战斗.png",
+    "target": "godot/assets/official/cards/c20401.png",
+    "sha256": "aad30dda8c3b441a72666f6d645c06ce94eedea81e2212c37647749c2335abb0"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/204_火取魔/20402_蛮勇剑豪_形态.png",
+    "target": "godot/assets/official/cards/c20402.png",
+    "sha256": "c594ddf435954109fc421aa0410c884d679745c1124456ae6f36b5ee0918321b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/204_火取魔/20403_任侠_法术.png",
+    "target": "godot/assets/official/cards/c20403.png",
+    "sha256": "b2e5c2de76ac394fdb8bfceafa7ea6fe9839445d45029a0e74df49183fd00994"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/204_火取魔/20404_鵺之火_结界.png",
+    "target": "godot/assets/official/cards/c20404.png",
+    "sha256": "2ebf87c1a5774519042c5267c8ce393a7e508fd2b1dcdba26f81bb663cf4add4"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/204_火取魔/20405_叶隐剑豪_形态.png",
+    "target": "godot/assets/official/cards/c20405.png",
+    "sha256": "8bafacf3112f87998f17ed0b0ca31f13ff70d96af032b04a683e0af910dd8e41"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/204_火取魔/20406_觉醒·火取魔_法术.png",
+    "target": "godot/assets/official/cards/c20406.png",
+    "sha256": "dffa0928965f64cd1ed1be977c4faea3bd92b86a570e0b8907a9761811018bc7"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/204_火取魔/20407_义盟_法术.png",
+    "target": "godot/assets/official/cards/c20407.png",
+    "sha256": "b40d227775fcb87260fea8c62645c324705a0ec6e3bfa769fa462a1503eec735"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/204_火取魔/20408_火取剑豪_形态.png",
+    "target": "godot/assets/official/cards/c20408.png",
+    "sha256": "7a81d435bd15685841c4e500a36b5e895e5ed01f14506dc8d3144d2e46a38876"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/205_源九郎狐/20501_狐手_战斗.png",
+    "target": "godot/assets/official/cards/c20501.png",
+    "sha256": "e04a139c23f19a1b92fcd506573caec3c343e0ee6c952c7ea405dba09357ed66"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/205_源九郎狐/20502_狐辞_法术.png",
+    "target": "godot/assets/official/cards/c20502.png",
+    "sha256": "ddfdf35d5f43b24799f0be0f2542d8ed17435456c26ca05a967a62d90353888b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/205_源九郎狐/20503_觉醒·源九郎狐_法术.png",
+    "target": "godot/assets/official/cards/c20503.png",
+    "sha256": "9f79ee527f443a580114075f4f8a364d1e8adbf080142fad98c3e95c2e8b52ac"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/205_源九郎狐/20504_御先狐_形态.png",
+    "target": "godot/assets/official/cards/c20504.png",
+    "sha256": "fe112cfdc50f9ba374c22abd2c3312c19b66a31a8bb02a6fcc90f816b8e6402e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/205_源九郎狐/20505_初音鼓_法术.png",
+    "target": "godot/assets/official/cards/c20505.png",
+    "sha256": "8512bd0ce56101417f76524b1381b0835895dbb84cfbbe70319dd791497ea0d6"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/205_源九郎狐/20506_狐狸六法_结界.png",
+    "target": "godot/assets/official/cards/c20506.png",
+    "sha256": "56a8a68cc8e20cee63afa917bf5ce9fd1ff954977d932422a7170d69f0f168d5"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/205_源九郎狐/20508_灵狐之嗣_形态.png",
+    "target": "godot/assets/official/cards/c20508.png",
+    "sha256": "c6db5be0c83a24108bc46009437bf042651426140401c24b20f87376554508a9"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/205_源九郎狐/20509_道行初音旅_法术.png",
+    "target": "godot/assets/official/cards/c20509.png",
+    "sha256": "24a2f12d67e265c7c8bd5708a9d415e218eb14d58b56eecbde2ddcb5e4653a7a"
+  }
+]

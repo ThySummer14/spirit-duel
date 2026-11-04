@@ -1,0 +1,42 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/208_面灵气/20801_新生双面_法术.png",
+    "target": "godot/assets/official/cards/c20801.png",
+    "sha256": "33b64d7ab50b4c9775e06b2873214f82006ef0a267029d278e3ab3ece036d4bd"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/208_面灵气/20802_心生七面_战斗.png",
+    "target": "godot/assets/official/cards/c20802.png",
+    "sha256": "3b05af8e0d224760785155d50be9d1360cf13d33182834faa28b3825a603ac76"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/208_面灵气/20803_幻化万象_形态.png",
+    "target": "godot/assets/official/cards/c20803.png",
+    "sha256": "ea32ed7a5705bdee49e52133a9f5918860626e74df9c256b7797a7b0a5affbbb"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/208_面灵气/20804_自欺_法术.png",
+    "target": "godot/assets/official/cards/c20804.png",
+    "sha256": "544f2c2f9f8ea23903e36ed39b5e600407bdfd9161c767cad8c165ea5d9c7819"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/208_面灵气/20805_禁断之面_法术.png",
+    "target": "godot/assets/official/cards/c20805.png",
+    "sha256": "4db49361a5573373e4379a61f241bd36e9919e2dbeb89ece5b5c12e768ef9d05"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/208_面灵气/20806_轮回之面_形态.png",
+    "target": "godot/assets/official/cards/c20806.png",
+    "sha256": "758de0ebcdb76da95bc07181e76edb1efdf6e8c6304e0126020b8bc40f67ddea"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/208_面灵气/20807_觉醒·面灵气_法术.png",
+    "target": "godot/assets/official/cards/c20807.png",
+    "sha256": "6a32c61368e3d8a1b0560fdd385e51936c8c727cdad59a03ca98a0e0819dc9ad"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/09_四相琉璃/208_面灵气/20808_妒心_法术.png",
+    "target": "godot/assets/official/cards/c20808.png",
+    "sha256": "3ce85c1652a084570192848e94458d7616e7276397c8b4b6888f31ce6a219e81"
+  }
+]

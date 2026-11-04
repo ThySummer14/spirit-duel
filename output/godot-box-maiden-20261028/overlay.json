@@ -1,0 +1,373 @@
+{
+  "units": {
+    "xiazhongshaonv": {
+      "verifiedRules": true,
+      "boxMaidenRules": true,
+      "nativeCharge": true,
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "box-maiden-base",
+        "name": "珍藏",
+        "text": "充能。每回合一次，当你投骰子时，获得与骰子点数等量的#[能量]。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "box-maiden-awaken",
+        "name": "珍藏",
+        "text": "充能。当你投骰子时，获得与骰子点数等量的能量。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "box-maiden-original-20261028"
+      ],
+      "verificationPending": [
+        "按24300–24308完整原PNG和官网基础牌文还原；指定录像尚未逐牌核对，保留原客户端核验。",
+        "溢彩卡包的随机稀有度权重/重复规则、多个投骰/重投及召唤物攻击时序仍待实机核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c24301": {
+      "verifiedRules": true,
+      "boxMaidenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "text": "对一个式神造成3点伤害。\n爆能10：改为造成10点伤害。",
+      "officialText": "对一个式神造成3点伤害。\n爆能10：改为造成10点伤害。",
+      "target": "any-unit",
+      "effect": "box-24301",
+      "value": 3,
+      "effects": [
+        {
+          "action": "box-light",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "box-maiden-original-20261028"
+      ],
+      "verificationPending": [
+        "按24300–24308完整原PNG和官网基础牌文还原；指定录像尚未逐牌核对，保留原客户端核验。",
+        "溢彩卡包的随机稀有度权重/重复规则、多个投骰/重投及召唤物攻击时序仍待实机核验。"
+      ],
+      "movementRules": true,
+      "movementBurstOptions": [
+        10
+      ],
+      "boxBurstText": "造成10点伤害",
+      "responseAction": "damage"
+    },
+    "c24302": {
+      "verifiedRules": true,
+      "boxMaidenRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "text": "进场时运势4：占卜3。己方回合结束时，消耗10能量，抽一张牌。",
+      "officialText": "进场时运势4：占卜3。己方回合结束时，消耗10能量，抽一张牌。",
+      "target": "auto",
+      "effect": "box-24302",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "box-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {
+        "boxTreasure": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时运势4：占卜3。己方回合结束时，消耗10能量，抽一张牌。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "box-maiden-original-20261028"
+      ],
+      "verificationPending": [
+        "按24300–24308完整原PNG和官网基础牌文还原；指定录像尚未逐牌核对，保留原客户端核验。",
+        "溢彩卡包的随机稀有度权重/重复规则、多个投骰/重投及召唤物攻击时序仍待实机核验。"
+      ]
+    },
+    "c24303": {
+      "verifiedRules": true,
+      "boxMaidenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "text": "召唤一个「惜物」。",
+      "officialText": "召唤一个「惜物」。",
+      "target": "auto",
+      "effect": "box-24303",
+      "value": 0,
+      "effects": [
+        {
+          "action": "box-summon",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "box-maiden-original-20261028"
+      ],
+      "verificationPending": [
+        "按24300–24308完整原PNG和官网基础牌文还原；指定录像尚未逐牌核对，保留原客户端核验。",
+        "溢彩卡包的随机稀有度权重/重复规则、多个投骰/重投及召唤物攻击时序仍待实机核验。"
+      ]
+    },
+    "c24304": {
+      "verifiedRules": true,
+      "boxMaidenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "text": "获得10能量。\n觉醒：充能。当你投骰子时，获得与骰子点数等量的能量。",
+      "officialText": "获得10能量。\n觉醒：充能。当你投骰子时，获得与骰子点数等量的能量。",
+      "target": "auto",
+      "effect": "box-24304",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "box-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "box-maiden-original-20261028"
+      ],
+      "verificationPending": [
+        "按24300–24308完整原PNG和官网基础牌文还原；指定录像尚未逐牌核对，保留原客户端核验。",
+        "溢彩卡包的随机稀有度权重/重复规则、多个投骰/重投及召唤物攻击时序仍待实机核验。"
+      ]
+    },
+    "c24305": {
+      "verifiedRules": true,
+      "boxMaidenRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "text": "爆能10：此牌获得5生命。",
+      "officialText": "爆能10：此牌获得5生命。",
+      "target": "auto",
+      "effect": "box-24305",
+      "value": {
+        "attack": 6,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "box-form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "爆能10：此牌获得5生命。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "box-maiden-original-20261028"
+      ],
+      "verificationPending": [
+        "按24300–24308完整原PNG和官网基础牌文还原；指定录像尚未逐牌核对，保留原客户端核验。",
+        "溢彩卡包的随机稀有度权重/重复规则、多个投骰/重投及召唤物攻击时序仍待实机核验。"
+      ],
+      "movementRules": true,
+      "movementBurstOptions": [
+        10
+      ],
+      "boxBurstText": "形态获得5生命"
+    },
+    "c24306": {
+      "verifiedRules": true,
+      "boxMaidenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "text": "复活己方所有式神。\n爆能10：再为你恢复10生命。",
+      "officialText": "复活己方所有式神。\n爆能10：再为你恢复10生命。",
+      "target": "auto",
+      "effect": "box-24306",
+      "value": 0,
+      "effects": [
+        {
+          "action": "box-revive",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "box-maiden-original-20261028"
+      ],
+      "verificationPending": [
+        "按24300–24308完整原PNG和官网基础牌文还原；指定录像尚未逐牌核对，保留原客户端核验。",
+        "溢彩卡包的随机稀有度权重/重复规则、多个投骰/重投及召唤物攻击时序仍待实机核验。"
+      ],
+      "movementRules": true,
+      "movementBurstOptions": [
+        10
+      ],
+      "boxBurstText": "额外恢复牌手10生命"
+    },
+    "c24307": {
+      "verifiedRules": true,
+      "boxMaidenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "text": "瞬发\n打开一个己方式神的卡包，选择一张牌置入手上。\n爆能10：改为将所有牌置入手上。",
+      "officialText": "瞬发\n打开一个己方式神的卡包，选择一张牌置入手上。\n爆能10：改为将所有牌置入手上。",
+      "target": "ally-unit-any-state",
+      "effect": "box-24307",
+      "value": 0,
+      "effects": [
+        {
+          "action": "box-pack",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "box-maiden-original-20261028"
+      ],
+      "verificationPending": [
+        "按24300–24308完整原PNG和官网基础牌文还原；指定录像尚未逐牌核对，保留原客户端核验。",
+        "溢彩卡包的随机稀有度权重/重复规则、多个投骰/重投及召唤物攻击时序仍待实机核验。"
+      ],
+      "movementRules": true,
+      "movementBurstOptions": [
+        10
+      ],
+      "boxBurstText": "获得卡包全部五张牌"
+    },
+    "c24308": {
+      "verifiedRules": true,
+      "boxMaidenRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "text": "贯通\n进场和己方回合开始时，运势4：获得一点鬼火。己方回合结束时，消耗10能量，投射：造成10点伤害。",
+      "officialText": "贯通\n进场和己方回合开始时，运势4：获得一点鬼火。己方回合结束时，消耗10能量，投射：造成10点伤害。",
+      "target": "auto",
+      "effect": "box-24308",
+      "value": {
+        "attack": 7,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "box-form",
+          "target": "source",
+          "value": {
+            "attack": 7,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {
+        "boxBrilliant": true,
+        "combatKeywords": [
+          "penetration"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "贯通\n进场和己方回合开始时，运势4：获得一点鬼火。己方回合结束时，消耗10能量，投射：造成10点伤害。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "box-maiden-original-20261028"
+      ],
+      "verificationPending": [
+        "按24300–24308完整原PNG和官网基础牌文还原；指定录像尚未逐牌核对，保留原客户端核验。",
+        "溢彩卡包的随机稀有度权重/重复规则、多个投骰/重投及召唤物攻击时序仍待实机核验。"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "box-maiden-original-20261028",
+      "kind": "official-card-art",
+      "path": "research-notes/84-box-maiden-rules.md",
+      "url": "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js"
+    }
+  ]
+}

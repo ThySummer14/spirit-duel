@@ -1,0 +1,42 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/243_匣中少女/24301_流光_法术.png",
+    "destination": "godot/assets/official/cards/c24301.png",
+    "sha256": "f9d09f04258a4d3f611783af31bf5bd2d2b2a3e6488145ace48ae39912fbc6c8"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/243_匣中少女/24302_藏珍之匣_形态.png",
+    "destination": "godot/assets/official/cards/c24302.png",
+    "sha256": "f547b29b73fc0398841268558259bf6bbf6aefab90feafade86f919624477614"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/243_匣中少女/24303_开匣_法术.png",
+    "destination": "godot/assets/official/cards/c24303.png",
+    "sha256": "f7255b74cacdecb99b5d0d24dc1a25c79a3f55d839f1f983be54cca5d62ece52"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/243_匣中少女/24304_觉醒·匣中少女_法术.png",
+    "destination": "godot/assets/official/cards/c24304.png",
+    "sha256": "eab857ab7ddf755f970bf6bf4f5f7f601403b0ccfb8e7a748536c744a75811fa"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/243_匣中少女/24305_华丽之匣_形态.png",
+    "destination": "godot/assets/official/cards/c24305.png",
+    "sha256": "958c470b58bed08db68a2c139ad907549cc37f173f02ab8295c58b513f377060"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/243_匣中少女/24306_回梦_法术.png",
+    "destination": "godot/assets/official/cards/c24306.png",
+    "sha256": "17dc117df746e8f9a33b30514925d8b150c491db3a9fcf688acaeb2284bbf6d2"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/243_匣中少女/24307_溢彩_法术.png",
+    "destination": "godot/assets/official/cards/c24307.png",
+    "sha256": "575c96ef3f1f28254ad3a00c65b90146f7ea0a7e08e64476cd4337812903616b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/243_匣中少女/24308_璀璨之匣_形态.png",
+    "destination": "godot/assets/official/cards/c24308.png",
+    "sha256": "924512aa45765370b42193fad0fc3730d35c7ef2884401823a28866e2cf12ec9"
+  }
+]

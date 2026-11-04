@@ -1,0 +1,132 @@
+[
+  {
+    "id": "glutton-satiation",
+    "name": "饱腹",
+    "unitId": "egui",
+    "type": "charm",
+    "typeLabel": "灵咒",
+    "level": 1,
+    "cost": 0,
+    "copies": 0,
+    "deckLimit": 0,
+    "starterCopies": 0,
+    "token": true,
+    "rarity": "common",
+    "pack": "wave4",
+    "subpack": "sixiang",
+    "text": "唯一。饿鬼获得2力量。倒计时2：移除此灵咒。",
+    "officialText": "唯一。饿鬼获得2力量。倒计时2：移除此灵咒。",
+    "target": "auto",
+    "keywords": [],
+    "tags": [
+      "token",
+      "灵咒"
+    ],
+    "effect": "glutton-charm-token",
+    "value": null,
+    "effects": [
+      {
+        "condition": "always",
+        "action": "glutton-charm-token",
+        "target": "source",
+        "value": null
+      }
+    ]
+  },
+  {
+    "id": "doll-resent",
+    "unitId": "choushizhinv",
+    "name": "怨缚草人",
+    "type": "spell",
+    "typeLabel": "召唤物",
+    "level": 1,
+    "cost": 0,
+    "copies": 0,
+    "deckLimit": 0,
+    "starterCopies": 0,
+    "token": true,
+    "text": "当怨缚草人受到伤害时，眩晕被选择的式神。 离开战斗区时移除。",
+    "officialText": "当怨缚草人受到伤害时，眩晕被选择的式神。",
+    "target": "auto",
+    "keywords": [],
+    "tags": [
+      "token"
+    ],
+    "pack": "wave6",
+    "subpack": "kongxian",
+    "effect": "doll-token",
+    "value": "resent",
+    "effects": [
+      {
+        "condition": "always",
+        "action": "doll-token",
+        "target": "source",
+        "value": "resent"
+      }
+    ]
+  },
+  {
+    "id": "doll-curse",
+    "unitId": "choushizhinv",
+    "name": "诅咒草人",
+    "type": "spell",
+    "typeLabel": "召唤物",
+    "level": 1,
+    "cost": 0,
+    "copies": 0,
+    "deckLimit": 0,
+    "starterCopies": 0,
+    "token": true,
+    "text": "当诅咒草人受到伤害时，被选择的式神随机弃掉一张专属牌。 离开战斗区时移除。",
+    "officialText": "当诅咒草人受到伤害时，被选择的式神随机弃掉一张专属牌。",
+    "target": "auto",
+    "keywords": [],
+    "tags": [
+      "token"
+    ],
+    "pack": "wave6",
+    "subpack": "kongxian",
+    "effect": "doll-token",
+    "value": "curse",
+    "effects": [
+      {
+        "condition": "always",
+        "action": "doll-token",
+        "target": "source",
+        "value": "curse"
+      }
+    ]
+  },
+  {
+    "id": "doll-substitute",
+    "unitId": "choushizhinv",
+    "name": "替身草人",
+    "type": "spell",
+    "typeLabel": "召唤物",
+    "level": 1,
+    "cost": 0,
+    "copies": 0,
+    "deckLimit": 0,
+    "starterCopies": 0,
+    "token": true,
+    "text": "当替身草人受到伤害时，被选择的式神受到等量的伤害。 离开战斗区时移除。",
+    "officialText": "当替身草人受到伤害时，被选择的式神受到等量的伤害。",
+    "target": "auto",
+    "keywords": [],
+    "tags": [
+      "token"
+    ],
+    "pack": "wave6",
+    "subpack": "kongxian",
+    "effect": "doll-token",
+    "value": "substitute",
+    "effects": [
+      {
+        "condition": "always",
+        "action": "doll-token",
+        "target": "source",
+        "value": "substitute"
+      }
+    ]
+  }
+]

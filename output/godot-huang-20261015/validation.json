@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "Godot suite exit0",
+      "passed": true
+    },
+    {
+      "check": "Godot full completion and no error diagnostics",
+      "passed": true
+    },
+    {
+      "check": "all89 configured scripts ran in order",
+      "passed": true
+    },
+    {
+      "check": "Huang rule check passed in suite",
+      "passed": true
+    },
+    {
+      "check": "random60 and focused20 completed",
+      "passed": true
+    },
+    {
+      "check": "full roster covered",
+      "passed": true
+    },
+    {
+      "check": "native mouse50 checks passed without diagnostics",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 01-sea-inspector",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 02-afterglow-choice",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 03-moon-durability",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 04-spiral-swift",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 01-sea-inspector",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 02-afterglow-choice",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 03-moon-durability",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 04-spiral-swift",
+      "passed": true
+    },
+    {
+      "check": "Node168 passed",
+      "passed": true
+    },
+    {
+      "check": "UI audit390 passed",
+      "passed": true
+    },
+    {
+      "check": "restoration audit remains incomplete with same19 diagnostics",
+      "passed": true
+    },
+    {
+      "check": "Huang plus8 cards remain pending rather than declared complete",
+      "passed": true
+    },
+    {
+      "check": "build and suite use identical source hashes",
+      "passed": true
+    },
+    {
+      "check": "source unchanged during full validation",
+      "passed": true
+    },
+    {
+      "check": "stable4.6.3 Web build and focused rules passed",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.html",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.js",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.pck",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.wasm",
+      "passed": true
+    },
+    {
+      "check": "browser console clean",
+      "passed": true
+    },
+    {
+      "check": "browser actual battle screenshot",
+      "passed": true
+    }
+  ],
+  "godotScripts": 89,
+  "ruleCheck": "HUANG checks=552 failures=0",
+  "nativeChecks": 50,
+  "audit": {
+    "units": {
+      "known-approximation": 143,
+      "unreviewed": 63,
+      "pending-verification": 29,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 952,
+      "unreviewed": 795,
+      "pending-verification": 160,
+      "source-backed-native": 207
+    }
+  },
+  "auditDiagnostics": 19,
+  "unchangedSourceFiles": 161
+}

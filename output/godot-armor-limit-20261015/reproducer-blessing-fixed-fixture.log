@@ -1,0 +1,14 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BLESSING_CONTINUATION_FAIL hand states unconditional draw at six count0
+BLESSING_CONTINUATION_FAIL draw exactly one original top card at six count0
+BLESSING_CONTINUATION_FAIL hand states unconditional draw at six count2
+BLESSING_CONTINUATION_FAIL draw exactly one original top card at six count2
+BLESSING_CONTINUATION_FAIL hand states unconditional draw at six count3
+BLESSING_CONTINUATION_FAIL draw exactly one original top card at six count3
+BLESSING_CONTINUATION_FAIL hand states unconditional draw at six count5
+BLESSING_CONTINUATION_FAIL draw exactly one original top card at six count5
+BLESSING_CONTINUATION_FAIL growth precedes actual empty draw defeat
+BLESSING_CONTINUATION_FAIL rabbit may bless itself and draw
+BLESSING_CONTINUATION_FAIL AI resolves same draw rather than generating a card
+BLESSING_CONTINUATION checks=44 failures=11

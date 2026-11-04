@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/264_季沧海/26401_崩山斩_战斗.png",
+    "target": "godot/assets/official/cards/c26401.png",
+    "sha256": "eaa968dd10079e9c69480c7a11f374f36f52b90de99fa02d91588988334ff419"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/264_季沧海/26402_旋风斩_战斗.png",
+    "target": "godot/assets/official/cards/c26402.png",
+    "sha256": "add006c2d3cfc9b829ed396c8e4f253a807e3de1bf9e6b371475697e13ea7611"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/264_季沧海/26403_燎原劲_法术.png",
+    "target": "godot/assets/official/cards/c26403.png",
+    "sha256": "7fd0c9cb064ed7a8f03e61749e17abe7e3e5a7290d0a2c7e86d5e8b626f23f09"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/264_季沧海/26404_蓄力·振刀_战斗.png",
+    "target": "godot/assets/official/cards/c26404.png",
+    "sha256": "533252afaae1e8399d0c937b34c3404b6679ea42347fea61719552c77f568fd4"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/264_季沧海/26405_磐石架势_形态.png",
+    "target": "godot/assets/official/cards/c26405.png",
+    "sha256": "937f1fccfe3a384a376d10f448ffc9385ad79af35c8ab3a16b835e8301a63efe"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/264_季沧海/26406_觉醒·季沧海_法术.png",
+    "target": "godot/assets/official/cards/c26406.png",
+    "sha256": "3e07520474f0576ccaa262963959303482660033fa9705b687de11775a99b4c3"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/264_季沧海/26407_狂潮_战斗.png",
+    "target": "godot/assets/official/cards/c26407.png",
+    "sha256": "505e6be2c93421ed66568dfdfcdaa886f0a5700b56229c517fcb8f19f5071ad2"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/264_季沧海/26408_迅烈如火_战斗.png",
+    "target": "godot/assets/official/cards/c26408.png",
+    "sha256": "2ed50ae19b1e481a72ee882add76b4911e9171966937feaf7b7524298aa2d74a"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/265_无尘/26501_鬼返断_战斗.png",
+    "target": "godot/assets/official/cards/c26501.png",
+    "sha256": "a73eaf1a188b1be368490c8e7d10c1d9e8229c70d1ace939f3bf46e025fd490b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/265_无尘/26502_闪步·振刀_法术.png",
+    "target": "godot/assets/official/cards/c26502.png",
+    "sha256": "3322a355bee49f585026d951d49725f1532f857e62bb092ce31c0c1fcfdbe0fb"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/265_无尘/26503_飞索突袭_战斗.png",
+    "target": "godot/assets/official/cards/c26503.png",
+    "sha256": "63c89164c35260f9856aec55223763c8aad641ed79e3e5a9456c80cc734e6c9f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/265_无尘/26504_斗转星移_战斗.png",
+    "target": "godot/assets/official/cards/c26504.png",
+    "sha256": "f06b522eb12448f549a544870b6051a247c657f97ae3eb65f90378a4eb00cafa"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/265_无尘/26505_卸劲_形态.png",
+    "target": "godot/assets/official/cards/c26505.png",
+    "sha256": "734261cb12d09746369c777f4ab534ce9a28bdfbd09ae1a959edc5da36cacf3c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/265_无尘/26506_豫让三伏_战斗.png",
+    "target": "godot/assets/official/cards/c26506.png",
+    "sha256": "ccc88df5895c221b99baa70467ec67596c1a233e9cb3b92586bf30fc6aac66a5"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/265_无尘/26507_觉醒·无尘_法术.png",
+    "target": "godot/assets/official/cards/c26507.png",
+    "sha256": "1da11309f518f6f1a0b66ee2a7238a632e536e752a3aa2d1308d7e586f111a02"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/265_无尘/26508_两仪剑阵_形态.png",
+    "target": "godot/assets/official/cards/c26508.png",
+    "sha256": "e21e570b51a6eed0b8b59078a373f11946c7977242e9a988788cf062ff97b87a"
+  }
+]

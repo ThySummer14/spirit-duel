@@ -1,0 +1,138 @@
+[
+  {
+    "name": "sun_smoke",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "SUN_SMOKE checks=154 failures=0"
+    ]
+  },
+  {
+    "name": "movement",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "MOVEMENT checks=244 failures=0"
+    ]
+  },
+  {
+    "name": "movement_continuation",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "MOVEMENT_CONTINUATION checks=599 failures=0 matches=12"
+    ]
+  },
+  {
+    "name": "butterfly",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "BUTTERFLY_OK checks=151 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "garuda",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "GARUDA_OK checks=133 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "yitiao",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "YITIAO_OK checks=134 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "jorogumo",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "JOROGUMO_OK checks=126 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "weaver",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "WEAVER_CHECKS 134 FAILURES 0"
+    ]
+  },
+  {
+    "name": "resource_effects",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "RESOURCE_EFFECTS_OK checks=149"
+    ]
+  },
+  {
+    "name": "combat",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "name": "instant",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "name": "sparrow",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "SPARROW checks=174 failures=0"
+    ]
+  },
+  {
+    "name": "battle_status",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "BATTLE_STATUS_OK checks=139"
+    ]
+  },
+  {
+    "name": "spider_lily",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "SPIDER_LILY checks=133 failures=0"
+    ]
+  },
+  {
+    "name": "pipe_fox",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "PIPE_FOX checks=161 failures=0"
+    ]
+  },
+  {
+    "name": "moon_bamboo",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "MOON_BAMBOO checks=185 failures=0"
+    ]
+  },
+  {
+    "name": "movement_ui",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "MOVEMENT_UI checks=40 failures=0"
+    ]
+  }
+]

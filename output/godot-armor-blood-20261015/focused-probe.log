@@ -1,0 +1,7 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PROBE_POISON { "uid": "ai:yaodaoji", "id": "yaodaoji", "name": "妖刀姬", "title": "呪刃", "color": "#d64545", "baseAttack": 3, "baseMaxHp": 4, "attack": 3, "maxHp": 4, "hp": 4, "shield": 0, "knockout": 0, "frozen": 0, "brittle": 0, "armorBreak": 0, "unyielding": false, "level": 3, "front": 0, "attackBonus": 0, "maxHpBonus": 0, "awakened": false, "form": {  }, "formAbility": "", "charge": 0, "passive_hooks": [], &"shieldExpires": 0, &"poisonAuraReduction": 0 } avatar 28
+ARMOR_BLOOD_FAIL poison conversion consumes blood flag without fabricated avatar hit
+PROBE_SCENT 0 { "uid": "player:xixueji", "id": "xixueji", "name": "吸血姬", "title": "猩红", "color": "#a04050", "baseAttack": 3, "baseMaxHp": 4, "attack": 3, "maxHp": 4, "hp": 4, "shield": 1, "knockout": 0, "frozen": 0, "brittle": 0, "armorBreak": 0, "unyielding": false, "level": 3, "front": 1, "attackBonus": 0, "maxHpBonus": 0, "awakened": false, "form": {  }, "formAbility": "", "charge": 0, "passive_hooks": [], &"shieldExpires": 1, &"poisonAuraReduction": 0, &"jueDamageDealtTurn": 1 } card [{ "player": 0, "uid": "player:xixueji", "target": "ai:yaodaoji", &"kind": "combat-hit", &"id": 2, &"commandIndex": 2 }]
+ARMOR_BLOOD_FAIL at30 scent grants combat immunity with one five-power hit
+ARMOR_BLOOD checks=135 failures=2

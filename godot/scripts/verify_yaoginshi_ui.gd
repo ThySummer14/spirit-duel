@@ -27,6 +27,9 @@ func _move(at: Vector2) -> void:
 func _click(face: Control, button: MouseButton = MOUSE_BUTTON_LEFT) -> void:
 	var at := face.get_global_transform_with_canvas() * (face.size * 0.5)
 	_move(at)
+	await process_frame
+	await create_timer(0.14).timeout
+	at = face.get_global_transform_with_canvas() * (face.size * 0.5)
 	for down in [true, false]:
 		var input := InputEventMouseButton.new()
 		input.position = at
@@ -80,7 +83,7 @@ func _run() -> void:
 		p.units[2].knockout = 2
 		_prepare_hand(battle, ["c12804", "c12805", "c12802", "c12808"])
 		await create_timer(0.4).timeout
-		_click(battle._hand_row.get_child(0))
+		await _click(battle._hand_row.get_child(0))
 		_check(battle._pending_target_card == 0, "惊弦 enters target mode")
 		var target := battle._unit_widget(str(p.units[2].uid))
 		_move(target.get_global_rect().get_center())
@@ -89,7 +92,7 @@ func _run() -> void:
 		_check(battle._aim.visible and battle._aim.valid and "气绝倒计时 -2" in battle._aim.hint, "knocked teammate is a legal aimed target with exact countdown preview")
 		await process_frame
 		_capture("%d-01-revival-aim" % physical.x)
-		_click(target)
+		await _click(target)
 		_check(p.units[2].hp > 0 and p.units[2].knockout == 0, "native click revives through countdown")
 		await _wait_battle(battle)
 		var foe: Dictionary = battle.gs.player(1).units[2]
@@ -97,9 +100,9 @@ func _run() -> void:
 		foe.knockout = 1
 		_prepare_hand(battle, ["c12805", "c12808"])
 		await create_timer(0.4).timeout
-		_click(battle._hand_row.get_child(0))
+		await _click(battle._hand_row.get_child(0))
 		var ally_face := battle._unit_widget(str(song.uid))
-		_click(ally_face)
+		await _click(ally_face)
 		_check(battle._pending_target_card == 0 and p.hand.size() == 2, "疯魔 rejects ally without spending card")
 		target = battle._unit_widget(str(foe.uid))
 		_move(target.get_global_rect().get_center())
@@ -108,7 +111,7 @@ func _run() -> void:
 		_check(battle._aim.valid and "气绝倒计时 +2" in battle._aim.hint, "疯魔 previews extending enemy revival")
 		await process_frame
 		_capture("%d-02-delay-aim" % physical.x)
-		_click(target)
+		await _click(target)
 		_check(foe.knockout == 3 and song.abilityHistory == ["healing"], "delay plus own ability trigger resolves through actual UI")
 		await _wait_battle(battle)
 		var ensemble: Control = battle._hand_row.get_child(0)
@@ -116,10 +119,10 @@ func _run() -> void:
 		_capture("%d-03-recorded-ensemble" % physical.x)
 		_prepare_hand(battle, ["c12802", "c12803", "c12808"])
 		await create_timer(0.4).timeout
-		_click(battle._hand_row.get_child(0))
+		await _click(battle._hand_row.get_child(0))
 		_check(song.abilityCountdown.mode == "kagura", "native awakening switches current mode")
 		await _wait_battle(battle)
-		_click(battle._hand_row.get_child(0))
+		await _click(battle._hand_row.get_child(0))
 		_check(song.abilityCountdown.mode == "requiem" and song.abilityHistory == ["healing", "kagura"], "second awakening records old triggered mode before switching")
 		await _wait_battle(battle)
 		var popover := UIWidgets.make_unit_popover(song)

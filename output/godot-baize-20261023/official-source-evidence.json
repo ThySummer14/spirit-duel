@@ -1,0 +1,116 @@
+{
+  "url": "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js",
+  "retrieved": "2026-10-22 saved response reused 2026-10-23",
+  "sha256": "524a557540ea9cb4b8835a51e08dccbf81b0622e5d59613be380f1ed78163ad6",
+  "allNineMatchLocalSnapshot": true,
+  "cards": [
+    {
+      "id": 27300,
+      "name": "白泽",
+      "role": 273,
+      "type": "式神",
+      "xiyoudu": null,
+      "stage": null,
+      "ll": 2,
+      "sm": 5,
+      "desc": "己方回合开始或白泽出击时，将一张「达知」洗入牌库。",
+      "keyword": "达知"
+    },
+    {
+      "id": 27301,
+      "name": "观史通今",
+      "role": 273,
+      "type": "形态",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": 3,
+      "sm": 6,
+      "desc": "当你占卜时，若牌库里有白泽的牌，额外随机选择其中一张置于牌库顶。",
+      "keyword": "占卜"
+    },
+    {
+      "id": 27302,
+      "name": "溯世命",
+      "role": 273,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 1,
+      "ll": null,
+      "sm": null,
+      "desc": "气绝时可用#r复活一个己方式神，然后占卜2。#r当此牌在占卜中被置于牌库底时，随机复活一个己方式神。",
+      "keyword": "占卜"
+    },
+    {
+      "id": 27303,
+      "name": "晓万物",
+      "role": 273,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 2,
+      "ll": null,
+      "sm": null,
+      "desc": "对所有敌方式神造成2点伤害，然后占卜2。#r当此牌在占卜中被置于牌库底时，将其置入手牌。",
+      "keyword": "占卜"
+    },
+    {
+      "id": 27304,
+      "name": "驱邪祸",
+      "role": 273,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": null,
+      "sm": null,
+      "desc": "战技#r投射：造成等同于白泽#[力量]的伤害，眩晕受到此伤害的式神。当此牌在占卜中被置于牌库底时，自动使用此牌。",
+      "keyword": "战技,投射,眩晕,占卜"
+    },
+    {
+      "id": 27305,
+      "name": "造化时流",
+      "role": 273,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 2,
+      "ll": null,
+      "sm": null,
+      "desc": "对一个敌方式神造成5点伤害。#r当此牌在占卜中被置于牌库底时，随机对一个敌方式神造成2点伤害。",
+      "keyword": "占卜"
+    },
+    {
+      "id": 27306,
+      "name": "觉醒·白泽",
+      "role": 273,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": 1,
+      "sm": 1,
+      "desc": "占卜3#r觉醒：己方回合开始或白泽出击时，将一张「达知」洗入牌库。本局游戏中当你占卜中将「达知」置于牌库底时，抽一张牌。",
+      "keyword": "占卜,觉醒,达知"
+    },
+    {
+      "id": 27307,
+      "name": "迢迢尘间",
+      "role": 273,
+      "type": "法术",
+      "xiyoudu": "SSR",
+      "stage": 3,
+      "ll": null,
+      "sm": null,
+      "desc": "占卜8，本次占卜中每将一张白泽的牌置于牌库底，便恢复你2#[生命]。#r当此牌在占卜中被置于牌库底时，将一张「达知」置入手牌。",
+      "keyword": "占卜,达知"
+    },
+    {
+      "id": 27308,
+      "name": "承因续果",
+      "role": 273,
+      "type": "形态",
+      "xiyoudu": "SR",
+      "stage": 3,
+      "ll": 4,
+      "sm": 6,
+      "desc": "当你占卜中出现任一一张式神的牌时，本回合该式神便+1#[力量]和+1#[生命]。",
+      "keyword": "达知,占卜"
+    }
+  ]
+}

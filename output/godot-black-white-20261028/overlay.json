@@ -1,0 +1,714 @@
+{
+  "units": {
+    "heitongzi": {
+      "verifiedRules": true,
+      "blackWhiteRole": "black",
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "black-link",
+        "name": "羁绊",
+        "text": "黑童子使用牌时，若白童子在场，连引一张属于白童子且等级与其相同的牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "black-link-awake",
+        "name": "羁绊",
+        "text": "黑童子使用牌时，若白童子在场，连引一张属于白童子且等级与其相同的牌；并在使用其中一张牌之后，将另一张牌从牌库中置入手牌。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "baitongzi": {
+      "verifiedRules": true,
+      "blackWhiteRole": "white",
+      "attack": 2,
+      "maxHp": 6,
+      "passive": {
+        "id": "white-link",
+        "name": "羁绊",
+        "text": "白童子使用牌时，若黑童子在场，连引一张属于黑童子且等级与其相同的牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "white-link-awake",
+        "name": "羁绊",
+        "text": "白童子使用牌时，若黑童子在场，连引一张属于黑童子且等级与其相同的牌；并在使用其中一张牌之后，将另一张牌从牌库中置入手牌。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c24001": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "text": "贯通",
+      "officialText": "贯通",
+      "target": "auto",
+      "effect": "black-white-24001",
+      "value": 1,
+      "effects": [
+        {
+          "action": "black-white-combat",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "keywords": [
+        "pierce"
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 1,
+        "pierce": true
+      },
+      "responseAction": "assault"
+    },
+    "c24002": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "text": "瞬发\n移动一个己方式神，若是白童子，抽一张牌。",
+      "officialText": "瞬发\n移动一个己方式神，若是白童子，抽一张牌。",
+      "target": "ally-unit",
+      "effect": "black-white-24002",
+      "value": 0,
+      "effects": [
+        {
+          "action": "black-white-move",
+          "target": "ally-unit",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ],
+      "responseAction": "move-unit"
+    },
+    "c24003": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "text": "进场时若己方白童子在场且未气绝，自动使用「白之羁绊」。",
+      "officialText": "进场时若己方白童子在场且未气绝，自动使用「白之羁绊」。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 4,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 4,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "进场时若己方白童子在场且未气绝，自动使用「白之羁绊」。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "c24004": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "text": "当黑童子或白童子受到伤害时，黑童子获得1力量。",
+      "officialText": "当黑童子或白童子受到伤害时，黑童子获得1力量。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {
+        "blackWhiteHurt": "black"
+      },
+      "formHooks": [],
+      "formAbility": "当黑童子或白童子受到伤害时，黑童子获得1力量。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "c24005": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "text": "攻击后使己方白童子发起一次攻击。",
+      "officialText": "攻击后使己方白童子发起一次攻击。",
+      "target": "auto",
+      "effect": "black-white-24005",
+      "value": 0,
+      "effects": [
+        {
+          "action": "black-white-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 0
+      },
+      "responseAction": "assault"
+    },
+    "c24006": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "text": "白童子永久获得1力量。\n觉醒：黑童子使用牌时，若白童子在场，连引一张属于白童子且等级与其相同的牌；并在使用其中一张牌之后，将另一张牌从牌库中置入手牌。",
+      "officialText": "白童子永久获得1力量。\n觉醒：黑童子使用牌时，若白童子在场，连引一张属于白童子且等级与其相同的牌；并在使用其中一张牌之后，将另一张牌从牌库中置入手牌。",
+      "target": "auto",
+      "effect": "black-white-24006",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "black-white-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "c24007": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "text": "贯通\n增强：连引使用时，获得迅捷。",
+      "officialText": "贯通\n增强：连引使用时，获得迅捷。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {
+        "combatKeywords": [
+          "pierce"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "贯通\n增强：连引使用时，获得迅捷。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "c24008": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "text": "攻击后再次攻击一个敌方角色。\n增强：连引使用时，免疫所有战斗伤害。",
+      "officialText": "攻击后再次攻击一个敌方角色。\n增强：连引使用时，免疫所有战斗伤害。",
+      "target": "auto",
+      "effect": "black-white-24008",
+      "value": 2,
+      "effects": [
+        {
+          "action": "black-white-combat",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 0
+      },
+      "responseAction": "assault"
+    },
+    "c24101": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "text": "吸血",
+      "officialText": "吸血",
+      "target": "auto",
+      "effect": "black-white-24101",
+      "value": 1,
+      "effects": [
+        {
+          "action": "black-white-combat",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "keywords": [
+        "lifesteal"
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 1,
+        "lifeSteal": true
+      },
+      "responseAction": "assault"
+    },
+    "c24102": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "text": "瞬发\n使一个己方式神气绝倒计时-1，若是黑童子，将其复活。",
+      "officialText": "瞬发\n使一个己方式神气绝倒计时-1，若是黑童子，将其复活。",
+      "target": "knocked-ally",
+      "effect": "black-white-24102",
+      "value": 0,
+      "effects": [
+        {
+          "action": "black-white-revive",
+          "target": "knocked-ally",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ],
+      "responseAction": "revive"
+    },
+    "c24103": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "text": "进场时若己方黑童子在场且未气绝，自动使用「黑之羁绊」。",
+      "officialText": "进场时若己方黑童子在场且未气绝，自动使用「黑之羁绊」。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "进场时若己方黑童子在场且未气绝，自动使用「黑之羁绊」。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "c24104": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "text": "当黑童子或白童子受到伤害时，白童子获得1生命。",
+      "officialText": "当黑童子或白童子受到伤害时，白童子获得1生命。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {
+        "blackWhiteHurt": "white"
+      },
+      "formHooks": [],
+      "formAbility": "当黑童子或白童子受到伤害时，白童子获得1生命。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "c24105": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "text": "使己方黑童子和白童子都获得2力量和2生命。",
+      "officialText": "使己方黑童子和白童子都获得2力量和2生命。",
+      "target": "auto",
+      "effect": "black-white-24105",
+      "value": 0,
+      "effects": [
+        {
+          "action": "black-white-pray",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "c24106": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "text": "黑童子永久获得1生命。\n觉醒：白童子使用牌时，若黑童子在场，连引一张属于黑童子且等级与其相同的牌；并在使用其中一张牌之后，将另一张牌从牌库中置入手牌。",
+      "officialText": "黑童子永久获得1生命。\n觉醒：白童子使用牌时，若黑童子在场，连引一张属于黑童子且等级与其相同的牌；并在使用其中一张牌之后，将另一张牌从牌库中置入手牌。",
+      "target": "auto",
+      "effect": "black-white-24106",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "black-white-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "c24107": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "text": "吸血\n增强：连引使用时，获得昂扬。",
+      "officialText": "吸血\n增强：连引使用时，获得昂扬。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {
+        "combatKeywords": [
+          "lifesteal"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "吸血\n增强：连引使用时，获得昂扬。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ]
+    },
+    "c24108": {
+      "verifiedRules": true,
+      "blackWhiteRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "text": "获得帷幕直到你的下个回合开始。增强：连引使用时，获得必杀。",
+      "officialText": "获得帷幕直到你的下个回合开始。增强：连引使用时，获得必杀。",
+      "target": "auto",
+      "effect": "black-white-24108",
+      "value": 0,
+      "effects": [
+        {
+          "action": "black-white-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "black-white-original-20261028"
+      ],
+      "verificationPending": [
+        "按24000–24108完整原卡面和官网基础牌文还原黑白童子；不逐赛季追改，指定录像未逐牌核验。",
+        "连引与来源能力/响应全序、羁绊互相自动使用、连斩受控后的第二攻击与同时伤害成长仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 10
+      },
+      "responseAction": "assault"
+    }
+  },
+  "sources": [
+    {
+      "id": "black-white-original-20261028",
+      "kind": "official-card-art",
+      "path": "research-notes/82-black-white-rules.md",
+      "url": "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ extends RefCounted
 
 static func grants_form_draw(gs, owner: int, observer: Dictionary, card: Dictionary) -> bool:
 	if int(observer.hp) <= 0 or int(observer.level) < 1 or card.get("type") != "form": return false
-	var cfg: Dictionary = ContentLoader.unit_def(str(observer.id)).get("formCardAura", {})
+	var cfg: Dictionary = ContentLoader.runtime_unit_def(observer).get("formCardAura", {})
 	return not cfg.is_empty() and (observer.id == card.get("unitId") or (observer.awakened and cfg.get("awakenedAllies", false)))
 
 static func describe_card(gs, owner: int, instance: Dictionary, definition: Dictionary) -> Dictionary:
@@ -61,7 +61,7 @@ static func light_effect(gs, owner: int, src: int, effect: String) -> void:
 		"energy":
 			# Bonus fire is not constrained by the baseline executor's invented
 			# four-fire cap. It is reset to the ordinary allotment next turn.
-			gs.player(owner).energy = int(gs.player(owner).energy) + 1
+			gs._set_fire(owner,int(gs.player(owner).energy)+1)
 		_: return
 	gs.VerifiedRules.event(gs, "firefly-light", {"player": owner, "uid": source.uid, "light": effect})
 

@@ -1,0 +1,14 @@
+{
+  "page": "https://gamerch.com/onmyojicard/353804",
+  "spear": {
+    "sourceFile": "spear-related-card.png",
+    "target": "godot/assets/official/tokens/qianji-spear.png",
+    "sha256": "1036fcbfff5b4837810eb9ea6e864f32feed928f5fd537c3cc2e989c131d6908",
+    "note": "日文相关卡完整原图，0/2与离场给咏流可读；生产仅作为贝戟实体立绘纹理，中文动态规则仍来自metadata。"
+  },
+  "song": {
+    "sourceFile": "song-related-card.png",
+    "sha256": "f6093035af2b8300cf9f1d89c72bc41a816c3a0f28eb02185cb52c40bc60020e",
+    "note": "日文相关卡1勾，召唤及实例瞬发增强可读，仅保存研究证据。"
+  }
+}

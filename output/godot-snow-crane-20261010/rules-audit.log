@@ -1,0 +1,23 @@
+
+> spirit-duel@0.1.0 audit:rules
+> node scripts/audit-rule-fidelity.mjs
+
+{
+  "fullCatalogRestored": false,
+  "summary": {
+    "units": {
+      "known-approximation": 154,
+      "unreviewed": 79,
+      "pending-verification": 7,
+      "source-backed-native": 10
+    },
+    "cards": {
+      "known-approximation": 1054,
+      "unreviewed": 916,
+      "pending-verification": 31,
+      "source-backed-native": 113
+    }
+  },
+  "errors": []
+}
+RULE_FIDELITY_INCOMPLETE: 全库仍存在简化或未核对内容。稳定性测试通过不等于效果还原。

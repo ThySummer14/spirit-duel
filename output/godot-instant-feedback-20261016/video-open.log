@@ -1,0 +1,9 @@
+### Browser `instant-feedback-video` opened with pid 42324.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4187/instant-feedback.mp4');
+```
+### Page
+- Page URL: http://127.0.0.1:4187/instant-feedback.mp4
+### Snapshot
+- [Snapshot](.playwright-cli/page-2026-10-16T14-38-56-910Z.yml)

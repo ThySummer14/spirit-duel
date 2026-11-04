@@ -1,0 +1,206 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "Godot suite exit0",
+      "passed": true
+    },
+    {
+      "check": "full suite completed without error diagnostics",
+      "passed": true
+    },
+    {
+      "check": "all92 configured scripts ran in order",
+      "passed": true
+    },
+    {
+      "check": "Mengpo203 rules passed in full suite",
+      "passed": true
+    },
+    {
+      "check": "random60 and focused20 completed",
+      "passed": true
+    },
+    {
+      "check": "roster250 covered",
+      "passed": true
+    },
+    {
+      "check": "native real mouse50 passed",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 01-soup-target",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 02-draw-discard",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 03-enhanced-body",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 04-awaken-swift",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 05-melody-unit",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 06-melody-name",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1280 07-name-scroll",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 01-soup-target",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 02-draw-discard",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 03-enhanced-body",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 04-awaken-swift",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 05-melody-unit",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 06-melody-name",
+      "passed": true
+    },
+    {
+      "check": "native screenshot 1600 07-name-scroll",
+      "passed": true
+    },
+    {
+      "check": "Node168 passed",
+      "passed": true
+    },
+    {
+      "check": "UI audit390 passed",
+      "passed": true
+    },
+    {
+      "check": "8 card approximations replaced; strict audit still incomplete with same diagnostics",
+      "passed": true
+    },
+    {
+      "check": "suite and exported sources identical",
+      "passed": true
+    },
+    {
+      "check": "source unchanged during validation",
+      "passed": true
+    },
+    {
+      "check": "stable4.6.3 Web build and3 focused checks passed",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.html",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.js",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.pck",
+      "passed": true
+    },
+    {
+      "check": "Web artifact index.wasm",
+      "passed": true
+    },
+    {
+      "check": "final game browser flow has no errors or warnings",
+      "passed": true
+    },
+    {
+      "check": "browser boot displayed",
+      "passed": true
+    },
+    {
+      "check": "browser opening displayed",
+      "passed": true
+    },
+    {
+      "check": "browser battle displayed",
+      "passed": true
+    },
+    {
+      "check": "native movie duration and dimensions",
+      "passed": true
+    },
+    {
+      "check": "movie fully decodes",
+      "passed": true
+    },
+    {
+      "check": "movie capture exercised two-stage name and real removal",
+      "passed": true
+    },
+    {
+      "check": "movie plays in browser without media error",
+      "passed": true
+    },
+    {
+      "check": "isolated video browser console clean",
+      "passed": true
+    },
+    {
+      "check": "all8 names accessible at both resolutions",
+      "passed": true
+    }
+  ],
+  "godotScripts": 92,
+  "nativeChecks": 50,
+  "sourceFiles": 166,
+  "audit": {
+    "units": {
+      "known-approximation": 142,
+      "unreviewed": 63,
+      "pending-verification": 30,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 944,
+      "unreviewed": 795,
+      "pending-verification": 168,
+      "source-backed-native": 207
+    }
+  },
+  "auditDiagnostics": 19,
+  "movie": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1600,
+        "height": 740
+      },
+      {
+        "codec_name": "aac"
+      }
+    ],
+    "format": {
+      "duration": "7.633008",
+      "size": "1168832"
+    }
+  },
+  "movieSHA256": "65f64e4b8bef5915f627d17006d9e204657b375bce9b47e0c6cc55556bb54e0c"
+}

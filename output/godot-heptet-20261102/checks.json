@@ -1,0 +1,10 @@
+{
+  "finalRuleChecks": 924,
+  "oldRegressionGroups": 42,
+  "buildSources": 1030,
+  "changedAfterBuild": [],
+  "nativeAndPackageLogsClean": true,
+  "auditErrors": 20,
+  "auditErrorsUnchanged": true,
+  "jsTestsPassed": false
+}

@@ -1,0 +1,17 @@
+== verify_combat ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+COMBAT_REGRESSION_OK cases=16
+== verify_instant ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+INSTANT_OK checks=12
+== verify_turn_order ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+TURN_ORDER_OK checks=7
+== verify_parallel_rules ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PARALLEL_RULES checks=41 failures=0
+PARALLEL_RULES_OK

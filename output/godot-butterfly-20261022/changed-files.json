@@ -1,0 +1,21 @@
+[
+  "godot/content/verified_rules.json",
+  "godot/scripts/game_state.gd",
+  "godot/scripts/verified_card_rules.gd",
+  "godot/scripts/game_ai.gd",
+  "godot/scripts/tomato_fire_rules.gd",
+  "godot/scripts/ui/battle_screen.gd",
+  "godot/scripts/ui/battle_status.gd",
+  "godot/scripts/ui/keyword_glossary.gd",
+  "README.md",
+  "godot/README.md",
+  "godot/assets/official/README.md",
+  "scripts/godot-verify.sh",
+  "godot/scripts/battle_skill_rules.gd",
+  "godot/scripts/battle_skill_rules.gd.uid",
+  "godot/scripts/butterfly_rules.gd",
+  "godot/scripts/butterfly_rules.gd.uid",
+  "godot/scripts/verify_butterfly.gd",
+  "godot/scripts/verify_butterfly.gd.uid",
+  "research-notes/68-butterfly-battle-skill-rules.md"
+]

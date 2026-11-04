@@ -1,0 +1,26 @@
+{
+  "sizes": [
+    [
+      1280,
+      800
+    ],
+    [
+      1600,
+      740
+    ]
+  ],
+  "sixFinalScreenshotsViewed": true,
+  "checks": [
+    "未中毒合法目标操作后中毒可见",
+    "宿怨友方中毒后实际交战",
+    "蚀印选择面板卡面与效果可见无裁切"
+  ],
+  "screenshots": [
+    "screenshots/1280-01-unpoisoned-target.png",
+    "screenshots/1280-02-friendly-grudge.png",
+    "screenshots/1280-03-erosion-before-combat.png",
+    "screenshots/1600-01-unpoisoned-target.png",
+    "screenshots/1600-02-friendly-grudge.png",
+    "screenshots/1600-03-erosion-before-combat.png"
+  ]
+}

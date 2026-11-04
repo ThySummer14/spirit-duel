@@ -1,0 +1,8 @@
+combat True
+movement True
+instant True
+sun_smoke True
+lantern True
+glutton True
+armor_limit True
+battle_status True

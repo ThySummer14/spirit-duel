@@ -790,6 +790,11 @@ CARD_MAP: dict[int, dict] = {
 }
 
 TOKENS = [
+    dict(id='onikiri-hige', unitId='guiqie', name='髭切', type='spell', level=1, cost=0, rarity='common', deckLimit=0, token=True, text='敌方回合，敌方式神进入战斗区时，若鬼切在战斗区，消耗髭切，对该式神发起一次额外攻击，本次战斗免疫所有伤害。', target='auto', effects=[('always', 'onikiri-attach', 'source', 'onikiri-hige')], tags=['token']),
+    dict(id='onikiri-tomo', unitId='guiqie', name='友切', type='spell', level=1, cost=0, rarity='common', deckLimit=0, token=True, text='敌方回合，敌方式神使用法术牌时，若鬼切在战斗区，消耗友切，对该式神发起一次额外攻击，本次战斗免疫所有伤害。', target='auto', effects=[('always', 'onikiri-attach', 'source', 'onikiri-tomo')], tags=['token']),
+    dict(id='onikiri-lion', unitId='guiqie', name='狮子之子', type='spell', level=1, cost=0, rarity='common', deckLimit=0, token=True, text='敌方回合结束时，若鬼切在战斗区且敌方战斗区没有式神，消耗狮子之子，对敌方牌手发起一次额外攻击，本次战斗获得2力量。', target='auto', effects=[('always', 'onikiri-attach', 'source', 'onikiri-lion')], tags=['token']),
+    dict(id='otakemaru-jade', unitId='dayueling', name='八尺琼曲玉', type='charm', level=1, cost=0, rarity='common', deckLimit=0, token=True, text='唯一。使结附的式神获得1力量。大岳丸基础额外+1；觉醒后改为效果翻倍。', target='auto', effects=[('always', 'otake-jade-token', 'selected-ally', None)], tags=['token']),
+    dict(id='tianjingxia-yaowu', unitId='tianjingxia', name='妖怪屋', type='spell', level=1, cost=0, rarity='common', deckLimit=0, token=True, text='妖怪屋的身材由妖怪屋的醒转移除的护甲或破甲决定。离开战斗区时移除。', target='auto', effects=[('always', 'house-token', 'source', 0)], tags=['token']),
     dict(id="yaowu-lingli", unitId="tianjingxia", name="妖怪屋·灵力", type="spell", level=1, cost=0, rarity="common",
          text="瞬发。投射：造成 1 点伤害。", target="auto",
          effects=[("always", "damage-enemy-front", "auto", 1)], token=True, keywords=["INSTANT", "PROJECTILE"], tags=["token"]),
@@ -1216,7 +1221,7 @@ def main() -> None:
             f"cost: {int(tok.get('cost', 0))}",
             f"rarity: {js_str(tok.get('rarity', 'common'))}",
             f"starter: 0",
-            f"deckLimit: 2",
+            f"deckLimit: {int(tok.get('deckLimit', 2))}",
             f"token: true",
             f"text: {js_str(tok['text'])}",
             f"officialText: {js_str(tok['text'])}",

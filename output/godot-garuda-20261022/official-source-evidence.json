@@ -1,0 +1,132 @@
+{
+  "url": "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js",
+  "retrieved": "2026-10-22",
+  "sha256": "524a557540ea9cb4b8835a51e08dccbf81b0622e5d59613be380f1ed78163ad6",
+  "cards": [
+    {
+      "id": 27700,
+      "name": "迦楼罗",
+      "role": 277,
+      "type": "式神",
+      "xiyoudu": null,
+      "stage": null,
+      "ll": 2,
+      "sm": 4,
+      "desc": "倒计时2：迦楼罗获得迅捷和昂扬。",
+      "keyword": "倒计时,倒计时2,迅捷,昂扬"
+    },
+    {
+      "id": 27701,
+      "name": "摧枯拉朽",
+      "role": 277,
+      "type": "战斗",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": 0,
+      "sm": 0,
+      "desc": "战技，直击#r从手牌使用时，使一个敌方式神结附「惜羽」。",
+      "keyword": "战技,直击,惜羽"
+    },
+    {
+      "id": 27702,
+      "name": "翼刃浮金",
+      "role": 277,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": null,
+      "sm": null,
+      "desc": "瞬发#r使一个敌方式神结附「惜羽」，使迦楼罗的倒计时-1。",
+      "keyword": "瞬发,惜羽,倒计时"
+    },
+    {
+      "id": 27703,
+      "name": "天衣妙翅",
+      "role": 277,
+      "type": "形态",
+      "xiyoudu": "SR",
+      "stage": 1,
+      "ll": 2,
+      "sm": 5,
+      "desc": "己方回合开始时，随机使一个敌方式神结附「惜羽」。",
+      "keyword": "惜羽"
+    },
+    {
+      "id": 27704,
+      "name": "化生戟",
+      "role": 277,
+      "type": "战斗",
+      "xiyoudu": "R",
+      "stage": 2,
+      "ll": 2,
+      "sm": 0,
+      "desc": "战技，免疫战斗伤害。#r增强：若敌方有结附「惜羽」的式神，此牌获得追猎。",
+      "keyword": "战技,增强,追猎,惜羽"
+    },
+    {
+      "id": 27705,
+      "name": "龙息炽羽",
+      "role": 277,
+      "type": "战斗",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": 0,
+      "sm": 0,
+      "desc": "战技，远程，对敌方所有式神造成1点伤害。",
+      "keyword": "战技,远程"
+    },
+    {
+      "id": 27706,
+      "name": "觉醒·迦楼罗",
+      "role": 277,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": 1,
+      "sm": 1,
+      "desc": "随机使一个敌方式神结附「惜羽」。觉醒：倒计时2：迦楼罗获得迅捷和昂扬，随机使一个敌方式神结附「惜羽」。",
+      "keyword": "倒计时,觉醒,倒计时2,迅捷,昂扬,惜羽"
+    },
+    {
+      "id": 27707,
+      "name": "龙巢魔主",
+      "role": 277,
+      "type": "形态",
+      "xiyoudu": "SSR",
+      "stage": 3,
+      "ll": 5,
+      "sm": 5,
+      "desc": "替身，帷幕#r当迦楼罗出击时，若他没有形态，自动从手牌使用此牌。#r当此牌离场时，将其移回手牌。",
+      "keyword": "替身,帷幕"
+    },
+    {
+      "id": 27708,
+      "name": "飒踏疾驰",
+      "role": 277,
+      "type": "战斗",
+      "xiyoudu": "R",
+      "stage": 3,
+      "ll": 2,
+      "sm": 1,
+      "desc": "战技#r使迦楼罗倒计时-1。",
+      "keyword": "战技,倒计时"
+    }
+  ],
+  "featherDefinition": {
+    "url": "https://gamerch.com/onmyojicard/629813",
+    "status": "secondary-client-transcription-pending-chinese-client-check",
+    "meaning": "迦楼罗出击时，对结附者造成2点伤害，然后移除该灵咒；不可叠加。"
+  },
+  "freshOfficialSnapshotFieldsMatch": true,
+  "freshOfficialIds": [
+    27700,
+    27701,
+    27702,
+    27703,
+    27704,
+    27705,
+    27706,
+    27707,
+    27708
+  ]
+}

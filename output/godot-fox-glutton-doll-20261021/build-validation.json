@@ -1,0 +1,34 @@
+{
+  "sourceHashes": 630,
+  "allCurrentSourcesMatch": true,
+  "allExportStageSourcesMatch": true,
+  "pagesFiles": 544,
+  "pagesBytes": 155973240,
+  "playBytes": 152117431,
+  "requiredFiles": {
+    "index.html": {
+      "bytes": 30192,
+      "sha256": "b22c942fc7dd64963c4bf25d950feee2533659a5cbb80cfd7c768dbe4fba33e1"
+    },
+    "play/index.html": {
+      "bytes": 3242,
+      "sha256": "57adb2ec4103f84e10ce1226aeb60f9b1f91778f2af6232c2a448be78388835e"
+    },
+    "play/index.js": {
+      "bytes": 315759,
+      "sha256": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981"
+    },
+    "play/index.wasm": {
+      "bytes": 37700666,
+      "sha256": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6"
+    },
+    "play/index.pck": {
+      "bytes": 114048680,
+      "sha256": "130d2d860d4c8d12f62a212db032f90c72796da0e7fb73f49b5e0b2fc0ad488f"
+    }
+  },
+  "noTestScreenshots": true,
+  "webImportErrors": 0,
+  "webExportErrors": 0,
+  "browserMouseValidation": false
+}

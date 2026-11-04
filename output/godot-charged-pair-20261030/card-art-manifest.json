@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/268_万年竹/26801_竹语_法术.png",
+    "target": "godot/assets/official/cards/c26801.png",
+    "sha256": "ab811f2463e135f67cbdf3d6001975aa27d582fcfd964630cac44fad0b42cd44"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/268_万年竹/26802_笛中剑_法术.png",
+    "target": "godot/assets/official/cards/c26802.png",
+    "sha256": "041ad2c4f5637b025b406ff861c97c1cb32a9b88aeb9e2882d1e536c2e35889f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/268_万年竹/26803_林中秘宝_形态.png",
+    "target": "godot/assets/official/cards/c26803.png",
+    "sha256": "210a5e8f180541a5dc29d122832dc3c32eef5e59fbba446f2a4492b16e53653c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/268_万年竹/26804_竹叶守护_形态.png",
+    "target": "godot/assets/official/cards/c26804.png",
+    "sha256": "c256a408c091a97a46d36fb7a66cce61b37808f6d9e83f12e0fc6e3fac665e71"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/268_万年竹/26805_茂林深篁_结界.png",
+    "target": "godot/assets/official/cards/c26805.png",
+    "sha256": "d34c1cf66c5ec332e860cfc568f9f59a8aa786875d46fea4b8b180427690e3d4"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/268_万年竹/26806_清风徐来_法术.png",
+    "target": "godot/assets/official/cards/c26806.png",
+    "sha256": "39b282756076d3041bd02797859dce0c60d4d7a25bb72331f8145eedc7165c9d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/268_万年竹/26807_万变竹影_法术.png",
+    "target": "godot/assets/official/cards/c26807.png",
+    "sha256": "95a1d9682d2ec7403c2f71c661354dff6bb2c607e4d0c437eebe938963302318"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/268_万年竹/26808_觉醒·万年竹_法术.png",
+    "target": "godot/assets/official/cards/c26808.png",
+    "sha256": "cf0d8e0de737f046029f863aa2d5fa37b66d3e364f78f004cecdb971f0608d8f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/269_数珠/26901_坐禅_法术.png",
+    "target": "godot/assets/official/cards/c26901.png",
+    "sha256": "be3193b9b173c406eb0676b72c88e0581b0f3fe61c7243209c4417650e66f43d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/269_数珠/26902_降魔杖_战斗.png",
+    "target": "godot/assets/official/cards/c26902.png",
+    "sha256": "4b4b3f727b59ff5ad1c63f8f93192c7c91f3452a2580e8bc1c947d1e4a250555"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/269_数珠/26903_伏虎之姿_形态.png",
+    "target": "godot/assets/official/cards/c26903.png",
+    "sha256": "e276c6dbc5d52eec9d670538e19479d0ce8d5d18802c1dabb70a196fb7cb6da4"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/269_数珠/26904_心如磐石_战斗.png",
+    "target": "godot/assets/official/cards/c26904.png",
+    "sha256": "40bceb9e8b51d9c2213e339abf6d128b16d2393fcc37b238bf120eec3b039d15"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/269_数珠/26905_不二法门_战斗.png",
+    "target": "godot/assets/official/cards/c26905.png",
+    "sha256": "041d0ad57ab50f99b3f73b7c875ddbb992353747d5c4cfe722a0d6f9e7759124"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/269_数珠/26906_降龙之势_形态.png",
+    "target": "godot/assets/official/cards/c26906.png",
+    "sha256": "254c8aaae9d3b030166706b9467b07b3ecb0fba34463534122a976dee4e083d5"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/269_数珠/26907_觉醒·数珠_法术.png",
+    "target": "godot/assets/official/cards/c26907.png",
+    "sha256": "a43d9f61e73c97e33076fad3730c372f2fa4624dda9bb961b2550d45c902d1a9"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/269_数珠/26908_诸法空相_形态.png",
+    "target": "godot/assets/official/cards/c26908.png",
+    "sha256": "fb9d2108927dd95e2e774475fe7fdd2c4ec5a2b740c75e1d667b0088c4316f6d"
+  }
+]

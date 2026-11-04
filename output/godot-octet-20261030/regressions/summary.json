@@ -1,0 +1,31 @@
+{
+  "groups": 32,
+  "passedGroups": 32,
+  "checks": 4166,
+  "cases": 16,
+  "sourceChangesDuringRun": {
+    "godot/scripts/blue_green_rules.gd": {
+      "before": "9e8c140b88a7a0e620b0641d1148bcc1e0bac8ab364dd5f029e4a88bd1114c62",
+      "after": "d8751a7bf589034f8c56edb420ebef79da66541b2be6f63f93117211bf7607a2"
+    },
+    "godot/scripts/game_state.gd": {
+      "before": "497643a6d297cffd0b45a0327335f40a74a4e4d141650e83d264cb7fede07e47",
+      "after": "20ec08fe6937095dac0ea3a07a0a1ba4f83cb700d5fd28492040ffd2121a4cff"
+    },
+    "godot/scripts/red_purple_rules.gd": {
+      "before": "61be0fcef6a95a21c50cbbf8c36bafc4afb77ff10d0ab9f3c876f902297b22ea",
+      "after": "fa0d9efb092ec63d473342917c6f96790c4ecab43b0b7a5e1ffa70a6c63cbdc6"
+    },
+    "godot/scripts/verify_octet_cross.gd": {
+      "before": null,
+      "after": "da38324fcfd44542254248c3487fdea4cbe298b096be49002dfef590950a2252"
+    }
+  },
+  "scope": "prior 24 targeted groups plus lantern/cotton/sea_butterfly/silk_ninja/susanoo/sparrow/futakuchi/fortune_pair; native-only UI omitted where rules-only is supported",
+  "rerunGroups": [
+    "combat",
+    "armor_limit",
+    "puppet",
+    "wind_night_mask"
+  ]
+}

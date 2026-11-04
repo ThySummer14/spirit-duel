@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/252_五丸/25201_料理小猫_战斗.png",
+    "target": "godot/assets/official/cards/c25201.png",
+    "sha256": "f47bbd773796508a095887f6dd158e452c6754cc0d47a2f5641333fc7334ab0b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/252_五丸/25202_最强猫侍应_战斗.png",
+    "target": "godot/assets/official/cards/c25202.png",
+    "sha256": "5220920b12e123493ba489a1d2d16b54e3dd14c3f894c468234fa4ac4c062463"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/252_五丸/25203_玩闹时光_法术.png",
+    "target": "godot/assets/official/cards/c25203.png",
+    "sha256": "b83fbf23bcce528e91e2de88d7ae15c6aa72957d671c3185f9e0d933e52b6b9e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/252_五丸/25204_厨艺研行_战斗.png",
+    "target": "godot/assets/official/cards/c25204.png",
+    "sha256": "5691e0d9715264b6be8bdf06e3c081e74bab484f17070610d069b4a332996a63"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/252_五丸/25205_猫咪日和_形态.png",
+    "target": "godot/assets/official/cards/c25205.png",
+    "sha256": "7a5d3e6e6ad19f234d517caa9784ed72ccbe98b1f4e8204d480a63a4ea09e59c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/252_五丸/25206_猫为鱼干强_战斗.png",
+    "target": "godot/assets/official/cards/c25206.png",
+    "sha256": "8b5a6cd918022bc669991ac0b6de03ccafcfd3606f702f894596115c91f654cb"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/252_五丸/25207_吃饱再干活_形态.png",
+    "target": "godot/assets/official/cards/c25207.png",
+    "sha256": "bfe3a73340e85fd5865ad6fa408f5c43add07d2b34af97fdb8db14195089a6f8"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/252_五丸/25208_觉醒·五丸_法术.png",
+    "target": "godot/assets/official/cards/c25208.png",
+    "sha256": "bfaadc36eac9af807482cbeb3571b9ac8ea2da6a48578ceb54942e82365513da"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/253_食灵/25301_现场烹饪_形态.png",
+    "target": "godot/assets/official/cards/c25301.png",
+    "sha256": "8dc2b82bc567e0a667cc59ec32edfab5cdcc40aa4e34f9772310c9c244e45e4f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/253_食灵/25302_开锅_战斗.png",
+    "target": "godot/assets/official/cards/c25302.png",
+    "sha256": "f333c6af6d2d6a2dd170b65d239831b486fdbb3c9bb958e38aeb4026a4b94b1a"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/253_食灵/25303_梦想料理_结界.png",
+    "target": "godot/assets/official/cards/c25303.png",
+    "sha256": "6554b93c0ffa4ce814648b2ddde33e7004b81f7cff49d3a3fcf3513f9d3aed7b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/253_食灵/25304_觉醒·食灵_法术.png",
+    "target": "godot/assets/official/cards/c25304.png",
+    "sha256": "15995032483619a11979b276ff238045a3df5d8bc2b1932723208c165a5e816d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/253_食灵/25305_热血主厨_形态.png",
+    "target": "godot/assets/official/cards/c25305.png",
+    "sha256": "b300d61f66c018ba54af6e4d3e4b8e1417f4f3825b87a2485030e81c5fb4d932"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/253_食灵/25306_快速烹饪_法术.png",
+    "target": "godot/assets/official/cards/c25306.png",
+    "sha256": "c9ac1d1df881fc6aaa3779ebdadcae33e8d664be070e7b3038e6f253e4bfba5d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/253_食灵/25307_热浪_战斗.png",
+    "target": "godot/assets/official/cards/c25307.png",
+    "sha256": "6c50d1f0f947837860143bb998f0777437d7a88fe411ca1ac849077112c0d732"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/253_食灵/25308_食神_形态.png",
+    "target": "godot/assets/official/cards/c25308.png",
+    "sha256": "bd77794e476e0d8b124d8c006d3150e63d53b0aeae42170f16cb0940700ba0d8"
+  }
+]

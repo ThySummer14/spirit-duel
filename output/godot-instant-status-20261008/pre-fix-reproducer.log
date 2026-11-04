@@ -1,0 +1,8 @@
+Reproducing former cost == 0 payment predicate on otherwise current code.
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BATTLE_STATUS_FAIL checks=128
+BATTLE_STATUS_FAIL manual response cannot consume main-phase instant
+BATTLE_STATUS_FAIL manual response cannot consume main-phase instant
+
+exit_code=1

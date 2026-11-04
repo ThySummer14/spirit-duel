@@ -1,0 +1,242 @@
+{
+  "baseline": [
+    {
+      "id": 24200,
+      "name": "云外镜",
+      "role": 242,
+      "type": "式神",
+      "xiyoudu": null,
+      "stage": null,
+      "ll": 2,
+      "sm": 5,
+      "desc": "云外镜使用牌时，连引一张他的牌。",
+      "keyword": null
+    },
+    {
+      "id": 24201,
+      "name": "落影",
+      "role": 242,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 1,
+      "ll": null,
+      "sm": null,
+      "desc": "与此牌连引时，参与连引的牌都获得吸血。#r对一个敌方角色造成3点伤害。$#r（得&(buff技能(1019,1002,1015,1004,1140,2420403,2420802))&）$",
+      "keyword": null
+    },
+    {
+      "id": 24202,
+      "name": "浮世万象",
+      "role": 242,
+      "type": "形态",
+      "xiyoudu": "SSR",
+      "stage": 1,
+      "ll": 3,
+      "sm": 5,
+      "desc": "此牌参与连引时，获得1#[力量]与1#[生命]。#r永久保留连引时获得的额外效果。$#r（得&(buff技能(1019,1002,1015,1004,1140,2420403,2420802))&）$",
+      "keyword": null
+    },
+    {
+      "id": 24203,
+      "name": "斗转",
+      "role": 242,
+      "type": "战斗",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": -2,
+      "sm": null,
+      "desc": "追猎#r与此牌连引时，参与连引的牌都获得贯通。#r本次战斗交换云外镜和目标式神的#[力量]。$#r（得&(buff技能(1019,2420305,1015,1004,2420403,2420702,2420802))&）$",
+      "keyword": null
+    },
+    {
+      "id": 24204,
+      "name": "昙无",
+      "role": 242,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 2,
+      "ll": null,
+      "sm": null,
+      "desc": "与此牌连引时，参与连引的牌都获得使用时投射：造成2点伤害。#r投射：造成4点伤害。$#r（得&(buff技能(1019,1002,1015,1004,1140,2420403,2420802))&）$",
+      "keyword": null
+    },
+    {
+      "id": 24205,
+      "name": "镜花水月",
+      "role": 242,
+      "type": "形态",
+      "xiyoudu": "R",
+      "stage": 2,
+      "ll": 4,
+      "sm": 6,
+      "desc": "与此牌连引时，参与连引的形态牌都获得迅捷。$#r（得&(buff技能(1019,1002,1015,1004,1140,2420403,2420802))&）$",
+      "keyword": null
+    },
+    {
+      "id": 24206,
+      "name": "觉醒·云外镜",
+      "role": 242,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": 1,
+      "sm": 1,
+      "desc": "与此牌连引时，参与连引的牌都获得瞬发。#r觉醒：云外镜使用牌时，连引一张他的牌。若连引的是同名牌，两者都获得瞬发。",
+      "keyword": null
+    },
+    {
+      "id": 24207,
+      "name": "镜怒",
+      "role": 242,
+      "type": "战斗",
+      "xiyoudu": "SR",
+      "stage": 3,
+      "ll": null,
+      "sm": 4,
+      "desc": "与此牌连引时，参与连引的牌都获得暴击。$#r（得&(buff技能(1019,2420305,1015,1004,2420403,2420702,2420802))&）$",
+      "keyword": null
+    },
+    {
+      "id": 24208,
+      "name": "通悟",
+      "role": 242,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 3,
+      "ll": null,
+      "sm": null,
+      "desc": "与此牌连引时，参与连引的牌都获得使用时抽一张牌。#r对敌方所有角色造成2点伤害。$#r（得&(buff技能(1019,1002,1015,1004,1140,2420403,2420802))&）$",
+      "keyword": null
+    },
+    {
+      "id": 24400,
+      "name": "松",
+      "role": 244,
+      "type": "式神",
+      "xiyoudu": null,
+      "stage": null,
+      "ll": 3,
+      "sm": 4,
+      "desc": "当松使用牌时，连引一张己方战斗区其他式神的牌。",
+      "keyword": null
+    },
+    {
+      "id": 24401,
+      "name": "词章洗练",
+      "role": 244,
+      "type": "战斗",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": 1,
+      "sm": null,
+      "desc": "远程#r移动敌方准备区式神。",
+      "keyword": null
+    },
+    {
+      "id": 24402,
+      "name": "觉醒·松",
+      "role": 244,
+      "type": "法术",
+      "xiyoudu": "SSR",
+      "stage": 2,
+      "ll": 1,
+      "sm": 1,
+      "desc": "觉醒：当松使用牌时，连引所有己方其他未气绝式神各一张牌。",
+      "keyword": null
+    },
+    {
+      "id": 24403,
+      "name": "十二段草子",
+      "role": 244,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": null,
+      "sm": null,
+      "desc": "瞬发#r占卜1，然后为敌方牌手占卜1。",
+      "keyword": null
+    },
+    {
+      "id": 24404,
+      "name": "绮丽",
+      "role": 244,
+      "type": "战斗",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": null,
+      "sm": null,
+      "desc": "本次战斗松受到的战斗伤害改由另一个敌方式神承受。#r响应：当己方战斗区式神被攻击时，自动使用此牌。",
+      "keyword": null
+    },
+    {
+      "id": 24405,
+      "name": "拨弦",
+      "role": 244,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": null,
+      "sm": null,
+      "desc": "使敌方战斗区式神攻击一个其他式神。",
+      "keyword": null
+    },
+    {
+      "id": 24406,
+      "name": "人形使",
+      "role": 244,
+      "type": "形态",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": 3,
+      "sm": 6,
+      "desc": "当松攻击时，使敌方战斗区式神攻击敌方牌手。",
+      "keyword": null
+    },
+    {
+      "id": 24407,
+      "name": "夜乐屋",
+      "role": 244,
+      "type": "结界",
+      "xiyoudu": "SR",
+      "stage": 3,
+      "ll": null,
+      "sm": 5,
+      "desc": "进场和己方回合开始时，随机眩晕一个敌方式神。#r敌方回合开始时，使每个眩晕的敌方式神对敌方牌手造成等同其#[力量]的伤害。",
+      "keyword": null
+    },
+    {
+      "id": 24408,
+      "name": "梦浮世",
+      "role": 244,
+      "type": "形态",
+      "xiyoudu": "R",
+      "stage": 3,
+      "ll": 4,
+      "sm": 7,
+      "desc": "己方式神连引时，对敌方所有式神造成1点伤害。",
+      "keyword": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "mirror-song-original-20261030",
+      "path": "art-reference-official/卡面-按版本/12_浮生方醒/",
+      "evidence": "24200–24208与24400–24408完整原PNG逐图核对；昙无采用原PNG投射4，觉醒松连引其他未气绝式神各一张。"
+    },
+    {
+      "id": "link-explanation-20211209",
+      "url": "https://m.ali213.net/news/gl2112/745429.html",
+      "evidence": "转载机制Q&A：原牌须可用、每个被连引式神按其当前等级筛选，最终只使用一张，其余先洗回；连引检索不视为抽牌。"
+    },
+    {
+      "id": "mirror-form-retention-explanation",
+      "url": "https://m.ali213.net/news/gl2201/769555.html",
+      "evidence": "基础机制解析：浮世万象为唯一保留历次参与连引所得效果的卡牌，其余卡的增强用于本次连引。"
+    },
+    {
+      "id": "song-dream-community",
+      "url": "https://www.taptap.cn/moment/341546240254673892",
+      "evidence": "社区机制记录：梦浮世一次连引固定触发一次，不按参与牌数重复；绮丽承伤目标最多承受松生命边界内的伤害，过量贯通仍打松牌手。保留原客户端核验。"
+    }
+  ]
+}

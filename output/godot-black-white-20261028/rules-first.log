@@ -1,0 +1,11 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+BLACK_WHITE_FAIL printed1armor absorbs1 counter without deployment consumption
+SCRIPT ERROR: Invalid access to property or key 'swift' on a base object of type 'Dictionary'.
+          at: forms_and_growth (res://scripts/verify_black_white.gd:83)
+          GDScript backtrace (most recent call first):
+              [0] forms_and_growth (res://scripts/verify_black_white.gd:83)
+              [1] run (res://scripts/verify_black_white.gd:164)
+BLACK_WHITE_FAIL firstslashprinted+2thenpausesforactualchoice
+BLACK_WHITE_FAIL immortalactual10armor+veilwithoutlethal
+BLACK_WHITE_RULES_OK checks=144 failures=3

@@ -1,0 +1,50 @@
+[
+  {
+    "card": "c17001",
+    "source": "art-reference-official/卡面-按版本/05_月夜幻响/170_彼岸花/17001_血华散_法术.png",
+    "destination": "godot/assets/official/cards/c17001.png",
+    "sha256": "ac9a07ba4bf4e5966122e47c3b6e55d7bbae7f4fd1c8fc00cf056d8fee40d8d0"
+  },
+  {
+    "card": "c17002",
+    "source": "art-reference-official/卡面-按版本/05_月夜幻响/170_彼岸花/17002_赤团华_形态.png",
+    "destination": "godot/assets/official/cards/c17002.png",
+    "sha256": "c21283734a7aedbc30e95833dc4036a2edf439114b72726dcadff2007b47ae1c"
+  },
+  {
+    "card": "c17003",
+    "source": "art-reference-official/卡面-按版本/05_月夜幻响/170_彼岸花/17003_花开彼岸_形态.png",
+    "destination": "godot/assets/official/cards/c17003.png",
+    "sha256": "19c03f2188f7a5516ef01280980560d7e6be357cff187a20d290760fe930ac75"
+  },
+  {
+    "card": "c17004",
+    "source": "art-reference-official/卡面-按版本/05_月夜幻响/170_彼岸花/17004_黄泉花境_结界.png",
+    "destination": "godot/assets/official/cards/c17004.png",
+    "sha256": "8dbcd7a3a179e83d74a366f3a5cefe181b9423f662cb70b67b23151b15fe4acc"
+  },
+  {
+    "card": "c17005",
+    "source": "art-reference-official/卡面-按版本/05_月夜幻响/170_彼岸花/17005_火照之路_结界.png",
+    "destination": "godot/assets/official/cards/c17005.png",
+    "sha256": "f9407c6cb429b44124fdef18b1b18d91ac3fe0545da3832570d1318a665550af"
+  },
+  {
+    "card": "c17006",
+    "source": "art-reference-official/卡面-按版本/05_月夜幻响/170_彼岸花/17006_觉醒·彼岸花_法术.png",
+    "destination": "godot/assets/official/cards/c17006.png",
+    "sha256": "876e8a1f7b686a3306aa5a91087650214600869a0d64b0816dd67cdbc268a374"
+  },
+  {
+    "card": "c17007",
+    "source": "art-reference-official/卡面-按版本/05_月夜幻响/170_彼岸花/17007_彼岸归航_结界.png",
+    "destination": "godot/assets/official/cards/c17007.png",
+    "sha256": "8ea6d1f5c0706ad6f55d8872cf78221e66bc2fb0499bef82c05115c66f74afc9"
+  },
+  {
+    "card": "c17008",
+    "source": "art-reference-official/卡面-按版本/05_月夜幻响/170_彼岸花/17008_死亡之花_法术.png",
+    "destination": "godot/assets/official/cards/c17008.png",
+    "sha256": "76b652da50d9f65fa06556ac2cea5dd06f6a4b60d893f006619fc34a4279271e"
+  }
+]

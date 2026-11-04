@@ -1,0 +1,796 @@
+{
+  "units": {
+    "yingxueji": {
+      "verifiedRules": true,
+      "blueGreenRole": "blue",
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "bg-blue",
+        "name": "青岚之契",
+        "text": "每回合当你使用第二张青岚式神的牌时，投射：造成2点伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "bg-blue-awake",
+        "name": "青岚之契",
+        "text": "己方所有其他青岚式神获得1力量和1生命。本回合当你使用第二张青岚式神的牌时，投射：造成2点伤害。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "blue-green-original-20261030",
+        "four-faction-awaken-fix-20210429-bg",
+        "blue-kurikara-source-20210320"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ]
+    },
+    "jingliuliqian": {
+      "verifiedRules": true,
+      "blueGreenRole": "green",
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "bg-green",
+        "name": "苍叶之契",
+        "text": "当你使用其他苍叶式神的牌时，净琉璃御前本回合获得1力量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "bg-green-awake",
+        "name": "苍叶之契",
+        "text": "己方所有其他苍叶式神获得1力量和1生命。当你使用其他苍叶式神的牌时，净琉璃御前本回合获得1力量。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "blue-green-original-20261030",
+        "four-faction-awaken-fix-20210429-bg"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ]
+    }
+  },
+  "cards": {
+    "c20601": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "迅捷。增强：你每有一个未气绝的其他苍叶式神，此牌便获得1力量。",
+      "officialText": "迅捷。增强：你每有一个未气绝的其他苍叶式神，此牌便获得1力量。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "keywords": [
+        "swift"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "迅捷。增强：你每有一个未气绝的其他苍叶式神，此牌便获得1力量。",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c20602": {
+      "verifiedRules": false,
+      "blueGreenRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "增强：本回合当你的运势判定成功时，此牌获得+1力量并随机强化一次。",
+      "officialText": "增强：本回合当你的运势判定成功时，此牌获得+1力量并随机强化一次。",
+      "effect": "bg-combat",
+      "value": 1,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。",
+        "明澈10个官方buff ID尚缺完整释义，日文7词条资料与官方10ID冲突；未配置随机强化池，本卡不得计入已完成范围。"
+      ],
+      "combatOption": {
+        "shield": 1
+      },
+      "responseAction": "assault",
+      "bgMingchePool": [],
+      "effects": [
+        {
+          "action": "bg-combat",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c20603": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-unit",
+      "text": "对一个式神造成3点伤害。增强：若己方式神都为苍叶派系，此牌获得+1伤害和贯通。",
+      "officialText": "对一个式神造成3点伤害。增强：若己方式神都为苍叶派系，此牌获得+1伤害和贯通。",
+      "effect": "bg-revelation",
+      "value": 3,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "effects": [
+        {
+          "action": "bg-revelation",
+          "target": "selected",
+          "value": 3
+        }
+      ]
+    },
+    "c20604": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "己方苍叶式神对牌手造成的伤害+1。",
+      "officialText": "己方苍叶式神对牌手造成的伤害+1。",
+      "effect": "realm",
+      "value": 0,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "realm": {
+        "nativeRealm": "bg-glass",
+        "hp": 6,
+        "trigger": "native-continuous",
+        "triggerEffect": ""
+      },
+      "effects": [
+        {
+          "action": "realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20605": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "倒计时3：发起攻击，本次攻击获得直击。每当你运势判定成功时，净琉璃御前倒计时-1。",
+      "officialText": "倒计时3：发起攻击，本次攻击获得直击。每当你运势判定成功时，净琉璃御前倒计时-1。",
+      "effect": "form",
+      "value": {
+        "attack": 6,
+        "hp": 5,
+        "setBase": true
+      },
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "countdown": 3,
+        "bgTwin": true,
+        "countdownEffects": [
+          {
+            "action": "bg-twin-attack",
+            "target": "source",
+            "value": 0
+          }
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "倒计时3：发起攻击，本次攻击获得直击。每当你运势判定成功时，净琉璃御前倒计时-1。",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c20606": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：己方所有其他苍叶式神获得1力量和1生命。当你使用其他苍叶式神的牌时，净琉璃御前本回合获得1力量。",
+      "officialText": "觉醒：己方所有其他苍叶式神获得1力量和1生命。当你使用其他苍叶式神的牌时，净琉璃御前本回合获得1力量。",
+      "effect": "bg-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "awakening": true,
+      "effects": [
+        {
+          "action": "bg-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c20607": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "你的所有式神获得直击。",
+      "officialText": "你的所有式神获得直击。",
+      "effect": "bg-dark-feather",
+      "value": 0,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "effects": [
+        {
+          "action": "bg-dark-feather",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20608": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "使己方所有苍叶式神本回合获得免疫战斗伤害，然后随机顺序各发动一次攻击。",
+      "officialText": "使己方所有苍叶式神本回合获得免疫战斗伤害，然后随机顺序各发动一次攻击。",
+      "effect": "bg-team-attack",
+      "value": 0,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "responseAction": "assault",
+      "effects": [
+        {
+          "action": "bg-team-attack",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20701": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-unit",
+      "text": "眩晕一个式神。将一张「俱利伽罗丸」置入手牌。",
+      "officialText": "眩晕一个式神。将一张「俱利伽罗丸」置入手牌。",
+      "effect": "bg-intent",
+      "value": 0,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030",
+        "blue-kurikara-source-20210320"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "effects": [
+        {
+          "action": "bg-intent",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c20702": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "充能。己方回合结束时，消耗4能量，投射：眩晕该角色。每回合当你使用第二张青岚式神的牌时，获得1能量。",
+      "officialText": "充能。己方回合结束时，消耗4能量，投射：眩晕该角色。每回合当你使用第二张青岚式神的牌时，获得1能量。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "bgCharging": true,
+        "nativeCharge": true
+      },
+      "formHooks": [],
+      "formAbility": "充能。己方回合结束时，消耗4能量，投射：眩晕该角色。每回合当你使用第二张青岚式神的牌时，获得1能量。",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c20703": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "抽两张牌。增强：若己方式神都为青岚派系，额外先占卜2。",
+      "officialText": "抽两张牌。增强：若己方式神都为青岚派系，额外先占卜2。",
+      "effect": "bg-outline",
+      "value": 0,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "effects": [
+        {
+          "action": "bg-outline",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20704": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "远程。增强：你每有一个其他未气绝的青岚式神，此牌便获得1力量。",
+      "officialText": "远程。增强：你每有一个其他未气绝的青岚式神，此牌便获得1力量。",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "keywords": [
+        "remote"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "combatKeywords": [
+          "remote"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "远程。增强：你每有一个其他未气绝的青岚式神，此牌便获得1力量。",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c20705": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合当你使用第二张青岚式神的牌时，抽一张牌。",
+      "officialText": "每回合当你使用第二张青岚式神的牌时，抽一张牌。",
+      "effect": "realm",
+      "value": 0,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "realm": {
+        "nativeRealm": "bg-sakura",
+        "hp": 6,
+        "trigger": "native-continuous",
+        "triggerEffect": ""
+      },
+      "effects": [
+        {
+          "action": "realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20706": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：己方所有其他青岚式神获得1力量和1生命。本回合当你使用第二张青岚式神的牌时，投射：造成2点伤害。",
+      "officialText": "觉醒：己方所有其他青岚式神获得1力量和1生命。本回合当你使用第二张青岚式神的牌时，投射：造成2点伤害。",
+      "effect": "bg-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "awakening": true,
+      "effects": [
+        {
+          "action": "bg-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c20707": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "随机眩晕一个敌方式神，然后消灭所有眩晕的式神。",
+      "officialText": "随机眩晕一个敌方式神，然后消灭所有眩晕的式神。",
+      "effect": "bg-freehand",
+      "value": 0,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "effects": [
+        {
+          "action": "bg-freehand",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20708": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "己方回合时己方所有青岚式神获得免疫战斗伤害以及眩晕被他造成战斗伤害的角色。",
+      "officialText": "己方回合时己方所有青岚式神获得免疫战斗伤害以及眩晕被他造成战斗伤害的角色。",
+      "effect": "realm",
+      "value": 0,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "blue-green-original-20261030"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。"
+      ],
+      "realm": {
+        "nativeRealm": "bg-snow",
+        "hp": 10,
+        "trigger": "native-continuous",
+        "triggerEffect": ""
+      },
+      "effects": [
+        {
+          "action": "realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "julijialuo-wan": {
+      "verifiedRules": true,
+      "blueGreenRules": true,
+      "type": "spell",
+      "level": 1,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "keywords": [
+        "instant"
+      ],
+      "text": "瞬发。对所有眩晕的敌方式神造成2点伤害。",
+      "officialText": "瞬发。对所有眩晕的敌方式神造成2点伤害。",
+      "target": "auto",
+      "effect": "bg-kurikara",
+      "value": 2,
+      "effects": [
+        {
+          "action": "bg-kurikara",
+          "target": "all-enemy-units",
+          "value": 2
+        }
+      ],
+      "tags": [],
+      "sources": [
+        "blue-kurikara-observation",
+        "blue-kurikara-source-20210320"
+      ],
+      "verificationPending": [
+        "采用206/207完整原PNG和基础牌文，指定录像未逐牌核验；多源响应、同时伤害与离场反应的完整顺序仍待原客户端核验。",
+        "同派觉醒为在场光环；重复觉醒可使用且不得重复治疗已获光环单位，按2021-04-29官方修复接入。",
+        "派生缺独立本地原PNG；采用中日英文资料一致的瞬发与全体眩晕敌方式神2伤，重复用瞬发后的鬼火费用仍待原客户端核验。"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "blue-green-original-20261030",
+      "path": "art-reference-official/卡面-按版本/09_四相琉璃/",
+      "evidence": "20600–20608、20700–20708完整原PNG；无染2/5、勾勒占卜2、窥秘第二青岚牌得1能量优先于旧snapshot。"
+    },
+    {
+      "id": "four-faction-awaken-fix-20210429-bg",
+      "url": "https://www.taptap.cn/moment/136561818402291925",
+      "evidence": "再次使用四相觉醒不能令已获光环加成的单位无故恢复生命；亦确认勾勒不能因青岚衍生物在场而把混色队当纯青岚。"
+    },
+    {
+      "id": "blue-kurikara-observation",
+      "url": "https://gamerch.com/onmyojicard/351763",
+      "evidence": "意临派生俱利伽罗丸：瞬发，对所有眩晕敌方式神造成2伤；中文控制新星攻略与英文wiki交叉一致。"
+    },
+    {
+      "id": "green-original-intro-20210313",
+      "url": "https://www.taptap.cn/moment/119792466550326591",
+      "evidence": "官方净琉璃御前卡牌曝光；身材采用本地完整原PNG。"
+    },
+    {
+      "id": "blue-kurikara-source-20210320",
+      "url": "https://www.iyingdi.com/tz/post/2359841",
+      "evidence": "同期多位作者明确意临接瞬发衍生可触发樱雪姬基础能力，俱利伽罗丸按真实樱雪姬来源计入青岚用牌，不因token标记一律跳过。"
+    }
+  ]
+}

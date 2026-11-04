@@ -1,0 +1,400 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "status": "modified",
+      "sha256": "18664e72658d32f3ee35221bc31f6a0e16dce4ca4f9865f4af27ad2e38e1d697",
+      "bytes": 39000
+    },
+    {
+      "path": "godot/README.md",
+      "status": "modified",
+      "sha256": "8b772e4c443b716aad7473fdb87b33d525b4b331c2a98c547fa0dffc52d5535c",
+      "bytes": 42609
+    },
+    {
+      "path": "godot/content/verified_rules.json",
+      "status": "modified",
+      "sha256": "00b54af7458c137ad9928592882f8bbec190a6b4c3dc2a06c70c77f8e2038099",
+      "bytes": 1068533
+    },
+    {
+      "path": "godot/content/content.json",
+      "status": "modified",
+      "sha256": "489d2ef4bd882da68216e6c28a8f0db0312149c0663ced6a8f1920d920783fdb",
+      "bytes": 2747468
+    },
+    {
+      "path": "godot/assets/official/README.md",
+      "status": "modified",
+      "sha256": "27bc02d887e93e1918d673ed15065c477c1a5067ce2978358464fb843369bbc7",
+      "bytes": 2359
+    },
+    {
+      "path": "scripts/godot-verify.sh",
+      "status": "modified",
+      "sha256": "485cf66e82e1bccd9a44fa6de2c9bc8cbc6a571a127209dd6afe6aefec64fdeb",
+      "bytes": 3592
+    },
+    {
+      "path": "game-content-wave5.js",
+      "status": "modified",
+      "sha256": "c922bfb744d147d7fed7cf2092f4f5293dd90ff8f4e4ce320ac764ec3b3c71f4",
+      "bytes": 152284
+    },
+    {
+      "path": "scripts/gen-wave5-content.py",
+      "status": "modified",
+      "sha256": "4958194637438ac6a7b4690fe2e70b33df9601a254f133f88c14c612759a5552",
+      "bytes": 115818
+    },
+    {
+      "path": "godot/scripts/bamboo_rules.gd",
+      "status": "modified",
+      "sha256": "a193da3a854f1f3a2c5faa58863127b80f68bd8317f61a51a59bc083d494bf0b",
+      "bytes": 11767
+    },
+    {
+      "path": "godot/scripts/combat_keyword_rules.gd",
+      "status": "modified",
+      "sha256": "4c34725bdb79b5c6ae5e72be1c1f6bdee28bca4870306f20f63528c93182372d",
+      "bytes": 7709
+    },
+    {
+      "path": "godot/scripts/enma_rules.gd",
+      "status": "modified",
+      "sha256": "79a9b4844cdcb27539e8765fe5e857cbdaa623e4bf55fb42495d6488f2d4f058",
+      "bytes": 15458
+    },
+    {
+      "path": "godot/scripts/game_ai.gd",
+      "status": "modified",
+      "sha256": "984a982d90810c8bf08226819106a508903ed02e46742cf9e6c9c3f0cb969611",
+      "bytes": 18721
+    },
+    {
+      "path": "godot/scripts/game_state.gd",
+      "status": "modified",
+      "sha256": "29d0787683522b9b4a7cd90877b66a18026a21668cf34d3eb2000d79f25c5586",
+      "bytes": 145486
+    },
+    {
+      "path": "godot/scripts/incarnation_rules.gd",
+      "status": "modified",
+      "sha256": "99e848250becdcacd94465426853445d1617ea7fd75de0266899a90ae9ccc80f",
+      "bytes": 4476
+    },
+    {
+      "path": "godot/scripts/moon_rules.gd",
+      "status": "modified",
+      "sha256": "2321bc5038136916eafd6801e96f95ceab865a6bf2d3a8c6f06b51469419b8e7",
+      "bytes": 9999
+    },
+    {
+      "path": "godot/scripts/movement_rules.gd",
+      "status": "modified",
+      "sha256": "e3475a06c942c5e6975a274f33c533bf2820ee1141b9439f1ad1faf9d0020b0e",
+      "bytes": 24707
+    },
+    {
+      "path": "godot/scripts/paint_rules.gd",
+      "status": "modified",
+      "sha256": "2a6c6760b092fd9c7ff1d83426ccf41fa4f375b51d97ce4c338765aa5c146c0a",
+      "bytes": 13602
+    },
+    {
+      "path": "godot/scripts/pine_rules.gd",
+      "status": "modified",
+      "sha256": "3fbe7ded43d629577a023265d0479f3516d4d965cc866e1817d11c996a2958cd",
+      "bytes": 13287
+    },
+    {
+      "path": "godot/scripts/sun_smoke_rules.gd",
+      "status": "modified",
+      "sha256": "2c1b19181d90b2947ebdc36ed70e405ee0b07f5fab72c6f501cc009b288f59ff",
+      "bytes": 24461
+    },
+    {
+      "path": "godot/scripts/tomato_fire_rules.gd",
+      "status": "modified",
+      "sha256": "90f7ed65c8f202f59287253930dda6188bad559416bdc95b2c2cf1764f18ad5d",
+      "bytes": 20996
+    },
+    {
+      "path": "godot/scripts/ui/battle_screen.gd",
+      "status": "modified",
+      "sha256": "f107adcca10c03df72d1263121106f297054413ae31bdb0ea84830d4a4cb6b1d",
+      "bytes": 112965
+    },
+    {
+      "path": "godot/scripts/ui/battle_status.gd",
+      "status": "modified",
+      "sha256": "09b5682cd9dccf285c8dc1bb59738c6ee5065ebc35fefdf58d5b60233183bd6d",
+      "bytes": 45229
+    },
+    {
+      "path": "godot/scripts/verified_card_rules.gd",
+      "status": "modified",
+      "sha256": "6a676f270218ff0e81aa506b1a4e0aaafbe3cd75d9c77cb31dffab71dffaf1d4",
+      "bytes": 24731
+    },
+    {
+      "path": "godot/scripts/weaver_rules.gd",
+      "status": "modified",
+      "sha256": "d36647cf51d101f533a2cb5e4f2f3593d9a85277b238d82cc8ea99c1168006b3",
+      "bytes": 18790
+    },
+    {
+      "path": "godot/scripts/xuenv_rules.gd",
+      "status": "modified",
+      "sha256": "72d35e8a3d2167df46392a6e4da06787675387d15fbb5fff61e0dcd09fa2b920",
+      "bytes": 10617
+    },
+    {
+      "path": "godot/scripts/goldfish_rules.gd",
+      "status": "added",
+      "sha256": "a67f60df0e94c851a74df00547f38aab6ace408be154aae99960195cf5c3e2b5",
+      "bytes": 18853
+    },
+    {
+      "path": "godot/scripts/goldfish_rules.gd.uid",
+      "status": "added",
+      "sha256": "66d40c67bf983604d702e07430086114e42b9b4a8a806fa2909b43e7b6714da6",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_goldfish.gd",
+      "status": "added",
+      "sha256": "fd52dc0510fa3fb328602a88ae7f2c6f8677a98dc9e7b441b3af001276cab2b4",
+      "bytes": 16774
+    },
+    {
+      "path": "godot/scripts/verify_goldfish.gd.uid",
+      "status": "added",
+      "sha256": "749aa2ec629b774e4ae3312d4f82832586d29a2b9234c056ec851750e29f14d5",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_goldfish_vine_wind.gd",
+      "status": "added",
+      "sha256": "66c47e4d71a686409b1911076e1fdb294e829bff03caeb5d79950be3cf6e48d2",
+      "bytes": 5988
+    },
+    {
+      "path": "godot/scripts/verify_goldfish_vine_wind.gd.uid",
+      "status": "added",
+      "sha256": "b8b3e70ec1e6bd0213cce1703a0df28563e24e09bbc7f23167c8993ffb8d2056",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_vine.gd",
+      "status": "added",
+      "sha256": "0ac9669cac18f305d2d171c25483ce2994e986a65095952aef22183649120ebe",
+      "bytes": 19019
+    },
+    {
+      "path": "godot/scripts/verify_vine.gd.uid",
+      "status": "added",
+      "sha256": "920fd3b4fc6fb6457ccb6994bb4d6c7be61a8a880fe7469f7bc4944cb75742b4",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_wind_raccoon.gd",
+      "status": "added",
+      "sha256": "6f48c39e679f8a0c4e2ece2b4e02b25d96527231bbba5b82aefa07933b4bc993",
+      "bytes": 17447
+    },
+    {
+      "path": "godot/scripts/verify_wind_raccoon.gd.uid",
+      "status": "added",
+      "sha256": "c0df4f8d13cb4d4b7d4921ef1e2000cdd4e265099a16abf6dd39100812ee06d6",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/vine_rules.gd",
+      "status": "added",
+      "sha256": "0e1abb5d6388ee63825634998dd84fa416e4cfaed5038f5e2c886d434ed8c990",
+      "bytes": 13977
+    },
+    {
+      "path": "godot/scripts/vine_rules.gd.uid",
+      "status": "added",
+      "sha256": "b9ff16a616616b9e4dfdaf217d927703110e2a98da4bb1a34a4ee318a5690097",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/wind_raccoon_rules.gd",
+      "status": "added",
+      "sha256": "86de491571d024ee6536392146c8e573c50f6ea9805aa685d385ad0553c3a215",
+      "bytes": 14181
+    },
+    {
+      "path": "godot/scripts/wind_raccoon_rules.gd.uid",
+      "status": "added",
+      "sha256": "9f89a1f3da0fac5753e00c767388d14122d357e8e9f3335bb36725783792e27c",
+      "bytes": 19
+    },
+    {
+      "path": "research-notes/63-goldfish-vine-wind-raccoon-rules.md",
+      "status": "added",
+      "sha256": "ab9770e15433a18687749b8551c6fb8905118460f30ee0d7afb970d9f8c6d1fc",
+      "bytes": 6332
+    }
+  ],
+  "textFileCount": 40,
+  "newScripts": [
+    "godot/scripts/goldfish_rules.gd",
+    "godot/scripts/verify_goldfish.gd",
+    "godot/scripts/verify_goldfish_vine_wind.gd",
+    "godot/scripts/verify_vine.gd",
+    "godot/scripts/verify_wind_raccoon.gd",
+    "godot/scripts/vine_rules.gd",
+    "godot/scripts/wind_raccoon_rules.gd"
+  ],
+  "newOriginalPNGs": [
+    {
+      "card": "c22701",
+      "path": "godot/assets/official/cards/c22701.png",
+      "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22701_金鱼·应援_法术.png",
+      "sha256": "4a2afbeaa5e598fb0544c1cb21c8b4cc0fabc9a513bf18c9118eb0ec73a4fcb4"
+    },
+    {
+      "card": "c22702",
+      "path": "godot/assets/official/cards/c22702.png",
+      "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22702_金鱼·修行_战斗.png",
+      "sha256": "6e7363d2373fff9d0391b209874f2bf5adf6bb8009eedbb582ced6badee2ebfb"
+    },
+    {
+      "card": "c22703",
+      "path": "godot/assets/official/cards/c22703.png",
+      "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22703_金鱼·休憩_法术.png",
+      "sha256": "3be666960f6dfe3892332f061725d6261c0b78b859a130f8e23b3fd8746449eb"
+    },
+    {
+      "card": "c22704",
+      "path": "godot/assets/official/cards/c22704.png",
+      "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22704_鱼鱼，我们走！_法术.png",
+      "sha256": "b4973ef633b5082f8fcbb23953d65d9dc722e0aaf535e90b15662a851a7af96c"
+    },
+    {
+      "card": "c22705",
+      "path": "godot/assets/official/cards/c22705.png",
+      "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22705_鱼鱼，在这里！_法术.png",
+      "sha256": "8ab21d17b3a7728628160983b50c4fd45462b19e2d7a98cd5bcd06f508afc494"
+    },
+    {
+      "card": "c22706",
+      "path": "godot/assets/official/cards/c22706.png",
+      "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22706_觉醒·金鱼姬_法术.png",
+      "sha256": "c83d45dceb14bbe88c51cc1a99895cb54af71827b6ee328beb5e0fa187302a67"
+    },
+    {
+      "card": "c22707",
+      "path": "godot/assets/official/cards/c22707.png",
+      "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22707_扇舞_法术.png",
+      "sha256": "1e4528a01d0da2cda1944d75dec433a2ec0b136d069919d35baa29da36b271c0"
+    },
+    {
+      "card": "c22708",
+      "path": "godot/assets/official/cards/c22708.png",
+      "original": "art-reference-official/卡面-按版本/10_善恶无明/227_金鱼姬/22708_荒川的金鱼姬_形态.png",
+      "sha256": "e99660132fa8fed7ce7b4fc89c29f5eca6cf2baff6b3af310772ef400467d5c4"
+    },
+    {
+      "card": "c22801",
+      "path": "godot/assets/official/cards/c22801.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22801_紫藤舞_法术.png",
+      "sha256": "5ba7a00979138f6342f401d25efccccf58f674f0915c588a862b4f43681a1826"
+    },
+    {
+      "card": "c22802",
+      "path": "godot/assets/official/cards/c22802.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22802_繁花之庭_形态.png",
+      "sha256": "8e6ea93aecdb506ae71debff47e969110a816a9a6d363880322df9e32e95321a"
+    },
+    {
+      "card": "c22803",
+      "path": "godot/assets/official/cards/c22803.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22803_解忧_法术.png",
+      "sha256": "4e350d5d1668163020794da418ef012bcea57185a488aa24c6e35bdd802e9eee"
+    },
+    {
+      "card": "c22804",
+      "path": "godot/assets/official/cards/c22804.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22804_织梦_法术.png",
+      "sha256": "397dcb5865f75b9967dd5a47fea9dd3049d60c6210ad713f368939089b1cb3cf"
+    },
+    {
+      "card": "c22805",
+      "path": "godot/assets/official/cards/c22805.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22805_觉醒·藤姬_法术.png",
+      "sha256": "b8c8cf3df32e0a208e8d2f18a194a0ee248614c2063f85b28a3ff7218cc40232"
+    },
+    {
+      "card": "c22806",
+      "path": "godot/assets/official/cards/c22806.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22806_幽玄之响_法术.png",
+      "sha256": "0348395f68c7c255ffe0293c27d90b5d08bbffc4e0f7891c167413aa86b2efed"
+    },
+    {
+      "card": "c22807",
+      "path": "godot/assets/official/cards/c22807.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22807_幻夜回声_法术.png",
+      "sha256": "fbafe9beb32f63d1cd769b986ff69121853e0c25d535977b7bf499b74be8fefb"
+    },
+    {
+      "card": "c22808",
+      "path": "godot/assets/official/cards/c22808.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/228_藤姬/22808_千年华_结界.png",
+      "sha256": "2efe7737903cc57fbd19f0b2794ac776b802006067cc9503695c122404fb19ac"
+    },
+    {
+      "card": "c23201",
+      "path": "godot/assets/official/cards/c23201.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23201_龙卷·手里剑_战斗.png",
+      "sha256": "743ae2728648d370b7b904c5047b9fddb20f40d1ea5e5fde07c53530007b1036"
+    },
+    {
+      "card": "c23202",
+      "path": "godot/assets/official/cards/c23202.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23202_残影·替身术_战斗.png",
+      "sha256": "017e31d5d22d1e9bf91a3d66fc1ff662079b2a59fe1f1f23e6d125894ed472c7"
+    },
+    {
+      "card": "c23203",
+      "path": "godot/assets/official/cards/c23203.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23203_残影·分身术_法术.png",
+      "sha256": "cbc684b5497d7162e58dfd4d9270cd4671b1f01280c218d9d8ece9369c90462b"
+    },
+    {
+      "card": "c23204",
+      "path": "godot/assets/official/cards/c23204.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23204_风车·雷火弹_战斗.png",
+      "sha256": "5adfa7051bf00577711a0af00a72c82cbe10ba82897f956e0cfdaaaba05c3ecb"
+    },
+    {
+      "card": "c23205",
+      "path": "godot/assets/official/cards/c23205.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23205_狸隐术_战斗.png",
+      "sha256": "b88c3f8184c01bb9d736a2bf20b0e2cdd721f3392f5f6bbdf29625592a0c3b53"
+    },
+    {
+      "card": "c23206",
+      "path": "godot/assets/official/cards/c23206.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23206_足跃_战斗.png",
+      "sha256": "6b124941389801066d020c6f36cbc6c4fbc332adcef6a4f3865d3fb6a7f86983"
+    },
+    {
+      "card": "c23207",
+      "path": "godot/assets/official/cards/c23207.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23207_觉醒·风狸_法术.png",
+      "sha256": "7a1c5afd4ef41099d0fe71e30717db131b195a346cfb02202f8d4c9471cfba23"
+    },
+    {
+      "card": "c23208",
+      "path": "godot/assets/official/cards/c23208.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/232_风狸/23208_六甲秘祝_形态.png",
+      "sha256": "a8ebf35be1dc938ce6eef3fb84e6b458803d5732e64cb1fd8acc44a447be3a64"
+    }
+  ]
+}

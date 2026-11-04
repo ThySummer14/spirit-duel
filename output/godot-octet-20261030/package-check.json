@@ -1,0 +1,14 @@
+{
+  "exitCode": 0,
+  "passed": true,
+  "source": "actual exported index.pck",
+  "workingDirectory": ".build/octet-20261030/package-probe",
+  "roles": 8,
+  "mainCards": 64,
+  "mainCardsFullyImplemented": 63,
+  "partialCards": [
+    "c20602"
+  ],
+  "derivatives": 1,
+  "factions": 215
+}

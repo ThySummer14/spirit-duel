@@ -1,0 +1,15 @@
+eye_crab True
+wind_night_mask True
+coin_river True
+bond_dream True
+book_jue True
+moon_bamboo True
+whale True
+crocodile True
+butterfly True
+draw True
+turn_order True
+resource_effects True
+combat True
+instant True
+14 groups passed; historical summaries use failures=0 instead of _OK. Logs re-read; no assertions changed.

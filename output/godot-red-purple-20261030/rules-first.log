@@ -1,0 +1,8 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+RED_PURPLE_FAIL inherited form abilities leave with the form
+RED_PURPLE_FAIL actual own-turn combat damage applies break3 and self armor3
+RED_PURPLE_FAIL all-purple enhancement additionally moves real revived unit
+RED_PURPLE_FAIL two journey stacks permanently grow a knocked purple without reviving it
+RED_PURPLE_FAIL journey does not require its original source alive
+RED_PURPLE_OK checks=265 failures=5 rules_only=true

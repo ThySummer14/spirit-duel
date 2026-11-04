@@ -1,0 +1,106 @@
+[
+  {
+    "script": "verify_combat",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "script": "verify_instant",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "script": "verify_turn_order",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "script": "verify_armor_blood_continuation",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "ARMOR_BLOOD_CONTINUATION checks=35 failures=0"
+    ]
+  },
+  {
+    "script": "verify_moon_bamboo",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "MOON_BAMBOO checks=185 failures=0"
+    ]
+  },
+  {
+    "script": "verify_pipe_fox",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "PIPE_FOX checks=161 failures=0"
+    ]
+  },
+  {
+    "script": "verify_three_tail",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "THREE_TAIL checks=105 failures=0"
+    ]
+  },
+  {
+    "script": "verify_pine",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "PINE checks=116 failures=0"
+    ]
+  },
+  {
+    "script": "verify_book_jue",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "BOOK_JUE checks=129 failures=0"
+    ]
+  },
+  {
+    "script": "verify_steel_wind",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "STEEL_WIND_OK"
+    ]
+  },
+  {
+    "script": "verify_movement",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "MOVEMENT checks=244 failures=0"
+    ]
+  },
+  {
+    "script": "verify_battle_status",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "BATTLE_STATUS_OK checks=139"
+    ]
+  },
+  {
+    "script": "verify_self_damage",
+    "exit": 0,
+    "ok": true,
+    "summary": [
+      "SELF_DAMAGE_OK checks=39"
+    ]
+  }
+]

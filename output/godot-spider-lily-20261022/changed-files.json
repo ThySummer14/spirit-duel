@@ -1,0 +1,18 @@
+[
+  "README.md",
+  "godot/README.md",
+  "godot/content/verified_rules.json",
+  "scripts/godot-verify.sh",
+  "godot/scripts/game_state.gd",
+  "godot/scripts/verified_card_rules.gd",
+  "godot/scripts/game_ai.gd",
+  "godot/scripts/movement_rules.gd",
+  "godot/scripts/ui/battle_screen.gd",
+  "godot/scripts/ui/battle_status.gd",
+  "godot/assets/official/README.md",
+  "godot/scripts/spider_lily_rules.gd",
+  "godot/scripts/spider_lily_rules.gd.uid",
+  "godot/scripts/verify_spider_lily.gd",
+  "godot/scripts/verify_spider_lily.gd.uid",
+  "research-notes/66-spider-lily-rules.md"
+]

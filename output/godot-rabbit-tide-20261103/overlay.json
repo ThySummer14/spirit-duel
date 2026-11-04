@@ -1,0 +1,940 @@
+{
+  "sources": [
+    {
+      "id": "rabbit-tide-original-20261103",
+      "path": "art-reference-official/卡面-按版本/13_喧哗烩战/",
+      "evidence": "24700–24708、25000–25008完整原PNG目检。觅食为抽牌；孤独的美食兔为烹饪触发；萌动免疫战斗伤害、增强追猎；塑潮使者4/5远程；永生之汐含帷幕。"
+    },
+    {
+      "id": "rabbit-tide-official-20220414",
+      "url": "https://www.taptap.cn/moment/263404919191503871",
+      "evidence": "官方海原贝戟离场若手中无咏流则给一张；永生之汐进场眩晕、在场帷幕、离场全敌方角色2伤。"
+    },
+    {
+      "id": "rabbit-tide-official-20220331",
+      "url": "https://www.taptap.cn/moment/258340769469827609",
+      "evidence": "唤潮眩晕并压制降低2力量；萌动免战伤并在敌方不明食材/黑暗料理历史后获得追猎。"
+    },
+    {
+      "id": "rabbit-tide-spear-derivative",
+      "url": "https://gamerch.com/onmyojicard/353804",
+      "evidence": "相关卡：海原贝戟1勾0/2；咏流1勾召唤贝戟，增强当千姬使用牌时此牌获得瞬发。主体觉醒继续采用中文PNG版本。"
+    },
+    {
+      "id": "rabbit-recipe-derivative",
+      "url": "https://gamerch.com/onmyojicard/354067",
+      "evidence": "兔丸特制食谱：已获得山珍追加投射3，海味追加牌手恢复5，时蔬追加压制-3/-3。"
+    },
+    {
+      "id": "rabbit-unknown-dark",
+      "url": "https://gamerch.com/onmyojicard/354060",
+      "evidence": "相关卡：不明食材使式神获得4破甲；合成佳肴时改成黑暗料理；黑暗料理瞬发、使一个式神获得6破甲。"
+    },
+    {
+      "id": "cooking-chinese-mechanics",
+      "url": "https://www.taptap.cn/moment/341546240254673892",
+      "evidence": "玩家实测说明黑暗料理视为佳肴参与猫掌柜效果，但厨艺研行不使用它；解忧移除海原贝戟不提供咏流，复杂移除边界待核。"
+    }
+  ],
+  "units": {
+    "tuwan": {
+      "verifiedRules": true,
+      "rabbitTideRole": "rabbit",
+      "attack": 2,
+      "maxHp": 6,
+      "formLifecycle": {},
+      "passive": {
+        "id": "rt-rabbit",
+        "name": "美食之旅",
+        "text": "每回合一次，当兔丸运势失败时，获得一张「不明食材」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "rt-rabbit-awake",
+        "name": "觉醒",
+        "text": "己方回合开始时，运势4：烹饪。当兔丸运势失败时，获得一张「不明食材」。",
+        "hooks": []
+      },
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ]
+    },
+    "qianji": {
+      "verifiedRules": true,
+      "rabbitTideRole": "tide",
+      "attack": 3,
+      "maxHp": 4,
+      "formLifecycle": {},
+      "passive": {
+        "id": "rt-tide",
+        "name": "海原贝戟",
+        "text": "第一个己方回合开始时，召唤「海原贝戟」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "rt-tide-awake",
+        "name": "觉醒",
+        "text": "你的海原贝戟获得+4力量。「咏流」获得瞬发。",
+        "hooks": []
+      },
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ]
+    },
+    "qianji-spear": {
+      "id": "qianji-spear",
+      "name": "海原贝戟",
+      "title": "千姬召唤物",
+      "attack": 0,
+      "maxHp": 2,
+      "art": "assets/official/tokens/qianji-spear.png",
+      "color": "#87c4de",
+      "pack": "wave5",
+      "selectable": false,
+      "token": true,
+      "summoned": true,
+      "countsAsShikigami": true,
+      "verifiedRules": true,
+      "passive": {
+        "id": "rt-spear-leave",
+        "name": "海原贝戟",
+        "text": "离场时，若你手牌中没有「咏流」，则将一张「咏流」置入手牌。",
+        "hooks": []
+      },
+      "sources": [
+        "rabbit-tide-spear-derivative",
+        "rabbit-tide-official-20220414"
+      ],
+      "verificationPending": [
+        "派生身材及完整牌文采用日文相关卡补证；中文完整tooltip及原客户端边界待核。"
+      ]
+    }
+  },
+  "cards": {
+    "c24701": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "使你的海原贝戟获得4力量并使其发起攻击，本次攻击免疫战斗伤害。",
+      "officialText": "使你的海原贝戟获得4力量并使其发起攻击，本次攻击免疫战斗伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-spear-attack",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rt-spear-attack",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c24702": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-living-unit",
+      "text": "对一个式神造成3点伤害。增强：若海原贝戟在场，投射：造成3点伤害。",
+      "officialText": "对一个式神造成3点伤害。增强：若海原贝戟在场，投射：造成3点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-tide-dream",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rt-tide-dream",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c24703": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当你召唤海原贝戟时，压制：降低2力量。",
+      "officialText": "当你召唤海原贝戟时，压制：降低2力量。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "rtDeepSea": true
+      },
+      "formHooks": [],
+      "formAbility": "当你召唤海原贝戟时，压制：降低2力量。",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rt-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c24704": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "眩晕一个敌方式神，压制：降低2力量。增强：若海原贝戟在场，抽一张牌。",
+      "officialText": "眩晕一个敌方式神，压制：降低2力量。增强：若海原贝戟在场，抽一张牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-call-tide",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rt-call-tide",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c24705": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "你的海原贝戟获得+4力量。「咏流」获得瞬发。",
+      "officialText": "你的海原贝戟获得+4力量。「咏流」获得瞬发。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "rt-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c24706": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "远程。当你召唤海原贝戟时，使千姬发动一次攻击。",
+      "officialText": "远程。当你召唤海原贝戟时，使千姬发动一次攻击。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "rtTideShaper": true,
+        "combatKeywords": [
+          "remote"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "远程。当你召唤海原贝戟时，使千姬发动一次攻击。",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rt-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c24707": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "使你的海原贝戟获得5力量并攻击一个指定的敌方式神，本次攻击免疫战斗伤害。",
+      "officialText": "使你的海原贝戟获得5力量并攻击一个指定的敌方式神，本次攻击免疫战斗伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-spear-hunt",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rt-spear-hunt",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c24708": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "海原贝戟进场时，随机眩晕一个敌方式神。海原贝戟在场时，千姬获得帷幕。海原贝戟离场时，对所有敌方角色造成2点伤害。",
+      "officialText": "海原贝戟进场时，随机眩晕一个敌方式神。海原贝戟在场时，千姬获得帷幕。海原贝戟离场时，对所有敌方角色造成2点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "rtEternal": true
+      },
+      "formHooks": [],
+      "formAbility": "海原贝戟进场时，随机眩晕一个敌方式神。海原贝戟在场时，千姬获得帷幕。海原贝戟离场时，对所有敌方角色造成2点伤害。",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rt-form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25001": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "运势4：抽一张牌。",
+      "officialText": "运势4：抽一张牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 1
+      },
+      "rtForage": true,
+      "effect": "rt-rabbit-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "rt-rabbit-combat",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c25002": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，当己方式神烹饪时，运势4：随机对兔丸使用一张食材。",
+      "officialText": "每回合一次，当己方式神烹饪时，运势4：随机对兔丸使用一张食材。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "rtLonely": true
+      },
+      "formHooks": [],
+      "formAbility": "每回合一次，当己方式神烹饪时，运势4：随机对兔丸使用一张食材。",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rt-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25003": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发。抽一张牌。增强：本局游戏每获得过一种食材，追加一种效果。山珍：投射3；海味：为你的牌手恢复5点生命；时蔬：压制，降低3力量和3护甲。",
+      "officialText": "瞬发。抽一张牌。增强：本局游戏每获得过一种食材，追加一种效果。山珍：投射3；海味：为你的牌手恢复5点生命；时蔬：压制，降低3力量和3护甲。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-recipe",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rt-recipe",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c25004": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "己方回合开始时，运势4：烹饪。当兔丸运势失败时，获得一张「不明食材」。",
+      "officialText": "己方回合开始时，运势4：烹饪。当兔丸运势失败时，获得一张「不明食材」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "rt-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c25005": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当兔丸攻击式神或被式神攻击时，运势4：对该式神使用一张不明食材。",
+      "officialText": "当兔丸攻击式神或被式神攻击时，运势4：对该式神使用一张不明食材。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "rtTaste": true
+      },
+      "formHooks": [],
+      "formAbility": "当兔丸攻击式神或被式神攻击时，运势4：对该式神使用一张不明食材。",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "effect": "rt-form",
+      "value": {
+        "attack": 4,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rt-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25006": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "免疫战斗伤害。增强：若本回合你对敌方式神使用过不明食材或黑暗料理，此牌获得追猎。",
+      "officialText": "免疫战斗伤害。增强：若本回合你对敌方式神使用过不明食材或黑暗料理，此牌获得追猎。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 0,
+        "immuneCombat": true
+      },
+      "effect": "rt-rabbit-combat",
+      "value": 2,
+      "effects": [
+        {
+          "action": "rt-rabbit-combat",
+          "target": "source",
+          "value": 2
+        }
+      ]
+    },
+    "c25007": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-living-unit",
+      "text": "进场时，对一个式神使用一张不明食材。当你对敌方式神使用不明食材或黑暗料理后，对其造成3点伤害。",
+      "officialText": "进场时，对一个式神使用一张不明食材。当你对敌方式神使用不明食材或黑暗料理后，对其造成3点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "rtCookingSoul": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时，对一个式神使用一张不明食材。当你对敌方式神使用不明食材或黑暗料理后，对其造成3点伤害。",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "rtEntryFood": true,
+      "effect": "rt-form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "rt-form",
+          "target": "selected",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25008": {
+      "verifiedRules": true,
+      "rabbitTideRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "贯通。当兔丸攻击式神时，对其使用一张不明食材。",
+      "officialText": "贯通。当兔丸攻击式神时，对其使用一张不明食材。",
+      "keywords": [
+        "pierce"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "rabbit-tide-original-20261103",
+        "rabbit-tide-official-20220414",
+        "rabbit-tide-official-20220331",
+        "rabbit-tide-spear-derivative",
+        "rabbit-recipe-derivative",
+        "rabbit-unknown-dark",
+        "cooking-chinese-mechanics"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制，指定录像尚未逐牌核验；食材派生采用日文相关卡补证，中文完整tooltip与复杂运势/响应全序仍待原客户端核验。",
+        "千姬召唤、离场、移除和解忧等交叉边界仍需原客户端核验；已明确接入的中文PNG版本保留，不逐季回退。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 2,
+        "pierce": true
+      },
+      "rtFoodOnAttack": true,
+      "effect": "rt-rabbit-combat",
+      "value": 2,
+      "effects": [
+        {
+          "action": "rt-rabbit-combat",
+          "target": "source",
+          "value": 2
+        }
+      ]
+    },
+    "qianji-song": {
+      "id": "qianji-song",
+      "name": "咏流",
+      "unitId": "qianji",
+      "token": true,
+      "derivedFrom": "qianji-spear",
+      "pack": "wave5",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "target": "auto",
+      "text": "召唤一个海原贝戟。增强：当千姬使用牌时，此牌获得瞬发。",
+      "officialText": "召唤一个海原贝戟。增强：当千姬使用牌时，此牌获得瞬发。",
+      "keywords": [],
+      "effect": "rt-summon",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rt-summon",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "rabbitTideRules": true,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "sources": [
+        "rabbit-tide-spear-derivative"
+      ],
+      "verificationPending": [
+        "派生身材及完整牌文采用日文相关卡补证；中文完整tooltip及原客户端边界待核。"
+      ]
+    }
+  }
+}

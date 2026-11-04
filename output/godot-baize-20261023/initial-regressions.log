@@ -1,0 +1,19 @@
+eye_crab False
+wind_night_mask False
+coin_river False
+bond_dream False
+book_jue False
+moon_bamboo False
+whale True
+crocodile True
+butterfly True
+draw True
+turn_order True
+resource_effects True
+combat True
+instant True
+Traceback (most recent call last):
+  File "/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-baize-20261023/regressions.py", line 13, in <module>
+    assert all(x['ok'] for x in results)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

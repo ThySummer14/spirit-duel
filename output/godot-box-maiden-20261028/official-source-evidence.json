@@ -1,0 +1,113 @@
+{
+  "url": "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js",
+  "matched": [
+    {
+      "id": 24300,
+      "name": "匣中少女",
+      "role": 243,
+      "type": "式神",
+      "xiyoudu": null,
+      "stage": null,
+      "ll": 3,
+      "sm": 4,
+      "desc": "充能。每回合一次，当你投骰子时，获得与骰子点数等量的#[能量]。",
+      "keyword": null
+    },
+    {
+      "id": 24301,
+      "name": "流光",
+      "role": 243,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": null,
+      "sm": null,
+      "desc": "对一个式神造成3点伤害。#r爆能10：改为造成10点伤害。",
+      "keyword": null
+    },
+    {
+      "id": 24302,
+      "name": "藏珍之匣",
+      "role": 243,
+      "type": "形态",
+      "xiyoudu": "SR",
+      "stage": 1,
+      "ll": 3,
+      "sm": 6,
+      "desc": "进场时运势4：占卜3。己方回合结束时，消耗10#[能量]，抽一张牌。",
+      "keyword": null
+    },
+    {
+      "id": 24303,
+      "name": "开匣",
+      "role": 243,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 1,
+      "ll": null,
+      "sm": null,
+      "desc": "召唤一个「惜物」。",
+      "keyword": null
+    },
+    {
+      "id": 24304,
+      "name": "觉醒·匣中少女",
+      "role": 243,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 2,
+      "ll": 1,
+      "sm": 1,
+      "desc": "获得10#[能量]。#r觉醒：充能。当你投骰子时，获得与骰子点数等量的#[能量]。",
+      "keyword": null
+    },
+    {
+      "id": 24305,
+      "name": "华丽之匣",
+      "role": 243,
+      "type": "形态",
+      "xiyoudu": "R",
+      "stage": 2,
+      "ll": 6,
+      "sm": 5,
+      "desc": "爆能10：此牌获得5#[生命]。",
+      "keyword": null
+    },
+    {
+      "id": 24306,
+      "name": "回梦",
+      "role": 243,
+      "type": "法术",
+      "xiyoudu": "R",
+      "stage": 3,
+      "ll": null,
+      "sm": null,
+      "desc": "复活己方所有式神。#r爆能10：再为你恢复10#[生命]。",
+      "keyword": null
+    },
+    {
+      "id": 24307,
+      "name": "溢彩",
+      "role": 243,
+      "type": "法术",
+      "xiyoudu": "SR",
+      "stage": 3,
+      "ll": null,
+      "sm": null,
+      "desc": "瞬发#r打开一个己方式神的卡包，选择一张牌置入手上。#r爆能10：改为将所有牌置入手上。",
+      "keyword": null
+    },
+    {
+      "id": 24308,
+      "name": "璀璨之匣",
+      "role": 243,
+      "type": "形态",
+      "xiyoudu": "SSR",
+      "stage": 3,
+      "ll": 7,
+      "sm": 7,
+      "desc": "贯通#r进场和己方回合开始时，运势4：获得一点鬼火。己方回合结束时，消耗10#[能量]，投射：造成10点伤害。",
+      "keyword": null
+    }
+  ]
+}

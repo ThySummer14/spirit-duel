@@ -1,0 +1,48 @@
+{
+  "before": {
+    "units": {
+      "known-approximation": 97,
+      "unreviewed": 43,
+      "pending-verification": 95,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 551,
+      "unreviewed": 658,
+      "pending-verification": 711,
+      "source-backed-native": 207
+    }
+  },
+  "after": {
+    "units": {
+      "known-approximation": 96,
+      "unreviewed": 43,
+      "pending-verification": 96,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 545,
+      "unreviewed": 656,
+      "pending-verification": 719,
+      "source-backed-native": 207
+    }
+  },
+  "errorsUnchanged": true,
+  "diagnosticCount": 19,
+  "fullCatalogRestored": false,
+  "overlayDelta": {
+    "units": [
+      "gulonghuo"
+    ],
+    "cards": [
+      "c29301",
+      "c29302",
+      "c29303",
+      "c29304",
+      "c29305",
+      "c29306",
+      "c29307",
+      "c29308"
+    ]
+  }
+}

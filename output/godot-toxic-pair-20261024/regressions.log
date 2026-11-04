@@ -1,0 +1,22 @@
+koi_fragrance True
+poison_pair True
+combat False
+draw True
+growth True
+resource_effects True
+turn_order True
+rebirth True
+light_healer True
+armor_blood True
+jorogumo True
+whale True
+house False
+vine False
+puppet True
+susanoo True
+baize True
+Traceback (most recent call last):
+  File "/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-toxic-pair-20261024/regressions.py", line 12, in <module>
+    (out/'results.json').write_text(json.dumps(results,indent=2)+'\n');assert all(x['ok'] for x in results)
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

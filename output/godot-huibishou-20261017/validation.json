@@ -1,0 +1,41 @@
+{
+  "scope": {
+    "cards": [
+      "c20902",
+      "c20903",
+      "c20904",
+      "c20906",
+      "c20907",
+      "c20908"
+    ],
+    "seasonalBalanceTracking": false
+  },
+  "focusedNative": {
+    "checks": 50,
+    "failures": 0,
+    "scriptErrors": 0,
+    "size": [
+      1600,
+      740
+    ]
+  },
+  "webBuild": {
+    "godot": "4.6.3",
+    "passed": true,
+    "MiB": 89.9,
+    "sourceFiles": 169,
+    "allHashesMatch": true
+  },
+  "fullRegressionRun": false,
+  "browserRetestRun": false,
+  "audit": {
+    "exitCode": 1,
+    "knownApproximationCards": 936,
+    "existingErrors": 19
+  },
+  "screenshots": {
+    "02-sea-search-instant.png": "bd7ad416e04b22087a2cd1fff06dfd88f903fb7bd1bcea9036f372a1c7a2f5c9",
+    "01-temporary-revival.png": "4f38bfab2d439398206a4ee7d043619b49c9323d4b8ec4b44489497085c5a837",
+    "03-overlevel-upgrade.png": "99d8535ed8416526c824a25c0dd2ca39c44dd1732437398bb1c8d9414e9f52aa"
+  }
+}

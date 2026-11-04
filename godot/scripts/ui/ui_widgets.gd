@@ -9,6 +9,7 @@ const ModalLayer := preload("res://scripts/ui/modal_layer.gd")
 ## Reusable control factories for unit panels, hand cards, inspectors and modals.
 
 
+const BattleStatus := preload("res://scripts/ui/battle_status.gd")
 const CardFace := preload("res://scripts/ui/card_face.gd")
 const CardHitArea := preload("res://scripts/ui/card_hit_area.gd")
 
@@ -111,6 +112,9 @@ static func make_tooltip(card: Dictionary, reason: String = "") -> PanelContaine
 	var owner := ContentLoader.unit_def(str(card.get("unitId", "")))
 	header.add_child(ThemeBuilder.chip("%s · 需 %d 勾玉" % [owner.get("name", "?"), int(card.get("level", 1))], ThemeBuilder.GOLD))
 	vbox.add_child(header)
+	if ResourceLoader.exists("res://assets/official/cards/%s.png" % str(card.get("id", ""))):
+		vbox.add_child(_wrapped("当前效果：%s" % str(card.get("text", "")), 13, ThemeBuilder.TEXT, 272))
+	if card.has("payment"): vbox.add_child(_wrapped(BattleStatus.payment_text(card), 13, ThemeBuilder.OK, 272))
 	if card.get("formAbility"):
 		vbox.add_child(_wrapped("形态能力：%s" % card.formAbility, 13, ThemeBuilder.GOLD_BRIGHT, 272))
 	var keywords = card.get("keywords", [])
@@ -151,7 +155,7 @@ static func _stat(text: String, value: String, color: Color) -> Control:
 
 
 ## 式神档案：肖像、数值、被动、状态
-static func make_unit_popover(unit: Dictionary) -> PanelContainer:
+static func make_unit_popover(unit: Dictionary, current_turn: int = -1) -> PanelContainer:
 	var accent := ThemeBuilder.unit_color_of(unit)
 	var panel := PanelContainer.new()
 	panel.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
@@ -162,7 +166,9 @@ static func make_unit_popover(unit: Dictionary) -> PanelContainer:
 	var head := HBoxContainer.new()
 	head.add_theme_constant_override("separation", 12)
 	vbox.add_child(head)
-	head.add_child(portrait(unit, Vector2(84, 112)))
+	var portrait_face := portrait(unit, Vector2(84, 112))
+	portrait_face.current_turn = current_turn
+	head.add_child(portrait_face)
 	var info := VBoxContainer.new()
 	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	info.add_theme_constant_override("separation", 4)
@@ -182,31 +188,27 @@ static func make_unit_popover(unit: Dictionary) -> PanelContainer:
 	chips.add_theme_constant_override("h_separation", 6)
 	chips.add_theme_constant_override("v_separation", 4)
 	if int(unit.get("front", 0)) == 1: chips.add_child(ThemeBuilder.chip("前线", ThemeBuilder.WARN))
-	if int(unit.get("knockout", 0)) > 0: chips.add_child(ThemeBuilder.chip("气绝 · %d 回合" % int(unit.knockout), ThemeBuilder.DANGER))
-	if int(unit.get("frozen", 0)) > 0: chips.add_child(ThemeBuilder.chip("眩晕 ×%d" % int(unit.frozen), Color("b39ce6")))
-	if int(unit.get("armorBreak", 0)) > 0: chips.add_child(ThemeBuilder.chip("破甲 %d" % int(unit.armorBreak), ThemeBuilder.WARN))
-	if int(unit.get("brittle", 0)) > 0: chips.add_child(ThemeBuilder.chip("晶裂 ×%d" % int(unit.brittle), Color("e08aa2")))
-	if int(unit.get("charge", 0)) > 0: chips.add_child(ThemeBuilder.chip("充能 %d" % int(unit.charge), ThemeBuilder.INFO))
-	if unit.get("barrier", false): chips.add_child(ThemeBuilder.chip("屏障 · 抵挡下一次伤害", ThemeBuilder.INFO))
-	if unit.get("swift", false): chips.add_child(ThemeBuilder.chip("迅捷 · 下次普通出击不消耗鬼火", ThemeBuilder.OK))
+	for mark in BattleStatus.unit_marks(unit, current_turn):
+		var chip := ThemeBuilder.chip(str(mark.label), mark.color if mark.active else ThemeBuilder.TEXT_DIM)
+		chip.tooltip_text = str(mark.detail)
+		chip.set_meta("status_id", mark.id)
+		chips.add_child(chip)
+	var source_definition := ContentLoader.unit_def(str(unit.get("id", "")))
+	if source_definition.get("yaodaoFlurry", false): chips.add_child(ThemeBuilder.chip("累计消灭 %d 个式神" % int(unit.get("yaodaoKills", 0)), ThemeBuilder.INFO))
+	if source_definition.get("damageRage", false):
+		var same_turn := current_turn >= 0 and current_turn == int(unit.get("shutenDamageTurn", -1))
+		chips.add_child(ThemeBuilder.chip("本回合受到 %d 伤害" % (int(unit.get("shutenTurnDamage", 0)) if same_turn else 0), ThemeBuilder.WARN))
 	if unit.has("spellsUsed"): chips.add_child(ThemeBuilder.chip("已使用法术 %d" % int(unit.spellsUsed), ThemeBuilder.INFO))
-	var pending_shield := 0
-	for pending in unit.get("pendingShields", []): pending_shield += int(pending.amount)
-	if pending_shield > 0: chips.add_child(ThemeBuilder.chip("下回合护甲 +%d" % pending_shield, ThemeBuilder.INFO))
-	var countdown: Dictionary = CountdownRules.timer(unit)
-	if not countdown.is_empty():
-		var ability_name := str(CountdownRules.mode(unit).get("name", "")) if countdown.has("mode") else str(countdown.card.name)
-		chips.add_child(ThemeBuilder.chip("倒计时 %d · %s%s" % [int(countdown.remaining), ability_name, "（气绝暂停）" if int(unit.hp) <= 0 else ""], ThemeBuilder.INFO))
 	if not unit.get("formCountdown", {}).is_empty() and unit.formCountdown.card.formRules.get("countdownEffects", []).any(func(e): return e.action == "expanding-random-damage"):
 		chips.add_child(ThemeBuilder.chip("龙 · 下次最多%d个目标" % mini(5, int(unit.formCountdown.triggers) + 1), ThemeBuilder.INFO))
-	if unit.has("formExpiresTurn"): chips.add_child(ThemeBuilder.chip("本回合结束自毁", ThemeBuilder.WARN))
-	if unit.get("unyielding", false): chips.add_child(ThemeBuilder.chip("不屈", ThemeBuilder.GOLD))
-	if unit.get("awakened", false): chips.add_child(ThemeBuilder.chip("已觉醒", ThemeBuilder.TYPE_AWAKEN))
 	if unit.get("form") is Dictionary and not (unit.form as Dictionary).is_empty():
 		chips.add_child(ThemeBuilder.chip("形态 · %s" % unit.form.get("name", "—"), ThemeBuilder.TYPE_FORM))
 	if chips.get_child_count() > 0: vbox.add_child(chips)
 	else: chips.free()
 	vbox.add_child(ThemeBuilder.hline())
+	if unit.get("baseRulesSuppressed", false):
+		vbox.add_child(_titled("纸人能力", "失去原形态、初始能力和觉醒能力。", ThemeBuilder.TYPE_FORM, false))
+		return panel
 	var def := ContentLoader.unit_def(str(unit.get("id", "")))
 	if not unit.get("abilityCountdown", {}).is_empty():
 		var ability := CountdownRules.mode(unit)
@@ -297,8 +299,9 @@ static func show_card_modal(host: Control, card: Dictionary, extra: Control = nu
 	chips.add_theme_constant_override("h_separation", 6)
 	chips.add_child(ThemeBuilder.chip(str(card.get("typeLabel", "")), ThemeBuilder.type_color_of(str(card.get("type", "")))))
 	chips.add_child(ThemeBuilder.chip(ThemeBuilder.rarity_label(str(card.get("rarity", ""))), ThemeBuilder.rarity_color_of(str(card.get("rarity", "")))))
-	chips.add_child(ThemeBuilder.chip("%d 勾 · %d 鬼火" % [int(card.get("level", 1)), int(card.get("cost", 0))], ThemeBuilder.FIRE))
+	chips.add_child(ThemeBuilder.chip("%d 勾 · %d 鬼火" % [int(card.get("level", 1)), int(card.get("payment", {}).get("cost", card.get("cost", 0)))], ThemeBuilder.FIRE))
 	info.add_child(chips)
+	if card.has("payment"): info.add_child(_wrapped(BattleStatus.payment_text(card), 13, ThemeBuilder.OK, 300))
 	var owner := ContentLoader.unit_def(str(card.get("unitId", "")))
 	info.add_child(ThemeBuilder.dim_label("所属式神：%s" % owner.get("name", "?"), 13))
 	info.add_child(ThemeBuilder.hline())

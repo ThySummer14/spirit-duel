@@ -1,0 +1,18 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+OpenGL API 4.1 Metal - 91.7 - Compatibility - Using Device: Apple - Apple M5
+
+SCRIPT ERROR: Parse Error: Invalid operands "Node" and "int" for "==" operator.
+          at: GDScript::reload (res://scripts/ui/battle_screen.gd:2121)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/verify_book_jue_ui.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/verify_instant_feedback_ui.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-instant-feedback-20261016/capture_motion.gd:0)
+ERROR: Failed to load script "/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-instant-feedback-20261016/capture_motion.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:50)
+Movie Maker mode enabled, recording movie in 1600×740 @ 30 FPS...
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: run (/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-instant-feedback-20261016/capture_motion.gd:7)
+          GDScript backtrace (most recent call first):
+              [0] run (/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-instant-feedback-20261016/capture_motion.gd:7)

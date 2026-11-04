@@ -1,0 +1,12 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+OpenGL API 4.1 Metal - 91.7 - Compatibility - Using Device: Apple - Apple M5
+
+Movie Maker mode enabled, recording movie in 1600×740 @ 30 FPS...
+INSTANT_MOTION checks=2 failures=0
+--------------------------------------------------------------------------------
+Done recording movie at path: /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-instant-feedback-20261016/native-instant.avi
+108 frames at 30 FPS (movie length: 00:00:03:18), recorded in 00:00:04 (75% of real-time speed).
+CPU render time: 0.34 seconds (average: 3.16 ms/frame)
+GPU render time: 0.00 seconds (average: 0.00 ms/frame)
+Encoding time: 0.96 seconds (average: 8.93 ms/frame)
+--------------------------------------------------------------------------------

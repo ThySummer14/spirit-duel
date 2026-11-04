@@ -1,0 +1,104 @@
+{
+  "newMainFaces": [
+    {
+      "id": "c28301",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/283_虫师/28301_跹跹虫舞_形态.png",
+      "destination": "godot/assets/official/cards/c28301.png",
+      "sha256": "5e87e081c1ae87dbd78d5998f2566e2482aebcd8b557b3398e265dda35e5f819"
+    },
+    {
+      "id": "c28302",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/283_虫师/28302_虫之声_法术.png",
+      "destination": "godot/assets/official/cards/c28302.png",
+      "sha256": "20530dbe2bbf646d1706484bc2375fdc0e8d969d09305a7a7e07e0267d4c2523"
+    },
+    {
+      "id": "c28303",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/283_虫师/28303_虫之忆_法术.png",
+      "destination": "godot/assets/official/cards/c28303.png",
+      "sha256": "8e93b3ac3ce3127b1bd12bbe93e3e7f877140878e2375d6d0d39a172b2c83ef8"
+    },
+    {
+      "id": "c28304",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/283_虫师/28304_簌簌虫痕_形态.png",
+      "destination": "godot/assets/official/cards/c28304.png",
+      "sha256": "d6a2e9e4fa72702afc5f22369b1c3293e365620afa1f0e1d335deac2e218cbb1"
+    },
+    {
+      "id": "c28305",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/283_虫师/28305_虫之途_法术.png",
+      "destination": "godot/assets/official/cards/c28305.png",
+      "sha256": "18a8d4abbc5d4f895e1865dd5fb8a7541fcfc60d170ab214c2aebfbe9a3f2696"
+    },
+    {
+      "id": "c28306",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/283_虫师/28306_虫之眠_法术.png",
+      "destination": "godot/assets/official/cards/c28306.png",
+      "sha256": "ebc0946c9e5e4507de6840049d14bf5db2dc628c32c6f46402e0bdb47d8089cc"
+    },
+    {
+      "id": "c28307",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/283_虫师/28307_虫之梦_结界.png",
+      "destination": "godot/assets/official/cards/c28307.png",
+      "sha256": "806be8681705931e87df5b56a24a341547fd3d611be9691d40204024585b299d"
+    },
+    {
+      "id": "c28308",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/283_虫师/28308_觉醒·虫师_法术.png",
+      "destination": "godot/assets/official/cards/c28308.png",
+      "sha256": "e6bffafb539632d6e705caf431ba0f5d986f326ab790ed077303bab7b4de92e9"
+    },
+    {
+      "id": "c28401",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/284_蝎女/28401_以毒攻毒_法术.png",
+      "destination": "godot/assets/official/cards/c28401.png",
+      "sha256": "456c5fc32787af0a0da19e5caf7b042e37c5c3385eeeba747aeb69710f7e28b5"
+    },
+    {
+      "id": "c28402",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/284_蝎女/28402_螯击_战斗.png",
+      "destination": "godot/assets/official/cards/c28402.png",
+      "sha256": "ad18e0df41ef1210a2980dafd2e67e759ed36f1f4a2caf9d08f4dec5659600fb"
+    },
+    {
+      "id": "c28403",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/284_蝎女/28403_隐秘之刺_形态.png",
+      "destination": "godot/assets/official/cards/c28403.png",
+      "sha256": "c940340a9ca0529f6d1e601ca07c7f93bf410edf3bd8fe31b71b9edea118a9d2"
+    },
+    {
+      "id": "c28404",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/284_蝎女/28404_觉醒·蝎女_法术.png",
+      "destination": "godot/assets/official/cards/c28404.png",
+      "sha256": "e080b70c1f6c552a26c057f1fc478e19ac44e092c4fa333bd6de6d42a91bf975"
+    },
+    {
+      "id": "c28405",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/284_蝎女/28405_生杀予夺_形态.png",
+      "destination": "godot/assets/official/cards/c28405.png",
+      "sha256": "5e3df67f20374455c5201fc76d5fda2b195ed311ae997083f2db1cab6323e11b"
+    },
+    {
+      "id": "c28406",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/284_蝎女/28406_噬毒_战斗.png",
+      "destination": "godot/assets/official/cards/c28406.png",
+      "sha256": "69fb6a8a2edf47161e2bc14080225a9795c45665ab5f8da2ef51a8637203d125"
+    },
+    {
+      "id": "c28407",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/284_蝎女/28407_蝎窟_结界.png",
+      "destination": "godot/assets/official/cards/c28407.png",
+      "sha256": "bb9e9bdae42bfa8d849146110d7782b454dad75fa69522017bf5a2d1e755fea7"
+    },
+    {
+      "id": "c28408",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/284_蝎女/28408_百蝎之毒_形态.png",
+      "destination": "godot/assets/official/cards/c28408.png",
+      "sha256": "4d15661166ec5ec8a40e01a5aeeeccaf7f7b711f184b1f0a6fd47d0957f232b3"
+    }
+  ],
+  "cumulativeMainFaces": 488,
+  "cumulativeDerivedFaces": 3,
+  "cumulativeOriginalFaces": 491,
+  "cumulativeUnits": 61
+}

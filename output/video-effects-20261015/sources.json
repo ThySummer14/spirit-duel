@@ -1,0 +1,192 @@
+[
+  {
+    "bvid": "BV1vg4y1q7m1",
+    "cid": 202947180,
+    "aid": 838586843,
+    "title": "《百闻牌》全屏进场动画，让你一次看个够！",
+    "duration": 170,
+    "pubdate": 1592388489,
+    "owner": {
+      "mid": 515395769,
+      "name": "有丶天分",
+      "face": "https://i2.hdslb.com/bfs/face/8519004090f5f20ba00d2afc94e42b1506e807dd.jpg"
+    },
+    "desc": "百闻牌全屏进场动画合集，求大佬们关注一下~",
+    "url": "https://www.bilibili.com/video/BV1vg4y1q7m1/",
+    "publishedDate": "2020-06-17",
+    "localPath": "media/BV1vg4y1q7m1.mp4",
+    "bytes": 9666094,
+    "sha256": "196e4c2b2fa0d8f73173198f93a9627e96db4f306c36023a3be1589527968720",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 640,
+          "height": 360,
+          "r_frame_rate": "25/1"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "169.133492"
+      }
+    }
+  },
+  {
+    "bvid": "BV1mVGFzoEBm",
+    "cid": 30877485276,
+    "aid": 114804173903275,
+    "title": "【百闻牌】昂扬配荒，物理月坠四连击",
+    "duration": 999,
+    "pubdate": 1751773016,
+    "owner": {
+      "mid": 110192709,
+      "name": "摆昏摆",
+      "face": "https://i0.hdslb.com/bfs/face/7f089839c5541836815fa7ac31296d87f34362e0.jpg"
+    },
+    "desc": "-",
+    "url": "https://www.bilibili.com/video/BV1mVGFzoEBm/",
+    "publishedDate": "2025-07-06",
+    "localPath": "media/BV1mVGFzoEBm.mp4",
+    "bytes": 53790545,
+    "sha256": "2ef81f4a446e1b4fa998a80f77a70aa19fdfced38d483ad46cebbb48be72835b",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 640,
+          "height": 286,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "998.600000"
+      }
+    }
+  },
+  {
+    "bvid": "BV1r54y1C7d6",
+    "cid": 234306911,
+    "aid": 842019336,
+    "title": "【阴阳师百闻牌】新式神御馔津实战效果预览，解后排能力max ——狸猫会",
+    "duration": 244,
+    "pubdate": 1599816326,
+    "owner": {
+      "mid": 29790667,
+      "name": "小祈祷丶",
+      "face": "https://i1.hdslb.com/bfs/face/a39b2dc31ccecdafecf3de2f0123657fa4c287f5.jpg"
+    },
+    "desc": "新式神御馔津实战效果预览，解后排能力max",
+    "url": "https://www.bilibili.com/video/BV1r54y1C7d6/",
+    "publishedDate": "2020-09-11",
+    "localPath": "media/BV1r54y1C7d6.mp4",
+    "bytes": 12959987,
+    "sha256": "0e7dff1f7db23560cb2f93de984b75359402dabd2e7fdd5c0caa868180473e40",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 640,
+          "height": 360,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "243.800000"
+      }
+    }
+  },
+  {
+    "bvid": "BV1ZjGg6sELz",
+    "cid": 40488209035,
+    "aid": 117017709386295,
+    "title": "百闻牌：大战山薰队",
+    "duration": 151,
+    "pubdate": 1785548654,
+    "owner": {
+      "mid": 442974700,
+      "name": "狮辛王",
+      "face": "https://i1.hdslb.com/bfs/face/9892aab1974113d205dc3aafaae87e7041b295fb.jpg"
+    },
+    "desc": "-",
+    "url": "https://www.bilibili.com/video/BV1ZjGg6sELz/",
+    "publishedDate": "2026-08-01",
+    "localPath": "media/BV1ZjGg6sELz.mp4",
+    "bytes": 5843554,
+    "sha256": "5952e4e4fd3d9631d4f98d33c0348aa8d451546d4a6092020af7e2d293e0c179",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 640,
+          "height": 282,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "150.433000"
+      }
+    }
+  },
+  {
+    "bvid": "BV1dV41127D6",
+    "cid": 234860072,
+    "aid": 414507114,
+    "title": "百闻牌薰",
+    "duration": 4,
+    "pubdate": 1599965618,
+    "owner": {
+      "mid": 36962864,
+      "name": "YOUNG-101",
+      "face": "https://i2.hdslb.com/bfs/face/b1aaf5522663da306cb8e9f580dc933944fe33bf.webp"
+    },
+    "desc": "-",
+    "url": "https://www.bilibili.com/video/BV1dV41127D6/",
+    "publishedDate": "2020-09-13",
+    "localPath": "media/BV1dV41127D6.mp4",
+    "bytes": 160775,
+    "sha256": "5720681581c553875755362960490d306addb01c491b286dfa975fd2a548f7a5",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 480,
+          "height": 360,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "3.085374"
+      }
+    }
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "name": "whale",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "WHALE_OK checks=140 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "butterfly",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "BUTTERFLY_OK checks=151 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "garuda",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "GARUDA_OK checks=133 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "yitiao",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "YITIAO_OK checks=134 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "jorogumo",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "JOROGUMO_OK checks=126 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "vine",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "VINE_CHECKS 118 FAILURES 0"
+    ]
+  },
+  {
+    "name": "sparrow",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "SPARROW checks=188 failures=0"
+    ]
+  },
+  {
+    "name": "pipe_fox",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "PIPE_FOX checks=161 failures=0"
+    ]
+  },
+  {
+    "name": "moon_bamboo",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "MOON_BAMBOO checks=185 failures=0"
+    ]
+  },
+  {
+    "name": "armor_blood",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "ARMOR_BLOOD checks=154 failures=0"
+    ]
+  },
+  {
+    "name": "combat",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "name": "resource_effects",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "RESOURCE_EFFECTS_OK checks=149"
+    ]
+  },
+  {
+    "name": "battle_status",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "BATTLE_STATUS_OK checks=139"
+    ]
+  },
+  {
+    "name": "blessing_continuation",
+    "exitCode": 0,
+    "ok": true,
+    "summary": [
+      "BLESSING_CONTINUATION checks=44 failures=0"
+    ]
+  }
+]

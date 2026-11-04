@@ -1,0 +1,101 @@
+{
+  "scope": {
+    "units": 2,
+    "cards": 16,
+    "internalDerivativeForms": 2
+  },
+  "reports": {
+    "rules": {
+      "checks": 160,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "ui": {
+      "checks": 26,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "native-ui": {
+      "checks": 26,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_dog_demon": {
+      "checks": 84,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_shuten": {
+      "checks": 97,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_yaodao": {
+      "checks": 277,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_peach": {
+      "checks": 114,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_light_healer": {
+      "checks": 644,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_firefly": {
+      "checks": 126,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_archer_mountain": {
+      "checks": 146,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_snow_crane": {
+      "checks": 139,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_judge_tide": {
+      "checks": 147,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_classic_core": {
+      "checks": 30,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_xuenv": {
+      "checks": 72,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_yijin": {
+      "checks": 154,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_phoenix": {
+      "checks": 122,
+      "failures": 0,
+      "diagnosticErrors": false
+    },
+    "verify_yaoginshi": {
+      "checks": 126,
+      "failures": 0,
+      "diagnosticErrors": false
+    }
+  },
+  "parseDiagnosticErrors": false,
+  "regressionChecks": 2278,
+  "ruleChecks": 160,
+  "nativeUiChecks": 26,
+  "headlessUiChecks": 26,
+  "allPassed": true,
+  "fullCatalogRestored": false
+}

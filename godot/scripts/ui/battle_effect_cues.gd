@@ -38,9 +38,12 @@ static func palette(style: String) -> Array:
 	return [Color(colors[0]), Color(colors[1])]
 
 static func played_card(args: Dictionary) -> Dictionary:
-	if args.get("cardView") is Dictionary: return args.cardView
-	var card := ContentLoader.card_def(str(args.get("card", "")))
-	return card.get("originCard", {}) if args.get("origin", false) else card
+	var card: Dictionary = args.cardView.duplicate(true) if args.get("cardView") is Dictionary else ContentLoader.card_def(str(args.get("card", ""))).duplicate(true)
+	if not args.get("cardView") is Dictionary and args.get("origin", false): card = card.get("originCard", {})
+	if args.has("payment"):
+		card.payment = args.payment.duplicate()
+		card.payment.applied = true
+	return card
 
 static func rule_changes(before: Dictionary, after: Dictionary) -> Array:
 	var previous: Array = before.get("ruleEvents", [])
@@ -66,7 +69,9 @@ static func timeline(before: Dictionary, after: Dictionary, commands: Array) -> 
 				var index := int(entry.commandIndex) - base - 1
 				if index >= 0 and index < commands.size(): out.append(commands[index])
 			else:
-				out.append({"c": str(entry.kind).replace("-", "_"), "p": entry.player, "a": {"card": entry.card, "source": entry.uid, "target": entry.get("target"), "reason": entry.get("reason", "")}})
+				var card: Dictionary = entry.card.duplicate(true)
+				if entry.has("payment"): card.payment = entry.payment.merged({"applied": true})
+				out.append({"c": str(entry.kind).replace("-", "_"), "p": entry.player, "a": {"card": card, "source": entry.uid, "target": entry.get("target"), "reason": entry.get("reason", "")}})
 		if i < commands.size() and not (commands[i].c in ["basic_attack", "assault"] and interrupted.has(base + i + 1)): out.append(commands[i])
 	return out
 
@@ -98,14 +103,14 @@ static func _contexts(before: Dictionary, commands: Array, after: Dictionary) ->
 static func _resolved_cue(kind: String, contexts: Array, after: Dictionary, target: String, player: int, area := "core") -> Dictionary:
 	# 同一次响应结算可同时出现冰盾和原法术火伤，分别选择对应的视觉来源。
 	var actions: Array = {
-		"damage": ["phoenix-ignite", "damage-character", "firefly-dual-target", "damage", "damage-self", "damage-enemy-front", "burn-all", "assault", "random-damage", "projectile-displace", "projectile-draw-on-kill"],
-		"guard": ["phoenix-ignite", "damage-character", "firefly-dual-target", "damage", "damage-enemy-front", "burn-all", "assault", "random-damage", "projectile-displace", "projectile-draw-on-kill"],
-		"shield": ["shield", "shield-next-turn", "fortify", "shield-self-player"], "freeze": ["freeze"],
+		"damage": ["shuten-self-damage", "shuten-night-parade", "phoenix-ignite", "damage-character", "firefly-dual-target", "damage", "damage-self", "damage-enemy-front", "burn-all", "assault", "random-damage", "projectile-displace", "projectile-draw-on-kill"],
+		"guard": ["shuten-self-damage", "shuten-night-parade", "phoenix-ignite", "damage-character", "firefly-dual-target", "damage", "damage-enemy-front", "burn-all", "assault", "random-damage", "projectile-displace", "projectile-draw-on-kill"],
+		"shield": ["bingyong-shield", "shield", "shield-next-turn", "fortify", "shield-self-player"], "freeze": ["freeze"],
 		"heal": ["peach-heal", "firefly-light", "heal", "heal-avatar", "heal-characters"], "revive": ["peach-revive", "peach-revive-all", "revive", "revive-all", "countdown-change", "countdown-team-growth"],
-		"form": ["form"], "awaken": ["peach-awaken", "firefly-awaken", "awaken-phoenix", "awaken", "awaken-countdown", "awaken-spell-replay"], "realm": ["realm"],
+		"form": ["form"], "awaken": ["shuten-awaken", "yaodao-awaken", "bingyong-awaken", "peach-awaken", "firefly-awaken", "awaken-phoenix", "awaken", "awaken-countdown", "awaken-spell-replay"], "realm": ["realm"],
 		"seal": ["firefly-flash", "poison-countdown", "apply-brittle", "apply-armor-break", "debuff-stats", "set-attack-zero-this-turn", "assault"],
 		"destroy": ["destroy-enemy-units"],
-		"resource": ["peach-search", "peach-encourage", "firefly-rainbow", "firefly-light", "firefly-dual-target", "draw", "chain-draw", "token-to-hand", "energy-gain", "buff-stats", "origin-shuffle", "focus-draw", "countdown-team-growth", "generate-own-spell"],
+		"resource": ["yaodao-killing-intent", "shuten-howl", "peach-search", "peach-encourage", "firefly-rainbow", "firefly-light", "firefly-dual-target", "draw", "chain-draw", "token-to-hand", "energy-gain", "buff-stats", "origin-shuffle", "focus-draw", "countdown-team-growth", "generate-own-spell"],
 	}.get(kind, [])
 	var context: Dictionary = contexts[0]
 	for candidate in contexts:
@@ -121,10 +126,12 @@ static func _resolved_cue(kind: String, contexts: Array, after: Dictionary, targ
 static func damage_cues(before: Dictionary, after: Dictionary) -> Array:
 	var result: Array = []
 	for entry in rule_changes(before, after):
-		if entry.kind != "damage-resolved": continue
+		if entry.kind not in ["damage-resolved", "combat-damage-resolved", "realm-damage-resolved", "snow-spread", "feather-random-hit", "fox-suzuka-hit", "garuda-feather-hit", "garuda-card-hit", "whale-tooth-hit", "fragrance-projectile", "jorogumo-card-hit", "jorogumo-repeat-hit", "jorogumo-realm-death"]: continue
+		if entry.kind == "fox-suzuka-hit" and ContentLoader.is_spell(entry.card): continue
 		var cue := _cue("guard" if entry.blocked else "damage", entry.card, str(entry.uid), str(entry.target), int(entry.victimPlayer))
 		cue.amount = int(entry.amount)
 		cue.cardId = str(entry.card.get("id", ""))
+		if entry.kind == "combat-damage-resolved": cue.combatStep = int(entry.step)
 		result.append(cue)
 	return result
 
@@ -139,7 +146,7 @@ static func build(before: Dictionary, after: Dictionary, commands: Array) -> Arr
 		var old: Dictionary = before.players[p]
 		var new: Dictionary = after.players[p]
 		for i in new.units.size():
-			var previous: Dictionary = old.units[i]
+			var previous: Dictionary = old.units[i] if i < old.units.size() else new.units[i]
 			var unit: Dictionary = new.units[i]
 			var uid := str(unit.uid)
 			var kinds: Array = []

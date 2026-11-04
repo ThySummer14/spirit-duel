@@ -3,7 +3,7 @@ extends RefCounted
 ## Source-owned spell damage, real avatar-hit history and spell-use abilities.
 
 static func is_source(unit: Dictionary) -> bool:
-	return ContentLoader.unit_def(str(unit.get("id", ""))).get("phoenixSpellTrigger", false)
+	return ContentLoader.runtime_unit_def(unit).get("phoenixSpellTrigger", false)
 
 static func bonus(unit: Dictionary) -> int:
 	return int(unit.get("formRules", {}).get("nonCombatDamageBonus", 0)) if int(unit.get("hp", 0)) > 0 else 0
@@ -54,7 +54,7 @@ static func _projectile(gs, owner: int, src: int, amount: int, pierce: bool) -> 
 		_avatar(gs, owner, src, victim, overflow)
 
 static func card_announced(gs, frame: Dictionary, card: Dictionary) -> void:
-	if card.get("type") != "spell" or gs.winner >= 0: return
+	if not ContentLoader.is_spell(card) or gs.winner >= 0: return
 	var owner := int(frame.playerIndex)
 	var src := int(frame.sourceIndex)
 	var triggers: Array = []
@@ -91,26 +91,27 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 		gs.VerifiedRules.event(gs, "ability-trigger", {"player": owner, "uid": unit.uid, "card": ability, "reason": "使用法术牌"})
 		var previous_context: Dictionary = gs._card_effect_context
 		gs._card_effect_context = {"playerIndex": owner, "sourceIndex": idx, "cardOverride": ability, "affectedUnits": []}
-		_projectile(gs, owner, idx, 1 + bonus(unit), false)
+		gs.VerifiedRules.base_damage_projectile(gs, owner, idx, 1 + bonus(unit), "凤火投射")
 		gs._card_effect_context = previous_context
 		if trigger.has("fortune") and gs.winner < 0:
 			_generate_on_fortune(gs, owner, idx, trigger.fortune)
 	return true
 
 static func _generate_on_fortune(gs, owner: int, src: int, cfg: Dictionary) -> void:
-	var success: bool = gs._roll_fortune(owner, {"fortune": {"sides": 6, "threshold": int(cfg.get("threshold", 4))}})
+	var success: bool = gs._roll_fortune(owner, {"fortuneSourceIndex": src, "fortune": {"sides": 6, "threshold": int(cfg.get("threshold", 4))}})
 	var last: Dictionary = gs.kw_usage(owner, "fortune").last
 	gs.VerifiedRules.event(gs, "phoenix-fortune", {"player": owner, "uid": gs.player(owner).units[src].uid, "roll": last.roll, "success": success})
 	if not success: return
-	var p: Dictionary = gs.player(owner)
-	var card := ContentLoader.card_def(str(cfg.card))
-	if p.hand.size() >= int(gs.rules.maxHandSize):
-		gs._log("手牌已满，获得的「%s」被烧毁。" % card.name, gs.TONE_DANGER)
-		return
-	p.hand.append({"instanceId": "%s-c%d" % [p.id, gs.next_card_id], "definitionId": card.id})
-	gs.next_card_id += 1
-	gs.VerifiedRules.event(gs, "card-generated", {"player": owner, "uid": p.units[src].uid, "card": card})
-	gs._log("%s 的出云获得「%s」。" % [p.units[src].name, card.name], gs.TONE_CARD)
+	for copy in gs.VerifiedRules.Fortune.last_repeats(gs, owner):
+		var p: Dictionary = gs.player(owner)
+		var card := ContentLoader.card_def(str(cfg.card))
+		if p.hand.size() >= int(gs.rules.maxHandSize):
+			gs._log("手牌已满，获得的「%s」被烧毁。" % card.name, gs.TONE_DANGER)
+			return
+		p.hand.append({"instanceId": "%s-c%d" % [p.id, gs.next_card_id], "definitionId": card.id})
+		gs.next_card_id += 1
+		gs.VerifiedRules.event(gs, "card-generated", {"player": owner, "uid": p.units[src].uid, "card": card})
+		gs._log("%s 的出云获得「%s」。" % [p.units[src].name, card.name], gs.TONE_CARD)
 
 static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: Dictionary, target: Dictionary) -> bool:
 	var action := str(effect.get("action", ""))
@@ -120,7 +121,7 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 		gs._grow_unit(unit, int(effect.value.attack), int(effect.value.hp))
 		return true
 	if not card.get("phoenixSpell", false): return false
-	var amount := damage_preview(card, unit)
+	var amount := damage_preview(card, unit) + int(card.get("foxHandDamageBonus", 0))
 	match action:
 		"damage-enemy-front": _projectile(gs, owner, src, amount, true)
 		"damage":

@@ -1,0 +1,60 @@
+{
+  "newMainFaces": [
+    {
+      "id": "c28101",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/281_须佐之男/28101_雷霆万钧_战斗.png",
+      "destination": "godot/assets/official/cards/c28101.png",
+      "sha256": "c0011bb9b138791de39f890958a11504f229aca227eb48add28d5046f1638c0c"
+    },
+    {
+      "id": "c28102",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/281_须佐之男/28102_天威_战斗.png",
+      "destination": "godot/assets/official/cards/c28102.png",
+      "sha256": "47a168354f648982b453ab5acdb1ac8820080cd8935181d946a2b73ea26446a6"
+    },
+    {
+      "id": "c28103",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/281_须佐之男/28103_神之领域_结界.png",
+      "destination": "godot/assets/official/cards/c28103.png",
+      "sha256": "742abd052f56fabc9aa2db3b29760a1acb4d704fd230a4681286b9003617e93d"
+    },
+    {
+      "id": "c28104",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/281_须佐之男/28104_雷奔云谲_战斗.png",
+      "destination": "godot/assets/official/cards/c28104.png",
+      "sha256": "d5c20a6d62cfa5385feea2a5de991b40638c016dc6dd8252dc6c0e29bdec556e"
+    },
+    {
+      "id": "c28105",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/281_须佐之男/28105_神明之护_形态.png",
+      "destination": "godot/assets/official/cards/c28105.png",
+      "sha256": "f74626a4e9ff092557f89bc94b214512f69eefb7023fde78ebcaaacec9487f7b"
+    },
+    {
+      "id": "c28106",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/281_须佐之男/28106_觉醒·须佐之男_法术.png",
+      "destination": "godot/assets/official/cards/c28106.png",
+      "sha256": "d200c3fb942cf246eb06a225b86446d9835f8d2058b79304a2425eb20af07ea7"
+    },
+    {
+      "id": "c28107",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/281_须佐之男/28107_雷切_战斗.png",
+      "destination": "godot/assets/official/cards/c28107.png",
+      "sha256": "ec196ec711f40da2dbf977d19514ca5e927a009866e316f28450080a450c1f78"
+    },
+    {
+      "id": "c28108",
+      "source": "art-reference-official/卡面-按版本/17_鸣雷启蛰/281_须佐之男/28108_天雷万象_形态.png",
+      "destination": "godot/assets/official/cards/c28108.png",
+      "sha256": "de3bbd7425d0a5d890f48571ad737b40508847d02b5bbd8d663e215fdab25edf"
+    }
+  ],
+  "cumulativeMainCharacters": 57,
+  "cumulativeMainFaces": 456,
+  "additionalDollTokens": 3,
+  "cumulativePNGFiles": 459,
+  "missingDerivedOriginalFaces": [
+    "susanoo-tomb"
+  ],
+  "tokenIsRuntimeReplacementNotPlayableHandCard": true
+}

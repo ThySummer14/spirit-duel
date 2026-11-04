@@ -1,0 +1,50 @@
+[
+  {
+    "cardId": "c23901",
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/239_弈/23901_长考_法术.png",
+    "target": "godot/assets/official/cards/c23901.png",
+    "sha256": "86d95ba18684076c19317f93bd80f329ae7e8682fb317bf9cb97be254307910f"
+  },
+  {
+    "cardId": "c23902",
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/239_弈/23902_征子_战斗.png",
+    "target": "godot/assets/official/cards/c23902.png",
+    "sha256": "87c2ca1da87bfb0e7e8ee4b38896e9b8219d61bcf3f6fb6c37291195d08a4442"
+  },
+  {
+    "cardId": "c23903",
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/239_弈/23903_气合_法术.png",
+    "target": "godot/assets/official/cards/c23903.png",
+    "sha256": "89273ceb2b51059c535caf5eb42dd6ae6f12063d8ca8a84a0966b534d6617500"
+  },
+  {
+    "cardId": "c23904",
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/239_弈/23904_神之一手_法术.png",
+    "target": "godot/assets/official/cards/c23904.png",
+    "sha256": "6e6a28a99e3ae7595dfee709c42872e01f360c99ad791aa649f974dfc7d06974"
+  },
+  {
+    "cardId": "c23905",
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/239_弈/23905_觉醒·弈_法术.png",
+    "target": "godot/assets/official/cards/c23905.png",
+    "sha256": "e9c0a574392f5da334c2e76b8d9cfe5cd9c62677def07b7c02fc75320ba67368"
+  },
+  {
+    "cardId": "c23906",
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/239_弈/23906_治孤_法术.png",
+    "target": "godot/assets/official/cards/c23906.png",
+    "sha256": "e16a46f2b384502ec8380991fb914cdffc8f21bcb6a4337aa300d6e3e103bcfd"
+  },
+  {
+    "cardId": "c23907",
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/239_弈/23907_复盘_法术.png",
+    "target": "godot/assets/official/cards/c23907.png",
+    "sha256": "143a6b7aa658913d880b1e3b5c3218a2296f4dbe6296f9e8431bad338f4491e3"
+  },
+  {
+    "cardId": "c23908",
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/239_弈/23908_棋布星罗_形态.png",
+    "target": "godot/assets/official/cards/c23908.png",
+    "sha256": "ed84be0b1dd58c7a4c40e6f2a113a368d87540806d6c21aadb10fc98de272b82"
+  }
+]

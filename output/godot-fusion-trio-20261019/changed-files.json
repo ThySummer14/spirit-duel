@@ -1,0 +1,395 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "status": "modified",
+      "sha256": "cb4420007f18792fa01b98dfaade175d24794d851c032f3a166b1f7cca8363ad",
+      "bytes": 38469
+    },
+    {
+      "path": "godot/README.md",
+      "status": "modified",
+      "sha256": "d5a9ef9ffde57341d190ea4f5a01f63adc8c57cbabc2b13cb62e607d4e8c6de2",
+      "bytes": 42072
+    },
+    {
+      "path": "godot/content/verified_rules.json",
+      "status": "modified",
+      "sha256": "8efb3355518cae53a2b57e33bbb8622c9b83e50288eac64dc26a60a28dfd5444",
+      "bytes": 1017035
+    },
+    {
+      "path": "godot/assets/official/README.md",
+      "status": "modified",
+      "sha256": "fdc620ab2ca2f6ac7ef01071c0e66114dc5c276f2a5783291745ad74a646a01b",
+      "bytes": 2224
+    },
+    {
+      "path": "scripts/godot-verify.sh",
+      "status": "modified",
+      "sha256": "e7f38f0e5210eebaa6c30f8a74e17899cb1198bb8ffc9d33b5d7aaf266eca808",
+      "bytes": 3518
+    },
+    {
+      "path": "godot/scripts/sun_smoke_rules.gd",
+      "status": "modified",
+      "sha256": "2467d2cfd57286cf34450650f4f2a49feaedc05a2651510941a56e7385ff7ce2",
+      "bytes": 24265
+    },
+    {
+      "path": "godot/scripts/paint_rules.gd",
+      "status": "modified",
+      "sha256": "4b6277e9f55552db046dc71076ce70087aa465a6db772be23d3570b53b277ebb",
+      "bytes": 13410
+    },
+    {
+      "path": "godot/scripts/verify_moon_bamboo.gd",
+      "status": "modified",
+      "sha256": "f7d2ed33723d4ab4b3a799f494d2a39892d5ab886b60a16c1a4f673f83cd6047",
+      "bytes": 21863
+    },
+    {
+      "path": "godot/scripts/xuenv_rules.gd",
+      "status": "modified",
+      "sha256": "1dadf2b14a365a9fa30d742e16ebb495306f6c9efd87f0abbe47adc1349c6c98",
+      "bytes": 10422
+    },
+    {
+      "path": "godot/scripts/pine_rules.gd",
+      "status": "modified",
+      "sha256": "9add64d3c71bb8dd1860e2f720210b2e6c13de53474b00d75cc681947ac9e6f9",
+      "bytes": 13095
+    },
+    {
+      "path": "godot/scripts/bamboo_rules.gd",
+      "status": "modified",
+      "sha256": "4690ce5c71ffa96ebe2d62f10708eeb9b7c42ce247db14a7ee37e54010045ace",
+      "bytes": 11523
+    },
+    {
+      "path": "godot/scripts/huang_rules.gd",
+      "status": "modified",
+      "sha256": "f96576fd7974d460a9c9b04870e95642e3ccf1a0f19529ea7c37f0943fbf3731",
+      "bytes": 9967
+    },
+    {
+      "path": "godot/scripts/movement_rules.gd",
+      "status": "modified",
+      "sha256": "a5009f01fe1768c6de98e4dfe64bc4cf760414a6eae74003faab94523794dc84",
+      "bytes": 24291
+    },
+    {
+      "path": "godot/scripts/game_state.gd",
+      "status": "modified",
+      "sha256": "dcfe20342c4084ebc0161d34851624507b92be4560c7b07c92903c7bf0af3300",
+      "bytes": 142694
+    },
+    {
+      "path": "godot/scripts/tomato_fire_rules.gd",
+      "status": "modified",
+      "sha256": "a05da13105e2290a8c8560f753910773e010141a9b40125e284888cb3bb5b30c",
+      "bytes": 20804
+    },
+    {
+      "path": "godot/scripts/verified_card_rules.gd",
+      "status": "modified",
+      "sha256": "363ca7106888464e8bdde520485c8b69bc5a2a7919d177410b05a6146ffb58bc",
+      "bytes": 24142
+    },
+    {
+      "path": "godot/scripts/form_countdown_rules.gd",
+      "status": "modified",
+      "sha256": "e878d855ed1e60ff53f3ec34f833bd73c3527136a6d979ad76bb8c2922e720c0",
+      "bytes": 5449
+    },
+    {
+      "path": "godot/scripts/game_ai.gd",
+      "status": "modified",
+      "sha256": "4d0c4cefb21aa0b2930b4d6f436a27fe4c83624ac6d19b287db02e76a427574a",
+      "bytes": 18419
+    },
+    {
+      "path": "godot/scripts/combat_keyword_rules.gd",
+      "status": "modified",
+      "sha256": "6722895d64e82a5928533942b49268955f8e7f63651b29a6ab61f02c42913f14",
+      "bytes": 7631
+    },
+    {
+      "path": "godot/scripts/ui/battle_status.gd",
+      "status": "modified",
+      "sha256": "6ee5d535bb3cb5556196c3b73107865951db425c96e262fa9d08af16fe49f6cb",
+      "bytes": 44794
+    },
+    {
+      "path": "godot/scripts/ui/card_face.gd",
+      "status": "modified",
+      "sha256": "e49405cfdc560d0fbb1a7589d7229f8341a251fa2f0390c67bc4d649f80f9e09",
+      "bytes": 32468
+    },
+    {
+      "path": "game-content-wave5.js",
+      "status": "modified",
+      "sha256": "3ebb1e12dbe5416af5bcbb529b74f13f9d8ba0802fea8c6681c3ae5b6004b9eb",
+      "bytes": 151809
+    },
+    {
+      "path": "scripts/gen-wave5-content.py",
+      "status": "modified",
+      "sha256": "cb301994a638fa8b59ac9a83461dd85100bbb4c35309990f04b11fe962c866f3",
+      "bytes": 115519
+    },
+    {
+      "path": "godot/content/content.json",
+      "status": "modified",
+      "sha256": "c5d9d32f9ee8e2ae2ac2de1d2a8f389032d58d4b677ede0cd54f28152c529c8b",
+      "bytes": 2746743
+    },
+    {
+      "path": "godot/scripts/enma_rules.gd",
+      "status": "added",
+      "sha256": "6245e39fc6434ee4fed0039c1344d4c4b08045f4d53da7a5602020f20ef97b6d",
+      "bytes": 15211
+    },
+    {
+      "path": "godot/scripts/enma_rules.gd.uid",
+      "status": "added",
+      "sha256": "da5cd88b80b095a0464de647be86ff78dc4e980e8a98cc5f6a7c6bca39500d58",
+      "bytes": 19
+    },
+    {
+      "path": "godot/scripts/puppet_rules.gd",
+      "status": "added",
+      "sha256": "1b918858e75f3179a90363c98bfabd0f1a1de10c048adeabc158908a72e85880",
+      "bytes": 13801
+    },
+    {
+      "path": "godot/scripts/puppet_rules.gd.uid",
+      "status": "added",
+      "sha256": "f3a72e46e497b68a46b006e7d4e72368fbc3082f6bfddcd1ce8284bd925dbae8",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_enma.gd",
+      "status": "added",
+      "sha256": "e7d039024e84a82b75dbf7763cfe0e443064e511b5bef0a5b0bb76fbcf526bc8",
+      "bytes": 19343
+    },
+    {
+      "path": "godot/scripts/verify_enma.gd.uid",
+      "status": "added",
+      "sha256": "8577beed785670457dc8e0819f0af89f6f001dad6f53b0e4c75cfd13f8d83134",
+      "bytes": 19
+    },
+    {
+      "path": "godot/scripts/verify_fusion_trio.gd",
+      "status": "added",
+      "sha256": "d9f9c18b4c123c1b0cbb8f49d29870a21375a4ccf19a05e1ab8393c52532fda2",
+      "bytes": 5028
+    },
+    {
+      "path": "godot/scripts/verify_fusion_trio.gd.uid",
+      "status": "added",
+      "sha256": "d26163db9f53ae9f35ebe34a335ac56b7487c14cb27c4eb248636fc8c12fa48d",
+      "bytes": 19
+    },
+    {
+      "path": "godot/scripts/verify_puppet.gd",
+      "status": "added",
+      "sha256": "c229d6e2aaf62e7822b18b0caea1f7f2828ac51b8a547f6a76facde01c72a976",
+      "bytes": 14281
+    },
+    {
+      "path": "godot/scripts/verify_puppet.gd.uid",
+      "status": "added",
+      "sha256": "b186ec1d3caa2e6a2d0613040fe2a716178282ee0b5b19ec8350a8c6e44aea41",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/verify_weaver.gd",
+      "status": "added",
+      "sha256": "e117ea47fd8e2542aaea7586010f566743a192a9bd43274c74e8dab449428a0d",
+      "bytes": 20444
+    },
+    {
+      "path": "godot/scripts/verify_weaver.gd.uid",
+      "status": "added",
+      "sha256": "c9cbdb332a1c93ea1e8d686b32583683eb81ab0fd956fe0cf3f0ca046e7ae13c",
+      "bytes": 20
+    },
+    {
+      "path": "godot/scripts/weaver_rules.gd",
+      "status": "added",
+      "sha256": "1995321e1d7e35942fe7408d773e346859c22f44ac476da1661d1bb9dc103933",
+      "bytes": 18262
+    },
+    {
+      "path": "godot/scripts/weaver_rules.gd.uid",
+      "status": "added",
+      "sha256": "e475d50f79ce9769792fce9cc9e53cba8d4fef51bbf8c7f8e601e13a4697e38f",
+      "bytes": 20
+    },
+    {
+      "path": "research-notes/62-fusion-trio-rules.md",
+      "status": "added",
+      "sha256": "f47787533b9ffd052915cad2aa19781472de473297557a179357c3001a1ddc52",
+      "bytes": 5773
+    }
+  ],
+  "textFileCount": 39,
+  "newScripts": [
+    "godot/scripts/enma_rules.gd",
+    "godot/scripts/puppet_rules.gd",
+    "godot/scripts/verify_enma.gd",
+    "godot/scripts/verify_fusion_trio.gd",
+    "godot/scripts/verify_puppet.gd",
+    "godot/scripts/verify_weaver.gd",
+    "godot/scripts/weaver_rules.gd"
+  ],
+  "newOriginalPNGs": [
+    {
+      "card": "c23001",
+      "path": "godot/assets/official/cards/c23001.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23001_夺魂_法术.png",
+      "sha256": "f9aa12eff77826c3d3bba2362bb0ff0ab6127b1fa615499481edae90e94d1a6a"
+    },
+    {
+      "card": "c23002",
+      "path": "godot/assets/official/cards/c23002.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23002_阎魔之目_形态.png",
+      "sha256": "08ec5935d628df0e2f712d4ae81c31447414e5460e01845b692409c7c45a333f"
+    },
+    {
+      "card": "c23003",
+      "path": "godot/assets/official/cards/c23003.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23003_业镜_结界.png",
+      "sha256": "476d79076d04f4afbb23a0992bea0684456c05d30f827803015eca21e9eb789f"
+    },
+    {
+      "card": "c23004",
+      "path": "godot/assets/official/cards/c23004.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23004_审判之司_形态.png",
+      "sha256": "7e5a25bb4cb54d9ac7c2fc6c52ed3aa6570fc470f11bcfedac4221b626c6faa7"
+    },
+    {
+      "card": "c23005",
+      "path": "godot/assets/official/cards/c23005.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23005_怨魂重压_法术.png",
+      "sha256": "02228e1076069a64aa28e1c45ab9c348d3220f856e451f3d583c6e689e4ea354"
+    },
+    {
+      "card": "c23006",
+      "path": "godot/assets/official/cards/c23006.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23006_觉醒·阎魔_法术.png",
+      "sha256": "b7cf0c0bd492dc947d6a2114d4c1e0ec6455920fa9d3fb554f3f8a7a4134363c"
+    },
+    {
+      "card": "c23007",
+      "path": "godot/assets/official/cards/c23007.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23007_慈爱之惠_形态.png",
+      "sha256": "169625f97f457b10330021ca2048f373b52d3e169d423ce0790b3a366bf13154"
+    },
+    {
+      "card": "c23008",
+      "path": "godot/assets/official/cards/c23008.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/230_阎魔/23008_冥府之主_形态.png",
+      "sha256": "6bdbbc375b53510ae84d88246424433d2edaa49dc6032a20b133cd20e1256784"
+    },
+    {
+      "card": "c23101",
+      "path": "godot/assets/official/cards/c23101.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23101_布线_法术.png",
+      "sha256": "cf8056c4356022effb78314cd08c752fcfe500d49461e411c8c4dc0c8e9806d5"
+    },
+    {
+      "card": "c23102",
+      "path": "godot/assets/official/cards/c23102.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23102_机关·傀儡术_形态.png",
+      "sha256": "fa660623d6bd1880531a9286730869416fb1de7d8ec3a9b8d4504920adb21f39"
+    },
+    {
+      "card": "c23103",
+      "path": "godot/assets/official/cards/c23103.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23103_庇护·傀儡术_形态.png",
+      "sha256": "ac2270d2bc30da02d8609d05f6292af1acc32e411cce35a3795e4cba55d97d2f"
+    },
+    {
+      "card": "c23104",
+      "path": "godot/assets/official/cards/c23104.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23104_操控·傀儡术_形态.png",
+      "sha256": "bfdb8852755ec64d39be6e6800808c28d2fbc261854f68910abae6f2de768d55"
+    },
+    {
+      "card": "c23105",
+      "path": "godot/assets/official/cards/c23105.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23105_出击·傀儡术_形态.png",
+      "sha256": "591c2a9245d35e86f4d1b4875a8ccb1bede1b47fad6d7f8d89e51eba2118f9eb"
+    },
+    {
+      "card": "c23106",
+      "path": "godot/assets/official/cards/c23106.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23106_觉醒·傀儡师_法术.png",
+      "sha256": "270a9d1c727ef77e6d1094560479c60fbb40dd3f9e6fc90fe11ec243a4b24a6d"
+    },
+    {
+      "card": "c23107",
+      "path": "godot/assets/official/cards/c23107.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23107_牵丝_法术.png",
+      "sha256": "a214b701a5748f76fb49aafec3a1c6370d78973184efb5bd9485be7f32ad0d00"
+    },
+    {
+      "card": "c23108",
+      "path": "godot/assets/official/cards/c23108.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/231_傀儡师/23108_同心·傀儡术_形态.png",
+      "sha256": "81e77b91ae7000670d49f2649fa4427b640e348a0dd20263f79c9156d44974ab"
+    },
+    {
+      "card": "c23601",
+      "path": "godot/assets/official/cards/c23601.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23601_哀恸_法术.png",
+      "sha256": "599201d63f4f7ff3b35876786a05284d10337df1a60f3677e8db2d97a9c88134"
+    },
+    {
+      "card": "c23602",
+      "path": "godot/assets/official/cards/c23602.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23602_相合伞_法术.png",
+      "sha256": "99f51e986a22533de391ae05aa5abb0a63e958fc7ea6c27c16118aa229488f9e"
+    },
+    {
+      "card": "c23603",
+      "path": "godot/assets/official/cards/c23603.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23603_粉妆_法术.png",
+      "sha256": "e83595f9e14105da6502f1c264f58bee024b06a8699049c76ed579d465fe8804"
+    },
+    {
+      "card": "c23604",
+      "path": "godot/assets/official/cards/c23604.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23604_纳棺人_形态.png",
+      "sha256": "03787c832bc3ab3d805d53f247c8098b536fa869ab469c223198893c6eea5b26"
+    },
+    {
+      "card": "c23605",
+      "path": "godot/assets/official/cards/c23605.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23605_觉醒·入殓师_法术.png",
+      "sha256": "84396fd49f2f52b0bffaef9873ac70813ad3a1f370395df0804cbe7b6735fb03"
+    },
+    {
+      "card": "c23606",
+      "path": "godot/assets/official/cards/c23606.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23606_离魂_法术.png",
+      "sha256": "c31a10beec145eaacd6a63c75b36efa12aa203f1cd424595a178d1cd8ddd7ca1"
+    },
+    {
+      "card": "c23607",
+      "path": "godot/assets/official/cards/c23607.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23607_葬仪_法术.png",
+      "sha256": "c34f2f16078c260688a358e4807d74b44eefd0e5fb6bf5b0f6c34203276a00ba"
+    },
+    {
+      "card": "c23608",
+      "path": "godot/assets/official/cards/c23608.png",
+      "original": "art-reference-official/卡面-按版本/11_繁花入梦/236_入殓师/23608_荼蘼盛放之棺_法术.png",
+      "sha256": "93dfaa309f17463deb68d627191cf6dc191b3525d0188aef310ca9cf57c6d285"
+    }
+  ],
+  "baselineNote": "content.json基线由本批新增的唯一尾部觉醒token移除重建；其余基线为本批首次编辑前直接复制。未变化基线在收尾时清理。"
+}

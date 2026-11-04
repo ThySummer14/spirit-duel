@@ -1,0 +1,19 @@
+{
+  "README.md": "0c883bcf5417957c5e1171d8c125ca5ed5d2e70f26fecbd524825f96afbec8ac",
+  "godot/README.md": "fb01746be5b30df3e64503772ba2613b17e7c991326232a1eb9ca69848a200cc",
+  "godot/assets/official/README.md": "ad44427890ac502ca817e439f61a7670c453646f733c33e1a39d958bfe55feab",
+  "godot/content/verified_rules.json": "6884a303aa7df0ff4d524e02b2c3d8e78cd6256b73fa8bda81c5eec1948f21d1",
+  "godot/scripts/game_state.gd": "10bc127e76638caed070f92c2aec1f6128db9096e2ed9dfee1272fbc5a1d1fb5",
+  "godot/scripts/verified_card_rules.gd": "84055d9dac1cb6a7aafd507738f1993b441b1b002806ed712f5950a0dd00765d",
+  "godot/scripts/battle_skill_rules.gd": "906b067eeae85782e8771cca08d8299ad9b5f0aa47861f7e376da9080c9b399f",
+  "godot/scripts/tomato_fire_rules.gd": "874bd74331b7eabb83f9f6711167ed38f4fb5b5040eb0606094c982a2af0558b",
+  "godot/scripts/game_ai.gd": "773aae58aca32ccd2a6278b31845435dc350abb0c13acdac92b58cee72cca337",
+  "godot/scripts/form_countdown_rules.gd": "e878d855ed1e60ff53f3ec34f833bd73c3527136a6d979ad76bb8c2922e720c0",
+  "godot/scripts/sparrow_rules.gd": "689c40d1e26f09a8d0de425ccc1129d67000afb6ec635a885a3686172957c090",
+  "godot/scripts/pipe_fox_rules.gd": "ef2580cf339e1f5a222e96326b2756eaf45ada3666d16ed5389fa5daaa89c0e2",
+  "godot/scripts/moon_rules.gd": "b177bd398d8061f8089a9865a8cd6f5d581bfdf1a70f907369dc6d8cb1531aba",
+  "godot/scripts/ui/battle_status.gd": "a551cf0ccf7c5344dffefe2933b0948e1a621e3ec87c7ca099a36811922cf0ea",
+  "godot/scripts/ui/keyword_glossary.gd": "50717d39cc46c8d7377eb3d6d56c6f1a6b1decf0e4b9e994057c9788d84ac86b",
+  "scripts/godot-verify.sh": "2f9929badbdec539fa63770ef8163955a19d18d033c5716f16298b5da176c984",
+  "godot/scripts/ui/battle_effect_cues.gd": "1f073f4b5d1be1aed7a0ae454f90a5fa0ee211e9234b46801c8e996350d0ea92"
+}

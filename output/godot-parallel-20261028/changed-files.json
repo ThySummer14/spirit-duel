@@ -1,0 +1,422 @@
+[
+  {
+    "path": "README.md",
+    "before": "fa006ab93c72a357f4e6ecd053d0c16f8ba30b8b18dbe011d46647844dd6c454",
+    "after": "5b307d81e9935e04edb31494484853016d1f38538f812b229273936a604595d4"
+  },
+  {
+    "path": "godot/README.md",
+    "before": "c5cd77eaf3d5f2eb0564f786c818c7c62a10c960d79b12a23e1f560bf93a5604",
+    "after": "3e267d40e45462c9214d41c888be484711c6ea643ea749561dcfa27a4eec5699"
+  },
+  {
+    "path": "godot/assets/official/cards/c23801.png",
+    "before": null,
+    "after": "70408b15431fcb49d97230e8ec6917f9f436c1c88cda5cf52ce9921bc5e49508"
+  },
+  {
+    "path": "godot/assets/official/cards/c23802.png",
+    "before": null,
+    "after": "a1d92324aecc9f02fd031f594e71d27f64d96f8d0ccff8fd43a04b57fdd8a737"
+  },
+  {
+    "path": "godot/assets/official/cards/c23803.png",
+    "before": null,
+    "after": "66719b7d104d315181ce1a23b53646367e39f69a40b6b5c4756c933959f0f389"
+  },
+  {
+    "path": "godot/assets/official/cards/c23804.png",
+    "before": null,
+    "after": "e7ea7fc33478dfdef3f27b3b553a4754f4168a20d8b4045d60b7b39eda3f3dc3"
+  },
+  {
+    "path": "godot/assets/official/cards/c23805.png",
+    "before": null,
+    "after": "d8c62d62e5974b7edabe20696fad83571b60f1d8e61b25289ee09c40619bae28"
+  },
+  {
+    "path": "godot/assets/official/cards/c23806.png",
+    "before": null,
+    "after": "9951accff808875bb374dbe04aff09c0ac098298258851a7ac3db0677e155054"
+  },
+  {
+    "path": "godot/assets/official/cards/c23807.png",
+    "before": null,
+    "after": "7fd0765d07200fe62d97075ba09deb3268cbc5e34cf3abb4032a86a200c0134e"
+  },
+  {
+    "path": "godot/assets/official/cards/c23808.png",
+    "before": null,
+    "after": "19e5e787bdf6947c081b22100adfde8da83b0aafc4aee1ae939393f1de4b8ea9"
+  },
+  {
+    "path": "godot/assets/official/cards/c24001.png",
+    "before": null,
+    "after": "68f0b4a180cd89e12713fc5a4dd23818837d8780de56542c30fbe32d29bea2e1"
+  },
+  {
+    "path": "godot/assets/official/cards/c24002.png",
+    "before": null,
+    "after": "466fae7d1580ba9d593ed11120cac0e28b37bdd14325f261709640e38dc86480"
+  },
+  {
+    "path": "godot/assets/official/cards/c24003.png",
+    "before": null,
+    "after": "5a8c93812eb315f0bea069f2e43f7142d3303b2e1aa7652e3b3ae09c5dac3f35"
+  },
+  {
+    "path": "godot/assets/official/cards/c24004.png",
+    "before": null,
+    "after": "ced27e84b93564644bb550848678fc760eeb28ac3b446ff0f4ca995f261eeca4"
+  },
+  {
+    "path": "godot/assets/official/cards/c24005.png",
+    "before": null,
+    "after": "042bab0fdcaad9fee82ae0529bcc4e959beb7b05f20c6125e65829dac0bb70b2"
+  },
+  {
+    "path": "godot/assets/official/cards/c24006.png",
+    "before": null,
+    "after": "797a2c3169b2b13f297a16225ef1fb5e1eb7ca75eceeacf9262e575b569925ba"
+  },
+  {
+    "path": "godot/assets/official/cards/c24007.png",
+    "before": null,
+    "after": "e93882408a18f8e19203e2538f06893b2e9311090f9016755eded69766ddc984"
+  },
+  {
+    "path": "godot/assets/official/cards/c24008.png",
+    "before": null,
+    "after": "320fb6e3dae32e6c0fd75fef82e49c25c47a74c0eeb4c827949c7ba5dc112e9d"
+  },
+  {
+    "path": "godot/assets/official/cards/c24101.png",
+    "before": null,
+    "after": "6dfc7124665f9f407beedf4914d0a21d68cb4c12c46f2dc74b9547bba644368e"
+  },
+  {
+    "path": "godot/assets/official/cards/c24102.png",
+    "before": null,
+    "after": "75a2cd39b8e52ee9b05a9e9321096714a755816e930fff5f25a307315ed1763e"
+  },
+  {
+    "path": "godot/assets/official/cards/c24103.png",
+    "before": null,
+    "after": "db274caf971c238bb7fc1d1053fe0e84889eb88ed5aad95e40c693f48a5082d7"
+  },
+  {
+    "path": "godot/assets/official/cards/c24104.png",
+    "before": null,
+    "after": "04440e2a327e8625e426d2de84890049930f196d27311e3d8da92e20afd8b49d"
+  },
+  {
+    "path": "godot/assets/official/cards/c24105.png",
+    "before": null,
+    "after": "4320a5c29abe178a31b36707b8757e2c0a73f2f3d9320574bdbe50599fa093cc"
+  },
+  {
+    "path": "godot/assets/official/cards/c24106.png",
+    "before": null,
+    "after": "76f880c9fad33b43973dacaae5bd4e94df281a746de63a802683e81c350b4356"
+  },
+  {
+    "path": "godot/assets/official/cards/c24107.png",
+    "before": null,
+    "after": "7ceca13b5ff9a63b7df2bedcf9e3e7c5bd702874674913982f499b039bcd4013"
+  },
+  {
+    "path": "godot/assets/official/cards/c24108.png",
+    "before": null,
+    "after": "2ae0bfe1a3bd9003c4e924006d1d7c9cd3031ee062dab55d2713c80406040c23"
+  },
+  {
+    "path": "godot/assets/official/cards/c24301.png",
+    "before": null,
+    "after": "f9d09f04258a4d3f611783af31bf5bd2d2b2a3e6488145ace48ae39912fbc6c8"
+  },
+  {
+    "path": "godot/assets/official/cards/c24302.png",
+    "before": null,
+    "after": "f547b29b73fc0398841268558259bf6bbf6aefab90feafade86f919624477614"
+  },
+  {
+    "path": "godot/assets/official/cards/c24303.png",
+    "before": null,
+    "after": "f7255b74cacdecb99b5d0d24dc1a25c79a3f55d839f1f983be54cca5d62ece52"
+  },
+  {
+    "path": "godot/assets/official/cards/c24304.png",
+    "before": null,
+    "after": "eab857ab7ddf755f970bf6bf4f5f7f601403b0ccfb8e7a748536c744a75811fa"
+  },
+  {
+    "path": "godot/assets/official/cards/c24305.png",
+    "before": null,
+    "after": "958c470b58bed08db68a2c139ad907549cc37f173f02ab8295c58b513f377060"
+  },
+  {
+    "path": "godot/assets/official/cards/c24306.png",
+    "before": null,
+    "after": "17dc117df746e8f9a33b30514925d8b150c491db3a9fcf688acaeb2284bbf6d2"
+  },
+  {
+    "path": "godot/assets/official/cards/c24307.png",
+    "before": null,
+    "after": "575c96ef3f1f28254ad3a00c65b90146f7ea0a7e08e64476cd4337812903616b"
+  },
+  {
+    "path": "godot/assets/official/cards/c24308.png",
+    "before": null,
+    "after": "924512aa45765370b42193fad0fc3730d35c7ef2884401823a28866e2cf12ec9"
+  },
+  {
+    "path": "godot/assets/official/cards/c29501.png",
+    "before": null,
+    "after": "d909a4b58bfe0d745624932d6752648382c51f0a06d7803bf844fbd45cf0ea32"
+  },
+  {
+    "path": "godot/assets/official/cards/c29502.png",
+    "before": null,
+    "after": "67945dc65b84f3b4d749f15bec7c111c2624a7301383af19b09b0ecb675be84a"
+  },
+  {
+    "path": "godot/assets/official/cards/c29503.png",
+    "before": null,
+    "after": "7cfee8d6267003774323f0fe2b4ef64df3d7a64a373c6b286d4030c9606f8d79"
+  },
+  {
+    "path": "godot/assets/official/cards/c29504.png",
+    "before": null,
+    "after": "f9f38490ae6f3c0a0e87e1efa0c2eb1cda05a970708b9cbc23954c729472e89a"
+  },
+  {
+    "path": "godot/assets/official/cards/c29505.png",
+    "before": null,
+    "after": "f9bbaa1da7f6e2afa20423ed059bdd2345608c034313ace9a9eedd03c4dbc529"
+  },
+  {
+    "path": "godot/assets/official/cards/c29506.png",
+    "before": null,
+    "after": "b03238451b22b0240d49b28e6db3f321d38c7e78e1dcde482751d5b253c8cfe0"
+  },
+  {
+    "path": "godot/assets/official/cards/c29507.png",
+    "before": null,
+    "after": "dc7d2e5e8f28ecc6e7aacd8e27b7603e7ff62ca737c7106f47371e199a3184e3"
+  },
+  {
+    "path": "godot/assets/official/cards/c29508.png",
+    "before": null,
+    "after": "13828bfef84f01f94498e3bec2ad78adc5c0339328756af146a3e7903704ada3"
+  },
+  {
+    "path": "godot/content/verified_rules.json",
+    "before": "efee0f459c783bff1f306b9b442f0a45750630b570205719c4f3e27e610f6456",
+    "after": "3f04fb6e3e272cc4ef073698768281fa2f475279bf6f6d3948173d66e7733314"
+  },
+  {
+    "path": "godot/scripts/black_white_rules.gd",
+    "before": null,
+    "after": "2ffb1f49b765f535314e720b660ad3ac77eb46791a43206bfb8241c2d6564fef"
+  },
+  {
+    "path": "godot/scripts/black_white_rules.gd.uid",
+    "before": null,
+    "after": "a5d588b3426de1cc14bdad6ef45965da63b53ddec16b955be988d7322116fdf2"
+  },
+  {
+    "path": "godot/scripts/box_maiden_rules.gd",
+    "before": null,
+    "after": "c38142c183e8d59b5d86bc73bba37114250aad9c8c35b30ef4986406f8eb9341"
+  },
+  {
+    "path": "godot/scripts/box_maiden_rules.gd.uid",
+    "before": null,
+    "after": "4a780873a0f9b9cb8022406fcd0396c7265edee24b56117c691a91547a23a63e"
+  },
+  {
+    "path": "godot/scripts/combat_keyword_rules.gd",
+    "before": "a2faf1827fa5c849d92a343a3e7ca91d3f0351372089aaa458db452c11b07949",
+    "after": "8a3ee1a2b8da4083144ddb0613edbc6a6ac2d30942706277e2b06afe0fbc05e3"
+  },
+  {
+    "path": "godot/scripts/focus_rules.gd",
+    "before": null,
+    "after": "b06b4ce119868701914440eccdb420e39ab47c864423f780bf5a617180e1e327"
+  },
+  {
+    "path": "godot/scripts/focus_rules.gd.uid",
+    "before": null,
+    "after": "247342e2698a9a163383fa418997f38c11341842a1a887d595cebd97b6049f08"
+  },
+  {
+    "path": "godot/scripts/fortune_pair_rules.gd",
+    "before": "66b70568e7a140897582dbf307e4e1c2c149ec33677a665b4ed69ac75f8f061d",
+    "after": "c8cf330010448d926fca797b1a110ae3bf7735a6fa1886c6822a17ea9763c38b"
+  },
+  {
+    "path": "godot/scripts/futakuchi_rules.gd",
+    "before": null,
+    "after": "101aac8ead350206783b055d510fd110f8640cf3f398a4997b6c8d71e10e6791"
+  },
+  {
+    "path": "godot/scripts/futakuchi_rules.gd.uid",
+    "before": null,
+    "after": "af6bbd1c1128b95128aa2a7ad6ea7ec520edc2f99bbe8a192f28d3bd8b27c574"
+  },
+  {
+    "path": "godot/scripts/game_ai.gd",
+    "before": "a3d5b2af9ddb54d69bf4b73c3363eeea70dd0fb3ce2912fa01a2c6ce6cbff291",
+    "after": "9413cd3ead5655217d8c11ae6b49e4f0e89849f91836052c11620c2074cb3ab2"
+  },
+  {
+    "path": "godot/scripts/game_state.gd",
+    "before": "4dd9df92cbf295381aa824ac3bbf8046db5f4d073ece3f36789a5f7842cac7fd",
+    "after": "9089ef87379629571617e577b384d83444518eecf1545deac907738165f10e27"
+  },
+  {
+    "path": "godot/scripts/lantern_rules.gd",
+    "before": "6c7a8eb118c1fe96dacf602c68ab95d8a8b5da5b2b9a2ccfe5039e78c62894ba",
+    "after": "6b4f68787317514ad37340c5d03b8935e70465c536cfbdb5f5860f18cf17274d"
+  },
+  {
+    "path": "godot/scripts/link_rules.gd",
+    "before": null,
+    "after": "ff98b664280ca7e0910a271f10801f85b8178829a6ab49ec16b51f07f1a69fce"
+  },
+  {
+    "path": "godot/scripts/link_rules.gd.uid",
+    "before": null,
+    "after": "7e7c6ac45738da541cb00284a4b18da280828dc57969c95c2e179ad44170c48b"
+  },
+  {
+    "path": "godot/scripts/movement_rules.gd",
+    "before": "db23a26f743b834a1d91ed2caf99ef56905ea47513bbcce536bf0a8a1ac73dfc",
+    "after": "a8e429640f79431214b4a62d0aaf10de6d6626706f25a585b915f29bd9c0583b"
+  },
+  {
+    "path": "godot/scripts/sparrow_rules.gd",
+    "before": "3188d42675350b9a19b5906bdeaa28374c77852a625299496c95c921a139a87b",
+    "after": "f64106cc6590a90cf4888e172eef33967c24be0c76631c379c41d5c32e15619a"
+  },
+  {
+    "path": "godot/scripts/spider_lily_rules.gd",
+    "before": "c1136aa0a2662e7719b27a359fe73afe7f7767f92d1f92dbe4a588330c8702e9",
+    "after": "842d11ac1920f95cdc1fd94083416a4b20be0e566c842583f5301399a3ee43e3"
+  },
+  {
+    "path": "godot/scripts/sun_smoke_rules.gd",
+    "before": "3e63ef5cecdc8c13c617f54f32e342e805c85d7d61676f7ff3edeef122f0e9a9",
+    "after": "03f9f6e9c70420b229ed2ad83193925f7f3f9748593c885db866e8865abbea85"
+  },
+  {
+    "path": "godot/scripts/two_faces_rules.gd",
+    "before": null,
+    "after": "a871c86bf9dd88c68a3bedbb5105ecf83655af943a9294362a958f024664608a"
+  },
+  {
+    "path": "godot/scripts/two_faces_rules.gd.uid",
+    "before": null,
+    "after": "761d41b1f87e7e69d43283c2c727b6121a4214431e36b75f275a9a8e08881306"
+  },
+  {
+    "path": "godot/scripts/ui/battle_screen.gd",
+    "before": "92a37870412e3926d3a3f1784ecc980744368ff8cbf6a2b4dd880459a978c221",
+    "after": "c3df1c17b7dde1ad76647088508b046c9d15cca12825d1073ffe8b8c05838419"
+  },
+  {
+    "path": "godot/scripts/ui/battle_status.gd",
+    "before": "8db5e7983d9e9bbbed4341d4969f03da6b140d5652881364fd5442fcfd597940",
+    "after": "3dea1b522db04aa3c0eba721ad1a868fb00eb28653090af078450d96690f994f"
+  },
+  {
+    "path": "godot/scripts/ui/keyword_glossary.gd",
+    "before": "fb19fe975f68323b115fa63c1261bb5873ed1e3d5c6262f8336708824c4cd15e",
+    "after": "140ff8101913940c0e8351f2382dd2e258cf439848589decf98d1760ab576e2d"
+  },
+  {
+    "path": "godot/scripts/verified_card_rules.gd",
+    "before": "218e8c118af9b4121b621ae51f6bcc852e715b6b3a26387eb09a60acd5358195",
+    "after": "be0f2dfed3cc5d0266523d16d80c8d23b6c317f762c572e09005d273aaecdc0f"
+  },
+  {
+    "path": "godot/scripts/verify_black_white.gd",
+    "before": null,
+    "after": "e1dec411fbd60e8f28aef8f68d8120aa352771a9928af9693437a2934f3638a5"
+  },
+  {
+    "path": "godot/scripts/verify_black_white.gd.uid",
+    "before": null,
+    "after": "c4dede85546d94386a195e762dce133b697f1e5f516357b749eec441126b417a"
+  },
+  {
+    "path": "godot/scripts/verify_box_maiden.gd",
+    "before": null,
+    "after": "89e2e8f4e29f1fbb66e87df1cfbebe23f8da3cc6edc8f7a15c3949e94e85348e"
+  },
+  {
+    "path": "godot/scripts/verify_box_maiden.gd.uid",
+    "before": null,
+    "after": "0a8032911c2189b6ec04e114224578962275be53a69b370adcf156ad09dce8d9"
+  },
+  {
+    "path": "godot/scripts/verify_futakuchi.gd",
+    "before": null,
+    "after": "15be3685f54d9e8ccaee72b12cdce2e7c87be60c6f9205d519dee491918b00fd"
+  },
+  {
+    "path": "godot/scripts/verify_futakuchi.gd.uid",
+    "before": null,
+    "after": "593b548b4e2ec0362f9a2d4e34d619df95242dcc7dbd63c12a0a304252c668b0"
+  },
+  {
+    "path": "godot/scripts/verify_link_cross.gd",
+    "before": null,
+    "after": "140af7c5d5148119632b94939fa8c405fee05cf80c7a9a581b0edc159994b754"
+  },
+  {
+    "path": "godot/scripts/verify_link_cross.gd.uid",
+    "before": null,
+    "after": "d3bce162ac29328d71f46db4ae231e3f1fb0b5d1d164d58bf923b96746c13705"
+  },
+  {
+    "path": "godot/scripts/verify_two_faces.gd",
+    "before": null,
+    "after": "d8890b195a1ca040ca95f9581b81627af15578a2daf2aacaf71c634c28fec5c8"
+  },
+  {
+    "path": "godot/scripts/verify_two_faces.gd.uid",
+    "before": null,
+    "after": "ac71bea81571d7068ae5e0f5d584904e44bec95ba18cd225d0f8f8012bb26f7e"
+  },
+  {
+    "path": "godot/scripts/weaver_rules.gd",
+    "before": "312f0402297835ed4892b231a91f8a1c6693f0ca6bffad2392e8cbc4a4ccfee8",
+    "after": "d3262b99d6eac621659b17fe16f2c71be5f1e42a540a0d1c9bfe046e866be407"
+  },
+  {
+    "path": "research-notes/81-futakuchi-rules.md",
+    "before": null,
+    "after": "e55550d4d48a6535abc9e0cd0c9c83a8a4288c332194bc4dc0d91472c2013e89"
+  },
+  {
+    "path": "research-notes/82-black-white-rules.md",
+    "before": null,
+    "after": "d527c8585733621d1033e3343c4b808d2eddbadede0bb24471aa097f6f56c2f5"
+  },
+  {
+    "path": "research-notes/83-two-faces-rules.md",
+    "before": null,
+    "after": "8d7f50d8acb117dcfb0b9ddc9f8a2d60ec311ce2ffc055dd634a8235e8911d03"
+  },
+  {
+    "path": "research-notes/84-box-maiden-rules.md",
+    "before": null,
+    "after": "c8f341c39b648efe4509469eb09a807fb931320eecaf3b63f9488aab188d1bd6"
+  },
+  {
+    "path": "scripts/godot-verify.sh",
+    "before": "7f4cff099316f68b8563765602e5e8898e99a5a9ea34dd663f1cf5be9fee4b26",
+    "after": "c674f771f1b69063511c50cd5d1c4a3bdaee87d3086824bf97069738b75cbb80"
+  }
+]

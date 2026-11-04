@@ -1,0 +1,187 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== godot import assets ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 项目初始化 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 正在扫描文件结构……[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 正在加载全局类名……[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | 正在校验 GDExtension……[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 正在创建自动加载脚本……[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 正在初始化插件……[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 正在启动文件扫描……[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 正在注册全局类…… (20 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   4% ] [90m[1mupdate_scripts_classes[22m | BattleScreen[39m[0m
+[   9% ] [90m[1mupdate_scripts_classes[22m | BattleStatus[39m[0m
+[  14% ] [90m[1mupdate_scripts_classes[22m | CombatKeywordRules[39m[0m
+[  19% ] [90m[1mupdate_scripts_classes[22m | DogDemonRules[39m[0m
+[  23% ] [90m[1mupdate_scripts_classes[22m | FormCountdownRules[39m[0m
+[  28% ] [90m[1mupdate_scripts_classes[22m | GameAI[39m[0m
+[  33% ] [90m[1mupdate_scripts_classes[22m | GameState[39m[0m
+[  38% ] [90m[1mupdate_scripts_classes[22m | HaifangzhuRules[39m[0m
+[  42% ] [90m[1mupdate_scripts_classes[22m | LightHealerRules[39m[0m
+[  47% ] [90m[1mupdate_scripts_classes[22m | PeachRules[39m[0m
+[  52% ] [90m[1mupdate_scripts_classes[22m | StunRules[39m[0m
+[  57% ] [90m[1mupdate_scripts_classes[22m | VerifiedCardRules[39m[0m
+[  61% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  66% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  71% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  76% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  80% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  85% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  90% ] [90m[1mupdate_scripts_classes[22m | XuenvRules[39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started 正在扫描动作…… (78 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | attack.wav[39m[0m
+[   1% ] [90m[1m_update_scan_actions[22m | bgm_battle.wav[39m[0m
+[   2% ] [90m[1m_update_scan_actions[22m | bgm_menu.wav[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | card_draw.wav[39m[0m
+[   5% ] [90m[1m_update_scan_actions[22m | card_hover.wav[39m[0m
+[   6% ] [90m[1m_update_scan_actions[22m | card_play.wav[39m[0m
+[   7% ] [90m[1m_update_scan_actions[22m | core_hit.wav[39m[0m
+[   8% ] [90m[1m_update_scan_actions[22m | defeat.wav[39m[0m
+[  10% ] [90m[1m_update_scan_actions[22m | error.wav[39m[0m
+[  11% ] [90m[1m_update_scan_actions[22m | heal.wav[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | hit.wav[39m[0m
+[  13% ] [90m[1m_update_scan_actions[22m | knockout.wav[39m[0m
+[  15% ] [90m[1m_update_scan_actions[22m | level_up.wav[39m[0m
+[  16% ] [90m[1m_update_scan_actions[22m | purchase.wav[39m[0m
+[  17% ] [90m[1m_update_scan_actions[22m | reveal.wav[39m[0m
+[  18% ] [90m[1m_update_scan_actions[22m | reveal_ssr.wav[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | shield.wav[39m[0m
+[  21% ] [90m[1m_update_scan_actions[22m | turn_end.wav[39m[0m
+[  22% ] [90m[1m_update_scan_actions[22m | turn_start.wav[39m[0m
+[  24% ] [90m[1m_update_scan_actions[22m | ui_click.wav[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | ui_hover.wav[39m[0m
+[  26% ] [90m[1m_update_scan_actions[22m | victory.wav[39m[0m
+[  27% ] [90m[1m_update_scan_actions[22m | wuchen.png[39m[0m
+[  29% ] [90m[1m_update_scan_actions[22m | xieenv.png[39m[0m
+[  30% ] [90m[1m_update_scan_actions[22m | xunxiangxing.png[39m[0m
+[  31% ] [90m[1m_update_scan_actions[22m | xuzuozhinan.png[39m[0m
+[  32% ] [90m[1m_update_scan_actions[22m | yecha.png[39m[0m
+[  34% ] [90m[1m_update_scan_actions[22m | yifanmumian.png[39m[0m
+[  35% ] [90m[1m_update_scan_actions[22m | yinge.png[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | yitiao.png[39m[0m
+[  37% ] [90m[1m_update_scan_actions[22m | yujuchong.png[39m[0m
+[  39% ] [90m[1m_update_scan_actions[22m | caitong-lvli.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | chuanyuan.png[39m[0m
+[  41% ] [90m[1m_update_scan_actions[22m | alaina.png[39m[0m
+[  43% ] [90m[1m_update_scan_actions[22m | chen.png[39m[0m
+[  44% ] [90m[1m_update_scan_actions[22m | daorenshen.png[39m[0m
+[  45% ] [90m[1m_update_scan_actions[22m | ertong.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | fansi.png[39m[0m
+[  48% ] [90m[1m_update_scan_actions[22m | guishibai.png[39m[0m
+[  49% ] [90m[1m_update_scan_actions[22m | guishihei.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | gunv.png[39m[0m
+[  51% ] [90m[1m_update_scan_actions[22m | huang-qiming.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | longzi.png[39m[0m
+[  54% ] [90m[1m_update_scan_actions[22m | maochuan.png[39m[0m
+[  55% ] [90m[1m_update_scan_actions[22m | mianqiling-xinsu.png[39m[0m
+[  56% ] [90m[1m_update_scan_actions[22m | rihefang-qingyang.png[39m[0m
+[  58% ] [90m[1m_update_scan_actions[22m | tianzhao.png[39m[0m
+[  59% ] [90m[1m_update_scan_actions[22m | tongnantongnv.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | wushi-maoshi.png[39m[0m
+[  62% ] [90m[1m_update_scan_actions[22m | xiaolunan-qianshou.png[39m[0m
+[  63% ] [90m[1m_update_scan_actions[22m | yanyanluo-fumiao.png[39m[0m
+[  64% ] [90m[1m_update_scan_actions[22m | yingcao-pupu.png[39m[0m
+[  65% ] [90m[1m_update_scan_actions[22m | yixienamei.png[39m[0m
+[  67% ] [90m[1m_update_scan_actions[22m | youning.png[39m[0m
+[  68% ] [90m[1m_update_scan_actions[22m | yuedu.png[39m[0m
+[  69% ] [90m[1m_update_scan_actions[22m | yunv.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | zhuiyueshen-shuiyue.png[39m[0m
+[  72% ] [90m[1m_update_scan_actions[22m | baizangzhu-lixin.png[39m[0m
+[  73% ] [90m[1m_update_scan_actions[22m | chanxinyunwaijing.png[39m[0m
+[  74% ] [90m[1m_update_scan_actions[22m | chili.png[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | chulingshanfeng.png[39m[0m
+[  77% ] [90m[1m_update_scan_actions[22m | daixiaoguhuoniao.png[39m[0m
+[  78% ] [90m[1m_update_scan_actions[22m | dayueling-yuxin.png[39m[0m
+[  79% ] [90m[1m_update_scan_actions[22m | fenghuanghuo-jingyu.png[39m[0m
+[  81% ] [90m[1m_update_scan_actions[22m | fengyangjun.png[39m[0m
+[  82% ] [90m[1m_update_scan_actions[22m | geluoduo.png[39m[0m
+[  83% ] [90m[1m_update_scan_actions[22m | guijinyang.png[39m[0m
+[  84% ] [90m[1m_update_scan_actions[22m | huojinshen.png[39m[0m
+[  86% ] [90m[1m_update_scan_actions[22m | jieshen-suiyuan.png[39m[0m
+[  87% ] [90m[1m_update_scan_actions[22m | jintianyuzaoqian.png[39m[0m
+[  88% ] [90m[1m_update_scan_actions[22m | longche.png[39m[0m
+[  89% ] [90m[1m_update_scan_actions[22m | longjue.png[39m[0m
+[  91% ] [90m[1m_update_scan_actions[22m | maozhanggui-huanyan.png[39m[0m
+[  92% ] [90m[1m_update_scan_actions[22m | pinfashen.png[39m[0m
+[  93% ] [90m[1m_update_scan_actions[22m | shenqilou.png[39m[0m
+[  94% ] [90m[1m_update_scan_actions[22m | shuweng-zhixing.png[39m[0m
+[  96% ] [90m[1m_update_scan_actions[22m | sibing.png[39m[0m
+[  97% ] [90m[1m_update_scan_actions[22m | tieshu-haojia.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 正在加载编辑器 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 正在加载编辑器布局……[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 正在加载停靠面板……[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 正在重新打开场景……[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 正在加载中央编辑器布局……[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 正在加载插件窗口布局……[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 编辑器布局就绪。[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+== godot verify ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_CONTENT_OK units=250 playable=250 cards=2114
+GODOT_MATCH_OK commands=17 log=59 turn=5 winner=-1 seed=20260920
+COMMAND_LOG [{"a":{"unit":1},"c":"level_up","p":0,"r":2987955158,"t":1},{"a":{"card":"flash-thrust","hand":1,"payment":{"baseCost":1,"cost":1,"instant":false,"instantUsed":false,"ownTurn":true,"response":false,"usesInstant":false},"target":null},"c":"p
+GODOT_VERT_SLICE_OK
+== godot verify_combat ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+COMBAT_REGRESSION_OK cases=16
+== godot verify_growth ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GROWTH_REGRESSION_OK checks=24
+== godot verify_draw ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+DRAW_REGRESSION_OK cases=4
+== godot verify_resource_effects ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+RESOURCE_EFFECTS_OK checks=149
+== godot verify_self_damage ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SELF_DAMAGE_OK checks=39
+== godot verify_instant ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+INSTANT_OK checks=12
+== godot verify_battle_status ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BATTLE_STATUS_OK checks=139
+== godot verify_battle_status_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BATTLE_STATUS_UI_OK checks=88 failures=0
+== godot verify_auto_targets ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+AUTO_TARGETS_OK checks=9
+== godot verify_signed_debuff ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SIGNED_DEBUFF_OK checks=14
+== godot verify_bounce ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BOUNCE_OK checks=16
+== godot verify_team_shield ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+TEAM_SHIELD_OK checks=22
+== godot verify_turn_order ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+opening turn-start token precedes normal draw
+start token resolves before empty-deck defeat

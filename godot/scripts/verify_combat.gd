@@ -32,7 +32,8 @@ func _check_counter(frozen: int, lethal: bool, remote: bool, first_strike: bool)
 	defender.frozen = frozen
 	defender.front = 1
 	gs._resolve_combat(0, 0, 0, false, remote, false, first_strike)
-	var counter := frozen == 0 and not remote and not (first_strike and lethal)
+	# Original stun restricts actions, not a defender's simultaneous damage.
+	var counter := not remote and not (first_strike and lethal)
 	var expected_hp := 16 if counter else 20
 	if int(attacker.hp) != expected_hp:
 		failures.append("counter frozen=%d lethal=%s remote=%s first_strike=%s expected_hp=%d got=%d" % [frozen, lethal, remote, first_strike, expected_hp, int(attacker.hp)])

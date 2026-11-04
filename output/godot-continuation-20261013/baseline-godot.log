@@ -1,0 +1,253 @@
+== export content ==
+Exported 250 units / 2114 cards → probe + godot/content; 500 portraits (0 updated)
+== godot import assets ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 项目初始化 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 正在扫描文件结构……[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 正在加载全局类名……[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | 正在校验 GDExtension……[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 正在创建自动加载脚本……[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 正在初始化插件……[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 正在启动文件扫描……[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 正在注册全局类…… (3 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  25% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | YijinRules[39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 正在加载编辑器 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 正在加载编辑器布局……[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 正在加载停靠面板……[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 正在重新打开场景……[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 正在加载中央编辑器布局……[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 正在加载插件窗口布局……[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 编辑器布局就绪。[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+== godot verify ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GODOT_CONTENT_OK units=250 playable=250 cards=2114
+GODOT_MATCH_OK commands=17 log=59 turn=5 winner=-1 seed=20260920
+COMMAND_LOG [{"a":{"unit":1},"c":"level_up","p":0,"r":2987955158,"t":1},{"a":{"card":"flash-thrust","hand":1,"payment":{"baseCost":1,"cost":1,"instant":false,"instantUsed":false,"ownTurn":true,"response":false,"usesInstant":false},"target":null},"c":"p
+GODOT_VERT_SLICE_OK
+== godot verify_combat ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+COMBAT_REGRESSION_OK cases=16
+== godot verify_growth ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+GROWTH_REGRESSION_OK checks=24
+== godot verify_draw ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+DRAW_REGRESSION_OK cases=4
+== godot verify_resource_effects ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+RESOURCE_EFFECTS_OK checks=149
+== godot verify_self_damage ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SELF_DAMAGE_OK checks=39
+== godot verify_instant ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+INSTANT_OK checks=12
+== godot verify_battle_status ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BATTLE_STATUS_OK checks=139
+== godot verify_battle_status_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BATTLE_STATUS_UI_OK checks=88 failures=0
+== godot verify_auto_targets ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+AUTO_TARGETS_OK checks=9
+== godot verify_signed_debuff ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SIGNED_DEBUFF_OK checks=14
+== godot verify_bounce ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BOUNCE_OK checks=16
+== godot verify_team_shield ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+TEAM_SHIELD_OK checks=22
+== godot verify_turn_order ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+TURN_ORDER_OK checks=17
+== godot verify_steel_wind ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+STEEL_WIND checks=115 failures=0
+STEEL_WIND_OK
+== godot verify_steel_wind_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+STEEL_UI checks=44 failures=0
+STEEL_UI_OK
+== godot verify_yaoginshi ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YAOQIN checks=126 failures=0
+YAOQIN_OK
+== godot verify_yaoginshi_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YAOQIN_UI checks=30 failures=0
+YAOQIN_UI_OK
+== godot verify_datiangou ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+DATIANGOU checks=115 failures=0
+DATIANGOU_OK
+== godot verify_datiangou_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+DATIANGOU_UI checks=38 failures=0
+DATIANGOU_UI_OK
+== godot verify_yimulian ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YIMULIAN checks=128 failures=0
+YIMULIAN_OK
+== godot verify_yimulian_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YIMULIAN_UI checks=52 failures=0
+YIMULIAN_UI_OK
+== godot verify_zhen ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ZHEN checks=125 failures=0
+ZHEN_OK
+== godot verify_zhen_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ZHEN_UI checks=48 failures=0
+ZHEN_UI_OK
+== godot verify_phoenix ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PHOENIX checks=122 failures=0
+PHOENIX_OK
+== godot verify_phoenix_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PHOENIX_UI checks=57 failures=0
+PHOENIX_UI_OK
+== godot verify_peach ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PEACH checks=114 failures=0
+PEACH_OK
+== godot verify_peach_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PEACH_UI checks=48 failures=0
+PEACH_UI_OK
+== godot verify_firefly ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FIREFLY checks=126 failures=0
+FIREFLY_OK
+== godot verify_firefly_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FIREFLY_UI checks=54 failures=0
+FIREFLY_UI_OK
+== godot verify_yaodao ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YAODAO checks=277 failures=0
+YAODAO_OK
+== godot verify_yaodao_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YAODAO_UI checks=115 failures=0
+YAODAO_UI_OK
+== godot verify_shuten ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SHUTEN_RULES checks=97 failures=0
+SHUTEN_RULES_OK
+== godot verify_shuten_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SHUTEN_UI checks=45 failures=0
+SHUTEN_UI_OK
+== godot verify_bingyong ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BINGYONG_CHECKS=112 FAILURES=0
+== godot verify_bingyong_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BINGYONG_UI checks=32 failures=0
+BINGYONG_UI_OK
+== godot verify_classic_core ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+CLASSIC_CORE checks=30 failures=0
+CLASSIC_CORE_OK
+== godot verify_archer_mountain ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ARCHER_MOUNTAIN checks=146 failures=0
+== godot verify_archer_mountain_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ARCHER_MOUNTAIN_UI checks=58 failures=0
+== godot verify_judge_tide ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+JUDGE_TIDE checks=147 failures=0
+== godot verify_judge_tide_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+JUDGE_TIDE_UI checks=50 failures=0
+== godot verify_snow_crane ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SNOW_CRANE checks=139 failures=0
+== godot verify_snow_crane_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SNOW_CRANE_UI checks=30 failures=0
+== godot verify_yijin ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YIJIN checks=156 failures=0
+== godot verify_yijin_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YIJIN_UI checks=38 failures=0
+== godot verify_xuenv ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+XUENV checks=72 failures=0
+XUENV_RULES_OK
+== godot verify_xuenv_ui ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+XUENV_UI checks=46 failures=0
+XUENV_UI_OK
+== godot verify_dog_demon ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+DOG_DEMON_FAIL 2021 revive gained instant
+DOG_DEMON_FAIL 2021 awakening printed +1/+1
+DOG_DEMON_FAIL enemy end turn does not grow dog
+DOG_DEMON_FAIL living awakened dog grows at own end turn
+DOG_DEMON_FAIL dead dog revives before permanent growth
+DOG_DEMON checks=84 failures=5

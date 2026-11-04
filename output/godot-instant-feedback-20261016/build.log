@@ -1,0 +1,11 @@
+Godot import: OK
+Godot export: OK
+Pages build: 89.8 MiB, current game at /play/
+Godot verify-instant_feedback_ui: OK
+Godot verify-battle_status: OK
+Godot verify-spell_effects: OK
+Traceback (most recent call last):
+  File "/Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-instant-feedback-20261016/build_export.py", line 36, in <module>
+    assert hashlib.sha256((root / path).read_bytes()).hexdigest() == digest, path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: godot/scripts/ui/battle_instant_effect.gd

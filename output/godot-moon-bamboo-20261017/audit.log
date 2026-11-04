@@ -1,0 +1,43 @@
+
+> spirit-duel@0.1.0 audit:rules
+> node scripts/audit-rule-fidelity.mjs --out output/godot-moon-bamboo-20261017/rule-fidelity-report.json
+
+{
+  "fullCatalogRestored": false,
+  "summary": {
+    "units": {
+      "known-approximation": 128,
+      "unreviewed": 59,
+      "pending-verification": 48,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 820,
+      "unreviewed": 774,
+      "pending-verification": 313,
+      "source-backed-native": 207
+    }
+  },
+  "errors": [
+    "Missing executable reviewed rules: w11-fanqie-01",
+    "Missing executable reviewed rules: w11-fanqie-02",
+    "Missing executable reviewed rules: w11-fanqie-03",
+    "Approximation in reviewed cards: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-05",
+    "Missing executable reviewed rules: w11-fanqie-06",
+    "Missing executable reviewed rules: w11-fanqie-07",
+    "Missing executable reviewed rules: w11-fanqie-08",
+    "Approximation in reviewed cards: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-02",
+    "Missing executable reviewed rules: w11-jinran-buye-03",
+    "Missing executable reviewed rules: w11-jinran-buye-04",
+    "Missing executable reviewed rules: w11-jinran-buye-05",
+    "Missing executable reviewed rules: w11-jinran-buye-06",
+    "Missing executable reviewed rules: w11-jinran-buye-07",
+    "Missing executable reviewed rules: w11-jinran-buye-08",
+    "Missing executable reviewed rules: c11108"
+  ]
+}
+RULE_FIDELITY_INCOMPLETE: 全库仍存在简化或未核对内容。稳定性测试通过不等于效果还原。

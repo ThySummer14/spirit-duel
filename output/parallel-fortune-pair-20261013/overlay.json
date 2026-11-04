@@ -1,0 +1,796 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "paper-transform-20200928",
+      "url": "https://www.taptap.cn/moment/59609610805317142",
+      "evidence": "官方机制调整：变形身份仍算原式神，继承等级与升级变化，无法使用自己的卡牌。"
+    },
+    {
+      "id": "fortune-pair-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "12600–12609、12700–12712官方牌库快照（research-data/card表README记录抓取来源），公告优先覆盖。"
+    },
+    {
+      "id": "rabbit-guide-20200226",
+      "url": "https://www.taptap.io/post/243739",
+      "evidence": "官方攻略发布原作者西园寺世界：觉醒山兔整条能力投两次；纸人3/3、小纸人1/1，移除初始/觉醒/形态能力；友方任意六点累计。"
+    },
+    {
+      "id": "rabbit-win-20210729",
+      "url": "https://www.taptap.cn/moment/169528710922242294",
+      "evidence": "官方常规平衡调整：这把算我赢改为二勾、瞬发，山兔下一投骰必六；10六点特殊胜利。"
+    },
+    {
+      "id": "frog-door-20200428",
+      "url": "https://www.taptap.cn/moment/15226566611042541",
+      "evidence": "官方攻略区原作者西园寺世界对2020-04-23调整解读：门前清新增出击时运势4护甲。"
+    }
+  ],
+  "units": {
+    "qingwa-ciqi": {
+      "fortuneRole": "frog",
+      "formLifecycle": {},
+      "officialAbility": "青蛙瓷器在你运势判定成功过的回合获得2力量。",
+      "passive": {
+        "name": "基础能力",
+        "text": "青蛙瓷器在你运势判定成功过的回合获得2力量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "name": "觉醒能力",
+        "text": "青蛙瓷器在你运势判定成功过的回合获得2力量。你运势判定成功后效果触发两次。",
+        "hooks": []
+      },
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ]
+    },
+    "shantu": {
+      "fortuneRole": "rabbit",
+      "formLifecycle": {},
+      "officialAbility": "己方回合开始时，运势6：其他己方式神的倒计时-1并获得1力量。",
+      "passive": {
+        "name": "基础能力",
+        "text": "己方回合开始时，运势6：其他己方式神的倒计时-1并获得1力量。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "name": "觉醒能力",
+        "text": "己方回合开始时，运势6：其他己方式神的倒计时-1并获得2力量，然后重复一次。",
+        "hooks": []
+      },
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c12601": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "运势4：将一张「出千」置入手牌。",
+      "target": "auto",
+      "effect": "fortune-combat",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "fortune-combat",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "fortune"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "fortuneCombat": true,
+      "combatOption": {
+        "shield": 1
+      },
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12602": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "2力量/9生命。当青蛙瓷器出击或被攻击时，运势4：获得2点护甲。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 2,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "fortuneAttackArmor": true
+      },
+      "formAbility": "2力量/9生命。当青蛙瓷器出击或被攻击时，运势4：获得2点护甲。",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12603": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "当你运势判定成功时，青蛙瓷器获得1力量。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 2,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "fortunePermanentPower": 1
+      },
+      "formAbility": "当你运势判定成功时，青蛙瓷器获得1力量。",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12604": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "运势1：对一个敌方角色造成等同于骰子点数的伤害。",
+      "target": "enemy-character",
+      "effect": "fortune-dice-damage",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "fortune-dice-damage",
+          "target": "enemy-character",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "fortune"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12605": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "攻击后运势4：随机弃两张手牌并再次使用此牌。",
+      "target": "auto",
+      "effect": "assault",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "fortune"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "fortuneReplay": true,
+      "combatOption": {},
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12606": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "觉醒：青蛙瓷器在你运势判定成功过的回合获得2力量。你运势判定成功后效果触发两次。",
+      "target": "auto",
+      "effect": "awaken",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken",
+          "target": "auto",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12608": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "增强：本局游戏你投骰子每投出过一个1-6中不重复数字时，此牌便获得+1力量与+1生命。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 3,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 3,
+            "hp": 3,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "增强：本局游戏你投骰子每投出过一个1-6中不重复数字时，此牌便获得+1力量与+1生命。",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "fortuneEnhancement": "distinct-body",
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12609": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "运势4：免疫战斗伤害。若青蛙瓷器结附形态，本次运势判定必定成功。\n响应：当青蛙瓷器被攻击时，自动使用此牌。",
+      "target": "auto",
+      "effect": "fortune-combat",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "fortune-combat",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "fortune",
+        "response"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "fortuneCombat": true,
+      "fortuneImmune": true,
+      "combatOption": {},
+      "autoResponse": "source-attacked",
+      "responseModifiesCombat": true,
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12701": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "瞬发。投射：造成2点伤害。增强：本局游戏你骰子每投出一次6点，此牌效果+1。",
+      "target": "auto",
+      "effect": "damage-enemy-front",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "damage-enemy-front",
+          "target": "auto",
+          "value": 2
+        }
+      ],
+      "keywords": [
+        "instant",
+        "projectile"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "fortuneEnhancement": "sixes-projectile",
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12702": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "使一个式神获得1力量与1生命。\n增强：本局游戏若你骰子投出三次6点，该式神额外获得2力量与2生命。",
+      "target": "any-unit",
+      "effect": "buff-stats",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "buff-stats",
+          "target": "any-unit",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "fortuneEnhancement": "sixes-blessing",
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12706": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "6力量/6生命。增强：本局游戏若你骰子投出三次6点，此牌获得不屈。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "fortuneUnyielding": false
+      },
+      "formAbility": "6力量/6生命。增强：本局游戏若你骰子投出三次6点，此牌获得不屈。",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "fortuneEnhancement": "sixes-unyielding",
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12707": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "觉醒：己方回合开始时，运势6：其他己方式神的倒计时-1并获得2力量，然后重复一次。",
+      "target": "auto",
+      "effect": "awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "awaken",
+          "target": "auto",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12708": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "你投骰子总是会投出6点。\n增强：本局游戏你骰子每投出一次6点，此牌便获得+1力量与+1生命。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "alwaysSix": true
+      },
+      "formAbility": "你投骰子总是会投出6点。\n增强：本局游戏你骰子每投出一次6点，此牌便获得+1力量与+1生命。",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "fortuneEnhancement": "sixes-body",
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12710": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "瞬发。山兔下一次投骰子必定会投出6点。增强：本局游戏若你骰子投出十次6点，则你获得本局游戏的胜利。",
+      "target": "auto",
+      "effect": "fortune-win",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "fortune-win",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+      ],
+      "level": 2,
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。"
+        ]
+      }
+    },
+    "c12711": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "将敌方战斗区式神变成3力量/3生命的「纸人」，失去形态及式神能力（含觉醒）。增强：本局投出三次6点，改为1力量/1生命「小纸人」。响应：山兔被攻击时自动使用。",
+      "target": "auto",
+      "effect": "fortune-transform",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "fortune-transform",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "response"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。",
+        "变形与所有其他扩展角色的特殊存储状态、永久能力、外源重结附形态和复活恢复顺序尚缺原版实机联动证据。"
+      ],
+      "autoResponse": "source-attacked",
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。",
+          "变形与所有其他扩展角色的特殊存储状态、永久能力、外源重结附形态和复活恢复顺序尚缺原版实机联动证据。"
+        ]
+      }
+    },
+    "c12712": {
+      "verifiedRules": true,
+      "fortunePair": true,
+      "text": "使一个敌方式神立刻发动攻击。\n增强：本局游戏你骰子每投出一次6点，本回合该式神便降低1力量。",
+      "target": "enemy-unit",
+      "effect": "fortune-force-attack",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "fortune-force-attack",
+          "target": "enemy-unit",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "sources": [
+        "paper-transform-20200928",
+        "fortune-pair-snapshot",
+        "rabbit-guide-20200226",
+        "rabbit-win-20210729",
+        "frog-door-20200428"
+      ],
+      "verificationPending": [
+        "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。",
+        "强制攻击与远程、激怒、禁止位移等关键词组合需原版实机逐项核对。"
+      ],
+      "ruleFidelity": {
+        "status": "source-backed-pending",
+        "pending": [
+          "用户录像未直接展示本组所有卡牌及随机结算；官方快照和2020/2021公告核对完成，尚缺2021之后逐公告穷尽式版本核验。",
+          "强制攻击与远程、激怒、禁止位移等关键词组合需原版实机逐项核对。"
+        ]
+      }
+    }
+  }
+}

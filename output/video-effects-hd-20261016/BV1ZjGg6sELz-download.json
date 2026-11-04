@@ -1,0 +1,36 @@
+{
+  "url": "https://www.bilibili.com/video/BV1ZjGg6sELz/",
+  "requestedQuality": 127,
+  "advertisedQualities": [
+    112,
+    80,
+    64,
+    32,
+    16
+  ],
+  "selectedQuality": 32,
+  "width": 854,
+  "height": 378,
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 854,
+        "height": 378,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "150.433000"
+    }
+  },
+  "bytes": 8867018,
+  "sha256": "954691309eab93f1a5aae0ec26c5e51253d8ab1ead44a3c548dada80bbd1872a",
+  "note": "Public playback tracks capped below advertised 1080p. Original pixels; no upscale."
+}

@@ -1,0 +1,224 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 项目初始化 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 正在扫描文件结构……[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 正在加载全局类名……[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | 正在校验 GDExtension……[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 正在创建自动加载脚本……[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 正在初始化插件……[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 正在启动文件扫描……[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 正在注册全局类…… (45 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | BattleScreen[39m[0m
+[   2% ] [90m[1mupdate_scripts_classes[22m | BattleStatus[39m[0m
+[   4% ] [90m[1mupdate_scripts_classes[22m | ApeSleeveRules[39m[0m
+[   6% ] [90m[1mupdate_scripts_classes[22m | ArmorBreakRules[39m[0m
+[   8% ] [90m[1mupdate_scripts_classes[22m | BailangRules[39m[0m
+[  10% ] [90m[1mupdate_scripts_classes[22m | BondDreamRules[39m[0m
+[  13% ] [90m[1mupdate_scripts_classes[22m | BookJueRules[39m[0m
+[  15% ] [90m[1mupdate_scripts_classes[22m | CombatKeywordRules[39m[0m
+[  17% ] [90m[1mupdate_scripts_classes[22m | CookingRules[39m[0m
+[  19% ] [90m[1mupdate_scripts_classes[22m | EyeRules[39m[0m
+[  21% ] [90m[1mupdate_scripts_classes[22m | FoxLotusRules[39m[0m
+[  23% ] [90m[1mupdate_scripts_classes[22m | FoxSuzukaRules[39m[0m
+[  26% ] [90m[1mupdate_scripts_classes[22m | FutakuchiRules[39m[0m
+[  28% ] [90m[1mupdate_scripts_classes[22m | GameAI[39m[0m
+[  30% ] [90m[1mupdate_scripts_classes[22m | GameState[39m[0m
+[  32% ] [90m[1mupdate_scripts_classes[22m | HandBlessingRules[39m[0m
+[  34% ] [90m[1mupdate_scripts_classes[22m | KoiFragranceRules[39m[0m
+[  36% ] [90m[1mupdate_scripts_classes[22m | LanternRules[39m[0m
+[  39% ] [90m[1mupdate_scripts_classes[22m | LightHealerRules[39m[0m
+[  41% ] [90m[1mupdate_scripts_classes[22m | MapleRules[39m[0m
+[  43% ] [90m[1mupdate_scripts_classes[22m | MonkCleanerRules[39m[0m
+[  45% ] [90m[1mupdate_scripts_classes[22m | MovementRules[39m[0m
+[  47% ] [90m[1mupdate_scripts_classes[22m | PanguanRules[39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | PeachRules[39m[0m
+[  52% ] [90m[1mupdate_scripts_classes[22m | PipeFoxRules[39m[0m
+[  54% ] [90m[1mupdate_scripts_classes[22m | RabbitTideRules[39m[0m
+[  56% ] [90m[1mupdate_scripts_classes[22m | RednightWalnutRules[39m[0m
+[  58% ] [90m[1mupdate_scripts_classes[22m | SeaButterflyRules[39m[0m
+[  60% ] [90m[1mupdate_scripts_classes[22m | SilkNinjaRules[39m[0m
+[  63% ] [90m[1mupdate_scripts_classes[22m | SpellReplayRules[39m[0m
+[  65% ] [90m[1mupdate_scripts_classes[22m | SpiderLilyRules[39m[0m
+[  67% ] [90m[1mupdate_scripts_classes[22m | SugarCatRules[39m[0m
+[  69% ] [90m[1mupdate_scripts_classes[22m | SunSmokeRules[39m[0m
+[  71% ] [90m[1mupdate_scripts_classes[22m | VerifiedCardRules[39m[0m
+[  73% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  76% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  78% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  80% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  82% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  84% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  86% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  89% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  91% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  93% ] [90m[1mupdate_scripts_classes[22m | WeaverRules[39m[0m
+[  95% ] [90m[1mupdate_scripts_classes[22m | ZhenjianDuelRules[39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started 正在扫描动作…… (48 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | c24601.png[39m[0m
+[   2% ] [90m[1m_update_scan_actions[22m | c24602.png[39m[0m
+[   4% ] [90m[1m_update_scan_actions[22m | c24603.png[39m[0m
+[   6% ] [90m[1m_update_scan_actions[22m | c24604.png[39m[0m
+[   8% ] [90m[1m_update_scan_actions[22m | c24605.png[39m[0m
+[  10% ] [90m[1m_update_scan_actions[22m | c24606.png[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | c24607.png[39m[0m
+[  14% ] [90m[1m_update_scan_actions[22m | c24608.png[39m[0m
+[  16% ] [90m[1m_update_scan_actions[22m | c24701.png[39m[0m
+[  18% ] [90m[1m_update_scan_actions[22m | c24702.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | c24703.png[39m[0m
+[  22% ] [90m[1m_update_scan_actions[22m | c24704.png[39m[0m
+[  24% ] [90m[1m_update_scan_actions[22m | c24705.png[39m[0m
+[  26% ] [90m[1m_update_scan_actions[22m | c24706.png[39m[0m
+[  28% ] [90m[1m_update_scan_actions[22m | c24707.png[39m[0m
+[  30% ] [90m[1m_update_scan_actions[22m | c24708.png[39m[0m
+[  32% ] [90m[1m_update_scan_actions[22m | c24901.png[39m[0m
+[  34% ] [90m[1m_update_scan_actions[22m | c24902.png[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | c24903.png[39m[0m
+[  38% ] [90m[1m_update_scan_actions[22m | c24904.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | c24905.png[39m[0m
+[  42% ] [90m[1m_update_scan_actions[22m | c24906.png[39m[0m
+[  44% ] [90m[1m_update_scan_actions[22m | c24907.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | c24908.png[39m[0m
+[  48% ] [90m[1m_update_scan_actions[22m | c25001.png[39m[0m
+[  51% ] [90m[1m_update_scan_actions[22m | c25002.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | c25003.png[39m[0m
+[  55% ] [90m[1m_update_scan_actions[22m | c25004.png[39m[0m
+[  57% ] [90m[1m_update_scan_actions[22m | c25005.png[39m[0m
+[  59% ] [90m[1m_update_scan_actions[22m | c25006.png[39m[0m
+[  61% ] [90m[1m_update_scan_actions[22m | c25007.png[39m[0m
+[  63% ] [90m[1m_update_scan_actions[22m | c25008.png[39m[0m
+[  65% ] [90m[1m_update_scan_actions[22m | c25201.png[39m[0m
+[  67% ] [90m[1m_update_scan_actions[22m | c25202.png[39m[0m
+[  69% ] [90m[1m_update_scan_actions[22m | c25203.png[39m[0m
+[  71% ] [90m[1m_update_scan_actions[22m | c25204.png[39m[0m
+[  73% ] [90m[1m_update_scan_actions[22m | c25205.png[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | c25206.png[39m[0m
+[  77% ] [90m[1m_update_scan_actions[22m | c25207.png[39m[0m
+[  79% ] [90m[1m_update_scan_actions[22m | c25208.png[39m[0m
+[  81% ] [90m[1m_update_scan_actions[22m | c25301.png[39m[0m
+[  83% ] [90m[1m_update_scan_actions[22m | c25302.png[39m[0m
+[  85% ] [90m[1m_update_scan_actions[22m | c25303.png[39m[0m
+[  87% ] [90m[1m_update_scan_actions[22m | c25304.png[39m[0m
+[  89% ] [90m[1m_update_scan_actions[22m | c25305.png[39m[0m
+[  91% ] [90m[1m_update_scan_actions[22m | c25306.png[39m[0m
+[  93% ] [90m[1m_update_scan_actions[22m | c25307.png[39m[0m
+[  95% ] [90m[1m_update_scan_actions[22m | c25308.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (48 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   2% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   4% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   6% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   8% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  10% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  12% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  14% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  16% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  18% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  20% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  22% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  24% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  26% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  28% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  30% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  32% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  34% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  36% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  38% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  40% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  42% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  44% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  46% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  48% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  51% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  53% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  55% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  57% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  59% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  61% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  63% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  65% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  67% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  69% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  71% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  73% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  75% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  77% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  79% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  81% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  83% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  85% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  87% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  89% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  91% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  93% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[  95% ] [90m[1mreimport[22m | 正在准备重新导入文件……[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的前置操作……[39m[0m
+[   0% ] [90m[1mreimport[22m | c25001.png[39m[0m
+[   2% ] [90m[1mreimport[22m | c25002.png[39m[0m
+[   4% ] [90m[1mreimport[22m | c25003.png[39m[0m
+[   6% ] [90m[1mreimport[22m | c25004.png[39m[0m
+[   8% ] [90m[1mreimport[22m | c25005.png[39m[0m
+[  10% ] [90m[1mreimport[22m | c25006.png[39m[0m
+[  12% ] [90m[1mreimport[22m | c25007.png[39m[0m
+[  14% ] [90m[1mreimport[22m | c25008.png[39m[0m
+[  16% ] [90m[1mreimport[22m | c25201.png[39m[0m
+[  18% ] [90m[1mreimport[22m | c25202.png[39m[0m
+[  20% ] [90m[1mreimport[22m | c25203.png[39m[0m
+[  22% ] [90m[1mreimport[22m | c25204.png[39m[0m
+[  24% ] [90m[1mreimport[22m | c25205.png[39m[0m
+[  26% ] [90m[1mreimport[22m | c25206.png[39m[0m
+[  28% ] [90m[1mreimport[22m | c25207.png[39m[0m
+[  30% ] [90m[1mreimport[22m | c25208.png[39m[0m
+[  32% ] [90m[1mreimport[22m | c25301.png[39m[0m
+[  34% ] [90m[1mreimport[22m | c25302.png[39m[0m
+[  36% ] [90m[1mreimport[22m | c25303.png[39m[0m
+[  38% ] [90m[1mreimport[22m | c25304.png[39m[0m
+[  40% ] [90m[1mreimport[22m | c25305.png[39m[0m
+[  42% ] [90m[1mreimport[22m | c25306.png[39m[0m
+[  44% ] [90m[1mreimport[22m | c25307.png[39m[0m
+[  46% ] [90m[1mreimport[22m | c25308.png[39m[0m
+[  48% ] [90m[1mreimport[22m | c24601.png[39m[0m
+[  51% ] [90m[1mreimport[22m | c24602.png[39m[0m
+[  53% ] [90m[1mreimport[22m | c24603.png[39m[0m
+[  55% ] [90m[1mreimport[22m | c24604.png[39m[0m
+[  57% ] [90m[1mreimport[22m | c24605.png[39m[0m
+[  59% ] [90m[1mreimport[22m | c24606.png[39m[0m
+[  61% ] [90m[1mreimport[22m | c24607.png[39m[0m
+[  63% ] [90m[1mreimport[22m | c24608.png[39m[0m
+[  65% ] [90m[1mreimport[22m | c24701.png[39m[0m
+[  67% ] [90m[1mreimport[22m | c24702.png[39m[0m
+[  69% ] [90m[1mreimport[22m | c24703.png[39m[0m
+[  71% ] [90m[1mreimport[22m | c24704.png[39m[0m
+[  73% ] [90m[1mreimport[22m | c24705.png[39m[0m
+[  75% ] [90m[1mreimport[22m | c24706.png[39m[0m
+[  77% ] [90m[1mreimport[22m | c24707.png[39m[0m
+[  79% ] [90m[1mreimport[22m | c24708.png[39m[0m
+[  81% ] [90m[1mreimport[22m | c24901.png[39m[0m
+[  83% ] [90m[1mreimport[22m | c24902.png[39m[0m
+[  85% ] [90m[1mreimport[22m | c24903.png[39m[0m
+[  87% ] [90m[1mreimport[22m | c24904.png[39m[0m
+[  89% ] [90m[1mreimport[22m | c24905.png[39m[0m
+[  91% ] [90m[1mreimport[22m | c24906.png[39m[0m
+[  93% ] [90m[1mreimport[22m | c24907.png[39m[0m
+[  95% ] [90m[1mreimport[22m | c24908.png[39m[0m
+[  97% ] [90m[1mreimport[22m | 正在结束资产导入……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 正在导入或重新导入资产 (48 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 正在执行重新导入的后置操作……[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 正在加载编辑器 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 正在加载编辑器布局……[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 正在加载停靠面板……[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 正在重新打开场景……[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 正在加载中央编辑器布局……[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 正在加载插件窗口布局……[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 编辑器布局就绪。[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m

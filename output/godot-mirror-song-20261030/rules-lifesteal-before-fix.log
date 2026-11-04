@@ -1,0 +1,7 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+MIRROR_BARRIER_LIFESTEAL form=false avatar_damage=2 healed=0 unit_loss=0
+MIRROR_SONG_FAIL barrier overflow heals actual avatar damage once, form=false actual=2 healed=0
+MIRROR_BARRIER_LIFESTEAL form=true avatar_damage=2 healed=0 unit_loss=0
+MIRROR_SONG_FAIL barrier overflow heals actual avatar damage once, form=true actual=2 healed=0
+MIRROR_SONG_OK checks=336 failures=2 rules_only=true

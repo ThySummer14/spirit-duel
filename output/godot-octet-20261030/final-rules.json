@@ -1,0 +1,37 @@
+[
+  {
+    "name": "red_purple",
+    "exitCode": 0,
+    "checks": 265,
+    "passed": true,
+    "log": "output/godot-red-purple-20261030/rules-final-shared.log"
+  },
+  {
+    "name": "blue_green",
+    "exitCode": 0,
+    "checks": 219,
+    "passed": true,
+    "log": "output/godot-blue-green-20261030/rules-final-shared.log"
+  },
+  {
+    "name": "mirror_song",
+    "exitCode": 0,
+    "checks": 336,
+    "passed": true,
+    "log": "output/godot-mirror-song-20261030/rules-final4.log"
+  },
+  {
+    "name": "charged_pair",
+    "exitCode": 0,
+    "checks": 163,
+    "passed": true,
+    "log": "output/godot-charged-pair-20261030/rules-final-shared.log"
+  },
+  {
+    "name": "octet_cross",
+    "exitCode": 0,
+    "checks": 72,
+    "passed": true,
+    "log": "output/godot-octet-20261030/cross-rules-final.log"
+  }
+]

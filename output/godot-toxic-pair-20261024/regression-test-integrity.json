@@ -1,0 +1,95 @@
+{
+  "allExistingTestsUnchanged": true,
+  "tests": [
+    {
+      "path": "godot/scripts/verify_koi_fragrance.gd",
+      "sha256": "8f4c537ccf2b545f59295364f3af71c95674605ce1ace6c84db5d4c69aabe207",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_poison_pair.gd",
+      "sha256": "bb1104f8c4fc0b227d73bf4afff14e9f6c0f47520fe62114c71fdc447fdb81b4",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_combat.gd",
+      "sha256": "8bcfb9eb74c8c9ca7fea48c2a30d18e7526b870756533218dbb9fac0e8f462b7",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_draw.gd",
+      "sha256": "38e5d41d636f7574c596458471569d5b6e87323aeee57fd3a1d3feb33f36cf5e",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_growth.gd",
+      "sha256": "6deade87aad58ddb4dd0460d4e425a80ff56b4eec000f6a0a009df57b6377e03",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_resource_effects.gd",
+      "sha256": "178b6aa1d32b2227bd81966c3dd8757346761128c9b730d1ea1d99afc05fbc4c",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_turn_order.gd",
+      "sha256": "5a476ad2d158cb5e8ddac8be2a9152fed2aaec598e143351ef4dee6a5b8f89d9",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_rebirth.gd",
+      "sha256": "cc129bd6c37925f90c41bbf8585e864986e8714d905796b34d3041ebf0b2846b",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_light_healer.gd",
+      "sha256": "359f909c4ca81d4947f57152760138538e35f26b7e0c7dea2f45bcf9c46d7136",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_armor_blood.gd",
+      "sha256": "335a3951e44000d11c91f55c919f9ee0615267d4b3395e9a5ddf3f244f94b862",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_jorogumo.gd",
+      "sha256": "11152c64a82243cfe7890f2973e0798bbb1905c8d4a12e86f17ddc5c1e432171",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_whale.gd",
+      "sha256": "aadcaf2968add9f51ea016f1161912d90d7443f24fedf36b299f3c3c7bd7aae0",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_house.gd",
+      "sha256": "8e05ff380b1099a708a60d6a1396c1414cbb7e9b5c619b9025529341655e8bfd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_vine.gd",
+      "sha256": "0ac9669cac18f305d2d171c25483ce2994e986a65095952aef22183649120ebe",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_puppet.gd",
+      "sha256": "c229d6e2aaf62e7822b18b0caea1f7f2828ac51b8a547f6a76facde01c72a976",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_susanoo.gd",
+      "sha256": "e0e686f834916b49c0faae933efe354651cd758805159a5ea9aa7526f24c2161",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_baize.gd",
+      "sha256": "d0393d01048fdd389c8e4877ff7da8d6bdd2bbf508b7d08606beec25ceec6ec2",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_book_jue_ui.gd",
+      "sha256": "fa2aa2572a930c0a66dbb61a53eb1ea3aa5386fc48c2bae3ae7a515e2f93dbd4",
+      "unchanged": true
+    }
+  ]
+}

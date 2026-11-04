@@ -1,0 +1,10 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: The member "Theme" shadows a native class.
+          at: GDScript::reload (res://scripts/verify_battle_status_ui.gd:3)
+SCRIPT ERROR: Parse Error: Cannot find member "_players" in base "Sfx".
+          at: GDScript::reload (res://scripts/verify_battle_status_ui.gd:155)
+SCRIPT ERROR: Parse Error: Cannot find member "_players" in base "Sfx".
+          at: GDScript::reload (res://scripts/verify_battle_status_ui.gd:157)
+ERROR: Failed to load script "res://scripts/verify_battle_status_ui.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:50)

@@ -1,0 +1,5 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+SEA_BUTTERFLY_FAIL sea reduces strength, not health-replacement damage false
+SEA_BUTTERFLY_FAIL sea reduces strength, not health-replacement damage true
+SEA_BUTTERFLY_OK checks=148 failures=2 rules_only=true

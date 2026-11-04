@@ -1,0 +1,33 @@
+{
+  "focusedNative": {
+    "scripts": 1,
+    "checks": 35,
+    "failures": 0,
+    "fullSuiteRun": false,
+    "limitedRerunReason": "补齐卡牌升级的阳炎响应；新增断言按既有眩晕持续规则校正。"
+  },
+  "webBuild": {
+    "version": "4.6.3",
+    "result": "passed",
+    "sourceFiles": 168,
+    "allSourceHashesMatch": true
+  },
+  "browser": {
+    "flow": [
+      "main menu",
+      "opening choice",
+      "battle"
+    ],
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "pageErrors": 0,
+    "log": "browser-final.log"
+  },
+  "ruleAudit": {
+    "exitCode": 1,
+    "fullCatalogRestored": false,
+    "knownApproximationCards": 942,
+    "knownApproximationUnits": 141,
+    "existingErrors": 19
+  }
+}

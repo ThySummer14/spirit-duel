@@ -1,0 +1,896 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Cannot infer the type of "modified" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/silk_ninja_rules.gd:93)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/verified_card_rules.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/game_state.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/ui/battle_screen.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/verify_book_jue_ui.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/verify_toxic_pair.gd:0)
+ERROR: Failed to load script "res://scripts/verify_toxic_pair.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript.cpp:2907)
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] mechanics (res://scripts/verify_toxic_pair.gd:28)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] mechanics (res://scripts/verify_toxic_pair.gd:30)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] mechanics (res://scripts/verify_toxic_pair.gd:30)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28303 { "ok": false, "reason": "未知卡牌。" }
+TOXIC_PAIR_FAIL real3toxicandcontinuousbugaura
+TOXIC_PAIR_FAIL originalpoisonblocksmaxHPgrowthhealing
+TOXIC_PAIR_FAIL originalpoisonblocksformentryreset
+TOXIC_PAIR_FAIL originalpoisonblocksformleavereset
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] mechanics (res://scripts/verify_toxic_pair.gd:34)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] mechanics (res://scripts/verify_toxic_pair.gd:34)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28303 { "ok": false, "reason": "未知卡牌。" }
+TOXIC_PAIR_FAIL secondtoxicactualdirectKObypassesunyieldingandclearsonKO
+TOXIC_PAIR_FAIL directKOnofakefireorawakening
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] mechanics (res://scripts/verify_toxic_pair.gd:37)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] mechanics (res://scripts/verify_toxic_pair.gd:37)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] mechanics (res://scripts/verify_toxic_pair.gd:37)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28303 { "ok": false, "reason": "未知卡牌。" }
+TOXIC_PAIR_FAIL barrierpreventsdamageandpoison
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] mechanics (res://scripts/verify_toxic_pair.gd:39)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] mechanics (res://scripts/verify_toxic_pair.gd:39)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] mechanics (res://scripts/verify_toxic_pair.gd:39)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28303 { "ok": false, "reason": "未知卡牌。" }
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] mechanics (res://scripts/verify_toxic_pair.gd:40)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] mechanics (res://scripts/verify_toxic_pair.gd:40)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28303 { "ok": false, "reason": "未知卡牌。" }
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] mechanics (res://scripts/verify_toxic_pair.gd:41)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] mechanics (res://scripts/verify_toxic_pair.gd:41)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] mechanics (res://scripts/verify_toxic_pair.gd:41)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28303 { "ok": false, "reason": "未知卡牌。" }
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] mechanics (res://scripts/verify_toxic_pair.gd:42)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] mechanics (res://scripts/verify_toxic_pair.gd:45)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] mechanics (res://scripts/verify_toxic_pair.gd:45)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] mechanics (res://scripts/verify_toxic_pair.gd:45)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28303 { "ok": false, "reason": "未知卡牌。" }
+TOXIC_PAIR_FAIL firstlethaltoxicdoesnotinventlivingpoisonstatus
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] mechanics (res://scripts/verify_toxic_pair.gd:46)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'death_frames' in base 'GDScript'.
+          at: GameState._knockout_unit (res://scripts/game_state.gd:2069)
+          GDScript backtrace (most recent call first):
+              [0] _knockout_unit (res://scripts/game_state.gd:2069)
+              [1] mechanics (res://scripts/verify_toxic_pair.gd:47)
+              [2] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL poisonedtargetpowerrestoredwhenbugauraKO
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] bug_cards (res://scripts/verify_toxic_pair.gd:49)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] bug_cards (res://scripts/verify_toxic_pair.gd:49)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] bug_cards (res://scripts/verify_toxic_pair.gd:49)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28301 { "ok": false, "reason": "未知卡牌。" }
+TOXIC_PAIR_FAIL printed4/5butterflyform
+SCRIPT ERROR: Invalid call. Nonexistent function 'death_frames' in base 'GDScript'.
+          at: GameState._knockout_unit (res://scripts/game_state.gd:2069)
+          GDScript backtrace (most recent call first):
+              [0] _knockout_unit (res://scripts/game_state.gd:2069)
+              [1] bug_cards (res://scripts/verify_toxic_pair.gd:50)
+              [2] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL poisonedKOfirstdraw
+SCRIPT ERROR: Invalid call. Nonexistent function 'death_frames' in base 'GDScript'.
+          at: GameState._knockout_unit (res://scripts/game_state.gd:2069)
+          GDScript backtrace (most recent call first):
+              [0] _knockout_unit (res://scripts/game_state.gd:2069)
+              [1] bug_cards (res://scripts/verify_toxic_pair.gd:51)
+              [2] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL poisonedKOdrawonceactualturn
+SCRIPT ERROR: Invalid call. Nonexistent function 'death_frames' in base 'GDScript'.
+          at: GameState._knockout_unit (res://scripts/game_state.gd:2069)
+          GDScript backtrace (most recent call first):
+              [0] _knockout_unit (res://scripts/game_state.gd:2069)
+              [1] bug_cards (res://scripts/verify_toxic_pair.gd:52)
+              [2] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL poisonedKOdrawresetnextactualturn
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] bug_cards (res://scripts/verify_toxic_pair.gd:53)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] bug_cards (res://scripts/verify_toxic_pair.gd:53)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] bug_cards (res://scripts/verify_toxic_pair.gd:53)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28302 { "ok": false, "reason": "未知卡牌。" }
+TOXIC_PAIR_FAIL actual1/3swifttoxicfrontsummon
+TOXIC_PAIR_FAIL actualsummonlegalattack
+SCRIPT ERROR: Invalid access to property or key 'toxicPoisoned' on a base object of type 'Dictionary'.
+          at: bug_cards (res://scripts/verify_toxic_pair.gd:55)
+          GDScript backtrace (most recent call first):
+              [0] bug_cards (res://scripts/verify_toxic_pair.gd:55)
+              [1] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] scorpion_cards (res://scripts/verify_toxic_pair.gd:83)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'before_response' in base 'GDScript'.
+          at: GameState._resolve_combat_ready (res://scripts/game_state.gd:2527)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_combat_ready (res://scripts/game_state.gd:2527)
+              [1] _resolve_combat_entered (res://scripts/game_state.gd:2517)
+              [2] _resolve_combat (res://scripts/game_state.gd:2459)
+              [3] resolve_frame (res://scripts/battle_skill_rules.gd:48)
+              [4] _resolve_frame (res://scripts/game_state.gd:1091)
+              [5] _resolve_resolution_stack (res://scripts/game_state.gd:1062)
+              [6] basic_attack (res://scripts/game_state.gd:2353)
+              [7] scorpion_cards (res://scripts/verify_toxic_pair.gd:84)
+              [8] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid access to property or key 'toxicPoisoned' on a base object of type 'Dictionary'.
+          at: scorpion_cards (res://scripts/verify_toxic_pair.gd:84)
+          GDScript backtrace (most recent call first):
+              [0] scorpion_cards (res://scripts/verify_toxic_pair.gd:84)
+              [1] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:108)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'before_response' in base 'GDScript'.
+          at: GameState._resolve_combat_ready (res://scripts/game_state.gd:2527)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_combat_ready (res://scripts/game_state.gd:2527)
+              [1] _resolve_combat_entered (res://scripts/game_state.gd:2517)
+              [2] _resolve_combat (res://scripts/game_state.gd:2459)
+              [3] resolve_frame (res://scripts/battle_skill_rules.gd:48)
+              [4] _resolve_frame (res://scripts/game_state.gd:1091)
+              [5] _resolve_resolution_stack (res://scripts/game_state.gd:1062)
+              [6] basic_attack (res://scripts/game_state.gd:2353)
+              [7] negative_and_ai (res://scripts/verify_toxic_pair.gd:109)
+              [8] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:110)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] negative_and_ai (res://scripts/verify_toxic_pair.gd:110)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] negative_and_ai (res://scripts/verify_toxic_pair.gd:110)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28307 { "ok": false, "reason": "未知卡牌。" }
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] automatic_response (res://scripts/verified_card_rules.gd:462)
+              [2] before_basic_attack (res://scripts/star_bear_rules.gd:71)
+              [3] _resolve_combat (res://scripts/game_state.gd:2392)
+              [4] resolve_frame (res://scripts/battle_skill_rules.gd:48)
+              [5] _resolve_frame (res://scripts/game_state.gd:1091)
+              [6] _resolve_resolution_stack (res://scripts/game_state.gd:1062)
+              [7] basic_attack (res://scripts/game_state.gd:2353)
+              [8] negative_and_ai (res://scripts/verify_toxic_pair.gd:110)
+              [9] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'before_response' in base 'GDScript'.
+          at: GameState._resolve_combat_ready (res://scripts/game_state.gd:2527)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_combat_ready (res://scripts/game_state.gd:2527)
+              [1] _resolve_combat_entered (res://scripts/game_state.gd:2517)
+              [2] _resolve_combat (res://scripts/game_state.gd:2459)
+              [3] resolve_frame (res://scripts/battle_skill_rules.gd:48)
+              [4] _resolve_frame (res://scripts/game_state.gd:1091)
+              [5] _resolve_resolution_stack (res://scripts/game_state.gd:1062)
+              [6] basic_attack (res://scripts/game_state.gd:2353)
+              [7] negative_and_ai (res://scripts/verify_toxic_pair.gd:110)
+              [8] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:112)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] negative_and_ai (res://scripts/verify_toxic_pair.gd:112)
+              [2] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'targets' in base 'GDScript'.
+          at: GameState.valid_targets (res://scripts/game_state.gd:627)
+          GDScript backtrace (most recent call first):
+              [0] valid_targets (res://scripts/game_state.gd:627)
+              [1] negative_and_ai (res://scripts/verify_toxic_pair.gd:112)
+              [2] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] negative_and_ai (res://scripts/verify_toxic_pair.gd:112)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:113)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play (res://scripts/verify_toxic_pair.gd:18)
+              [4] negative_and_ai (res://scripts/verify_toxic_pair.gd:113)
+              [5] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] can_play_card (res://scripts/game_state.gd:798)
+              [3] play_card (res://scripts/game_state.gd:888)
+              [4] play (res://scripts/verify_toxic_pair.gd:18)
+              [5] negative_and_ai (res://scripts/verify_toxic_pair.gd:113)
+              [6] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL actualplay c28302 { "ok": false, "reason": "未知卡牌。" }
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28301
+TOXIC_PAIR_FAIL AIactual c28301
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28302
+TOXIC_PAIR_FAIL AIactual c28302
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28303
+TOXIC_PAIR_FAIL AIactual c28303
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28304
+TOXIC_PAIR_FAIL AIactual c28304
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28305
+TOXIC_PAIR_FAIL AIactual c28305
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'death_frames' in base 'GDScript'.
+          at: GameState._knockout_unit (res://scripts/game_state.gd:2069)
+          GDScript backtrace (most recent call first):
+              [0] _knockout_unit (res://scripts/game_state.gd:2069)
+              [1] negative_and_ai (res://scripts/verify_toxic_pair.gd:117)
+              [2] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28306
+TOXIC_PAIR_FAIL AIactual c28306
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28307
+TOXIC_PAIR_FAIL AIactual c28307
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28308
+TOXIC_PAIR_FAIL AIactual c28308
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'death_frames' in base 'GDScript'.
+          at: GameState._knockout_unit (res://scripts/game_state.gd:2069)
+          GDScript backtrace (most recent call first):
+              [0] _knockout_unit (res://scripts/game_state.gd:2069)
+              [1] negative_and_ai (res://scripts/verify_toxic_pair.gd:118)
+              [2] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28401
+TOXIC_PAIR_FAIL AIactual c28401
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28402
+TOXIC_PAIR_FAIL AIactual c28402
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28403
+TOXIC_PAIR_FAIL AIactual c28403
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28404
+TOXIC_PAIR_FAIL AIactual c28404
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28405
+TOXIC_PAIR_FAIL AIactual c28405
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28406
+TOXIC_PAIR_FAIL AIactual c28406
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28407
+TOXIC_PAIR_FAIL AIactual c28407
+SCRIPT ERROR: Invalid call. Nonexistent function 'turn_start' in base 'GDScript'.
+          at: GameState._begin_turn (res://scripts/game_state.gd:3114)
+          GDScript backtrace (most recent call first):
+              [0] _begin_turn (res://scripts/game_state.gd:3114)
+              [1] create (res://scripts/game_state.gd:76)
+              [2] game (res://scripts/verify_toxic_pair.gd:10)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:116)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:614)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:614)
+              [1] playable_card (res://scripts/game_state.gd:771)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] negative_and_ai (res://scripts/verify_toxic_pair.gd:119)
+              [4] run (res://scripts/verify_toxic_pair.gd:162)
+TOXIC_PAIR_FAIL AIlegal c28408
+TOXIC_PAIR_FAIL AIactual c28408
+TOXIC_PAIR_OK checks=102 failures=58 rules_only=true

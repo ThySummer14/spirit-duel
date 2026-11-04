@@ -4735,6 +4735,32 @@ export const WAVE4_CARD_DEFINITIONS = Object.freeze([
     ],
     subpack: "jiyun",
   }),
+  wave4Card(0, "egui", {
+  "id": "glutton-satiation",
+  "name": "饱腹",
+  "type": "charm",
+  "level": 1,
+  "cost": 0,
+  "text": "唯一。饿鬼获得2力量。倒计时2：移除此灵咒。",
+  "target": "auto",
+  "subpack": "sixiang",
+  "deckLimit": 0,
+  "starter": 0,
+  "token": true,
+  "rarity": "common",
+  "officialText": "唯一。饿鬼获得2力量。倒计时2：移除此灵咒。",
+  "tags": [
+    "token"
+  ],
+  "effects": [
+    [
+      "always",
+      "glutton-charm-token",
+      "source",
+      null
+    ]
+  ]
+}),
 ]);
 
 export function getWave4UnitIds() {

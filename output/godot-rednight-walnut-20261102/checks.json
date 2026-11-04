@@ -1,0 +1,15 @@
+{
+  "overlayMatches": true,
+  "subjects": 16,
+  "derivatives": 1,
+  "artMatches": true,
+  "rulesClean": true,
+  "nativeClean": true,
+  "rules": 313,
+  "native": 297,
+  "nativeRuleCount": 267,
+  "nativeTextures": 16,
+  "nativeInteractions": 14,
+  "newRulesAfterNative": 46,
+  "screenshots": 8
+}

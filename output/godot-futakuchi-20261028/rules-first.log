@@ -1,0 +1,12 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Cannot infer the type of "focused" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/verify_futakuchi.gd:35)
+SCRIPT ERROR: Parse Error: Too few arguments for "_resolve_combat()" call. Expected at least 7 but received 3.
+          at: GDScript::reload (res://scripts/verify_futakuchi.gd:70)
+SCRIPT ERROR: Parse Error: Too few arguments for "_resolve_combat()" call. Expected at least 7 but received 3.
+          at: GDScript::reload (res://scripts/verify_futakuchi.gd:71)
+SCRIPT ERROR: Parse Error: Too few arguments for "_resolve_combat()" call. Expected at least 7 but received 3.
+          at: GDScript::reload (res://scripts/verify_futakuchi.gd:107)
+ERROR: Failed to load script "res://scripts/verify_futakuchi.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript.cpp:2907)

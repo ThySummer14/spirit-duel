@@ -1,0 +1,86 @@
+[
+  {
+    "name": "eye_crab",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 9.64
+  },
+  {
+    "name": "wind_night_mask",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 10.31
+  },
+  {
+    "name": "coin_river",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 6.81
+  },
+  {
+    "name": "bond_dream",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 9.98
+  },
+  {
+    "name": "book_jue",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 1.77
+  },
+  {
+    "name": "moon_bamboo",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 8.28
+  },
+  {
+    "name": "whale",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.99
+  },
+  {
+    "name": "crocodile",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.9
+  },
+  {
+    "name": "butterfly",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.98
+  },
+  {
+    "name": "draw",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.69
+  },
+  {
+    "name": "turn_order",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.69
+  },
+  {
+    "name": "resource_effects",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.79
+  },
+  {
+    "name": "combat",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.8
+  },
+  {
+    "name": "instant",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.78
+  }
+]

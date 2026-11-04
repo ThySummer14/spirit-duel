@@ -1,0 +1,4 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+BLACK_WHITE_FAIL KO after reset does not subtract already-cleared temporary growth
+BLACK_WHITE_OK checks=202 failures=1 rules_only=true

@@ -1,0 +1,602 @@
+{
+  "existingTests": 149,
+  "allExistingTestsUnchanged": true,
+  "tests": [
+    {
+      "path": "godot/scripts/verify_combat.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_fox_glutton_doll.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_movement.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_sparrow.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_maple.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_fortune_pair_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_goldfish.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_peach.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yaoginshi.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_phoenix_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_dog_demon.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_huang.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_fox_lotus.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_eye_crab.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_aim_pointer.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_blessing_continuation.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_auto_targets.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_team_shield.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_growth.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_wind_raccoon.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_judge_tide_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_doll.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_owl_insect.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_dog_demon_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yaodao.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_whale.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_poison_pair.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_instant_feedback_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_zhen.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_judge_tide.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_mengpo_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_paint_star_pine.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_fortune_pair.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_monk_cleaner.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_tomato_fire_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yaksha.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_onikiri.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_battle_status_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_classic_continuation.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_tree_sakura.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_reference_workflow.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_xuenv.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_moon_bamboo.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_battle_status.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_sun_smoke.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yaodao_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_armor_limit_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_xuenv_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_save.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_vine.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_huibishou.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_phoenix.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_paint.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_night_trio.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_movement_continuation.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_weaver.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_bingyong_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_instant.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_light_healer.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_classic_core.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_snow_crane_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_mode_scope.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_peach_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_shuten.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_tomato_fire.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yitiao.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yijin.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_armor_blood_continuation.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_house.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_book_jue.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_poison_pair_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_pine.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_jorogumo.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_datiangou_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_glutton.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_ghost_mountain_maple.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_movement_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_headless.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_wave2_continuation.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_firefly.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_art.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_garuda.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_light_healer_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_resource_effects.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_book_jue_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_steel_wind_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_interactions.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_oni_asura.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_zhen_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_steel_wind.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_video_layout.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_raccoon.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_goldfish_vine_wind.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_armor_blood.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_card_aura.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_bingyong.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_samurai.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_snow_crane.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_roster.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_rebirth.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_shuten_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_signed_debuff.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_sun_smoke_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_support.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_coin_river.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_huang_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yijin_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yimulian_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_crocodile.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_baize.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_fox_suzuka_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_mountain_realm.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_armor_limit.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yimulian.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_draw.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_parallel_rules.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_koi_fragrance.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_pipe_fox.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_yaoginshi_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_presentation.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_wind_night_mask.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_silk_ninja.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_bond_dream.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_spider_lily.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_three_tail.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_firefly_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_archer_mountain.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_otakemaru.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_cotton.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_self_damage.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_spell_effects.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_susanoo.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_turn_order.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_bounce.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_star_bear.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_toxic_pair.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_collection.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_puppet.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_archer_mountain_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_fusion_trio.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_sea_butterfly.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_armor_blood_ui.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_mengpo.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_sword_house_trio.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_fox_suzuka.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_datiangou.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_butterfly.gd",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/verify_enma.gd",
+      "unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+### Page
+- Page URL: http://127.0.0.1:4188/play/
+- Page Title: 灵枢战线
+### Snapshot
+```yaml
+- generic "灵枢战线游戏画面" [active] [ref=e2]: 浏览器需要支持 Canvas。
+```
+### Events
+- New console entries: .playwright-cli/console-2026-10-16T15-34-15-772Z.log#L1-L3

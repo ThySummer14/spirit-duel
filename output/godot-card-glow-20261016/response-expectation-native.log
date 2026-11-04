@@ -1,0 +1,13 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+OpenGL API 4.1 Metal - 91.7 - Compatibility - Using Device: Apple - Apple M5
+
+Movie Maker mode enabled, recording movie in 1600×740 @ 30 FPS...
+BOOK_JUE_UI_FAIL card upgrade also triggers enemy Sun response after base blessing
+CARD_AURA checks=35 failures=1
+--------------------------------------------------------------------------------
+Done recording movie at path: /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-card-glow-20261016/aura-native.avi
+78 frames at 30 FPS (movie length: 00:00:02:18), recorded in 00:00:05 (40% of real-time speed).
+CPU render time: 1.35 seconds (average: 17.28 ms/frame)
+GPU render time: 0.00 seconds (average: 0.00 ms/frame)
+Encoding time: 2.11 seconds (average: 27.07 ms/frame)
+--------------------------------------------------------------------------------

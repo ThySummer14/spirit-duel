@@ -1,0 +1,50 @@
+[
+  {
+    "name": "combat",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.87
+  },
+  {
+    "name": "movement",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.96
+  },
+  {
+    "name": "instant",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.86
+  },
+  {
+    "name": "sun_smoke",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.97
+  },
+  {
+    "name": "lantern",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.96
+  },
+  {
+    "name": "glutton",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.96
+  },
+  {
+    "name": "armor_limit",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.76
+  },
+  {
+    "name": "battle_status",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.86
+  }
+]

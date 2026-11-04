@@ -1,0 +1,66 @@
+{
+  "completedOn": "2026-10-15",
+  "godotScripts": 84,
+  "focusedRules": 154,
+  "continuationRules": 35,
+  "nativeUi": {
+    "armorBlood": 60,
+    "lightHealer": 44,
+    "allCards": 96
+  },
+  "nativeViewportSizes": [
+    [
+      1280,
+      800
+    ],
+    [
+      1600,
+      740
+    ]
+  ],
+  "nodeTests": 168,
+  "uiAuditChecks": 390,
+  "frozenSuiteSources": true,
+  "gameSourcesMatchExport": true,
+  "webVersion": "4.6.3.stable",
+  "fidelitySummary": {
+    "units": {
+      "known-approximation": 144,
+      "unreviewed": 63,
+      "pending-verification": 28,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 958,
+      "unreviewed": 797,
+      "pending-verification": 152,
+      "source-backed-native": 207
+    }
+  },
+  "auditErrors": [
+    "Missing executable reviewed rules: w11-fanqie-01",
+    "Missing executable reviewed rules: w11-fanqie-02",
+    "Missing executable reviewed rules: w11-fanqie-03",
+    "Approximation in reviewed cards: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-04",
+    "Missing executable reviewed rules: w11-fanqie-05",
+    "Missing executable reviewed rules: w11-fanqie-06",
+    "Missing executable reviewed rules: w11-fanqie-07",
+    "Missing executable reviewed rules: w11-fanqie-08",
+    "Approximation in reviewed cards: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-01",
+    "Missing executable reviewed rules: w11-jinran-buye-02",
+    "Missing executable reviewed rules: w11-jinran-buye-03",
+    "Missing executable reviewed rules: w11-jinran-buye-04",
+    "Missing executable reviewed rules: w11-jinran-buye-05",
+    "Missing executable reviewed rules: w11-jinran-buye-06",
+    "Missing executable reviewed rules: w11-jinran-buye-07",
+    "Missing executable reviewed rules: w11-jinran-buye-08",
+    "Missing executable reviewed rules: c11108"
+  ],
+  "fullCatalogRestored": false,
+  "remainingUnitEntries": 235,
+  "remainingCards": 1907,
+  "allCardsUiScriptSha256": "3b91b15b5d914aeea467e24559c44e1a8c9f846660028c6af525d42a7cbd2c53",
+  "webExportBytes": 94124446
+}

@@ -1,0 +1,160 @@
+{
+  "units": [
+    {
+      "id": "cat-one",
+      "name": "一条",
+      "title": "猫掌柜召唤物",
+      "role": "召唤物",
+      "strategy": "",
+      "attack": 3,
+      "maxHp": 4,
+      "pack": "wave5",
+      "subpack": "xuanhua",
+      "art": "assets/official/summons/one.png",
+      "awakenedArt": "assets/official/summons/one.png",
+      "color": "#e0b070",
+      "token": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "countsAsShikigami": true,
+      "passive": {
+        "id": "cat-one-base",
+        "name": "基础能力",
+        "text": "当你对一条使用食材时，抽一张牌。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "cat-summon-jp-20261103"
+      ]
+    },
+    {
+      "id": "cat-four",
+      "name": "四饼",
+      "title": "猫掌柜召唤物",
+      "role": "召唤物",
+      "strategy": "",
+      "attack": 3,
+      "maxHp": 4,
+      "pack": "wave5",
+      "subpack": "xuanhua",
+      "art": "assets/official/summons/four.jpg",
+      "awakenedArt": "assets/official/summons/four.jpg",
+      "color": "#e0b070",
+      "token": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "countsAsShikigami": true,
+      "passive": {
+        "id": "cat-four-base",
+        "name": "基础能力",
+        "text": "当你对四饼使用食材时，本局游戏中猫掌柜的所有召唤物永久获得1力量。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "cat-summon-jp-20261103"
+      ]
+    },
+    {
+      "id": "cat-two",
+      "name": "二瞳",
+      "title": "猫掌柜召唤物",
+      "role": "召唤物",
+      "strategy": "",
+      "attack": 3,
+      "maxHp": 4,
+      "pack": "wave5",
+      "subpack": "xuanhua",
+      "art": "assets/official/summons/two.png",
+      "awakenedArt": "assets/official/summons/two.png",
+      "color": "#e0b070",
+      "token": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "countsAsShikigami": true,
+      "passive": {
+        "id": "cat-two-base",
+        "name": "基础能力",
+        "text": "当你对二瞳使用食材时，对一个随机敌方式神造成3点伤害。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "cat-summon-jp-20261103"
+      ]
+    },
+    {
+      "id": "sugar-small",
+      "name": "小糖人",
+      "title": "饴细工召唤物",
+      "role": "召唤物",
+      "strategy": "",
+      "attack": 2,
+      "maxHp": 2,
+      "pack": "wave5",
+      "subpack": "xuanhua",
+      "art": "assets/official/summons/small.png",
+      "awakenedArt": "assets/official/summons/small.png",
+      "color": "#e0b070",
+      "token": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "countsAsShikigami": true,
+      "passive": {
+        "id": "sugar-small-base",
+        "name": "基础能力",
+        "text": "融合。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "sugar-summon-jp-20261103"
+      ]
+    },
+    {
+      "id": "sugar-big",
+      "name": "大糖人",
+      "title": "饴细工召唤物",
+      "role": "召唤物",
+      "strategy": "",
+      "attack": 4,
+      "maxHp": 4,
+      "pack": "wave5",
+      "subpack": "xuanhua",
+      "art": "assets/official/summons/big.png",
+      "awakenedArt": "assets/official/summons/big.png",
+      "color": "#e0b070",
+      "token": true,
+      "selectable": false,
+      "summoned": true,
+      "verificationPending": [
+        "派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"
+      ],
+      "countsAsShikigami": true,
+      "passive": {
+        "id": "sugar-big-base",
+        "name": "基础能力",
+        "text": "融合。不屈。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "sugar-summon-jp-20261103"
+      ]
+    }
+  ],
+  "cards": []
+}

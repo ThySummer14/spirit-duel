@@ -1,0 +1,16 @@
+### Browser `effects-review` opened with pid 32883.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4190/');
+```
+### Page
+- Page URL: http://127.0.0.1:4190/
+- Page Title: 百闻牌 · 演出参照
+### Snapshot
+- [Snapshot](.playwright-cli/page-2026-10-16T14-12-04-788Z.yml)
+### Result
+[{"src":"clips/huang-swift-vigor.mp4","duration":34,"width":640,"height":286,"played":true,"error":null},{"src":"clips/xun-attachment.mp4","duration":24,"width":640,"height":282,"played":true,"error":null},{"src":"clips/arrow-combat.mp4","duration":40,"width":640,"height":360,"played":true,"error":null},{"src":"clips/feather-entrance.mp4","duration":12,"width":640,"height":360,"played":true,"error":null},{"src":"clips/ink-entrance.mp4","duration":17,"width":640,"height":360,"played":true,"error":null},{"src":"clips/cosmic-effect.mp4","duration":24,"width":640,"height":286,"played":true,"error":null}]
+### Ran Playwright code
+```js
+await (async (page) => { await page.setViewportSize({width:1600,height:1000}); await page.goto("http://127.0.0.1:4190/"); const videos=page.locator("video"); for(let i=0;i<await videos.count();i++){await videos.nth(i).evaluate(async v=>{await v.play();await new Promise(r=>{v.addEventListener("timeupdate",r,{once:true});setTimeout(r,3000)});v.pause()})} const media=await videos.evaluateAll(nodes=>nodes.map(v=>({src:v.getAttribute("src"),duration:v.duration,width:v.videoWidth,height:v.videoHeight,played:v.currentTime>0,error:v.error?.message??null}))); await page.screenshot({path:"output/video-effects-20261015/reference-page-top.png"}); return media; })(page);
+```

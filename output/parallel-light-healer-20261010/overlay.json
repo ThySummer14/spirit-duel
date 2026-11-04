@@ -1,0 +1,996 @@
+{
+  "sources": [
+    {
+      "id": "light-healer-snapshot",
+      "path": "research-data/cards.json",
+      "evidence": "12500–12508、12900–12909、13000–13008 官方牌库快照；后续官方公告覆盖旧数值。"
+    },
+    {
+      "id": "light-guide",
+      "url": "https://www.taptap.cn/moment/15221943921806134",
+      "evidence": "2019官方百科：明灯、吸魂灯与储火；不灭之火准备区说法与2020原作者说明冲突。"
+    },
+    {
+      "id": "monk-guide",
+      "url": "https://www.taptap.cn/moment/15229053053176185",
+      "evidence": "原作者逐卡说明：牌手恢复触发、禅心每回合一次、佛光两次回复与敌方目标。佛印沿用公测 snapshot 的4点，不沿用文中旧5点。"
+    },
+    {
+      "id": "fortune-guide",
+      "url": "https://www.taptap.cn/moment/15227915461463202",
+      "evidence": "原作者座敷童子逐卡说明：双方运势、进离场鬼火、福满乾坤。"
+    },
+    {
+      "id": "light-healer-balance-20230309",
+      "url": "https://www.taptap.cn/moment/382609474805825905",
+      "evidence": "官方公告：轮回改为被对手伤害次数；觉醒座敷童子改为二勾与+1/+1。"
+    },
+    {
+      "id": "fortune-fix-20230427",
+      "url": "https://www.taptap.cn/moment/400381140478722737",
+      "evidence": "官方修复福满乾坤可重置中毒牌手生命值；中毒角色跨系统联动仍保留待核对。"
+    },
+    {
+      "id": "light-guide-2020",
+      "url": "https://www.taptap.cn/moment/15228324829724689",
+      "evidence": "2020原作者式神百谈：不灭之火原区域复生、百闻一得指定最低等级、百物语之火先得鬼火后得明灯。"
+    }
+  ],
+  "units": {
+    "qingfangzhu": {
+      "attack": 1,
+      "maxHp": 6,
+      "officialAbility": "当你恢复生命时，随机对两个敌方角色造成1点伤害。",
+      "passive": {
+        "name": "基础能力",
+        "text": "当你恢复生命时，随机对两个敌方角色造成1点伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "name": "觉醒能力",
+        "text": "当你恢复生命时，对所有敌人造成1点伤害。",
+        "hooks": []
+      },
+      "lightRole": "monk",
+      "formLifecycle": {},
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "qingxingdeng": {
+      "attack": 2,
+      "maxHp": 5,
+      "officialAbility": "对手回合开始时若你有剩余鬼火，获得一张「明灯」。",
+      "passive": {
+        "name": "基础能力",
+        "text": "对手回合开始时若你有剩余鬼火，获得一张「明灯」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "name": "觉醒能力",
+        "text": "对手回合开始时若你有剩余鬼火，获得一张明灯。你的鬼火不会自动清除，最大可储存4点。",
+        "hooks": []
+      },
+      "lightRole": "lantern",
+      "formLifecycle": {},
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "zuofutongzi": {
+      "attack": 2,
+      "maxHp": 5,
+      "officialAbility": "每次运势判定中，当你投骰子点数为1时，重投一次。",
+      "passive": {
+        "name": "基础能力",
+        "text": "每次运势判定中，当你投骰子点数为1时，重投一次。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "name": "觉醒能力",
+        "text": "每次运势判定中，当你运势判定失败时，重投一次。",
+        "hooks": []
+      },
+      "lightRole": "fortune",
+      "formLifecycle": {},
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    }
+  },
+  "cards": {
+    "c12501": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "auto",
+      "text": "瞬发。为双方牌手恢复4点生命。",
+      "officialText": "瞬发。为双方牌手恢复4点生命。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "monk-seal",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "monk-seal",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12502": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "每回合一次，当你恢复生命时，抽一张牌。",
+      "officialText": "每回合一次，当你恢复生命时，抽一张牌。",
+      "formHooks": [],
+      "formRules": {
+        "monkHealDraw": true
+      },
+      "formAbility": "每回合一次，当你恢复生命时，抽一张牌。",
+      "effect": "form",
+      "value": {
+        "attack": 1,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 1,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12503": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "any-living-character",
+      "text": "为一个角色恢复3点生命，然后为其操控者的所有角色恢复3点生命。",
+      "officialText": "为一个角色恢复3点生命，然后为其操控者的所有角色恢复3点生命。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "monk-light",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "monk-light",
+          "target": "any-living-character",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12504": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "ally-unit",
+      "text": "使一个己方式神获得不屈。",
+      "officialText": "使一个己方式神获得不屈。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "grant-unyielding",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "grant-unyielding",
+          "target": "ally-unit",
+          "value": 1
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12505": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "你对敌方的恢复生命效果改为伤害效果。",
+      "officialText": "你对敌方的恢复生命效果改为伤害效果。",
+      "formHooks": [],
+      "formRules": {
+        "enemyHealingIsDamage": true
+      },
+      "formAbility": "你对敌方的恢复生命效果改为伤害效果。",
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 5,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12506": {
+      "verifiedRules": true,
+      "type": "awakening",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "恢复8点生命。。觉醒：当你恢复生命时，对所有敌人造成1点伤害。",
+      "officialText": "恢复8点生命。。觉醒：当你恢复生命时，对所有敌人造成1点伤害。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "monk-awaken",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "monk-awaken",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12507": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "auto",
+      "text": "瞬发。牺牲青坊主，本回合你免疫所有伤害。。响应：当你将受到致命伤害时，自动使用此牌。",
+      "officialText": "瞬发。牺牲青坊主，本回合你免疫所有伤害。。响应：当你将受到致命伤害时，自动使用此牌。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "monk-sacrifice",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "monk-sacrifice",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ],
+      "autoResponse": "avatar-lethal"
+    },
+    "c12508": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "你的生命变为10。增强：本局游戏你每被对手伤害过一次，此牌效果+1。",
+      "officialText": "你的生命变为10。增强：本局游戏你每被对手伤害过一次，此牌效果+1。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "monk-rebirth",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "monk-rebirth",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12901": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "auto",
+      "text": "瞬发。你获得1点鬼火。",
+      "officialText": "瞬发。你获得1点鬼火。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "light-fire",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "light-fire",
+          "target": "auto",
+          "value": 1
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ],
+      "lightLantern": true
+    },
+    "c12902": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "检视牌库顶三张牌然后选择一张置入手牌。你每有1点鬼火便重复一次。清空你的鬼火。",
+      "officialText": "检视牌库顶三张牌然后选择一张置入手牌。你每有1点鬼火便重复一次。清空你的鬼火。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "lantern-choice",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "lantern-choice",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ],
+      "verificationPending": [
+        "青灯夜谈未选中牌的放回顺序与官方录像仍待交叉验证；当前保持原牌库相对顺序。"
+      ]
+    },
+    "c12903": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "lowest-ally-unit",
+      "text": "弃掉一张「明灯」，使一个己方最低等级的式神等级+1。若其等级已为3则改为抽一张牌。",
+      "officialText": "弃掉一张「明灯」，使一个己方最低等级的式神等级+1。若其等级已为3则改为抽一张牌。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "lantern-level",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "lantern-level",
+          "target": "lowest-ally-unit",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309",
+        "light-guide-2020"
+      ],
+      "verificationPending": [
+        "早期官方百科为随机最低等级；牌库快照已去掉随机，按指定最低等级实现，仍需视频版本确认。"
+      ]
+    },
+    "c12905": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "当青行灯对敌方牌手造成战斗伤害时，获得一张「明灯」。",
+      "officialText": "当青行灯对敌方牌手造成战斗伤害时，获得一张「明灯」。",
+      "formHooks": [],
+      "formRules": {
+        "lanternCombatFire": true
+      },
+      "formAbility": "当青行灯对敌方牌手造成战斗伤害时，获得一张「明灯」。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12906": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "当此牌被消灭时，消耗1点鬼火，返回场上。",
+      "officialText": "当此牌被消灭时，消耗1点鬼火，返回场上。",
+      "formHooks": [],
+      "formRules": {
+        "lanternImmortal": true
+      },
+      "formAbility": "当此牌被消灭时，消耗1点鬼火，返回场上。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309",
+        "light-guide-2020"
+      ],
+      "verificationPending": [
+        "2019百科称返回准备区，2020原作者称原区域复生；当前采用较新原区域，缺指定录像直接证明。"
+      ]
+    },
+    "c12907": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "projectile"
+      ],
+      "target": "auto",
+      "text": "投射：造成4点伤害。你每有1点鬼火便重复一次。清空你的鬼火。",
+      "officialText": "投射：造成4点伤害。你每有1点鬼火便重复一次。清空你的鬼火。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "lantern-drain",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "lantern-drain",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12908": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "己方回合结束时，你获得1点鬼火。",
+      "officialText": "己方回合结束时，你获得1点鬼火。",
+      "formHooks": [],
+      "formRules": {
+        "lanternEndFire": true
+      },
+      "formAbility": "己方回合结束时，你获得1点鬼火。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c12909": {
+      "verifiedRules": true,
+      "type": "awakening",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "觉醒：对手回合开始时若你有剩余鬼火，获得一张「明灯」。你的鬼火不会自动清除，最大可储存4点。",
+      "officialText": "觉醒：对手回合开始时若你有剩余鬼火，获得一张「明灯」。你的鬼火不会自动清除，最大可储存4点。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "light-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "light-awaken",
+          "target": "auto",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c13001": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "己方回合开始时，双方牌手运势4：抽一张牌。",
+      "officialText": "己方回合开始时，双方牌手运势4：抽一张牌。",
+      "formHooks": [],
+      "formRules": {
+        "fortuneTurnStart": "draw"
+      },
+      "formAbility": "己方回合开始时，双方牌手运势4：抽一张牌。",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c13002": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "己方回合开始时，双方牌手运势4：恢复3点生命。",
+      "officialText": "己方回合开始时，双方牌手运势4：恢复3点生命。",
+      "formHooks": [],
+      "formRules": {
+        "fortuneTurnStart": "heal"
+      },
+      "formAbility": "己方回合开始时，双方牌手运势4：恢复3点生命。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 2,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c13003": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "每当一个式神攻击后运势4：失败则被眩晕。",
+      "officialText": "每当一个式神攻击后运势4：失败则被眩晕。",
+      "formHooks": [],
+      "formRules": {
+        "fortuneStunAfterAttack": true
+      },
+      "formAbility": "每当一个式神攻击后运势4：失败则被眩晕。",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 3,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c13006": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "每当一个式神攻击时运势4：失败则本次战斗力量变为0。",
+      "officialText": "每当一个式神攻击时运势4：失败则本次战斗力量变为0。",
+      "formHooks": [],
+      "formRules": {
+        "fortuneZeroAttack": true
+      },
+      "formAbility": "每当一个式神攻击时运势4：失败则本次战斗力量变为0。",
+      "effect": "form",
+      "value": {
+        "attack": 0,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 0,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c13007": {
+      "verifiedRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "增强：座敷童子结附形态牌时，此牌获得瞬发且使用时抽一张牌。。此牌进场或离场时，双方各获得1点鬼火。",
+      "officialText": "增强：座敷童子结附形态牌时，此牌获得瞬发且使用时抽一张牌。。此牌进场或离场时，双方各获得1点鬼火。",
+      "formHooks": [],
+      "formRules": {
+        "fortuneEntryExitFire": true
+      },
+      "formAbility": "增强：座敷童子结附形态牌时，此牌获得瞬发且使用时抽一张牌。。此牌进场或离场时，双方各获得1点鬼火。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "auto",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ],
+      "fortuneEnhanceOnForm": true
+    },
+    "c13004": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "抽一张牌。。运势4：你获得2点鬼火。",
+      "officialText": "抽一张牌。。运势4：你获得2点鬼火。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "fortune-fire",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "fortune-fire",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c13005": {
+      "verifiedRules": true,
+      "type": "awakening",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "觉醒：每次运势判定中，当你运势判定失败时，重投一次。",
+      "officialText": "觉醒：每次运势判定中，当你运势判定失败时，重投一次。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "light-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "light-awaken",
+          "target": "auto",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ]
+    },
+    "c13008": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "text": "增强：本局游戏若双方运势判定成功15次，则双方生命变为30，抽手牌直至十张，获得3点鬼火。",
+      "officialText": "增强：本局游戏若双方运势判定成功15次，则双方生命变为30，抽手牌直至十张，获得3点鬼火。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "fortune-reset",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "fortune-reset",
+          "target": "auto",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ],
+      "verificationPending": [
+        "官方2023-04-27明确中毒不能重置生命；中毒状态尚无统一入口，当前预留avatarHealingBlocked，跨中毒角色联动未验证。"
+      ]
+    },
+    "mingdeng": {
+      "verifiedRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "instant"
+      ],
+      "target": "auto",
+      "text": "瞬发。你获得1点鬼火。",
+      "officialText": "瞬发。你获得1点鬼火。",
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "effect": "light-fire",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "light-fire",
+          "target": "auto",
+          "value": 1
+        }
+      ],
+      "sources": [
+        "light-healer-snapshot",
+        "light-healer-balance-20230309"
+      ],
+      "lightLantern": true
+    }
+  }
+}

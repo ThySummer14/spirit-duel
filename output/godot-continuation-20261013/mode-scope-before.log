@@ -1,0 +1,14 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+MODE_SCOPE_FAIL normal zashiki awakening remains level three
+MODE_SCOPE_FAIL normal awakening remains +1/+3
+MODE_SCOPE_FAIL normal two-level source cannot awaken
+MODE_SCOPE_FAIL printed life gain applied
+MODE_SCOPE_FAIL fully absorbed attack counts once
+MODE_SCOPE_FAIL combo damage strikes share one attack history entry
+MODE_SCOPE_FAIL immune avatar still was attacked
+MODE_SCOPE_FAIL unit combat is not an avatar attack
+MODE_SCOPE_FAIL zero-power attack counts without fabricating damage
+MODE_SCOPE_FAIL normal rebirth ignores spell events and repeated damage strikes
+MODE_SCOPE_FAIL attack history survives JSON roundtrip
+MODE_SCOPE checks=20 failures=11

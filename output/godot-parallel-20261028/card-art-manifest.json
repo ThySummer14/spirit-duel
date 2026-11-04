@@ -1,0 +1,165 @@
+{
+  "newCards": [
+    {
+      "cardId": "c23801",
+      "sha256": "70408b15431fcb49d97230e8ec6917f9f436c1c88cda5cf52ce9921bc5e49508"
+    },
+    {
+      "cardId": "c23802",
+      "sha256": "a1d92324aecc9f02fd031f594e71d27f64d96f8d0ccff8fd43a04b57fdd8a737"
+    },
+    {
+      "cardId": "c23803",
+      "sha256": "66719b7d104d315181ce1a23b53646367e39f69a40b6b5c4756c933959f0f389"
+    },
+    {
+      "cardId": "c23804",
+      "sha256": "e7ea7fc33478dfdef3f27b3b553a4754f4168a20d8b4045d60b7b39eda3f3dc3"
+    },
+    {
+      "cardId": "c23805",
+      "sha256": "d8c62d62e5974b7edabe20696fad83571b60f1d8e61b25289ee09c40619bae28"
+    },
+    {
+      "cardId": "c23806",
+      "sha256": "9951accff808875bb374dbe04aff09c0ac098298258851a7ac3db0677e155054"
+    },
+    {
+      "cardId": "c23807",
+      "sha256": "7fd0765d07200fe62d97075ba09deb3268cbc5e34cf3abb4032a86a200c0134e"
+    },
+    {
+      "cardId": "c23808",
+      "sha256": "19e5e787bdf6947c081b22100adfde8da83b0aafc4aee1ae939393f1de4b8ea9"
+    },
+    {
+      "cardId": "c24001",
+      "sha256": "68f0b4a180cd89e12713fc5a4dd23818837d8780de56542c30fbe32d29bea2e1"
+    },
+    {
+      "cardId": "c24002",
+      "sha256": "466fae7d1580ba9d593ed11120cac0e28b37bdd14325f261709640e38dc86480"
+    },
+    {
+      "cardId": "c24003",
+      "sha256": "5a8c93812eb315f0bea069f2e43f7142d3303b2e1aa7652e3b3ae09c5dac3f35"
+    },
+    {
+      "cardId": "c24004",
+      "sha256": "ced27e84b93564644bb550848678fc760eeb28ac3b446ff0f4ca995f261eeca4"
+    },
+    {
+      "cardId": "c24005",
+      "sha256": "042bab0fdcaad9fee82ae0529bcc4e959beb7b05f20c6125e65829dac0bb70b2"
+    },
+    {
+      "cardId": "c24006",
+      "sha256": "797a2c3169b2b13f297a16225ef1fb5e1eb7ca75eceeacf9262e575b569925ba"
+    },
+    {
+      "cardId": "c24007",
+      "sha256": "e93882408a18f8e19203e2538f06893b2e9311090f9016755eded69766ddc984"
+    },
+    {
+      "cardId": "c24008",
+      "sha256": "320fb6e3dae32e6c0fd75fef82e49c25c47a74c0eeb4c827949c7ba5dc112e9d"
+    },
+    {
+      "cardId": "c24101",
+      "sha256": "6dfc7124665f9f407beedf4914d0a21d68cb4c12c46f2dc74b9547bba644368e"
+    },
+    {
+      "cardId": "c24102",
+      "sha256": "75a2cd39b8e52ee9b05a9e9321096714a755816e930fff5f25a307315ed1763e"
+    },
+    {
+      "cardId": "c24103",
+      "sha256": "db274caf971c238bb7fc1d1053fe0e84889eb88ed5aad95e40c693f48a5082d7"
+    },
+    {
+      "cardId": "c24104",
+      "sha256": "04440e2a327e8625e426d2de84890049930f196d27311e3d8da92e20afd8b49d"
+    },
+    {
+      "cardId": "c24105",
+      "sha256": "4320a5c29abe178a31b36707b8757e2c0a73f2f3d9320574bdbe50599fa093cc"
+    },
+    {
+      "cardId": "c24106",
+      "sha256": "76f880c9fad33b43973dacaae5bd4e94df281a746de63a802683e81c350b4356"
+    },
+    {
+      "cardId": "c24107",
+      "sha256": "7ceca13b5ff9a63b7df2bedcf9e3e7c5bd702874674913982f499b039bcd4013"
+    },
+    {
+      "cardId": "c24108",
+      "sha256": "2ae0bfe1a3bd9003c4e924006d1d7c9cd3031ee062dab55d2713c80406040c23"
+    },
+    {
+      "cardId": "c24301",
+      "sha256": "f9d09f04258a4d3f611783af31bf5bd2d2b2a3e6488145ace48ae39912fbc6c8"
+    },
+    {
+      "cardId": "c24302",
+      "sha256": "f547b29b73fc0398841268558259bf6bbf6aefab90feafade86f919624477614"
+    },
+    {
+      "cardId": "c24303",
+      "sha256": "f7255b74cacdecb99b5d0d24dc1a25c79a3f55d839f1f983be54cca5d62ece52"
+    },
+    {
+      "cardId": "c24304",
+      "sha256": "eab857ab7ddf755f970bf6bf4f5f7f601403b0ccfb8e7a748536c744a75811fa"
+    },
+    {
+      "cardId": "c24305",
+      "sha256": "958c470b58bed08db68a2c139ad907549cc37f173f02ab8295c58b513f377060"
+    },
+    {
+      "cardId": "c24306",
+      "sha256": "17dc117df746e8f9a33b30514925d8b150c491db3a9fcf688acaeb2284bbf6d2"
+    },
+    {
+      "cardId": "c24307",
+      "sha256": "575c96ef3f1f28254ad3a00c65b90146f7ea0a7e08e64476cd4337812903616b"
+    },
+    {
+      "cardId": "c24308",
+      "sha256": "924512aa45765370b42193fad0fc3730d35c7ef2884401823a28866e2cf12ec9"
+    },
+    {
+      "cardId": "c29501",
+      "sha256": "d909a4b58bfe0d745624932d6752648382c51f0a06d7803bf844fbd45cf0ea32"
+    },
+    {
+      "cardId": "c29502",
+      "sha256": "67945dc65b84f3b4d749f15bec7c111c2624a7301383af19b09b0ecb675be84a"
+    },
+    {
+      "cardId": "c29503",
+      "sha256": "7cfee8d6267003774323f0fe2b4ef64df3d7a64a373c6b286d4030c9606f8d79"
+    },
+    {
+      "cardId": "c29504",
+      "sha256": "f9f38490ae6f3c0a0e87e1efa0c2eb1cda05a970708b9cbc23954c729472e89a"
+    },
+    {
+      "cardId": "c29505",
+      "sha256": "f9bbaa1da7f6e2afa20423ed059bdd2345608c034313ace9a9eedd03c4dbc529"
+    },
+    {
+      "cardId": "c29506",
+      "sha256": "b03238451b22b0240d49b28e6db3f321d38c7e78e1dcde482751d5b253c8cfe0"
+    },
+    {
+      "cardId": "c29507",
+      "sha256": "dc7d2e5e8f28ecc6e7aacd8e27b7603e7ff62ca737c7106f47371e199a3184e3"
+    },
+    {
+      "cardId": "c29508",
+      "sha256": "13828bfef84f01f94498e3bec2ad78adc5c0339328756af146a3e7903704ada3"
+    }
+  ],
+  "totalPNG": 563
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "script": "godot/scripts/verify_sun_smoke.gd",
+    "scriptSha256": "4046e4bdbfc2b604806dd46208f0a47b23020214e82bf00a7729879ebea54574",
+    "rulesOnly": false,
+    "checks": 154,
+    "exitCode": 0,
+    "passed": true,
+    "errors": [],
+    "log": "output/godot-octet-20261030/regressions/continuation-sun_smoke.log",
+    "seconds": 0.956
+  },
+  {
+    "script": "godot/scripts/verify_poison_pair.gd",
+    "scriptSha256": "bb1104f8c4fc0b227d73bf4afff14e9f6c0f47520fe62114c71fdc447fdb81b4",
+    "rulesOnly": false,
+    "checks": 667,
+    "exitCode": 0,
+    "passed": true,
+    "errors": [],
+    "log": "output/godot-octet-20261030/regressions/continuation-poison_pair.log",
+    "seconds": 2.717
+  },
+  {
+    "script": "godot/scripts/verify_yujiazhu.gd",
+    "scriptSha256": "ed7a361f22f32f127e5a7d8195eccd05706f7aed5638d23002cc965ee496eac6",
+    "rulesOnly": true,
+    "checks": 161,
+    "exitCode": 0,
+    "passed": true,
+    "errors": [],
+    "log": "output/godot-octet-20261030/regressions/continuation-yujiazhu.log",
+    "seconds": 1.164
+  },
+  {
+    "script": "godot/scripts/verify_movement.gd",
+    "scriptSha256": "d982b071a6f5d11c0545eab3e503e2180deb4faede8e740807e7a78a51e244bc",
+    "rulesOnly": false,
+    "checks": 244,
+    "exitCode": 0,
+    "passed": true,
+    "errors": [],
+    "log": "output/godot-octet-20261030/regressions/continuation-movement.log",
+    "seconds": 1.055
+  }
+]

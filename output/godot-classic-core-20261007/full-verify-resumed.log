@@ -1,0 +1,59 @@
+== --script res://scripts/verify_reference_workflow.gd ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+REFERENCE_WORKFLOW checks=187 failures=0
+REFERENCE_WORKFLOW_OK
+
+== --script res://scripts/verify_presentation.gd ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PRESENTATION checks=120 failures=0
+PRESENTATION_OK
+
+== --script res://scripts/verify_spell_effects.gd ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SPELL_EFFECTS checks=97 failures=0
+SPELL_EFFECTS_OK
+
+== --script res://scripts/verify_aim_pointer.gd ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+AIM_POINTER checks=19 failures=0
+AIM_POINTER_OK
+
+== --script res://scripts/verify_video_layout.gd ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+VIDEO_LAYOUT checks=884 failures=0
+VIDEO_LAYOUT_OK
+
+== --script res://scripts/verify_art.gd ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ART checks=5283 failures=0 redrawn_units=250
+ART_OK
+
+== --script res://scripts/verify_roster.gd ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ROSTER checks=5304 failures=0 units=250 portraits=500 matches=63 covered=250 opponents=117
+ROSTER_OK
+
+== --script res://scripts/playtest_burst.gd -- 60 ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PLAYTEST matches=60 completed=60 wins=[30, 30] stalls=0 avg_turn=16.0
+PLAYTEST_OK
+
+== --script res://scripts/playtest_focus.gd -- 20 ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FOCUS rounds=20 completed=20 wins=[10, 10] stalls=0 response_games=6 choice_games=1
+FOCUS_OK
+
+== --quit-after 1 ==
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+
+GODOT_VERIFY_REMAINING_OK; earlier stages passed except the corrected interactions fixture, separately re-run successfully

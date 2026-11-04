@@ -1,0 +1,368 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "bingyong-official-catalog",
+      "path": "research-data/cards.json",
+      "evidence": "10300–10309 官方旧快照；使用其中基础1/6、尘刀、冲撞2/2、觉醒法术+3甲、古尘之壁5/10、尘缚之阵5/9，后续公告覆盖过时形态。"
+    },
+    {
+      "id": "bingyong-official-talk",
+      "url": "https://www.taptap.cn/moment/15229739794958380",
+      "evidence": "2020-02-21 官方攻略刊载西园寺世界：八张牌效果、激活后才触发基础能力、觉醒没有身材加成。"
+    },
+    {
+      "id": "bingyong-balance-20231026",
+      "url": "https://www.taptap.cn/moment/466367116069572509",
+      "evidence": "官方2023-10-26：森罗新增进场2甲；不动如山新增入场移入战斗区，未写发起攻击。"
+    },
+    {
+      "id": "bingyong-balance-20231109",
+      "url": "https://www.taptap.cn/moment/471401501521087569",
+      "evidence": "官方2023-11-09：不动如山基础生命10降9。"
+    },
+    {
+      "id": "bingyong-front-growth-duration",
+      "url": "https://www.taptap.cn/topic/8810730",
+      "evidence": "狸猫会原作者鱼兵慢速指南：不动如山力量保留到气绝，切形态不移除；古尘之壁只影响其他存活者。"
+    },
+    {
+      "id": "bingyong-turn-order",
+      "url": "https://www.taptap.cn/moment/270868418574420508",
+      "evidence": "原作者时序实测：回合开始效果先于己方退后与正常抽牌；手牌增强不能追溯给之后抽到的牌。"
+    },
+    {
+      "id": "armor-break-offset-original",
+      "url": "https://www.taptap.cn/moment/181192455054429575?group_id=188707",
+      "evidence": "2021-08-30 狸猫会原作者、官方版主小果酱渣：汇聚段明确护甲和破甲会中和抵消，无法同时保留两者来触发义道。相抵发生在状态获得时，影响森罗持有护甲条件、尘刀及古尘之壁读取值。"
+    }
+  ],
+  "units": {
+    "bingyong": {
+      "attack": 1,
+      "maxHp": 6,
+      "bingyongArmor": {
+        "turnArmor": 2
+      },
+      "passive": {
+        "id": "bingyong-armor-verified",
+        "name": "坚甲",
+        "text": "己方回合开始时，兵俑获得2护甲。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "bingyong-armor-preserved",
+        "name": "觉醒·兵俑",
+        "text": "己方回合开始时，兵俑获得2护甲。其护甲不会在回合开始时移除。",
+        "hooks": []
+      }
+    }
+  },
+  "cards": {
+    "c10301": {
+      "verifiedRules": true,
+      "bingyongRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 1,
+      "text": "本次战斗兵俑每有1护甲，便获得1力量。",
+      "effect": "bingyong-dustblade",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "bingyong-dustblade",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "",
+      "formRules": {},
+      "combatOption": {},
+      "encourage": null,
+      "verificationPending": [
+        "尘刀与战斗准备阶段改变攻击者护甲的跨角色响应，实际取值时点仍需当前客户端录像；当前于战斗动作开始读取护甲，不永久增加力量。"
+      ]
+    },
+    "c10303": {
+      "verifiedRules": true,
+      "bingyongRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "enhance"
+      ],
+      "target": "auto",
+      "level": 2,
+      "text": "本次战斗获得+2力量/+2护甲。增强：己方回合开始时若兵俑在战斗区，此牌获得+1力量/+1护甲。",
+      "effect": "assault",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "assault",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "",
+      "formRules": {},
+      "combatOption": {
+        "shield": 2
+      },
+      "encourage": null,
+      "baseValue": 2,
+      "enhanceWhileSourceFront": true
+    },
+    "c10302": {
+      "verifiedRules": true,
+      "bingyongRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 2,
+      "text": "进场时将兵俑移入战斗区。己方回合开始时若兵俑在战斗区，则获得3力量。",
+      "effect": "form",
+      "value": {
+        "attack": 1,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "进场时将兵俑移入战斗区。己方回合开始时若兵俑在战斗区，则获得3力量。",
+      "formRules": {
+        "entryFront": true,
+        "frontTurnGrowth": 3
+      },
+      "combatOption": {},
+      "encourage": null
+    },
+    "c10305": {
+      "verifiedRules": true,
+      "bingyongRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 2,
+      "text": "进场时使兵俑获得2护甲。兵俑有护甲时，至多只会受到等于其护甲的伤害。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "进场时使兵俑获得2护甲。兵俑有护甲时，至多只会受到等于其护甲的伤害。",
+      "formRules": {
+        "entryArmor": 2,
+        "armorDamageCap": true
+      },
+      "combatOption": {},
+      "encourage": null
+    },
+    "c10306": {
+      "verifiedRules": true,
+      "bingyongRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 3,
+      "text": "进场时兵俑每有1护甲，己方所有其他式神获得1生命。",
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 10,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 10,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "进场时兵俑每有1护甲，己方所有其他式神获得1生命。",
+      "formRules": {
+        "entryArmorHealth": true
+      },
+      "combatOption": {},
+      "encourage": null,
+      "verificationPending": [
+        "古尘之壁普通生命按通用气绝规则在受益者气绝时移除；原作者旧文的“不会消失”未区分离场与气绝，仍需当前客户端气绝案例核验。"
+      ]
+    },
+    "c10309": {
+      "verifiedRules": true,
+      "bingyongRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [],
+      "target": "auto",
+      "level": 3,
+      "text": "当兵俑在战斗区时，敌方战斗区式神无法被其他式神替换。",
+      "effect": "form",
+      "value": {
+        "attack": 5,
+        "hp": 9,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 9,
+            "setBase": true
+          }
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "当兵俑在战斗区时，敌方战斗区式神无法被其他式神替换。",
+      "formRules": {
+        "lockEnemyFrontReplacement": true
+      },
+      "combatOption": {},
+      "encourage": null,
+      "verificationPending": [
+        "尘缚之阵阻止非远程攻击或移动替换现存敌方前排，允许原前排退出后再入场；召唤物更替、强制移动等未还原体系需后续交叉核验。"
+      ]
+    },
+    "c10307": {
+      "verifiedRules": true,
+      "bingyongRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "awakening"
+      ],
+      "target": "auto",
+      "level": 2,
+      "text": "兵俑获得3护甲。觉醒：己方回合开始时兵俑获得2护甲，其护甲不会在回合开始时移除。",
+      "effect": "bingyong-awaken",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "bingyong-awaken",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "",
+      "formRules": {},
+      "combatOption": {},
+      "encourage": null
+    },
+    "c10308": {
+      "verifiedRules": true,
+      "bingyongRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "timing": "main",
+      "responseTo": [],
+      "keywords": [
+        "response"
+      ],
+      "target": "ally-unit",
+      "level": 1,
+      "text": "使一个己方式神获得5护甲。响应：当兵俑被攻击时，自动对自己使用。",
+      "effect": "bingyong-shield",
+      "value": 5,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "bingyong-shield",
+          "target": "selected-ally",
+          "value": 5
+        }
+      ],
+      "formHooks": [],
+      "formAbility": "",
+      "formRules": {},
+      "combatOption": {},
+      "encourage": null,
+      "autoResponse": "source-attacked",
+      "verificationPending": [
+        "同一攻击同时满足多张响应牌时的排序和是否连续响应，需与共享响应引擎一起核验；本轮覆盖单张合法响应及鬼火/勾玉/气绝/眩晕限制。"
+      ]
+    }
+  }
+}

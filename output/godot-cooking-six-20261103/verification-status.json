@@ -1,0 +1,45 @@
+{
+  "control": "COMBAT_REGRESSION_OK cases=16",
+  "cross": "FOOD_CROSS_OK checks=64",
+  "relatedRegressionSuites": 22,
+  "relatedRegressionReport": "regressions/final-results.json",
+  "sourceReview": "source-review.json",
+  "jsTests": {
+    "passed": 32,
+    "failed": 7,
+    "reason": "Legacy JS startup validation does not support native Godot derivative rules and neutral food schema."
+  },
+  "audit": {
+    "fullCatalogRestored": false,
+    "knownApproximationCards": 380,
+    "unreviewedCards": 586,
+    "pendingVerificationCards": 962,
+    "sourceBackedNativeCards": 207,
+    "diagnosticCount": 21
+  },
+  "nativeAndPackage": "passed",
+  "focusedChecks": 515,
+  "finalRulesChecks": 499,
+  "derivedArtChecks": 16,
+  "nativeChecks": {
+    "cooking": 140,
+    "sugarCat": 173,
+    "rabbitTide": 138,
+    "derivedArt": 16
+  },
+  "build": {
+    "MiB": 215.5,
+    "sourceMatchFiles": 1092,
+    "packageChecks": 120,
+    "sourceReviewChecks": 1797
+  },
+  "scope": {
+    "mainCards": 48,
+    "mainMechanismsComplete": 47,
+    "explicitPartial": [
+      "c24908"
+    ],
+    "derivedUnits": 6,
+    "neutralFoodTemplates": 6
+  }
+}

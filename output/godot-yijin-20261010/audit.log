@@ -1,0 +1,21 @@
+{
+  "fullCatalogRestored": false,
+  "summary": {
+    "units": {
+      "known-approximation": 153,
+      "unreviewed": 73,
+      "pending-verification": 11,
+      "source-backed-native": 13
+    },
+    "cards": {
+      "known-approximation": 1037,
+      "unreviewed": 872,
+      "pending-verification": 37,
+      "source-backed-native": 168
+    }
+  },
+  "errors": [
+    "Missing executable reviewed rules: c11108"
+  ]
+}
+RULE_FIDELITY_INCOMPLETE: 全库仍存在简化或未核对内容。稳定性测试通过不等于效果还原。

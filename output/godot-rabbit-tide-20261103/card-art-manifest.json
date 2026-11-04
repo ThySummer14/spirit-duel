@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/247_千姬/24701_千汐_法术.png",
+    "target": "godot/assets/official/cards/c24701.png",
+    "sha256": "01c03a7c26fa0cca6cf80ee34b3e33310b03cf6f667f684f8976d5f6a2248910"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/247_千姬/24702_汐梦_法术.png",
+    "target": "godot/assets/official/cards/c24702.png",
+    "sha256": "b6b44184acf18f40d8dc8f71f9d34b988245fab1d8ff55f295ac17caecf5a4af"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/247_千姬/24703_深海歌姬_形态.png",
+    "target": "godot/assets/official/cards/c24703.png",
+    "sha256": "7547665371a580181c147e8468a2c51b5d826ccfa1d091f632ec9e4f8e689dd9"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/247_千姬/24704_唤潮_法术.png",
+    "target": "godot/assets/official/cards/c24704.png",
+    "sha256": "75554f2b853585fa8bca53d9d2528ac8ce88d3d03031534922afdb82ab675122"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/247_千姬/24705_觉醒·千姬_法术.png",
+    "target": "godot/assets/official/cards/c24705.png",
+    "sha256": "d7dc4f25000862c1f202c2b5b7af9c0e71619d87d632d91fc136f9a9ff994732"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/247_千姬/24706_塑潮使者_形态.png",
+    "target": "godot/assets/official/cards/c24706.png",
+    "sha256": "3a1f14e82f5fbc07ab0abf7dbe96af6223a97a86200a112c71d381f05f34788b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/247_千姬/24707_海潮入梦_法术.png",
+    "target": "godot/assets/official/cards/c24707.png",
+    "sha256": "44365ce5022903c8a010bf3fb3b1d18014c7945e64bc62603c0f2dc73173e53e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/247_千姬/24708_永生之汐_形态.png",
+    "target": "godot/assets/official/cards/c24708.png",
+    "sha256": "88a1da7f13be6aa14f4f1bdb6c500a8bd80d40c77303a11fa18509466f078014"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/250_兔丸/25001_觅食_战斗.png",
+    "target": "godot/assets/official/cards/c25001.png",
+    "sha256": "5c6da6cb5254c41c9304e089a13a07fcb89cf097af1a3245b52e266f249f624d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/250_兔丸/25002_孤独的美食兔_形态.png",
+    "target": "godot/assets/official/cards/c25002.png",
+    "sha256": "c8ee6c579c29828e7c8c983d1f5d2c6dd143e4cceb0f966b19877298b83fcb41"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/250_兔丸/25003_兔丸特制食谱_法术.png",
+    "target": "godot/assets/official/cards/c25003.png",
+    "sha256": "0534c721f8e3c4fd0b8609c720438fccf663811e4a88468d6affe4e80cc1f2df"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/250_兔丸/25004_觉醒·兔丸_法术.png",
+    "target": "godot/assets/official/cards/c25004.png",
+    "sha256": "fad96e38d155750fc8e6026277b1970a31f5bd16d0564f2f0d781c0e23773a5b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/250_兔丸/25005_试吃大会_形态.png",
+    "target": "godot/assets/official/cards/c25005.png",
+    "sha256": "809972eb715747db4ae1ea61e0637752eac615c0e7ffcec3db49cc4fc4eba7e4"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/250_兔丸/25006_萌动_战斗.png",
+    "target": "godot/assets/official/cards/c25006.png",
+    "sha256": "50f6f4b8f20debc1f25ff80a6f1c7969ed7c9fcee37ea0c7c16d810a8b32204a"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/250_兔丸/25007_料理之魂_形态.png",
+    "target": "godot/assets/official/cards/c25007.png",
+    "sha256": "93024011d2157bf35fba5f84f7b5a8a67727ac077ec7f3ea2dc779f215557ed7"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/13_喧哗烩战/250_兔丸/25008_争食_战斗.png",
+    "target": "godot/assets/official/cards/c25008.png",
+    "sha256": "431519fac635e2bde30cf2bb59ffa2301c739842f20e42e6e2c4ab974bdd1bfc"
+  }
+]

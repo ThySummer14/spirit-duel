@@ -1,0 +1,350 @@
+{
+  "sources": [
+    {
+      "id": "two-faces-original-20261028",
+      "kind": "official-card-art",
+      "path": "research-notes/83-two-faces-rules.md",
+      "url": "https://www.bilibili.com/video/BV1TL4y1H7px/"
+    }
+  ],
+  "units": {
+    "liangmianfo": {
+      "verifiedRules": true,
+      "twoFacesRules": true,
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "two-faces-base",
+        "name": "风雷连引",
+        "text": "当两面佛使用风牌时，连引一张雷牌。\n当两面佛使用雷牌时，连引一张风牌。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "two-faces-awake",
+        "name": "风雷连引",
+        "text": "风牌连引雷牌，雷牌连引风牌；所有牌的增强未连引也能生效。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "two-faces-original-20261028"
+      ],
+      "verificationPending": [
+        "按23800–23808完整原卡面及基础牌文还原；雷嗔电怒完整PNG为贯通，采用PNG并保留官网旧直击文本差异。",
+        "连引候选、出牌前二选一、未选洗回及风雷万象牌库使用已实现；复杂反制/结附/替换与录像全序尚待原客户端核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c23801": {
+      "verifiedRules": true,
+      "twoFacesRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "text": "增强：连引使用时，对敌方所有角色造成1点伤害。",
+      "officialText": "增强：连引使用时，对敌方所有角色造成1点伤害。",
+      "target": "auto",
+      "effect": "two-faces-1",
+      "value": 0,
+      "effects": [
+        {
+          "action": "two-faces-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "two-faces-original-20261028"
+      ],
+      "verificationPending": [
+        "按23800–23808完整原卡面及基础牌文还原；雷嗔电怒完整PNG为贯通，采用PNG并保留官网旧直击文本差异。",
+        "连引候选、出牌前二选一、未选洗回及风雷万象牌库使用已实现；复杂反制/结附/替换与录像全序尚待原客户端核验。"
+      ],
+      "twoFacesAffinity": "thunder",
+      "combatOption": {
+        "shield": 1
+      },
+      "responseAction": "assault"
+    },
+    "c23802": {
+      "verifiedRules": true,
+      "twoFacesRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "text": "对一个式神造成3点伤害。\n增强：连引使用时，移动该式神。",
+      "officialText": "对一个式神造成3点伤害。\n增强：连引使用时，移动该式神。",
+      "target": "any-unit",
+      "effect": "two-faces-2",
+      "value": 0,
+      "effects": [
+        {
+          "action": "two-faces-sound",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "two-faces-original-20261028"
+      ],
+      "verificationPending": [
+        "按23800–23808完整原卡面及基础牌文还原；雷嗔电怒完整PNG为贯通，采用PNG并保留官网旧直击文本差异。",
+        "连引候选、出牌前二选一、未选洗回及风雷万象牌库使用已实现；复杂反制/结附/替换与录像全序尚待原客户端核验。"
+      ],
+      "twoFacesAffinity": "wind",
+      "responseAction": "damage"
+    },
+    "c23803": {
+      "verifiedRules": true,
+      "twoFacesRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "text": "使用时连引一张两面佛的牌。\n觉醒：当两面佛使用风牌时，连引一张雷牌。\n当两面佛使用雷牌时，连引一张风牌。两面佛所有牌的增强效果未连引也能生效。",
+      "officialText": "使用时连引一张两面佛的牌。\n觉醒：当两面佛使用风牌时，连引一张雷牌。\n当两面佛使用雷牌时，连引一张风牌。两面佛所有牌的增强效果未连引也能生效。",
+      "target": "auto",
+      "effect": "two-faces-3",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "two-faces-original-20261028"
+      ],
+      "verificationPending": [
+        "按23800–23808完整原卡面及基础牌文还原；雷嗔电怒完整PNG为贯通，采用PNG并保留官网旧直击文本差异。",
+        "连引候选、出牌前二选一、未选洗回及风雷万象牌库使用已实现；复杂反制/结附/替换与录像全序尚待原客户端核验。"
+      ]
+    },
+    "c23804": {
+      "verifiedRules": true,
+      "twoFacesRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "text": "当两面佛对敌方牌手造成战斗伤害时，抽一张牌。\n增强：连引使用时，获得贯通。",
+      "officialText": "当两面佛对敌方牌手造成战斗伤害时，抽一张牌。\n增强：连引使用时，获得贯通。",
+      "target": "auto",
+      "effect": "two-faces-4",
+      "value": 1,
+      "effects": [
+        {
+          "action": "two-faces-combat",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "two-faces-original-20261028"
+      ],
+      "verificationPending": [
+        "按23800–23808完整原卡面及基础牌文还原；雷嗔电怒完整PNG为贯通，采用PNG并保留官网旧直击文本差异。",
+        "连引候选、出牌前二选一、未选洗回及风雷万象牌库使用已实现；复杂反制/结附/替换与录像全序尚待原客户端核验。"
+      ],
+      "twoFacesAffinity": "thunder",
+      "combatOption": {
+        "shield": 1
+      },
+      "responseAction": "assault"
+    },
+    "c23805": {
+      "verifiedRules": true,
+      "twoFacesRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "text": "本回合两面佛获得3力量、3护甲和追猎。\n增强：连引使用时，两面佛获得迅捷。",
+      "officialText": "本回合两面佛获得3力量、3护甲和追猎。\n增强：连引使用时，两面佛获得迅捷。",
+      "target": "auto",
+      "effect": "two-faces-5",
+      "value": 0,
+      "effects": [
+        {
+          "action": "two-faces-wind",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "two-faces-original-20261028"
+      ],
+      "verificationPending": [
+        "按23800–23808完整原卡面及基础牌文还原；雷嗔电怒完整PNG为贯通，采用PNG并保留官网旧直击文本差异。",
+        "连引候选、出牌前二选一、未选洗回及风雷万象牌库使用已实现；复杂反制/结附/替换与录像全序尚待原客户端核验。"
+      ],
+      "twoFacesAffinity": "wind"
+    },
+    "c23806": {
+      "verifiedRules": true,
+      "twoFacesRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "text": "连击\n增强：连引使用时，获得瞬发。",
+      "officialText": "连击\n增强：连引使用时，获得瞬发。",
+      "target": "auto",
+      "effect": "two-faces-6",
+      "value": 0,
+      "effects": [
+        {
+          "action": "two-faces-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "combo"
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "two-faces-original-20261028"
+      ],
+      "verificationPending": [
+        "按23800–23808完整原卡面及基础牌文还原；雷嗔电怒完整PNG为贯通，采用PNG并保留官网旧直击文本差异。",
+        "连引候选、出牌前二选一、未选洗回及风雷万象牌库使用已实现；复杂反制/结附/替换与录像全序尚待原客户端核验。"
+      ],
+      "twoFacesAffinity": "thunder",
+      "combatOption": {
+        "shield": 0
+      },
+      "responseAction": "assault"
+    },
+    "c23807": {
+      "verifiedRules": true,
+      "twoFacesRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "text": "对一个敌方角色造成4点伤害\n增强：连引使用时，再对所有敌方角色造成2点伤害。",
+      "officialText": "对一个敌方角色造成4点伤害\n增强：连引使用时，再对所有敌方角色造成2点伤害。",
+      "target": "enemy-character",
+      "effect": "two-faces-7",
+      "value": 0,
+      "effects": [
+        {
+          "action": "two-faces-gale",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "two-faces-original-20261028"
+      ],
+      "verificationPending": [
+        "按23800–23808完整原卡面及基础牌文还原；雷嗔电怒完整PNG为贯通，采用PNG并保留官网旧直击文本差异。",
+        "连引候选、出牌前二选一、未选洗回及风雷万象牌库使用已实现；复杂反制/结附/替换与录像全序尚待原客户端核验。"
+      ],
+      "twoFacesAffinity": "wind",
+      "responseAction": "damage"
+    },
+    "c23808": {
+      "verifiedRules": true,
+      "twoFacesRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "text": "当你使用连引效果的牌后，本回合内可以从牌库中使用与其连引的牌。每回合第一张以此法使用的牌不消耗鬼火。",
+      "officialText": "当你使用连引效果的牌后，本回合内可以从牌库中使用与其连引的牌。每回合第一张以此法使用的牌不消耗鬼火。",
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "formRules": {
+        "twoFacesDeck": true
+      },
+      "formHooks": [],
+      "formAbility": "当你使用连引效果的牌后，本回合内可以从牌库中使用与其连引的牌。每回合第一张以此法使用的牌不消耗鬼火。",
+      "timing": "main",
+      "responseTo": [],
+      "autoResponse": "",
+      "sources": [
+        "two-faces-original-20261028"
+      ],
+      "verificationPending": [
+        "按23800–23808完整原卡面及基础牌文还原；雷嗔电怒完整PNG为贯通，采用PNG并保留官网旧直击文本差异。",
+        "连引候选、出牌前二选一、未选洗回及风雷万象牌库使用已实现；复杂反制/结附/替换与录像全序尚待原客户端核验。"
+      ]
+    }
+  }
+}

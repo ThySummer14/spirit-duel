@@ -1,0 +1,464 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] hand (res://scripts/verify_armor_blood_ui.gd:41)
+              [4] run (res://scripts/verify_armor_blood_ui.gd:101)
+              [5] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_unit_clicked (res://scripts/ui/battle_screen.gd:1204)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:23)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_unit_clicked (res://scripts/ui/battle_screen.gd:1205)
+              [4] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:23)
+              [5] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] basic_attack (res://scripts/game_state.gd:1686)
+              [4] _drop_command (res://scripts/ui/battle_screen.gd:1558)
+              [5] _on_unit_clicked (res://scripts/ui/battle_screen.gd:1214)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:23)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _drop_command (res://scripts/ui/battle_screen.gd:1561)
+              [4] _on_unit_clicked (res://scripts/ui/battle_screen.gd:1214)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:23)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] hand (res://scripts/verify_armor_blood_ui.gd:41)
+              [4] run (res://scripts/verify_armor_blood_ui.gd:115)
+              [5] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] run (res://scripts/verify_armor_blood_ui.gd:121)
+              [4] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_core_clicked (res://scripts/ui/battle_screen.gd:1571)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:423)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_core_clicked (res://scripts/ui/battle_screen.gd:1572)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:423)
+              [5] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] hand (res://scripts/verify_armor_blood_ui.gd:41)
+              [4] run (res://scripts/verify_armor_blood_ui.gd:131)
+              [5] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] run (res://scripts/verify_armor_blood_ui.gd:137)
+              [4] settled (res://scripts/verify_armor_blood_ui.gd:37)
+ARMOR_BLOOD_UI_FAIL realm detail target fits viewport
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] hand (res://scripts/verify_armor_blood_ui.gd:41)
+              [4] run (res://scripts/verify_armor_blood_ui.gd:146)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] run (res://scripts/verify_armor_blood_ui.gd:147)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] run (res://scripts/verify_armor_blood_ui.gd:150)
+              [4] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] hand (res://scripts/verify_armor_blood_ui.gd:41)
+              [4] run (res://scripts/verify_armor_blood_ui.gd:101)
+              [5] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_unit_clicked (res://scripts/ui/battle_screen.gd:1204)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:23)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_unit_clicked (res://scripts/ui/battle_screen.gd:1205)
+              [4] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:23)
+              [5] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] basic_attack (res://scripts/game_state.gd:1686)
+              [4] _drop_command (res://scripts/ui/battle_screen.gd:1558)
+              [5] _on_unit_clicked (res://scripts/ui/battle_screen.gd:1214)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:23)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _drop_command (res://scripts/ui/battle_screen.gd:1561)
+              [4] _on_unit_clicked (res://scripts/ui/battle_screen.gd:1214)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:23)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] hand (res://scripts/verify_armor_blood_ui.gd:41)
+              [4] run (res://scripts/verify_armor_blood_ui.gd:115)
+              [5] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] run (res://scripts/verify_armor_blood_ui.gd:121)
+              [4] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_core_clicked (res://scripts/ui/battle_screen.gd:1571)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:423)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_core_clicked (res://scripts/ui/battle_screen.gd:1572)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:423)
+              [5] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] hand (res://scripts/verify_armor_blood_ui.gd:41)
+              [4] run (res://scripts/verify_armor_blood_ui.gd:131)
+              [5] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] play_card (res://scripts/game_state.gd:690)
+              [4] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1299)
+              [5] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [6] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [7] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] _on_hand_clicked (res://scripts/ui/battle_screen.gd:1300)
+              [4] <anonymous lambda> (res://scripts/ui/battle_screen.gd:856)
+              [5] <anonymous lambda> (res://scripts/ui/ui_widgets.gd:85)
+              [6] click (res://scripts/verify_armor_blood_ui.gd:28)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] run (res://scripts/verify_armor_blood_ui.gd:137)
+              [4] settled (res://scripts/verify_armor_blood_ui.gd:37)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] hand (res://scripts/verify_armor_blood_ui.gd:41)
+              [4] run (res://scripts/verify_armor_blood_ui.gd:146)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] run (res://scripts/verify_armor_blood_ui.gd:147)
+SCRIPT ERROR: Invalid access to property or key '_get_drag_data' on a base object of type 'PanelContainer'.
+          at: UIWidgets.attach_click (res://scripts/ui/ui_widgets.gd:71)
+          GDScript backtrace (most recent call first):
+              [0] attach_click (res://scripts/ui/ui_widgets.gd:71)
+              [1] _fill_realms (res://scripts/ui/battle_screen.gd:745)
+              [2] _refresh (res://scripts/ui/battle_screen.gd:701)
+              [3] run (res://scripts/verify_armor_blood_ui.gd:150)
+              [4] settled (res://scripts/verify_armor_blood_ui.gd:37)
+ARMOR_BLOOD_UI checks=56 failures=1

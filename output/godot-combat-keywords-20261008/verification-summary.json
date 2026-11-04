@@ -1,0 +1,422 @@
+{
+  "scope": "Full script ran through presentation; diagnosed and fixed failure, then reran affected checks and all remaining entries without weakening assertions.",
+  "checks": {
+    "verify": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "GODOT_MATCH_OK commands=17 log=59 turn=5 winner=-1 seed=20260920",
+        "COMMAND_LOG [{\"a\":{\"unit\":1},\"c\":\"level_up\",\"p\":0,\"r\":2987955158,\"t\":1},{\"a\":{\"card\":\"flash-thrust\",\"hand\":1,\"payment\":{\"baseCost\":1,\"cost\":1,\"instant\":false,\"instantUsed\":false,\"ownTurn\":true,\"response\":false,\"usesInstant\":false},\"target\":null},\"c\":\"p",
+        "GODOT_VERT_SLICE_OK"
+      ]
+    },
+    "verify_combat": {
+      "passed": true,
+      "log": "verify-completion.log",
+      "result": [
+        "COMBAT_REGRESSION_OK cases=16"
+      ]
+    },
+    "verify_growth": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "GROWTH_REGRESSION_OK checks=24"
+      ]
+    },
+    "verify_draw": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "DRAW_REGRESSION_OK cases=4"
+      ]
+    },
+    "verify_resource_effects": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "RESOURCE_EFFECTS_OK checks=149"
+      ]
+    },
+    "verify_self_damage": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "SELF_DAMAGE_OK checks=39"
+      ]
+    },
+    "verify_instant": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "INSTANT_OK checks=12"
+      ]
+    },
+    "verify_battle_status": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "BATTLE_STATUS_OK checks=139"
+      ]
+    },
+    "verify_battle_status_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "BATTLE_STATUS_UI_OK checks=88 failures=0"
+      ]
+    },
+    "verify_auto_targets": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "AUTO_TARGETS_OK checks=9"
+      ]
+    },
+    "verify_signed_debuff": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "SIGNED_DEBUFF_OK checks=14"
+      ]
+    },
+    "verify_bounce": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "BOUNCE_OK checks=16"
+      ]
+    },
+    "verify_team_shield": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "TEAM_SHIELD_OK checks=22"
+      ]
+    },
+    "verify_turn_order": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "TURN_ORDER_OK checks=10"
+      ]
+    },
+    "verify_steel_wind": {
+      "passed": true,
+      "log": "verify-completion.log",
+      "result": [
+        "STEEL_WIND checks=115 failures=0",
+        "STEEL_WIND_OK"
+      ]
+    },
+    "verify_steel_wind_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "STEEL_UI checks=44 failures=0",
+        "STEEL_UI_OK"
+      ]
+    },
+    "verify_yaoginshi": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "YAOQIN checks=126 failures=0",
+        "YAOQIN_OK"
+      ]
+    },
+    "verify_yaoginshi_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "YAOQIN_UI checks=30 failures=0",
+        "YAOQIN_UI_OK"
+      ]
+    },
+    "verify_datiangou": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "DATIANGOU checks=115 failures=0",
+        "DATIANGOU_OK"
+      ]
+    },
+    "verify_datiangou_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "DATIANGOU_UI checks=38 failures=0",
+        "DATIANGOU_UI_OK"
+      ]
+    },
+    "verify_yimulian": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "YIMULIAN checks=128 failures=0",
+        "YIMULIAN_OK"
+      ]
+    },
+    "verify_yimulian_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "YIMULIAN_UI checks=52 failures=0",
+        "YIMULIAN_UI_OK"
+      ]
+    },
+    "verify_zhen": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "ZHEN checks=125 failures=0",
+        "ZHEN_OK"
+      ]
+    },
+    "verify_zhen_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "ZHEN_UI checks=48 failures=0",
+        "ZHEN_UI_OK"
+      ]
+    },
+    "verify_phoenix": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "PHOENIX checks=122 failures=0",
+        "PHOENIX_OK"
+      ]
+    },
+    "verify_phoenix_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "PHOENIX_UI checks=57 failures=0",
+        "PHOENIX_UI_OK"
+      ]
+    },
+    "verify_peach": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "PEACH checks=114 failures=0",
+        "PEACH_OK"
+      ]
+    },
+    "verify_peach_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "PEACH_UI checks=48 failures=0",
+        "PEACH_UI_OK"
+      ]
+    },
+    "verify_firefly": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "FIREFLY checks=126 failures=0",
+        "FIREFLY_OK"
+      ]
+    },
+    "verify_firefly_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "FIREFLY_UI checks=54 failures=0",
+        "FIREFLY_UI_OK"
+      ]
+    },
+    "verify_yaodao": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "YAODAO checks=277 failures=0",
+        "YAODAO_OK"
+      ]
+    },
+    "verify_yaodao_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "YAODAO_UI checks=115 failures=0",
+        "YAODAO_UI_OK"
+      ]
+    },
+    "verify_shuten": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "SHUTEN_RULES checks=97 failures=0",
+        "SHUTEN_RULES_OK"
+      ]
+    },
+    "verify_shuten_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "SHUTEN_UI checks=45 failures=0",
+        "SHUTEN_UI_OK"
+      ]
+    },
+    "verify_bingyong": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "BINGYONG_CHECKS=112 FAILURES=0"
+      ]
+    },
+    "verify_bingyong_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "BINGYONG_UI checks=32 failures=0",
+        "BINGYONG_UI_OK"
+      ]
+    },
+    "verify_classic_core": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "CLASSIC_CORE checks=30 failures=0",
+        "CLASSIC_CORE_OK"
+      ]
+    },
+    "verify_archer_mountain": {
+      "passed": true,
+      "log": "verify-completion.log",
+      "result": [
+        "ARCHER_MOUNTAIN checks=146 failures=0"
+      ]
+    },
+    "verify_archer_mountain_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "ARCHER_MOUNTAIN_UI checks=58 failures=0"
+      ]
+    },
+    "verify_parallel_rules": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "PARALLEL_RULES checks=41 failures=0",
+        "PARALLEL_RULES_OK"
+      ]
+    },
+    "verify_ui": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "UI_LOAD_OK 21"
+      ]
+    },
+    "verify_save": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "SAVE_OK lineup=[\"ember\", \"basalt\", \"lumen\", \"rime\"] deck0=8 steps=20"
+      ]
+    },
+    "verify_collection": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "COLLECTION_CHECKS checks=9 failures=0",
+        "COLLECTION_OK pack=5 crafted=true reward=300"
+      ]
+    },
+    "verify_interactions": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "INTERACTIONS checks=30 failures=0",
+        "INTERACTIONS_OK"
+      ]
+    },
+    "verify_reference_workflow": {
+      "passed": true,
+      "log": "full-verify-final.log",
+      "result": [
+        "REFERENCE_WORKFLOW checks=187 failures=0",
+        "REFERENCE_WORKFLOW_OK"
+      ]
+    },
+    "verify_presentation": {
+      "passed": true,
+      "log": "presentation-final.log",
+      "result": [
+        "PRESENTATION checks=120 failures=0",
+        "PRESENTATION_OK"
+      ]
+    },
+    "verify_spell_effects": {
+      "passed": true,
+      "log": "verify-completion.log",
+      "result": [
+        "SPELL_EFFECTS checks=97 failures=0",
+        "SPELL_EFFECTS_OK"
+      ]
+    },
+    "verify_aim_pointer": {
+      "passed": true,
+      "log": "verify-completion.log",
+      "result": [
+        "AIM_POINTER checks=19 failures=0",
+        "AIM_POINTER_OK"
+      ]
+    },
+    "verify_video_layout": {
+      "passed": true,
+      "log": "verify-completion.log",
+      "result": [
+        "VIDEO_LAYOUT checks=884 failures=0",
+        "VIDEO_LAYOUT_OK"
+      ]
+    },
+    "verify_art": {
+      "passed": true,
+      "log": "verify-completion.log",
+      "result": [
+        "ART checks=5283 failures=0 redrawn_units=250",
+        "ART_OK"
+      ]
+    },
+    "verify_roster": {
+      "passed": true,
+      "log": "verify-completion.log",
+      "result": [
+        "ROSTER checks=5304 failures=0 units=250 portraits=500 matches=63 covered=250 opponents=117",
+        "ROSTER_OK"
+      ]
+    }
+  },
+  "passed": 51,
+  "total": 51,
+  "seededMatches": {
+    "roster": 63,
+    "burst": 60,
+    "focus": 20,
+    "stalls": 0
+  },
+  "rules": {
+    "checks": 146,
+    "failures": 0
+  },
+  "nativeUI": {
+    "checks": 58,
+    "failures": 0,
+    "sizes": [
+      [
+        1280,
+        800
+      ],
+      [
+        1600,
+        740
+      ]
+    ]
+  }
+}

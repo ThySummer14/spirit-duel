@@ -1,0 +1,21 @@
+[
+  "README.md",
+  "godot/README.md",
+  "godot/content/verified_rules.json",
+  "godot/assets/official/README.md",
+  "scripts/godot-verify.sh",
+  "godot/scripts/rebirth_rules.gd",
+  "godot/scripts/pipe_fox_rules.gd",
+  "godot/scripts/game_state.gd",
+  "godot/scripts/verified_card_rules.gd",
+  "godot/scripts/game_ai.gd",
+  "godot/scripts/ui/battle_status.gd",
+  "godot/scripts/ui/battle_screen.gd",
+  "godot/scripts/fox_lotus_rules.gd",
+  "godot/scripts/incarnation_rules.gd",
+  "godot/scripts/verify_fox_lotus.gd",
+  "research-notes/57-fox-lotus-rules.md",
+  "godot/scripts/fox_lotus_rules.gd.uid",
+  "godot/scripts/incarnation_rules.gd.uid",
+  "godot/scripts/verify_fox_lotus.gd.uid"
+]

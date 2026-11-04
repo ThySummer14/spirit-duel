@@ -1,0 +1,792 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "smoke-official-2020-03-30",
+      "title": "烟烟罗官方逐卡介绍",
+      "url": "https://www.taptap.cn/moment/15215747550676457",
+      "date": "2020-03-30",
+      "mode": "constructed"
+    },
+    {
+      "id": "sun-official-tutorial-2020-04-16",
+      "title": "官方百闻小课堂日和坊：护甲代替生命、重置与觉醒",
+      "url": "https://m.taptap.io/post/304571",
+      "date": "2020-04-16",
+      "mode": "constructed"
+    },
+    {
+      "id": "sun-original-2020-04-01",
+      "title": "日和坊初版逐卡牌文转载",
+      "url": "https://www.9game.cn/news/4270201.html",
+      "date": "2020-04-01",
+      "mode": "constructed"
+    },
+    {
+      "id": "sun-balance-2020-04-23",
+      "title": "官方平衡性调整背后隐藏的秘密：阳炎与沐浴阳光",
+      "url": "https://www.taptap.cn/moment/15226566611042541",
+      "date": "2020-04-23",
+      "mode": "constructed"
+    },
+    {
+      "id": "sun-reset-fix-2021-07-15",
+      "title": "官方日出有曜生命重置修复",
+      "url": "https://www.taptap.cn/moment/164475406232060998",
+      "date": "2021-07-15",
+      "mode": "constructed"
+    },
+    {
+      "id": "sun-response-fix-2022-03-24",
+      "title": "官方阳炎己方回合响应修复",
+      "url": "https://www.taptap.cn/moment/255819925879260009",
+      "date": "2022-03-24",
+      "mode": "constructed"
+    },
+    {
+      "id": "charge-regular-2023-02-23",
+      "title": "官方常规充能平衡：三个日和坊形态与无孔不入",
+      "url": "https://www.taptap.cn/moment/377573593325767829",
+      "date": "2023-02-23",
+      "mode": "constructed"
+    },
+    {
+      "id": "charge-balance-explainer-2023-02-23",
+      "title": "官方充能平衡说明，附调整前后",
+      "url": "https://www.taptap.cn/moment/377553567868781323",
+      "date": "2023-02-23",
+      "mode": "constructed"
+    },
+    {
+      "id": "smoke-burst-balance-2024-04-25",
+      "title": "官方暴躁鬼投射4、击杀能量4",
+      "url": "https://www.taptap.cn/moment/532318040168074381",
+      "date": "2024-04-25",
+      "mode": "constructed"
+    },
+    {
+      "id": "smoke-tutorial-2020-04-15",
+      "title": "狸猫会一波啊官方课堂转载：分身继承与负面状态",
+      "url": "https://m.ali213.net/news/200415/140575.html",
+      "date": "2020-04-15",
+      "mode": "constructed"
+    }
+  ],
+  "units": {
+    "yanyanluo": {
+      "verifiedRules": true,
+      "sunSmokeRole": "smoke",
+      "nativeCharge": true,
+      "attack": 2,
+      "maxHp": 4,
+      "keywords": [
+        "charge"
+      ],
+      "officialAbility": "充能。当烟烟罗获得能量时若能量为0，额外多获得1点。",
+      "passive": {
+        "id": "smoke",
+        "name": "充能",
+        "text": "充能。当烟烟罗获得能量时若能量为0，额外多获得1点。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "smoke-awake",
+        "name": "觉醒",
+        "text": "觉醒：当烟烟罗获得能量时，获得的能量翻倍。",
+        "hooks": []
+      },
+      "sources": [
+        "official-card-snapshot",
+        "smoke-official-2020-03-30"
+      ],
+      "verificationPending": [
+        "回合自然复活、充能与其他回合开始能力同优先级时的原版全序仍需指定录像逐帧确认。"
+      ]
+    },
+    "rihefang": {
+      "verifiedRules": true,
+      "sunSmokeRole": "sun",
+      "nativeCharge": true,
+      "attack": 1,
+      "maxHp": 6,
+      "keywords": [
+        "charge"
+      ],
+      "officialAbility": "充能。日和坊能量不足时，可以消耗其生命代替。（不能使生命降到0）",
+      "passive": {
+        "id": "sun",
+        "name": "充能",
+        "text": "充能。日和坊能量不足时，可以消耗其生命代替。（不能使生命降到0）",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "sun-awake",
+        "name": "觉醒",
+        "text": "觉醒：己方每回合第一个消耗能量的效果无需消耗能量。",
+        "hooks": []
+      },
+      "sources": [
+        "official-card-snapshot",
+        "sun-official-tutorial-2020-04-16"
+      ],
+      "verificationPending": [
+        "回合自然复活、充能与其他回合开始能力同优先级时的原版全序仍需指定录像逐帧确认。"
+      ]
+    }
+  },
+  "cards": {
+    "c16401": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [
+        "爆能选项已经真实进入可序列化选择栈；与原版宣告/响应窗口之间的微时序需要指定录像补齐。"
+      ],
+      "sources": [
+        "smoke-official-2020-03-30"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "target": "enemy-unit",
+      "text": "对一个敌方式神造成2点伤害。爆能X：额外造成X点伤害，X为全部能量。",
+      "officialText": "对一个敌方式神造成2点伤害。爆能X：额外造成X点伤害，X为全部能量。",
+      "effect": "smoke-hit",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "smoke-hit",
+          "target": "selected",
+          "value": 2
+        }
+      ],
+      "smokeBurst": true
+    },
+    "c16402": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "smokeSummon": "power"
+      },
+      "verificationPending": [
+        "分身负面状态继承据官方课堂转载；指定录像尚无相同冻结/破甲组合可逐帧确认。"
+      ],
+      "sources": [
+        "smoke-official-2020-03-30",
+        "smoke-tutorial-2020-04-15"
+      ],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "target": "auto",
+      "text": "进场时，在战斗区召唤一个烟烟罗的分身，分身每有1能量便获得1力量。",
+      "officialText": "进场时，在战斗区召唤一个烟烟罗的分身，分身每有1能量便获得1力量。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 4,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 4,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c16403": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [
+        "爆能选项已经真实进入可序列化选择栈；与原版宣告/响应窗口之间的微时序需要指定录像补齐。"
+      ],
+      "sources": [
+        "smoke-official-2020-03-30"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "target": "auto",
+      "text": "对敌方战斗区的式神造成3点伤害，恢复己方牌手3生命。爆能X：额外造成X点伤害，X为全部能量。",
+      "officialText": "对敌方战斗区的式神造成3点伤害，恢复己方牌手3生命。爆能X：额外造成X点伤害，X为全部能量。",
+      "effect": "smoke-hit",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "smoke-hit",
+          "target": "source",
+          "value": 3
+        }
+      ],
+      "smokeBurst": true,
+      "smokeHeal": 3
+    },
+    "c16404": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [
+        "分身负面状态继承据官方课堂转载；指定录像尚无相同冻结/破甲组合可逐帧确认。"
+      ],
+      "sources": [
+        "smoke-official-2020-03-30",
+        "smoke-tutorial-2020-04-15"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "target": "auto",
+      "text": "在战斗区召唤一个烟烟罗的分身。响应：当你的牌手被攻击时，自动使用此牌。",
+      "officialText": "在战斗区召唤一个烟烟罗的分身。响应：当你的牌手被攻击时，自动使用此牌。",
+      "effect": "smoke-summon",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "smoke-summon",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "autoResponse": "avatar-attacked"
+    },
+    "c16405": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [],
+      "sources": [
+        "smoke-official-2020-03-30"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "target": "auto",
+      "text": "瞬发。烟烟罗获得3能量。",
+      "officialText": "瞬发。烟烟罗获得3能量。",
+      "effect": "smoke-charge",
+      "value": 3,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "smoke-charge",
+          "target": "source",
+          "value": 3
+        }
+      ]
+    },
+    "c16406": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [],
+      "sources": [
+        "smoke-official-2020-03-30"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "target": "auto",
+      "text": "烟烟罗获得2能量。觉醒：当烟烟罗获得能量时，获得的能量翻倍。",
+      "officialText": "烟烟罗获得2能量。觉醒：当烟烟罗获得能量时，获得的能量翻倍。",
+      "effect": "smoke-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "smoke-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c16407": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "smokeSummon": "copy"
+      },
+      "verificationPending": [
+        "分身复制的微时序、目标失效及反制时是否仍独立复制，需要指定录像补充验证。"
+      ],
+      "sources": [
+        "smoke-official-2020-03-30",
+        "charge-regular-2023-02-23",
+        "charge-balance-explainer-2023-02-23",
+        "smoke-tutorial-2020-04-15"
+      ],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "target": "auto",
+      "text": "进场时，选择一张烟烟罗的爆能牌置入手牌。进场和己方回合开始时，在战斗区召唤一个烟烟罗的分身。烟烟罗的分身会复制她使用的法术牌。",
+      "officialText": "进场时，选择一张烟烟罗的爆能牌置入手牌。进场和己方回合开始时，在战斗区召唤一个烟烟罗的分身。烟烟罗的分身会复制她使用的法术牌。",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "smokePick": true
+    },
+    "c16408": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [
+        "爆能选项已经真实进入可序列化选择栈；与原版宣告/响应窗口之间的微时序需要指定录像补齐。"
+      ],
+      "sources": [
+        "smoke-official-2020-03-30",
+        "smoke-burst-balance-2024-04-25"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "target": "auto",
+      "text": "投射：造成4点伤害。爆能X：额外造成X点伤害，X为全部能量。消灭式神后，烟烟罗获得4能量。",
+      "officialText": "投射：造成4点伤害。爆能X：额外造成X点伤害，X为全部能量。消灭式神后，烟烟罗获得4能量。",
+      "effect": "smoke-hit",
+      "value": 4,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "smoke-hit",
+          "target": "source",
+          "value": 4
+        }
+      ],
+      "smokeBurst": true,
+      "smokeProjectile": true,
+      "smokeKillCharge": 4
+    },
+    "c16601": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [],
+      "sources": [
+        "sun-original-2020-04-01",
+        "sun-official-tutorial-2020-04-16",
+        "sun-balance-2020-04-23"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "target": "auto",
+      "text": "瞬发。使所有己方充能式神恢复所有生命，并获得1能量。",
+      "officialText": "瞬发。使所有己方充能式神恢复所有生命，并获得1能量。",
+      "effect": "sun-heal",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "sun-heal",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c16602": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [],
+      "sources": [
+        "sun-original-2020-04-01",
+        "sun-official-tutorial-2020-04-16",
+        "sun-balance-2020-04-23",
+        "sun-response-fix-2022-03-24"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "target": "any-living-unit",
+      "text": "对一个式神造成1点伤害并使其眩晕。响应：当敌方式神升级时，自动对其使用。",
+      "officialText": "对一个式神造成1点伤害并使其眩晕。响应：当敌方式神升级时，自动对其使用。",
+      "effect": "sun-heat",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "sun-heat",
+          "target": "selected",
+          "value": 1
+        }
+      ],
+      "autoResponse": "enemy-upgraded"
+    },
+    "c16603": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "sunForm": "draw",
+        "sunChargeCost": 3
+      },
+      "verificationPending": [],
+      "sources": [
+        "sun-original-2020-04-01",
+        "sun-official-tutorial-2020-04-16",
+        "charge-regular-2023-02-23",
+        "charge-balance-explainer-2023-02-23"
+      ],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "target": "auto",
+      "text": "进场和己方回合开始时，消耗3能量，抽一张牌。",
+      "officialText": "进场和己方回合开始时，消耗3能量，抽一张牌。",
+      "effect": "form",
+      "value": {
+        "attack": 1,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c16604": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [],
+      "sources": [
+        "sun-original-2020-04-01",
+        "sun-official-tutorial-2020-04-16"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "target": "auto",
+      "text": "所有己方充能式神获得1力量、1生命和2能量。",
+      "officialText": "所有己方充能式神获得1力量、1生命和2能量。",
+      "effect": "sun-growth",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "sun-growth",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c16605": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "sunForm": "transfer",
+        "sunChargeCost": 2
+      },
+      "verificationPending": [],
+      "sources": [
+        "sun-original-2020-04-01",
+        "sun-official-tutorial-2020-04-16",
+        "charge-regular-2023-02-23",
+        "charge-balance-explainer-2023-02-23"
+      ],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，消耗2能量，随机使其他一名能量最低的己方充能式神获得2能量。",
+      "officialText": "进场和己方回合开始时，消耗2能量，随机使其他一名能量最低的己方充能式神获得2能量。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c16606": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [
+        "旧模块中缺少永久标记的attackBonus/maxHpBonus仍无法穷尽分类；已识别觉醒、觉醒桃花治疗、跳弟永久生命及permanentAttack保留。其他未标记永久成长需要继续逐机制迁移。"
+      ],
+      "sources": [
+        "sun-original-2020-04-01",
+        "sun-official-tutorial-2020-04-16",
+        "sun-reset-fix-2021-07-15"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "target": "any-living-character",
+      "text": "瞬发。重置一个角色的力量和生命。",
+      "officialText": "瞬发。重置一个角色的力量和生命。",
+      "effect": "sun-reset",
+      "value": 1,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "sun-reset",
+          "target": "selected",
+          "value": 1
+        }
+      ]
+    },
+    "c16607": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [
+        "instant"
+      ],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "verificationPending": [],
+      "sources": [
+        "sun-original-2020-04-01",
+        "sun-official-tutorial-2020-04-16"
+      ],
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "target": "auto",
+      "text": "瞬发。觉醒：己方每回合第一个消耗能量的效果无需消耗能量。",
+      "officialText": "瞬发。觉醒：己方每回合第一个消耗能量的效果无需消耗能量。",
+      "effect": "sun-awaken",
+      "value": {
+        "attack": 0,
+        "hp": 3
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "sun-awaken",
+          "target": "source",
+          "value": {
+            "attack": 0,
+            "hp": 3
+          }
+        }
+      ],
+      "sunAwaken": true
+    },
+    "c16608": {
+      "verifiedRules": true,
+      "sunSmoke": true,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {
+        "sunForm": "rain",
+        "sunChargeCost": 3
+      },
+      "verificationPending": [],
+      "sources": [
+        "sun-original-2020-04-01",
+        "sun-official-tutorial-2020-04-16",
+        "charge-regular-2023-02-23",
+        "charge-balance-explainer-2023-02-23"
+      ],
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "target": "auto",
+      "text": "当己方其他角色受到伤害时，日和坊恢复3生命。进场和每个回合开始时，消耗3能量，恢复所有其他己方角色3生命。",
+      "officialText": "当己方其他角色受到伤害时，日和坊恢复3生命。进场和每个回合开始时，消耗3能量，恢复所有其他己方角色3生命。",
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ]
+    }
+  }
+}

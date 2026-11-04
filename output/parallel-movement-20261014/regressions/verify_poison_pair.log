@@ -1,0 +1,11 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+POISON_PAIR checks=627 failures=8
+POISON_PAIR_FAIL sweet adds3 defender power without extra attack
+POISON_PAIR_FAIL chain shield protects redirected target before damage
+POISON_PAIR_FAIL play c11803
+POISON_PAIR_FAIL play c11804
+POISON_PAIR_FAIL love adds a separate damage quote, not card.value
+POISON_PAIR_FAIL love amplifies snake actual damage before conversion
+POISON_PAIR_FAIL love toxin explicit2+1 converts once
+POISON_PAIR_FAIL love doesn't increase transferred4 break

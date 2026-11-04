@@ -1,0 +1,29 @@
+{
+  "rules": {
+    "name": "charged_pair",
+    "exitCode": 0,
+    "checks": 163,
+    "passed": true,
+    "log": "output/godot-charged-pair-20261030/rules-final-shared.log"
+  },
+  "native": {
+    "group": "charged-pair",
+    "checks": 187,
+    "includedRules": 159,
+    "textures": 16,
+    "interactionChecks": 12,
+    "passed": true,
+    "log": "output/godot-charged-pair-20261030/native-first.log"
+  },
+  "screenshotsReviewed": [
+    "screenshots/1280-01-charge-mode.png",
+    "screenshots/1280-02-stored-target.png",
+    "screenshots/1280-03-early-release.png",
+    "screenshots/1600-01-charge-mode.png",
+    "screenshots/1600-02-stored-target.png",
+    "screenshots/1600-03-early-release.png"
+  ],
+  "sourceHash": "85ed7a4515d7959c36b86f545cf8ae46d43ef4c70f7198c94e9d7351441530bc",
+  "crossChecks": 72,
+  "originalArtMatches": 16
+}

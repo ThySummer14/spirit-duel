@@ -1,0 +1,7 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+MIANQILING_FAIL negative spell damage remains invalid and cannot gain armor through the zero channel
+MIANQILING_FAIL negative combat power remains invalid and cannot consume armor or barrier
+MIANQILING_FAIL blue change damages all enemy shikigami without hitting avatar 1
+MIANQILING_FAIL pierce uses faction-modified6damage minus2hp: (6-1)+0 same red? actual enemy is purple+1
+MIANQILING_OK checks=183 failures=4 rules_only=true

@@ -1,0 +1,853 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Cannot infer the type of "amount" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://scripts/box_maiden_rules.gd:46)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/verified_card_rules.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/game_state.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/ui/battle_screen.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/verify_book_jue_ui.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/verify_futakuchi.gd:0)
+ERROR: Failed to load script "res://scripts/verify_futakuchi.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript.cpp:2907)
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] payments (res://scripts/verify_futakuchi.gd:30)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] payments (res://scripts/verify_futakuchi.gd:30)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] payments (res://scripts/verify_futakuchi.gd:31)
+              [2] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] payments (res://scripts/verify_futakuchi.gd:31)
+              [2] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] payments (res://scripts/verify_futakuchi.gd:31)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] payments (res://scripts/verify_futakuchi.gd:33)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] payments (res://scripts/verify_futakuchi.gd:30)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] payments (res://scripts/verify_futakuchi.gd:30)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] payments (res://scripts/verify_futakuchi.gd:31)
+              [2] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] payments (res://scripts/verify_futakuchi.gd:31)
+              [2] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] payments (res://scripts/verify_futakuchi.gd:31)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] payments (res://scripts/verify_futakuchi.gd:33)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL energy cannot replace base fire
+SCRIPT ERROR: Invalid access to property or key 'focusPaid' on a base object of type 'Dictionary'.
+          at: payments (res://scripts/verify_futakuchi.gd:36)
+          GDScript backtrace (most recent call first):
+              [0] payments (res://scripts/verify_futakuchi.gd:36)
+              [1] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] cards (res://scripts/verify_futakuchi.gd:61)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] cards (res://scripts/verify_futakuchi.gd:61)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] cards (res://scripts/verify_futakuchi.gd:62)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29502
+FUTAKUCHI_FAIL attached form3/6 plus permanent1/1
+FUTAKUCHI_FAIL permanent focus growth survives KO and form loss
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] cards (res://scripts/verify_futakuchi.gd:64)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] cards (res://scripts/verify_futakuchi.gd:64)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] cards (res://scripts/verify_futakuchi.gd:64)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29502
+FUTAKUCHI_FAIL unfocused form retains exact3/6
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] cards (res://scripts/verify_futakuchi.gd:65)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] cards (res://scripts/verify_futakuchi.gd:65)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] cards (res://scripts/verify_futakuchi.gd:65)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29503
+FUTAKUCHI_FAIL fear actual realm5
+FUTAKUCHI_FAIL fear gives exactly one random ally growth and swift
+SCRIPT ERROR: Out of bounds get index '0' (on base: 'Array')
+          at: cards (res://scripts/verify_futakuchi.gd:68)
+          GDScript backtrace (most recent call first):
+              [0] cards (res://scripts/verify_futakuchi.gd:68)
+              [1] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:90)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29506
+FUTAKUCHI_FAIL actual form entry random effect 0
+FUTAKUCHI_FAIL random effect neither plays card nor changes form nor extra fire
+FUTAKUCHI_FAIL symbiosis pays2 before effect, recharge only selected focus
+FUTAKUCHI_FAIL symbiosis draw
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:90)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29506
+FUTAKUCHI_FAIL actual form entry random effect 1
+FUTAKUCHI_FAIL random effect neither plays card nor changes form nor extra fire
+FUTAKUCHI_FAIL symbiosis pays2 before effect, recharge only selected focus
+FUTAKUCHI_FAIL symbiosis permanent growth
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:90)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29506
+FUTAKUCHI_FAIL actual form entry random effect 2
+FUTAKUCHI_FAIL random effect neither plays card nor changes form nor extra fire
+FUTAKUCHI_FAIL symbiosis pays2 before effect, recharge only selected focus
+FUTAKUCHI_FAIL symbiosis random swift
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:90)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29506
+FUTAKUCHI_FAIL actual form entry random effect 3
+FUTAKUCHI_FAIL random effect neither plays card nor changes form nor extra fire
+FUTAKUCHI_FAIL symbiosis pays2 before effect, recharge only selected focus
+FUTAKUCHI_FAIL symbiosis unyielding
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:90)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29506
+FUTAKUCHI_FAIL actual form entry random effect 4
+FUTAKUCHI_FAIL random effect neither plays card nor changes form nor extra fire
+FUTAKUCHI_FAIL symbiosis pays2 before effect, recharge only selected focus
+FUTAKUCHI_FAIL symbiosis projection without awakening
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:90)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29506
+FUTAKUCHI_FAIL actual form entry random effect 5
+FUTAKUCHI_FAIL random effect neither plays card nor changes form nor extra fire
+FUTAKUCHI_FAIL symbiosis pays2 before effect, recharge only selected focus
+FUTAKUCHI_FAIL symbiosis area without combat
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:89)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:90)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29506
+FUTAKUCHI_FAIL actual form entry random effect 6
+FUTAKUCHI_FAIL random effect neither plays card nor changes form nor extra fire
+FUTAKUCHI_FAIL symbiosis pays2 before effect, recharge only selected focus
+FUTAKUCHI_FAIL symbiosis destroy without main6
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:102)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:102)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:102)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29506
+FUTAKUCHI_FAIL insufficient charge installs form but does not roll or spend
+FUTAKUCHI_FAIL growth resolves before combat power read, exactly once
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:106)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:106)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] can_play_card (res://scripts/game_state.gd:811)
+              [3] play_card (res://scripts/game_state.gd:905)
+              [4] play (res://scripts/verify_futakuchi.gd:21)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:106)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL actual play c29506
+SCRIPT ERROR: Invalid call. Nonexistent function 'clear_summons' in base 'GDScript'.
+          at: GameState._resolve_combat (res://scripts/game_state.gd:2470)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_combat (res://scripts/game_state.gd:2470)
+              [1] symbiotic (res://scripts/verify_futakuchi.gd:107)
+              [2] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL realm attack gain then symbiosis consumes2
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] symbiotic (res://scripts/verify_futakuchi.gd:108)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] symbiotic (res://scripts/verify_futakuchi.gd:108)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'end_turn' in base 'GDScript'.
+          at: end_turn (res://scripts/verified_card_rules.gd:329)
+          GDScript backtrace (most recent call first):
+              [0] end_turn (res://scripts/verified_card_rules.gd:329)
+              [1] end_turn (res://scripts/game_state.gd:3056)
+              [2] symbiotic (res://scripts/verify_futakuchi.gd:108)
+              [3] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'end_turn' in base 'GDScript'.
+          at: end_turn (res://scripts/verified_card_rules.gd:329)
+          GDScript backtrace (most recent call first):
+              [0] end_turn (res://scripts/verified_card_rules.gd:329)
+              [1] end_turn (res://scripts/game_state.gd:3056)
+              [2] symbiotic (res://scripts/verify_futakuchi.gd:108)
+              [3] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL AI legal c29501
+FUTAKUCHI_FAIL AI actual c29501
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL AI legal c29502
+FUTAKUCHI_FAIL AI actual c29502
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL AI legal c29503
+FUTAKUCHI_FAIL AI actual c29503
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL AI legal c29504
+FUTAKUCHI_FAIL AI actual c29504
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL AI legal c29505
+FUTAKUCHI_FAIL AI actual c29505
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL AI legal c29506
+FUTAKUCHI_FAIL AI actual c29506
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL AI legal c29507
+FUTAKUCHI_FAIL AI actual c29507
+SCRIPT ERROR: Invalid call. Nonexistent function 'resolve_frame' in base 'GDScript'.
+          at: GameState._resolve_frame (res://scripts/game_state.gd:1113)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_frame (res://scripts/game_state.gd:1113)
+              [1] _resolve_resolution_stack (res://scripts/game_state.gd:1083)
+              [2] _begin_turn (res://scripts/game_state.gd:3229)
+              [3] create (res://scripts/game_state.gd:76)
+              [4] game (res://scripts/verify_futakuchi.gd:14)
+              [5] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [6] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'remove_departed' in base 'GDScript'.
+          at: GameState._resolve_resolution_stack (res://scripts/game_state.gd:1098)
+          GDScript backtrace (most recent call first):
+              [0] _resolve_resolution_stack (res://scripts/game_state.gd:1098)
+              [1] _begin_turn (res://scripts/game_state.gd:3229)
+              [2] create (res://scripts/game_state.gd:76)
+              [3] game (res://scripts/verify_futakuchi.gd:14)
+              [4] ai_rules (res://scripts/verify_futakuchi.gd:113)
+              [5] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+SCRIPT ERROR: Invalid call. Nonexistent function 'describe_card' in base 'GDScript'.
+          at: GameState.hand_card_def (res://scripts/game_state.gd:618)
+          GDScript backtrace (most recent call first):
+              [0] hand_card_def (res://scripts/game_state.gd:618)
+              [1] playable_card (res://scripts/game_state.gd:784)
+              [2] _best_card (res://scripts/game_ai.gd:99)
+              [3] ai_rules (res://scripts/verify_futakuchi.gd:114)
+              [4] run (res://scripts/verify_futakuchi.gd:123)
+FUTAKUCHI_FAIL AI legal c29508
+FUTAKUCHI_FAIL AI actual c29508
+FUTAKUCHI_OK checks=81 failures=65 rules_only=true

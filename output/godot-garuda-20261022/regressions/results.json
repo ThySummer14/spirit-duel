@@ -1,0 +1,122 @@
+[
+  {
+    "name": "butterfly",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.87,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "BUTTERFLY_OK checks=151 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "sparrow",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.96,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "SPARROW checks=174 failures=0"
+    ]
+  },
+  {
+    "name": "combat",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.77,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "name": "turn_order",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.76,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "name": "instant",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.77,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "name": "pipe_fox",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 10.42,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "PIPE_FOX checks=161 failures=0"
+    ]
+  },
+  {
+    "name": "moon_bamboo",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 8.23,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "MOON_BAMBOO checks=185 failures=0"
+    ]
+  },
+  {
+    "name": "samurai",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.88,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "SAMURAI checks=73 failures=0"
+    ]
+  },
+  {
+    "name": "movement",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.87,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "MOVEMENT checks=244 failures=0"
+    ]
+  },
+  {
+    "name": "yaksha",
+    "exitCode": 0,
+    "errors": [],
+    "seconds": 0.87,
+    "tail": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "YAKSHA checks=141 failures=0"
+    ]
+  },
+  {
+    "name": "spell_effects",
+    "exitCode": 0,
+    "errors": [],
+    "tail": [
+      "",
+      "SPELL_EFFECTS checks=97 failures=0",
+      "SPELL_EFFECTS_OK"
+    ]
+  }
+]

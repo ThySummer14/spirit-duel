@@ -1,0 +1,42 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/271_荒川之主/27101_归流_法术.png",
+    "target": "godot/assets/official/cards/c27101.png",
+    "sha256": "1f5e31beb24c54c9a6d72007631d8306e99e5023346e5b40a903db6ced260d47"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/271_荒川之主/27102_聚流_法术.png",
+    "target": "godot/assets/official/cards/c27102.png",
+    "sha256": "cfdd3d0d1ade22d0ab19c4fea92e3dd19df2ad97e27c2d4f76924c4b345a25a1"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/271_荒川之主/27103_泱泱之川_形态.png",
+    "target": "godot/assets/official/cards/c27103.png",
+    "sha256": "2fb58adf8130316e1e5077c043714ee1fb7e866e1d72d0ae4bb3c12b7787b4cf"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/271_荒川之主/27104_激流_法术.png",
+    "target": "godot/assets/official/cards/c27104.png",
+    "sha256": "ad97ff6de3bcfbf47ed151a3fe0103a56dfb118103b97d2a9501d33cdac59021"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/271_荒川之主/27105_溯水归乡_形态.png",
+    "target": "godot/assets/official/cards/c27105.png",
+    "sha256": "d244f359bc3498cc1327a020bb314d535f29fb01a8d98d16840cd6f0f8dccdcf"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/271_荒川之主/27106_逐流_形态.png",
+    "target": "godot/assets/official/cards/c27106.png",
+    "sha256": "fc461831173261bfa59a42831206a321debc53050883e7475350bc81f620873f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/271_荒川之主/27107_吞噬_法术.png",
+    "target": "godot/assets/official/cards/c27107.png",
+    "sha256": "3cc8c908d8945344cde150d6ad0b822a51dc3fbc7e93f46f441d46790b4c8780"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/271_荒川之主/27108_觉醒·荒川之主_法术.png",
+    "target": "godot/assets/official/cards/c27108.png",
+    "sha256": "5d6bfb1e6354e1ff009f0f0a3724b22d57c837b43e151b78a4b88501c10bbe82"
+  }
+]

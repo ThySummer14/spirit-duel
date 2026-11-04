@@ -1,0 +1,22 @@
+{
+  "htmlScripts": [
+    "https://nie.res.netease.com/comm/js/jquery(mixNIE).1.11.js",
+    "https://nie.res.netease.com/comm/js/nie/ref/??vue.2.5.0.js,vuex.3.0.1.js,vue-router.3.0.1.js,axios.js,axios-jsonp.js",
+    "https://nie.res.netease.com/comm/js/nie/ref/??swiper.js,jquery.nicescroll.3.6.8.js",
+    "https://ssr.res.netease.com/pc/zt/20191112204330/js/vendor_27fdda8e.js",
+    "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js"
+  ],
+  "index": {
+    "sha256": "524a557540ea9cb4b8835a51e08dccbf81b0622e5d59613be380f1ed78163ad6",
+    "bytes": 561504,
+    "buffTokenMentions": 43,
+    "tooltipOccurrences": 0
+  },
+  "vendor": {
+    "sha256": "3312f084ed015988b811155d09c85572d8f1192942320888bac0a7ec0981a33a",
+    "bytes": 9973,
+    "buffTokenMentions": 0,
+    "tooltipOccurrences": 0
+  },
+  "conclusion": "全部buff技能字符串均位于卡牌desc数据。卡库弹层使用卡牌PNG，并无buff技能()的释义函数。vendor为通用polyfill，不含buff/tooltip数据，HTML无额外本地脚本。未取得ID→词条字典。"
+}

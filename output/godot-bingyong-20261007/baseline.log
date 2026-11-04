@@ -1,0 +1,8 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BINGYONG_FAIL dust blade uses all seven actual armor
+BINGYONG_FAIL still mountain sets printed 1/9
+BINGYONG_FAIL still mountain enters battle area
+BINGYONG_FAIL forest printed 4/7 plus entry armor two
+BINGYONG_FAIL forest caps damage by existing armor
+BINGYONG_CHECKS=8 FAILURES=5

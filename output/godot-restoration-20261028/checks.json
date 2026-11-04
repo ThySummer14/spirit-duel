@@ -1,0 +1,64 @@
+{
+  "yujiazhu-rules": {
+    "checks": 161,
+    "failures": 0,
+    "log": "output/godot-yujiazhu-20261028/rules.log"
+  },
+  "yujiazhu-native": {
+    "checks": 187,
+    "failures": 0,
+    "log": "output/godot-yujiazhu-20261028/native-final.log"
+  },
+  "mianqiling-rules": {
+    "checks": 183,
+    "failures": 0,
+    "log": "output/godot-mianqiling-20261028/rules.log"
+  },
+  "mianqiling-native": {
+    "checks": 201,
+    "failures": 0,
+    "log": "output/godot-mianqiling-20261028/native-final.log"
+  },
+  "yi-rules": {
+    "checks": 190,
+    "failures": 0,
+    "log": "output/godot-yi-20261028/rules-final.log"
+  },
+  "yi-native": {
+    "checks": 222,
+    "failures": 0,
+    "log": "output/godot-yi-20261028/native-final.log"
+  },
+  "growth-native": {
+    "checks": 28,
+    "failures": 0,
+    "log": "output/godot-restoration-20261028/dog-demon-sun-native.log"
+  },
+  "cross": {
+    "checks": 32,
+    "failures": 0,
+    "log": "output/godot-restoration-20261028/cross-rules.log"
+  },
+  "build": {
+    "sourceHashes": 891,
+    "phases": [
+      {
+        "phase": "import",
+        "exitCode": 0
+      },
+      {
+        "phase": "export",
+        "exitCode": 0
+      }
+    ],
+    "output": ".build/restoration-20261028/pages/play/",
+    "sourceFactionsIncluded": true,
+    "packageCheck": {
+      "passed": true,
+      "roles": 3,
+      "cards": 24,
+      "factions": 215,
+      "log": "output/godot-restoration-20261028/package-check.log"
+    }
+  }
+}

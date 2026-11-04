@@ -548,6 +548,12 @@ export const WAVE5_UNIT_DEFINITIONS = Object.freeze([
       { id: "bunny-food-a2", event: "turn-started", effect: "passive-buff-self", params: {"attack": 1} }
     ]),
   },
+  {"id": "qianji-spear", "name": "海原贝戟", "title": "千姬召唤物", "attack": 0, "maxHp": 2, "art": "assets/official/tokens/qianji-spear.png", "color": "#87c4de", "pack": "wave5", "selectable": false, "token": true, "summoned": true, "countsAsShikigami": true, "verifiedRules": true, "passive": {"id": "rt-spear-leave", "name": "海原贝戟", "text": "离场时，若你手牌中没有「咏流」，则将一张「咏流」置入手牌。", "hooks": []}, "sources": ["rabbit-tide-spear-derivative", "rabbit-tide-official-20220414"], "verificationPending": ["派生身材及完整牌文采用日文相关卡补证；中文完整tooltip及原客户端边界待核。"], "awakenedArt": "assets/official/tokens/qianji-spear.png"},
+  {"id": "cat-one", "name": "一条", "title": "猫掌柜召唤物", "role": "召唤物", "strategy": "", "attack": 3, "maxHp": 4, "pack": "wave5", "subpack": "xuanhua", "art": "assets/official/summons/one.png", "awakenedArt": "assets/official/summons/one.png", "color": "#e0b070", "token": true, "selectable": false, "summoned": true, "verificationPending": ["派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"], "countsAsShikigami": true, "passive": {"id": "cat-one-base", "name": "基础能力", "text": "当你对一条使用食材时，抽一张牌。", "hooks": []}, "verifiedRules": true, "sources": ["cat-summon-jp-20261103"]},
+  {"id": "cat-four", "name": "四饼", "title": "猫掌柜召唤物", "role": "召唤物", "strategy": "", "attack": 3, "maxHp": 4, "pack": "wave5", "subpack": "xuanhua", "art": "assets/official/summons/four.jpg", "awakenedArt": "assets/official/summons/four.jpg", "color": "#e0b070", "token": true, "selectable": false, "summoned": true, "verificationPending": ["派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"], "countsAsShikigami": true, "passive": {"id": "cat-four-base", "name": "基础能力", "text": "当你对四饼使用食材时，本局游戏中猫掌柜的所有召唤物永久获得1力量。", "hooks": []}, "verifiedRules": true, "sources": ["cat-summon-jp-20261103"]},
+  {"id": "cat-two", "name": "二瞳", "title": "猫掌柜召唤物", "role": "召唤物", "strategy": "", "attack": 3, "maxHp": 4, "pack": "wave5", "subpack": "xuanhua", "art": "assets/official/summons/two.png", "awakenedArt": "assets/official/summons/two.png", "color": "#e0b070", "token": true, "selectable": false, "summoned": true, "verificationPending": ["派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"], "countsAsShikigami": true, "passive": {"id": "cat-two-base", "name": "基础能力", "text": "当你对二瞳使用食材时，对一个随机敌方式神造成3点伤害。", "hooks": []}, "verifiedRules": true, "sources": ["cat-summon-jp-20261103"]},
+  {"id": "sugar-small", "name": "小糖人", "title": "饴细工召唤物", "role": "召唤物", "strategy": "", "attack": 2, "maxHp": 2, "pack": "wave5", "subpack": "xuanhua", "art": "assets/official/summons/small.png", "awakenedArt": "assets/official/summons/small.png", "color": "#e0b070", "token": true, "selectable": false, "summoned": true, "verificationPending": ["派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"], "countsAsShikigami": true, "passive": {"id": "sugar-small-base", "name": "基础能力", "text": "融合。", "hooks": []}, "verifiedRules": true, "sources": ["sugar-summon-jp-20261103"]},
+  {"id": "sugar-big", "name": "大糖人", "title": "饴细工召唤物", "role": "召唤物", "strategy": "", "attack": 4, "maxHp": 4, "pack": "wave5", "subpack": "xuanhua", "art": "assets/official/summons/big.png", "awakenedArt": "assets/official/summons/big.png", "color": "#e0b070", "token": true, "selectable": false, "summoned": true, "verificationPending": ["派生完整原卡为日文补证，中文独立tooltip与原客户端融合、进场及响应全序待核验。"], "countsAsShikigami": true, "passive": {"id": "sugar-big-base", "name": "基础能力", "text": "融合。不屈。", "hooks": []}, "verifiedRules": true, "sources": ["sugar-summon-jp-20261103"]},
 ]);
 
 function eff(condition, action, target, value = null) {
@@ -4311,6 +4317,25 @@ export const WAVE5_CARD_DEFINITIONS = Object.freeze([
     subpack: "xuanhua",
   }),
   wave5Card(0, "tengji", {
+    id: "tengji-huanyi",
+    name: "幻役",
+    type: "summon",
+    level: 1,
+    cost: 0,
+    rarity: "common",
+    starter: 0,
+    deckLimit: 0,
+    token: true,
+    text: "召唤一个0/0的幻役并为其结附一个藤色。",
+    officialText: "召唤一个0/0的幻役并为其结附一个藤色。",
+    target: "auto",
+    tags: ["token"],
+    effects: [
+      ["always", "vine-phantom", "source", 0],
+    ],
+    subpack: "fanhua",
+  }),
+  wave5Card(0, "tengji", {
     id: "tengji-huanse",
     name: "藤色",
     type: "spell",
@@ -4326,6 +4351,25 @@ export const WAVE5_CARD_DEFINITIONS = Object.freeze([
     tags: ["token"],
     effects: [
       ["always", "buff-stats", "selected-ally", {"attack": 1, "hp": 1}],
+    ],
+    subpack: "fanhua",
+  }),
+  wave5Card(0, "kuileishi", {
+    id: "puppet-awaken-form",
+    name: "觉醒·傀儡术",
+    type: "form",
+    level: 2,
+    cost: 1,
+    rarity: "common",
+    starter: 0,
+    deckLimit: 0,
+    token: true,
+    text: "融合。永久结附。",
+    officialText: "融合。永久结附。",
+    target: "auto",
+    tags: ["token"],
+    effects: [
+      ["always", "form", "source", {"attack": 3, "hp": 3, "setBase": true}],
     ],
     subpack: "fanhua",
   }),
@@ -4447,6 +4491,116 @@ export const WAVE5_CARD_DEFINITIONS = Object.freeze([
     ],
     subpack: "xuanhua",
   }),
+  wave5Card(0, "qianji", {
+    "id": "qianji-song",
+    "unitId": "qianji",
+    "name": "咏流",
+    "type": "spell",
+    "level": 1,
+    "cost": 1,
+    "text": "召唤一个海原贝戟。增强：当千姬使用牌时，此牌获得瞬发。",
+    "target": "auto",
+    "deckLimit": 0,
+    "token": true,
+    "starter": 0,
+    "effects": [
+        [
+            "always",
+            "rt-summon",
+            "source",
+            0
+        ]
+    ],
+    "subpack": "xuanhua"
+}),
+  wave5Card(0, "", {
+    "id": "cooking-mountain",
+    "unitId": "",
+    "name": "山珍",
+    "type": "spell",
+    "level": 0,
+    "cost": 1,
+    "text": "山珍：中立法术，效果由生成时的真实食材实例保留。",
+    "target": "food-target",
+    "deckLimit": 0,
+    "token": true,
+    "starter": 0,
+    "effects": [
+        [
+            "always",
+            "cooking-food",
+            "selected",
+            0
+        ]
+    ],
+    "subpack": "xuanhua"
+}),
+  wave5Card(0, "", {
+    "id": "cooking-sea",
+    "unitId": "",
+    "name": "海味",
+    "type": "spell",
+    "level": 0,
+    "cost": 1,
+    "text": "海味：中立法术，效果由生成时的真实食材实例保留。",
+    "target": "food-target",
+    "deckLimit": 0,
+    "token": true,
+    "starter": 0,
+    "effects": [
+        [
+            "always",
+            "cooking-food",
+            "selected",
+            0
+        ]
+    ],
+    "subpack": "xuanhua"
+}),
+  wave5Card(0, "", {
+    "id": "cooking-vegetable",
+    "unitId": "",
+    "name": "时蔬",
+    "type": "spell",
+    "level": 0,
+    "cost": 1,
+    "text": "时蔬：中立法术，效果由生成时的真实食材实例保留。",
+    "target": "food-target",
+    "deckLimit": 0,
+    "token": true,
+    "starter": 0,
+    "effects": [
+        [
+            "always",
+            "cooking-food",
+            "selected",
+            0
+        ]
+    ],
+    "subpack": "xuanhua"
+}),
+  wave5Card(0, "", {
+    "id": "cooking-dark",
+    "unitId": "",
+    "name": "黑暗料理",
+    "type": "spell",
+    "level": 0,
+    "cost": 1,
+    "text": "黑暗料理：中立法术，效果由生成时的真实食材实例保留。",
+    "target": "food-target",
+    "deckLimit": 0,
+    "token": true,
+    "starter": 0,
+    "effects": [
+        [
+            "always",
+            "cooking-food",
+            "selected",
+            0
+        ]
+    ],
+    "subpack": "xuanhua"
+}),
 ]);
 
 export function getWave5UnitIds() {

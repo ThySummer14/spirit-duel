@@ -1,0 +1,68 @@
+[
+  {
+    "name": "combat",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.77
+  },
+  {
+    "name": "movement",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.86
+  },
+  {
+    "name": "armor_limit",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.76
+  },
+  {
+    "name": "instant",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.77
+  },
+  {
+    "name": "rebirth",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 15.6
+  },
+  {
+    "name": "fortune_pair",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.87
+  },
+  {
+    "name": "light_healer",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 2.32
+  },
+  {
+    "name": "three_tail",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.96
+  },
+  {
+    "name": "silk_ninja",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 1.06
+  },
+  {
+    "name": "sea_butterfly",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.96
+  },
+  {
+    "name": "battle_status",
+    "exitCode": 0,
+    "ok": true,
+    "seconds": 0.86
+  }
+]

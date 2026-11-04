@@ -1,0 +1,24 @@
+{
+  "sources": [
+    {
+      "id": "sixiang-awaken-fix-20210429",
+      "url": "https://www.taptap.cn/moment/136561818402291925",
+      "author": "阴阳师百闻牌（官方）",
+      "published": "2021-04-28",
+      "section": "bug修复和优化",
+      "shortQuote": "再次使用觉醒而获得生命恢复",
+      "summary": "官方修复：已经受过火取魔、源九郎狐、净琉璃御前或樱雪姬觉醒属性加成的式神，在同一派系核心再次使用觉醒时，不应因此恢复既有损伤。原句只否定重复刷新造成的额外回血，不能据此判定觉醒施放者是否再次获得卡面印刷身材。",
+      "limits": "明确允许再次使用觉醒；不得由旧GS._awaken的already-awakened early return推断原客户端禁止再次施放或印刷身材。"
+    },
+    {
+      "id": "fox-adjustment-20220414",
+      "url": "https://www.taptap.cn/moment/263404919191503871",
+      "summary": "御先狐改为3力量7生命；初音鼓原复活+1力量+1生命改为再+1护甲，全紫时移入战斗区。与本批完整原PNG吻合。"
+    },
+    {
+      "id": "faction-mechanics-community",
+      "url": "https://www.taptap.cn/moment/341546240254673892",
+      "summary": "社区机制记录将觉醒火取魔等描述为需在场的光环；仅辅助解释原牌文，复杂生命周期仍待原客户端验证。"
+    }
+  ]
+}

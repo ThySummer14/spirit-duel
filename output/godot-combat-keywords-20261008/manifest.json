@@ -1,0 +1,109 @@
+{
+  "started": "2026-10-08",
+  "completed": "2026-10-09",
+  "productionAndRegressionChanges": [
+    {
+      "path": "godot/content/verified_rules.json",
+      "new": false,
+      "sha256": "6a3b20907e33b93c84cb9fbf608e9829d28253e95edd842fc8497da8423e897d"
+    },
+    {
+      "path": "godot/scripts/armor_break_rules.gd",
+      "new": false,
+      "sha256": "e81d92abcf91c4f00bb44320b492b389e328c9c33a4f0d9289c00c265a6f6a65"
+    },
+    {
+      "path": "godot/scripts/bailang_rules.gd",
+      "new": true,
+      "sha256": "03729edce463542d93d5f67687908d0ea6b8feaf63a9d0ff16453b9e73d58381"
+    },
+    {
+      "path": "godot/scripts/combat_keyword_rules.gd",
+      "new": true,
+      "sha256": "7c050a8eed0118fc8b201a3b158dd20788b2f9403bdf325a9464fb335df89fe1"
+    },
+    {
+      "path": "godot/scripts/game_ai.gd",
+      "new": false,
+      "sha256": "f960735f9f69f8f58482f7f4d35a325117725e8eabd8b6816445193b3bb0701d"
+    },
+    {
+      "path": "godot/scripts/game_state.gd",
+      "new": false,
+      "sha256": "e4799eccba613bb4e7aeb81b4f2037f9a1a2b0dd2fb478e04a64c43d49ed4b73"
+    },
+    {
+      "path": "godot/scripts/shantong_rules.gd",
+      "new": true,
+      "sha256": "996cb228c2f9c8e4652b8c362d379d31c002b9a6ff896f2371e47eb818b02328"
+    },
+    {
+      "path": "godot/scripts/ui/battle_screen.gd",
+      "new": false,
+      "sha256": "da07793af899cf46c65f78789407c0beec53dd30b186fabfb4e4e8b537b72107"
+    },
+    {
+      "path": "godot/scripts/ui/battle_status.gd",
+      "new": false,
+      "sha256": "2173040d1872bf9b7174a2731ebb5436cec6e939070be40a2313f9697e79f446"
+    },
+    {
+      "path": "godot/scripts/ui/keyword_glossary.gd",
+      "new": false,
+      "sha256": "7117f1dde7df8cba326cc548ed6bc218886a3871f0d3e5624dfe3838df115527"
+    },
+    {
+      "path": "godot/scripts/verified_card_rules.gd",
+      "new": false,
+      "sha256": "2d36be074b66931d0111fa8db17c2981eae4707bc21ee48353ba0ceadef8d218"
+    },
+    {
+      "path": "godot/scripts/verify_archer_mountain.gd",
+      "new": true,
+      "sha256": "caf7a030c46ced152a58f132e1943ccd97e99dd16bf698c3c8453e1db423f03a"
+    },
+    {
+      "path": "godot/scripts/verify_archer_mountain_ui.gd",
+      "new": true,
+      "sha256": "6d6f31082b464ab00778efda042eb77d524628c2a5086c234405e0909772827e"
+    }
+  ],
+  "webExport": {
+    "index.apple-touch-icon.png": {
+      "bytes": 14721,
+      "sha256": "623c589e3078d59fbbcaf0eecb0dba402a19704d253a99f5f974ca27a6b0245e"
+    },
+    "index.audio.position.worklet.js": {
+      "bytes": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    "index.audio.worklet.js": {
+      "bytes": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    "index.html": {
+      "bytes": 3241,
+      "sha256": "b5a3ff50a34fd996804afd431200975ca058ae1dc2d8e18071c3a2e9f5cf001d"
+    },
+    "index.icon.png": {
+      "bytes": 2649,
+      "sha256": "d5b4f9a8b98c07c4398f56fab532f134180b9a04d1ca7f31abf537709d77b350"
+    },
+    "index.js": {
+      "bytes": 315759,
+      "sha256": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981"
+    },
+    "index.pck": {
+      "bytes": 51639396,
+      "sha256": "1973d7f9844d19c680fc633b2dd99bb3617a4c60e2cc09634c79c08c6ef9a0c9"
+    },
+    "index.png": {
+      "bytes": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    "index.wasm": {
+      "bytes": 37700666,
+      "sha256": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6"
+    }
+  }
+}

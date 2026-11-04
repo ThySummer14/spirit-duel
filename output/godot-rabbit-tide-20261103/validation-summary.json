@@ -1,0 +1,35 @@
+{
+  "godot": "4.6.3",
+  "rulesOnly": {
+    "checks": 126,
+    "failures": 0,
+    "scriptErrors": 0,
+    "log": "rules-only.log"
+  },
+  "native": {
+    "checks": 138,
+    "failures": 0,
+    "scriptErrors": 0,
+    "sizes": [
+      [
+        1280,
+        800
+      ],
+      [
+        1600,
+        740
+      ]
+    ],
+    "screenshots": 6,
+    "allScreenshotsViewed": true,
+    "log": "native.log"
+  },
+  "originalPngsViewed": 18,
+  "mainCardArtHashesVerified": 16,
+  "scope": "兔丸250/千姬247 16主体牌+海原贝戟/咏流",
+  "pending": [
+    "中文派生完整tooltip与原客户端具体触发顺序",
+    "解忧等复杂移除交叉边界"
+  ],
+  "frozen": true
+}

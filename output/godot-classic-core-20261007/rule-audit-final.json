@@ -1,0 +1,18 @@
+{
+  "fullCatalogRestored": false,
+  "summary": {
+    "units": {
+      "known-approximation": 154,
+      "unreviewed": 85,
+      "pending-verification": 5,
+      "source-backed-native": 6
+    },
+    "cards": {
+      "known-approximation": 1064,
+      "unreviewed": 954,
+      "pending-verification": 20,
+      "source-backed-native": 76
+    }
+  },
+  "errors": []
+}

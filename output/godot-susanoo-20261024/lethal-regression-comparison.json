@@ -1,0 +1,30 @@
+{
+  "baselineLightHealerFailed": true,
+  "sameExistingTestBytes": true,
+  "existingTestSHA256": "359f909c4ca81d4947f57152760138538e35f26b7e0c7dea2f45bcf9c46d7136",
+  "before": {
+    "result": {
+      "damage": 1,
+      "dealt": 1,
+      "knocked": false,
+      "overkill": 0
+    },
+    "energy": 1,
+    "hp": 5,
+    "knockout": 0
+  },
+  "after": {
+    "result": {
+      "bodyKnocked": true,
+      "damage": 1,
+      "dealt": 1,
+      "knocked": false,
+      "overkill": 0
+    },
+    "energy": 2,
+    "hp": 5,
+    "knockout": 0
+  },
+  "expectedEnergy": 2,
+  "expectedHP": 5
+}

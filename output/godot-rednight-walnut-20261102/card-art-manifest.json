@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/266_宁红夜/26601_锁羚羊_形态.png",
+    "target": "godot/assets/official/cards/c26601.png",
+    "sha256": "31157383450044ce6f3dfa7aca14585ae456d4e99668806348a2e18984b0940c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/266_宁红夜/26602_蓄力射击_法术.png",
+    "target": "godot/assets/official/cards/c26602.png",
+    "sha256": "6c576a588c5d8f9a080279341806da823204812362b3c93c18f33461cc58d58c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/266_宁红夜/26603_爆裂箭_战斗.png",
+    "target": "godot/assets/official/cards/c26603.png",
+    "sha256": "f409adf1c83cc98d75eab081777656ec20eef898a269dc377fb2209dfbcaa70d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/266_宁红夜/26604_昆仑决_法术.png",
+    "target": "godot/assets/official/cards/c26604.png",
+    "sha256": "459d49056479ce9421e4bdd7ee284ea674710358330adba8be6f5000c83bbfba"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/266_宁红夜/26605_散射_法术.png",
+    "target": "godot/assets/official/cards/c26605.png",
+    "sha256": "c8fe15b7435d1a7131e66674a825c879d02a239f01136f3cd0b7f081e72e3f68"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/266_宁红夜/26606_凤凰羽_形态.png",
+    "target": "godot/assets/official/cards/c26606.png",
+    "sha256": "7c65b99dfa175987469b8d62b04679ce5381bd2df6ebc9d354cfcb9a70088188"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/266_宁红夜/26607_觉醒·宁红夜_法术.png",
+    "target": "godot/assets/official/cards/c26607.png",
+    "sha256": "dbf133d6db39bfa7f56a042abf680e35e4d5546718fbe9921145a733a9359b0c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/266_宁红夜/26608_赤练无明_法术.png",
+    "target": "godot/assets/official/cards/c26608.png",
+    "sha256": "f7e2ab30014723df057a05cdd9c067390f31a22d337c4873a76bb35d148af5ee"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/267_土御门胡桃/26701_庇护_形态.png",
+    "target": "godot/assets/official/cards/c26701.png",
+    "sha256": "aeb5efd0d8750e5959c3a31340ab3791bbdd30c1464acc4e651248d1ea68be22"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/267_土御门胡桃/26702_任务·追击_法术.png",
+    "target": "godot/assets/official/cards/c26702.png",
+    "sha256": "26b8688f636b8bf6e58ae7609904c27b1132f14597da7e41342dc66cbf56b8b2"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/267_土御门胡桃/26703_身势·振刀_形态.png",
+    "target": "godot/assets/official/cards/c26703.png",
+    "sha256": "7c1cbaba51792c01fb02f407402d62e45341eb8df0cb019ed7c1ca9d4c6d17b5"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/267_土御门胡桃/26704_落物堆_结界.png",
+    "target": "godot/assets/official/cards/c26704.png",
+    "sha256": "69dad1d864dfa658bd4e1fa687f844a701d18e7579e8f03cd52be739bd6b2828"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/267_土御门胡桃/26705_净天地_结界.png",
+    "target": "godot/assets/official/cards/c26705.png",
+    "sha256": "ff99eb6d3a8cd727110c3c26bbea9af0e1d5f2f019f32278af50c3b24164d10d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/267_土御门胡桃/26706_地煞符_结界.png",
+    "target": "godot/assets/official/cards/c26706.png",
+    "sha256": "e10f07aa0a68c4c32b3eba010004e07e60fac7f0fb77434bec2f38e598d2955a"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/267_土御门胡桃/26707_觉醒·土御门胡桃_法术.png",
+    "target": "godot/assets/official/cards/c26707.png",
+    "sha256": "b39137ac83cf7970e5765e126b85babbfe1fed4d32f0d0ff1c31dd66bcec821b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/15_振剑归川/267_土御门胡桃/26708_飓风客_法术.png",
+    "target": "godot/assets/official/cards/c26708.png",
+    "sha256": "c690e8b5b8f020b886c3dde50c60e4cb229290faeb618b70044e04e450e5a1d1"
+  }
+]

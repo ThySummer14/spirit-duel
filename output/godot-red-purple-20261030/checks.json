@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "checks": 265,
+    "failures": 0,
+    "log": "rules-final-shared.log"
+  },
+  "native": {
+    "checks": 297,
+    "failures": 0,
+    "log": "native.log"
+  },
+  "originalCardHashes": 16,
+  "screenshots": [
+    "1280-01-fox-mode.png",
+    "1280-02-realm-choice.png",
+    "1280-03-revival-target.png",
+    "1600-01-fox-mode.png",
+    "1600-02-realm-choice.png",
+    "1600-03-revival-target.png"
+  ],
+  "existingVerifyModified": false,
+  "sharedRefreshRegression": "passed"
+}

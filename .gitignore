@@ -23,3 +23,7 @@ godot/.godot/
 
 # Pages 构建副本、导出文件和下载的构建工具
 /.build/
+
+# Python 可再生成缓存
+__pycache__/
+*.py[cod]

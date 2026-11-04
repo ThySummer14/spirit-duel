@@ -1,0 +1,754 @@
+{
+  "sources": [
+    {
+      "id": "ape-sleeve-original-20261102",
+      "path": "art-reference-official/卡面-按版本/18_燃灯志异/",
+      "evidence": "294川猿和296小袖之手18张完整原PNG，按基础版本实现，不追逐后续平衡。"
+    },
+    {
+      "id": "ape-sleeve-catalog-20261102",
+      "url": "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js",
+      "evidence": "本地research-data/cards.json的原网易卡库基础牌文。"
+    },
+    {
+      "id": "sleeve-thread-jp-wiki",
+      "url": "https://gamerch.com/onmyojicard/786089",
+      "evidence": "日文资料明确结袂为唯一、每回合一次小袖对敌方式神造成伤害时对结附者3伤，移除后每次复活重新结附。"
+    },
+    {
+      "id": "sleeve-thread-jp-client-video",
+      "url": "https://www.youtube.com/watch?v=UnWkrU6TWh0",
+      "evidence": "2023-08-05原客户端玩家实录介绍每回合一次小袖伤敌触发结袂3伤；未取得tooltip帧，中服边界保留待核。"
+    }
+  ],
+  "units": {
+    "chuanyuan": {
+      "verifiedRules": true,
+      "apeSleeveRole": "ape",
+      "attack": 2,
+      "maxHp": 5,
+      "formLifecycle": {},
+      "passive": {
+        "id": "ape-native",
+        "name": "百相变幻",
+        "text": "己方回合开始时，互换川猿的力量和生命。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "ape-awakened",
+        "name": "天衣万象",
+        "text": "觉醒：己方回合开始时，获得一张不消耗鬼火的「变幻自在」。",
+        "hooks": []
+      },
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "xiaoxiuzhishou": {
+      "verifiedRules": true,
+      "apeSleeveRole": "sleeve",
+      "attack": 2,
+      "maxHp": 4,
+      "formLifecycle": {},
+      "passive": {
+        "id": "sleeve-native",
+        "name": "丝线直击",
+        "text": "当小袖之手对敌方式神造成伤害时，对敌方牌手造成1点伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "sleeve-awakened",
+        "name": "千针连缀",
+        "text": "随机对两个敌方式神造成2点伤害。\n觉醒：当小袖之手对敌方式神造成伤害时，对敌方牌手造成1点伤害。己方式神的基础和觉醒能力的非战斗伤害+1。",
+        "hooks": []
+      },
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c29401": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发\n互换川猿的力量和生命，抽一张牌。",
+      "officialText": "瞬发\n互换川猿的力量和生命，抽一张牌。",
+      "target": "auto",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "ape-swap",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ape-swap",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "c29402": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使一个式神的力量和生命变为川猿的值。",
+      "officialText": "使一个式神的力量和生命变为川猿的值。",
+      "target": "any-unit",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "ape-copy",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ape-copy",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "c29403": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "选择一项：本次战斗，川猿的力量变为己方式神中的最大值；本次战斗，川猿的生命变为己方式神中的最大值。",
+      "officialText": "选择一项：本次战斗，川猿的力量变为己方式神中的最大值；本次战斗，川猿的生命变为己方式神中的最大值。",
+      "target": "enemy-character",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "ape-mimic",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ape-mimic",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "c29404": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对一个敌方式神造成等同川猿力量的伤害，为你恢复等同川猿生命的生命值。",
+      "officialText": "对一个敌方式神造成等同川猿力量的伤害，为你恢复等同川猿生命的生命值。",
+      "target": "enemy-unit",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "ape-paper",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ape-paper",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ],
+      "responseAction": "damage"
+    },
+    "c29405": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "选择一个己方式神，将所有己方式神的的力量和生命变为该式神的值。",
+      "officialText": "选择一个己方式神，将所有己方式神的的力量和生命变为该式神的值。",
+      "target": "ally-unit",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "ape-all",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ape-all",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "c29406": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "觉醒：己方回合开始时，获得一张不消耗鬼火的「变幻自在」。",
+      "officialText": "觉醒：己方回合开始时，获得一张不消耗鬼火的「变幻自在」。",
+      "target": "auto",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "ape-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "ape-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "c29407": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "追猎\n本回合川猿获得等同于被攻击的式神对应的力量和生命。",
+      "officialText": "追猎\n本回合川猿获得等同于被攻击的式神对应的力量和生命。",
+      "target": "enemy-unit",
+      "keywords": [
+        "pursuit"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "ape-seamless",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ape-seamless",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "pursuit": true
+      }
+    },
+    "c29408": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和每个回合开始时，川猿的力量和生命变为场上式神中的最大值。",
+      "officialText": "进场和每个回合开始时，川猿的力量和生命变为场上式神中的最大值。",
+      "target": "auto",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "apeMoon": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和每个回合开始时，川猿的力量和生命变为场上式神中的最大值。",
+      "effect": "form",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "c29601": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发\n对一个敌方式神造成2点伤害。\n专注：额外对另一个随机敌方式神造成2点伤害。",
+      "officialText": "瞬发\n对一个敌方式神造成2点伤害。\n专注：额外对另一个随机敌方式神造成2点伤害。",
+      "target": "enemy-unit",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "sleeve-needle",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sleeve-needle",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ],
+      "focusEffect": "额外对另一个随机敌方式神造成2点伤害。",
+      "responseAction": "damage"
+    },
+    "c29602": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使一个敌方式神获得「当其他己方式神气绝时，对其造成4点伤害，然后移除此能力」。",
+      "officialText": "使一个敌方式神获得「当其他己方式神气绝时，对其造成4点伤害，然后移除此能力」。",
+      "target": "enemy-unit",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "sleeve-mend",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sleeve-mend",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "c29603": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "当己方式神对单一敌方式神使用法术牌后，小袖之手随机对一个敌方式神造成1点伤害。",
+      "officialText": "当己方式神对单一敌方式神使用法术牌后，小袖之手随机对一个敌方式神造成1点伤害。",
+      "target": "auto",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sleeveSpell": true
+      },
+      "formHooks": [],
+      "formAbility": "当己方式神对单一敌方式神使用法术牌后，小袖之手随机对一个敌方式神造成1点伤害。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "c29604": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使一个敌方式神的力量、生命变为基础值，并对其造成4点伤害。",
+      "officialText": "使一个敌方式神的力量、生命变为基础值，并对其造成4点伤害。",
+      "target": "enemy-unit",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "sleeve-reset",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sleeve-reset",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ],
+      "responseAction": "damage"
+    },
+    "c29605": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和己方式神攻击时，随机对一个敌方式神造成1点伤害。",
+      "officialText": "进场和己方式神攻击时，随机对一个敌方式神造成1点伤害。",
+      "target": "auto",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sleeveAttack": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方式神攻击时，随机对一个敌方式神造成1点伤害。",
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ]
+    },
+    "c29606": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发，使一个敌方式神永久结附「结袂」。\n专注：再对该式神造成2点伤害。",
+      "officialText": "瞬发，使一个敌方式神永久结附「结袂」。\n专注：再对该式神造成2点伤害。",
+      "target": "enemy-unit",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "sleeve-thread",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sleeve-thread",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。",
+        "结袂完整定义采用日文资料与原客户端玩家实录描述补充，已实现唯一、每回合一次3伤与永久复活重挂；中服未取得原客户端tooltip帧，跨版本/同时复活与移除顺序待核。"
+      ],
+      "focusEffect": "再对该式神造成2点伤害。",
+      "responseAction": "damage"
+    },
+    "c29607": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "对一个敌方式神造成3点伤害，重复4次。",
+      "officialText": "对一个敌方式神造成3点伤害，重复4次。",
+      "target": "enemy-unit",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "sleeve-thousand",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sleeve-thousand",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ],
+      "responseAction": "damage"
+    },
+    "c29608": {
+      "verifiedRules": true,
+      "apeSleeveRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "随机对两个敌方式神造成2点伤害。\n觉醒：当小袖之手对敌方式神造成伤害时，对敌方牌手造成1点伤害。己方式神的基础和觉醒能力的非战斗伤害+1。",
+      "officialText": "随机对两个敌方式神造成2点伤害。\n觉醒：当小袖之手对敌方式神造成伤害时，对敌方牌手造成1点伤害。己方式神的基础和觉醒能力的非战斗伤害+1。",
+      "target": "auto",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "effect": "sleeve-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "sleeve-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "sources": [
+        "ape-sleeve-original-20261102",
+        "ape-sleeve-catalog-20261102",
+        "sleeve-thread-jp-wiki",
+        "sleeve-thread-jp-client-video"
+      ],
+      "verificationPending": [
+        "完整原PNG与基础牌文实现主要机制；指定录像未逐牌核验。数值交换/重置与其他光环、同时触发及死亡复活全序仍待原客户端核验。"
+      ],
+      "responseAction": "damage"
+    }
+  }
+}

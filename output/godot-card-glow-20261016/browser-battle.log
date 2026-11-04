@@ -1,0 +1,6 @@
+### Result
+{"url":"http://127.0.0.1:4191/play/","title":"灵枢战线","canvas":1,"problems":[]}
+### Ran Playwright code
+```js
+await (async (page) => { const problems=[]; page.on("pageerror",e=>problems.push(String(e))); page.on("console",m=>{if(["error","warning"].includes(m.type()))problems.push(m.text());}); await page.mouse.click(640,598); await page.waitForTimeout(1600); await page.screenshot({path:"output/godot-card-glow-20261016/browser-battle.png"}); return {url:page.url(),title:await page.title(),canvas:await page.locator("canvas").count(),problems}; })(page);
+```

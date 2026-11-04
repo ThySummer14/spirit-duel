@@ -1,0 +1,11 @@
+combat True
+movement True
+armor_limit True
+instant True
+rebirth True
+fortune_pair True
+light_healer True
+three_tail True
+silk_ninja True
+sea_butterfly True
+battle_status True

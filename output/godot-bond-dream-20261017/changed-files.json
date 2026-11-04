@@ -1,0 +1,30 @@
+{
+  "textFiles": [
+    "README.md",
+    "docs/verified-vs-simplified-gap.md",
+    "godot/README.md",
+    "godot/assets/official/README.md",
+    "godot/content/verified_rules.json",
+    "godot/scripts/book_jue_rules.gd",
+    "godot/scripts/combat_keyword_rules.gd",
+    "godot/scripts/fox_suzuka_rules.gd",
+    "godot/scripts/game_ai.gd",
+    "godot/scripts/game_state.gd",
+    "godot/scripts/light_healer_rules.gd",
+    "godot/scripts/mengpo_rules.gd",
+    "godot/scripts/native_divination_rules.gd",
+    "godot/scripts/peach_rules.gd",
+    "godot/scripts/ui/battle_screen.gd",
+    "godot/scripts/ui/battle_status.gd",
+    "godot/scripts/verified_card_rules.gd",
+    "scripts/godot-verify.sh",
+    "godot/scripts/bond_dream_rules.gd",
+    "godot/scripts/bond_dream_rules.gd.uid",
+    "godot/scripts/verify_bond_dream.gd",
+    "godot/scripts/verify_bond_dream.gd.uid",
+    "research-notes/49-bond-dream-rules.md"
+  ],
+  "originalCardManifest": "card-art-manifest.json",
+  "baseline": "baseline/",
+  "notes": "本批快照对比，保留先前未提交修改；16张新增原版PNG在素材清单列示。"
+}

@@ -1,0 +1,21 @@
+[
+  "README.md",
+  "docs/verified-vs-simplified-gap.md",
+  "godot/README.md",
+  "godot/assets/official/README.md",
+  "godot/content/verified_rules.json",
+  "godot/scripts/combat_keyword_rules.gd",
+  "godot/scripts/game_ai.gd",
+  "godot/scripts/game_state.gd",
+  "godot/scripts/movement_rules.gd",
+  "godot/scripts/tomato_fire_rules.gd",
+  "godot/scripts/tree_sakura_rules.gd",
+  "godot/scripts/tree_sakura_rules.gd.uid",
+  "godot/scripts/ui/battle_screen.gd",
+  "godot/scripts/ui/battle_status.gd",
+  "godot/scripts/verified_card_rules.gd",
+  "godot/scripts/verify_tree_sakura.gd",
+  "godot/scripts/verify_tree_sakura.gd.uid",
+  "research-notes/51-tree-sakura-rules.md",
+  "scripts/godot-verify.sh"
+]

@@ -5,12 +5,14 @@ extends Control
 const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
 const ContentLoader := preload("res://scripts/content_loader.gd")
 const PortraitLibrary := preload("res://scripts/ui/portrait_library.gd")
+const BattleStatus := preload("res://scripts/ui/battle_status.gd")
 const KeywordGlossary := preload("res://scripts/ui/keyword_glossary.gd")
 static var _textures: Dictionary = {}
 
 signal hover_changed(hovering: bool)
 
 var data: Dictionary = {}
+var current_turn := -1
 var unit_mode := false
 ## 小头像用于场景入口与阵容菱形位，不携带战斗数值。
 var portrait_only := false
@@ -18,7 +20,7 @@ var portrait_shape := "square"
 var face_down := false
 var selected := false
 var enabled := true
-## 可打出/可操作时的呼吸光
+## 可打出/可操作；光效同时读取实时支付与能力状态。
 var playable := false
 var note := ""
 ## -1 图鉴，0 己方，1 敌方
@@ -45,6 +47,7 @@ var flash := 0.0:
 var hovered := false
 
 var _texture: Texture2D
+var _original_card: Texture2D
 var _texture_path := ""
 var _art_focus := Vector2(-1, -1)
 var _font: Font
@@ -69,6 +72,12 @@ func _ready() -> void:
 
 
 func refresh_art() -> void:
+	_original_card = null
+	if not unit_mode:
+		var original := "res://assets/official/cards/%s.png" % str(data.get("id", ""))
+		if ResourceLoader.exists(original):
+			if not _textures.has(original): _textures[original] = load(original)
+			_original_card = _textures[original]
 	var unit := data if unit_mode else ContentLoader.unit_def(str(data.get("unitId", "")))
 	if unit_mode and not unit.has("art"):
 		unit = ContentLoader.unit_def(str(data.get("id", "")))
@@ -172,6 +181,52 @@ func _pulse() -> float:
 	return 0.65 + 0.35 * sin(Time.get_ticks_msec() / 260.0)
 
 
+func play_aura_kind() -> String:
+	if face_down or not enabled or not playable: return ""
+	if unit_mode:
+		return "inspired" if not portrait_only and BattleStatus.Combat.has(data, "inspired") else ""
+	if data.get("payment", {}).get("usesInstant", false) or data.get("payment", {}).get("coinFirstFree", false): return "instant"
+	return "inspired" if data.get("inspiredSupport", false) else ""
+
+
+func _draw_play_aura(kind: String, rectangular: bool = false) -> void:
+	if kind.is_empty(): return
+	var color := Color("43b8ff") if kind == "instant" else Color("ffcd42")
+	var spread := clampf(size.x * 0.07, 5.0, 13.0)
+	for i in range(4, 0, -1):
+		var grow := spread * i / 4.0
+		var tint := Color(color, (0.045 + 0.018 * _pulse()) * (5 - i))
+		if _original_card != null and not unit_mode:
+			_original_rim(tint, grow * 0.45)
+		elif rectangular:
+			var box := _box(Color.TRANSPARENT, tint, _radius() + int(grow), 2)
+			box.draw_center = false
+			draw_style_box(box, Rect2(-Vector2.ONE * grow, size + Vector2.ONE * grow * 2))
+		else: _arch_rim(tint, 2.0 + grow * 0.6, -grow * 0.45)
+	# 错开寿命的细焰沿卡边上升；无随机数、节点或纹理分配。
+	var seconds := Time.get_ticks_msec() * 0.001
+	for i in 26:
+		var seed_value := i * 0.618034
+		var age := fposmod(seconds * (0.55 + fposmod(seed_value, 0.37)) + seed_value, 1.0)
+		var edge := i % 4
+		var along := fposmod(i * 0.381966, 1.0)
+		var base := Vector2(0 if edge == 0 else size.x, size.y * along)
+		if edge >= 2:
+			base = Vector2(size.x * along, (0.035 * size.y if edge == 2 else size.y))
+		var outward := -1.0 if base.x < size.x * 0.5 else 1.0
+		var rise := size.y * (0.13 + fposmod(seed_value, 0.10))
+		var pos := base + Vector2(outward * (2 + age * spread * 0.65), -age * rise)
+		var points := PackedVector2Array()
+		var colors := PackedColorArray()
+		for j in 7:
+			var t := j / 6.0
+			points.append(pos + Vector2(outward * sin(t * PI + seconds * 2.0 + i) * spread * 0.28, -t * rise * 0.40))
+			colors.append(Color(color, sin(age * PI) * sin(t * PI) * 0.48))
+		draw_polyline_colors(points, colors, maxf(1.0, spread * 0.55), true)
+		for j in colors.size(): colors[j] = Color(color.lightened(0.6), colors[j].a * 0.8)
+		draw_polyline_colors(points, colors, maxf(0.65, spread * 0.13), true)
+
+
 func _draw_art(rect: Rect2, tint: Color = Color.WHITE) -> void:
 	if _texture == null:
 		draw_rect(rect, Color("1d2333"))
@@ -251,6 +306,13 @@ func _center_text(y: float, text: String, fs: int, color: Color, font: Font = nu
 	_text(Vector2(4, y), text, fs, color, font, size.x - 8, HORIZONTAL_ALIGNMENT_CENTER, outline)
 
 
+func _number_font(value: String, preferred: int, width: float) -> int:
+	var fs := preferred
+	while fs > 1 and _bold.get_string_size(value, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x > width - 2:
+		fs -= 1
+	return fs
+
+
 ## 勾玉：圆首弯尾
 func _magatama(c: Vector2, r: float, color: Color, filled: bool) -> void:
 	var pts := PackedVector2Array()
@@ -289,7 +351,7 @@ func _stat_badge(c: Vector2, r: float, value: String, fill: Color, rim: Color, t
 	draw_circle(c, r, fill.darkened(0.25))
 	draw_circle(c, r * 0.82, fill)
 	draw_arc(c, r, 0, TAU, 28, rim, maxf(1.0, r * 0.14), true)
-	var fs := int(r * 1.25)
+	var fs := _number_font(value, int(r * 1.25), r * 3)
 	_text(c + Vector2(-r * 1.5, fs * 0.36), value, fs, text_color, _bold, r * 3, HORIZONTAL_ALIGNMENT_CENTER, maxi(2, int(r * 0.32)), Color(0, 0, 0, 0.8))
 
 
@@ -319,16 +381,21 @@ func _note_band(y: float) -> void:
 
 
 func _draw_card() -> void:
+	if _original_card != null:
+		_draw_original_card()
+		return
 	var w := size.x
 	var h := size.y
 	var accent := ContentLoader.rarity_color(str(data.get("rarity", "common")))
 	var mini := w < 90
 	var pad := maxf(2.0, w * 0.025)
 	var outline := _arch()
+	var aura := play_aura_kind()
+	_draw_play_aura(aura)
 	# 原视频中的拱顶卡框、青灰银边和大幅插画。
-	if selected or (playable and enabled):
+	if aura.is_empty() and (selected or (playable and enabled)):
 		for i in range(4, 0, -1):
-			_arch_rim(Color(0.49, 0.79, 1.0, 0.08 + 0.05 * _pulse()), 2.0 + i * 3)
+			_arch_rim(Color(0.84, 0.88, 0.76, 0.05 + 0.03 * _pulse()), 2.0 + i * 2)
 	draw_colored_polygon(outline, Color("767580"))
 	var art_h := h * (0.66 if mini else 0.60)
 	var art := Rect2(pad, pad, w - pad * 2, art_h - pad)
@@ -343,10 +410,11 @@ func _draw_card() -> void:
 	_center_text(paper_y + name_fs * 1.1, str(data.get("name", "?")), name_fs, Color("343943"), _display)
 	# 勾玉费用与等级纹样位于上缘两侧。
 	var orb_r := clampf(w * 0.07, 5, 14)
-	var cost := int(data.get("cost", 0))
+	var cost := int(data.get("payment", {}).get("cost", data.get("cost", 0)))
 	for i in maxi(1, cost):
 		_magatama(Vector2(pad + orb_r * 0.7 + i * orb_r * 1.1, h * 0.12), orb_r, Color("dadbae") if enabled else Color("a5acaa"), true)
 	if cost == 0: _center_cost_zero(Vector2(pad + orb_r, h * 0.12), orb_r)
+	_draw_card_marks(pad)
 	var level := int(data.get("level", 1))
 	for i in level:
 		_gem(Vector2(w - pad - 7 - i * 8, h * 0.075), clampf(w * 0.028, 2, 5), Color("a2c9bb"))
@@ -366,7 +434,94 @@ func _draw_card() -> void:
 		_center_text(h - pad - 4, "%s · %s" % [owner.get("name", ""), str(data.get("typeLabel", ""))], int(clampf(w * 0.055, 7, 11)), Color("727785"), _font)
 	_arch_rim(Color("aaa8b8"), 2)
 	_arch_rim(Color(0.83, 0.85, 0.85, 0.55), 1, pad)
+	if not aura.is_empty(): _arch_rim(Color("9aeaff") if aura == "instant" else Color("ffe89a"), 1.4)
 	_finish_card()
+
+
+func original_card_rect() -> Rect2:
+	if _original_card == null: return Rect2(Vector2.ZERO, size)
+	var scaled := _original_card.get_size() * minf(size.x / _original_card.get_width(), size.y / _original_card.get_height())
+	return Rect2((size - scaled) * 0.5, scaled)
+
+
+func _original_rim(color: Color, spread: float) -> void:
+	var rect := original_card_rect()
+	for i in 8:
+		draw_texture_rect(_original_card, Rect2(rect.position + Vector2.from_angle(TAU * i / 8.0) * spread, rect.size), false, color)
+
+
+func original_stat_changes() -> String:
+	if data.has("currentCardStats"): return str(data.currentCardStats)
+	var base := ContentLoader.card_def(str(data.get("id", "")))
+	if data.get("type") == "combat" and int(data.get("value", 0)) != int(base.get("value", 0)):
+		return "当前力量 %+d" % int(data.value)
+	return ""
+
+
+func _draw_original_card() -> void:
+	var aura := play_aura_kind()
+	_draw_play_aura(aura)
+	if selected or (aura.is_empty() and playable and enabled):
+		_original_rim(Color("e8dfb2", 0.6 + _pulse() * 0.2), 2.5)
+	# 完整等比绘制，保留 PNG 透明边缘及每种牌型的原版轮廓。
+	draw_texture_rect(_original_card, original_card_rect(), false, Color.WHITE if enabled else Color(0.70, 0.72, 0.77))
+	if data.has("payment") or int(data.get("cost", 1)) != 1:
+		_cost_orb(Vector2(size.x * 0.85, size.y * 0.10), clampf(size.x * 0.075, 5, 14), int(data.get("payment", {}).get("cost", data.get("cost", 1))))
+	_draw_card_marks(maxf(2.0, size.x * 0.025))
+	var changes := original_stat_changes()
+	if not changes.is_empty():
+		var fs := int(clampf(size.x * 0.085, 9, 16))
+		var y := size.y * 0.57
+		draw_style_box(_box(Color("25393f"), Color("f2d58c"), 3, 1), Rect2(3, y - fs, size.x - 6, fs + 7))
+		_center_text(y + 1, changes, fs, Color("f2d58c"), _bold)
+	var replacement: Array = data.get("effectReplacementText", [])
+	if not replacement.is_empty():
+		var paper := Rect2(size.x*0.09,size.y*0.66,size.x*0.82,size.y*0.29)
+		draw_style_box(_box(Color("e6e7de"), Color("a8ab98"), 2, 1), paper)
+		var fs := int(clampf(size.x*0.085,9,16))
+		for i in replacement.size():
+			_center_text(paper.position.y + fs*1.6 + i*(fs+5), str(replacement[i]), fs, Color("25393f"), _bold)
+	if note != "": _note_band(size.y * 0.91)
+
+
+func status_marks() -> Array:
+	return BattleStatus.unit_marks(data, current_turn)
+
+
+func _draw_card_marks(pad: float) -> void:
+	var keywords: Array = data.get("keywords", [])
+	var instant := keywords.any(func(k): return str(k).to_lower() == "instant")
+	var payment: Dictionary = data.get("payment", {})
+	var tags: Array = []
+	if instant:
+		var available: bool = payment.get("usesInstant", false)
+		tags.append(["instant", "瞬发" if payment.is_empty() else (("瞬发·发动" if payment.get("applied", false) else "瞬发·可用") if available else "瞬发·已用" if payment.instantUsed else "瞬发·待机"), Color("9ee8cd") if payment.is_empty() or available else Color("a6aab4")])
+	elif not payment.is_empty() and int(payment.cost) == 0: tags.append(["free", "免鬼火", Color("cce5ca")])
+	if not str(data.get("autoResponse", "")).is_empty() or data.get("timing", "main") == "response": tags.append(["response", "响应", Color("ccb3e7")])
+	if data.get("enhanced", false): tags.append(["enhanced", "已增强", Color("f2d58c")])
+	if data.get("inspiredSupport", false): tags.append(["inspired", "昂扬", Color("ffda70")])
+	var fs := int(clampf(size.x * 0.075, 8, 14))
+	for i in tags.size():
+		var tag: Array = tags[i]
+		var width := minf(size.x - pad * 2, fs * str(tag[1]).length() + fs * 2.2)
+		var rect := Rect2(pad, size.y * 0.205 + i * (fs + 7), width, fs + 5)
+		draw_style_box(_box(Color("25393f"), Color(tag[2], 0.65), 3, 1), rect)
+		BattleStatus.draw_symbol(self, rect.position + Vector2(fs * 0.65, rect.size.y * 0.5), fs * 0.45, tag[0], tag[2])
+		_text(rect.position + Vector2(fs * 1.4, fs + 1), tag[1], fs, tag[2], _bold)
+
+
+func _draw_status_badge(rect: Rect2, mark: Dictionary) -> void:
+	var color: Color = mark.color
+	draw_circle(rect.get_center(), rect.size.x * 0.51, Color("17232f"))
+	draw_arc(rect.get_center(), rect.size.x * 0.51, 0, TAU, 24, color, 1.2, true)
+	if mark.id == "overflow":
+		_text(rect.position + Vector2(-2, rect.size.y * 0.73), mark.label, 11, color, _bold, rect.size.x + 4, HORIZONTAL_ALIGNMENT_CENTER, 1)
+		return
+	BattleStatus.draw_symbol(self, rect.get_center(), rect.size.x * 0.29, mark.id, color)
+	if int(mark.value) >= 0:
+		var at := rect.end + Vector2(-3, -2)
+		draw_circle(at, 7, Color("18202b"))
+		_text(at + Vector2(-11, 4), str(mark.value), _number_font(str(mark.value), 10, 22), Color.WHITE, _bold, 22, HORIZONTAL_ALIGNMENT_CENTER, 1)
 
 
 func _center_cost_zero(at: Vector2, radius: float) -> void:
@@ -450,9 +605,11 @@ func _draw_unit() -> void:
 	var r := _radius()
 	var knocked := int(data.get("knockout", 0)) > 0 or (data.has("hp") and int(data.get("hp", 1)) <= 0 and data.has("uid"))
 	var frame := ThemeBuilder.ALLY if side == 0 else (ThemeBuilder.FOE if side == 1 else ContentLoader.unit_color(data))
+	var aura := play_aura_kind()
+	_draw_play_aura(aura, true)
 	if selected:
 		_glow(ThemeBuilder.GOLD_BRIGHT, _pulse(), 10)
-	elif playable:
+	elif playable and aura.is_empty():
 		_glow(Color("a0d5ff"), _pulse(), 6)
 	if int(data.get("shield", 0)) > 0:
 		_glow(Color("7cc0ff"), 0.9, 5)
@@ -502,36 +659,23 @@ func _draw_unit() -> void:
 		draw_colored_polygon(pts, Color("2f6fb0"))
 		pts.append(pts[0])
 		draw_polyline(pts, Color("bfe3ff"), 1.5, true)
-		_text(sc + Vector2(-sr * 1.5, sr * 0.45), str(shield), int(sr * 1.25), Color.WHITE, _bold, sr * 3, HORIZONTAL_ALIGNMENT_CENTER, 2, Color("0d2440"))
-	# 状态徽记（右上竖排）
-	var badges: Array = []
-	var countdown: Dictionary = CountdownRules.timer(data)
-	var has_countdown := not countdown.is_empty() and not knocked and int(data.get("level", 0)) > 0
-	if has_countdown:
-		_countdown_badge(Vector2(w - pad - 6, pad + 13), clampf(w * 0.105, 9, 14), int(countdown.remaining))
-	if data.get("barrier", false): badges.append(["障", 0, Color("76d9cf")])
-	if data.get("swift", false): badges.append(["迅", 0, Color("a4df9a")])
-	for pair in [["frozen", "晕", Color("9d82d4")], ["charge", "充", Color("4fb6c9")], ["armorBreak", "破", Color("d9733a")], ["brittle", "裂", Color("c95f7a")]]:
-		if int(data.get(pair[0], 0)) > 0: badges.append([pair[1], int(data[pair[0]]), pair[2]])
-	if data.get("unyielding", false): badges.append(["屈", 0, Color("d9b56a")])
-	var bs := clampf(w * 0.17, 12, 22)
-	for i in mini(badges.size(), 4):
-		var b: Array = badges[i]
-		var rect := Rect2(w - pad - bs - 1, pad + 2 + (i + (1 if has_countdown else 0)) * (bs + 2), bs, bs)
-		draw_style_box(_box(Color(b[2]).darkened(0.35), Color(b[2]).lightened(0.3), int(bs * 0.3), 1), rect)
-		var label := str(b[0]) if int(b[1]) <= 1 and b[0] != "计" else "%s%d" % [b[0], int(b[1])]
-		var fs := int(bs * (0.62 if label.length() == 1 else 0.48))
-		_text(Vector2(rect.position.x - 4, rect.position.y + bs * 0.5 + fs * 0.38), label, fs, Color.WHITE, _bold, bs + 8, HORIZONTAL_ALIGNMENT_CENTER, 2, Color(0, 0, 0, 0.6))
+		var shield_fs := _number_font(str(shield), int(sr * 1.25), sr * 3)
+		_text(sc + Vector2(-sr * 1.5, sr * 0.45), str(shield), shield_fs, Color.WHITE, _bold, sr * 3, HORIZONTAL_ALIGNMENT_CENTER, 2, Color("0d2440"))
+	var marks := status_marks()
+	for mark in marks:
+		if mark.id == "countdown" and mark.active:
+			_countdown_badge(Vector2(w - pad - 9, pad + 13), clampf(w * 0.105, 9, 14), int(mark.value))
+	for badge in BattleStatus.badge_layout(marks, size):
+		_draw_status_badge(badge.rect, badge.mark)
 	if knocked:
 		draw_style_box(_box(Color(0.05, 0.04, 0.09, 0.55), Color.TRANSPARENT, r, 0), Rect2(Vector2.ZERO, size))
 		var kfs := int(clampf(w * 0.17, 12, 26))
-		_center_text(h * 0.47, "气绝", kfs, Color("e8e2ee"), _display, 4)
+		_center_text(h * 0.72, "幽魂" if data.get("samuraiGhost",false) else ("永久气绝" if data.get("catCannotRevive",false) else "气绝"), kfs, Color("e8e2ee"), _display, 4)
 		var turns := int(data.get("knockout", 0))
-		if turns > 0:
-			var counter := Vector2(w - 3, h * 0.22)
-			draw_circle(counter, 12, Color("7b65a1"))
-			draw_arc(counter, 12, 0, TAU, 24, Color("d4c5e2"), 1.5, true)
-			_text(counter + Vector2(-10, 6), str(turns), 18, Color("f1e9de"), _bold, 20, HORIZONTAL_ALIGNMENT_CENTER, 2)
+		if turns>0 or data.get("catCannotRevive",false) or data.get("samuraiCannotRevive",false):
+			var counter := Vector2(w * 0.5, h * 0.40)
+			BattleStatus.draw_symbol(self, counter, clampf(w * 0.27, 22, 36), "knockout", Color("9470c4"))
+			_text(counter + Vector2(-25, 10), "∞" if data.get("catCannotRevive",false) or data.get("samuraiCannotRevive",false) else str(turns), int(clampf(w * 0.30, 24, 38)), Color("fff8d9"), _bold, 50, HORIZONTAL_ALIGNMENT_CENTER, 3)
 	if note != "":
 		_note_band(h * 0.6)
 	if selected:
@@ -552,6 +696,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	preview.data = data
 	preview.unit_mode = unit_mode
 	preview.side = side
+	preview.current_turn = current_turn
 	preview.size = size * 1.05
 	preview.custom_minimum_size = size * 1.05
 	preview.modulate.a = 0.9

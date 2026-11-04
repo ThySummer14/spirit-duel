@@ -1339,7 +1339,10 @@ CARD_MAP: dict[int, dict] = {
 
 # 无额外 token；如需可在此追加
 TOKENS: list = []
-EXTRA_TOKENS: list = []
+EXTRA_TOKENS: list = [{'id': 'doll-resent', 'unitId': 'choushizhinv', 'name': '怨缚草人', 'type': 'spell', 'level': 1, 'cost': 0, 'text': '当怨缚草人受到伤害时，眩晕被选择的式神。 离开战斗区时移除。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'rarity': 'common', 'effects': [('always', 'doll-token', 'source', 'resent')]}, {'id': 'doll-curse', 'unitId': 'choushizhinv', 'name': '诅咒草人', 'type': 'spell', 'level': 1, 'cost': 0, 'text': '当诅咒草人受到伤害时，被选择的式神随机弃掉一张专属牌。 离开战斗区时移除。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'rarity': 'common', 'effects': [('always', 'doll-token', 'source', 'curse')]}, {'id': 'doll-substitute', 'unitId': 'choushizhinv', 'name': '替身草人', 'type': 'spell', 'level': 1, 'cost': 0, 'text': '当替身草人受到伤害时，被选择的式神受到等量的伤害。 离开战斗区时移除。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'rarity': 'common', 'effects': [('always', 'doll-token', 'source', 'substitute')]}]
+EXTRA_TOKENS += [{'id': 'baize-dazhi', 'unitId': 'baize', 'name': '达知', 'type': 'spell', 'level': 1, 'cost': 1, 'text': '瞬发\n占卜2，至少将一张牌置于牌库底，抽一张牌。', 'target': 'auto', 'subpack': 'yuanshan', 'deckLimit': 0, 'token': True, 'rarity': 'common', 'keywords': ['INSTANT'], 'effects': [['always', 'baize-dazhi', 'source', 0]], 'starter': 0}]
+EXTRA_TOKENS += [{'id': 'yitiao-training', 'unitId': 'yitiao', 'name': '勤勉修行', 'type': 'combat', 'level': 1, 'cost': 1, 'text': '战技\n从手牌使用时，使一条的战技效果额外获得1力量和1护甲。', 'target': 'auto', 'subpack': 'yuanshan', 'deckLimit': 0, 'starter': 0, 'token': True, 'rarity': 'common', 'keywords': ['battle-skill'], 'effects': [['always', 'yitiao-skill-grow', 'source', 0], ['always', 'yitiao-combat', 'source', 0]]}]
+
 
 # 被动映射：uid -> (passive, awakenedPassive)；formHooks/被动仅用已注册 passive-*
 PASSIVES = {
@@ -1578,6 +1581,15 @@ def js_str(s: str) -> str:
     return json.dumps(s, ensure_ascii=False)
 
 
+EXTRA_TOKENS += [{'id': 'arakawa-annihilate', 'unitId': 'huangchuanzhizhu', 'name': '湮灭', 'type': 'spell', 'level': 3, 'cost': 0, 'text': '消灭吞噬所选择的式神。', 'target': 'any-unit', 'deckLimit': 0, 'token': True, 'effects': [['always', 'ark-annihilate', 'selected', 0]]}]
+
+
+EXTRA_TOKENS += [{'id': 'wuchen-followup', 'unitId': 'wuchen', 'name': '追加攻击', 'type': 'combat', 'level': 0, 'cost': 1, 'text': '若「飞索突袭」所选择的式神未气绝，将本次攻击目标改为该式神。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'zd-combat', 'source', 1]]}]
+
+
+EXTRA_TOKENS += [{'id': 'rednight-sword-aura', 'unitId': 'ninghongye', 'name': '剑气', 'type': 'combat', 'level': 2, 'cost': 0, 'text': '获得2护甲。本次攻击免疫战斗伤害。攻击后投射：造成3点伤害。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'rw-card', 'source', 0]]}]
+
+
 def main() -> None:
     cards_raw = json.loads((DATA / "cards.json").read_text(encoding="utf-8"))
     by_id = {}
@@ -1757,7 +1769,7 @@ def main() -> None:
             f"cost: {int(tok.get('cost', 0))}",
             f"rarity: {js_str(tok.get('rarity', 'common'))}",
             f"starter: 0",
-            f"deckLimit: 2",
+            f"deckLimit: {int(tok.get('deckLimit', 2))}",
             f"token: true",
             f"text: {js_str(tok['text'])}",
             f"officialText: {js_str(tok['text'])}",

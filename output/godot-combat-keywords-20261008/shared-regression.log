@@ -1,0 +1,60 @@
+verify_combat
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+counter frozen=0 lethal=false remote=false first_strike=false expected_hp=16 got=12
+counter frozen=0 lethal=false remote=false first_strike=true expected_hp=16 got=12
+counter frozen=0 lethal=false remote=true first_strike=false expected_hp=20 got=12
+counter frozen=0 lethal=false remote=true first_strike=true expected_hp=20 got=12
+counter frozen=0 lethal=true remote=false first_strike=false expected_hp=16 got=12
+counter frozen=0 lethal=true remote=false first_strike=true expected_hp=20 got=12
+counter frozen=0 lethal=true remote=true first_strike=false expected_hp=20 got=12
+counter frozen=0 lethal=true remote=true first_strike=true expected_hp=20 got=12
+counter frozen=1 lethal=false remote=false first_strike=false expected_hp=20 got=12
+counter frozen=1 lethal=false remote=false first_strike=true expected_hp=20 got=12
+counter frozen=1 lethal=false remote=true first_strike=false expected_hp=20 got=12
+counter frozen=1 lethal=false remote=true first_strike=true expected_hp=20 got=12
+counter frozen=1 lethal=true remote=false first_strike=false expected_hp=20 got=12
+counter frozen=1 lethal=true remote=false first_strike=true expected_hp=20 got=12
+counter frozen=1 lethal=true remote=true first_strike=false expected_hp=20 got=12
+counter frozen=1 lethal=true remote=true first_strike=true expected_hp=20 got=12
+
+verify_yaodao
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+YAODAO checks=277 failures=0
+YAODAO_OK
+
+verify_classic_core
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+CLASSIC_CORE checks=30 failures=0
+CLASSIC_CORE_OK
+
+verify_zhen
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ZHEN checks=125 failures=0
+ZHEN_OK
+
+verify_phoenix
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+PHOENIX checks=122 failures=0
+PHOENIX_OK
+
+verify_bingyong
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BINGYONG_CHECKS=112 FAILURES=0
+
+verify_shuten
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+SHUTEN_RULES checks=97 failures=0
+SHUTEN_RULES_OK
+
+verify_battle_status
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+BATTLE_STATUS_OK checks=139
+

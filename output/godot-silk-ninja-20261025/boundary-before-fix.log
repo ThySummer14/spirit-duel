@@ -1,0 +1,5 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+SILK_NINJA_FAIL shadowattackonlycombonodefensiveextrahit
+SILK_NINJA_FAIL ninjainstanteventdoesnotretroactivelyenhancenewhandinstance
+SILK_NINJA_OK checks=178 failures=2 rules_only=true

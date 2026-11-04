@@ -1,0 +1,10 @@
+### Browser `armor-limit-20261015` opened with pid 12557.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:8773/play/');
+```
+### Page
+- Page URL: http://127.0.0.1:8773/play/
+- Page Title: 灵枢战线 · 网页测试版
+### Snapshot
+- [Snapshot](.playwright-cli/page-2026-10-15T15-11-44-894Z.yml)

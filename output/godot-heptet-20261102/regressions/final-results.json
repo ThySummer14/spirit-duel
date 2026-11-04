@@ -1,0 +1,342 @@
+[
+  {
+    "name": "verify_combat",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "name": "verify_charged_pair",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "CHARGED_PAIR_OK checks=191 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_octet_cross",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "OCTET_CROSS_OK checks=72 failures=0"
+    ]
+  },
+  {
+    "name": "verify_turn_order",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "name": "verify_instant",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "name": "verify_resource_effects",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "RESOURCE_EFFECTS_OK checks=149"
+    ]
+  },
+  {
+    "name": "verify_blue_green",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BLUE_GREEN_OK checks=251 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_phoenix",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "PHOENIX_OK"
+    ]
+  },
+  {
+    "name": "verify_judge_tide",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "JUDGE_TIDE checks=147 failures=0"
+    ]
+  },
+  {
+    "name": "verify_light_healer",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "LIGHT_HEALER checks=593 failures=0"
+    ]
+  },
+  {
+    "name": "verify_headless",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "HEADLESS checks=132 failures=0"
+    ]
+  },
+  {
+    "name": "verify_jorogumo",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "JOROGUMO_OK checks=140 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_three_tail",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "THREE_TAIL checks=121 failures=0"
+    ]
+  },
+  {
+    "name": "verify_save",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SAVE_OK lineup=[\"ember\", \"basalt\", \"lumen\", \"rime\"] deck0=8 steps=20"
+    ]
+  },
+  {
+    "name": "verify_interactions",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "INTERACTIONS_OK"
+    ]
+  },
+  {
+    "name": "verify_archer_mountain",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "ARCHER_MOUNTAIN checks=146 failures=0"
+    ]
+  },
+  {
+    "name": "verify_book_jue",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BOOK_JUE checks=129 failures=0"
+    ]
+  },
+  {
+    "name": "verify_fox_suzuka",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "FOX_SUZUKA checks=91 failures=0"
+    ]
+  },
+  {
+    "name": "verify_movement",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MOVEMENT checks=244 failures=0"
+    ]
+  },
+  {
+    "name": "verify_monk_cleaner",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MONK_CLEANER checks=102 failures=0"
+    ]
+  },
+  {
+    "name": "verify_pipe_fox",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "PIPE_FOX checks=161 failures=0"
+    ]
+  },
+  {
+    "name": "verify_fox_lotus",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "FOX_LOTUS checks=164 failures=0"
+    ]
+  },
+  {
+    "name": "verify_maple",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MAPLE checks=115 failures=0"
+    ]
+  },
+  {
+    "name": "verify_spider_lily",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SPIDER_LILY checks=151 failures=0"
+    ]
+  },
+  {
+    "name": "verify_koi_fragrance",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "KOI_FRAGRANCE_OK checks=297 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_silk_ninja",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SILK_NINJA_OK checks=200 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_sea_butterfly",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SEA_BUTTERFLY_OK checks=174 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_lantern",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "LANTERN_OK checks=163 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_huang",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "HUANG checks=595 failures=0"
+    ]
+  },
+  {
+    "name": "verify_red_purple",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "RED_PURPLE_OK checks=297 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_sparrow",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "SPARROW checks=188 failures=0"
+    ]
+  },
+  {
+    "name": "verify_mountain_realm",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MOUNTAIN checks=120 failures=0"
+    ]
+  },
+  {
+    "name": "verify_moon_bamboo",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "MOON_BAMBOO checks=185 failures=0"
+    ]
+  },
+  {
+    "name": "verify_baize",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BAIZE_OK checks=233 failures=0 rules_only=false"
+    ]
+  },
+  {
+    "name": "verify_eye_crab",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "EYE_CRAB checks=130 failures=0"
+    ]
+  },
+  {
+    "name": "verify_yaoginshi",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "YAOQIN_OK"
+    ]
+  },
+  {
+    "name": "verify_bingyong",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BINGYONG_CHECKS=112 FAILURES=0"
+    ]
+  },
+  {
+    "name": "verify_yimulian",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "YIMULIAN_OK"
+    ],
+    "log": "regressions/verify_yimulian-final.log"
+  },
+  {
+    "name": "verify_steel_wind",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "STEEL_WIND_OK"
+    ]
+  },
+  {
+    "name": "verify_futakuchi",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "FUTAKUCHI_OK checks=185 failures=0 rules_only=true"
+    ],
+    "log": "output/godot-zhenjian-duel-20261102/regression-verify_futakuchi.log"
+  },
+  {
+    "name": "verify_bond_dream",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "BOND_DREAM checks=120 failures=0"
+    ],
+    "log": "output/godot-zhenjian-duel-20261102/regression-verify_bond_dream.log"
+  },
+  {
+    "name": "verify_datiangou",
+    "status": 0,
+    "errors": false,
+    "summary": [
+      "DATIANGOU_OK"
+    ],
+    "log": "output/godot-zhenjian-duel-20261102/regression-verify_datiangou.log"
+  }
+]

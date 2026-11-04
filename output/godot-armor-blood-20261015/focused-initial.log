@@ -1,0 +1,7 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+ARMOR_BLOOD_FAIL enhanced whale open
+ARMOR_BLOOD_FAIL combat armor persists and attack bonus is not permanent
+ARMOR_BLOOD_FAIL poison conversion consumes blood flag without fabricated avatar hit
+ARMOR_BLOOD_FAIL at30 scent grants combat immunity with one five-power hit
+ARMOR_BLOOD checks=135 failures=4

@@ -1,0 +1,102 @@
+[
+  {
+    "script": "combat",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "script": "turn_order",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "script": "moon_bamboo",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "MOON_BAMBOO checks=185 failures=0"
+    ]
+  },
+  {
+    "script": "paint",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "PAINT checks=107 failures=0"
+    ]
+  },
+  {
+    "script": "pine",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "PINE checks=116 failures=0"
+    ]
+  },
+  {
+    "script": "sun_smoke",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "SUN_SMOKE checks=154 failures=0"
+    ]
+  },
+  {
+    "script": "xuenv",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "",
+      "XUENV checks=72 failures=0",
+      "XUENV_RULES_OK"
+    ]
+  },
+  {
+    "script": "night_trio",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "NIGHT_TRIO checks=31 failures=0"
+    ]
+  },
+  {
+    "script": "rebirth",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "REBIRTH checks=129 failures=0"
+    ]
+  },
+  {
+    "script": "battle_status_ui",
+    "exitCode": 0,
+    "clean": true,
+    "lastLines": [
+      "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org",
+      "",
+      "BATTLE_STATUS_UI_OK checks=88 failures=0"
+    ]
+  }
+]

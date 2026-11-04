@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/240_黑童子/24001_罪罚·黑_战斗.png",
+    "target": "godot/assets/official/cards/c24001.png",
+    "sha256": "68f0b4a180cd89e12713fc5a4dd23818837d8780de56542c30fbe32d29bea2e1"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/240_黑童子/24002_替换_法术.png",
+    "target": "godot/assets/official/cards/c24002.png",
+    "sha256": "466fae7d1580ba9d593ed11120cac0e28b37bdd14325f261709640e38dc86480"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/240_黑童子/24003_黑之羁绊_形态.png",
+    "target": "godot/assets/official/cards/c24003.png",
+    "sha256": "5a8c93812eb315f0bea069f2e43f7142d3303b2e1aa7652e3b3ae09c5dac3f35"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/240_黑童子/24004_守护之心_形态.png",
+    "target": "godot/assets/official/cards/c24004.png",
+    "sha256": "ced27e84b93564644bb550848678fc760eeb28ac3b446ff0f4ca995f261eeca4"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/240_黑童子/24005_合击_战斗.png",
+    "target": "godot/assets/official/cards/c24005.png",
+    "sha256": "042bab0fdcaad9fee82ae0529bcc4e959beb7b05f20c6125e65829dac0bb70b2"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/240_黑童子/24006_觉醒·黑童子_法术.png",
+    "target": "godot/assets/official/cards/c24006.png",
+    "sha256": "797a2c3169b2b13f297a16225ef1fb5e1eb7ca75eceeacf9262e575b569925ba"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/240_黑童子/24007_黑之双影_形态.png",
+    "target": "godot/assets/official/cards/c24007.png",
+    "sha256": "e93882408a18f8e19203e2538f06893b2e9311090f9016755eded69766ddc984"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/240_黑童子/24008_连斩_战斗.png",
+    "target": "godot/assets/official/cards/c24008.png",
+    "sha256": "320fb6e3dae32e6c0fd75fef82e49c25c47a74c0eeb4c827949c7ba5dc112e9d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/241_白童子/24101_罪罚·白_战斗.png",
+    "target": "godot/assets/official/cards/c24101.png",
+    "sha256": "6dfc7124665f9f407beedf4914d0a21d68cb4c12c46f2dc74b9547bba644368e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/241_白童子/24102_招魂_法术.png",
+    "target": "godot/assets/official/cards/c24102.png",
+    "sha256": "75a2cd39b8e52ee9b05a9e9321096714a755816e930fff5f25a307315ed1763e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/241_白童子/24103_白之羁绊_形态.png",
+    "target": "godot/assets/official/cards/c24103.png",
+    "sha256": "db274caf971c238bb7fc1d1053fe0e84889eb88ed5aad95e40c693f48a5082d7"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/241_白童子/24104_牺牲之愿_形态.png",
+    "target": "godot/assets/official/cards/c24104.png",
+    "sha256": "04440e2a327e8625e426d2de84890049930f196d27311e3d8da92e20afd8b49d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/241_白童子/24105_祈愿_法术.png",
+    "target": "godot/assets/official/cards/c24105.png",
+    "sha256": "4320a5c29abe178a31b36707b8757e2c0a73f2f3d9320574bdbe50599fa093cc"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/241_白童子/24106_觉醒·白童子_法术.png",
+    "target": "godot/assets/official/cards/c24106.png",
+    "sha256": "76f880c9fad33b43973dacaae5bd4e94df281a746de63a802683e81c350b4356"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/241_白童子/24107_白之双影_形态.png",
+    "target": "godot/assets/official/cards/c24107.png",
+    "sha256": "7ceca13b5ff9a63b7df2bedcf9e3e7c5bd702874674913982f499b039bcd4013"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/12_浮生方醒/241_白童子/24108_不灭_战斗.png",
+    "target": "godot/assets/official/cards/c24108.png",
+    "sha256": "2ae0bfe1a3bd9003c4e924006d1d7c9cd3031ee062dab55d2713c80406040c23"
+  }
+]

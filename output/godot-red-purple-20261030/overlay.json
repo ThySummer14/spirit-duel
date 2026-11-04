@@ -1,0 +1,819 @@
+{
+  "units": {
+    "huoqumo": {
+      "verifiedRules": true,
+      "redPurpleRole": "red",
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "rp-red",
+        "name": "红莲之火",
+        "text": "每回合当你使用第二张红莲式神的牌时，火取魔获得1力量和1生命。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "rp-red-awake",
+        "name": "红莲之火",
+        "text": "己方其他红莲式神获得1力量和1生命。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ]
+    },
+    "yuanjiulanghu": {
+      "verifiedRules": true,
+      "redPurpleRole": "purple",
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "rp-purple",
+        "name": "紫岩之愈",
+        "text": "当你使用其他紫岩式神的牌时，源九郎狐获得1生命。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "rp-purple-awake",
+        "name": "紫岩之愈",
+        "text": "己方所有其他紫岩式神获得1力量和1生命。当你使用其他紫岩式神的牌时，源九郎狐获得1生命。",
+        "hooks": []
+      },
+      "formLifecycle": {},
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c20401": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "你的出击加成效果在使用此牌时也会生效。增强：若你有出击加成效果，此牌获得瞬发。",
+      "officialText": "你的出击加成效果在使用此牌时也会生效。增强：若你有出击加成效果，此牌获得瞬发。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 1
+      },
+      "responseAction": "assault",
+      "effect": "rp-night-raid",
+      "value": 1,
+      "effects": [
+        {
+          "action": "rp-night-raid",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c20402": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "贯通。若你有其他力量≥6的式神，获得+3力量。",
+      "officialText": "贯通。若你有其他力量≥6的式神，获得+3力量。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "rpMighty": true,
+        "combatKeywords": [
+          "pierce"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "贯通。若你有其他力量≥6的式神，获得+3力量。",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c20403": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-unit",
+      "text": "瞬发。使一个己方式神本回合获得追猎。增强：若己方式神都为红莲派系，该式神额外获得3力量。",
+      "officialText": "瞬发。使一个己方式神本回合获得追猎。增强：若己方式神都为红莲派系，该式神额外获得3力量。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "rp-renxia",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rp-renxia",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c20404": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，若己方任一式神的力量为场上最大或同为最大，抽一张牌。",
+      "officialText": "进场和己方回合开始时，若己方任一式神的力量为场上最大或同为最大，抽一张牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 6,
+        "nativeRealm": "rp-red-maximum",
+        "trigger": "native-continuous",
+        "triggerEffect": ""
+      },
+      "effect": "realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20405": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "贯通。增强：你每有一个其他未气绝的红莲式神，此牌便获得1力量和1生命。",
+      "officialText": "贯通。增强：你每有一个其他未气绝的红莲式神，此牌便获得1力量和1生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "combatKeywords": [
+          "pierce"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "贯通。增强：你每有一个其他未气绝的红莲式神，此牌便获得1力量和1生命。",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 4,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 4,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c20406": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：己方其他红莲式神获得1力量和1生命。本回合当你使用第二张红莲式神的牌时，火取魔获得1力量和1生命。",
+      "officialText": "觉醒：己方其他红莲式神获得1力量和1生命。本回合当你使用第二张红莲式神的牌时，火取魔获得1力量和1生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "rp-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "rp-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c20407": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "鼓舞：获得+X力量、+X护甲。X为己方存活的红莲式神数量的2倍。",
+      "officialText": "鼓舞：获得+X力量、+X护甲。X为己方存活的红莲式神数量的2倍。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "rp-alliance",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rp-alliance",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20408": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "增强：获得己方所有其他红莲式神的力量和生命，并获得他们的关键词能力。",
+      "officialText": "增强：获得己方所有其他红莲式神的力量和生命，并获得他们的关键词能力。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "增强：获得己方所有其他红莲式神的力量和生命，并获得他们的关键词能力。",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 3,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 3,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c20501": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "为源九郎狐恢复2生命，此牌造成的过量治疗会转化为力量。",
+      "officialText": "为源九郎狐恢复2生命，此牌造成的过量治疗会转化为力量。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 0
+      },
+      "responseAction": "assault",
+      "effect": "rp-fox-hand",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rp-fox-hand",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20502": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发，选择一项：为一个角色恢复3生命，过量治疗会转化为护甲；使一个幻境获得3耐久。",
+      "officialText": "瞬发，选择一项：为一个角色恢复3生命，过量治疗会转化为护甲；使一个幻境获得3耐久。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "rp-fox-choice",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rp-fox-choice",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20503": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：己方所有其他紫岩式神获得1力量和1生命。当你使用其他紫岩式神的牌时，源九郎狐获得1生命。",
+      "officialText": "觉醒：己方所有其他紫岩式神获得1力量和1生命。当你使用其他紫岩式神的牌时，源九郎狐获得1生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "rp-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "rp-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c20504": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "己方回合当源九郎狐对敌方角色造成战斗伤害时，使该角色获得3破甲，自己获得3护甲。",
+      "officialText": "己方回合当源九郎狐对敌方角色造成战斗伤害时，使该角色获得3破甲，自己获得3护甲。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "rpFoxGuard": true
+      },
+      "formHooks": [],
+      "formAbility": "己方回合当源九郎狐对敌方角色造成战斗伤害时，使该角色获得3破甲，自己获得3护甲。",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 3,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c20505": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-knocked-unit",
+      "text": "复活一个己方式神，并使该式神获得1力量、1生命和1护甲。增强：若己方式神都为紫岩派系，再将该式神移入战斗区。",
+      "officialText": "复活一个己方式神，并使该式神获得1力量、1生命和1护甲。增强：若己方式神都为紫岩派系，再将该式神移入战斗区。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "rp-revive",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rp-revive",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c20506": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，若己方任一式神的生命为场上最大或同为最大，抽一张牌。",
+      "officialText": "进场和己方回合开始时，若己方任一式神的生命为场上最大或同为最大，抽一张牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 6,
+        "nativeRealm": "rp-purple-maximum",
+        "trigger": "native-continuous",
+        "triggerEffect": ""
+      },
+      "effect": "realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c20508": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "不屈。增强：你每有一个其他未气绝的紫岩式神，此牌便获得3力量和3生命。",
+      "officialText": "不屈。增强：你每有一个其他未气绝的紫岩式神，此牌便获得3力量和3生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "gluttonKeywords": [
+          "unyielding"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "不屈。增强：你每有一个其他未气绝的紫岩式神，此牌便获得3力量和3生命。",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "form",
+      "value": {
+        "attack": 4,
+        "hp": 4,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 4,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c20509": {
+      "verifiedRules": true,
+      "redPurpleRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "本局游戏每个己方回合结束时，己方所有紫岩式神永久获得+1力量和+1生命。（此效果可以叠加，对气绝式神有效。）",
+      "officialText": "本局游戏每个己方回合结束时，己方所有紫岩式神永久获得+1力量和+1生命。（此效果可以叠加，对气绝式神有效。）",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "red-purple-original-20261030",
+        "red-purple-fox-adjustment-20220414",
+        "red-purple-repeat-awaken-20210429",
+        "red-purple-mechanism-community"
+      ],
+      "verificationPending": [
+        "按20400–20408、20500–20509完整原PNG与基础牌文接入；初音鼓采用复活+1力量/+1生命/+1护甲，全紫时才移入战斗区，御先狐3/7。指定录像未逐牌核验。",
+        "四相觉醒按在场光环处理，重复施法不重复治疗已获光环单位；重复觉醒自身印刷身材、自动使用牌的分类和多源结算完整顺序仍待原客户端核验。",
+        "火取剑豪按当前其他红莲式神力量和生命及可观察关键词快照强化，不偷取队友；气绝单位、特殊派生关键词和复杂伤害替换组合仍待原客户端核验。"
+      ],
+      "effect": "rp-journey",
+      "value": 0,
+      "effects": [
+        {
+          "action": "rp-journey",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "red-purple-original-20261030",
+      "path": "art-reference-official/卡面-按版本/09_四相琉璃/",
+      "evidence": "火取魔20400–20408与源九郎狐20500–20506/20508/20509完整原PNG，16张主体牌。"
+    },
+    {
+      "id": "red-purple-fox-adjustment-20220414",
+      "url": "https://www.taptap.cn/moment/263404919191503871",
+      "evidence": "官方公告确认御先狐3/7、初音鼓复活+1力量/+1生命/+1护甲，全紫时移入战斗区，与原PNG一致。"
+    },
+    {
+      "id": "red-purple-repeat-awaken-20210429",
+      "url": "https://www.taptap.cn/moment/136561818402291925",
+      "evidence": "官方修复已受四相觉醒光环加成的式神在再次施放觉醒时错误恢复生命；允许重复使用，光环重算不重复治疗。"
+    },
+    {
+      "id": "red-purple-mechanism-community",
+      "url": "https://www.taptap.cn/moment/341546240254673892",
+      "evidence": "辅助机制记录说明四相觉醒需在场的光环及自动使用的来源分类；不视为完整原客户端验证。"
+    }
+  ]
+}

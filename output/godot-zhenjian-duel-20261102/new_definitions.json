@@ -1,0 +1,48 @@
+{
+  "units": [],
+  "cards": [
+    {
+      "id": "wuchen-followup",
+      "name": "追加攻击",
+      "unitId": "wuchen",
+      "token": true,
+      "derivedFrom": "c26503",
+      "pack": "wave6",
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 0,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "target": "auto",
+      "text": "若「飞索突袭」所选择的式神未气绝，将本次攻击目标改为该式神。",
+      "officialText": "若「飞索突袭」所选择的式神未气绝，将本次攻击目标改为该式神。",
+      "keywords": [],
+      "effect": "zd-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "zd-combat",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "combatOption": {
+        "shield": 0
+      },
+      "zdRules": true,
+      "verifiedRules": true,
+      "timing": "main",
+      "responseTo": [],
+      "sources": [
+        "zhenjian-duel-original-20261102",
+        "wuchen-followup-card",
+        "canghai-manual-release-observed"
+      ],
+      "verificationPending": [
+        "按完整原PNG与基础牌文接入主要机制；指定原版录像未逐牌核验。蓄力、响应、同时交战、复活及移动的复杂全序仍待原客户端核验。",
+        "觉醒季沧海蓄力双触发、旋风斩半伤取整与伤害类型、无尘新获得牌及蓄力费用的边界仍需原客户端核验；主体数值保留本地中文原PNG版本。"
+      ]
+    }
+  ]
+}

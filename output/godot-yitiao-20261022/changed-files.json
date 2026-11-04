@@ -1,0 +1,117 @@
+[
+  {
+    "path": "README.md",
+    "new": false,
+    "sha256": "ce9955105b7c55fd1442ed0679440137f67b356b44887836a2d650ebc8013bec"
+  },
+  {
+    "path": "game-content-wave6.js",
+    "new": false,
+    "sha256": "f0a98e9f684bf815f03dbd0585a10bfb85aae3fe36a6acb2672e53005b3ded59"
+  },
+  {
+    "path": "godot/README.md",
+    "new": false,
+    "sha256": "812ac03a0998dd8d2e1eb803f7465a85338bda4ba282d916d85d5996373376b1"
+  },
+  {
+    "path": "godot/assets/official/README.md",
+    "new": false,
+    "sha256": "cdf0cf1c7316cfb304162c7434c5e8bdffd3f008fef0198bb19e4f9f625bfd20"
+  },
+  {
+    "path": "godot/content/content.json",
+    "new": false,
+    "sha256": "e35a42da317cbf260fd95645f47d2b4f7ebeabdb5b6b5d0c93241c1ec734eaf2"
+  },
+  {
+    "path": "godot/content/verified_rules.json",
+    "new": false,
+    "sha256": "9402ee43ad147f430f36cb7ab9082e0ee9c007f87957ec2b1d93b96f84ed7661"
+  },
+  {
+    "path": "godot/scripts/battle_skill_rules.gd",
+    "new": false,
+    "sha256": "df3ce4b39ee512e90b61039bdc2c5816ecd44e018968d7fbd03e1109bbfb9f38"
+  },
+  {
+    "path": "godot/scripts/combat_keyword_rules.gd",
+    "new": false,
+    "sha256": "66491b3b74a1b89f673cf6cb6336f5d952dda291489bf3f6e1870586710057fa"
+  },
+  {
+    "path": "godot/scripts/game_ai.gd",
+    "new": false,
+    "sha256": "a1379b7b764ca93cc6a03470d24c855a64b2de4d33920d2ee1da21c025645bbe"
+  },
+  {
+    "path": "godot/scripts/game_state.gd",
+    "new": false,
+    "sha256": "1568af7b69ff8ffd913cfa6c916ddf41afbef4398a395c37fc1ab30f5b1faf3d"
+  },
+  {
+    "path": "godot/scripts/tomato_fire_rules.gd",
+    "new": false,
+    "sha256": "49257ae8e1790fb8830bfbfeebecffc6d08acd0a627ab216480b9ec98342f3e7"
+  },
+  {
+    "path": "godot/scripts/ui/battle_screen.gd",
+    "new": false,
+    "sha256": "beb6762487fa290301576201040f6a463d008d1d39822c7238cbb4f6734e92d1"
+  },
+  {
+    "path": "godot/scripts/ui/battle_status.gd",
+    "new": false,
+    "sha256": "14fb66fb74b766d4f7282c94e2e426d69515691d60229c166370a7763e30ab66"
+  },
+  {
+    "path": "godot/scripts/ui/card_face.gd",
+    "new": false,
+    "sha256": "7029384c308e531ced8fcb8c95a8e72f18971048cfe90c283039f4b51d67c838"
+  },
+  {
+    "path": "godot/scripts/upgrade_blessing_rules.gd",
+    "new": false,
+    "sha256": "bd110b32d1976831c9dcac25c745e4f15b34534c1ffc4e2e72d2a16f5f53a7d1"
+  },
+  {
+    "path": "godot/scripts/verified_card_rules.gd",
+    "new": false,
+    "sha256": "b5a71752b6b2779a9da9ef8f88bde972934cdc4bb6c5637955c4c783e335d1b6"
+  },
+  {
+    "path": "scripts/gen-wave6-content.py",
+    "new": false,
+    "sha256": "b27b09189dcd927add5aadd81ddfa348cd2aa69cf1045679998fc11b4081fe2f"
+  },
+  {
+    "path": "scripts/godot-verify.sh",
+    "new": false,
+    "sha256": "2c3424f2dcc6ed334da372bb4699a2e7877f67321cc76ce0eb6d43f12c07197f"
+  },
+  {
+    "path": "godot/scripts/yitiao_rules.gd",
+    "new": true,
+    "sha256": "992be75cecae1aa831ba50070f0c4987ba5fb0d97c7d7c080e521e593c6169a8"
+  },
+  {
+    "path": "godot/scripts/yitiao_rules.gd.uid",
+    "new": true,
+    "sha256": "0553ae0f2d226003971461243da9f853ba56523d9c1bc5bd8d3774b9970fab71"
+  },
+  {
+    "path": "godot/scripts/verify_yitiao.gd",
+    "new": true,
+    "sha256": "dc0165a2b8c666d9ce4f3f0bed36747d1777e70b1d8127889e62bc4b0ff04fd8"
+  },
+  {
+    "path": "godot/scripts/verify_yitiao.gd.uid",
+    "new": true,
+    "sha256": "3534b678c84994ebd63a9831135f2224122dee0dacae23e4cae11cd7f56e8990"
+  },
+  {
+    "path": "research-notes/70-yitiao-rules.md",
+    "new": true,
+    "sha256": "5b39acd7601a00b8d011e9f2643257733c37e7b168d2aa540aab54f126dffb02"
+  }
+]

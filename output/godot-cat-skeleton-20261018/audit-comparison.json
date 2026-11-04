@@ -1,0 +1,32 @@
+{
+  "before": {
+    "units": {
+      "known-approximation": 125,
+      "unreviewed": 58,
+      "pending-verification": 52,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 795,
+      "unreviewed": 767,
+      "pending-verification": 345,
+      "source-backed-native": 207
+    }
+  },
+  "after": {
+    "units": {
+      "known-approximation": 124,
+      "unreviewed": 57,
+      "pending-verification": 54,
+      "source-backed-native": 15
+    },
+    "cards": {
+      "known-approximation": 779,
+      "unreviewed": 767,
+      "pending-verification": 361,
+      "source-backed-native": 207
+    }
+  },
+  "diagnosticsUnchanged": true,
+  "fullCatalogRestored": false
+}

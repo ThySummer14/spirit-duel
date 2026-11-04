@@ -1,0 +1,13 @@
+{
+  "hashCount": 640,
+  "pagesBytes": 157213036,
+  "gameBytes": 153357227,
+  "entryFiles": {
+    "index.html": true,
+    "index.js": true,
+    "index.wasm": true,
+    "index.pck": true
+  },
+  "sourceHashesMatch": true,
+  "screenshotFiles": 4
+}

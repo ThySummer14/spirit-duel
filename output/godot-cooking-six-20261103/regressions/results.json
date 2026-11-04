@@ -1,0 +1,184 @@
+[
+  {
+    "name": "classic_core",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "CLASSIC_CORE_OK"
+    ]
+  },
+  {
+    "name": "instant",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "name": "phoenix",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "PHOENIX_OK"
+    ]
+  },
+  {
+    "name": "fox_suzuka",
+    "returncode": 0,
+    "passed": false,
+    "summary": []
+  },
+  {
+    "name": "bond_dream",
+    "returncode": 0,
+    "passed": false,
+    "summary": [
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value.",
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value.",
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value."
+    ]
+  },
+  {
+    "name": "pipe_fox",
+    "returncode": 0,
+    "passed": false,
+    "summary": [
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value.",
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value.",
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value."
+    ]
+  },
+  {
+    "name": "koi_fragrance",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "KOI_FRAGRANCE_OK checks=277 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "weaver",
+    "returncode": 0,
+    "passed": false,
+    "summary": [
+      "WEAVER_CHECKS 134 FAILURES 0"
+    ]
+  },
+  {
+    "name": "fusion_trio",
+    "returncode": 0,
+    "passed": false,
+    "summary": []
+  },
+  {
+    "name": "movement_continuation",
+    "returncode": 0,
+    "passed": false,
+    "summary": []
+  },
+  {
+    "name": "armor_blood",
+    "returncode": 0,
+    "passed": false,
+    "summary": [
+      "SCRIPT ERROR: Invalid access to property or key 'id' on a base object of type 'Dictionary'.",
+      "SCRIPT ERROR: Invalid access to property or key 'id' on a base object of type 'Dictionary'."
+    ]
+  },
+  {
+    "name": "sun_smoke",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "SUN_SMOKE checks=154 failures=0"
+    ]
+  },
+  {
+    "name": "growth",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "GROWTH_REGRESSION_OK checks=24"
+    ]
+  },
+  {
+    "name": "turn_order",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "name": "arakawa",
+    "returncode": 0,
+    "passed": false,
+    "summary": [
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value.",
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value.",
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value.",
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value.",
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value.",
+      "ERROR: Parameter \"t\" is null.",
+      "SCRIPT ERROR: Cannot call method 'save_png' on a null value."
+    ]
+  },
+  {
+    "name": "ape_sleeve",
+    "returncode": 0,
+    "passed": false,
+    "summary": []
+  },
+  {
+    "name": "rednight_walnut",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "REDNIGHT_WALNUT_OK checks=313 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "zhenjian_duel",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "ZHENJIAN_OK checks=225 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "black_white",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "BLACK_WHITE_OK checks=204 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "house",
+    "returncode": 0,
+    "passed": false,
+    "summary": [
+      "HOUSE_CHECKS 112 FAILURES 0"
+    ]
+  },
+  {
+    "name": "whale",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "WHALE_OK checks=140 failures=0 rules_only=true"
+    ]
+  }
+]

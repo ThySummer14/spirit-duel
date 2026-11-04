@@ -1,0 +1,7 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+FOX_SUZUKA_UI_FAIL hover explains live spell damage bonus
+FOX_SUZUKA_UI_FAIL reserve selected damage does not move chosen unit to front
+FOX_SUZUKA_UI_FAIL hover explains live spell damage bonus
+FOX_SUZUKA_UI_FAIL reserve selected damage does not move chosen unit to front
+FOX_SUZUKA_UI checks=32 failures=4

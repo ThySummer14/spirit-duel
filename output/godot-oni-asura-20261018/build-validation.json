@@ -1,0 +1,13 @@
+{
+  "sourceHashCount": 363,
+  "sourceAndStagedCopiesMatch": true,
+  "pagesBytes": 121324602,
+  "playBytes": 117475150,
+  "importExportPassed": true,
+  "nativeChecks": 167,
+  "nativeFailures": 0,
+  "checkedLogsHaveNoScriptErrors": true,
+  "codeWhitespaceCheckPassed": true,
+  "gitDiffCheckPassed": true,
+  "changedTextFiles": 16
+}

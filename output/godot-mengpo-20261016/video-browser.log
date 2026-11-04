@@ -1,0 +1,6 @@
+### Result
+{"duration":7.633008,"currentTime":1.614311,"paused":false,"width":1600,"height":740,"error":null}
+### Ran Playwright code
+```js
+await (async (page) => { await page.waitForFunction(() => document.querySelector("video")?.readyState >= 2); await page.locator("video").evaluate(async v => { v.muted=true; v.currentTime=1; await v.play(); }); await page.waitForTimeout(650); return await page.locator("video").evaluate(v=>({duration:v.duration,currentTime:v.currentTime,paused:v.paused,width:v.videoWidth,height:v.videoHeight,error:v.error?.message??null})); })(page);
+```

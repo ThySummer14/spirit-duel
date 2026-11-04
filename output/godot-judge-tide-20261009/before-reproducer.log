@@ -1,0 +1,8 @@
+Godot Engine v4.8.dev5.official.9552dfb68 - https://godotengine.org
+
+JUDGE_TIDE_FAIL goujue rejects power greater than two
+JUDGE_TIDE_FAIL true destruction bypasses protection and triggers judge once
+JUDGE_TIDE_FAIL ruthless adds one to new enemy knockout
+JUDGE_TIDE_FAIL full health tide healing converts all three to armor
+JUDGE_TIDE_FAIL modern water cyclone actually grants armor
+JUDGE_TIDE checks=9 failures=5

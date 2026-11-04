@@ -1,0 +1,353 @@
+{
+  "units": {
+    "yi": {
+      "verifiedRules": true,
+      "yiRules": true,
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "yi-shuffle",
+        "name": "占卜",
+        "text": "己方回合每回合一次，当任一牌手洗牌库时，占卜1。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "yi-shuffle-awake",
+        "name": "占卜",
+        "text": "己方回合每回合一次，当任一牌手洗牌库时，占卜2。",
+        "hooks": []
+      },
+      "sources": [
+        "yi-original-20261029",
+        "yi-fixes-20220126"
+      ],
+      "verificationPending": [
+        "按23900–23908完整原PNG和官网基础快照接入，未逐牌覆盖指定录像；保留原客户端核验。",
+        "洗牌触发、调度、复盘与响应及离场能力的完整顺序，辉夜姬合并幻境、变形状态与奇数牌库取整边界仍待原客户端核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c23901": {
+      "verifiedRules": true,
+      "yiRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "target": "auto",
+      "effect": "yi-long-think",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "yi-long-think",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "text": "瞬发\n将一张手牌洗回牌库，你下个回合开始时，额外抽两张牌。",
+      "officialText": "瞬发\n将一张手牌洗回牌库，你下个回合开始时，额外抽两张牌。",
+      "sources": [
+        "yi-original-20261029",
+        "yi-fixes-20220126"
+      ],
+      "verificationPending": [
+        "按23900–23908完整原PNG和官网基础快照接入，未逐牌覆盖指定录像；保留原客户端核验。",
+        "洗牌触发、调度、复盘与响应及离场能力的完整顺序，辉夜姬合并幻境、变形状态与奇数牌库取整边界仍待原客户端核验。"
+      ]
+    },
+    "c23902": {
+      "verifiedRules": true,
+      "yiRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "target": "auto",
+      "effect": "yi-combat",
+      "value": 2,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "yi-combat",
+          "target": "source",
+          "value": 2
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "text": "增强：本回合若洗过牌库，此牌获得免疫战斗伤害。",
+      "officialText": "增强：本回合若洗过牌库，此牌获得免疫战斗伤害。",
+      "sources": [
+        "yi-original-20261029",
+        "yi-fixes-20220126"
+      ],
+      "verificationPending": [
+        "按23900–23908完整原PNG和官网基础快照接入，未逐牌覆盖指定录像；保留原客户端核验。",
+        "洗牌触发、调度、复盘与响应及离场能力的完整顺序，辉夜姬合并幻境、变形状态与奇数牌库取整边界仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "immuneCombat": false
+      }
+    },
+    "c23903": {
+      "verifiedRules": true,
+      "yiRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "target": "enemy-unit",
+      "effect": "yi-damage",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "yi-damage",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "text": "对一个敌方式神造成3点伤害。若该式神未气绝，则再将他的一张随机专属手牌洗回牌库。",
+      "officialText": "对一个敌方式神造成3点伤害。若该式神未气绝，则再将他的一张随机专属手牌洗回牌库。",
+      "sources": [
+        "yi-original-20261029",
+        "yi-fixes-20220126"
+      ],
+      "verificationPending": [
+        "按23900–23908完整原PNG和官网基础快照接入，未逐牌覆盖指定录像；保留原客户端核验。",
+        "洗牌触发、调度、复盘与响应及离场能力的完整顺序，辉夜姬合并幻境、变形状态与奇数牌库取整边界仍待原客户端核验。"
+      ],
+      "responseAction": "damage"
+    },
+    "c23904": {
+      "verifiedRules": true,
+      "yiRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "target": "ally-unit",
+      "effect": "yi-search",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "yi-search",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "text": "将一个己方其他式神任意一张牌从牌库置入手牌。",
+      "officialText": "将一个己方其他式神任意一张牌从牌库置入手牌。",
+      "sources": [
+        "yi-original-20261029",
+        "yi-fixes-20220126"
+      ],
+      "verificationPending": [
+        "按23900–23908完整原PNG和官网基础快照接入，未逐牌覆盖指定录像；保留原客户端核验。",
+        "洗牌触发、调度、复盘与响应及离场能力的完整顺序，辉夜姬合并幻境、变形状态与奇数牌库取整边界仍待原客户端核验。"
+      ]
+    },
+    "c23905": {
+      "verifiedRules": true,
+      "yiRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "target": "auto",
+      "effect": "yi-awaken",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "yi-awaken",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "text": "调度你的手牌（三次调度机会）\n觉醒：己方回合每回合一次，当任一牌手洗牌库时，占卜2。",
+      "officialText": "调度你的手牌（三次调度机会）\n觉醒：己方回合每回合一次，当任一牌手洗牌库时，占卜2。",
+      "sources": [
+        "yi-original-20261029",
+        "yi-fixes-20220126"
+      ],
+      "verificationPending": [
+        "按23900–23908完整原PNG和官网基础快照接入，未逐牌覆盖指定录像；保留原客户端核验。",
+        "洗牌触发、调度、复盘与响应及离场能力的完整顺序，辉夜姬合并幻境、变形状态与奇数牌库取整边界仍待原客户端核验。"
+      ],
+      "awakening": true
+    },
+    "c23906": {
+      "verifiedRules": true,
+      "yiRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "target": "auto",
+      "effect": "yi-heal-draw",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "yi-heal-draw",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "text": "瞬发\n为你恢复3生命，抽一张牌，然后将此牌洗回牌库。",
+      "officialText": "瞬发\n为你恢复3生命，抽一张牌，然后将此牌洗回牌库。",
+      "sources": [
+        "yi-original-20261029",
+        "yi-fixes-20220126"
+      ],
+      "verificationPending": [
+        "按23900–23908完整原PNG和官网基础快照接入，未逐牌覆盖指定录像；保留原客户端核验。",
+        "洗牌触发、调度、复盘与响应及离场能力的完整顺序，辉夜姬合并幻境、变形状态与奇数牌库取整边界仍待原客户端核验。"
+      ]
+    },
+    "c23907": {
+      "verifiedRules": true,
+      "yiRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "target": "auto",
+      "effect": "yi-review",
+      "value": 0,
+      "effects": [
+        {
+          "condition": "always",
+          "action": "yi-review",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "",
+      "text": "将场上所有的幻境和形态洗回牌库。",
+      "officialText": "将场上所有的幻境和形态洗回牌库。",
+      "sources": [
+        "yi-original-20261029",
+        "yi-fixes-20220126"
+      ],
+      "verificationPending": [
+        "按23900–23908完整原PNG和官网基础快照接入，未逐牌覆盖指定录像；保留原客户端核验。",
+        "洗牌触发、调度、复盘与响应及离场能力的完整顺序，辉夜姬合并幻境、变形状态与奇数牌库取整边界仍待原客户端核验。"
+      ]
+    },
+    "c23908": {
+      "verifiedRules": true,
+      "yiRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "target": "auto",
+      "effect": "form",
+      "value": {
+        "attack": 1,
+        "hp": 1,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "condition": "always",
+          "action": "form",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1,
+            "setBase": true
+          }
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formHooks": [],
+      "formRules": {},
+      "formAbility": "增强：此牌获得X力量和X生命，X为你牌库牌数量的一半。",
+      "text": "增强：此牌获得X力量和X生命，X为你牌库牌数量的一半。",
+      "officialText": "增强：此牌获得X力量和X生命，X为你牌库牌数量的一半。",
+      "sources": [
+        "yi-original-20261029",
+        "yi-fixes-20220126"
+      ],
+      "verificationPending": [
+        "按23900–23908完整原PNG和官网基础快照接入，未逐牌覆盖指定录像；保留原客户端核验。",
+        "洗牌触发、调度、复盘与响应及离场能力的完整顺序，辉夜姬合并幻境、变形状态与奇数牌库取整边界仍待原客户端核验。"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "yi-original-20261029",
+      "path": "art-reference-official/卡面-按版本/12_浮生方醒/239_弈",
+      "url": "https://ssr.res.netease.com/pc/zt/20191112204330/js/index_4539655c.js",
+      "evidence": "23900–23908完整原PNG及research-data/cards.json基础牌库快照：真实洗牌占卜、调度、手牌/场上卡洗回、检索与牌库量身材。"
+    },
+    {
+      "id": "yi-fixes-20220126",
+      "url": "https://www.taptap.cn/moment/235144264613364682",
+      "evidence": "官方2022-01-26维护：复盘多张形态洗回不能重复触发弈；气合零实际伤害仍应在目标存活时洗回专属手牌。"
+    }
+  ]
+}
