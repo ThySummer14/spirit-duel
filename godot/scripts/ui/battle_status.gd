@@ -53,9 +53,15 @@ static func unit_view(gs, owner: int, idx: int, viewer: int) -> Dictionary:
 	view.poisonRetained = gs.VerifiedRules.Poison.preserves(gs, owner, idx)
 	view.koiFragranceMarks=gs.VerifiedRules.KoiFragrance.unit_marks(gs,owner,idx)
 	view.yujMarks=gs.VerifiedRules.Yujiazhu.marks(gs,owner,idx)
+	view.wlMarks=gs.VerifiedRules.WisdomLamp.marks(gs,owner,view)
+	view.hairMarks=gs.VerifiedRules.HairPower.marks(view)
+	view.fearWingMarks=gs.VerifiedRules.FearWing.marks(view)
+	view.mfMarks=gs.VerifiedRules.MusicFire.marks(gs,owner,view)
+	view.efMarks=gs.VerifiedRules.EssenceFeast.marks(gs,owner,view)
 	view.cookingMarks=gs.VerifiedRules.Cooking.marks(gs,owner,view)
 	view.scMarks=gs.VerifiedRules.SugarCat.marks(gs,owner,view)
 	view.rtMarks=gs.VerifiedRules.RabbitTide.marks(gs,owner,view)
+	view.sgMarks=gs.VerifiedRules.SerpentGhost.marks(gs,owner,view)
 	view.arkMarks=gs.VerifiedRules.Arakawa.marks(gs,owner,view)
 	view.rwMarks=gs.VerifiedRules.RednightWalnut.marks(gs,owner,view)
 	view.apeSleeveMarks=gs.VerifiedRules.ApeSleeve.marks(gs,owner,view)
@@ -122,6 +128,7 @@ static func payment_text(card: Dictionary) -> String:
 	if p.get("lilyDeckFree", false): return "彼岸归航 · 1勾牌库顶免鬼火" + (" · 瞬发发动" if p.usesInstant else "")
 	if p.get("coinFirstFree", false): return "觉醒·铁鼠 · 首枚钱币免鬼火（不占用瞬发）"
 	if p.usesInstant: return "%s · 本次 %d 鬼火（全队每回合一次）" % ["瞬发发动" if p.get("applied", false) else "瞬发可用", int(p.cost)]
+	if p.get("usesSwift",false):return "疾速 · 本次消耗%s，%d鬼火"%["坚守次数" if p.get("usesGuard",false) else "出击次数",int(p.cost)]
 	if p.instant:
 		var why := "本回合已用" if p.instantUsed else "当前阶段不可用"
 		return "瞬发%s · 本次 %d 鬼火" % [why, int(p.cost)]
@@ -139,9 +146,15 @@ static func unit_marks(unit: Dictionary, turn: int = -1) -> Array:
 	if alive and unit.has("starTargetTurn"): result.append(mark("star-focus", "众矢之的 · 本回合出击目标", "本回合对方普通出击转向此式神；临时数值随回合结束移除。", "b89be4"))
 	for detail in unit.get("koiFragranceMarks",[]): result.append(mark("koi-fragrance-rule",str(detail),str(detail),"90c8b8"))
 	for detail in unit.get("yujMarks",[]):result.append(mark("yuj-rule",str(detail),str(detail),"c5b373"))
+	for detail in unit.get("wlMarks",[]):result.append(mark("wisdom-lamp",str(detail),str(detail),"e4cc88"))
+	for detail in unit.get("hairMarks",[]):result.append(mark("battle-power",str(detail),str(detail),"8ec9db"))
+	for detail in unit.get("fearWingMarks",[]):result.append(mark("fear-wing",str(detail),str(detail),"ae74bb"))
+	for detail in unit.get("mfMarks",[]):result.append(mark("music-fire",str(detail),str(detail),"e49871"))
+	for detail in unit.get("efMarks",[]):result.append(mark("essence-feast",str(detail),str(detail),"d8b0c2"))
 	for detail in unit.get("cookingMarks",[]):result.append(mark("cooking",str(detail),str(detail),"d2ad7b"))
 	for detail in unit.get("scMarks",[]):result.append(mark("sugar-cat",str(detail),str(detail),"e8b0c0"))
 	for detail in unit.get("rtMarks",[]):result.append(mark("rabbit-tide",str(detail),str(detail),"9bc9d6"))
+	for detail in unit.get("sgMarks",[]):result.append(mark("serpent-ghost",str(detail),str(detail),"be99ca"))
 	for detail in unit.get("arkMarks",[]):result.append(mark("arakawa-rule",str(detail),str(detail),"81b8de"))
 	for detail in unit.get("rwMarks",[]):result.append(mark("rednight-walnut",str(detail),str(detail),"c998a6"))
 	for detail in unit.get("apeSleeveMarks",[]):result.append(mark("ape-sleeve",str(detail),str(detail),"b0c898"))

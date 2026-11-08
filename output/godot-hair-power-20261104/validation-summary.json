@@ -1,0 +1,19 @@
+{
+  "mainCards": 8,
+  "rulesChecks": 80,
+  "nativeChecks": 93,
+  "nativeExtraInteractionChecks": 16,
+  "nativeSizes": [
+    "1280x800",
+    "1600x740"
+  ],
+  "screenshots": 8,
+  "screenshotsViewed": true,
+  "mainPng": 8,
+  "aiExecutionScript": "verify_completion_ai.gd (24 cards /72 checks shared with MF)",
+  "errors": [],
+  "pending": "原客户端全序、半数取整与复杂多来源出击加成持续范围保留verificationPending",
+  "rulesLog": "rules-final.log",
+  "nativeRulesAtRun": 77,
+  "laterRulesCases": "Three living/suppressed/unlevelled versus removed/knocked-out resource recipient checks added and run headlessly after native."
+}

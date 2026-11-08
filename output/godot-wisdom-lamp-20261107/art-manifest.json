@@ -1,0 +1,50 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/608_慧明灯/60801_净秽_法术.png",
+    "target": "godot/assets/official/cards/c60801.png",
+    "sha256": "2273a50197b110089d84a2bfb277110c2743cce7e360a5e791d985c5b1eecde0",
+    "equal": true
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/608_慧明灯/60802_嗔念_法术.png",
+    "target": "godot/assets/official/cards/c60802.png",
+    "sha256": "97d4a5c1a293f19923951884258545831d6173ce26a0fcfc47cdaa6cd9e46b5a",
+    "equal": true
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/608_慧明灯/60803_佛智_战斗.png",
+    "target": "godot/assets/official/cards/c60803.png",
+    "sha256": "3eb9a1df14d5945fc822f86634a38bed1eb48985a5bff39688af7f4c31fe01a7",
+    "equal": true
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/608_慧明灯/60804_觉醒·慧明灯_法术.png",
+    "target": "godot/assets/official/cards/c60804.png",
+    "sha256": "7d18c36bb5180197042eaafb0744ecb5f00aa1510aec0249b0358e290f7d6d0b",
+    "equal": true
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/608_慧明灯/60805_正念_形态.png",
+    "target": "godot/assets/official/cards/c60805.png",
+    "sha256": "937e01d2aeb5aa2a368951a94c20a783803508a3c42257cbec54568b94443a6f",
+    "equal": true
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/608_慧明灯/60806_业回_法术.png",
+    "target": "godot/assets/official/cards/c60806.png",
+    "sha256": "d0538500b05703c62524744f161324ae905f7c8f913c43bac776ff3fea3adda5",
+    "equal": true
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/608_慧明灯/60807_业障_形态.png",
+    "target": "godot/assets/official/cards/c60807.png",
+    "sha256": "e1db5ac084851280835c32016934ac8c7f4a01dbecfc36273f59a3de8e07bbac",
+    "equal": true
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/608_慧明灯/60808_明识灯_结界.png",
+    "target": "godot/assets/official/cards/c60808.png",
+    "sha256": "87e4e548f9b32a30528549948ada613ffb6f33ce1289b9fadd99402ee48dfaa6",
+    "equal": true
+  }
+]

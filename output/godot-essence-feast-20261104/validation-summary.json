@@ -1,0 +1,215 @@
+{
+  "group": "essence-feast",
+  "validatedAt": "2026-11-05T22:53:20+08:00",
+  "status": "specialist-validation-complete-with-client-evidence-pending",
+  "scope": {
+    "units": [
+      "fenpopo",
+      "jiao",
+      "fansi"
+    ],
+    "mainCardIds": [
+      "c60301",
+      "c60302",
+      "c60303",
+      "c60304",
+      "c60305",
+      "c60306",
+      "c60307",
+      "c60308",
+      "c60601",
+      "c60602",
+      "c60603",
+      "c60604",
+      "c60605",
+      "c60606",
+      "c60607",
+      "c60608",
+      "c63801",
+      "c63802",
+      "c63803",
+      "c63804",
+      "c63805",
+      "c63806",
+      "c63807",
+      "c63808"
+    ],
+    "derivedDefinitions": [
+      "shengmingjinghua",
+      "ef-powder-box"
+    ],
+    "mainCards": 24,
+    "exactPrintedForms": 7
+  },
+  "engine": {
+    "binary": ".build/tools/godot-4.6.3.app/Contents/MacOS/Godot",
+    "version": "4.6.3.stable.official.7d41c59c4",
+    "nativeRenderer": "OpenGL 4.1 Metal Compatibility / Apple M5"
+  },
+  "logs": {
+    "rules-final.log": {
+      "checks": 273,
+      "failures": 0,
+      "errorLines": [],
+      "sha256": "ece9a06fc9dd5b93f1e055f6f695cf654e23fd807d0cae91ba26e24dc9f59ef2"
+    },
+    "native.log": {
+      "checks": 283,
+      "failures": 0,
+      "errorLines": [],
+      "sha256": "65cb842a5d0ad5d0e114275ef879314c04f871919acf08c5a450df0bb81fde7b"
+    },
+    "ai-actual.log": {
+      "checks": 143,
+      "failures": 0,
+      "errorLines": [],
+      "sha256": "92c2c93eb449e72deaa6f20a07d2dbfec61d2ce51fa1bc77d79dfa83f4a6dc69"
+    }
+  },
+  "exitCodesObservedInFinalization": {
+    "native": 0,
+    "aiActual": 0
+  },
+  "commands": {
+    "rulesOnly": ".build/tools/godot-4.6.3.app/Contents/MacOS/Godot --headless --path godot --script res://scripts/verify_essence_feast.gd -- --rules-only",
+    "native": ".build/tools/godot-4.6.3.app/Contents/MacOS/Godot --path godot --script res://scripts/verify_essence_feast.gd -- /Users/thysummer/GitHub项目集/08-游戏/百闻牌-duel/output/godot-essence-feast-20261104/native",
+    "aiActual": ".build/tools/godot-4.6.3.app/Contents/MacOS/Godot --headless --path godot --script res://scripts/verify_essence_feast_ai.gd"
+  },
+  "rulesLogCorrespondence": {
+    "moduleLastModifiedBeforeRulesLog": true,
+    "verifyLastModifiedBeforeRulesLog": true,
+    "same273RulesAlsoExecutedInNativeRun": true
+  },
+  "native": {
+    "rulesChecks": 273,
+    "actualMouseChecks": 10,
+    "viewports": [
+      [
+        1280,
+        800
+      ],
+      [
+        1600,
+        740
+      ]
+    ],
+    "scenarios": [
+      "stack4 essence target selection and actual heal4 with hand consumption",
+      "underlevel snow trick real2damage and stack2 essence generation",
+      "enhanced Fansi pursuit target reserve and actual combat/satiety cleanup"
+    ],
+    "screenshots": [
+      {
+        "path": "output/godot-essence-feast-20261104/native/1280-01-essence-target.png",
+        "size": [
+          1280,
+          800
+        ],
+        "sha256": "e7511eb39b3a1ec8d79f3c51441174a2e6191f9717aacd18c9b1407c15335508",
+        "visuallyInspected": true
+      },
+      {
+        "path": "output/godot-essence-feast-20261104/native/1280-02-trick-and-stack.png",
+        "size": [
+          1280,
+          800
+        ],
+        "sha256": "43dce625b458d218ab3bf7d0d8c7e1271a43bcc0693fcbca98204a4f243f05b1",
+        "visuallyInspected": true
+      },
+      {
+        "path": "output/godot-essence-feast-20261104/native/1280-03-pursuit-target.png",
+        "size": [
+          1280,
+          800
+        ],
+        "sha256": "6e2a6cce522cd680b4b9d60758a4c9a512b62e536d3841ad32af4193b670328c",
+        "visuallyInspected": true
+      },
+      {
+        "path": "output/godot-essence-feast-20261104/native/1600-01-essence-target.png",
+        "size": [
+          1600,
+          740
+        ],
+        "sha256": "8389d4970912f96fb0f3dfc0094a72aee9c493ff7b774a22b44463178815675a",
+        "visuallyInspected": true
+      },
+      {
+        "path": "output/godot-essence-feast-20261104/native/1600-02-trick-and-stack.png",
+        "size": [
+          1600,
+          740
+        ],
+        "sha256": "c4c6a9c6a81b939dda81fc5be491d89822e7f14117d253c6d97c4401ebbb68f1",
+        "visuallyInspected": true
+      },
+      {
+        "path": "output/godot-essence-feast-20261104/native/1600-03-pursuit-target.png",
+        "size": [
+          1600,
+          740
+        ],
+        "sha256": "a982c2a6a21a7503ed5a0ae359143aededaabdda2d7fef23319e3934fbaa8d80",
+        "visuallyInspected": true
+      }
+    ],
+    "review": "All six full viewport PNGs viewed individually; complete card text, target selection state and reserve combat target are visible."
+  },
+  "aiActual": {
+    "entryPoints": [
+      "AI._best_card",
+      "AI.take_action"
+    ],
+    "mainCardCases": 24,
+    "trickCardIds": [
+      "c60307",
+      "c60606",
+      "c60608",
+      "c63808"
+    ],
+    "neutralEssenceActualHeal": 4,
+    "checks": [
+      "AI chooses the actual isolated card",
+      "AI selects a currently legal target",
+      "AI.take_action executes",
+      "actual play_card command preserves selected target",
+      "effect stack, choice and response fully complete"
+    ]
+  },
+  "art": {
+    "manifest": "output/godot-essence-feast-20261104/card-art-manifest.json",
+    "mainCardOriginalPngPairs": 24,
+    "sha256Mismatches": [],
+    "originalContactSheetsViewed": [
+      "originals-603.jpg",
+      "originals-606.jpg",
+      "originals-638.jpg"
+    ],
+    "satietyVideoFrameViewed": "output/godot-essence-feast-20261104/satiety-video-260sec.png"
+  },
+  "files": {
+    "godot/scripts/essence_feast_rules.gd": "cd619c735d37e33bca4889d23b1698842d1ffecb758b2777d189dfb6f0dbc4d1",
+    "godot/scripts/verify_essence_feast.gd": "603fbd17c40c32ab87a54da686a0f09570004de9ba1a50ea74c5747f2b658839",
+    "godot/scripts/verify_essence_feast_ai.gd": "a7c337ecfa0aabec3c4a2d577a28bf86caaa19346663d9bacb3de4b480438e32",
+    "output/godot-essence-feast-20261104/prepare.py": "26185431dbfa1f79844787bf2cc6d6ae81308228492a0feb1f0b09a24199268f",
+    "output/godot-essence-feast-20261104/overlay.json": "046b0b16c4156b752367540b68df0823dbd128a86c904deb7515ed952bc6def8",
+    "output/godot-essence-feast-20261104/new_definitions.json": "99977e509994c4596851e7b816729bc09d28b236b7e60d853c5ce19f99e05725",
+    "output/godot-essence-feast-20261104/card-art-manifest.json": "b0c2198cf20b3a0e5a4704cb3e28ea9f1f290532b91c9ef573f4fc7968553224"
+  },
+  "pending": [
+    "指定2026-10-04实机录像未逐牌核验，不能声称本批均已由该录像验证。",
+    "生命精华和粉盒的中文独立完整原PNG/派生美术尚缺；使用同期机制说明，保留verificationPending。",
+    "原客户端多来源同时触发、自动使用/复制/融合/转移防护交叉全序待补证。",
+    "专项通过不代表全库还原完成；全库audit旧简化项及未核对项未清零仍应失败。"
+  ],
+  "finalizationConstraints": {
+    "sharedCoreEdited": false,
+    "runtimeIntegrationScriptRerun": false,
+    "metadataRegenerated": false,
+    "oldVerifyScriptsEdited": false,
+    "committed": false,
+    "ownRulesSourceFrozen": true
+  },
+  "research": "research-notes/103-essence-feast-rules.md"
+}

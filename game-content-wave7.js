@@ -582,6 +582,7 @@ export const WAVE7_UNIT_DEFINITIONS = Object.freeze([
       { id: "dice-luck-a2", event: "turn-started", effect: "passive-draw-self", params: {"count": 1} }
     ]),
   },
+  {"id": "ef-powder-box", "name": "粉盒", "title": "粉婆婆召唤物", "attack": 3, "maxHp": 3, "art": "assets/wave7/fenpopo.svg", "awakenedArt": "assets/wave7/fenpopo.svg", "color": "#d8a6ba", "pack": "wave7", "selectable": false, "token": true, "summoned": true, "countsAsShikigami": true, "passive": {"id": "ef-box-fusion", "name": "融合", "text": "融合。离开战斗区时移除。", "hooks": []}, "verifiedRules": true, "sources": ["essence-feast-derived-20261104"], "verificationPending": ["采用同期2023粉盒3/3融合说明，中文独立派生完整tooltip及美术暂缺；离场/融合/复活全序待原客户端核验。"]},
 ]);
 
 function eff(condition, action, target, value = null) {
@@ -4663,6 +4664,21 @@ export const WAVE7_CARD_DEFINITIONS = Object.freeze([
     ],
     subpack: "taoyuan",
   }),
+  wave7Card(0, "tiannimei", {
+    "id": "fear-wing-charm",
+    "unitId": "tiannimei",
+    "name": "恐惧",
+    "type": "spell",
+    "level": 1,
+    "cost": 1,
+    "text": "当天逆每获得战力时，对所结附的式神造成等量的伤害。当天逆每气绝时，移除此灵咒。（不能叠加）",
+    "target": "auto",
+    "deckLimit": 0,
+    "token": true,
+    "starter": 0,
+    "effects": [],
+    "subpack": "taoyuan"
+}),
 ]);
 
 export function getWave7UnitIds() {

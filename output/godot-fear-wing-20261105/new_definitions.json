@@ -1,0 +1,42 @@
+{
+  "units": [],
+  "cards": [
+    {
+      "id": "fear-wing-charm",
+      "unitId": "tiannimei",
+      "name": "恐惧",
+      "type": "spell",
+      "typeLabel": "灵咒",
+      "level": 1,
+      "cost": 1,
+      "token": true,
+      "copies": 0,
+      "deckLimit": 0,
+      "starterCopies": 0,
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "text": "当天逆每获得战力时，对所结附的式神造成等量的伤害。当天逆每气绝时，移除此灵咒。（不能叠加）",
+      "officialText": "当天逆每获得战力时，对所结附的式神造成等量的伤害。当天逆每气绝时，移除此灵咒。（不能叠加）",
+      "effects": [
+        {
+          "action": "fw-attach-charm",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "effect": "fw-attach-charm",
+      "value": 0,
+      "keywords": [],
+      "target": "fw-unfeared",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    }
+  ]
+}

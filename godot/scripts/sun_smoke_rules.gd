@@ -9,6 +9,8 @@ static func active(unit: Dictionary) -> bool:
 	return int(unit.hp) > 0 and int(unit.level) >= 1 and not unit.get("removed", false)
 
 static func has_charge(unit: Dictionary) -> bool:
+	var sg=preload("res://scripts/serpent_ghost_rules.gd").has_charge(unit)
+	if sg!=null:return bool(sg)
 	var def: Dictionary = ContentLoader.runtime_unit_def(unit)
 	return bool(unit.get("formRules",{}).get("rpCopiedCharge",false)) or bool(def.get("nativeCharge", false)) or bool(unit.get("formRules",{}).get("nativeCharge",false)) or role(unit) in ["sun", "smoke", "clone"] or unit.get("keywords", []).has("charge") or def.get("keywords", []).has("charge") or int(unit.get("charge", 0)) > 0
 
@@ -368,6 +370,9 @@ static func reset_character(gs, owner: int, target: Dictionary, target_id) -> vo
 		return
 	if target.is_empty() or int(target.hp) <= 0: return
 	# Awakening and explicitly permanent ledgers survive; printed form stays installed.
+	gs.VerifiedRules.FearWing.reset_character(gs,target)
+	gs.VerifiedRules.MusicFire.reset_ledger(target)
+	gs.VerifiedRules.EssenceFeast.reset_ledger(target)
 	gs.VerifiedRules.Cooking.reset_ledger(target)
 	gs.VerifiedRules.ApeSleeve.reset_ledger(target)
 	target.attackBonus = int(target.get("sunPermanentAttack", 0))

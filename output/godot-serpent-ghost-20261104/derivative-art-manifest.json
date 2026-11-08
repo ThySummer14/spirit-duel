@@ -1,0 +1,36 @@
+[
+  {
+    "source": "output/godot-serpent-ghost-20261104/white-awaken-WEffgx2w.png",
+    "sourcePage": "https://gamerch.com/onmyojicard/244805",
+    "target": "godot/assets/official/cards/sg-white-awaken.png",
+    "sourceSha256": "bdc099f430dd53428eb3f3647e7f0f28c6605698b6974abce76c80d0023a3461",
+    "targetSha256": "bdc099f430dd53428eb3f3647e7f0f28c6605698b6974abce76c80d0023a3461",
+    "encoding": "original PNG bytes",
+    "decodedPixelsEqual": true
+  },
+  {
+    "source": "output/godot-serpent-ghost-20261104/white-soul-b2zFEqrU.jpg",
+    "sourcePage": "https://gamerch.com/onmyojicard/244805",
+    "target": "godot/assets/official/cards/sg-white-soul.png",
+    "sourceSha256": "f9524d8349156895c73f3f8df81951b174ce3a3b1070e8ca8a6f76510f2d6d02",
+    "targetSha256": "0a558ae9dce1b143792303d30e0b050e2b0c18815dac8ade68cea49d1f098352",
+    "encoding": "JPEG decoded pixels saved as PNG; not original byte identity",
+    "decodedPixelsEqual": true
+  },
+  {
+    "source": "output/godot-serpent-ghost-20261104/white-txsKFqxc.png",
+    "sourcePage": "https://gamerch.com/onmyojicard/243525",
+    "target": "godot/assets/official/serpent-ghost/white-txsKFqxc.png",
+    "sourceSha256": "bdb62b00030bf3f71d89646c2a9eb43b3e70e2cf6ef722350fc9c0a0b02dfabd",
+    "targetSha256": "bdb62b00030bf3f71d89646c2a9eb43b3e70e2cf6ef722350fc9c0a0b02dfabd",
+    "encoding": "original image bytes"
+  },
+  {
+    "source": "output/godot-serpent-ghost-20261104/snake-PT289B07.jpg",
+    "sourcePage": "https://gamerch.com/onmyojicard/352142",
+    "target": "godot/assets/official/serpent-ghost/snake-PT289B07.jpg",
+    "sourceSha256": "0746c1c0b64e92cfd7d107dd5846728c4d837c9ef761077827a654787ce9cf16",
+    "targetSha256": "0746c1c0b64e92cfd7d107dd5846728c4d837c9ef761077827a654787ce9cf16",
+    "encoding": "original image bytes"
+  }
+]

@@ -2145,6 +2145,120 @@
       "id": "cooking-unknown-dark-jp",
       "url": "https://gamerch.com/onmyojicard/354060",
       "evidence": "日文争食补充定义：不明食材4破甲，参与合成改黑暗料理，黑暗料理瞬发6破甲。"
+    },
+    {
+      "id": "hair-original-20261104",
+      "evidence": "609完整中文原PNG：1/6基础，真实之颜5/8、食发之喜2/7、两结界耐久5。"
+    },
+    {
+      "id": "hair-official-combat-power",
+      "url": "https://www.taptap.cn/moment/483003889277208129",
+      "evidence": "官方战力寿命：下一次战斗伤害加成、战斗后移除、未战斗也在下个己方回合开始移除；疾速改付出击次数，瞬发优先。"
+    },
+    {
+      "id": "music-fire-original-20261104",
+      "type": "local-original-png",
+      "path": "art-reference-official/卡面-按版本/14_空弦绮话",
+      "note": "256/263完整中文PNG优先，已逐图目检。"
+    },
+    {
+      "id": "music-fire-official-20220708",
+      "url": "https://www.taptap.cn/moment/294558767473756706",
+      "note": "官方公告：两类诡间缚偶、紧那罗生成排除觉醒、铃彦姬无恢复3版本。"
+    },
+    {
+      "id": "music-fire-related-jp",
+      "url": "https://gamerch.com/onmyojicard/381027",
+      "note": "神火铃焰0/4，自回1，满血切回和AOE；派生原图原字节。"
+    },
+    {
+      "id": "music-fire-awake-related-jp",
+      "url": "https://gamerch.com/onmyojicard/381117",
+      "note": "神火觉醒AOE等于勾玉；不采用日文后来恢复3增强。"
+    },
+    {
+      "id": "music-fire-switch-order",
+      "url": "https://www.taptap.cn/moment/467093870207830538",
+      "note": "玩家机制整理：保留灵咒眩晕等，移除护甲破甲，群伤后切换、连击继续命中；复杂客户端边界待核。"
+    },
+    {
+      "id": "sg-original-20261104",
+      "path": "art-reference-official/卡面-按版本",
+      "evidence": "194/220共18张完整PNG目检；中文主体优先，不采用JP后来1战力神愤或觉醒直接消灭。"
+    },
+    {
+      "id": "sg-ghost-derivatives",
+      "url": "https://gamerch.com/onmyojicard/244805",
+      "evidence": "觉醒白3勾+2/+2瞬发不屈、倒计时1、每回合一次受伤自动索魂投射等额伤害。"
+    },
+    {
+      "id": "sg-white-body",
+      "url": "https://gamerch.com/onmyojicard/243525",
+      "evidence": "鬼使白2/6、倒计时2切黑。"
+    },
+    {
+      "id": "sg-snake-body",
+      "url": "https://gamerch.com/onmyojicard/352142",
+      "evidence": "蛇魔3/3迅捷相关卡。"
+    },
+    {
+      "id": "sg-reap-chain",
+      "url": "https://gamerch.com/onmyojicard/245067",
+      "evidence": "索命按该次链中使用次数增长，复制次数为时限/兄弟之忆切黑历史；白气绝复归黑不增加切黑历史。"
+    },
+    {
+      "id": "sg-chaos-guide",
+      "url": "https://www.taptap.cn/moment/159680773731912617",
+      "evidence": "混沌化身移除专牌、禁止手动操作、自动生成并使用自己的法术。"
+    },
+    {
+      "id": "sg-snake-copy",
+      "url": "https://shouyou.3dmgame.com/gl/297445.html",
+      "evidence": "觉醒后新蛇魔获得与大蛇相同身材；蛇魔气绝后原式神进入复活倒计时。"
+    },
+    {
+      "id": "sg-switch-boundaries",
+      "url": "https://www.taptap.cn/moment/467093870207830538",
+      "evidence": "切换清护甲/破甲、保留灵咒与眩晕等；化身25/15，蛇魔不再向大蛇用不洁之力。"
+    },
+    {
+      "id": "essence-feast-original-20261104",
+      "type": "local-original-card-png",
+      "title": "粉婆婆、椒图、饭笥完整原PNG",
+      "path": "art-reference-official/卡面-按版本/",
+      "checked": "2026-11-04"
+    },
+    {
+      "id": "essence-feast-derived-20261104",
+      "type": "mechanics-reference",
+      "url": "https://www.taptap.cn/moment/452866432946933284",
+      "title": "同期生命精华堆叠10、治疗层数及粉盒3/3融合"
+    },
+    {
+      "id": "fansi-satiety-video-20261104",
+      "type": "video-card-tooltip",
+      "url": "https://www.bilibili.com/video/BV1e7CXYWETR/",
+      "title": "饭笥实机解析04:20饱足完整tooltip",
+      "path": "output/godot-essence-feast-20261104/satiety-video-260sec.png"
+    },
+    {
+      "id": "fear-wing-original-20261105",
+      "evidence": "逐图读取本地611完整9 PNG，主体采用本地调整后版本，保留惧刃之风战力翻倍。"
+    },
+    {
+      "id": "fear-wing-official-20231210",
+      "url": "https://www.taptap.cn/moment/483022168251173536?group_id=188707",
+      "evidence": "官方首曝原图：惧翼瞬发、堆叠2、每层+1战力；恐惧获得战力时造成等量伤害、源气绝移除、不可叠加。"
+    },
+    {
+      "id": "hair-official-guard",
+      "url": "https://www.taptap.cn/app/158690/topic?page=65&type=official",
+      "evidence": "坚守额外获得一次免费出击及出击加成（若有），式神移入战斗区但不发动攻击；在下个己方回合开始失去。"
+    },
+    {
+      "id": "wisdom-lamp-original-20261107",
+      "url": "art-reference-official/卡面-按版本/20_桃源故里/608_慧明灯",
+      "evidence": "逐张目视核对9张完整原PNG；基础2/5、佛智+1/+1、觉醒+1/+1、正念3/6、业障6/6、明识灯耐久6。"
     }
   ],
   "units": {
@@ -6113,6 +6227,503 @@
       ],
       "sources": [
         "sugar-summon-jp-20261103"
+      ]
+    },
+    "shifagui": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "attack": 1,
+      "maxHp": 6,
+      "formLifecycle": {},
+      "passive": {
+        "id": "hair-power",
+        "name": "战力",
+        "text": "己方回合开始时获得2战力。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "hair-power-awake",
+        "name": "觉醒·食发鬼",
+        "text": "己方回合开始时获得2战力，本局之后每个己方回合开始时此效果+1（气绝时有效）。",
+        "hooks": []
+      },
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ]
+    },
+    "jinnaluo": {
+      "verifiedRules": true,
+      "musicFireRole": "music",
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "mf-music",
+        "name": "入夜弦音",
+        "text": "当紧那罗运势时，入夜X：随机对一个敌方角色造成1点伤害。X为骰子点数。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "mf-music-awake",
+        "name": "觉醒·紧那罗",
+        "text": "当紧那罗运势时，随机对一个敌方角色造成3点伤害，然后入夜10：获得1点鬼火。",
+        "hooks": []
+      },
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "lingyanji": {
+      "verifiedRules": true,
+      "musicFireRole": "fire",
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "mf-human",
+        "name": "神火铃焰",
+        "text": "当铃彦姬气绝时，切换为1生命的「神火铃焰」并移回准备区。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "mf-human-awake",
+        "name": "觉醒·铃彦姬",
+        "text": "当铃彦姬气绝时，切换为1生命的「神火铃焰」并移回准备区。",
+        "hooks": []
+      },
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "mf-fire": {
+      "id": "mf-fire",
+      "name": "神火铃焰",
+      "title": "铃彦姬切换形态",
+      "role": "派生实体",
+      "strategy": "",
+      "attack": 0,
+      "maxHp": 4,
+      "art": "assets/official/tokens/mf-fire.png",
+      "awakenedArt": "assets/official/tokens/mf-fire.png",
+      "color": "#dc8060",
+      "pack": "wave6",
+      "subpack": "kongxian",
+      "selectable": false,
+      "token": true,
+      "countsAsShikigami": true,
+      "combatKeywords": [],
+      "passive": {
+        "id": "mf-fire-passive",
+        "name": "神火铃焰",
+        "text": "己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成1点伤害。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "mf-fire-awakened": {
+      "id": "mf-fire-awakened",
+      "name": "觉醒·神火铃焰",
+      "title": "铃彦姬切换形态",
+      "role": "派生实体",
+      "strategy": "",
+      "attack": 0,
+      "maxHp": 4,
+      "art": "assets/official/tokens/mf-fire-awakened.png",
+      "awakenedArt": "assets/official/tokens/mf-fire-awakened.png",
+      "color": "#dc8060",
+      "pack": "wave6",
+      "subpack": "kongxian",
+      "selectable": false,
+      "token": true,
+      "countsAsShikigami": true,
+      "combatKeywords": [],
+      "passive": {
+        "id": "mf-fire-awakened-passive",
+        "name": "觉醒·神火铃焰",
+        "text": "己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成等同铃彦姬等级的伤害。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "mf-doll-blood": {
+      "id": "mf-doll-blood",
+      "name": "诡间缚偶",
+      "title": "紧那罗召唤物",
+      "role": "派生实体",
+      "strategy": "",
+      "attack": 2,
+      "maxHp": 4,
+      "art": "assets/official/tokens/mf-doll-a.png",
+      "awakenedArt": "assets/official/tokens/mf-doll-a.png",
+      "color": "#dc8060",
+      "pack": "wave6",
+      "subpack": "kongxian",
+      "selectable": false,
+      "token": true,
+      "countsAsShikigami": true,
+      "combatKeywords": [
+        "lifesteal"
+      ],
+      "passive": {
+        "id": "mf-doll-blood-passive",
+        "name": "诡间缚偶",
+        "text": "吸血。离开战斗区移除。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "mf-doll-swift": {
+      "id": "mf-doll-swift",
+      "name": "诡间缚偶",
+      "title": "紧那罗召唤物",
+      "role": "派生实体",
+      "strategy": "",
+      "attack": 4,
+      "maxHp": 2,
+      "art": "assets/official/tokens/mf-doll-b.png",
+      "awakenedArt": "assets/official/tokens/mf-doll-b.png",
+      "color": "#dc8060",
+      "pack": "wave6",
+      "subpack": "kongxian",
+      "selectable": false,
+      "token": true,
+      "countsAsShikigami": true,
+      "combatKeywords": [
+        "swift"
+      ],
+      "passive": {
+        "id": "mf-doll-swift-passive",
+        "name": "诡间缚偶",
+        "text": "迅捷。离开战斗区移除。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "guishiheibai": {
+      "verifiedRules": true,
+      "serpentGhostRole": "ghost",
+      "attack": 3,
+      "maxHp": 4,
+      "nativeCharge": true,
+      "formLifecycle": {},
+      "passive": {
+        "id": "sg-ghost",
+        "name": "冥界协作",
+        "text": "充能。当鬼使黑气绝时，消耗2能量，切换为鬼使白。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "sg-ghost-awake",
+        "name": "觉醒",
+        "text": "充能，迅捷。当鬼使黑气绝时，消耗2能量，切换为鬼使白。",
+        "hooks": []
+      },
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "bayiqidashe": {
+      "verifiedRules": true,
+      "serpentGhostRole": "serpent",
+      "attack": 2,
+      "maxHp": 5,
+      "nativeCharge": false,
+      "formLifecycle": {},
+      "passive": {
+        "id": "sg-serpent",
+        "name": "蛇魔",
+        "text": "当你的其他非「蛇魔」基础式神气绝时，将其变为「蛇魔」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "sg-serpent-awake",
+        "name": "觉醒",
+        "text": "觉醒：混沌化身#r当你的其他非「蛇魔」基础式神气绝时， 将其变为「蛇魔」且视为八岐大蛇的复制。",
+        "hooks": []
+      },
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "sg-ghost-white": {
+      "id": "sg-ghost-white",
+      "name": "鬼使白",
+      "title": "鬼使协作身份",
+      "role": "切换身份",
+      "strategy": "",
+      "attack": 2,
+      "maxHp": 6,
+      "pack": "wave4",
+      "art": "assets/official/serpent-ghost/white-txsKFqxc.png",
+      "awakenedArt": "assets/official/serpent-ghost/white-txsKFqxc.png",
+      "color": "#b997a8",
+      "token": true,
+      "selectable": false,
+      "countsAsShikigami": true,
+      "passive": {
+        "id": "sg-ghost-white-passive",
+        "name": "鬼使白",
+        "text": "倒计时2：切换为鬼使黑。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "sg-snake": {
+      "id": "sg-snake",
+      "name": "蛇魔",
+      "title": "八岐大蛇变形",
+      "role": "切换身份",
+      "strategy": "",
+      "attack": 3,
+      "maxHp": 3,
+      "pack": "wave4",
+      "art": "assets/official/serpent-ghost/snake-PT289B07.jpg",
+      "awakenedArt": "assets/official/serpent-ghost/snake-PT289B07.jpg",
+      "color": "#b997a8",
+      "token": true,
+      "selectable": false,
+      "countsAsShikigami": true,
+      "passive": {
+        "id": "sg-snake-passive",
+        "name": "蛇魔",
+        "text": "迅捷。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "fenpopo": {
+      "verifiedRules": true,
+      "essenceFeastRole": "powder",
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "ef-powder",
+        "name": "粉婆婆",
+        "text": "每回合一次，当你或粉婆婆受到过量治疗时，投射：造成2点伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "ef-powder-awake",
+        "name": "觉醒",
+        "text": "觉醒能力按对应觉醒牌原文生效。",
+        "hooks": []
+      },
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "jiao": {
+      "verifiedRules": true,
+      "essenceFeastRole": "pearl",
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "ef-pearl",
+        "name": "椒图",
+        "text": "每回合一次，当己方牌手受到伤害时，获得一张「生命精华」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "ef-pearl-awake",
+        "name": "觉醒",
+        "text": "觉醒能力按对应觉醒牌原文生效。",
+        "hooks": []
+      },
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "fansi": {
+      "verifiedRules": true,
+      "essenceFeastRole": "feast",
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "ef-feast",
+        "name": "饭笥",
+        "text": "当己方使用的手牌仅以饭笥为目标时，为饭笥结附一个「饱足」；若该牌为中立牌，改为结附两个。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "ef-feast-awake",
+        "name": "觉醒",
+        "text": "觉醒能力按对应觉醒牌原文生效。",
+        "hooks": []
+      },
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "tiannimei": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "attack": 3,
+      "maxHp": 4,
+      "formLifecycle": {},
+      "passive": {
+        "id": "fear-wing",
+        "name": "惧翼",
+        "text": "己方回合开始时，获得一张「惧翼」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "fear-wing-awake",
+        "name": "觉醒·天逆每",
+        "text": "己方回合开始时或敌方式神气绝时，获得一张「惧翼」。",
+        "hooks": []
+      },
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "huimingdeng": {
+      "verifiedRules": true,
+      "wisdomLampRules": true,
+      "attack": 2,
+      "maxHp": 5,
+      "formLifecycle": {},
+      "passive": {
+        "id": "wisdom-lamp",
+        "name": "明灯",
+        "text": "己方回合开始时，若你上回合受过战斗伤害，则将慧明灯移入战斗区，并使其获得1战力。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "wisdom-lamp-awakened",
+        "name": "觉醒·慧明灯",
+        "text": "己方回合开始时，若你上回合受过战斗伤害，坚守：+2战力/+2护甲。",
+        "hooks": []
+      },
+      "sources": [
+        "wisdom-lamp-original-20261107",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "以本地完整原PNG基础牌文实现主要机制，指定录像当前缺失，未逐牌实机核验。",
+        "上回合按紧邻的对方回合记录实际牌手战伤；明识灯沿用兵俑护甲上限的伤害前截断。复杂转移/贯通/同时回合触发全序及多个坚守出击加成累积仍待原客户端核验。"
       ]
     }
   },
@@ -54300,6 +54911,3724 @@
         "按完整中文原PNG和基础牌文实现主要机制，指定录像未逐牌核验。烹饪食材随机权重、CN右向左与JP随机选2旧食材差异、多源额外使用与触发的完整全序待原客户端核验。",
         "普通食材/佳肴使用友方式神，中立法术不绑生成者；日文补充定义用于未有独立本地原图的食品。黑暗料理在用过佳肴条件计数而不计正常佳肴获得历史，特殊组合待中服实机核验。"
       ]
+    },
+    "c60901": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "疾速，穿刺，贯通",
+      "officialText": "疾速，穿刺，贯通",
+      "keywords": [
+        "swift-card",
+        "penetration",
+        "pierce"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "pursuit": false,
+        "penetration": true,
+        "pierce": true
+      },
+      "responseAction": "assault"
+    },
+    "c60902": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "食发鬼每有1战力就+1护甲。",
+      "officialText": "食发鬼每有1战力就+1护甲。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "pursuit": false,
+        "penetration": false,
+        "pierce": false
+      },
+      "responseAction": "assault"
+    },
+    "c60903": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场时使一个己方式神获得3战力。\n己方有战力的式神攻击敌方战斗区式神时获得贯通。",
+      "officialText": "进场时使一个己方式神获得3战力。\n己方有战力的式神攻击敌方战斗区式神时获得贯通。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "ally-unit",
+      "effect": "hair-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-realm",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "hair-fear",
+        "trigger": "native-continuous"
+      }
+    },
+    "c60904": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使一个敌方式神+2乏力并使食发鬼+2战力。\n觉醒：己方回合开始时，+2战力。本局游戏之后每个己方回合开始时此效果+1（气绝时有效）。",
+      "officialText": "使一个敌方式神+2乏力并使食发鬼+2战力。\n觉醒：己方回合开始时，+2战力。本局游戏之后每个己方回合开始时此效果+1（气绝时有效）。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "enemy-unit",
+      "effect": "hair-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "hair-awaken",
+          "target": "selected",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ]
+    },
+    "c60905": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "追猎\n使被攻击的式神+2乏力并使食发鬼+2战力。若本次战斗击杀式神，则战斗结束后食发鬼获得其消耗战力一半的战力。",
+      "officialText": "追猎\n使被攻击的式神+2乏力并使食发鬼+2战力。若本次战斗击杀式神，则战斗结束后食发鬼获得其消耗战力一半的战力。",
+      "keywords": [
+        "pursuit"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "enemy-unit",
+      "effect": "hair-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-combat",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "pursuit": true,
+        "penetration": false,
+        "pierce": false
+      },
+      "responseAction": "assault"
+    },
+    "c60906": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和己方回合开始时，对所有敌方式神造成1点伤害，每以此法造成1点伤害食发鬼就+1战力。",
+      "officialText": "进场和己方回合开始时，对所有敌方式神造成1点伤害，每以此法造成1点伤害食发鬼就+1战力。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-form",
+      "value": {
+        "attack": 5,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "hair-form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "hairFace": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方回合开始时，对所有敌方式神造成1点伤害，每以此法造成1点伤害食发鬼就+1战力。",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ]
+    },
+    "c60907": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发\n进场时使所有己方式神获得3战力。\n当敌方战斗区式神气绝时，重置你的出击次数。",
+      "officialText": "瞬发\n进场时使所有己方式神获得3战力。\n当敌方战斗区式神气绝时，重置你的出击次数。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-realm",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "hair-fearless",
+        "trigger": "native-continuous"
+      }
+    },
+    "c60908": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "气绝时可用，复活食发鬼并使其+2战力。\n敌方回合开始时，使食发鬼获得+3战力。",
+      "officialText": "气绝时可用，复活食发鬼并使其+2战力。\n敌方回合开始时，使食发鬼获得+3战力。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-form",
+      "value": {
+        "attack": 2,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "hair-form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "hairJoy": true
+      },
+      "formHooks": [],
+      "formAbility": "气绝时可用，复活食发鬼并使其+2战力。\n敌方回合开始时，使食发鬼获得+3战力。",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "allowKnockedSource": true
+    },
+    "c25601": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发。入夜1：占卜1，抽一张牌。增强：若你入夜值为0，额外生效一次。",
+      "officialText": "瞬发。入夜1：占卜1，抽一张牌。增强：若你入夜值为0，额外生效一次。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c25602": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，当敌方式神攻击时，运势6：本回合降低其1力量。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "每回合一次，当敌方式神攻击时，运势6：本回合降低其1力量。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "mfPalace": true
+      },
+      "formHooks": [],
+      "formAbility": "每回合一次，当敌方式神攻击时，运势6：本回合降低其1力量。你每有2点入夜值，运势所需点数-1。",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-form",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "mf-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25603": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "对敌方战斗区式神造成4点伤害，运势6：再对敌方牌手造成4点伤害。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "对敌方战斗区式神造成4点伤害，运势6：再对敌方牌手造成4点伤害。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c25604": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "对一个敌方式神造成5点伤害，运势6：再对敌方所有角色造成1点伤害。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "对一个敌方式神造成5点伤害，运势6：再对敌方所有角色造成1点伤害。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c25605": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，运势6：随机召唤一个「诡间缚偶」。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "进场和己方回合开始时，运势6：随机召唤一个「诡间缚偶」。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "mfDollForm": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方回合开始时，运势6：随机召唤一个「诡间缚偶」。你每有2点入夜值，运势所需点数-1。",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "mf-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25606": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，运势6：抽一张牌。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "进场和己方回合开始时，运势6：抽一张牌。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "mfFeatherForm": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方回合开始时，运势6：抽一张牌。你每有2点入夜值，运势所需点数-1。",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "mf-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25607": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "运势6：随机将两张紧那罗的其他卡牌置入你的手牌。你每有2点入夜值，运势所需点数-1。觉醒：当紧那罗运势时，随机对一个敌方角色造成3点伤害，然后入夜10：获得1点鬼火。",
+      "officialText": "运势6：随机将两张紧那罗的其他卡牌置入你的手牌。你每有2点入夜值，运势所需点数-1。觉醒：当紧那罗运势时，随机对一个敌方角色造成3点伤害，然后入夜10：获得1点鬼火。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c25608": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-character",
+      "text": "消灭一个力量值或生命值不大于你入夜值的角色。若目标为式神，则入夜10：使其气绝倒计时+2。",
+      "officialText": "消灭一个力量值或生命值不大于你入夜值的角色。若目标为式神，则入夜10：使其气绝倒计时+2。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c26301": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "攻击后为自己恢复3生命。",
+      "officialText": "攻击后为自己恢复3生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 0
+      },
+      "effect": "mf-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-combat",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26302": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，为所有己方角色恢复1生命，「神火铃焰」额外恢复1生命。",
+      "officialText": "进场和己方回合开始时，为所有己方角色恢复1生命，「神火铃焰」额外恢复1生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "trigger": "native",
+        "triggerEffect": "none",
+        "triggerValue": 0,
+        "nativeRealm": "mf-heal"
+      },
+      "nativeRealm": "mf-heal",
+      "effect": "mf-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26303": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "追猎。",
+      "officialText": "追猎。",
+      "keywords": [
+        "pursuit"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 0,
+        "pursuit": true
+      },
+      "effect": "mf-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "mf-combat",
+          "target": "selected",
+          "value": 1
+        }
+      ]
+    },
+    "c26304": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "进场时对一个敌方式神和铃彦姬各造成4点伤害。己方回合「神火铃焰」受到非战斗伤害时，改为恢复等量生命。",
+      "officialText": "进场时对一个敌方式神和铃彦姬各造成4点伤害。己方回合「神火铃焰」受到非战斗伤害时，改为恢复等量生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "trigger": "native",
+        "triggerEffect": "none",
+        "triggerValue": 0,
+        "nativeRealm": "mf-flame"
+      },
+      "nativeRealm": "mf-flame",
+      "effect": "mf-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-realm",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c26305": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "使铃彦姬永久获得2力量，并额外使用一张「觉醒·神火铃焰」。觉醒：当铃彦姬气绝时，切换为1生命的「神火铃焰」并移回准备区。",
+      "officialText": "使铃彦姬永久获得2力量，并额外使用一张「觉醒·神火铃焰」。觉醒：当铃彦姬气绝时，切换为1生命的「神火铃焰」并移回准备区。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26306": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "本次战斗受到的战斗伤害改为为自己和你恢复等量生命。响应：当你被敌方攻击时，若「神火铃焰」在场，自动使用并将攻击目标改为「神火铃焰」。",
+      "officialText": "本次战斗受到的战斗伤害改为为自己和你恢复等量生命。响应：当你被敌方攻击时，若「神火铃焰」在场，自动使用并将攻击目标改为「神火铃焰」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 0
+      },
+      "autoResponse": "avatar-attacked",
+      "responseModifiesCombat": true,
+      "effect": "mf-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-combat",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26307": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-character",
+      "text": "瞬发，弹回。恢复一个角色5生命。",
+      "officialText": "瞬发，弹回。恢复一个角色5生命。",
+      "keywords": [
+        "instant",
+        "bounce"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c26308": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "己方回合「神火铃焰」获得3力量和免疫战斗伤害。进场或己方回合开始时，使「神火铃焰」发起一次攻击，然后为其恢复全部生命。",
+      "officialText": "己方回合「神火铃焰」获得3力量和免疫战斗伤害。进场或己方回合开始时，使「神火铃焰」发起一次攻击，然后为其恢复全部生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "trigger": "native",
+        "triggerEffect": "none",
+        "triggerValue": 0,
+        "nativeRealm": "mf-eternal"
+      },
+      "nativeRealm": "mf-eternal",
+      "effect": "mf-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "mf-fire-awakening": {
+      "id": "mf-fire-awakening",
+      "unitId": "lingyanji",
+      "name": "觉醒·神火铃焰",
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "pack": "wave6",
+      "keywords": [],
+      "text": "觉醒：己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成等同铃彦姬等级的伤害。",
+      "officialText": "觉醒：己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成等同铃彦姬等级的伤害。",
+      "target": "auto",
+      "effect": "mf-fire-awaken",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-fire-awaken",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c19401": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "穿刺\n爆能2：获得瞬发。",
+      "officialText": "穿刺\n爆能2：获得瞬发。",
+      "keywords": [
+        "penetration"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "combatOption": {
+        "shield": 1,
+        "penetration": true
+      },
+      "responseAction": "assault",
+      "movementBurstOptions": [
+        2
+      ],
+      "effect": "sg-ghost-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "sg-ghost-combat",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c19402": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "仅鬼使白可用。\n切换为鬼使黑并使其发起攻击，本次战斗免疫伤害。",
+      "officialText": "仅鬼使白可用。\n切换为鬼使黑并使其发起攻击，本次战斗免疫伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-brothers",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-brothers",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c19403": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "爆能2：获得追猎。",
+      "officialText": "爆能2：获得追猎。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "combatOption": {
+        "shield": 2
+      },
+      "responseAction": "assault",
+      "movementBurstOptions": [
+        2
+      ],
+      "effect": "sg-ghost-combat",
+      "value": 2,
+      "effects": [
+        {
+          "action": "sg-ghost-combat",
+          "target": "source",
+          "value": 2
+        }
+      ]
+    },
+    "c19404": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：充能，迅捷\n当鬼使黑气绝时，消耗2能量，切换为鬼使白。\n使用后本局游戏内所有同名牌改为「觉醒·鬼使白」。",
+      "officialText": "觉醒：充能，迅捷\n当鬼使黑气绝时，消耗2能量，切换为鬼使白。\n使用后本局游戏内所有同名牌改为「觉醒·鬼使白」。",
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-ghost-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "sg-ghost-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c19405": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "切换为鬼使白使其倒计时变为1，并获得+3力量和+1生命，然后发起一次攻击。\n响应：当鬼使黑被攻击时，自动使用。",
+      "officialText": "切换为鬼使白使其倒计时变为1，并获得+3力量和+1生命，然后发起一次攻击。\n响应：当鬼使黑被攻击时，自动使用。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [
+        "unit-attacked"
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "autoResponse": "source-attacked",
+      "effect": "sg-impermanence",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-impermanence",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c19406": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "本次战斗每使用过一次此牌，此牌便+1力量与+1护甲。\n增强：攻击后本局游戏每切换回鬼使黑一次，便复制使用一次此牌。",
+      "officialText": "本次战斗每使用过一次此牌，此牌便+1力量与+1护甲。\n增强：攻击后本局游戏每切换回鬼使黑一次，便复制使用一次此牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "combatOption": {
+        "shield": 0
+      },
+      "responseAction": "assault",
+      "effect": "sg-reap",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-reap",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c19408": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发、必杀、先攻\n回合结束时切换为鬼使白，且每有1能量鬼使白获得1护甲。",
+      "officialText": "瞬发、必杀、先攻\n回合结束时切换为鬼使白，且每有1能量鬼使白获得1护甲。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgVerdict": true,
+        "combatKeywords": [
+          "lethal",
+          "first-strike"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "瞬发、必杀、先攻\n回合结束时切换为鬼使白，且每有1能量鬼使白获得1护甲。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 6,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c19409": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "造成伤害时获得1能量。",
+      "officialText": "造成伤害时获得1能量。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgLivingDead": true
+      },
+      "formHooks": [],
+      "formAbility": "造成伤害时获得1能量。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c22001": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "sg-other-ally",
+      "text": "使一个己方其他式神获得2力量，然后使其发动攻击，若其不是「蛇魔」，攻击后将其消灭。",
+      "officialText": "使一个己方其他式神获得2力量，然后使其发动攻击，若其不是「蛇魔」，攻击后将其消灭。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-impure",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-impure",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c22002": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "你的「蛇魔」获得1力量。\n进场和己方回合开始时，你的「蛇魔」获得昂扬。",
+      "officialText": "你的「蛇魔」获得1力量。\n进场和己方回合开始时，你的「蛇魔」获得昂扬。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgInspireSnakes": true
+      },
+      "formHooks": [],
+      "formAbility": "你的「蛇魔」获得1力量。\n进场和己方回合开始时，你的「蛇魔」获得昂扬。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c22003": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "sg-other-ally",
+      "text": "瞬发\n消灭一个己方其他非召唤物式神，重置出击次数，抽一张牌。",
+      "officialText": "瞬发\n消灭一个己方其他非召唤物式神，重置出击次数，抽一张牌。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-sacrifice",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-sacrifice",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c22004": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当八岐大蛇受到致死伤害时，改为随机消灭一个己方「蛇魔」。",
+      "officialText": "当八岐大蛇受到致死伤害时，改为随机消灭一个己方「蛇魔」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgShadow": true
+      },
+      "formHooks": [],
+      "formAbility": "当八岐大蛇受到致死伤害时，改为随机消灭一个己方「蛇魔」。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c22005": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "使每个己方「蛇魔」发动攻击并获得免疫战斗伤害。",
+      "officialText": "使每个己方「蛇魔」发动攻击并获得免疫战斗伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-all-snakes",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-all-snakes",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c22006": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "将一个敌方式神变为「蛇魔」。",
+      "officialText": "将一个敌方式神变为「蛇魔」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-transform-enemy",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-transform-enemy",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c22007": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每个回合开始时，八岐大蛇和每个己方「蛇魔」随机对一个敌方角色造成3点伤害。",
+      "officialText": "每个回合开始时，八岐大蛇和每个己方「蛇魔」随机对一个敌方角色造成3点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgWandering": true
+      },
+      "formHooks": [],
+      "formAbility": "每个回合开始时，八岐大蛇和每个己方「蛇魔」随机对一个敌方角色造成3点伤害。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 4,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c22008": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：混沌化身\n当你的其他非「蛇魔」基础式神气绝时， 将其变为「蛇魔」且视为八岐大蛇的复制。",
+      "officialText": "觉醒：混沌化身\n当你的其他非「蛇魔」基础式神气绝时， 将其变为「蛇魔」且视为八岐大蛇的复制。",
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-serpent-awaken",
+      "value": {
+        "attack": 5,
+        "hp": 5
+      },
+      "effects": [
+        {
+          "action": "sg-serpent-awaken",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 5
+          }
+        }
+      ]
+    },
+    "sg-white-awaken": {
+      "id": "sg-white-awaken",
+      "name": "觉醒·鬼使白",
+      "unitId": "guishiheibai",
+      "pack": "wave4",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "starterCopies": 0,
+      "token": true,
+      "target": "auto",
+      "text": "瞬发。觉醒：不屈，倒计时1：切换为鬼使黑。每回合一次，当鬼使白受到伤害时，自动使用「索魂」。",
+      "officialText": "瞬发。觉醒：不屈，倒计时1：切换为鬼使黑。每回合一次，当鬼使白受到伤害时，自动使用「索魂」。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sg-white-awaken",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "action": "sg-white-awaken",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ],
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "sg-white-soul": {
+      "id": "sg-white-soul",
+      "name": "索魂",
+      "unitId": "guishiheibai",
+      "pack": "wave4",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "starterCopies": 0,
+      "token": true,
+      "target": "auto",
+      "text": "投射：造成等同于鬼使白此次受到伤害的伤害。",
+      "officialText": "投射：造成等同于鬼使白此次受到伤害的伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sg-white-soul",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-white-soul",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "c60301": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "使一个敌方式神获得「当他出击或使用牌时，敌方牌手获得一张「生命精华」。」",
+      "officialText": "使一个敌方式神获得「当他出击或使用牌时，敌方牌手获得一张「生命精华」。」",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60302": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，当你或粉婆婆受到过量治疗时，随机对一名敌方式神造成2点伤害。",
+      "officialText": "每回合一次，当你或粉婆婆受到过量治疗时，随机对一名敌方式神造成2点伤害。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efPaint": true
+      },
+      "formHooks": [],
+      "formAbility": "每回合一次，当你或粉婆婆受到过量治疗时，随机对一名敌方式神造成2点伤害。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60303": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-knocked",
+      "text": "气绝时可用\n复活一个己方式神并获得两张「生命精华」。",
+      "officialText": "气绝时可用\n复活一个己方式神并获得两张「生命精华」。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "allowKnockedSource": true
+    },
+    "c60304": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时获得一张「生命精华」。\n每回合一次，当你或粉婆婆受到过量治疗时，召唤一个「粉盒」。",
+      "officialText": "进场和己方回合开始时获得一张「生命精华」。\n每回合一次，当你或粉婆婆受到过量治疗时，召唤一个「粉盒」。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efPowderBox": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方回合开始时获得一张「生命精华」。\n每回合一次，当你或粉婆婆受到过量治疗时，召唤一个「粉盒」。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60305": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "为所有己方式神恢复2点生命，获得等同于过量治疗量的「生命精华」。",
+      "officialText": "为所有己方式神恢复2点生命，获得等同于过量治疗量的「生命精华」。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60306": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发\n每回合一次，当己方式神受到过量治疗时，获得1点鬼火。",
+      "officialText": "瞬发\n每回合一次，当己方式神受到过量治疗时，获得1点鬼火。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "ef-grudge",
+        "trigger": "native-continuous"
+      }
+    },
+    "c60307": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-living-unit",
+      "text": "对一个式神造成6点伤害，获得六张「生命精华」。\n\n戏法：对一个式神造成2点伤害，获得两张「生命精华」。",
+      "officialText": "对一个式神造成6点伤害，获得六张「生命精华」。\n\n戏法：对一个式神造成2点伤害，获得两张「生命精华」。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "efTrick": true
+    },
+    "c60308": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当你恢复5点或以上#[生命]时，自动从手牌或牌库使用一张此牌。\n觉醒：每回合一次，当你受到过量治疗时，投射：造成等量的伤害。每回合一次，当粉婆婆受到过量治疗时，发起一次攻击，本次攻击免疫战斗伤害。",
+      "officialText": "当你恢复5点或以上#[生命]时，自动从手牌或牌库使用一张此牌。\n觉醒：每回合一次，当你受到过量治疗时，投射：造成等量的伤害。每回合一次，当粉婆婆受到过量治疗时，发起一次攻击，本次攻击免疫战斗伤害。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60601": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，当己方牌手受到伤害时，投射：造成1点伤害。",
+      "officialText": "每回合一次，当己方牌手受到伤害时，投射：造成1点伤害。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efTorrent": true
+      },
+      "formHooks": [],
+      "formAbility": "每回合一次，当己方牌手受到伤害时，投射：造成1点伤害。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60602": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-knocked",
+      "text": "瞬发\n复活一个己方式神，对己方牌手造成等同其#[生命]的伤害。",
+      "officialText": "瞬发\n复活一个己方式神，对己方牌手造成等同其#[生命]的伤害。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60603": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当椒图受到伤害时，将其中1点伤害转移给己方牌手。",
+      "officialText": "当椒图受到伤害时，将其中1点伤害转移给己方牌手。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 5,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efSpring": true
+      },
+      "formHooks": [],
+      "formAbility": "当椒图受到伤害时，将其中1点伤害转移给己方牌手。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60604": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时将椒图移入战斗区并获得三张「生命精华」。\n\n每回合一次，当己方牌手受到伤害时，所有己方式神获得+1#[力量]或气绝倒计时-1。",
+      "officialText": "进场时将椒图移入战斗区并获得三张「生命精华」。\n\n每回合一次，当己方牌手受到伤害时，所有己方式神获得+1#[力量]或气绝倒计时-1。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 4,
+        "nativeRealm": "ef-moist",
+        "trigger": "native-continuous"
+      }
+    },
+    "c60605": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：每回合一次，当己方牌手受到伤害时，获得伤害量一半数量的「生命精华」。当你被恢复5#[生命]或以上时，抽一张牌。",
+      "officialText": "觉醒：每回合一次，当己方牌手受到伤害时，获得伤害量一半数量的「生命精华」。当你被恢复5#[生命]或以上时，抽一张牌。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60606": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-living-unit",
+      "text": "对一个式神造成等同于你本局游戏受到伤害次数的伤害。@6060602 \n\n戏法：对一个式神造成3点伤害。",
+      "officialText": "对一个式神造成等同于你本局游戏受到伤害次数的伤害。@6060602 \n\n戏法：对一个式神造成3点伤害。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "efTrick": true
+    },
+    "c60607": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时将椒图移入战斗区。\n每回合一次，当椒图受到伤害时，改为随机将伤害分配给己方牌手和敌方式神。",
+      "officialText": "进场时将椒图移入战斗区。\n每回合一次，当椒图受到伤害时，改为随机将伤害分配给己方牌手和敌方式神。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 5,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efPearlSplit": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时将椒图移入战斗区。\n每回合一次，当椒图受到伤害时，改为随机将伤害分配给己方牌手和敌方式神。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60608": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-character",
+      "text": "本次战斗当椒图受到伤害时，将所有伤害转移给一个敌方角色。\n\n戏法：免疫战斗伤害。",
+      "officialText": "本次战斗当椒图受到伤害时，将所有伤害转移给一个敌方角色。\n\n戏法：免疫战斗伤害。",
+      "effect": "ef-card",
+      "value": 1,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 0
+      },
+      "efTrick": true
+    },
+    "c63801": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-unit",
+      "text": "使一个己方式神发起一次攻击。若该式神本回合曾被其他牌选择为目标，本次战斗使其免疫战斗伤害。",
+      "officialText": "使一个己方式神发起一次攻击。若该式神本回合曾被其他牌选择为目标，本次战斗使其免疫战斗伤害。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c63802": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时坚守。\n当饭笥攻击时，随机获得一张「食材」；当饭笥被攻击时，获得一张「生命精华」。",
+      "officialText": "进场时坚守。\n当饭笥攻击时，随机获得一张「食材」；当饭笥被攻击时，获得一张「生命精华」。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efChef": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时坚守。\n当饭笥攻击时，随机获得一张「食材」；当饭笥被攻击时，获得一张「生命精华」。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c63803": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "穿刺\n增强：本局游戏当己方使用的手牌仅以饭笥为目标时，此牌+1#[力量]（最大为5）。",
+      "officialText": "穿刺\n增强：本局游戏当己方使用的手牌仅以饭笥为目标时，此牌+1#[力量]（最大为5）。",
+      "effect": "ef-card",
+      "value": 1,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "penetration"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 1
+      }
+    },
+    "c63804": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "贯通。增强：本回合若饭笥曾被其他牌选择为目标，此牌获得追猎。",
+      "officialText": "贯通。增强：本回合若饭笥曾被其他牌选择为目标，此牌获得追猎。",
+      "effect": "ef-card",
+      "value": 1,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "pierce"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 1
+      }
+    },
+    "c63805": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，当己方使用的非觉醒法术牌仅以己方单一式神为目标时，复制该牌并对随机另一个己方式神再使用一次。",
+      "officialText": "每回合一次，当己方使用的非觉醒法术牌仅以己方单一式神为目标时，复制该牌并对随机另一个己方式神再使用一次。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 4,
+        "nativeRealm": "ef-divine-meal",
+        "trigger": "native-continuous"
+      }
+    },
+    "c63806": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时随机获得一张「食材」和一张「生命精华」。\n当己方使用的手牌仅以饭笥为目标时，饭笥本回合获得迅捷。",
+      "officialText": "进场时随机获得一张「食材」和一张「生命精华」。\n当己方使用的手牌仅以饭笥为目标时，饭笥本回合获得迅捷。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 3,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efDivine": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时随机获得一张「食材」和一张「生命精华」。\n当己方使用的手牌仅以饭笥为目标时，饭笥本回合获得迅捷。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c63807": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-unit",
+      "text": "选择一个本回合曾被其他牌选择过的己方式神，本次战斗后使其发起一次攻击。",
+      "officialText": "选择一个本回合曾被其他牌选择过的己方式神，本次战斗后使其发起一次攻击。",
+      "effect": "ef-card",
+      "value": 1,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 1
+      }
+    },
+    "c63808": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：当己方使用的手牌仅以己方单一式神为目标时，该式神+2力量/+2生命。每回合一次，以饭笥为目标使用手牌后，获得1鬼火。戏法：随机获得一张「食材」和一张「生命精华」。",
+      "officialText": "觉醒：当己方使用的手牌仅以己方单一式神为目标时，该式神+2力量/+2生命。每回合一次，以饭笥为目标使用手牌后，获得1鬼火。戏法：随机获得一张「食材」和一张「生命精华」。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "efSoleSource": true,
+      "efTrick": true
+    },
+    "shengmingjinghua": {
+      "verifiedRules": true,
+      "neutralEssence": true,
+      "unitId": "",
+      "type": "spell",
+      "typeLabel": "中立法术牌",
+      "level": 0,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "target": "ef-essence-target",
+      "text": "瞬发。堆叠（最大10）。为一个角色恢复等同于堆叠层数的生命。",
+      "officialText": "瞬发。堆叠（最大10）。为一个角色恢复等同于堆叠层数的生命。",
+      "keywords": [
+        "instant"
+      ],
+      "effect": "ef-essence",
+      "effects": [
+        {
+          "action": "ef-essence",
+          "target": "selected",
+          "value": 1
+        }
+      ],
+      "token": true,
+      "sources": [
+        "essence-feast-derived-20261104"
+      ],
+      "verificationPending": [
+        "生命精华据同期2023卡包机制文本补证，中文独立派生完整原PNG暂缺，复杂复制/堆叠原客户端待核。"
+      ]
+    },
+    "c61101": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "消灭式神时，随机使一个未结附「恐惧」的敌方式神结附「恐惧」。\n增强：天逆每有战力时，此牌获得先攻。",
+      "officialText": "消灭式神时，随机使一个未结附「恐惧」的敌方式神结附「恐惧」。\n增强：天逆每有战力时，此牌获得先攻。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "fw-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "immuneCombat": false,
+        "fearDouble": false
+      },
+      "responseAction": "assault"
+    },
+    "c61102": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使一个未结附「恐惧」的敌方式神结附「恐惧」，然后使天逆每获得+1战力并获得两张「惧翼」。",
+      "officialText": "使一个未结附「恐惧」的敌方式神结附「恐惧」，然后使天逆每获得+1战力并获得两张「惧翼」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "fw-unfeared",
+      "effect": "fw-tremble",
+      "value": 0,
+      "effects": [
+        {
+          "action": "fw-tremble",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "c61103": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使一个未结附「恐惧」的敌方式神结附「恐惧」。\n觉醒：己方回合开始时或敌方式神气绝时，获得一张「惧翼」。",
+      "officialText": "使一个未结附「恐惧」的敌方式神结附「恐惧」。\n觉醒：己方回合开始时或敌方式神气绝时，获得一张「惧翼」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "fw-unfeared",
+      "effect": "fw-awaken",
+      "value": {
+        "attack": 0,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "fw-awaken",
+          "target": "selected",
+          "value": {
+            "attack": 0,
+            "hp": 1
+          }
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "c61104": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和己方回合开始时，使随机一个未结附「恐惧」的敌方式神结附「恐惧」并获得一张「惧翼」。\n「惧翼」气绝时可用并可以对己方其他式神使用。",
+      "officialText": "进场和己方回合开始时，使随机一个未结附「恐惧」的敌方式神结附「恐惧」并获得一张「惧翼」。\n「惧翼」气绝时可用并可以对己方其他式神使用。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-night",
+      "value": 0,
+      "effects": [
+        {
+          "action": "fw-night",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "fear-wing-night",
+        "trigger": "native-continuous"
+      }
+    },
+    "c61105": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场时使一个未结附「恐惧」的敌方式神结附「恐惧」。\n每回合一次，结附「恐惧」的敌方式神气绝时，将一张「惧影随」置入你的手牌。",
+      "officialText": "进场时使一个未结附「恐惧」的敌方式神结附「恐惧」。\n每回合一次，结附「恐惧」的敌方式神气绝时，将一张「惧影随」置入你的手牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "fw-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "fearWingPerson": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时使一个未结附「恐惧」的敌方式神结附「恐惧」。\n每回合一次，结附「恐惧」的敌方式神气绝时，将一张「惧影随」置入你的手牌。",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "c61106": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "攻击式神时战力翻倍。",
+      "officialText": "攻击式神时战力翻倍。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "fw-combat",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ],
+      "combatOption": {
+        "shield": 1,
+        "immuneCombat": false,
+        "fearDouble": true
+      },
+      "responseAction": "assault"
+    },
+    "c61107": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使所有敌方式神结附「恐惧」并获得两张「惧翼」。",
+      "officialText": "使所有敌方式神结附「恐惧」并获得两张「惧翼」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-all",
+      "value": 0,
+      "effects": [
+        {
+          "action": "fw-all",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "c61108": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "疾速，免疫战斗伤害\n从手牌对天逆每使用两张「惧翼」。",
+      "officialText": "疾速，免疫战斗伤害\n从手牌对天逆每使用两张「惧翼」。",
+      "keywords": [
+        "swift-card"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "fw-combat",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "immuneCombat": true,
+        "fearDouble": false
+      },
+      "responseAction": "assault"
+    },
+    "juyi": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "unitId": "tiannimei",
+      "name": "惧翼",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "starterCopies": 0,
+      "token": true,
+      "keywords": [
+        "instant",
+        "stack"
+      ],
+      "text": "瞬发，堆叠（最大2）。使天逆每获得等同于堆叠层数的战力。",
+      "officialText": "瞬发，堆叠（最大2）。使天逆每获得等同于堆叠层数的战力。",
+      "target": "fw-wing",
+      "timing": "main",
+      "responseTo": [],
+      "effect": "fw-wing",
+      "value": 1,
+      "effects": [
+        {
+          "action": "fw-wing",
+          "target": "selected",
+          "value": 1
+        }
+      ],
+      "stackMax": 2,
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "fear-wing-charm": {
+      "id": "fear-wing-charm",
+      "unitId": "tiannimei",
+      "name": "恐惧",
+      "type": "spell",
+      "typeLabel": "灵咒",
+      "level": 1,
+      "cost": 1,
+      "token": true,
+      "copies": 0,
+      "deckLimit": 0,
+      "starterCopies": 0,
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "text": "当天逆每获得战力时，对所结附的式神造成等量的伤害。当天逆每气绝时，移除此灵咒。（不能叠加）",
+      "officialText": "当天逆每获得战力时，对所结附的式神造成等量的伤害。当天逆每气绝时，移除此灵咒。（不能叠加）",
+      "effects": [
+        {
+          "action": "fw-attach-charm",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "effect": "fw-attach-charm",
+      "value": 0,
+      "keywords": [],
+      "target": "fw-unfeared",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "c60801": {
+      "verifiedRules": true,
+      "wisdomLampRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "疾速\n消灭一个上回合对你造成过战斗伤害的式神。",
+      "officialText": "疾速\n消灭一个上回合对你造成过战斗伤害的式神。",
+      "keywords": [
+        "swift-card"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "unit",
+      "effect": "wl-destroy",
+      "value": 0,
+      "effects": [
+        {
+          "action": "wl-destroy",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "wisdom-lamp-original-20261107",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "以本地完整原PNG基础牌文实现主要机制，指定录像当前缺失，未逐牌实机核验。",
+        "上回合按紧邻的对方回合记录实际牌手战伤；明识灯沿用兵俑护甲上限的伤害前截断。复杂转移/贯通/同时回合触发全序及多个坚守出击加成累积仍待原客户端核验。"
+      ]
+    },
+    "c60802": {
+      "verifiedRules": true,
+      "wisdomLampRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "坚守：+2战力，然后使一个敌方式神获得激怒。",
+      "officialText": "坚守：+2战力，然后使一个敌方式神获得激怒。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "enemy-unit",
+      "effect": "wl-enrage",
+      "value": 0,
+      "effects": [
+        {
+          "action": "wl-enrage",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "wisdom-lamp-original-20261107",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "以本地完整原PNG基础牌文实现主要机制，指定录像当前缺失，未逐牌实机核验。",
+        "上回合按紧邻的对方回合记录实际牌手战伤；明识灯沿用兵俑护甲上限的伤害前截断。复杂转移/贯通/同时回合触发全序及多个坚守出击加成累积仍待原客户端核验。"
+      ]
+    },
+    "c60803": {
+      "verifiedRules": true,
+      "wisdomLampRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "追猎\n增强：若慧明灯在战斗区，此牌获得「战斗结束后恢复你和慧明灯3生命」。",
+      "officialText": "追猎\n增强：若慧明灯在战斗区，此牌获得「战斗结束后恢复你和慧明灯3生命」。",
+      "keywords": [
+        "pursuit"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "enemy-unit",
+      "effect": "assault",
+      "value": 1,
+      "effects": [
+        {
+          "action": "assault",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "wisdom-lamp-original-20261107",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "以本地完整原PNG基础牌文实现主要机制，指定录像当前缺失，未逐牌实机核验。",
+        "上回合按紧邻的对方回合记录实际牌手战伤；明识灯沿用兵俑护甲上限的伤害前截断。复杂转移/贯通/同时回合触发全序及多个坚守出击加成累积仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "pursuit": true,
+        "shield": 1,
+        "wlHeal": false
+      },
+      "responseAction": "assault"
+    },
+    "c60804": {
+      "verifiedRules": true,
+      "wisdomLampRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "觉醒：己方回合开始时，若你上回合受过战斗伤害，坚守：+2战力/+2护甲。",
+      "officialText": "觉醒：己方回合开始时，若你上回合受过战斗伤害，坚守：+2战力/+2护甲。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "wl-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "wl-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "wisdom-lamp-original-20261107",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "以本地完整原PNG基础牌文实现主要机制，指定录像当前缺失，未逐牌实机核验。",
+        "上回合按紧邻的对方回合记录实际牌手战伤；明识灯沿用兵俑护甲上限的伤害前截断。复杂转移/贯通/同时回合触发全序及多个坚守出击加成累积仍待原客户端核验。"
+      ]
+    },
+    "c60805": {
+      "verifiedRules": true,
+      "wisdomLampRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场时坚守：+2战力。\n己方回合结束时，投射：造成等同于慧明灯当前战力的伤害，为你恢复等量的生命。",
+      "officialText": "进场时坚守：+2战力。\n己方回合结束时，投射：造成等同于慧明灯当前战力的伤害，为你恢复等量的生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "wl-form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "wl-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "wlMindful": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时坚守：+2战力。\n己方回合结束时，投射：造成等同于慧明灯当前战力的伤害，为你恢复等量的生命。",
+      "sources": [
+        "wisdom-lamp-original-20261107",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "以本地完整原PNG基础牌文实现主要机制，指定录像当前缺失，未逐牌实机核验。",
+        "上回合按紧邻的对方回合记录实际牌手战伤；明识灯沿用兵俑护甲上限的伤害前截断。复杂转移/贯通/同时回合触发全序及多个坚守出击加成累积仍待原客户端核验。"
+      ]
+    },
+    "c60806": {
+      "verifiedRules": true,
+      "wisdomLampRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "坚守：+1战力/+1护甲。\n复活一个己方式神。",
+      "officialText": "坚守：+1战力/+1护甲。\n复活一个己方式神。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "knocked-ally",
+      "effect": "wl-revive",
+      "value": 0,
+      "effects": [
+        {
+          "action": "wl-revive",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "wisdom-lamp-original-20261107",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "以本地完整原PNG基础牌文实现主要机制，指定录像当前缺失，未逐牌实机核验。",
+        "上回合按紧邻的对方回合记录实际牌手战伤；明识灯沿用兵俑护甲上限的伤害前截断。复杂转移/贯通/同时回合触发全序及多个坚守出击加成累积仍待原客户端核验。"
+      ]
+    },
+    "c60807": {
+      "verifiedRules": true,
+      "wisdomLampRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "慧明灯在坚守加成时出击额外获得+2战力和+2护甲。",
+      "officialText": "慧明灯在坚守加成时出击额外获得+2战力和+2护甲。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "wl-form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "wl-form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "wlKarma": true
+      },
+      "formHooks": [],
+      "formAbility": "慧明灯在坚守加成时出击额外获得+2战力和+2护甲。",
+      "sources": [
+        "wisdom-lamp-original-20261107",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "以本地完整原PNG基础牌文实现主要机制，指定录像当前缺失，未逐牌实机核验。",
+        "上回合按紧邻的对方回合记录实际牌手战伤；明识灯沿用兵俑护甲上限的伤害前截断。复杂转移/贯通/同时回合触发全序及多个坚守出击加成累积仍待原客户端核验。"
+      ]
+    },
+    "c60808": {
+      "verifiedRules": true,
+      "wisdomLampRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和己方回合开始时，坚守：+2战力/+2护甲。\n己方式神有护甲时，免疫直接消灭效果且至多只会受到等于其护甲的伤害。",
+      "officialText": "进场和己方回合开始时，坚守：+2战力/+2护甲。\n己方式神有护甲时，免疫直接消灭效果且至多只会受到等于其护甲的伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "wl-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "wl-realm",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "wisdom-lamp-original-20261107",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "以本地完整原PNG基础牌文实现主要机制，指定录像当前缺失，未逐牌实机核验。",
+        "上回合按紧邻的对方回合记录实际牌手战伤；明识灯沿用兵俑护甲上限的伤害前截断。复杂转移/贯通/同时回合触发全序及多个坚守出击加成累积仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 6,
+        "nativeRealm": "wisdom-lamp",
+        "trigger": "owner-turn-start"
+      }
     }
   }
 }

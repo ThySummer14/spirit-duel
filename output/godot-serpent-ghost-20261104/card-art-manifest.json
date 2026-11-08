@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/07_吉运缘结/194_鬼使黑·鬼使白/19401_冥界之镰_战斗.png",
+    "target": "godot/assets/official/cards/c19401.png",
+    "sha256": "adfdb64817f6c7c337622537c417e324786881d7b2d361a3b1664e83fbd58ef3"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/07_吉运缘结/194_鬼使黑·鬼使白/19402_兄弟之忆_法术.png",
+    "target": "godot/assets/official/cards/c19402.png",
+    "sha256": "555bafa607e6fd048936977901e973e27b402346368f97a3cc3eadefd4e6acec"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/07_吉运缘结/194_鬼使黑·鬼使白/19403_惩戒_战斗.png",
+    "target": "godot/assets/official/cards/c19403.png",
+    "sha256": "1542884bb432c0e6ea51a2b573ab7b4ed117a93afc25dce32ee836d2f25c7f6f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/07_吉运缘结/194_鬼使黑·鬼使白/19404_觉醒·鬼使黑·鬼使白_法术.png",
+    "target": "godot/assets/official/cards/c19404.png",
+    "sha256": "43b53b4e5664e70f22bafdf5e315321a258cbbf2c86a071975940cbab1102c5f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/07_吉运缘结/194_鬼使黑·鬼使白/19405_无常鬼使_法术.png",
+    "target": "godot/assets/official/cards/c19405.png",
+    "sha256": "80ead3d7493f7220b785fb2cf1e61a75ed4cd7c4523817b3ce2f1f1f205b7e7e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/07_吉运缘结/194_鬼使黑·鬼使白/19406_索命_战斗.png",
+    "target": "godot/assets/official/cards/c19406.png",
+    "sha256": "99bdaf91332b850c254668437989b021f4faacf195ad65fcfe9d2447783d4a91"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/07_吉运缘结/194_鬼使黑·鬼使白/19408_夺命宣判_形态.png",
+    "target": "godot/assets/official/cards/c19408.png",
+    "sha256": "12a8a1a0a303b3465271da2f372e2e36c79977bb88499e345357ec23e7f64afa"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/07_吉运缘结/194_鬼使黑·鬼使白/19409_活死人_形态.png",
+    "target": "godot/assets/official/cards/c19409.png",
+    "sha256": "149e9163d27a47eb64d75fda6188b6b1022e56f1d1089507803c3d2f4b193b9e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/10_善恶无明/220_八岐大蛇/22001_不洁之力_法术.png",
+    "target": "godot/assets/official/cards/c22001.png",
+    "sha256": "8ffe2adc188ead8273ae35b1eed71f80c205a9a65987a1936c028c4a62fe6250"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/10_善恶无明/220_八岐大蛇/22002_神念之影_形态.png",
+    "target": "godot/assets/official/cards/c22002.png",
+    "sha256": "be398ab7fc2e5c260a66df45daf00241f13e48cd8a88a4aa69060d83a27882fa"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/10_善恶无明/220_八岐大蛇/22003_献祭_法术.png",
+    "target": "godot/assets/official/cards/c22003.png",
+    "sha256": "94e1c95693e4e375b20d462a2978baefb44d51114c0306c55c1475f2e3386ec8"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/10_善恶无明/220_八岐大蛇/22004_八岐之影_形态.png",
+    "target": "godot/assets/official/cards/c22004.png",
+    "sha256": "3e82afad88b162fc38c2bb96f30e85da02273249f08609064a04f8f30ab37023"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/10_善恶无明/220_八岐大蛇/22005_神愤之炎_法术.png",
+    "target": "godot/assets/official/cards/c22005.png",
+    "sha256": "7ae92e652cba390210f80450d811921ac9a0effa5e6a552dd97d4ea1a0babfe5"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/10_善恶无明/220_八岐大蛇/22006_善恶无则_法术.png",
+    "target": "godot/assets/official/cards/c22006.png",
+    "sha256": "4969819333d66adbf37c36f616ee670b22157ab6f321cc60b4b32c34707c70ad"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/10_善恶无明/220_八岐大蛇/22007_狭间蛇神_形态.png",
+    "target": "godot/assets/official/cards/c22007.png",
+    "sha256": "c13270455402b1f1a81b00d5d1787187c6908dbac38aca631a8dbdcf5e20f95e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/10_善恶无明/220_八岐大蛇/22008_觉醒·八岐大蛇_法术.png",
+    "target": "godot/assets/official/cards/c22008.png",
+    "sha256": "153062e97d8e616deb2ef028f5ecc1d603e0c2a789388dc6757d7398b019a6fb"
+  }
+]

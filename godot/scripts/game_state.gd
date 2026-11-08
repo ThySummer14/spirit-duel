@@ -220,6 +220,7 @@ func start_divination(p_idx: int, card: Dictionary, frame: Dictionary, is_divina
 
 
 func resolve_divination_choice(p_idx: int, instance_id: String) -> bool:
+	if str(pending_choice.get("type","")).begins_with("fw-"):return VerifiedRules.FearWing.resolve_choice(self,p_idx,instance_id)
 	if pending_choice.get("type","") in ["sc-ingredient","sc-cat"]:return VerifiedRules.SugarCat.resolve_choice(self,p_idx,instance_id)
 	if pending_choice.get("type")=="rw-items":return VerifiedRules.RednightWalnut.resolve_choice(self,p_idx,instance_id)
 	if pending_choice.get("type")=="ape-mimic":return VerifiedRules.ApeSleeve.resolve_choice(self,p_idx,instance_id)
@@ -468,7 +469,10 @@ func _resolve_inline_frames(depth: int) -> void:
 		VerifiedRules.Doll.remove_departed(self)
 		VerifiedRules.Jorogumo.remove_departed(self)
 		VerifiedRules.Whale.remove_departed(self)
+		VerifiedRules.MusicFire.remove_departed(self)
+		VerifiedRules.SerpentGhost.refresh(self)
 		VerifiedRules.SugarCat.remove_departed(self)
+		VerifiedRules.EssenceFeast.remove_departed(self)
 		VerifiedRules.RabbitTide.remove_departed(self)
 	_card_effect_context = context
 	is_resolving = previous
@@ -573,6 +577,7 @@ func hand_card_def(p_idx: int, hand_index: int) -> Dictionary:
 func describe_card_instance(p_idx: int, inst: Dictionary, from_hand: bool = true, permitted_deck_top: bool = false) -> Dictionary:
 	if inst.is_empty(): return {}
 	var p := player(p_idx)
+	if inst.get("definitionId","")=="shengmingjinghua":return VerifiedRules.EssenceFeast.essence_card(self,p_idx,inst)
 	if not VerifiedRules.Cooking.food_kind(inst).is_empty():
 		return VerifiedRules.HandBlessing.describe_card(self,p_idx,inst,VerifiedRules.Cooking.describe_food(self,p_idx,inst))
 	var card: Dictionary = VerifiedRules.Firefly.describe_card(self, p_idx, inst, ContentLoader.card_def(inst.definitionId))
@@ -661,6 +666,12 @@ func describe_card_instance(p_idx: int, inst: Dictionary, from_hand: bool = true
 	card = VerifiedRules.ApeSleeve.describe(self,p_idx,inst,card)
 	card = VerifiedRules.Zhenjian.describe(self,p_idx,card)
 	card = VerifiedRules.Cooking.describe_card(self,p_idx,inst,card)
+	card = VerifiedRules.EssenceFeast.describe_card(self,p_idx,inst,card)
+	card = VerifiedRules.SerpentGhost.describe_card(self,p_idx,inst,card)
+	card = VerifiedRules.MusicFire.describe_card(self,p_idx,inst,card)
+	card = VerifiedRules.WisdomLamp.describe(self,p_idx,card)
+	card = VerifiedRules.HairPower.describe(self,p_idx,card)
+	card = VerifiedRules.FearWing.describe_card(self,p_idx,inst,card)
 	card = VerifiedRules.Yi.describe_card(self,p_idx,inst,card)
 	card = VerifiedRules.MirrorSong.describe_card(self,p_idx,inst,card)
 	card = VerifiedRules.BlackWhite.describe_card(self,p_idx,inst,card)
@@ -672,6 +683,8 @@ func describe_card_instance(p_idx: int, inst: Dictionary, from_hand: bool = true
 
 
 func _source_index(p_idx: int, card: Dictionary) -> int:
+	var sg_source=VerifiedRules.SerpentGhost.source_index(self,p_idx,card)
+	if sg_source!=null:return int(sg_source)
 	var p := player(p_idx)
 	for i in p.units.size():
 		if p.units[i].id == card.get("unitId"):
@@ -680,7 +693,18 @@ func _source_index(p_idx: int, card: Dictionary) -> int:
 
 
 func valid_targets(p_idx: int, card: Dictionary) -> Array:
+	var sg_targets=VerifiedRules.SerpentGhost.targets(self,p_idx,card)
+	if sg_targets!=null:return sg_targets
+	if card.get("neutralEssence",false):return VerifiedRules.EssenceFeast.essence_targets(self,p_idx)
+	var ef_targets=VerifiedRules.EssenceFeast.targets(self,p_idx,card)
+	if ef_targets!=null:return ef_targets
 	if card.get("neutralFood",false):return VerifiedRules.Cooking.food_targets(self,p_idx,card)
+	var wl_targets=VerifiedRules.WisdomLamp.targets(self,p_idx,card)
+	if wl_targets!=null:return wl_targets
+	var fw_targets=VerifiedRules.FearWing.targets(self,p_idx,card)
+	if fw_targets!=null:return fw_targets
+	var mf_targets=VerifiedRules.MusicFire.targets(self,p_idx,card)
+	if mf_targets!=null:return mf_targets
 	var rw_targets=VerifiedRules.RednightWalnut.targets(self,p_idx,card)
 	if rw_targets!=null:return rw_targets
 	var yuj_targets=VerifiedRules.Yujiazhu.targets(self,p_idx,card)
@@ -837,7 +861,7 @@ func card_payment(p_idx: int, card: Dictionary) -> Dictionary:
 	# Read-only quote shared by legality, payment, AI and presentation. A natural
 	# zero-cost instant and an automatic response both use this turn's allowance.
 	var instant: bool = not card.get("handCharmNoInstant",false) and (_kw(card, "instant") or VerifiedRules.Raccoon.instant(self,p_idx,card))
-	var three_tail_free: bool = not card.get("neutralFood",false) and VerifiedRules.ThreeTail.free_first(self,p_idx)
+	var three_tail_free: bool = not card.get("neutralFood",false) and not card.get("neutralEssence",false) and VerifiedRules.ThreeTail.free_first(self,p_idx)
 	var coin_free: bool = card.get("coinFirstFree", false)
 	var deck_free: bool = card.get("lilyDeckFree", false) or card.get("twoFacesDeckFree",false)
 	var uses_instant := instant and instant_available(p_idx) and not coin_free
@@ -848,6 +872,7 @@ func card_payment(p_idx: int, card: Dictionary) -> Dictionary:
 		"ownTurn": current_player == p_idx, "response": not response_window.is_empty()}
 	payment=VerifiedRules.Cooking.payment(self,p_idx,card,payment)
 	payment=VerifiedRules.Zhenjian.payment(self,p_idx,card,payment)
+	payment=VerifiedRules.HairPower.quote(self,p_idx,card,payment)
 	return VerifiedRules.Focus.quote(self,p_idx,card,payment)
 
 
@@ -890,6 +915,9 @@ func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null, use_o
 		return {"ok": false, "reason": "未知卡牌。"}
 	if not response_window.is_empty() and not card_matches_response_window(card):
 		return {"ok": false, "reason": "响应窗口中只能使用符合触发条件的响应牌。"}
+	if card.get("neutralEssence",false):
+		if not ignore_hand_restriction and VerifiedRules.KoiFragrance.restricted(self,p_idx,card):return {"ok":false,"reason":"缚梦明香：请先使用蚀印牌。"}
+		return VerifiedRules.EssenceFeast.can_play_essence(self,p_idx,hand_index,target_id)
 	if card.get("neutralFood",false):
 		if not ignore_hand_restriction and VerifiedRules.KoiFragrance.restricted(self,p_idx,card):return {"ok":false,"reason":"缚梦明香：请先使用蚀印牌。"}
 		return VerifiedRules.Cooking.can_play_food(self,p_idx,hand_index,target_id)
@@ -916,7 +944,13 @@ func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null, use_o
 		return {"ok": false, "reason": "充能不足：需要 %d，%s 当前为 %d。" % [int(card.chargeCost), su.name, int(su.get("charge", 0))]}
 	if not VerifiedRules.HandBlessing.can_use(card): return {"ok":false,"reason":"被蚀印的形态生命不大于0。"}
 	if not VerifiedRules.Yujiazhu.can_use(self,p_idx,card):return {"ok":false,"reason":"御馔津已觉醒或符箭爆能不能支付。"}
+	if not VerifiedRules.FearWing.can_use(self,p_idx,card):return {"ok":false,"reason":"天逆每已经觉醒。"}
+	if not VerifiedRules.WisdomLamp.can_use(self,p_idx,card):return {"ok":false,"reason":"慧明灯已经觉醒。"}
+	if not VerifiedRules.HairPower.can_use(self,p_idx,card):return {"ok":false,"reason":"食发鬼已经觉醒。"}
+	if not VerifiedRules.MusicFire.can_use(self,p_idx,card):return {"ok":false,"reason":"紧那罗已经觉醒，或当前无神火铃焰可响应。"}
+	if not VerifiedRules.EssenceFeast.can_use(self,p_idx,card):return {"ok":false,"reason":"式神已经觉醒。"}
 	if not VerifiedRules.Cooking.can_use(self,p_idx,card):return {"ok":false,"reason":"式神已经觉醒。"}
+	if not VerifiedRules.SerpentGhost.can_use(self,p_idx,card):return {"ok":false,"reason":"当前身份不能手动使用此牌，或爆能无法支付。"}
 	if not VerifiedRules.SugarCat.can_use(self,p_idx,card):return {"ok":false,"reason":"式神已经觉醒。"}
 	if not VerifiedRules.RabbitTide.can_use(self,p_idx,card):return {"ok":false,"reason":"缺少海原贝戟或式神已经觉醒。"}
 	if not VerifiedRules.Arakawa.can_use(self,p_idx,card):return {"ok":false,"reason":"荒川之主已有蓄力。"}
@@ -995,6 +1029,7 @@ func can_play_card(p_idx: int, hand_index: int, target_id: Variant = null, use_o
 
 
 func play_card(p_idx: int, hand_index: int, target_id: Variant = null, use_origin: bool = false) -> bool:
+	if not use_origin and card_instance(p_idx,hand_index).get("definitionId","")=="shengmingjinghua":return VerifiedRules.EssenceFeast.play_essence(self,p_idx,hand_index,target_id)
 	if not use_origin and not VerifiedRules.Cooking.food_kind(card_instance(p_idx,hand_index)).is_empty():return VerifiedRules.Cooking.play_food(self,p_idx,hand_index,target_id)
 	if not use_origin and VerifiedRules.Link.start(self,p_idx,hand_index):return true
 	var check := can_play_card(p_idx, hand_index, target_id, use_origin)
@@ -1017,6 +1052,7 @@ func play_card(p_idx: int, hand_index: int, target_id: Variant = null, use_origi
 	if card.get("chargedSelected",false):return VerifiedRules.ChargedPair.store_hand(self,p_idx,hand_index,card,payment,target_id)
 	if card.get("chargeOnly",false):return VerifiedRules.Lantern.store_card(self,p_idx,hand_index,card,payment)
 	VerifiedRules.Focus.commit(self,p_idx,card,payment)
+	VerifiedRules.HairPower.pay(self,p_idx,payment)
 	record_args.payment = payment.duplicate()
 	if use_origin: record_args.origin = true
 	if card.get("verifiedRules", false) or card.get("blessingInstant", false) or card.get("lilyFromDeck", false) or card.get("lilyRoadDamage", 0) > 0: record_args.cardView = card.duplicate(true)
@@ -1205,7 +1241,10 @@ func _resolve_resolution_stack() -> void:
 		VerifiedRules.Doll.remove_departed(self)
 		VerifiedRules.Jorogumo.remove_departed(self)
 		VerifiedRules.Whale.remove_departed(self)
+		VerifiedRules.MusicFire.remove_departed(self)
+		VerifiedRules.SerpentGhost.refresh(self)
 		VerifiedRules.SugarCat.remove_departed(self)
+		VerifiedRules.EssenceFeast.remove_departed(self)
 		VerifiedRules.RabbitTide.remove_departed(self)
 		if not pending_choice.is_empty():
 			is_resolving = false
@@ -1216,6 +1255,12 @@ func _resolve_resolution_stack() -> void:
 
 
 func _resolve_frame(frame: Dictionary) -> void:
+	if VerifiedRules.FearWing.resolve_frame(self,frame):return
+	if VerifiedRules.WisdomLamp.resolve_frame(self,frame):return
+	if VerifiedRules.HairPower.resolve_frame(self,frame):return
+	if VerifiedRules.MusicFire.resolve_frame(self,frame):return
+	if VerifiedRules.SerpentGhost.resolve_frame(self,frame):return
+	if VerifiedRules.EssenceFeast.resolve_frame(self,frame):return
 	if VerifiedRules.Cooking.resolve_frame(self,frame):return
 	if frame.get("kind")=="card-announce" and frame.get("cardOverride",{}).get("neutralFood",false):
 		VerifiedRules.announce_neutral_food(self,frame)
@@ -1299,7 +1344,7 @@ func _resolve_frame(frame: Dictionary) -> void:
 		var owner := int(frame.playerIndex)
 		resolution_stack.append({"kind": "turn-normal-draw", "playerIndex": owner})
 		for unit in player(owner).units:
-			if not unit.get("summoned", false) and int(unit.front) == 1 and not unit.get("formRules", {}).get("treeRoot", false):
+			if not unit.get("summoned", false) and int(unit.front) == 1 and not unit.get("formRules", {}).get("treeRoot", false) and int(unit.get("wlEnteredTurn",-1))!=turn_counter:
 				unit.front = 0
 				_log("%s 从战斗区返回准备区。" % unit.name, TONE_NEUTRAL)
 				VerifiedRules.Movement.moved(self, owner, _unit_index_by_uid(owner, unit.uid), 1)
@@ -1377,6 +1422,7 @@ func _resolve_frame(frame: Dictionary) -> void:
 		VerifiedRules.HandBlessing.completed(self,p_idx,src,card)
 		VerifiedRules.SpellReplay.completed(self, frame, card)
 		VerifiedRules.Countdown.card_completed(self, p_idx, src, card)
+		VerifiedRules.MusicFire.completed(self,frame,card)
 		VerifiedRules.Cooking.completed(self,frame,card)
 		VerifiedRules.Zhenjian.completed(self,frame,card)
 		VerifiedRules.ChargedPair.completed(self,frame,card)
@@ -1393,6 +1439,8 @@ func _resolve_frame(frame: Dictionary) -> void:
 	var idx := int(frame.get("effectIndex", 0))
 	if idx < 0 or idx >= effects.size():
 		return
+	if int(frame.get("combatResponseId",-1))>=0 and effects[idx].get("action")=="mf-combat":
+		if VerifiedRules.MusicFire.respond_combat(self,int(frame.combatResponseId),p_idx,src,card):return
 	if int(frame.get("combatResponseId",-1))>=0 and effects[idx].get("action")=="charged-combat":
 		VerifiedRules.ChargedPair.respond_combat(self,int(frame.combatResponseId),p_idx,src,card);return
 	if int(frame.get("combatResponseId",-1))>=0 and effects[idx].get("action")=="ms-beauty":
@@ -1828,6 +1876,9 @@ func _recalc(unit: Dictionary) -> void:
 	unit.attack += faction_aura + mighty_power
 	unit.attack += VerifiedRules.Onikiri.power(self,unit) + VerifiedRules.Otakemaru.power(self,unit)
 	unit.attack += VerifiedRules.Puppet.base_bonus(unit) + VerifiedRules.Enma.aura(self,unit) + VerifiedRules.Vine.bonus(unit)
+	unit.attack += VerifiedRules.MusicFire.power_delta(self,unit)
+	unit.sgSnakeAuraApplied=VerifiedRules.SerpentGhost.power_delta(self,unit)
+	unit.attack+=int(unit.sgSnakeAuraApplied)
 	unit.attack += VerifiedRules.Movement.power(unit, turn_counter)
 	unit.attack += VerifiedRules.Zhenjian.power(unit)
 	unit.attack += VerifiedRules.Night.power(self, unit) + int(unit.get("windStoredPower", 0))
@@ -1888,6 +1939,10 @@ func _install_form(p_idx: int, src: int, card: Dictionary, value: Dictionary = {
 	VerifiedRules.Yi.form_installed(self,p_idx,src,card)
 	VerifiedRules.MirrorSong.form_entered(self,p_idx,src,card)
 	VerifiedRules.RednightWalnut.form_entered(self,p_idx,src,card)
+	VerifiedRules.FearWing.form_entered(self,p_idx,src,card)
+	VerifiedRules.WisdomLamp.form_entered(self,p_idx,src,card)
+	VerifiedRules.HairPower.form_entered(self,p_idx,src,card)
+	VerifiedRules.MusicFire.form_entered(self,p_idx,src,card)
 	VerifiedRules.Cooking.form_entered(self,p_idx,src,card)
 	VerifiedRules.ApeSleeve.form_entered(self,p_idx,src,card)
 	VerifiedRules.Zhenjian.form_entered(self,p_idx,src,card)
@@ -1900,6 +1955,8 @@ func _install_form(p_idx: int, src: int, card: Dictionary, value: Dictionary = {
 	_log("%s 化作「%s」（+%d攻/+%d生命）。" % [u.name, card.get("name", "形态"), atk, hp], TONE_CARD)
 	VerifiedRules.Forms.attach(self, p_idx, src, card)
 	VerifiedRules.SugarCat.form_entered(self,p_idx,src,card)
+	VerifiedRules.EssenceFeast.form_entered(self,p_idx,src,card)
+	VerifiedRules.SerpentGhost.form_entered(self,p_idx,src,card)
 	VerifiedRules.Yujiazhu.form_entered(self,p_idx,src,card)
 	VerifiedRules.BlueGreen.form_entered(self,p_idx,src,card)
 	VerifiedRules.RedPurple.form_entered(self,p_idx,src,card)
@@ -1999,34 +2056,34 @@ func _deploy_realm(p_idx: int, card: Dictionary) -> void:
 
 
 func _heal_unit(unit: Dictionary, amount: int) -> void:
-	if unit.get("toxicPoisoned",false): return
-	if int(unit.hp) <= 0 or amount <= 0:
-		return
-	var healed := mini(amount, int(unit.maxHp) - int(unit.hp))
-	if healed <= 0:
-		return
-	unit.hp = int(unit.hp) + healed
-	VerifiedRules.TreeSakura.sync_power(unit)
-	_log("%s 恢复 %d 点生命。" % [unit.name, healed], TONE_SUCCESS)
+	if unit.get("toxicPoisoned",false) or int(unit.hp)<=0 or amount<=0:return
+	var healed:=maxi(0,mini(amount,int(unit.maxHp)-int(unit.hp)))
+	unit.hp=int(unit.hp)+healed
+	if healed>0:
+		VerifiedRules.TreeSakura.sync_power(unit)
+		_log("%s 恢复 %d 点生命。"%[unit.name,healed],TONE_SUCCESS)
+	VerifiedRules.MusicFire.healed(self,unit)
+	for owner in 2:
+		var idx:=_unit_index_by_uid(owner,str(unit.get("uid","")))
+		if idx>=0:
+			VerifiedRules.EssenceFeast.healed(self,owner,idx,amount,healed,amount-healed)
+			break
 
 
 func _heal_avatar(p_idx: int, amount: int) -> void:
-	if player(p_idx).get("avatarToxicPoisoned",false): return
-	var p := player(p_idx)
-	if amount <= 0:
-		return
-	var healed := mini(amount, int(p.maxAvatarHp) - int(p.avatarHp))
-	if healed <= 0:
-		return
-	p.avatarHp = int(p.avatarHp) + healed
-	_log("%s 的核心恢复 %d 点生命。" % [p.name, healed], TONE_SUCCESS)
-	var context := _card_effect_context
-	_card_effect_context = {}
-	VerifiedRules.ArmorBlood.healing_recorded(self)
-	for src in p.units.size():
-		VerifiedRules.ArmorBlood.avatar_healed(self, p_idx, healed, src)
-		VerifiedRules.Light.avatar_healed(self, p_idx, healed, src)
-	_card_effect_context = context
+	if player(p_idx).get("avatarToxicPoisoned",false) or amount<=0:return
+	var p:=player(p_idx)
+	var healed:=maxi(0,mini(amount,int(p.maxAvatarHp)-int(p.avatarHp)))
+	p.avatarHp=int(p.avatarHp)+healed
+	if healed>0:
+		_log("%s 的核心恢复 %d 点生命。"%[p.name,healed],TONE_SUCCESS)
+		var context:=_card_effect_context;_card_effect_context={}
+		VerifiedRules.ArmorBlood.healing_recorded(self)
+		for src in p.units.size():
+			VerifiedRules.ArmorBlood.avatar_healed(self,p_idx,healed,src)
+			VerifiedRules.Light.avatar_healed(self,p_idx,healed,src)
+		_card_effect_context=context
+	VerifiedRules.EssenceFeast.healed(self,p_idx,-1,amount,healed,amount-healed)
 
 
 func _grant_unit_armor(unit: Dictionary, amount: int, expires: bool = true) -> int:
@@ -2091,6 +2148,8 @@ func _damage_unit(p_idx: int, unit_index: int, amount: int, _src_player: int, so
 		VerifiedRules.TreeSakura.dead_damage(self, _src_player, source_index, p_idx, unit_index, amount)
 		return {"damage": 0, "dealt": 0, "knocked": false, "overkill": 0}
 	if not shell_modified and not transfer_pending: amount+=VerifiedRules.Maple.damage_bonus(self,_src_player,source_index,combat)
+	var mf_conversion=VerifiedRules.MusicFire.damage_replacement(self,p_idx,unit_index,amount,_src_player,source_index,combat)
+	if mf_conversion!=null:return mf_conversion
 	if not shell_modified:
 		var special = VerifiedRules.MonkCleaner.special_damage(self, p_idx, unit_index, amount, _src_player, source_index, combat)
 		if special != null: return special
@@ -2137,6 +2196,7 @@ func _damage_unit(p_idx: int, unit_index: int, amount: int, _src_player: int, so
 		_record_spell_damage(p_idx, str(u.uid), 0, true)
 		return {"damage": 0, "dealt": 0, "knocked": false, "overkill": 0}
 	var preview: int = VerifiedRules.Bingyong.limit_damage(u, amount + int(u.armorBreak) + (1 if int(u.brittle) > 0 else 0))
+	preview = VerifiedRules.WisdomLamp.damage_limit(self,p_idx,u,preview)
 	preview = maxi(0, preview - int(u.shield))
 	if critical and _src_player != p_idx: preview *= 2
 	preview = VerifiedRules.Zhenjian.reduce_damage(u,preview,combat)
@@ -2154,6 +2214,7 @@ func _damage_unit(p_idx: int, unit_index: int, amount: int, _src_player: int, so
 		dmg += 1
 		u.brittle = int(u.brittle) - 1
 	dmg = VerifiedRules.Bingyong.limit_damage(u, dmg)
+	dmg = VerifiedRules.WisdomLamp.damage_limit(self,p_idx,u,dmg)
 	var absorbed := mini(int(u.shield), dmg)
 	u.shield = int(u.shield) - absorbed
 	VerifiedRules.StarBear.consumed_armor(u,absorbed)
@@ -2178,9 +2239,19 @@ func _damage_unit(p_idx: int, unit_index: int, amount: int, _src_player: int, so
 	if VerifiedRules.BondDream.prevent_damage(self, p_idx, unit_index, unshielded):
 		_record_spell_damage(p_idx, str(u.uid), 0, true)
 		return {"damage": 0, "dealt": 0, "knocked": int(u.hp) <= 0, "overkill": 0}
+	if VerifiedRules.SerpentGhost.before_damage(self,p_idx,unit_index,unshielded):
+		_record_spell_damage(p_idx,str(u.uid),0,true)
+		return {"damage":0,"dealt":0,"knocked":false,"overkill":0}
 	var asura_transfer=VerifiedRules.OniAsura.transfer(self,p_idx,unit_index,unshielded,_src_player,source_index,combat)
 	if asura_transfer!=null: return asura_transfer
 	if transfer_pending: return VerifiedRules.ArmorBlood.transfer(self, p_idx, u, unshielded, _src_player, source_index, combat)
+	var ef_cap:=int(u.get("formRules",{}).get("damageCap",0))
+	var ef_redirect=VerifiedRules.EssenceFeast.replace_unit_damage(self,p_idx,unit_index,mini(unshielded,ef_cap) if ef_cap>0 else unshielded,_src_player,source_index,combat)
+	if ef_redirect!=null:
+		unshielded=int(ef_redirect.get("remaining",0))
+		if unshielded<=0:
+			_record_spell_damage(p_idx,str(u.uid),0,true)
+			return {"damage":0,"dealt":0,"knocked":int(u.hp)<=0,"overkill":0,"transferredDealt":int(ef_redirect.get("transferredDealt",0))}
 	if VerifiedRules.Toxic.executes(self,_src_player,source_index,p_idx,unit_index,unshielded,combat):
 		var deaths_before:=int(u.get("rebirthDeaths",0))
 		_knockout_unit(u,_src_player,source_index,knockout_extra,house_break_snapshot)
@@ -2223,6 +2294,8 @@ func _damage_unit(p_idx: int, unit_index: int, amount: int, _src_player: int, so
 		_log("%s 的护盾抵消了伤害。" % u.name, TONE_NEUTRAL)
 	VerifiedRules.RednightWalnut.damage_dealt(self,_src_player,source_index,p_idx,unit_index,taken,combat)
 	VerifiedRules.ApeSleeve.damage_dealt(self,_src_player,source_index,p_idx,unit_index,taken)
+	VerifiedRules.SerpentGhost.damage_dealt(self,_src_player,source_index,p_idx,unit_index,taken)
+	if combat and _src_player>=0 and source_index>=0:VerifiedRules.EssenceFeast.combat_dealt(self,_src_player,source_index,{"dealt":taken})
 	VerifiedRules.BlackWhite.damaged(self,p_idx,unit_index,taken)
 	VerifiedRules.Lantern.damaged(self,p_idx,unit_index,taken)
 	VerifiedRules.SpiderLily.unit_damaged(self,p_idx,unit_index,unshielded)
@@ -2282,9 +2355,20 @@ func _knockout_unit(u: Dictionary, source_owner: int = -1, source_index: int = -
 	var victim := -1
 	for owner in players.size():
 		if _unit_index_by_uid(owner, u.uid) >= 0: victim = owner
+	var fear_saved:=VerifiedRules.FearWing.knockout_snapshot(self,victim,u)
+	var hair_saved:=VerifiedRules.HairPower.knockout_snapshot(victim,u)
+	if victim>=0 and VerifiedRules.MusicFire.before_knockout(self,victim,u):
+		VerifiedRules.FearWing.after_knockout(self,fear_saved)
+		VerifiedRules.HairPower.after_knockout(self,hair_saved)
+		return
 	if victim>=0: VerifiedRules.Glutton.mark_hand(self,victim)
 	if VerifiedRules.Sparrow.absorb_knockout(self,victim,u): return
 	if VerifiedRules.Vine.absorb_knockout(self,victim,u): return
+	if VerifiedRules.SerpentGhost.replace_knockout(self,victim,u):
+		VerifiedRules.FearWing.after_knockout(self,fear_saved)
+		VerifiedRules.HairPower.after_knockout(self,hair_saved)
+		return
+	var sg_saved:=VerifiedRules.SerpentGhost.death_snapshot(self,victim,u)
 	VerifiedRules.Crocodile.detach(self,u,"随式神气绝",false)
 	var rw_saved:=VerifiedRules.RednightWalnut.death_frames(self,victim,u)
 	var sleeve_saved:=VerifiedRules.ApeSleeve.death_frames(self,victim,u)
@@ -2354,10 +2438,14 @@ func _knockout_unit(u: Dictionary, source_owner: int = -1, source_index: int = -
 		for owner in 2:
 			var idx := _unit_index_by_uid(owner, u.uid)
 			if idx >= 0: VerifiedRules.Forms.remove(self, owner, idx, "随式神气绝")
+	VerifiedRules.EssenceFeast.knocked_out(self,victim,u)
+	VerifiedRules.FearWing.after_knockout(self,fear_saved)
 	VerifiedRules.knocked_out(u)
+	VerifiedRules.MusicFire.after_knockout(self,victim,u)
 	VerifiedRules.Poison.refresh_all(self)
 	u.shieldExpires = 0
 	_recalc(u)
+	VerifiedRules.SerpentGhost.after_knockout(self,victim,u,sg_saved)
 	VerifiedRules.RedPurple.refresh(self)
 	if u.get("smokeClone", false): VerifiedRules.SunSmoke.remove_clone(self, victim, u, "分身气绝")
 	_log("%s 气绝，将在 %d 个己方回合后归队。" % [u.name, int(u.knockout)], TONE_DANGER)
@@ -2380,7 +2468,9 @@ func _knockout_unit(u: Dictionary, source_owner: int = -1, source_index: int = -
 	if u.get("boxSummon",false): VerifiedRules.BoxMaiden.summoned_knockout(self,victim,u)
 	if u.get("houseSummon",false): VerifiedRules.House.summoned_knockout(self,victim,u)
 	if u.get("dollSummon",false): VerifiedRules.Doll.summoned_knockout(self,victim,u)
+	if u.get("mfDoll",false): VerifiedRules.MusicFire.summoned_knockout(self,victim,u)
 	if u.get("scSummon",false): VerifiedRules.SugarCat.summoned_knockout(self,victim,u)
+	if u.get("efPowderBoxSummon",false): VerifiedRules.EssenceFeast.remove_box(self,victim,u)
 	if u.get("rtSpear",false): VerifiedRules.RabbitTide.summoned_knockout(self,victim,u)
 	resolution_stack.append_array(jorogumo_saved)
 	resolution_stack.append_array(toxic_saved)
@@ -2404,6 +2494,7 @@ func _knockout_unit(u: Dictionary, source_owner: int = -1, source_index: int = -
 	resolution_stack.append_array(sparrow_saved)
 	VerifiedRules.Yaksha.knocked_out(self,victim,u,yaksha_saved)
 	resolution_stack.append_array(cotton_saved)
+	VerifiedRules.HairPower.after_knockout(self,hair_saved)
 	if u.get("bambooStone",false): resolution_stack.append({"kind":"bamboo-remove","playerIndex":victim})
 
 
@@ -2471,6 +2562,10 @@ func _damage_avatar(p_idx: int, amount: int, _src_player: int = -1, source_index
 	VerifiedRules.WindRaccoon.avatar_damaged(self,_src_player,source_index,p_idx,actual_loss)
 	VerifiedRules.Mask.avatar_damaged(self, _src_player, source_index, p_idx, actual_loss)
 	VerifiedRules.Maple.damage_dealt(self,_src_player,source_index,p_idx,-1,actual_loss,combat)
+	VerifiedRules.SerpentGhost.damage_dealt(self,_src_player,source_index,p_idx,-1,actual_loss)
+	VerifiedRules.WisdomLamp.avatar_damaged(self,p_idx,_src_player,source_index,actual_loss,combat)
+	VerifiedRules.EssenceFeast.avatar_damaged(self,p_idx,actual_loss)
+	if combat and _src_player>=0 and source_index>=0:VerifiedRules.EssenceFeast.combat_dealt(self,_src_player,source_index,{"dealt":actual_loss})
 	VerifiedRules.SpiderLily.avatar_damaged(self, p_idx, _src_player, amount)
 	VerifiedRules.SunSmoke.damaged(self, p_idx, -1, amount)
 	VerifiedRules.FoxSuzuka.damage_dealt(self, _src_player, source_index, p_idx, -1, amount)
@@ -2495,6 +2590,7 @@ func _check_winner() -> void:
 
 func basic_attack_targets(p_idx: int, unit_index: int) -> Array:
 	if unit_index < 0 or unit_index >= player(p_idx).units.size(): return []
+	if VerifiedRules.HairPower.guard_count(self,p_idx)>0:return [str(player(p_idx).units[unit_index].uid)]
 	var skill := VerifiedRules.BattleSkill.ready(self,p_idx,unit_index)
 	if not skill.is_empty():
 		if skill.get("target","auto") != "auto": return valid_targets(p_idx,skill)
@@ -2526,17 +2622,18 @@ func can_basic_attack(p_idx: int, unit_index: int, ignore_enrage: bool = false) 
 	var p := player(p_idx)
 	if int(p.get("avatarFrozen", 0)) > 0:
 		return {"ok": false, "reason": "牌手处于眩晕状态，不能令式神普通出击。"}
-	if p.attackUsed and VerifiedRules.Butterfly.free_realm(self,p_idx).is_empty() and (unit_index < 0 or unit_index >= p.units.size() or (not VerifiedRules.Combat.has(p.units[unit_index], "inspired") and not VerifiedRules.Movement.extra_attack(self, p_idx, p.units[unit_index]) and not VerifiedRules.Moon.extra_attack(self,p_idx))):
+	if p.attackUsed and VerifiedRules.HairPower.guard_count(self,p_idx)<=0 and VerifiedRules.Butterfly.free_realm(self,p_idx).is_empty() and (unit_index < 0 or unit_index >= p.units.size() or (not VerifiedRules.Combat.has(p.units[unit_index], "inspired") and not VerifiedRules.Movement.extra_attack(self, p_idx, p.units[unit_index]) and not VerifiedRules.Moon.extra_attack(self,p_idx))):
 		return {"ok": false, "reason": "本回合已经出击过。"}
 	if unit_index < 0 or unit_index >= p.units.size():
 		return {"ok": false, "reason": "该角色无法出击。"}
 	var u: Dictionary = p.units[unit_index]
 	if VerifiedRules.Combat.has(u, "pursuit") and basic_attack_targets(p_idx, unit_index).is_empty():
 		return {"ok": false, "reason": "追猎需要一个可选的敌方式神。"}
+	if not VerifiedRules.SerpentGhost.can_deploy(u):return {"ok":false,"reason":"混沌化身不能手动出击。"}
 	if not VerifiedRules.RednightWalnut.can_deploy(u):return {"ok":false,"reason":"锁羚羊：下个己方回合不能出击。"}
 	if u.get("cannotAttack", false): return {"ok": false, "reason": "冰墙不能攻击。"}
 	if VerifiedRules.Weaver.basic_blocked(self,u): return {"ok":false,"reason":"织雪进场或融合的回合不能普通出击。"}
-	var deployment_free: bool = not VerifiedRules.Butterfly.free_realm(self,p_idx).is_empty() or VerifiedRules.Moon.extra_attack(self,p_idx) or VerifiedRules.Movement.extra_attack(self,p_idx,u)
+	var deployment_free: bool = VerifiedRules.HairPower.guard_count(self,p_idx)>0 or not VerifiedRules.Butterfly.free_realm(self,p_idx).is_empty() or VerifiedRules.Moon.extra_attack(self,p_idx) or VerifiedRules.Movement.extra_attack(self,p_idx,u)
 	var required_fire: int = VerifiedRules.Jorogumo.tax(self,p_idx,u) if deployment_free else VerifiedRules.TomatoFire.basic_cost(self,p_idx,u)
 	if int(p.energy) < required_fire:
 		return {"ok": false, "reason": "鬼火不足。"}
@@ -2567,6 +2664,9 @@ func basic_attack(p_idx: int, unit_index: int, target_id = null) -> bool:
 		_log(str(check.reason), TONE_DANGER)
 		return false
 	var p := player(p_idx)
+	if VerifiedRules.HairPower.guard_count(self,p_idx)>0:
+		if target_id!=null and str(target_id)!=str(p.units[unit_index].uid):return false
+		return VerifiedRules.HairPower.guard_deploy(self,p_idx,unit_index)
 	if (target_id != null or VerifiedRules.BattleSkill.requires_target(self,p_idx,unit_index) or (VerifiedRules.BattleSkill.ready(self,p_idx,unit_index).is_empty() and (VerifiedRules.Combat.has(p.units[unit_index], "pursuit") or VerifiedRules.TreeSakura.floating(p.units[unit_index])))) and not basic_attack_targets(p_idx, unit_index).has(target_id): return false
 	var skill := VerifiedRules.BattleSkill.ready(self,p_idx,unit_index)
 	var free_realm := VerifiedRules.Butterfly.free_realm(self,p_idx)
@@ -2715,6 +2815,8 @@ func _resolve_combat(p_idx: int, unit_index: int, bonus: int, pierce: bool, remo
 
 
 func _resolve_combat_entered(frame: Dictionary) -> void:
+	if VerifiedRules.MusicFire.before_attack(self,frame):return
+	if VerifiedRules.FearWing.before_attack(self,frame):return
 	if not frame.get("lilyAttackOffered", false):
 		frame.lilyAttackOffered = true
 		var depth := resolution_stack.size()
@@ -2749,6 +2851,7 @@ func _resolve_combat_entered(frame: Dictionary) -> void:
 	if int(attacker.get("flashZeroSerial", 0)) != int(frame.flashSerial):
 		bonus = 0
 		enc.attack = 0
+	VerifiedRules.EssenceFeast.attack_started(self,p_idx,unit_index)
 	VerifiedRules.Jorogumo.before_attack(self,p_idx,unit_index)
 	if not VerifiedRules.Samurai.combat_available(attacker,frame.options) or winner>=0: return
 	VerifiedRules.OwlInsect.attack_started(self,p_idx,unit_index)
@@ -2846,6 +2949,7 @@ func _resolve_combat_ready(frame: Dictionary) -> void:
 		if VerifiedRules.SunSmoke.avatar_response(self, frame, power, options): return
 		VerifiedRules.Light.avatar_attacked(self, e_idx, p_idx)
 		options.whaleAttackStarted=true
+		VerifiedRules.HairPower.started(self,p_idx,unit_index,{},options)
 		VerifiedRules.event(self, "combat-hit", {"player": p_idx, "uid": attacker.uid, "target": ""})
 		_log("%s 突破空缺前线。" % attacker.name, TONE_SUCCESS)
 		var hits := (2 if combo or attacker.get("formRules", {}).get("extraFirstHit", false) else 1) + (1 if VerifiedRules.SnowCrane.extra(attacker, int(foe.get("avatarFrozen", 0)) > 0) else 0)
@@ -2857,6 +2961,7 @@ func _resolve_combat_ready(frame: Dictionary) -> void:
 				VerifiedRules.reduce_countdown(self, p_idx, unit_index, int(options.countdownOnAvatarDamage), p_idx if options.has("combatCard") else -1)
 		_finish_combat(p_idx, unit_index, {}, entered_from_reserve, options, 0)
 		return
+	VerifiedRules.EssenceFeast.before_attacked(self,e_idx,fi)
 	VerifiedRules.Fortune.before_attacked(self, e_idx, fi)
 	var continuation := {"kind": "combat-hit", "playerIndex": p_idx, "sourceIndex": unit_index, "defenderIndex": fi, "power": power, "attackSnapshot": int(attacker.attack), "attackBaseBonus": bonus + int(enc.get("attack",0)), "powerMultiplier": 1, "remote": remote, "pierce": pierce, "combo": combo, "firstStrike": first_strike, "fromReserve": entered_from_reserve, "options": options.duplicate(true)}
 	continuation.defenderBonus=VerifiedRules.BoxMaiden.combat_bonus(self,e_idx,fi)
@@ -2881,6 +2986,7 @@ func _offer_attack_responses(frame: Dictionary) -> void:
 		_resolve_combat_hit(frame)
 		return
 	if VerifiedRules.RabbitTide.before_combat(self,frame):return
+	VerifiedRules.HairPower.before_hit(self,frame)
 	if VerifiedRules.RednightWalnut.before_hit(self,frame,idx):return
 	if VerifiedRules.Zhenjian.defend_started(self,frame):return
 	if VerifiedRules.ChargedPair.defend_started(self,frame):return
@@ -2892,6 +2998,7 @@ func _offer_attack_responses(frame: Dictionary) -> void:
 
 
 func _finish_combat(owner: int, src: int, defender: Dictionary, from_reserve: bool, options: Dictionary, kills: int) -> void:
+	VerifiedRules.MusicFire.combat_finished(self,owner,src,defender,options)
 	var context := {"defender": defender if not defender.is_empty() else null, "from_reserve": from_reserve, "killed": kills > 0}
 	_fire_hooks(owner, src, "combat-resolved", context)
 	_run_form_hooks(owner, src, "combat-resolved", context)
@@ -2922,6 +3029,11 @@ func _finish_combat(owner: int, src: int, defender: Dictionary, from_reserve: bo
 	VerifiedRules.ApeSleeve.combat_finished(self,owner,src,options)
 	VerifiedRules.MirrorSong.combat_finished(self,owner,src,options)
 	VerifiedRules.Zhenjian.combat_finished(self,owner,src,options,defender)
+	VerifiedRules.SerpentGhost.combat_finished(self,owner,src,options)
+	VerifiedRules.FearWing.combat_finished(self,owner,src,options,kills)
+	VerifiedRules.WisdomLamp.combat_finished(self,owner,src,options)
+	VerifiedRules.HairPower.finished(self,owner,src,defender,options,kills)
+	VerifiedRules.EssenceFeast.combat_finished(self,owner,src)
 	VerifiedRules.Susanoo.finish_duel(self,options)
 	player(owner).units[src].erase("enraged")
 	player(owner).units[src].erase("combatUnyielding")
@@ -2977,6 +3089,7 @@ func _resolve_combat_hit(frame: Dictionary) -> void:
 	var d_first := VerifiedRules.Combat.has(defender, "first-strike")
 	var kills := int(frame.get("kills",0))
 	options.whaleAttackStarted=true
+	VerifiedRules.HairPower.started(self,owner,src,defender,options)
 	VerifiedRules.event(self, "combat-hit", {"player": owner, "uid": attacker.uid, "target": defender.uid})
 	_log("%s 向 %s 发起%s出击。" % [attacker.name, defender.name, "远程" if remote else ""], TONE_TURN)
 	var attack_extras := (1 if a_extra else 0) + snow_extra
@@ -3006,6 +3119,7 @@ func _resolve_combat_hit(frame: Dictionary) -> void:
 		var counter_power := VerifiedRules.Combat.power(self, victim, defender, int(frame.get("defenderBonus", 0)))
 		if not VerifiedRules.TreeSakura.health_damage(defender): counter_power=maxi(0,counter_power-int(options.get("seaDefenderPenalty",0)))
 		var d_options := {"convertCombatToArmorBreak": options.get("convertCombatToArmorBreak", false)}
+		d_options.hairPowerSnapshot=int(options.get("hairDefenderPowerSnapshot",0))
 		d_options.silkCombatId=options.get("silkCombatId",-1)
 		d_options.sourceWasPoisoned=defender.get("toxicPoisoned",false)
 		d_options.toxicAttack=VerifiedRules.Toxic.traits(self,victim,idx,true).toxic
@@ -3038,7 +3152,7 @@ func _resolve_combat_hit(frame: Dictionary) -> void:
 			frame.movementVisualStep = visual_step
 			VerifiedRules.Movement.counterstrike(self, frame, counter_power, d_options)
 		VerifiedRules.MonkCleaner.flush_exchange(self)
-		if resolution_stack.slice(exchange_depth).any(func(f):return str(f.get("kind","")).begins_with("oni-") or str(f.get("kind","")).begins_with("asura-") or str(f.get("kind","")).begins_with("rebirth-") or str(f.get("kind","")).begins_with("doll-")):
+		if resolution_stack.slice(exchange_depth).any(func(f):return str(f.get("kind","")).begins_with("oni-") or str(f.get("kind","")).begins_with("asura-") or str(f.get("kind","")).begins_with("rebirth-") or str(f.get("kind","")).begins_with("doll-") or str(f.get("kind","")).begins_with("sg-")):
 			_resolve_inline_frames(exchange_depth)
 			if not pending_choice.is_empty() or not response_window.is_empty():
 				frame.nextStep=step+1; frame.kills=kills
@@ -3338,6 +3452,7 @@ func _set_fire(owner: int, value: int, spent: bool = false) -> void:
 func _begin_turn(p_idx: int) -> void:
 	VerifiedRules.Moon.begin_snapshot(self)
 	VerifiedRules.MonkCleaner.refresh(self)
+	VerifiedRules.HairPower.expire(self,p_idx)
 	VerifiedRules.Fortune.turn_boundary(self)
 	var p := player(p_idx)
 	for side in players:
@@ -3430,8 +3545,14 @@ func _begin_turn_after_realms(p_idx: int, ticking: Array) -> void:
 	VerifiedRules.Moon.turn_start(self,p_idx)
 	VerifiedRules.Bamboo.turn_start(self)
 	VerifiedRules.TreeSakura.turn_start(self, p_idx)
+	VerifiedRules.SerpentGhost.begin_turn(self,p_idx)
+	VerifiedRules.MusicFire.begin_turn(self,p_idx)
 	VerifiedRules.SugarCat.begin_turn(self,p_idx)
+	VerifiedRules.EssenceFeast.begin_turn(self,p_idx)
 	VerifiedRules.RabbitTide.begin_turn(self,p_idx)
+	VerifiedRules.WisdomLamp.begin_turn(self,p_idx)
+	VerifiedRules.HairPower.begin_turn(self,p_idx)
+	VerifiedRules.FearWing.begin_turn(self,p_idx)
 	# The original turn-start abilities precede retreat and the normal draw.
 	# An ability can win before an empty deck would cause draw-phase defeat.
 	for idx in ticking:
@@ -3518,6 +3639,10 @@ func _trigger_one_realm(p_idx: int, uid: String) -> void:
 	for installed in player(p_idx).realms:
 		if str(installed.get("uid",""))==uid: realm=installed; break
 	if realm.is_empty() or int(realm.get("hp",0))<=0: return
+	if VerifiedRules.FearWing.trigger_realm(self,p_idx,realm):return
+	if VerifiedRules.WisdomLamp.trigger_realm(self,p_idx,realm):return
+	if VerifiedRules.HairPower.trigger_realm(self,p_idx,realm):return
+	if VerifiedRules.MusicFire.trigger_realm(self,p_idx,realm):return
 	if VerifiedRules.Cooking.trigger_realm(self,p_idx,realm):return
 	if VerifiedRules.RednightWalnut.trigger_realm(self,p_idx,realm):return
 	if VerifiedRules.RedPurple.trigger_realm(self,p_idx,realm): return

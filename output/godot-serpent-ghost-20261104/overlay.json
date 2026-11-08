@@ -1,0 +1,1078 @@
+{
+  "sources": [
+    {
+      "id": "sg-original-20261104",
+      "path": "art-reference-official/卡面-按版本",
+      "evidence": "194/220共18张完整PNG目检；中文主体优先，不采用JP后来1战力神愤或觉醒直接消灭。"
+    },
+    {
+      "id": "sg-ghost-derivatives",
+      "url": "https://gamerch.com/onmyojicard/244805",
+      "evidence": "觉醒白3勾+2/+2瞬发不屈、倒计时1、每回合一次受伤自动索魂投射等额伤害。"
+    },
+    {
+      "id": "sg-white-body",
+      "url": "https://gamerch.com/onmyojicard/243525",
+      "evidence": "鬼使白2/6、倒计时2切黑。"
+    },
+    {
+      "id": "sg-snake-body",
+      "url": "https://gamerch.com/onmyojicard/352142",
+      "evidence": "蛇魔3/3迅捷相关卡。"
+    },
+    {
+      "id": "sg-reap-chain",
+      "url": "https://gamerch.com/onmyojicard/245067",
+      "evidence": "索命按该次链中使用次数增长，复制次数为时限/兄弟之忆切黑历史；白气绝复归黑不增加切黑历史。"
+    },
+    {
+      "id": "sg-chaos-guide",
+      "url": "https://www.taptap.cn/moment/159680773731912617",
+      "evidence": "混沌化身移除专牌、禁止手动操作、自动生成并使用自己的法术。"
+    },
+    {
+      "id": "sg-snake-copy",
+      "url": "https://shouyou.3dmgame.com/gl/297445.html",
+      "evidence": "觉醒后新蛇魔获得与大蛇相同身材；蛇魔气绝后原式神进入复活倒计时。"
+    },
+    {
+      "id": "sg-switch-boundaries",
+      "url": "https://www.taptap.cn/moment/467093870207830538",
+      "evidence": "切换清护甲/破甲、保留灵咒与眩晕等；化身25/15，蛇魔不再向大蛇用不洁之力。"
+    }
+  ],
+  "units": {
+    "guishiheibai": {
+      "verifiedRules": true,
+      "serpentGhostRole": "ghost",
+      "attack": 3,
+      "maxHp": 4,
+      "nativeCharge": true,
+      "formLifecycle": {},
+      "passive": {
+        "id": "sg-ghost",
+        "name": "冥界协作",
+        "text": "充能。当鬼使黑气绝时，消耗2能量，切换为鬼使白。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "sg-ghost-awake",
+        "name": "觉醒",
+        "text": "充能，迅捷。当鬼使黑气绝时，消耗2能量，切换为鬼使白。",
+        "hooks": []
+      },
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "bayiqidashe": {
+      "verifiedRules": true,
+      "serpentGhostRole": "serpent",
+      "attack": 2,
+      "maxHp": 5,
+      "nativeCharge": false,
+      "formLifecycle": {},
+      "passive": {
+        "id": "sg-serpent",
+        "name": "蛇魔",
+        "text": "当你的其他非「蛇魔」基础式神气绝时，将其变为「蛇魔」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "sg-serpent-awake",
+        "name": "觉醒",
+        "text": "觉醒：混沌化身#r当你的其他非「蛇魔」基础式神气绝时， 将其变为「蛇魔」且视为八岐大蛇的复制。",
+        "hooks": []
+      },
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "sg-ghost-white": {
+      "id": "sg-ghost-white",
+      "name": "鬼使白",
+      "title": "鬼使协作身份",
+      "role": "切换身份",
+      "strategy": "",
+      "attack": 2,
+      "maxHp": 6,
+      "pack": "wave4",
+      "art": "assets/official/serpent-ghost/white-txsKFqxc.png",
+      "awakenedArt": "assets/official/serpent-ghost/white-txsKFqxc.png",
+      "color": "#b997a8",
+      "token": true,
+      "selectable": false,
+      "countsAsShikigami": true,
+      "passive": {
+        "id": "sg-ghost-white-passive",
+        "name": "鬼使白",
+        "text": "倒计时2：切换为鬼使黑。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "sg-snake": {
+      "id": "sg-snake",
+      "name": "蛇魔",
+      "title": "八岐大蛇变形",
+      "role": "切换身份",
+      "strategy": "",
+      "attack": 3,
+      "maxHp": 3,
+      "pack": "wave4",
+      "art": "assets/official/serpent-ghost/snake-PT289B07.jpg",
+      "awakenedArt": "assets/official/serpent-ghost/snake-PT289B07.jpg",
+      "color": "#b997a8",
+      "token": true,
+      "selectable": false,
+      "countsAsShikigami": true,
+      "passive": {
+        "id": "sg-snake-passive",
+        "name": "蛇魔",
+        "text": "迅捷。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    }
+  },
+  "cards": {
+    "c19401": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "穿刺\n爆能2：获得瞬发。",
+      "officialText": "穿刺\n爆能2：获得瞬发。",
+      "keywords": [
+        "penetration"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "combatOption": {
+        "shield": 1,
+        "penetration": true
+      },
+      "responseAction": "assault",
+      "movementBurstOptions": [
+        2
+      ],
+      "effect": "sg-ghost-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "sg-ghost-combat",
+          "target": "source",
+          "value": 1
+        }
+      ]
+    },
+    "c19402": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "仅鬼使白可用。\n切换为鬼使黑并使其发起攻击，本次战斗免疫伤害。",
+      "officialText": "仅鬼使白可用。\n切换为鬼使黑并使其发起攻击，本次战斗免疫伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-brothers",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-brothers",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c19403": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "爆能2：获得追猎。",
+      "officialText": "爆能2：获得追猎。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "combatOption": {
+        "shield": 2
+      },
+      "responseAction": "assault",
+      "movementBurstOptions": [
+        2
+      ],
+      "effect": "sg-ghost-combat",
+      "value": 2,
+      "effects": [
+        {
+          "action": "sg-ghost-combat",
+          "target": "source",
+          "value": 2
+        }
+      ]
+    },
+    "c19404": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：充能，迅捷\n当鬼使黑气绝时，消耗2能量，切换为鬼使白。\n使用后本局游戏内所有同名牌改为「觉醒·鬼使白」。",
+      "officialText": "觉醒：充能，迅捷\n当鬼使黑气绝时，消耗2能量，切换为鬼使白。\n使用后本局游戏内所有同名牌改为「觉醒·鬼使白」。",
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-ghost-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "sg-ghost-awaken",
+          "target": "source",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ]
+    },
+    "c19405": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "切换为鬼使白使其倒计时变为1，并获得+3力量和+1生命，然后发起一次攻击。\n响应：当鬼使黑被攻击时，自动使用。",
+      "officialText": "切换为鬼使白使其倒计时变为1，并获得+3力量和+1生命，然后发起一次攻击。\n响应：当鬼使黑被攻击时，自动使用。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [
+        "unit-attacked"
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "autoResponse": "source-attacked",
+      "effect": "sg-impermanence",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-impermanence",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c19406": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "本次战斗每使用过一次此牌，此牌便+1力量与+1护甲。\n增强：攻击后本局游戏每切换回鬼使黑一次，便复制使用一次此牌。",
+      "officialText": "本次战斗每使用过一次此牌，此牌便+1力量与+1护甲。\n增强：攻击后本局游戏每切换回鬼使黑一次，便复制使用一次此牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "combatOption": {
+        "shield": 0
+      },
+      "responseAction": "assault",
+      "effect": "sg-reap",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-reap",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c19408": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发、必杀、先攻\n回合结束时切换为鬼使白，且每有1能量鬼使白获得1护甲。",
+      "officialText": "瞬发、必杀、先攻\n回合结束时切换为鬼使白，且每有1能量鬼使白获得1护甲。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgVerdict": true,
+        "combatKeywords": [
+          "lethal",
+          "first-strike"
+        ]
+      },
+      "formHooks": [],
+      "formAbility": "瞬发、必杀、先攻\n回合结束时切换为鬼使白，且每有1能量鬼使白获得1护甲。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 6,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c19409": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "造成伤害时获得1能量。",
+      "officialText": "造成伤害时获得1能量。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgLivingDead": true
+      },
+      "formHooks": [],
+      "formAbility": "造成伤害时获得1能量。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c22001": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "sg-other-ally",
+      "text": "使一个己方其他式神获得2力量，然后使其发动攻击，若其不是「蛇魔」，攻击后将其消灭。",
+      "officialText": "使一个己方其他式神获得2力量，然后使其发动攻击，若其不是「蛇魔」，攻击后将其消灭。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-impure",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-impure",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c22002": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "你的「蛇魔」获得1力量。\n进场和己方回合开始时，你的「蛇魔」获得昂扬。",
+      "officialText": "你的「蛇魔」获得1力量。\n进场和己方回合开始时，你的「蛇魔」获得昂扬。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgInspireSnakes": true
+      },
+      "formHooks": [],
+      "formAbility": "你的「蛇魔」获得1力量。\n进场和己方回合开始时，你的「蛇魔」获得昂扬。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c22003": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "sg-other-ally",
+      "text": "瞬发\n消灭一个己方其他非召唤物式神，重置出击次数，抽一张牌。",
+      "officialText": "瞬发\n消灭一个己方其他非召唤物式神，重置出击次数，抽一张牌。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-sacrifice",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-sacrifice",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c22004": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当八岐大蛇受到致死伤害时，改为随机消灭一个己方「蛇魔」。",
+      "officialText": "当八岐大蛇受到致死伤害时，改为随机消灭一个己方「蛇魔」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgShadow": true
+      },
+      "formHooks": [],
+      "formAbility": "当八岐大蛇受到致死伤害时，改为随机消灭一个己方「蛇魔」。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 6,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 6,
+            "hp": 6,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c22005": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "使每个己方「蛇魔」发动攻击并获得免疫战斗伤害。",
+      "officialText": "使每个己方「蛇魔」发动攻击并获得免疫战斗伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-all-snakes",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-all-snakes",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c22006": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "将一个敌方式神变为「蛇魔」。",
+      "officialText": "将一个敌方式神变为「蛇魔」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-transform-enemy",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-transform-enemy",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c22007": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每个回合开始时，八岐大蛇和每个己方「蛇魔」随机对一个敌方角色造成3点伤害。",
+      "officialText": "每个回合开始时，八岐大蛇和每个己方「蛇魔」随机对一个敌方角色造成3点伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "sgWandering": true
+      },
+      "formHooks": [],
+      "formAbility": "每个回合开始时，八岐大蛇和每个己方「蛇魔」随机对一个敌方角色造成3点伤害。",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-form",
+      "value": {
+        "attack": 4,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "sg-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c22008": {
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：混沌化身\n当你的其他非「蛇魔」基础式神气绝时， 将其变为「蛇魔」且视为八岐大蛇的复制。",
+      "officialText": "觉醒：混沌化身\n当你的其他非「蛇魔」基础式神气绝时， 将其变为「蛇魔」且视为八岐大蛇的复制。",
+      "keywords": [],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ],
+      "effect": "sg-serpent-awaken",
+      "value": {
+        "attack": 5,
+        "hp": 5
+      },
+      "effects": [
+        {
+          "action": "sg-serpent-awaken",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 5
+          }
+        }
+      ]
+    },
+    "sg-white-awaken": {
+      "id": "sg-white-awaken",
+      "name": "觉醒·鬼使白",
+      "unitId": "guishiheibai",
+      "pack": "wave4",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "starterCopies": 0,
+      "token": true,
+      "target": "auto",
+      "text": "瞬发。觉醒：不屈，倒计时1：切换为鬼使黑。每回合一次，当鬼使白受到伤害时，自动使用「索魂」。",
+      "officialText": "瞬发。觉醒：不屈，倒计时1：切换为鬼使黑。每回合一次，当鬼使白受到伤害时，自动使用「索魂」。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [
+        "觉醒"
+      ],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sg-white-awaken",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "action": "sg-white-awaken",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 2
+          }
+        }
+      ],
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    },
+    "sg-white-soul": {
+      "id": "sg-white-soul",
+      "name": "索魂",
+      "unitId": "guishiheibai",
+      "pack": "wave4",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "starterCopies": 0,
+      "token": true,
+      "target": "auto",
+      "text": "投射：造成等同于鬼使白此次受到伤害的伤害。",
+      "officialText": "投射：造成等同于鬼使白此次受到伤害的伤害。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "effect": "sg-white-soul",
+      "value": 0,
+      "effects": [
+        {
+          "action": "sg-white-soul",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "serpentGhostRules": true,
+      "sources": [
+        "sg-original-20261104",
+        "sg-ghost-derivatives",
+        "sg-white-body",
+        "sg-snake-body",
+        "sg-reap-chain",
+        "sg-chaos-guide",
+        "sg-snake-copy",
+        "sg-switch-boundaries"
+      ],
+      "verificationPending": [
+        "中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。",
+        "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"
+      ]
+    }
+  }
+}

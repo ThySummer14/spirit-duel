@@ -1,0 +1,33 @@
+{
+  "mainCards": 16,
+  "derivedUnits": 2,
+  "derivedCards": 2,
+  "rulesChecks": 136,
+  "rulesFailures": 0,
+  "aiChecks": 48,
+  "aiFailures": 0,
+  "aiExecution": "AI.take_action with actual play_card card/target command_log assertions for all 16 main cards",
+  "nativeChecks": 133,
+  "nativeFailures": 0,
+  "nativeRulesChecksAtCapture": 119,
+  "nativeExtraInteractionChecks": 14,
+  "nativeSizes": [
+    "1280x800",
+    "1600x740"
+  ],
+  "nativeNote": "Captured before 17 additive snake form aura checks; captured scenarios do not use c22002; no redundant whole-native rerun",
+  "screenshots": 6,
+  "screenshotsViewed": true,
+  "mainPng": 16,
+  "derivedOriginalImages": 4,
+  "jpegConvertedToPng": [
+    "sg-white-soul"
+  ],
+  "jpegDecodedPixelsEqual": true,
+  "artHashErrors": [],
+  "derivedAssetChecks": 4,
+  "derivedAssetCheckStatus": "passed",
+  "errors": [],
+  "pending": "指定录像尚未逐牌/逐边界核验；复杂跨身体附属状态、觉醒蛇复制所有附属状态、直接变形后的永久成长恢复、神愤免战伤持续边界保留verificationPending；全库审计仍应失败",
+  "derivedAssetLog": "derived-assets.log"
+}

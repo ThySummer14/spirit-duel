@@ -1,0 +1,26 @@
+[
+  {
+    "source": "output/godot-music-fire-20261104/fire.png",
+    "sourceUrl": "https://cdn.gamerch.com/contents/wiki/1667/entry/2U2TcmUX.png",
+    "target": "godot/assets/official/tokens/mf-fire.png",
+    "sha256": "584f6c6db47be17ce26c8add3ef73ec229a0ac4c9e95f1a892909266143b05f9"
+  },
+  {
+    "source": "output/godot-music-fire-20261104/fire-awakened.png",
+    "sourceUrl": "https://cdn.gamerch.com/contents/wiki/1667/entry/wSXswmGW.png",
+    "target": "godot/assets/official/tokens/mf-fire-awakened.png",
+    "sha256": "fd66d3e5f11a1b1b341ec96b9979675fb84290d4b604ef347910e071aa10779a"
+  },
+  {
+    "source": "output/godot-music-fire-20261104/doll-a.png",
+    "sourceUrl": "https://cdn.gamerch.com/contents/wiki/1667/entry/thzheN82.png",
+    "target": "godot/assets/official/tokens/mf-doll-a.png",
+    "sha256": "04046a77ae3efe8413cdcc91dd804f99c9a5d29a2194360482b4c07f65172606"
+  },
+  {
+    "source": "output/godot-music-fire-20261104/doll-b.png",
+    "sourceUrl": "https://cdn.gamerch.com/contents/wiki/1667/entry/rUEuZ8su.png",
+    "target": "godot/assets/official/tokens/mf-doll-b.png",
+    "sha256": "647ebacdd2042c8632d14139d35bc8783a1a98d2c83a7c520226ecb44346e6ce"
+  }
+]

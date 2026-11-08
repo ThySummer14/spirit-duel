@@ -1348,6 +1348,21 @@ def normalize_starters() -> None:
                 meta["deck_limit"] = 1
 
 
+EXTRA_UNITS = []
+
+
+EXTRA_UNITS += [{'id': 'sg-ghost-white', 'name': '鬼使白', 'title': '鬼使协作身份', 'role': '切换身份', 'strategy': '', 'attack': 2, 'maxHp': 6, 'pack': 'wave4', 'art': 'assets/official/serpent-ghost/white-txsKFqxc.png', 'awakenedArt': 'assets/official/serpent-ghost/white-txsKFqxc.png', 'color': '#b997a8', 'token': True, 'selectable': False, 'countsAsShikigami': True, 'passive': {'id': 'sg-ghost-white-passive', 'name': '鬼使白', 'text': '倒计时2：切换为鬼使黑。', 'hooks': []}, 'verifiedRules': True, 'sources': ['sg-original-20261104', 'sg-ghost-derivatives', 'sg-white-body', 'sg-snake-body', 'sg-reap-chain', 'sg-chaos-guide', 'sg-snake-copy', 'sg-switch-boundaries'], 'verificationPending': ['中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。', '觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。']}]
+
+
+EXTRA_UNITS += [{'id': 'sg-snake', 'name': '蛇魔', 'title': '八岐大蛇变形', 'role': '切换身份', 'strategy': '', 'attack': 3, 'maxHp': 3, 'pack': 'wave4', 'art': 'assets/official/serpent-ghost/snake-PT289B07.jpg', 'awakenedArt': 'assets/official/serpent-ghost/snake-PT289B07.jpg', 'color': '#b997a8', 'token': True, 'selectable': False, 'countsAsShikigami': True, 'passive': {'id': 'sg-snake-passive', 'name': '蛇魔', 'text': '迅捷。', 'hooks': []}, 'verifiedRules': True, 'sources': ['sg-original-20261104', 'sg-ghost-derivatives', 'sg-white-body', 'sg-snake-body', 'sg-reap-chain', 'sg-chaos-guide', 'sg-snake-copy', 'sg-switch-boundaries'], 'verificationPending': ['中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。', '觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。']}]
+
+
+EXTRA_TOKENS += [{'id': 'sg-white-awaken', 'unitId': 'guishiheibai', 'name': '觉醒·鬼使白', 'type': 'spell', 'level': 3, 'cost': 1, 'text': '瞬发。觉醒：不屈，倒计时1：切换为鬼使黑。每回合一次，当鬼使白受到伤害时，自动使用「索魂」。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'sg-white-awaken', 'source', {'attack': 2, 'hp': 2}]]}]
+
+
+EXTRA_TOKENS += [{'id': 'sg-white-soul', 'unitId': 'guishiheibai', 'name': '索魂', 'type': 'spell', 'level': 1, 'cost': 1, 'text': '投射：造成等同于鬼使白此次受到伤害的伤害。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'sg-white-soul', 'source', 0]]}]
+
+
 def main() -> None:
     normalize_keywords()
     normalize_starters()
@@ -1419,6 +1434,9 @@ def main() -> None:
         lines.append("    passive: passive(" + js_str(pid["id"]) + ", " + js_str(pid["name"]) + ", " + js_str(pid["text"]) + ", [\n" + pid_h + "\n    ]),")
         lines.append("    awakenedPassive: passive(" + js_str(aid["id"]) + ", " + js_str(aid["name"]) + ", " + js_str(aid["text"]) + ", [\n" + aid_h + "\n    ]),")
         lines.append("  },")
+
+    for extra_unit in EXTRA_UNITS:
+        lines.append("  " + json.dumps(extra_unit, ensure_ascii=False) + ",")
 
     lines.append("]);")
     lines.append("")

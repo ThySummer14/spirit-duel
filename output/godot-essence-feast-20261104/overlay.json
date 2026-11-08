@@ -1,0 +1,1064 @@
+{
+  "units": {
+    "fenpopo": {
+      "verifiedRules": true,
+      "essenceFeastRole": "powder",
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "ef-powder",
+        "name": "粉婆婆",
+        "text": "每回合一次，当你或粉婆婆受到过量治疗时，投射：造成2点伤害。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "ef-powder-awake",
+        "name": "觉醒",
+        "text": "觉醒能力按对应觉醒牌原文生效。",
+        "hooks": []
+      },
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "jiao": {
+      "verifiedRules": true,
+      "essenceFeastRole": "pearl",
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "ef-pearl",
+        "name": "椒图",
+        "text": "每回合一次，当己方牌手受到伤害时，获得一张「生命精华」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "ef-pearl-awake",
+        "name": "觉醒",
+        "text": "觉醒能力按对应觉醒牌原文生效。",
+        "hooks": []
+      },
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "fansi": {
+      "verifiedRules": true,
+      "essenceFeastRole": "feast",
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "ef-feast",
+        "name": "饭笥",
+        "text": "当己方使用的手牌仅以饭笥为目标时，为饭笥结附一个「饱足」；若该牌为中立牌，改为结附两个。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "ef-feast-awake",
+        "name": "觉醒",
+        "text": "觉醒能力按对应觉醒牌原文生效。",
+        "hooks": []
+      },
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c60301": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "使一个敌方式神获得「当他出击或使用牌时，敌方牌手获得一张「生命精华」。」",
+      "officialText": "使一个敌方式神获得「当他出击或使用牌时，敌方牌手获得一张「生命精华」。」",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60302": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，当你或粉婆婆受到过量治疗时，随机对一名敌方式神造成2点伤害。",
+      "officialText": "每回合一次，当你或粉婆婆受到过量治疗时，随机对一名敌方式神造成2点伤害。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efPaint": true
+      },
+      "formHooks": [],
+      "formAbility": "每回合一次，当你或粉婆婆受到过量治疗时，随机对一名敌方式神造成2点伤害。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60303": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-knocked",
+      "text": "气绝时可用\n复活一个己方式神并获得两张「生命精华」。",
+      "officialText": "气绝时可用\n复活一个己方式神并获得两张「生命精华」。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "allowKnockedSource": true
+    },
+    "c60304": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时获得一张「生命精华」。\n每回合一次，当你或粉婆婆受到过量治疗时，召唤一个「粉盒」。",
+      "officialText": "进场和己方回合开始时获得一张「生命精华」。\n每回合一次，当你或粉婆婆受到过量治疗时，召唤一个「粉盒」。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efPowderBox": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方回合开始时获得一张「生命精华」。\n每回合一次，当你或粉婆婆受到过量治疗时，召唤一个「粉盒」。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60305": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "为所有己方式神恢复2点生命，获得等同于过量治疗量的「生命精华」。",
+      "officialText": "为所有己方式神恢复2点生命，获得等同于过量治疗量的「生命精华」。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60306": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发\n每回合一次，当己方式神受到过量治疗时，获得1点鬼火。",
+      "officialText": "瞬发\n每回合一次，当己方式神受到过量治疗时，获得1点鬼火。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "ef-grudge",
+        "trigger": "native-continuous"
+      }
+    },
+    "c60307": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-living-unit",
+      "text": "对一个式神造成6点伤害，获得六张「生命精华」。\n\n戏法：对一个式神造成2点伤害，获得两张「生命精华」。",
+      "officialText": "对一个式神造成6点伤害，获得六张「生命精华」。\n\n戏法：对一个式神造成2点伤害，获得两张「生命精华」。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "efTrick": true
+    },
+    "c60308": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当你恢复5点或以上#[生命]时，自动从手牌或牌库使用一张此牌。\n觉醒：每回合一次，当你受到过量治疗时，投射：造成等量的伤害。每回合一次，当粉婆婆受到过量治疗时，发起一次攻击，本次攻击免疫战斗伤害。",
+      "officialText": "当你恢复5点或以上#[生命]时，自动从手牌或牌库使用一张此牌。\n觉醒：每回合一次，当你受到过量治疗时，投射：造成等量的伤害。每回合一次，当粉婆婆受到过量治疗时，发起一次攻击，本次攻击免疫战斗伤害。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 2,
+        "hp": 2
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60601": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，当己方牌手受到伤害时，投射：造成1点伤害。",
+      "officialText": "每回合一次，当己方牌手受到伤害时，投射：造成1点伤害。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 2,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efTorrent": true
+      },
+      "formHooks": [],
+      "formAbility": "每回合一次，当己方牌手受到伤害时，投射：造成1点伤害。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60602": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-knocked",
+      "text": "瞬发\n复活一个己方式神，对己方牌手造成等同其#[生命]的伤害。",
+      "officialText": "瞬发\n复活一个己方式神，对己方牌手造成等同其#[生命]的伤害。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60603": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "当椒图受到伤害时，将其中1点伤害转移给己方牌手。",
+      "officialText": "当椒图受到伤害时，将其中1点伤害转移给己方牌手。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 5,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efSpring": true
+      },
+      "formHooks": [],
+      "formAbility": "当椒图受到伤害时，将其中1点伤害转移给己方牌手。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60604": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时将椒图移入战斗区并获得三张「生命精华」。\n\n每回合一次，当己方牌手受到伤害时，所有己方式神获得+1#[力量]或气绝倒计时-1。",
+      "officialText": "进场时将椒图移入战斗区并获得三张「生命精华」。\n\n每回合一次，当己方牌手受到伤害时，所有己方式神获得+1#[力量]或气绝倒计时-1。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 4,
+        "nativeRealm": "ef-moist",
+        "trigger": "native-continuous"
+      }
+    },
+    "c60605": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：每回合一次，当己方牌手受到伤害时，获得伤害量一半数量的「生命精华」。当你被恢复5#[生命]或以上时，抽一张牌。",
+      "officialText": "觉醒：每回合一次，当己方牌手受到伤害时，获得伤害量一半数量的「生命精华」。当你被恢复5#[生命]或以上时，抽一张牌。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60606": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-living-unit",
+      "text": "对一个式神造成等同于你本局游戏受到伤害次数的伤害。@6060602 \n\n戏法：对一个式神造成3点伤害。",
+      "officialText": "对一个式神造成等同于你本局游戏受到伤害次数的伤害。@6060602 \n\n戏法：对一个式神造成3点伤害。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "efTrick": true
+    },
+    "c60607": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时将椒图移入战斗区。\n每回合一次，当椒图受到伤害时，改为随机将伤害分配给己方牌手和敌方式神。",
+      "officialText": "进场时将椒图移入战斗区。\n每回合一次，当椒图受到伤害时，改为随机将伤害分配给己方牌手和敌方式神。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 5,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efPearlSplit": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时将椒图移入战斗区。\n每回合一次，当椒图受到伤害时，改为随机将伤害分配给己方牌手和敌方式神。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c60608": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-character",
+      "text": "本次战斗当椒图受到伤害时，将所有伤害转移给一个敌方角色。\n\n戏法：免疫战斗伤害。",
+      "officialText": "本次战斗当椒图受到伤害时，将所有伤害转移给一个敌方角色。\n\n戏法：免疫战斗伤害。",
+      "effect": "ef-card",
+      "value": 1,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 0
+      },
+      "efTrick": true
+    },
+    "c63801": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-unit",
+      "text": "使一个己方式神发起一次攻击。若该式神本回合曾被其他牌选择为目标，本次战斗使其免疫战斗伤害。",
+      "officialText": "使一个己方式神发起一次攻击。若该式神本回合曾被其他牌选择为目标，本次战斗使其免疫战斗伤害。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c63802": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时坚守。\n当饭笥攻击时，随机获得一张「食材」；当饭笥被攻击时，获得一张「生命精华」。",
+      "officialText": "进场时坚守。\n当饭笥攻击时，随机获得一张「食材」；当饭笥被攻击时，获得一张「生命精华」。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 3,
+        "hp": 6,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efChef": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时坚守。\n当饭笥攻击时，随机获得一张「食材」；当饭笥被攻击时，获得一张「生命精华」。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c63803": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "穿刺\n增强：本局游戏当己方使用的手牌仅以饭笥为目标时，此牌+1#[力量]（最大为5）。",
+      "officialText": "穿刺\n增强：本局游戏当己方使用的手牌仅以饭笥为目标时，此牌+1#[力量]（最大为5）。",
+      "effect": "ef-card",
+      "value": 1,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "penetration"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 1
+      }
+    },
+    "c63804": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "贯通。增强：本回合若饭笥曾被其他牌选择为目标，此牌获得追猎。",
+      "officialText": "贯通。增强：本回合若饭笥曾被其他牌选择为目标，此牌获得追猎。",
+      "effect": "ef-card",
+      "value": 1,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [
+        "pierce"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 1
+      }
+    },
+    "c63805": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "realm",
+      "typeLabel": "幻境牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，当己方使用的非觉醒法术牌仅以己方单一式神为目标时，复制该牌并对随机另一个己方式神再使用一次。",
+      "officialText": "每回合一次，当己方使用的非觉醒法术牌仅以己方单一式神为目标时，复制该牌并对随机另一个己方式神再使用一次。",
+      "effect": "ef-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 4,
+        "nativeRealm": "ef-divine-meal",
+        "trigger": "native-continuous"
+      }
+    },
+    "c63806": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场时随机获得一张「食材」和一张「生命精华」。\n当己方使用的手牌仅以饭笥为目标时，饭笥本回合获得迅捷。",
+      "officialText": "进场时随机获得一张「食材」和一张「生命精华」。\n当己方使用的手牌仅以饭笥为目标时，饭笥本回合获得迅捷。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 3,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "efDivine": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时随机获得一张「食材」和一张「生命精华」。\n当己方使用的手牌仅以饭笥为目标时，饭笥本回合获得迅捷。",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ]
+    },
+    "c63807": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "ally-unit",
+      "text": "选择一个本回合曾被其他牌选择过的己方式神，本次战斗后使其发起一次攻击。",
+      "officialText": "选择一个本回合曾被其他牌选择过的己方式神，本次战斗后使其发起一次攻击。",
+      "effect": "ef-card",
+      "value": 1,
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "shield": 1
+      }
+    },
+    "c63808": {
+      "verifiedRules": true,
+      "essenceFeastRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "觉醒：当己方使用的手牌仅以己方单一式神为目标时，该式神+2力量/+2生命。每回合一次，以饭笥为目标使用手牌后，获得1鬼火。戏法：随机获得一张「食材」和一张「生命精华」。",
+      "officialText": "觉醒：当己方使用的手牌仅以己方单一式神为目标时，该式神+2力量/+2生命。每回合一次，以饭笥为目标使用手牌后，获得1鬼火。戏法：随机获得一张「食材」和一张「生命精华」。",
+      "effect": "ef-card",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "ef-card",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "essence-feast-original-20261104"
+      ],
+      "verificationPending": [
+        "采用本地中文完整原PNG与基础牌文；指定录像未逐牌核验。过量治疗/伤害转移/自动用牌/多来源同时触发与融合的完整全序仍待原客户端核验。"
+      ],
+      "efSoleSource": true,
+      "efTrick": true
+    },
+    "shengmingjinghua": {
+      "verifiedRules": true,
+      "neutralEssence": true,
+      "unitId": "",
+      "type": "spell",
+      "typeLabel": "中立法术牌",
+      "level": 0,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "target": "ef-essence-target",
+      "text": "瞬发。堆叠（最大10）。为一个角色恢复等同于堆叠层数的生命。",
+      "officialText": "瞬发。堆叠（最大10）。为一个角色恢复等同于堆叠层数的生命。",
+      "keywords": [
+        "instant"
+      ],
+      "effect": "ef-essence",
+      "effects": [
+        {
+          "action": "ef-essence",
+          "target": "selected",
+          "value": 1
+        }
+      ],
+      "token": true,
+      "sources": [
+        "essence-feast-derived-20261104"
+      ],
+      "verificationPending": [
+        "生命精华据同期2023卡包机制文本补证，中文独立派生完整原PNG暂缺，复杂复制/堆叠原客户端待核。"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "essence-feast-original-20261104",
+      "type": "local-original-card-png",
+      "title": "粉婆婆、椒图、饭笥完整原PNG",
+      "path": "art-reference-official/卡面-按版本/",
+      "checked": "2026-11-04"
+    },
+    {
+      "id": "essence-feast-derived-20261104",
+      "type": "mechanics-reference",
+      "url": "https://www.taptap.cn/moment/452866432946933284",
+      "title": "同期生命精华堆叠10、治疗层数及粉盒3/3融合"
+    },
+    {
+      "id": "fansi-satiety-video-20261104",
+      "type": "video-card-tooltip",
+      "url": "https://www.bilibili.com/video/BV1e7CXYWETR/",
+      "title": "饭笥实机解析04:20饱足完整tooltip",
+      "path": "output/godot-essence-feast-20261104/satiety-video-260sec.png"
+    }
+  ]
+}

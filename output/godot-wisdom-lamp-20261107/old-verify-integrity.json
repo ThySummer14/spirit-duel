@@ -1,0 +1,13 @@
+{
+ "baselineCount": 187,
+ "unchanged": 186,
+ "deliberateChanges": [
+  {
+   "path": "godot/scripts/verify_roster.gd",
+   "reason": "修正初始化断言：千姬首回合召唤海原贝戟是已核对被动，改为只数四名入选式神本体；旧断言在HEAD基线即失败"
+  }
+ ],
+ "changed": [
+  "godot/scripts/verify_roster.gd"
+ ]
+}

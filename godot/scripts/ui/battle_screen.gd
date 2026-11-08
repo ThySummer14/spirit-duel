@@ -1063,7 +1063,9 @@ func _fill_command_bar() -> void:
 		_small_button("取消", _cancel_and_refresh_bar)
 		return
 	if _selected_attacker >= 0:
-		if gs.VerifiedRules.BattleSkill.requires_target(gs,PLAYER,_selected_attacker):
+		if gs.VerifiedRules.HairPower.guard_count(gs,PLAYER)>0:
+			_prompt("坚守 · 再次点击选中的己方式神移入战斗区", ThemeBuilder.WARN)
+		elif gs.VerifiedRules.BattleSkill.requires_target(gs,PLAYER,_selected_attacker):
 			_prompt("战技 · %s · 选择发光的目标" % gs.VerifiedRules.BattleSkill.ready(gs,PLAYER,_selected_attacker).name, ThemeBuilder.WARN)
 		elif gs.VerifiedRules.TreeSakura.floating(gs.player(PLAYER).units[_selected_attacker]):
 			_prompt("飘零之舞 · 选择发光角色；己方恢复生命", ThemeBuilder.WARN)
@@ -1154,6 +1156,8 @@ func _update_choice_layer() -> void:
 		if sc_choice_card!=null:def=sc_choice_card
 		var rw_choice_card=gs.VerifiedRules.RednightWalnut.choice_card(gs,PLAYER,str(iid))
 		if rw_choice_card!=null:def=rw_choice_card
+		var fw_choice_card=gs.VerifiedRules.FearWing.choice_card(gs,PLAYER,str(iid))
+		if fw_choice_card!=null:def=fw_choice_card
 		var ape_choice_card=gs.VerifiedRules.ApeSleeve.choice_card(gs,PLAYER,str(iid))
 		if ape_choice_card!=null:def=ape_choice_card
 		var zd_choice_card=gs.VerifiedRules.Zhenjian.choice_card(gs,PLAYER,str(iid))
@@ -1353,7 +1357,7 @@ func _show_unit_popover(unit: Dictionary, p_idx: int, unit_index: int) -> void:
 	v.add_child(h)
 	if p_idx == PLAYER and gs.current_player == PLAYER:
 		var atk_btn := ThemeBuilder.primary(Button.new(), 15)
-		atk_btn.text = "出击"
+		atk_btn.text = "坚守 · 移入战斗区" if gs.VerifiedRules.HairPower.guard_count(gs,PLAYER)>0 else "出击"
 		atk_btn.disabled = not gs.can_basic_attack(PLAYER, unit_index).ok
 		atk_btn.pressed.connect(func():
 			_hide_tooltip()

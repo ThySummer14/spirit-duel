@@ -1,0 +1,417 @@
+{
+  "sources": [
+    {
+      "id": "hair-original-20261104",
+      "evidence": "609完整中文原PNG：1/6基础，真实之颜5/8、食发之喜2/7、两结界耐久5。"
+    },
+    {
+      "id": "hair-official-combat-power",
+      "url": "https://www.taptap.cn/moment/483003889277208129",
+      "evidence": "官方战力寿命：下一次战斗伤害加成、战斗后移除、未战斗也在下个己方回合开始移除；疾速改付出击次数，瞬发优先。"
+    },
+    {
+      "id": "hair-official-guard",
+      "url": "https://www.taptap.cn/app/158690/topic?page=65&type=official",
+      "evidence": "坚守额外获得一次免费出击及出击加成（若有），式神移入战斗区但不发动攻击；在下个己方回合开始失去。"
+    }
+  ],
+  "units": {
+    "shifagui": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "attack": 1,
+      "maxHp": 6,
+      "formLifecycle": {},
+      "passive": {
+        "id": "hair-power",
+        "name": "战力",
+        "text": "己方回合开始时获得2战力。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "hair-power-awake",
+        "name": "觉醒·食发鬼",
+        "text": "己方回合开始时获得2战力，本局之后每个己方回合开始时此效果+1（气绝时有效）。",
+        "hooks": []
+      },
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c60901": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "疾速，穿刺，贯通",
+      "officialText": "疾速，穿刺，贯通",
+      "keywords": [
+        "swift-card",
+        "penetration",
+        "pierce"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "pursuit": false,
+        "penetration": true,
+        "pierce": true
+      },
+      "responseAction": "assault"
+    },
+    "c60902": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "食发鬼每有1战力就+1护甲。",
+      "officialText": "食发鬼每有1战力就+1护甲。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "pursuit": false,
+        "penetration": false,
+        "pierce": false
+      },
+      "responseAction": "assault"
+    },
+    "c60903": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场时使一个己方式神获得3战力。\n己方有战力的式神攻击敌方战斗区式神时获得贯通。",
+      "officialText": "进场时使一个己方式神获得3战力。\n己方有战力的式神攻击敌方战斗区式神时获得贯通。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "ally-unit",
+      "effect": "hair-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-realm",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "hair-fear",
+        "trigger": "native-continuous"
+      }
+    },
+    "c60904": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使一个敌方式神+2乏力并使食发鬼+2战力。\n觉醒：己方回合开始时，+2战力。本局游戏之后每个己方回合开始时此效果+1（气绝时有效）。",
+      "officialText": "使一个敌方式神+2乏力并使食发鬼+2战力。\n觉醒：己方回合开始时，+2战力。本局游戏之后每个己方回合开始时此效果+1（气绝时有效）。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "enemy-unit",
+      "effect": "hair-awaken",
+      "value": {
+        "attack": 1,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "hair-awaken",
+          "target": "selected",
+          "value": {
+            "attack": 1,
+            "hp": 1
+          }
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ]
+    },
+    "c60905": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "追猎\n使被攻击的式神+2乏力并使食发鬼+2战力。若本次战斗击杀式神，则战斗结束后食发鬼获得其消耗战力一半的战力。",
+      "officialText": "追猎\n使被攻击的式神+2乏力并使食发鬼+2战力。若本次战斗击杀式神，则战斗结束后食发鬼获得其消耗战力一半的战力。",
+      "keywords": [
+        "pursuit"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "enemy-unit",
+      "effect": "hair-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-combat",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "combatOption": {
+        "pursuit": true,
+        "penetration": false,
+        "pierce": false
+      },
+      "responseAction": "assault"
+    },
+    "c60906": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和己方回合开始时，对所有敌方式神造成1点伤害，每以此法造成1点伤害食发鬼就+1战力。",
+      "officialText": "进场和己方回合开始时，对所有敌方式神造成1点伤害，每以此法造成1点伤害食发鬼就+1战力。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-form",
+      "value": {
+        "attack": 5,
+        "hp": 8,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "hair-form",
+          "target": "source",
+          "value": {
+            "attack": 5,
+            "hp": 8,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "hairFace": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方回合开始时，对所有敌方式神造成1点伤害，每以此法造成1点伤害食发鬼就+1战力。",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ]
+    },
+    "c60907": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "瞬发\n进场时使所有己方式神获得3战力。\n当敌方战斗区式神气绝时，重置你的出击次数。",
+      "officialText": "瞬发\n进场时使所有己方式神获得3战力。\n当敌方战斗区式神气绝时，重置你的出击次数。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "hair-realm",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "hair-fearless",
+        "trigger": "native-continuous"
+      }
+    },
+    "c60908": {
+      "verifiedRules": true,
+      "hairPowerRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "气绝时可用，复活食发鬼并使其+2战力。\n敌方回合开始时，使食发鬼获得+3战力。",
+      "officialText": "气绝时可用，复活食发鬼并使其+2战力。\n敌方回合开始时，使食发鬼获得+3战力。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "hair-form",
+      "value": {
+        "attack": 2,
+        "hp": 7,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "hair-form",
+          "target": "source",
+          "value": {
+            "attack": 2,
+            "hp": 7,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "hairJoy": true
+      },
+      "formHooks": [],
+      "formAbility": "气绝时可用，复活食发鬼并使其+2战力。\n敌方回合开始时，使食发鬼获得+3战力。",
+      "sources": [
+        "hair-original-20261104",
+        "hair-official-combat-power",
+        "hair-official-guard"
+      ],
+      "verificationPending": [
+        "按基础牌文与完整原PNG接入，指定录像未逐牌核验；战力/乏力叠加抵消、半数取整、多重战斗/切换/反制完整全序仍待原客户端核验。",
+        "疾速按瞬发优先、坚守次数优先于普通出击；坚守真实移入战斗区不攻击。多来源出击加成与鼓舞关键词持续范围仍待原客户端核验。"
+      ],
+      "allowKnockedSource": true
+    }
+  }
+}

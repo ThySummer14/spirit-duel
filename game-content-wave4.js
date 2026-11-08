@@ -599,6 +599,8 @@ export const WAVE4_UNIT_DEFINITIONS = Object.freeze([
       { id: "bless-a", event: "turn-started", effect: "passive-heal-all-allies", params: {"amount": 2} }
     ]),
   },
+  {"id": "sg-ghost-white", "name": "鬼使白", "title": "鬼使协作身份", "role": "切换身份", "strategy": "", "attack": 2, "maxHp": 6, "pack": "wave4", "art": "assets/official/serpent-ghost/white-txsKFqxc.png", "awakenedArt": "assets/official/serpent-ghost/white-txsKFqxc.png", "color": "#b997a8", "token": true, "selectable": false, "countsAsShikigami": true, "passive": {"id": "sg-ghost-white-passive", "name": "鬼使白", "text": "倒计时2：切换为鬼使黑。", "hooks": []}, "verifiedRules": true, "sources": ["sg-original-20261104", "sg-ghost-derivatives", "sg-white-body", "sg-snake-body", "sg-reap-chain", "sg-chaos-guide", "sg-snake-copy", "sg-switch-boundaries"], "verificationPending": ["中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。", "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"]},
+  {"id": "sg-snake", "name": "蛇魔", "title": "八岐大蛇变形", "role": "切换身份", "strategy": "", "attack": 3, "maxHp": 3, "pack": "wave4", "art": "assets/official/serpent-ghost/snake-PT289B07.jpg", "awakenedArt": "assets/official/serpent-ghost/snake-PT289B07.jpg", "color": "#b997a8", "token": true, "selectable": false, "countsAsShikigami": true, "passive": {"id": "sg-snake-passive", "name": "蛇魔", "text": "迅捷。", "hooks": []}, "verifiedRules": true, "sources": ["sg-original-20261104", "sg-ghost-derivatives", "sg-white-body", "sg-snake-body", "sg-reap-chain", "sg-chaos-guide", "sg-snake-copy", "sg-switch-boundaries"], "verificationPending": ["中文主体以本地完整PNG为准，派生借日文完整原卡补证。指定录像未逐牌核验；切换/死亡与多段、全体伤害、响应的精细全序仍待原客户端核对。", "觉醒蛇魔复制大蛇的形态/身材，原身份和UID保留；复制时其他附属状态、直接变形后的复杂永久成长还原、神愤免战伤持续边界待核。"]},
 ]);
 
 function eff(condition, action, target, value = null) {
@@ -4760,6 +4762,53 @@ export const WAVE4_CARD_DEFINITIONS = Object.freeze([
       null
     ]
   ]
+}),
+  wave4Card(0, "guishiheibai", {
+    "id": "sg-white-awaken",
+    "unitId": "guishiheibai",
+    "name": "觉醒·鬼使白",
+    "type": "spell",
+    "level": 3,
+    "cost": 1,
+    "text": "瞬发。觉醒：不屈，倒计时1：切换为鬼使黑。每回合一次，当鬼使白受到伤害时，自动使用「索魂」。",
+    "target": "auto",
+    "deckLimit": 0,
+    "token": true,
+    "starter": 0,
+    "effects": [
+        [
+            "always",
+            "sg-white-awaken",
+            "source",
+            {
+                "attack": 2,
+                "hp": 2
+            }
+        ]
+    ],
+    "subpack": "jiyun"
+}),
+  wave4Card(0, "guishiheibai", {
+    "id": "sg-white-soul",
+    "unitId": "guishiheibai",
+    "name": "索魂",
+    "type": "spell",
+    "level": 1,
+    "cost": 1,
+    "text": "投射：造成等同于鬼使白此次受到伤害的伤害。",
+    "target": "auto",
+    "deckLimit": 0,
+    "token": true,
+    "starter": 0,
+    "effects": [
+        [
+            "always",
+            "sg-white-soul",
+            "source",
+            0
+        ]
+    ],
+    "subpack": "jiyun"
 }),
 ]);
 

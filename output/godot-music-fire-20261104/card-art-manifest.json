@@ -1,0 +1,82 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/256_紧那罗/25601_序·无月夜_法术.png",
+    "target": "godot/assets/official/cards/c25601.png",
+    "sha256": "6f2358ceda16a496ade2faa300edccaaf09d0ca81505a513578c479a02586902"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/256_紧那罗/25602_宫·寂庭_形态.png",
+    "target": "godot/assets/official/cards/c25602.png",
+    "sha256": "fa717c36e07dc5b34a58ed789de575d211223b3ce0d744dcce58b520b1ed72a6"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/256_紧那罗/25603_商·渺影_法术.png",
+    "target": "godot/assets/official/cards/c25603.png",
+    "sha256": "c80a24b908eb5859af2058738071b88800fc5a5e7baaaee0785d0a04e9a79392"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/256_紧那罗/25604_角·骤声_法术.png",
+    "target": "godot/assets/official/cards/c25604.png",
+    "sha256": "e7d866172b2a321c46cc4366b607c7bbcffc5efb7c101f324fd3370cf5addaf7"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/256_紧那罗/25605_徽·诡间_形态.png",
+    "target": "godot/assets/official/cards/c25605.png",
+    "sha256": "e2f86dc733a22a6f5c505f8b62784e76ebc319212d14a2fccc85d25858b066b3"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/256_紧那罗/25606_羽·幽所_形态.png",
+    "target": "godot/assets/official/cards/c25606.png",
+    "sha256": "c771751e8fb10539b26a1e98ed3c53318d3bdeeff2a4b9a1488ed7419c219e5e"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/256_紧那罗/25607_觉醒·紧那罗_法术.png",
+    "target": "godot/assets/official/cards/c25607.png",
+    "sha256": "1c0a79ea8be14187ea3d03569b62b380d586f68a8092ac1225158638a552d2ff"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/256_紧那罗/25608_终·不归途_法术.png",
+    "target": "godot/assets/official/cards/c25608.png",
+    "sha256": "6d8f4c6545d89575a5d546ff0f12d0fb81be3022161ebb5d8f92ae90510abf26"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/263_铃彦姬/26301_振铃_战斗.png",
+    "target": "godot/assets/official/cards/c26301.png",
+    "sha256": "0c74ddd4e811be97fd20fab9b47b7b2bd80bf917318a79fc1cc53ea8f67be4eb"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/263_铃彦姬/26302_摇曳星火_结界.png",
+    "target": "godot/assets/official/cards/c26302.png",
+    "sha256": "0c56d5527224dcf13c310e668155907007ed7ce46300ab5dd019526f7de7dd31"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/263_铃彦姬/26303_舞刃_战斗.png",
+    "target": "godot/assets/official/cards/c26303.png",
+    "sha256": "a2cf935840db4befa5caaf9955bbe1ae96e647ca0285f4550ed32130308a59ec"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/263_铃彦姬/26304_炽火燎原_结界.png",
+    "target": "godot/assets/official/cards/c26304.png",
+    "sha256": "6ca0e8b9964ce501c2eb0dc5238c023bdd1ccba0169f53be9368962646f42a95"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/263_铃彦姬/26305_觉醒·铃彦姬_法术.png",
+    "target": "godot/assets/official/cards/c26305.png",
+    "sha256": "54897ae4ca4f6f57dd9ffd85cd8f96a429fae4ca5518a0d91b2507eb73c41277"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/263_铃彦姬/26306_浴火重生_战斗.png",
+    "target": "godot/assets/official/cards/c26306.png",
+    "sha256": "c492f0020567eee469fa8c69dbcd5d2d188b8a7faa7b3ec331ea8d596df62f8a"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/263_铃彦姬/26307_余焰尤燃_法术.png",
+    "target": "godot/assets/official/cards/c26307.png",
+    "sha256": "10dd43b781bf3a986a6e7eb71090251623994b5683d7cfa089c180f9470be2cd"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/14_空弦绮话/263_铃彦姬/26308_不灭之焰_结界.png",
+    "target": "godot/assets/official/cards/c26308.png",
+    "sha256": "33ace0955bce63aca061e72fe96cfdf899ee6cf13b6d929a06ded41eb874f73d"
+  }
+]

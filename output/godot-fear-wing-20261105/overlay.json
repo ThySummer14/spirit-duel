@@ -1,0 +1,469 @@
+{
+  "sources": [
+    {
+      "id": "fear-wing-original-20261105",
+      "evidence": "逐图读取本地611完整9 PNG，主体采用本地调整后版本，保留惧刃之风战力翻倍。"
+    },
+    {
+      "id": "fear-wing-official-20231210",
+      "url": "https://www.taptap.cn/moment/483022168251173536?group_id=188707",
+      "evidence": "官方首曝原图：惧翼瞬发、堆叠2、每层+1战力；恐惧获得战力时造成等量伤害、源气绝移除、不可叠加。"
+    }
+  ],
+  "units": {
+    "tiannimei": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "attack": 3,
+      "maxHp": 4,
+      "formLifecycle": {},
+      "passive": {
+        "id": "fear-wing",
+        "name": "惧翼",
+        "text": "己方回合开始时，获得一张「惧翼」。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "fear-wing-awake",
+        "name": "觉醒·天逆每",
+        "text": "己方回合开始时或敌方式神气绝时，获得一张「惧翼」。",
+        "hooks": []
+      },
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    }
+  },
+  "cards": {
+    "c61101": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "消灭式神时，随机使一个未结附「恐惧」的敌方式神结附「恐惧」。\n增强：天逆每有战力时，此牌获得先攻。",
+      "officialText": "消灭式神时，随机使一个未结附「恐惧」的敌方式神结附「恐惧」。\n增强：天逆每有战力时，此牌获得先攻。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "fw-combat",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "immuneCombat": false,
+        "fearDouble": false
+      },
+      "responseAction": "assault"
+    },
+    "c61102": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使一个未结附「恐惧」的敌方式神结附「恐惧」，然后使天逆每获得+1战力并获得两张「惧翼」。",
+      "officialText": "使一个未结附「恐惧」的敌方式神结附「恐惧」，然后使天逆每获得+1战力并获得两张「惧翼」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "fw-unfeared",
+      "effect": "fw-tremble",
+      "value": 0,
+      "effects": [
+        {
+          "action": "fw-tremble",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "c61103": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使一个未结附「恐惧」的敌方式神结附「恐惧」。\n觉醒：己方回合开始时或敌方式神气绝时，获得一张「惧翼」。",
+      "officialText": "使一个未结附「恐惧」的敌方式神结附「恐惧」。\n觉醒：己方回合开始时或敌方式神气绝时，获得一张「惧翼」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "fw-unfeared",
+      "effect": "fw-awaken",
+      "value": {
+        "attack": 0,
+        "hp": 1
+      },
+      "effects": [
+        {
+          "action": "fw-awaken",
+          "target": "selected",
+          "value": {
+            "attack": 0,
+            "hp": 1
+          }
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "c61104": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场和己方回合开始时，使随机一个未结附「恐惧」的敌方式神结附「恐惧」并获得一张「惧翼」。\n「惧翼」气绝时可用并可以对己方其他式神使用。",
+      "officialText": "进场和己方回合开始时，使随机一个未结附「恐惧」的敌方式神结附「恐惧」并获得一张「惧翼」。\n「惧翼」气绝时可用并可以对己方其他式神使用。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-night",
+      "value": 0,
+      "effects": [
+        {
+          "action": "fw-night",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ],
+      "realm": {
+        "hp": 5,
+        "nativeRealm": "fear-wing-night",
+        "trigger": "native-continuous"
+      }
+    },
+    "c61105": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "进场时使一个未结附「恐惧」的敌方式神结附「恐惧」。\n每回合一次，结附「恐惧」的敌方式神气绝时，将一张「惧影随」置入你的手牌。",
+      "officialText": "进场时使一个未结附「恐惧」的敌方式神结附「恐惧」。\n每回合一次，结附「恐惧」的敌方式神气绝时，将一张「惧影随」置入你的手牌。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "fw-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ],
+      "formRules": {
+        "fearWingPerson": true
+      },
+      "formHooks": [],
+      "formAbility": "进场时使一个未结附「恐惧」的敌方式神结附「恐惧」。\n每回合一次，结附「恐惧」的敌方式神气绝时，将一张「惧影随」置入你的手牌。",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "c61106": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "攻击式神时战力翻倍。",
+      "officialText": "攻击式神时战力翻倍。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "fw-combat",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ],
+      "combatOption": {
+        "shield": 1,
+        "immuneCombat": false,
+        "fearDouble": true
+      },
+      "responseAction": "assault"
+    },
+    "c61107": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "使所有敌方式神结附「恐惧」并获得两张「惧翼」。",
+      "officialText": "使所有敌方式神结附「恐惧」并获得两张「惧翼」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-all",
+      "value": 0,
+      "effects": [
+        {
+          "action": "fw-all",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "c61108": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "text": "疾速，免疫战斗伤害\n从手牌对天逆每使用两张「惧翼」。",
+      "officialText": "疾速，免疫战斗伤害\n从手牌对天逆每使用两张「惧翼」。",
+      "keywords": [
+        "swift-card"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "target": "auto",
+      "effect": "fw-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "fw-combat",
+          "target": "source",
+          "value": 1
+        }
+      ],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ],
+      "combatOption": {
+        "shield": 0,
+        "immuneCombat": true,
+        "fearDouble": false
+      },
+      "responseAction": "assault"
+    },
+    "juyi": {
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "unitId": "tiannimei",
+      "name": "惧翼",
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "starterCopies": 0,
+      "token": true,
+      "keywords": [
+        "instant",
+        "stack"
+      ],
+      "text": "瞬发，堆叠（最大2）。使天逆每获得等同于堆叠层数的战力。",
+      "officialText": "瞬发，堆叠（最大2）。使天逆每获得等同于堆叠层数的战力。",
+      "target": "fw-wing",
+      "timing": "main",
+      "responseTo": [],
+      "effect": "fw-wing",
+      "value": 1,
+      "effects": [
+        {
+          "action": "fw-wing",
+          "target": "selected",
+          "value": 1
+        }
+      ],
+      "stackMax": 2,
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    },
+    "fear-wing-charm": {
+      "id": "fear-wing-charm",
+      "unitId": "tiannimei",
+      "name": "恐惧",
+      "type": "spell",
+      "typeLabel": "灵咒",
+      "level": 1,
+      "cost": 1,
+      "token": true,
+      "copies": 0,
+      "deckLimit": 0,
+      "starterCopies": 0,
+      "verifiedRules": true,
+      "fearWingRules": true,
+      "text": "当天逆每获得战力时，对所结附的式神造成等量的伤害。当天逆每气绝时，移除此灵咒。（不能叠加）",
+      "officialText": "当天逆每获得战力时，对所结附的式神造成等量的伤害。当天逆每气绝时，移除此灵咒。（不能叠加）",
+      "effects": [
+        {
+          "action": "fw-attach-charm",
+          "target": "selected",
+          "value": 0
+        }
+      ],
+      "effect": "fw-attach-charm",
+      "value": 0,
+      "keywords": [],
+      "target": "fw-unfeared",
+      "sources": [
+        "fear-wing-original-20261105",
+        "fear-wing-official-20231210"
+      ],
+      "verificationPending": [
+        "基础牌文及官方派生原图已接入；指定录像尚未逐牌核验。",
+        "惧意蔓延按实体手牌实例使用最多两张，每张堆叠整体生效；目前由玩家选择手中实例，是保留资源差异的实现推断，尚未取得原客户端可手选的证据，不能认定交互已还原。叠加牌先后/不足两张及复杂响应全序仍待原客户端复核。",
+        "惧刃之风按本地原PNG战力翻倍实现，未追随其他赛季平衡版；乏力与战力同时存在时翻倍边界待原客户端复核。"
+      ]
+    }
+  }
+}

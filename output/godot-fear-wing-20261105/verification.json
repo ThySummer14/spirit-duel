@@ -1,0 +1,109 @@
+{
+  "engine": "Godot 4.6.3",
+  "rules": {
+    "checks": 119,
+    "failures": 0,
+    "log": "rules.log"
+  },
+  "native": {
+    "checks": 149,
+    "failures": 0,
+    "uiChecks": 30,
+    "sizes": [
+      [
+        1280,
+        800
+      ],
+      [
+        1600,
+        740
+      ]
+    ],
+    "log": "native.log"
+  },
+  "screenshots": [
+    {
+      "path": "1280-01-unfeared-target.png",
+      "sha256": "4b81a4ace358c408db2dacc4bf475283af3088dc562adf401ad163c11863af84",
+      "viewed": true
+    },
+    {
+      "path": "1280-02-stacked-wing-and-fear.png",
+      "sha256": "480e8d5961d40f928065a630d097d9e69aeee5d3769067bedf301f10c6972c8a",
+      "viewed": true
+    },
+    {
+      "path": "1280-03-form-fear-choice.png",
+      "sha256": "4e26aba88937d3d0a6f5b8c4b1fc5232e29e7457cefcdccb996c8fda08dd80ef",
+      "viewed": true
+    },
+    {
+      "path": "1280-04-spread-stack-choice.png",
+      "sha256": "d140837028dab4b47a00d4fcfcab6979450b19746b6500077dae4ca1577037ff",
+      "viewed": true
+    },
+    {
+      "path": "1280-05-spread-resolved.png",
+      "sha256": "5430dc201a4428a25897496e99bcbba21b4f4ab9319bf0ee47384b357d44de21",
+      "viewed": true
+    },
+    {
+      "path": "1280-06-night-knocked-target.png",
+      "sha256": "260ae2b1a67a4bbb71abcac9c88dd04a59ac4fc1bb6df03a1602b956dd5ff2ee",
+      "viewed": true
+    },
+    {
+      "path": "1600-01-unfeared-target.png",
+      "sha256": "3eee2df99c97474c0965148c14b40b509c7ba82120674675c5b3b684a5b657fe",
+      "viewed": true
+    },
+    {
+      "path": "1600-02-stacked-wing-and-fear.png",
+      "sha256": "4ace6e20deae04fd29e5462ccc72a762268dd24198456b1b4bc2c9bb7cbad53d",
+      "viewed": true
+    },
+    {
+      "path": "1600-03-form-fear-choice.png",
+      "sha256": "d7b363e14b5afdb7b5fce845e921cb6436348e251bf738992ca3d694145817ff",
+      "viewed": true
+    },
+    {
+      "path": "1600-04-spread-stack-choice.png",
+      "sha256": "ac0785ff3f8c75486fae5bde468f52d2983d7cef4d3c9aa87fc481f655d39fe7",
+      "viewed": true
+    },
+    {
+      "path": "1600-05-spread-resolved.png",
+      "sha256": "823e168d3892cbd05094a8b205ac8366469bef7794b5d6916c996de9905a8a14",
+      "viewed": true
+    },
+    {
+      "path": "1600-06-night-knocked-target.png",
+      "sha256": "8edc5fb14dc66f7b3bb1cf3e6ada9924fbc80bb7e7de6974d6ce36f05589c855",
+      "viewed": true
+    }
+  ],
+  "pending": [
+    "Original referenced video is absent at supplied path.",
+    "c61108 player selection of real hand instances is an implementation inference pending original-client evidence; tests prove implemented interaction only."
+  ],
+  "scope": {
+    "units": [
+      "tiannimei"
+    ],
+    "mainCards": [
+      "c61101",
+      "c61102",
+      "c61103",
+      "c61104",
+      "c61105",
+      "c61106",
+      "c61107",
+      "c61108"
+    ],
+    "derived": [
+      "juyi",
+      "fear-wing-charm"
+    ]
+  }
+}

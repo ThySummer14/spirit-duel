@@ -1315,6 +1315,15 @@ def normalize_starters() -> None:
                 c["starter"] = 1
 
 
+EXTRA_UNITS = []
+
+
+EXTRA_UNITS += [{'id': 'ef-powder-box', 'name': '粉盒', 'title': '粉婆婆召唤物', 'attack': 3, 'maxHp': 3, 'art': 'assets/wave7/fenpopo.svg', 'awakenedArt': 'assets/wave7/fenpopo.svg', 'color': '#d8a6ba', 'pack': 'wave7', 'selectable': False, 'token': True, 'summoned': True, 'countsAsShikigami': True, 'passive': {'id': 'ef-box-fusion', 'name': '融合', 'text': '融合。离开战斗区时移除。', 'hooks': []}, 'verifiedRules': True, 'sources': ['essence-feast-derived-20261104'], 'verificationPending': ['采用同期2023粉盒3/3融合说明，中文独立派生完整tooltip及美术暂缺；离场/融合/复活全序待原客户端核验。']}]
+
+
+EXTRA_TOKENS += [{'id': 'fear-wing-charm', 'unitId': 'tiannimei', 'name': '恐惧', 'type': 'spell', 'level': 1, 'cost': 1, 'text': '当天逆每获得战力时，对所结附的式神造成等量的伤害。当天逆每气绝时，移除此灵咒。（不能叠加）', 'target': 'auto', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': []}]
+
+
 def main() -> None:
     cards_raw = json.loads((DATA / "cards.json").read_text(encoding="utf-8"))
     by_id = {}
@@ -1385,6 +1394,9 @@ def main() -> None:
         lines.append("    passive: passive(" + js_str(pid["id"]) + ", " + js_str(pid["name"]) + ", " + js_str(pid["text"]) + ", [\n" + pid_h + "\n    ]),")
         lines.append("    awakenedPassive: passive(" + js_str(aid["id"]) + ", " + js_str(aid["name"]) + ", " + js_str(aid["text"]) + ", [\n" + aid_h + "\n    ]),")
         lines.append("  },")
+
+    for extra_unit in EXTRA_UNITS:
+        lines.append("  " + json.dumps(extra_unit, ensure_ascii=False) + ",")
 
     lines.append("]);")
     lines.append("")

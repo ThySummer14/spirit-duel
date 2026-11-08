@@ -1,0 +1,74 @@
+[
+  {
+    "name": "hair",
+    "log": "output/godot-hair-power-20261104/rules-final.log",
+    "summary": [
+      "HAIR_POWER checks=80 failures=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "music-fire",
+    "log": "output/godot-music-fire-20261104/rules-only.log",
+    "summary": [
+      "MUSIC_FIRE checks=138 failures=0 rules_only=true"
+    ],
+    "errors": []
+  },
+  {
+    "name": "serpent-ghost",
+    "log": "output/godot-serpent-ghost-20261104/rules-only.log",
+    "summary": [
+      "SERPENT_GHOST checks=136 failures=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "essence-feast",
+    "log": "output/godot-essence-feast-20261104/rules-final.log",
+    "summary": [
+      "ESSENCE_FEAST checks=273 failures=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "fear-wing",
+    "log": "output/godot-fear-wing-20261105/rules.log",
+    "summary": [
+      "FEAR_WING checks=119 failures=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "cross",
+    "log": "output/godot-completion-drive-20261104/cross.log",
+    "summary": [
+      "COMPLETION_CROSS_OK checks=41"
+    ],
+    "errors": []
+  },
+  {
+    "name": "ai-hair-music",
+    "log": "output/godot-completion-drive-20261104/ai.log",
+    "summary": [
+      "COMPLETION_AI checks=72 failures=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "ai-sg",
+    "log": "output/godot-serpent-ghost-20261104/ai.log",
+    "summary": [
+      "SERPENT_GHOST_AI checks=48 failures=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "ai-ef",
+    "log": "output/godot-essence-feast-20261104/ai-actual.log",
+    "summary": [
+      "ESSENCE_FEAST_AI checks=143 failures=0"
+    ],
+    "errors": []
+  }
+]

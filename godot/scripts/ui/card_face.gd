@@ -496,6 +496,7 @@ func _draw_card_marks(pad: float) -> void:
 	if instant:
 		var available: bool = payment.get("usesInstant", false)
 		tags.append(["instant", "瞬发" if payment.is_empty() else (("瞬发·发动" if payment.get("applied", false) else "瞬发·可用") if available else "瞬发·已用" if payment.instantUsed else "瞬发·待机"), Color("9ee8cd") if payment.is_empty() or available else Color("a6aab4")])
+	elif payment.get("usesSwift",false):tags.append(["swift-card","疾速·消耗出击",Color("9ed5e8")])
 	elif not payment.is_empty() and int(payment.cost) == 0: tags.append(["free", "免鬼火", Color("cce5ca")])
 	if not str(data.get("autoResponse", "")).is_empty() or data.get("timing", "main") == "response": tags.append(["response", "响应", Color("ccb3e7")])
 	if data.get("enhanced", false): tags.append(["enhanced", "已增强", Color("f2d58c")])

@@ -34,7 +34,7 @@ static func destroyed(gs, owner: int, src: int, victim: int, target: Dictionary)
 static func destroy(gs, owner: int, src: int, victim: int, idx: int, card: Dictionary = {}, extra: int = -1) -> bool:
 	if idx < 0 or idx >= gs.player(victim).units.size() or gs.winner >= 0: return false
 	var target: Dictionary = gs.player(victim).units[idx]
-	if int(target.hp) <= 0 or gs.VerifiedRules.Zhenjian.prevent_destroy(target): return false
+	if int(target.hp) <= 0 or gs.VerifiedRules.Zhenjian.prevent_destroy(target) or gs.VerifiedRules.WisdomLamp.protected(gs,victim,target): return false
 	gs._knockout_unit(target, owner, src, extra)
 	if int(target.hp)>0: return false
 	gs.VerifiedRules.Yaodao.unit_killed(gs, owner, src, victim, idx)

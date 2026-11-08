@@ -125,7 +125,9 @@ func _run() -> void:
 		var initial_ids := {}
 		for instance in gs.player(0).deck + gs.player(0).hand:
 			if str(instance.instanceId).begins_with("player-c"): initial_ids[instance.instanceId] = true
-		_check(gs.player(0).units.size() == 4 and initial_ids.size() == 32, "full migrated lineup initializes at offset %d" % offset)
+		# 千姬等首个己方回合开始即召唤派生单位，只要求四名入选式神本体在场。
+		var base_units: Array = gs.player(0).units.filter(func(u): return not u.get("summoned", false))
+		_check(base_units.size() == 4 and initial_ids.size() == 32, "full migrated lineup initializes at offset %d" % offset)
 		var steps := 0
 		while gs.winner < 0 and steps < 500:
 			GameAI.take_turn(gs, gs.action_player())

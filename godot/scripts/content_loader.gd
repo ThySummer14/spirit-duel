@@ -92,6 +92,7 @@ static func is_spell(card: Dictionary) -> bool:
 	return str(card.get("type", "")) in ["spell", "awakening"]
 
 static func runtime_unit_def(unit: Dictionary) -> Dictionary:
+	if not unit.get("baseRulesSuppressed",false) and unit.has("sgRuntimeDefinition"):return unit_def(str(unit.sgRuntimeDefinition))
 	return {} if unit.get("baseRulesSuppressed", false) else unit_def(str(unit.get("id", "")))
 
 static func rules() -> Dictionary:

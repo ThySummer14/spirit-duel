@@ -1,0 +1,204 @@
+[
+  {
+    "name": "classic_core",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "CLASSIC_CORE_OK"
+    ]
+  },
+  {
+    "name": "combat",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "COMBAT_REGRESSION_OK cases=16"
+    ]
+  },
+  {
+    "name": "instant",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "INSTANT_OK checks=12"
+    ]
+  },
+  {
+    "name": "peach",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "PEACH_OK"
+    ]
+  },
+  {
+    "name": "phoenix",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "PHOENIX_OK"
+    ]
+  },
+  {
+    "name": "monk_cleaner",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "tree_sakura",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "bond_dream",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "pipe_fox",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "koi_fragrance",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "KOI_FRAGRANCE_OK checks=277 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "weaver",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "WEAVER_CHECKS 134 FAILURES 0"
+    ]
+  },
+  {
+    "name": "fusion_trio",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "movement_continuation",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "armor_blood",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "sun_smoke",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "SUN_SMOKE checks=154 failures=0"
+    ]
+  },
+  {
+    "name": "growth",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "GROWTH_REGRESSION_OK checks=24"
+    ]
+  },
+  {
+    "name": "turn_order",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "TURN_ORDER_OK checks=17"
+    ]
+  },
+  {
+    "name": "rebirth",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "susanoo",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "SUSANOO_OK checks=107 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "fox_lotus",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "cooking_core",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "COOKING_CORE_VERIFY {\"checks\":152,\"failures\":0,\"ui\":false}"
+    ]
+  },
+  {
+    "name": "sugar_cat",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "rabbit_tide",
+    "returncode": 0,
+    "passed": true,
+    "summary": []
+  },
+  {
+    "name": "food_cross",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "FOOD_CROSS_OK checks=64"
+    ]
+  },
+  {
+    "name": "blue_green",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "BLUE_GREEN_OK checks=219 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "zhenjian_duel",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "ZHENJIAN_OK checks=225 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "black_white",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "BLACK_WHITE_OK checks=204 failures=0 rules_only=true"
+    ]
+  },
+  {
+    "name": "whale",
+    "returncode": 0,
+    "passed": true,
+    "summary": [
+      "WHALE_OK checks=140 failures=0 rules_only=true"
+    ]
+  }
+]

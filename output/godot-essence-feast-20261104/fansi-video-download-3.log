@@ -1,0 +1,41 @@
+WARNING: Your yt-dlp version (2026.06.09) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[BiliBili] Extracting URL: https://www.bilibili.com/video/BV1e7CXYWETR/
+[BiliBili] 1e7CXYWETR: Downloading webpage
+[BiliBili] BV1e7CXYWETR: Extracting videos in anthology
+[BiliBili] BV1e7CXYWETR: Downloading wbi sign
+[BiliBili] BV1e7CXYWETR: Downloading video formats for cid 26358384369
+[BiliBili] Format(s) 1080P 高码率, 1080P 高清, 720P 准高清 are missing; you have to become a premium member to download them. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies
+[BiliBili] 113332258344620: Extracting chapters
+[info] BV1e7CXYWETR: Downloading 1 format(s): 100023
+[info] BV1e7CXYWETR: Downloading 1 time ranges: 480.0-720.0
+[download] Destination: output/godot-essence-feast-20261104/fansi-source-8-12m.mp4
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'https://upos-sz-mirrorhw.bilivideo.com/upgcxcode/69/43/26358384369/26358384369-1-100023.m4s?e=ig8euxZM2rNcNbdlhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&platform=pc&trid=de09f4e694ec4f8b849f98b8fa5fc26u&mid=0&gen=playurlv3&os=hwbv&og=hw&deadline=1793814619&oi=663754373&nbs=1&uipk=5&upsig=8bc58de08ed5b2d0747618240359ece5&uparams=e,platform,trid,mid,gen,os,og,deadline,oi,nbs,uipk&bvc=vod&nettype=0&bw=222694&lrs=-1&V=v3.0.9&qn_dyeid=9d141a358838106c007a94876aeb543b&agrr=0&buvid=8D95FAC4-79AB-26D6-AC21-0356C3C0032B16676infoc&build=0&dl=0&f=u_0_0&orderid=0,3':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomav01iso2mp41iso5
+    encoder         : Lavf59.27.100
+    description     : Bilibili VXCode Swarm Transcoder v1.0.23
+  Duration: 00:20:59.32, start: 0.023000, bitrate: 222 kb/s
+  Stream #0:0[0x1](und): Video: av1 (libdav1d) (Main) (av01 / 0x31307661), yuv420p(tv, bt709), 854x394 [SAR 1:1 DAR 427:197], 165 kb/s, 30 fps, 30 tbr, 16k tbn, start 0.023000 (default)
+    Metadata:
+      handler_name    : Bento4 Video Handler
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+Output #0, mp4, to 'file:output/godot-essence-feast-20261104/fansi-source-8-12m.mp4.part':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomav01iso2mp41iso5
+    description     : Bilibili VXCode Swarm Transcoder v1.0.23
+    encoder         : Lavf62.12.101
+  Stream #0:0(und): Video: av1 (Main) (av01 / 0x31307661), yuv420p(tv, bt709), 854x394 [SAR 1:1 DAR 427:197], q=2-31, 165 kb/s, 30 fps, 30 tbr, 16k tbn (default)
+    Metadata:
+      handler_name    : Bento4 Video Handler
+Press [q] to stop, [?] for help
+frame= 1565 fps=0.0 q=-1.0 size=    1280KiB time=00:00:52.16 bitrate= 201.0kbits/s speed= 102x elapsed=0:00:00.51    frame= 2550 fps=2505 q=-1.0 size=    2304KiB time=00:01:25.00 bitrate= 222.1kbits/s speed=83.5x elapsed=0:00:01.01    frame= 4201 fps=2757 q=-1.0 size=    3584KiB time=00:02:20.03 bitrate= 209.7kbits/s speed=91.9x elapsed=0:00:01.52    frame= 5700 fps=2805 q=-1.0 size=    4864KiB time=00:03:10.00 bitrate= 209.7kbits/s speed=93.5x elapsed=0:00:02.03    frame= 7013 fps=2759 q=-1.0 size=    6400KiB time=00:03:53.76 bitrate= 224.3kbits/s speed=  92x elapsed=0:00:02.54    [out#0/mp4 @ 0x7b84ce0240] video:6615KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.011159%
+frame= 7200 fps=2597 q=-1.0 Lsize=    6682KiB time=00:04:00.00 bitrate= 228.1kbits/s speed=86.6x elapsed=0:00:02.77    
+[download] 100% of    6.53MiB in 00:00:04 at 1.42MiB/s

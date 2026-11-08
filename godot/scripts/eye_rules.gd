@@ -153,7 +153,9 @@ static func score_card(gs, owner: int, card: Dictionary, target_id):
 	if not card.get("eyeRules", false): return null
 	match str(card.effect):
 		"eye-awaken": return -100 if gs.player(owner).units[gs._source_index(owner, card)].awakened else 85
-		"eye-draw-gaze", "eye-flame": return 60 + int(card.get("value", 0)) if str(target_id).begins_with("avatar-%d" % (1 - owner)) or gs._unit_index_by_uid(1 - owner, target_id) >= 0 else -100
+		"eye-draw-gaze", "eye-flame":
+			var raw=card.get("value",0)
+			return 60 + (0 if raw==null else int(raw)) if str(target_id).begins_with("avatar-%d" % (1 - owner)) or gs._unit_index_by_uid(1 - owner, target_id) >= 0 else -100
 		"move-unit":
 			var idx: int = gs._unit_index_by_uid(1 - owner, target_id)
 			return 70 if idx >= 0 and int(gs.player(1 - owner).units[idx].front) == 1 else 25

@@ -23,6 +23,7 @@ static func has(unit: Dictionary, keyword: String) -> bool:
 	if keyword == "pursuit" and int(unit.get("twoFacesWind",0))>0:return true
 	if keyword == "pursuit" and unit.get("bondMoonPursuit", false): return true
 	if keyword == "inspired" and unit.get("inspired", false): return true
+	if unit.get("hairGuardTraits",{}).has(keyword):return true
 	var def := ContentLoader.runtime_unit_def(unit)
 	for list in [def.get("combatKeywords", []), unit.get("keywords", []), unit.get("formRules", {}).get("combatKeywords", []), unit.get("formRules",{}).get("handCharmKeywords",[]), unit.get("untilAttack", {}).get("keywords", []), unit.get("swanKeywords", {}).keys()]:
 		if list.any(func(k): return str(k).to_lower().replace("_", "-") == keyword): return true
@@ -69,8 +70,11 @@ static func strike(gs, owner: int, src: int, victim: int, idx: int, amount: int,
 	var tide_traits: Dictionary = options if options.has("tideHealOthers") else gs.VerifiedRules.Tide.combat_traits(gs, owner, src)
 	if options.get("removeArmor", false) or options.get("penetration",false) or has(source, "penetration"):
 		strip_protection(gs, victim, idx, options.get("penetration",false) or has(source, "penetration"))
+	immune=immune or gs.VerifiedRules.MusicFire.combat_immune(gs,victim,idx)
 	immune=immune or (idx>=0 and gs.VerifiedRules.BlueGreen.combat_immune(gs,victim,idx))
+	immune=immune or (idx>=0 and gs.VerifiedRules.SerpentGhost.combat_immune(gs.player(victim).units[idx]))
 	immune=immune or (idx>=0 and gs.VerifiedRules.BlackWhite.combat_immune(gs.player(victim).units[idx])) or gs.VerifiedRules.SilkNinja.damage_immune(gs,owner,src,victim,idx,amount,options)
+	amount = gs.VerifiedRules.HairPower.damage_bonus(gs,owner,src,amount,options)
 	amount = gs.VerifiedRules.FoxSuzuka.strike_power(gs, owner, victim, idx, amount, options)
 	var critical: bool = owner != victim and (options.get("critical", false) or has(source, "crit") or (idx>=0 and options.get("headlessUnitCrit",false)) or (idx>=0 and options.get("yujCritical",false)))
 	# Overflow is allocated independently of the unit's barrier/immunity or
@@ -97,6 +101,7 @@ static func strike(gs, owner: int, src: int, victim: int, idx: int, amount: int,
 	gs.VerifiedRules.Xuenv.combat_dealt(gs, owner, victim, idx, result, snow_traits)
 	gs.VerifiedRules.Tide.combat_dealt(gs, owner, src, result, tide_traits)
 	gs.VerifiedRules.Cooking.combat_dealt(gs,owner,src,victim,idx,result,options)
+	gs.VerifiedRules.EssenceFeast.combat_dealt(gs,owner,src,result)
 	gs.VerifiedRules.Zhenjian.combat_dealt(gs,owner,src,victim,idx,result,options)
 	gs.VerifiedRules.BlueGreen.combat_dealt(gs,owner,src,victim,idx,result,options)
 	gs.VerifiedRules.Jorogumo.combat_dealt(gs,owner,src,victim,idx,result)
@@ -125,6 +130,7 @@ static func strike(gs, owner: int, src: int, victim: int, idx: int, amount: int,
 		var pierce_bamboo: Array = gs.VerifiedRules.Bamboo.retaliation(gs,victim,-1)
 		var dealt: int = gs._damage_avatar(victim, overflow, owner, src, false, true)
 		gs.VerifiedRules.Cooking.combat_dealt(gs,owner,src,victim,-1,{"dealt":dealt},options)
+		gs.VerifiedRules.EssenceFeast.combat_dealt(gs,owner,src,{"dealt":dealt})
 		gs.VerifiedRules.BlueGreen.combat_dealt(gs,owner,src,victim,-1,{"dealt":dealt},options)
 		gs.VerifiedRules.Bamboo.combat_dealt(gs,owner,src,victim,{"dealt":dealt},pierce_bamboo)
 		gs.VerifiedRules.IronMouse.combat_dealt(gs, owner, src, victim, -1, {"dealt": dealt}, options)

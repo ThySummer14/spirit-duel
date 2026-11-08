@@ -101,6 +101,7 @@ static func _best_card(gs: GameState, p_idx: int) -> Dictionary:
 	gs.VerifiedRules.Zhenjian.ai_prepare(gs,p_idx)
 	gs.VerifiedRules.Whale.ai_prepare(gs,p_idx)
 	gs.VerifiedRules.Movement.ai_prepare(gs, p_idx)
+	gs.VerifiedRules.SerpentGhost.ai_prepare(gs,p_idx)
 	var p := gs.player(p_idx)
 	var best := {"ok": false, "hand": -1, "target": null, "score": -1, "card_id": ""}
 	for h in gs.playable_card_count(p_idx):
@@ -120,12 +121,24 @@ static func _best_card(gs: GameState, p_idx: int) -> Dictionary:
 static func _score_card(_gs: GameState, p_idx: int, card: Dictionary, _target) -> int:
 	var box_score=_gs.VerifiedRules.BoxMaiden.score_card(_gs,p_idx,card,_target)
 	if box_score!=null:return int(box_score)
+	var fw_score=_gs.VerifiedRules.FearWing.score_card(_gs,p_idx,card,_target)
+	if fw_score!=null:return int(fw_score)
+	var wl_score=_gs.VerifiedRules.WisdomLamp.score_card(_gs,p_idx,card,_target)
+	if wl_score!=null:return int(wl_score)
+	var hair_score=_gs.VerifiedRules.HairPower.score_card(_gs,p_idx,card,_target)
+	if hair_score!=null:return int(hair_score)
+	var mf_score=_gs.VerifiedRules.MusicFire.score_card(_gs,p_idx,card,_target)
+	if mf_score!=null:return int(mf_score)
+	var ef_score=_gs.VerifiedRules.EssenceFeast.score_card(_gs,p_idx,card,_target)
+	if ef_score!=null:return int(ef_score)
 	var cook_score=_gs.VerifiedRules.Cooking.score_card(_gs,p_idx,card,_target)
 	if cook_score!=null:return int(cook_score)
 	var sc_score=_gs.VerifiedRules.SugarCat.score_card(_gs,p_idx,card,_target)
 	if sc_score!=null:return int(sc_score)
 	var rt_score=_gs.VerifiedRules.RabbitTide.score_card(_gs,p_idx,card,_target)
 	if rt_score!=null:return int(rt_score)
+	var sg_score=_gs.VerifiedRules.SerpentGhost.score_card(_gs,p_idx,card,_target)
+	if sg_score!=null:return int(sg_score)
 	var ark_score=_gs.VerifiedRules.Arakawa.score_card(_gs,p_idx,card,_target)
 	if ark_score!=null:return int(ark_score)
 	var rw_score=_gs.VerifiedRules.RednightWalnut.score_card(_gs,p_idx,card,_target)
@@ -348,6 +361,10 @@ static func _best_attack(gs: GameState, p_idx: int) -> Dictionary:
 	for i in p.units.size():
 		if not gs.can_basic_attack(p_idx, i).ok: continue
 		var unit: Dictionary = p.units[i]
+		if gs.VerifiedRules.HairPower.guard_count(gs,p_idx)>0:
+			var guard_score:=int(unit.hp)*2+int(unit.attack)
+			if guard_score>int(best.score):best={"ok":true,"unit":i,"score":guard_score,"target":str(unit.uid)}
+			continue
 		for target in gs.basic_attack_targets(p_idx, i):
 			var skill := gs.VerifiedRules.BattleSkill.ready(gs,p_idx,i)
 			if not skill.is_empty():
@@ -425,6 +442,8 @@ static func _resolve_choice(gs: GameState, p_idx: int) -> bool:
 	if goldfish_choice!=null: return goldfish_choice
 	var mountain_choice=gs.VerifiedRules.Mountain.ai_choice(gs,p_idx)
 	if mountain_choice!=null: return bool(mountain_choice)
+	var fw_choice=gs.VerifiedRules.FearWing.ai_choice(gs,p_idx)
+	if fw_choice!=null:return bool(fw_choice)
 	if gs.pending_choice.get("type")=="moon-hand-top": return gs.VerifiedRules.Moon.ai_choice(gs,p_idx)
 	if gs.pending_choice.get("type")=="bamboo-deck": return gs.VerifiedRules.Bamboo.ai_choice(gs,p_idx)
 	var eye_choice = gs.VerifiedRules.Eye.ai_choice(gs, p_idx)

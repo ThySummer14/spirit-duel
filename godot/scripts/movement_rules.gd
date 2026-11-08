@@ -92,6 +92,12 @@ static func move_to(gs, owner: int, idx: int, front: int) -> bool:
  var unit: Dictionary = gs.player(owner).units[idx]
  if int(unit.hp) <= 0 or int(unit.front) == front: return false
  if unit.get("summoned", false):
+  if unit.get("efPowderBoxSummon",false):
+   gs.VerifiedRules.EssenceFeast.remove_box(gs,owner,unit)
+   return true
+  if unit.get("mfDoll",false):
+   gs.VerifiedRules.MusicFire.remove_doll(gs,owner,unit)
+   return true
   if unit.get("rtSpear",false):
    gs.VerifiedRules.RabbitTide.remove_spear(gs,owner,unit)
    return true

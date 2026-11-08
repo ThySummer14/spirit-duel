@@ -1,0 +1,34 @@
+{
+  "engine": "Godot 4.6.3",
+  "scope": {
+    "characters": 9,
+    "mainCards": 72,
+    "derivedUnits": 7,
+    "newDerivedCards": 4,
+    "existingDerivedCardsCorrected": 2
+  },
+  "validation": {
+    "ruleChecks": 746,
+    "standaloneAIChecks": 263,
+    "crossChecks": 41,
+    "extraAssetChecks": 4,
+    "nativeMouseChecks": 84,
+    "nativeScreenshots": 38,
+    "focusedRegressions": 28,
+    "previousVerifyUnchanged": 176,
+    "packageChecks": 174
+  },
+  "build": {
+    "siteMiB": 231.7,
+    "sourceFilesHashMatched": 1189,
+    "pckSha256": "1551ccead5f260acceab4b2bbaae61da846d80b88f9413255ec0af52d5194fa2"
+  },
+  "audit": {
+    "knownApproximation": 331,
+    "unreviewed": 561,
+    "pendingVerification": 1040,
+    "existingDiagnostics": 21,
+    "newDiagnostics": 0
+  },
+  "originalVideoExists": false
+}

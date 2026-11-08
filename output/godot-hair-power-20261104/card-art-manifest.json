@@ -1,0 +1,42 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/609_食发鬼/60901_发刺_战斗.png",
+    "target": "godot/assets/official/cards/c60901.png",
+    "sha256": "c3214945cbc83b4c12fcd3b00d022c948632bb7bb9afb3edb8e6cf56f9cfd69b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/609_食发鬼/60902_发缠_战斗.png",
+    "target": "godot/assets/official/cards/c60902.png",
+    "sha256": "3d38267e41b59653d2dd6aed2ee200d8196c906e2c41ff1ae6e3f9a409da8ffe"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/609_食发鬼/60903_战怖迷烟_结界.png",
+    "target": "godot/assets/official/cards/c60903.png",
+    "sha256": "f39b2795ccb84d3c0d187db812652763957a6f18b9b5264542cc2e8ed8a4ac6d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/609_食发鬼/60904_觉醒·食发鬼_法术.png",
+    "target": "godot/assets/official/cards/c60904.png",
+    "sha256": "e86d066a0bd17208f8f931a806b1a29074bb7b363fb99131b70e81d9c9722726"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/609_食发鬼/60905_发鞭_战斗.png",
+    "target": "godot/assets/official/cards/c60905.png",
+    "sha256": "89a1e2cca8b0d96806d9369cd5798f211ddc9e79181dec1665a17f23212bed6d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/609_食发鬼/60906_真实之颜_形态.png",
+    "target": "godot/assets/official/cards/c60906.png",
+    "sha256": "e9803603e01f52e39fc2779bea75c7aec50a1d4ffa6c537fe73f913f3f8ef96c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/609_食发鬼/60907_无畏迷烟_结界.png",
+    "target": "godot/assets/official/cards/c60907.png",
+    "sha256": "75b63e699fa4a36f4245f9013d4d2c88afe98d68eed0ac633f9443386fedd8e2"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/609_食发鬼/60908_食发之喜_形态.png",
+    "target": "godot/assets/official/cards/c60908.png",
+    "sha256": "b83b8b8c9c7c5cd07e14a57d399dbb2fb9ebcfec89439d9a58e373c3b80b2779"
+  }
+]

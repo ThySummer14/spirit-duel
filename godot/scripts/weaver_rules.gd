@@ -57,6 +57,8 @@ static func leave_front(gs, owner: int, except_index: int = -1) -> void:
 		var old: Dictionary=p.units[i]
 		if old.get("removed",false) or int(old.hp)<=0: continue
 		if old.get("rtSpear",false): gs.VerifiedRules.RabbitTide.remove_spear(gs,owner,old,"战斗区被替换")
+		if old.get("mfDoll",false): gs.VerifiedRules.MusicFire.remove_doll(gs,owner,old)
+		if old.get("efPowderBoxSummon",false): gs.VerifiedRules.EssenceFeast.remove_box(gs,owner,old)
 		if old.get("scSummon",false): gs.VerifiedRules.SugarCat.remove_summon(gs,owner,old,"战斗区被替换")
 		if old.get("arkFish",false): gs.VerifiedRules.Arakawa.remove_fish(gs,owner,old)
 		if old.get("boxSummon",false): gs.VerifiedRules.BoxMaiden.remove_summon(gs,owner,old,"战斗区被替换")
@@ -178,6 +180,8 @@ static func revive(gs, owner: int, idx: int) -> int:
 	if u.get("scCandy",false):
 		var candy_fused: int=gs.VerifiedRules.SugarCat.fuse_revived(gs,owner,idx)
 		if candy_fused>=0:return candy_fused
+	var ef_fused:int=gs.VerifiedRules.EssenceFeast.fuse_revived(gs,owner,idx)
+	if ef_fused>=0:return ef_fused
 	gs.VerifiedRules.SugarCat.revived(gs,owner,idx)
 	leave_front(gs,owner,idx)
 	if u.get("pineSummon",false): u.erase("pineLeaveResolved")

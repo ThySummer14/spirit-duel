@@ -1,0 +1,412 @@
+[
+  {
+    "path": "godot/assets/official/cards/c60901.png",
+    "sha256": "c3214945cbc83b4c12fcd3b00d022c948632bb7bb9afb3edb8e6cf56f9cfd69b",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60902.png",
+    "sha256": "3d38267e41b59653d2dd6aed2ee200d8196c906e2c41ff1ae6e3f9a409da8ffe",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60903.png",
+    "sha256": "f39b2795ccb84d3c0d187db812652763957a6f18b9b5264542cc2e8ed8a4ac6d",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60904.png",
+    "sha256": "e86d066a0bd17208f8f931a806b1a29074bb7b363fb99131b70e81d9c9722726",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60905.png",
+    "sha256": "89a1e2cca8b0d96806d9369cd5798f211ddc9e79181dec1665a17f23212bed6d",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60906.png",
+    "sha256": "e9803603e01f52e39fc2779bea75c7aec50a1d4ffa6c537fe73f913f3f8ef96c",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60907.png",
+    "sha256": "75b63e699fa4a36f4245f9013d4d2c88afe98d68eed0ac633f9443386fedd8e2",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60908.png",
+    "sha256": "b83b8b8c9c7c5cd07e14a57d399dbb2fb9ebcfec89439d9a58e373c3b80b2779",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c25601.png",
+    "sha256": "6f2358ceda16a496ade2faa300edccaaf09d0ca81505a513578c479a02586902",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c25602.png",
+    "sha256": "fa717c36e07dc5b34a58ed789de575d211223b3ce0d744dcce58b520b1ed72a6",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c25603.png",
+    "sha256": "c80a24b908eb5859af2058738071b88800fc5a5e7baaaee0785d0a04e9a79392",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c25604.png",
+    "sha256": "e7d866172b2a321c46cc4366b607c7bbcffc5efb7c101f324fd3370cf5addaf7",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c25605.png",
+    "sha256": "e2f86dc733a22a6f5c505f8b62784e76ebc319212d14a2fccc85d25858b066b3",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c25606.png",
+    "sha256": "c771751e8fb10539b26a1e98ed3c53318d3bdeeff2a4b9a1488ed7419c219e5e",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c25607.png",
+    "sha256": "1c0a79ea8be14187ea3d03569b62b380d586f68a8092ac1225158638a552d2ff",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c25608.png",
+    "sha256": "6d8f4c6545d89575a5d546ff0f12d0fb81be3022161ebb5d8f92ae90510abf26",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c26301.png",
+    "sha256": "0c74ddd4e811be97fd20fab9b47b7b2bd80bf917318a79fc1cc53ea8f67be4eb",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c26302.png",
+    "sha256": "0c56d5527224dcf13c310e668155907007ed7ce46300ab5dd019526f7de7dd31",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c26303.png",
+    "sha256": "a2cf935840db4befa5caaf9955bbe1ae96e647ca0285f4550ed32130308a59ec",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c26304.png",
+    "sha256": "6ca0e8b9964ce501c2eb0dc5238c023bdd1ccba0169f53be9368962646f42a95",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c26305.png",
+    "sha256": "54897ae4ca4f6f57dd9ffd85cd8f96a429fae4ca5518a0d91b2507eb73c41277",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c26306.png",
+    "sha256": "c492f0020567eee469fa8c69dbcd5d2d188b8a7faa7b3ec331ea8d596df62f8a",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c26307.png",
+    "sha256": "10dd43b781bf3a986a6e7eb71090251623994b5683d7cfa089c180f9470be2cd",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c26308.png",
+    "sha256": "33ace0955bce63aca061e72fe96cfdf899ee6cf13b6d929a06ded41eb874f73d",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/tokens/mf-fire.png",
+    "sha256": "584f6c6db47be17ce26c8add3ef73ec229a0ac4c9e95f1a892909266143b05f9",
+    "main": false
+  },
+  {
+    "path": "godot/assets/official/tokens/mf-fire-awakened.png",
+    "sha256": "fd66d3e5f11a1b1b341ec96b9979675fb84290d4b604ef347910e071aa10779a",
+    "main": false
+  },
+  {
+    "path": "godot/assets/official/tokens/mf-doll-a.png",
+    "sha256": "04046a77ae3efe8413cdcc91dd804f99c9a5d29a2194360482b4c07f65172606",
+    "main": false
+  },
+  {
+    "path": "godot/assets/official/tokens/mf-doll-b.png",
+    "sha256": "647ebacdd2042c8632d14139d35bc8783a1a98d2c83a7c520226ecb44346e6ce",
+    "main": false
+  },
+  {
+    "path": "godot/assets/official/cards/c19401.png",
+    "sha256": "adfdb64817f6c7c337622537c417e324786881d7b2d361a3b1664e83fbd58ef3",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c19402.png",
+    "sha256": "555bafa607e6fd048936977901e973e27b402346368f97a3cc3eadefd4e6acec",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c19403.png",
+    "sha256": "1542884bb432c0e6ea51a2b573ab7b4ed117a93afc25dce32ee836d2f25c7f6f",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c19404.png",
+    "sha256": "43b53b4e5664e70f22bafdf5e315321a258cbbf2c86a071975940cbab1102c5f",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c19405.png",
+    "sha256": "80ead3d7493f7220b785fb2cf1e61a75ed4cd7c4523817b3ce2f1f1f205b7e7e",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c19406.png",
+    "sha256": "99bdaf91332b850c254668437989b021f4faacf195ad65fcfe9d2447783d4a91",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c19408.png",
+    "sha256": "12a8a1a0a303b3465271da2f372e2e36c79977bb88499e345357ec23e7f64afa",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c19409.png",
+    "sha256": "149e9163d27a47eb64d75fda6188b6b1022e56f1d1089507803c3d2f4b193b9e",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c22001.png",
+    "sha256": "8ffe2adc188ead8273ae35b1eed71f80c205a9a65987a1936c028c4a62fe6250",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c22002.png",
+    "sha256": "be398ab7fc2e5c260a66df45daf00241f13e48cd8a88a4aa69060d83a27882fa",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c22003.png",
+    "sha256": "94e1c95693e4e375b20d462a2978baefb44d51114c0306c55c1475f2e3386ec8",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c22004.png",
+    "sha256": "3e82afad88b162fc38c2bb96f30e85da02273249f08609064a04f8f30ab37023",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c22005.png",
+    "sha256": "7ae92e652cba390210f80450d811921ac9a0effa5e6a552dd97d4ea1a0babfe5",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c22006.png",
+    "sha256": "4969819333d66adbf37c36f616ee670b22157ab6f321cc60b4b32c34707c70ad",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c22007.png",
+    "sha256": "c13270455402b1f1a81b00d5d1787187c6908dbac38aca631a8dbdcf5e20f95e",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c22008.png",
+    "sha256": "153062e97d8e616deb2ef028f5ecc1d603e0c2a789388dc6757d7398b019a6fb",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/sg-white-awaken.png",
+    "sha256": "bdc099f430dd53428eb3f3647e7f0f28c6605698b6974abce76c80d0023a3461",
+    "main": false
+  },
+  {
+    "path": "godot/assets/official/cards/sg-white-soul.png",
+    "sha256": "0a558ae9dce1b143792303d30e0b050e2b0c18815dac8ade68cea49d1f098352",
+    "main": false
+  },
+  {
+    "path": "godot/assets/official/serpent-ghost/white-txsKFqxc.png",
+    "sha256": "bdb62b00030bf3f71d89646c2a9eb43b3e70e2cf6ef722350fc9c0a0b02dfabd",
+    "main": false
+  },
+  {
+    "path": "godot/assets/official/serpent-ghost/snake-PT289B07.jpg",
+    "sha256": "0746c1c0b64e92cfd7d107dd5846728c4d837c9ef761077827a654787ce9cf16",
+    "main": false
+  },
+  {
+    "path": "godot/assets/official/cards/c60301.png",
+    "sha256": "ff28d38fe49ad4226e45cd3e0ee414d53f035e69df01d1142b96979ff92bb28c",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60302.png",
+    "sha256": "bfbf5578dadf46fe127e2a9b5d6b1030381b4ed50df001e9801cba2ea0c59502",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60303.png",
+    "sha256": "9087839e5e815f2839808c3b8c9a618d5e0c82d6eac0d235f13f899a0631fd1b",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60304.png",
+    "sha256": "a81cb3b0767a33d7eedc6da68c943d0a4d2e3ed8df8c946f3ee2a75c362f1a68",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60305.png",
+    "sha256": "d8f4e6174367852b7b5099518d388376867d907b9fd4a66d5179ee9ee528d0e5",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60306.png",
+    "sha256": "aabb9f578d93b6a2631e55959ae33b2e261eaa5a87441f6080602ff6f8d5203d",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60307.png",
+    "sha256": "a0c5271c8caecb1268b7abe48f5621bcf8666572be30c75f20a84f8193586bd6",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60308.png",
+    "sha256": "6aab4f764fb221c09d5b45e94ea5cf7d7aae2e4b5b04421f3bd2a30188710c86",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60601.png",
+    "sha256": "6944163cd1ac85efa8f78d66a0225ece2c444c68345bcc8baddf29bc43aa3a86",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60602.png",
+    "sha256": "2f34af62fc50de8eef8acc4d2859fe39bdbd6613cb5d44473e9d3e88cec6f30b",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60603.png",
+    "sha256": "d3361c2a3bf24cac7796ca0442e40785a72f415d913737d8b80e789c4e6e9e8f",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60604.png",
+    "sha256": "0e488f039c8dc36a146e84748e4c41a9334ab610b1df689fbd2a203ef22a6dd1",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60605.png",
+    "sha256": "d34f8911c9908a2f98437e7aaa4983b065398d6c161b787672c31c2811955c17",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60606.png",
+    "sha256": "519e26054bb13fcf3721d72f7fe856283cea5acc25c373394210607b71f889b9",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60607.png",
+    "sha256": "b02e524b54550f593a3b2132e5837dff768152838a7b00942be0fc1b019afe41",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c60608.png",
+    "sha256": "9410412ab2f36e8286e315057a1c3e0619050fa9d693ccaa05b1e15fab9243e6",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c63801.png",
+    "sha256": "b39b8538eb33c734ec8f049be08f0ed56b4839e9bad0aee08024ea598852aca2",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c63802.png",
+    "sha256": "f1a3ff0abdc7e4aac85d8af5ae948c45bd7467ab5b020df9fa546f7edd0be2ad",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c63803.png",
+    "sha256": "7655bf96a7f451cabf01fa8161ac7dd0375849144628bdbf84cc2065697c5c97",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c63804.png",
+    "sha256": "a8ee2c05f28444a0a0d066689d54f0f499f5d45a403b3889f52448865b8e6a98",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c63805.png",
+    "sha256": "f291f9023322b63fe0472d7fe2bd74e813e09eb6339d427071cfce417a2879c5",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c63806.png",
+    "sha256": "2c19ffa060f680e623b2da8947d8a57f0dc1e4ee4764fe90895adde7883c282f",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c63807.png",
+    "sha256": "0c56ae07193159aae000a0a174f82d1aa8a83d13b974e9fea44bc8986a32fcf8",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c63808.png",
+    "sha256": "4fb9d94822008b15275b239b5b9a864e6e52352d587cd50c935c73e974de3a5f",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c61101.png",
+    "sha256": "fc78e8ed9264af794d9a4df240fccb2de33c919024534590b33c755f18b2b882",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c61102.png",
+    "sha256": "5dda18bd88f4741b3479da9d17f1f08ac2d07beb782bcc1a6623abbadfffe9ef",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c61103.png",
+    "sha256": "35de973efa8d3aa5d2b329c232ff8e2a6639da26889a3ec3eb964ddb161fd1d0",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c61104.png",
+    "sha256": "a7e10938fa24f002f2633311d5095680512394acc6555184d46eac74217efd35",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c61105.png",
+    "sha256": "8973fb9d31fc58c88f8b44cfed21902d93f8db9d9ded9ad1d67705dd724bfbd9",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c61106.png",
+    "sha256": "8b57ab53514e69250b3d9c0c0e05064ddeacdbcace6834055b9b3a11c7803675",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c61107.png",
+    "sha256": "299d517c14b65aaf55cfa78868045b1e9f8371d7af89852746bc6e74e076aecf",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/c61108.png",
+    "sha256": "f6d1fc8fea0736f504e4cc1f1cafdb0702c2dd965ea5fe43bc02e416c3d434b9",
+    "main": true
+  },
+  {
+    "path": "godot/assets/official/cards/juyi.png",
+    "sha256": "141c8dbd14d416844a57a7bf1824c0e54883833ef4e1a01971be024ee1a19310",
+    "main": false
+  },
+  {
+    "path": "godot/assets/official/cards/fear-wing-charm.png",
+    "sha256": "032fab72e6d9a14dae49052fff6db44d326467565498e87c00a5f855b0e50379",
+    "main": false
+  }
+]

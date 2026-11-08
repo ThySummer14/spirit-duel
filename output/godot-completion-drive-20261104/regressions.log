@@ -1,0 +1,28 @@
+classic_core True CLASSIC_CORE_OK
+combat True COMBAT_REGRESSION_OK cases=16
+instant True INSTANT_OK checks=12
+peach True PEACH_OK
+phoenix True PHOENIX_OK
+monk_cleaner True 
+tree_sakura True 
+bond_dream True 
+pipe_fox True 
+koi_fragrance True KOI_FRAGRANCE_OK checks=277 failures=0 rules_only=true
+weaver True WEAVER_CHECKS 134 FAILURES 0
+fusion_trio True 
+movement_continuation True 
+armor_blood True 
+sun_smoke True SUN_SMOKE checks=154 failures=0
+growth True GROWTH_REGRESSION_OK checks=24
+turn_order True TURN_ORDER_OK checks=17
+rebirth True 
+susanoo True SUSANOO_OK checks=107 failures=0 rules_only=true
+fox_lotus True 
+cooking_core True COOKING_CORE_VERIFY {"checks":152,"failures":0,"ui":false}
+sugar_cat True 
+rabbit_tide True 
+food_cross True FOOD_CROSS_OK checks=64
+blue_green True BLUE_GREEN_OK checks=219 failures=0 rules_only=true
+zhenjian_duel True ZHENJIAN_OK checks=225 failures=0 rules_only=true
+black_white True BLACK_WHITE_OK checks=204 failures=0 rules_only=true
+whale True WHALE_OK checks=140 failures=0 rules_only=true

@@ -47,6 +47,12 @@ const MirrorSong := preload("res://scripts/mirror_song_rules.gd")
 const RedPurple := preload("res://scripts/red_purple_rules.gd")
 const RednightWalnut := preload("res://scripts/rednight_walnut_rules.gd")
 const Cooking := preload("res://scripts/cooking_rules.gd")
+const EssenceFeast := preload("res://scripts/essence_feast_rules.gd")
+const SerpentGhost := preload("res://scripts/serpent_ghost_rules.gd")
+const MusicFire := preload("res://scripts/music_fire_rules.gd")
+const WisdomLamp := preload("res://scripts/wisdom_lamp_rules.gd")
+const HairPower := preload("res://scripts/hair_power_rules.gd")
+const FearWing := preload("res://scripts/fear_wing_rules.gd")
 const Arakawa := preload("res://scripts/arakawa_rules.gd")
 const Zhenjian := preload("res://scripts/zhenjian_duel_rules.gd")
 const ChargedPair := preload("res://scripts/charged_pair_rules.gd")
@@ -116,6 +122,8 @@ const RabbitTide := preload("res://scripts/rabbit_tide_rules.gd")
 ## No card or character IDs in the executor; all capabilities live in content.
 
 static func event(gs, kind: String, details: Dictionary) -> void:
+	FearWing.rule_event(gs,kind,details)
+	MusicFire.rule_event(gs,kind,details)
 	SugarCat.rule_event(gs,kind,details)
 	RabbitTide.rule_event(gs,kind,details)
 	RednightWalnut.rule_event(gs,kind,details)
@@ -221,8 +229,14 @@ static func move_unit(gs, p_idx: int, unit: Dictionary) -> void:
 			return
 
 static func resolve_action(gs, p_idx: int, src: int, card: Dictionary, effect: Dictionary, target: Dictionary, target_id = null) -> bool:
+	if EssenceFeast.resolve_action(gs,p_idx,src,card,effect,target_id):return true
+	if SerpentGhost.resolve_action(gs,p_idx,src,card,effect,target_id):return true
+	if MusicFire.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if SugarCat.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if RabbitTide.resolve_action(gs,p_idx,src,card,effect,target,target_id): return true
+	if FearWing.resolve_action(gs,p_idx,src,card,effect,target_id):return true
+	if WisdomLamp.resolve_action(gs,p_idx,src,card,effect,target_id):return true
+	if HairPower.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if Cooking.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if Arakawa.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if RednightWalnut.resolve_action(gs,p_idx,src,card,effect,target_id):return true
@@ -364,6 +378,9 @@ static func resolve_action(gs, p_idx: int, src: int, card: Dictionary, effect: D
 	return true
 
 static func end_turn(gs, p_idx: int) -> void:
+	WisdomLamp.end_turn(gs,p_idx)
+	MusicFire.end_turn(gs,p_idx)
+	SerpentGhost.end_turn(gs,p_idx)
 	Cooking.end_turn(gs,p_idx)
 	RednightWalnut.end_turn(gs,p_idx)
 	ApeSleeve.end_turn(gs,p_idx)
@@ -420,6 +437,7 @@ static func end_turn(gs, p_idx: int) -> void:
 	UpgradeBlessing.end_turn(gs)
 
 static func knocked_out(unit: Dictionary) -> void:
+	HairPower.clear(unit)
 	RedPurple.knocked_out(unit)
 	Toxic.knocked_out(unit)
 	KoiFragrance.knocked_out(unit)
@@ -428,6 +446,7 @@ static func knocked_out(unit: Dictionary) -> void:
 	Whale.knocked_out(unit)
 	unit.erase("msBeautyReceiver")
 	unit.erase("msSwapDeltas")
+	SerpentGhost.knocked_out(unit)
 	Cooking.knocked_out(unit)
 	ApeSleeve.knocked_out(unit)
 	ChargedPair.knocked_out(unit)
@@ -493,6 +512,7 @@ static func announce_card(gs, frame: Dictionary) -> void:
 	var announced: Dictionary = frame.get("cardOverride", ContentLoader.card_def(str(frame.definitionId)))
 	RednightWalnut.announced(gs,frame,announced)
 	Arakawa.announced(gs,frame,announced)
+	EssenceFeast.announced(gs,frame,announced)
 	BlueGreen.announced(gs,frame,announced)
 	RedPurple.announced(gs,frame,announced)
 	Yujiazhu.announced(gs,frame,announced)
@@ -554,6 +574,9 @@ static func automatic_response(gs, owner: int, trigger: String, target_id, conti
 		if response == "other-ally-attacked" and unit.uid == target_id: continue
 		if response in ["source-attacked", "source-damaged", "source-lethal"] and unit.uid != target_id: continue
 		if (int(unit.hp)<=0 and not card.get("allowKnockedSource",false)) or Stun.blocks(gs,owner,unit,card) or int(unit.level)<int(card.level): continue
+		if not FearWing.can_use(gs,owner,card):continue
+		if not MusicFire.can_use(gs,owner,card):continue
+		if not SerpentGhost.can_use(gs,owner,card):continue
 		if not Zhenjian.can_use(gs,owner,card):continue
 		if not Yitiao.can_use(gs,owner,card): continue
 		if not Cotton.can_use(gs,owner,card): continue
@@ -632,6 +655,7 @@ static func passive_damage_avatar(gs, owner: int, src: int, victim: int, amount:
 static func announce_neutral_food(gs, frame: Dictionary) -> void:
 	var card: Dictionary=frame.cardOverride
 	Arakawa.announced(gs,frame,card)
+	EssenceFeast.announced(gs,frame,card)
 	FoxSuzuka.announced(gs,frame,card)
 	BondDream.announced(gs,frame,card)
 	KoiFragrance.announced(gs,frame,card)

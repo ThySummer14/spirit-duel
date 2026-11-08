@@ -1,0 +1,972 @@
+{
+  "sources": [
+    {
+      "id": "music-fire-original-20261104",
+      "type": "local-original-png",
+      "path": "art-reference-official/卡面-按版本/14_空弦绮话",
+      "note": "256/263完整中文PNG优先，已逐图目检。"
+    },
+    {
+      "id": "music-fire-official-20220708",
+      "url": "https://www.taptap.cn/moment/294558767473756706",
+      "note": "官方公告：两类诡间缚偶、紧那罗生成排除觉醒、铃彦姬无恢复3版本。"
+    },
+    {
+      "id": "music-fire-related-jp",
+      "url": "https://gamerch.com/onmyojicard/381027",
+      "note": "神火铃焰0/4，自回1，满血切回和AOE；派生原图原字节。"
+    },
+    {
+      "id": "music-fire-awake-related-jp",
+      "url": "https://gamerch.com/onmyojicard/381117",
+      "note": "神火觉醒AOE等于勾玉；不采用日文后来恢复3增强。"
+    },
+    {
+      "id": "music-fire-switch-order",
+      "url": "https://www.taptap.cn/moment/467093870207830538",
+      "note": "玩家机制整理：保留灵咒眩晕等，移除护甲破甲，群伤后切换、连击继续命中；复杂客户端边界待核。"
+    }
+  ],
+  "units": {
+    "jinnaluo": {
+      "verifiedRules": true,
+      "musicFireRole": "music",
+      "attack": 2,
+      "maxHp": 5,
+      "passive": {
+        "id": "mf-music",
+        "name": "入夜弦音",
+        "text": "当紧那罗运势时，入夜X：随机对一个敌方角色造成1点伤害。X为骰子点数。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "mf-music-awake",
+        "name": "觉醒·紧那罗",
+        "text": "当紧那罗运势时，随机对一个敌方角色造成3点伤害，然后入夜10：获得1点鬼火。",
+        "hooks": []
+      },
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "lingyanji": {
+      "verifiedRules": true,
+      "musicFireRole": "fire",
+      "attack": 3,
+      "maxHp": 4,
+      "passive": {
+        "id": "mf-human",
+        "name": "神火铃焰",
+        "text": "当铃彦姬气绝时，切换为1生命的「神火铃焰」并移回准备区。",
+        "hooks": []
+      },
+      "awakenedPassive": {
+        "id": "mf-human-awake",
+        "name": "觉醒·铃彦姬",
+        "text": "当铃彦姬气绝时，切换为1生命的「神火铃焰」并移回准备区。",
+        "hooks": []
+      },
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "mf-fire": {
+      "id": "mf-fire",
+      "name": "神火铃焰",
+      "title": "铃彦姬切换形态",
+      "role": "派生实体",
+      "strategy": "",
+      "attack": 0,
+      "maxHp": 4,
+      "art": "assets/official/tokens/mf-fire.png",
+      "awakenedArt": "assets/official/tokens/mf-fire.png",
+      "color": "#dc8060",
+      "pack": "wave6",
+      "subpack": "kongxian",
+      "selectable": false,
+      "token": true,
+      "countsAsShikigami": true,
+      "combatKeywords": [],
+      "passive": {
+        "id": "mf-fire-passive",
+        "name": "神火铃焰",
+        "text": "己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成1点伤害。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "mf-fire-awakened": {
+      "id": "mf-fire-awakened",
+      "name": "觉醒·神火铃焰",
+      "title": "铃彦姬切换形态",
+      "role": "派生实体",
+      "strategy": "",
+      "attack": 0,
+      "maxHp": 4,
+      "art": "assets/official/tokens/mf-fire-awakened.png",
+      "awakenedArt": "assets/official/tokens/mf-fire-awakened.png",
+      "color": "#dc8060",
+      "pack": "wave6",
+      "subpack": "kongxian",
+      "selectable": false,
+      "token": true,
+      "countsAsShikigami": true,
+      "combatKeywords": [],
+      "passive": {
+        "id": "mf-fire-awakened-passive",
+        "name": "觉醒·神火铃焰",
+        "text": "己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成等同铃彦姬等级的伤害。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "mf-doll-blood": {
+      "id": "mf-doll-blood",
+      "name": "诡间缚偶",
+      "title": "紧那罗召唤物",
+      "role": "派生实体",
+      "strategy": "",
+      "attack": 2,
+      "maxHp": 4,
+      "art": "assets/official/tokens/mf-doll-a.png",
+      "awakenedArt": "assets/official/tokens/mf-doll-a.png",
+      "color": "#dc8060",
+      "pack": "wave6",
+      "subpack": "kongxian",
+      "selectable": false,
+      "token": true,
+      "countsAsShikigami": true,
+      "combatKeywords": [
+        "lifesteal"
+      ],
+      "passive": {
+        "id": "mf-doll-blood-passive",
+        "name": "诡间缚偶",
+        "text": "吸血。离开战斗区移除。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    },
+    "mf-doll-swift": {
+      "id": "mf-doll-swift",
+      "name": "诡间缚偶",
+      "title": "紧那罗召唤物",
+      "role": "派生实体",
+      "strategy": "",
+      "attack": 4,
+      "maxHp": 2,
+      "art": "assets/official/tokens/mf-doll-b.png",
+      "awakenedArt": "assets/official/tokens/mf-doll-b.png",
+      "color": "#dc8060",
+      "pack": "wave6",
+      "subpack": "kongxian",
+      "selectable": false,
+      "token": true,
+      "countsAsShikigami": true,
+      "combatKeywords": [
+        "swift"
+      ],
+      "passive": {
+        "id": "mf-doll-swift-passive",
+        "name": "诡间缚偶",
+        "text": "迅捷。离开战斗区移除。",
+        "hooks": []
+      },
+      "verifiedRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    }
+  },
+  "cards": {
+    "c25601": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "瞬发。入夜1：占卜1，抽一张牌。增强：若你入夜值为0，额外生效一次。",
+      "officialText": "瞬发。入夜1：占卜1，抽一张牌。增强：若你入夜值为0，额外生效一次。",
+      "keywords": [
+        "instant"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c25602": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "每回合一次，当敌方式神攻击时，运势6：本回合降低其1力量。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "每回合一次，当敌方式神攻击时，运势6：本回合降低其1力量。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "mfPalace": true
+      },
+      "formHooks": [],
+      "formAbility": "每回合一次，当敌方式神攻击时，运势6：本回合降低其1力量。你每有2点入夜值，运势所需点数-1。",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-form",
+      "value": {
+        "attack": 3,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "mf-form",
+          "target": "source",
+          "value": {
+            "attack": 3,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25603": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "对敌方战斗区式神造成4点伤害，运势6：再对敌方牌手造成4点伤害。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "对敌方战斗区式神造成4点伤害，运势6：再对敌方牌手造成4点伤害。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c25604": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "对一个敌方式神造成5点伤害，运势6：再对敌方所有角色造成1点伤害。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "对一个敌方式神造成5点伤害，运势6：再对敌方所有角色造成1点伤害。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c25605": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，运势6：随机召唤一个「诡间缚偶」。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "进场和己方回合开始时，运势6：随机召唤一个「诡间缚偶」。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "mfDollForm": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方回合开始时，运势6：随机召唤一个「诡间缚偶」。你每有2点入夜值，运势所需点数-1。",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "mf-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25606": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "form",
+      "typeLabel": "形态牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，运势6：抽一张牌。你每有2点入夜值，运势所需点数-1。",
+      "officialText": "进场和己方回合开始时，运势6：抽一张牌。你每有2点入夜值，运势所需点数-1。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {
+        "mfFeatherForm": true
+      },
+      "formHooks": [],
+      "formAbility": "进场和己方回合开始时，运势6：抽一张牌。你每有2点入夜值，运势所需点数-1。",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-form",
+      "value": {
+        "attack": 4,
+        "hp": 5,
+        "setBase": true
+      },
+      "effects": [
+        {
+          "action": "mf-form",
+          "target": "source",
+          "value": {
+            "attack": 4,
+            "hp": 5,
+            "setBase": true
+          }
+        }
+      ]
+    },
+    "c25607": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "运势6：随机将两张紧那罗的其他卡牌置入你的手牌。你每有2点入夜值，运势所需点数-1。觉醒：当紧那罗运势时，随机对一个敌方角色造成3点伤害，然后入夜10：获得1点鬼火。",
+      "officialText": "运势6：随机将两张紧那罗的其他卡牌置入你的手牌。你每有2点入夜值，运势所需点数-1。觉醒：当紧那罗运势时，随机对一个敌方角色造成3点伤害，然后入夜10：获得1点鬼火。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c25608": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-character",
+      "text": "消灭一个力量值或生命值不大于你入夜值的角色。若目标为式神，则入夜10：使其气绝倒计时+2。",
+      "officialText": "消灭一个力量值或生命值不大于你入夜值的角色。若目标为式神，则入夜10：使其气绝倒计时+2。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c26301": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "攻击后为自己恢复3生命。",
+      "officialText": "攻击后为自己恢复3生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 0
+      },
+      "effect": "mf-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-combat",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26302": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "进场和己方回合开始时，为所有己方角色恢复1生命，「神火铃焰」额外恢复1生命。",
+      "officialText": "进场和己方回合开始时，为所有己方角色恢复1生命，「神火铃焰」额外恢复1生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "trigger": "native",
+        "triggerEffect": "none",
+        "triggerValue": 0,
+        "nativeRealm": "mf-heal"
+      },
+      "nativeRealm": "mf-heal",
+      "effect": "mf-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26303": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 1,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "追猎。",
+      "officialText": "追猎。",
+      "keywords": [
+        "pursuit"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 0,
+        "pursuit": true
+      },
+      "effect": "mf-combat",
+      "value": 1,
+      "effects": [
+        {
+          "action": "mf-combat",
+          "target": "selected",
+          "value": 1
+        }
+      ]
+    },
+    "c26304": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "enemy-unit",
+      "text": "进场时对一个敌方式神和铃彦姬各造成4点伤害。己方回合「神火铃焰」受到非战斗伤害时，改为恢复等量生命。",
+      "officialText": "进场时对一个敌方式神和铃彦姬各造成4点伤害。己方回合「神火铃焰」受到非战斗伤害时，改为恢复等量生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "trigger": "native",
+        "triggerEffect": "none",
+        "triggerValue": 0,
+        "nativeRealm": "mf-flame"
+      },
+      "nativeRealm": "mf-flame",
+      "effect": "mf-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-realm",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c26305": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "使铃彦姬永久获得2力量，并额外使用一张「觉醒·神火铃焰」。觉醒：当铃彦姬气绝时，切换为1生命的「神火铃焰」并移回准备区。",
+      "officialText": "使铃彦姬永久获得2力量，并额外使用一张「觉醒·神火铃焰」。觉醒：当铃彦姬气绝时，切换为1生命的「神火铃焰」并移回准备区。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26306": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "combat",
+      "typeLabel": "战斗牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "本次战斗受到的战斗伤害改为为自己和你恢复等量生命。响应：当你被敌方攻击时，若「神火铃焰」在场，自动使用并将攻击目标改为「神火铃焰」。",
+      "officialText": "本次战斗受到的战斗伤害改为为自己和你恢复等量生命。响应：当你被敌方攻击时，若「神火铃焰」在场，自动使用并将攻击目标改为「神火铃焰」。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "responseAction": "assault",
+      "combatOption": {
+        "shield": 0
+      },
+      "autoResponse": "avatar-attacked",
+      "responseModifiesCombat": true,
+      "effect": "mf-combat",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-combat",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "c26307": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "spell",
+      "typeLabel": "法术牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "any-character",
+      "text": "瞬发，弹回。恢复一个角色5生命。",
+      "officialText": "瞬发，弹回。恢复一个角色5生命。",
+      "keywords": [
+        "instant",
+        "bounce"
+      ],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "effect": "mf-card",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-card",
+          "target": "selected",
+          "value": 0
+        }
+      ]
+    },
+    "c26308": {
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "type": "realm",
+      "typeLabel": "结界牌",
+      "level": 3,
+      "cost": 1,
+      "copies": 2,
+      "deckLimit": 2,
+      "target": "auto",
+      "text": "己方回合「神火铃焰」获得3力量和免疫战斗伤害。进场或己方回合开始时，使「神火铃焰」发起一次攻击，然后为其恢复全部生命。",
+      "officialText": "己方回合「神火铃焰」获得3力量和免疫战斗伤害。进场或己方回合开始时，使「神火铃焰」发起一次攻击，然后为其恢复全部生命。",
+      "keywords": [],
+      "tags": [],
+      "timing": "main",
+      "responseTo": [],
+      "formRules": {},
+      "formHooks": [],
+      "formAbility": "",
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ],
+      "realm": {
+        "hp": 5,
+        "trigger": "native",
+        "triggerEffect": "none",
+        "triggerValue": 0,
+        "nativeRealm": "mf-eternal"
+      },
+      "nativeRealm": "mf-eternal",
+      "effect": "mf-realm",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-realm",
+          "target": "source",
+          "value": 0
+        }
+      ]
+    },
+    "mf-fire-awakening": {
+      "id": "mf-fire-awakening",
+      "unitId": "lingyanji",
+      "name": "觉醒·神火铃焰",
+      "type": "awakening",
+      "typeLabel": "觉醒牌",
+      "level": 2,
+      "cost": 1,
+      "copies": 0,
+      "deckLimit": 0,
+      "token": true,
+      "pack": "wave6",
+      "keywords": [],
+      "text": "觉醒：己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成等同铃彦姬等级的伤害。",
+      "officialText": "觉醒：己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成等同铃彦姬等级的伤害。",
+      "target": "auto",
+      "effect": "mf-fire-awaken",
+      "value": 0,
+      "effects": [
+        {
+          "action": "mf-fire-awaken",
+          "target": "source",
+          "value": 0
+        }
+      ],
+      "verifiedRules": true,
+      "musicFireRules": true,
+      "sources": [
+        "music-fire-original-20261104",
+        "music-fire-official-20220708",
+        "music-fire-related-jp",
+        "music-fire-awake-related-jp",
+        "music-fire-switch-order"
+      ],
+      "verificationPending": [
+        "采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。"
+      ]
+    }
+  }
+}

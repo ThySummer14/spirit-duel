@@ -1,0 +1,19 @@
+{
+  "mainCards": 16,
+  "derivedUnits": 4,
+  "derivedCards": 1,
+  "rulesChecks": 138,
+  "nativeChecks": 152,
+  "nativeExtraInteractionChecks": 14,
+  "nativeSizes": [
+    "1280x800",
+    "1600x740"
+  ],
+  "screenshots": 6,
+  "screenshotsViewed": true,
+  "mainPng": 16,
+  "derivedOriginalImages": 4,
+  "artHashErrors": [],
+  "errors": [],
+  "pending": "中文派生tooltip与原客户端完整全序等仍保留verificationPending"
+}

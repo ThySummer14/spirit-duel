@@ -1590,6 +1590,24 @@ EXTRA_TOKENS += [{'id': 'wuchen-followup', 'unitId': 'wuchen', 'name': '追加�
 EXTRA_TOKENS += [{'id': 'rednight-sword-aura', 'unitId': 'ninghongye', 'name': '剑气', 'type': 'combat', 'level': 2, 'cost': 0, 'text': '获得2护甲。本次攻击免疫战斗伤害。攻击后投射：造成3点伤害。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'rw-card', 'source', 0]]}]
 
 
+EXTRA_UNITS = []
+
+
+EXTRA_UNITS += [{'id': 'mf-fire', 'name': '神火铃焰', 'title': '铃彦姬切换形态', 'role': '派生实体', 'strategy': '', 'attack': 0, 'maxHp': 4, 'art': 'assets/official/tokens/mf-fire.png', 'awakenedArt': 'assets/official/tokens/mf-fire.png', 'color': '#dc8060', 'pack': 'wave6', 'subpack': 'kongxian', 'selectable': False, 'token': True, 'countsAsShikigami': True, 'combatKeywords': [], 'passive': {'id': 'mf-fire-passive', 'name': '神火铃焰', 'text': '己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成1点伤害。', 'hooks': []}, 'verifiedRules': True, 'sources': ['music-fire-original-20261104', 'music-fire-official-20220708', 'music-fire-related-jp', 'music-fire-awake-related-jp', 'music-fire-switch-order'], 'verificationPending': ['采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。']}]
+
+
+EXTRA_UNITS += [{'id': 'mf-fire-awakened', 'name': '觉醒·神火铃焰', 'title': '铃彦姬切换形态', 'role': '派生实体', 'strategy': '', 'attack': 0, 'maxHp': 4, 'art': 'assets/official/tokens/mf-fire-awakened.png', 'awakenedArt': 'assets/official/tokens/mf-fire-awakened.png', 'color': '#dc8060', 'pack': 'wave6', 'subpack': 'kongxian', 'selectable': False, 'token': True, 'countsAsShikigami': True, 'combatKeywords': [], 'passive': {'id': 'mf-fire-awakened-passive', 'name': '觉醒·神火铃焰', 'text': '己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成等同铃彦姬等级的伤害。', 'hooks': []}, 'verifiedRules': True, 'sources': ['music-fire-original-20261104', 'music-fire-official-20220708', 'music-fire-related-jp', 'music-fire-awake-related-jp', 'music-fire-switch-order'], 'verificationPending': ['采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。']}]
+
+
+EXTRA_UNITS += [{'id': 'mf-doll-blood', 'name': '诡间缚偶', 'title': '紧那罗召唤物', 'role': '派生实体', 'strategy': '', 'attack': 2, 'maxHp': 4, 'art': 'assets/official/tokens/mf-doll-a.png', 'awakenedArt': 'assets/official/tokens/mf-doll-a.png', 'color': '#dc8060', 'pack': 'wave6', 'subpack': 'kongxian', 'selectable': False, 'token': True, 'countsAsShikigami': True, 'combatKeywords': ['lifesteal'], 'passive': {'id': 'mf-doll-blood-passive', 'name': '诡间缚偶', 'text': '吸血。离开战斗区移除。', 'hooks': []}, 'verifiedRules': True, 'sources': ['music-fire-original-20261104', 'music-fire-official-20220708', 'music-fire-related-jp', 'music-fire-awake-related-jp', 'music-fire-switch-order'], 'verificationPending': ['采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。']}]
+
+
+EXTRA_UNITS += [{'id': 'mf-doll-swift', 'name': '诡间缚偶', 'title': '紧那罗召唤物', 'role': '派生实体', 'strategy': '', 'attack': 4, 'maxHp': 2, 'art': 'assets/official/tokens/mf-doll-b.png', 'awakenedArt': 'assets/official/tokens/mf-doll-b.png', 'color': '#dc8060', 'pack': 'wave6', 'subpack': 'kongxian', 'selectable': False, 'token': True, 'countsAsShikigami': True, 'combatKeywords': ['swift'], 'passive': {'id': 'mf-doll-swift-passive', 'name': '诡间缚偶', 'text': '迅捷。离开战斗区移除。', 'hooks': []}, 'verifiedRules': True, 'sources': ['music-fire-original-20261104', 'music-fire-official-20220708', 'music-fire-related-jp', 'music-fire-awake-related-jp', 'music-fire-switch-order'], 'verificationPending': ['采用完整中文原PNG及基础牌文；指定录像未逐牌核验。神火与缚偶派生基础定义补官方公告和日文原卡，中文派生tooltip与切换/多源反制/群伤/幸运倍增的完整全序仍待原客户端核验。']}]
+
+
+EXTRA_TOKENS += [{'id': 'mf-fire-awakening', 'unitId': 'lingyanji', 'name': '觉醒·神火铃焰', 'type': 'awakening', 'level': 2, 'cost': 1, 'text': '觉醒：己方回合开始时恢复1生命。生命恢复至满时切换为铃彦姬，对所有敌方式神造成等同铃彦姬等级的伤害。', 'target': 'auto', 'deckLimit': 0, 'token': True, 'starter': 0, 'effects': [['always', 'mf-fire-awaken', 'source', 0]]}]
+
+
 def main() -> None:
     cards_raw = json.loads((DATA / "cards.json").read_text(encoding="utf-8"))
     by_id = {}
@@ -1659,6 +1677,9 @@ def main() -> None:
         lines.append("    passive: passive(" + js_str(pid["id"]) + ", " + js_str(pid["name"]) + ", " + js_str(pid["text"]) + ", [\n" + pid_h + "\n    ]),")
         lines.append("    awakenedPassive: passive(" + js_str(aid["id"]) + ", " + js_str(aid["name"]) + ", " + js_str(aid["text"]) + ", [\n" + aid_h + "\n    ]),")
         lines.append("  },")
+
+    for extra_unit in EXTRA_UNITS:
+        lines.append("  " + json.dumps(extra_unit, ensure_ascii=False) + ",")
 
     lines.append("]);")
     lines.append("")

@@ -1,0 +1,122 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/603_粉婆婆/60301_负心_法术.png",
+    "target": "godot/assets/official/cards/c60301.png",
+    "sha256": "ff28d38fe49ad4226e45cd3e0ee414d53f035e69df01d1142b96979ff92bb28c"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/603_粉婆婆/60302_画颜_形态.png",
+    "target": "godot/assets/official/cards/c60302.png",
+    "sha256": "bfbf5578dadf46fe127e2a9b5d6b1030381b4ed50df001e9801cba2ea0c59502"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/603_粉婆婆/60303_抹粉施脂_法术.png",
+    "target": "godot/assets/official/cards/c60303.png",
+    "sha256": "9087839e5e815f2839808c3b8c9a618d5e0c82d6eac0d235f13f899a0631fd1b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/603_粉婆婆/60304_眸之色·嫣_形态.png",
+    "target": "godot/assets/official/cards/c60304.png",
+    "sha256": "a81cb3b0767a33d7eedc6da68c943d0a4d2e3ed8df8c946f3ee2a75c362f1a68"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/603_粉婆婆/60305_烟粉缭绕_法术.png",
+    "target": "godot/assets/official/cards/c60305.png",
+    "sha256": "d8f4e6174367852b7b5099518d388376867d907b9fd4a66d5179ee9ee528d0e5"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/603_粉婆婆/60306_怨恨之容_结界.png",
+    "target": "godot/assets/official/cards/c60306.png",
+    "sha256": "aabb9f578d93b6a2631e55959ae33b2e261eaa5a87441f6080602ff6f8d5203d"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/603_粉婆婆/60307_颊之色·雪_法术.png",
+    "target": "godot/assets/official/cards/c60307.png",
+    "sha256": "a0c5271c8caecb1268b7abe48f5621bcf8666572be30c75f20a84f8193586bd6"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/603_粉婆婆/60308_觉醒·粉婆婆_法术.png",
+    "target": "godot/assets/official/cards/c60308.png",
+    "sha256": "6aab4f764fb221c09d5b45e94ea5cf7d7aae2e4b5b04421f3bd2a30188710c86"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/606_椒图/60601_涌流_形态.png",
+    "target": "godot/assets/official/cards/c60601.png",
+    "sha256": "6944163cd1ac85efa8f78d66a0225ece2c444c68345bcc8baddf29bc43aa3a86"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/606_椒图/60602_明珠障目_法术.png",
+    "target": "godot/assets/official/cards/c60602.png",
+    "sha256": "2f34af62fc50de8eef8acc4d2859fe39bdbd6613cb5d44473e9d3e88cec6f30b"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/606_椒图/60603_春樱日和_形态.png",
+    "target": "godot/assets/official/cards/c60603.png",
+    "sha256": "d3361c2a3bf24cac7796ca0442e40785a72f415d913737d8b80e789c4e6e9e8f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/606_椒图/60604_润物无声_结界.png",
+    "target": "godot/assets/official/cards/c60604.png",
+    "sha256": "0e488f039c8dc36a146e84748e4c41a9334ab610b1df689fbd2a203ef22a6dd1"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/606_椒图/60605_觉醒·椒图_法术.png",
+    "target": "godot/assets/official/cards/c60605.png",
+    "sha256": "d34f8911c9908a2f98437e7aaa4983b065398d6c161b787672c31c2811955c17"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/606_椒图/60606_水花弹_法术.png",
+    "target": "godot/assets/official/cards/c60606.png",
+    "sha256": "519e26054bb13fcf3721d72f7fe856283cea5acc25c373394210607b71f889b9"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/606_椒图/60607_沧海珠泪_形态.png",
+    "target": "godot/assets/official/cards/c60607.png",
+    "sha256": "b02e524b54550f593a3b2132e5837dff768152838a7b00942be0fc1b019afe41"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/19_尘世轮回/606_椒图/60608_借水扬波_战斗.png",
+    "target": "godot/assets/official/cards/c60608.png",
+    "sha256": "9410412ab2f36e8286e315057a1c3e0619050fa9d693ccaa05b1e15fab9243e6"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/24_千录晴诗/638_饭笥/63801_食欲倍增_法术.png",
+    "target": "godot/assets/official/cards/c63801.png",
+    "sha256": "b39b8538eb33c734ec8f049be08f0ed56b4839e9bad0aee08024ea598852aca2"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/24_千录晴诗/638_饭笥/63802_月见料理人_形态.png",
+    "target": "godot/assets/official/cards/c63802.png",
+    "sha256": "f1a3ff0abdc7e4aac85d8af5ae948c45bd7467ab5b020df9fa546f7edd0be2ad"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/24_千录晴诗/638_饭笥/63803_蓄食待发_战斗.png",
+    "target": "godot/assets/official/cards/c63803.png",
+    "sha256": "7655bf96a7f451cabf01fa8161ac7dd0375849144628bdbf84cc2065697c5c97"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/24_千录晴诗/638_饭笥/63804_寻味飞扑_战斗.png",
+    "target": "godot/assets/official/cards/c63804.png",
+    "sha256": "a8ee2c05f28444a0a0d066689d54f0f499f5d45a403b3889f52448865b8e6a98"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/24_千录晴诗/638_饭笥/63805_神明料理_结界.png",
+    "target": "godot/assets/official/cards/c63805.png",
+    "sha256": "f291f9023322b63fe0472d7fe2bd74e813e09eb6339d427071cfce417a2879c5"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/24_千录晴诗/638_饭笥/63806_食之神明_形态.png",
+    "target": "godot/assets/official/cards/c63806.png",
+    "sha256": "2c19ffa060f680e623b2da8947d8a57f0dc1e4ee4764fe90895adde7883c282f"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/24_千录晴诗/638_饭笥/63807_胃口大开_战斗.png",
+    "target": "godot/assets/official/cards/c63807.png",
+    "sha256": "0c56ae07193159aae000a0a174f82d1aa8a83d13b974e9fea44bc8986a32fcf8"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/24_千录晴诗/638_饭笥/63808_觉醒·饭笥_法术.png",
+    "target": "godot/assets/official/cards/c63808.png",
+    "sha256": "4fb9d94822008b15275b239b5b9a864e6e52352d587cd50c935c73e974de3a5f"
+  }
+]

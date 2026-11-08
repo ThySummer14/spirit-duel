@@ -1,0 +1,68 @@
+[
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/611_天逆每/61101_惧影随_战斗.png",
+    "target": "godot/assets/official/cards/c61101.png",
+    "sha256": "fc78e8ed9264af794d9a4df240fccb2de33c919024534590b33c755f18b2b882"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/611_天逆每/61102_颤栗_法术.png",
+    "target": "godot/assets/official/cards/c61102.png",
+    "sha256": "5dda18bd88f4741b3479da9d17f1f08ac2d07beb782bcc1a6623abbadfffe9ef"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/611_天逆每/61103_觉醒·天逆每_法术.png",
+    "target": "godot/assets/official/cards/c61103.png",
+    "sha256": "35de973efa8d3aa5d2b329c232ff8e2a6639da26889a3ec3eb964ddb161fd1d0"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/611_天逆每/61104_恐惧之夜_结界.png",
+    "target": "godot/assets/official/cards/c61104.png",
+    "sha256": "a7e10938fa24f002f2633311d5095680512394acc6555184d46eac74217efd35"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/611_天逆每/61105_惧中人_形态.png",
+    "target": "godot/assets/official/cards/c61105.png",
+    "sha256": "8973fb9d31fc58c88f8b44cfed21902d93f8db9d9ded9ad1d67705dd724bfbd9"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/611_天逆每/61106_惧刃之风_战斗.png",
+    "target": "godot/assets/official/cards/c61106.png",
+    "sha256": "8b57ab53514e69250b3d9c0c0e05064ddeacdbcace6834055b9b3a11c7803675"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/611_天逆每/61107_剖视_法术.png",
+    "target": "godot/assets/official/cards/c61107.png",
+    "sha256": "299d517c14b65aaf55cfa78868045b1e9f8371d7af89852746bc6e74e076aecf"
+  },
+  {
+    "source": "art-reference-official/卡面-按版本/20_桃源故里/611_天逆每/61108_惧意蔓延_战斗.png",
+    "target": "godot/assets/official/cards/c61108.png",
+    "sha256": "f6d1fc8fea0736f504e4cc1f1cafdb0702c2dd965ea5fe43bc02e416c3d434b9"
+  },
+  {
+    "source": "https://img2-tc.tapimg.com/moment/etag/Fp50CCshQCYNDs_YjN80-4y5RJF8.jpg",
+    "sourcePath": "output/godot-fear-wing-20261105/official-1.jpg",
+    "sourceSha256": "b6641688e710a2203d1ddbd4ae41dab653ed63d1b401d608073d909b89299246",
+    "crop": [
+      98,
+      777,
+      383,
+      907
+    ],
+    "target": "godot/assets/official/cards/juyi.png",
+    "sha256": "141c8dbd14d416844a57a7bf1824c0e54883833ef4e1a01971be024ee1a19310"
+  },
+  {
+    "source": "https://img2-tc.tapimg.com/moment/etag/Fp50CCshQCYNDs_YjN80-4y5RJF8.jpg",
+    "sourcePath": "output/godot-fear-wing-20261105/official-1.jpg",
+    "sourceSha256": "b6641688e710a2203d1ddbd4ae41dab653ed63d1b401d608073d909b89299246",
+    "crop": [
+      1180,
+      777,
+      1466,
+      959
+    ],
+    "target": "godot/assets/official/cards/fear-wing-charm.png",
+    "sha256": "032fab72e6d9a14dae49052fff6db44d326467565498e87c00a5f855b0e50379"
+  }
+]

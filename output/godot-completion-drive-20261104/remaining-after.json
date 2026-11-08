@@ -1,0 +1,2307 @@
+[
+  {
+    "unitId": "basalt",
+    "name": "岚岳",
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "cards": [
+      "brace",
+      "iron-vow",
+      "unyielding-wall",
+      "bastion-form",
+      "wardline",
+      "stonefist",
+      "crag-ward",
+      "faultline",
+      "earth-rest",
+      "monolith-form",
+      "granite-oath",
+      "gatehouse",
+      "last-watch",
+      "mountain-granary",
+      "bedrock-attitude",
+      "awaken-basalt",
+      "ssr-basalt-fudou",
+      "ssr-basalt-resonance"
+    ],
+    "officialRole": null,
+    "sourceDefinitionAvailable": false,
+    "pack": "original-custom"
+  },
+  {
+    "unitId": "ember",
+    "name": "赤曜",
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "cards": [
+      "flash-thrust",
+      "cinder-mark",
+      "ember-form",
+      "horizon-burn",
+      "coal-step",
+      "flare-guard",
+      "ash-bind",
+      "cinder-return",
+      "sunsteel-form",
+      "fireline",
+      "ember-wave",
+      "twin-flame",
+      "combustion-edge",
+      "ember-feast-fish",
+      "undying-ember",
+      "awaken-ember",
+      "ssr-ember-meteorfall",
+      "ssr-ember-blaze"
+    ],
+    "officialRole": null,
+    "sourceDefinitionAvailable": false,
+    "pack": "original-custom"
+  },
+  {
+    "unitId": "ink",
+    "name": "玄砚",
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "cards": [
+      "ink-ward",
+      "erode-script",
+      "ink-form",
+      "living-archive",
+      "sever-flow",
+      "margin-ward",
+      "black-stain",
+      "redline-script",
+      "archival-mend",
+      "paper-form",
+      "index-page",
+      "seal-library",
+      "black-surge",
+      "ink-feast-fish",
+      "origin-manuscript",
+      "awaken-ink",
+      "ssr-ink-sea",
+      "ssr-ink-verdict"
+    ],
+    "officialRole": null,
+    "sourceDefinitionAvailable": false,
+    "pack": "original-custom"
+  },
+  {
+    "unitId": "lumen",
+    "name": "弦月",
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "cards": [
+      "mend",
+      "refract",
+      "prism-form",
+      "recall",
+      "light-step",
+      "dawn-needle",
+      "moon-ward",
+      "radiant-encouragement",
+      "luminous-form",
+      "pale-survey",
+      "soft-revival",
+      "moonlit-chamber",
+      "warm-thaw",
+      "moonlit-verse",
+      "single-mind",
+      "awaken-lumen",
+      "ssr-lumen-aria",
+      "ssr-lumen-tide"
+    ],
+    "officialRole": null,
+    "sourceDefinitionAvailable": false,
+    "pack": "original-custom"
+  },
+  {
+    "unitId": "rime",
+    "name": "白棱",
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "cards": [
+      "ice-cut",
+      "glacier-crack",
+      "hush",
+      "rime-form",
+      "fracture",
+      "frost-step",
+      "needle-frost",
+      "hoar-barrier",
+      "shatterline",
+      "winter-form",
+      "cold-snap",
+      "rime-return",
+      "glacial-edge",
+      "longest-night",
+      "frost-pickle",
+      "awaken-rime",
+      "ssr-rime-zero",
+      "ssr-rime-slash"
+    ],
+    "officialRole": null,
+    "sourceDefinitionAvailable": false,
+    "pack": "original-custom"
+  },
+  {
+    "unitId": "storm",
+    "name": "霆鸢",
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "cards": [
+      "thunder-step",
+      "lightning-pierce",
+      "spark-shot",
+      "storm-form",
+      "sky-net",
+      "soul-tithe",
+      "static-dash",
+      "gust-guard",
+      "needle-arc",
+      "charged-bolt",
+      "cloud-form",
+      "afterimage",
+      "squall-field",
+      "thunder-return",
+      "thunder-endow",
+      "awaken-storm",
+      "ssr-storm-hive",
+      "ssr-storm-jolt"
+    ],
+    "officialRole": null,
+    "sourceDefinitionAvailable": false,
+    "pack": "original-custom"
+  },
+  {
+    "unitId": "frostblade",
+    "name": "银狼",
+    "remaining": 15,
+    "categories": {
+      "unreviewed": 15
+    },
+    "cards": [
+      "frost-bite",
+      "twin-gale",
+      "wolf-pounce",
+      "frost-armor",
+      "moon-fang-form",
+      "blizzard-step",
+      "silver-fang",
+      "war-howl",
+      "shadow-flicker",
+      "frost-bulwark",
+      "wild-awakening",
+      "gust-breath",
+      "awaken-frostblade",
+      "ssr-frostblade-flash",
+      "ssr-frostblade-king"
+    ],
+    "officialRole": null,
+    "sourceDefinitionAvailable": false,
+    "pack": "original-custom"
+  },
+  {
+    "unitId": "kongo",
+    "name": "金刚",
+    "remaining": 15,
+    "categories": {
+      "unreviewed": 15
+    },
+    "cards": [
+      "stone-fist",
+      "mountain-vow",
+      "kongo-guard",
+      "guardian-form",
+      "quake-stomp",
+      "iron-aegis",
+      "counter-stance",
+      "avalanche-fist",
+      "stone-mend",
+      "war-drum",
+      "warding-stone",
+      "stone-whisper",
+      "awaken-kongo",
+      "ssr-kongo-nioh",
+      "ssr-kongo-arhat"
+    ],
+    "officialRole": null,
+    "sourceDefinitionAvailable": false,
+    "pack": "original-custom"
+  },
+  {
+    "unitId": "caitong-lvli",
+    "name": "茨木童子·旅立",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 6
+    },
+    "cards": [
+      "c60701",
+      "c60702",
+      "c60703",
+      "c60704",
+      "c60705",
+      "c60706",
+      "c60707",
+      "c60708",
+      "guishizhishou"
+    ],
+    "officialRole": "607",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "kongquemingwang",
+    "name": "孔雀明王",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 6
+    },
+    "cards": [
+      "c60501",
+      "c60502",
+      "c60503",
+      "c60504",
+      "c60505",
+      "c60506",
+      "c60507",
+      "c60508",
+      "kongqueling"
+    ],
+    "officialRole": "605",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "langyazi",
+    "name": "琅琊子",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 8,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c61501",
+      "c61502",
+      "c61503",
+      "c61504",
+      "c61505",
+      "c61506",
+      "c61507",
+      "c61508",
+      "meizhou"
+    ],
+    "officialRole": "615",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "qingxingdeng-huihuo",
+    "name": "青行灯·辉火",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c29101",
+      "c29102",
+      "c29103",
+      "c29104",
+      "c29105",
+      "c29106",
+      "c29107",
+      "c29108",
+      "huidengzhihuo"
+    ],
+    "officialRole": "291",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "sanmu",
+    "name": "三目",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 8,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c18501",
+      "c18502",
+      "c18503",
+      "c18504",
+      "c18505",
+      "c18506",
+      "c18507",
+      "c18508",
+      "jinji-weituo"
+    ],
+    "officialRole": "185",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave3"
+  },
+  {
+    "unitId": "shantu-zuofu",
+    "name": "山兔/座敷童子",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 2
+    },
+    "cards": [
+      "c61601",
+      "c61602",
+      "c61603",
+      "c61604",
+      "c61605",
+      "c61606",
+      "c61607",
+      "c61608",
+      "ruyishaizi"
+    ],
+    "officialRole": "616",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "yimulian-linglai",
+    "name": "一目连·灵籁",
+    "remaining": 9,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 2
+    },
+    "cards": [
+      "c61301",
+      "c61302",
+      "c61303",
+      "c61304",
+      "c61305",
+      "c61306",
+      "c61307",
+      "c61308",
+      "fengfushou"
+    ],
+    "officialRole": "613",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "alaina",
+    "name": "阿莱娜",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c64101",
+      "c64102",
+      "c64103",
+      "c64104",
+      "c64105",
+      "c64106",
+      "c64107",
+      "c64108"
+    ],
+    "officialRole": "641",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "baizangzhu-lixin",
+    "name": "白藏主·砺心",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 2,
+      "unreviewed": 6
+    },
+    "cards": [
+      "c65101",
+      "c65102",
+      "c65103",
+      "c65104",
+      "c65105",
+      "c65106",
+      "c65107",
+      "c65108"
+    ],
+    "officialRole": "651",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "baize-yuanqi",
+    "name": "白泽·缘起",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w13-baize-yuanqi-93109",
+      "w13-baize-yuanqi-93110",
+      "w13-baize-yuanqi-93111",
+      "w13-baize-yuanqi-93112",
+      "w13-baize-yuanqi-93113",
+      "w13-baize-yuanqi-93114",
+      "w13-baize-yuanqi-93115",
+      "w13-baize-yuanqi-93116"
+    ],
+    "officialRole": "destiny-baize-yuanqi",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave13"
+  },
+  {
+    "unitId": "bingqiang",
+    "name": "冰墙",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w11-bingqiang-01",
+      "w11-bingqiang-02",
+      "w11-bingqiang-03",
+      "w11-bingqiang-04",
+      "w11-bingqiang-05",
+      "w11-bingqiang-06",
+      "w11-bingqiang-07",
+      "w11-bingqiang-08"
+    ],
+    "officialRole": "bingqiang",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  },
+  {
+    "unitId": "chanxinyunwaijing",
+    "name": "禅心云外镜",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 6,
+      "known-approximation": 2
+    },
+    "cards": [
+      "c65601",
+      "c65602",
+      "c65603",
+      "c65604",
+      "c65605",
+      "c65606",
+      "c65607",
+      "c65608"
+    ],
+    "officialRole": "656",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "chen",
+    "name": "辰",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c62101",
+      "c62102",
+      "c62103",
+      "c62104",
+      "c62105",
+      "c62106",
+      "c62107",
+      "c62108"
+    ],
+    "officialRole": "621",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "chili",
+    "name": "螭璃",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 5,
+      "known-approximation": 3
+    },
+    "cards": [
+      "c64701",
+      "c64702",
+      "c64703",
+      "c64704",
+      "c64705",
+      "c64706",
+      "c64707",
+      "c64708"
+    ],
+    "officialRole": "647",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "chulingshanfeng",
+    "name": "初翎山风",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "cards": [
+      "c66201",
+      "c66202",
+      "c66203",
+      "c66204",
+      "c66205",
+      "c66206",
+      "c66207",
+      "c66208"
+    ],
+    "officialRole": "662",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "daixiaoguhuoniao",
+    "name": "待宵姑获鸟",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c66701",
+      "c66702",
+      "c66703",
+      "c66704",
+      "c66705",
+      "c66706",
+      "c66707",
+      "c66708"
+    ],
+    "officialRole": "667",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "daorenshen",
+    "name": "盗人神",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c62601",
+      "c62602",
+      "c62603",
+      "c62604",
+      "c62605",
+      "c62606",
+      "c62607",
+      "c62608"
+    ],
+    "officialRole": "626",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "dayueling-yuxin",
+    "name": "大岳丸·渝心",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 6,
+      "known-approximation": 2
+    },
+    "cards": [
+      "c64601",
+      "c64602",
+      "c64603",
+      "c64604",
+      "c64605",
+      "c64606",
+      "c64607",
+      "c64608"
+    ],
+    "officialRole": "646",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "ertong",
+    "name": "二瞳",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c63101",
+      "c63102",
+      "c63103",
+      "c63104",
+      "c63105",
+      "c63106",
+      "c63107",
+      "c63108"
+    ],
+    "officialRole": "631",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "fenghuanghuo-jingyu",
+    "name": "凤凰火·净羽",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c66501",
+      "c66502",
+      "c66503",
+      "c66504",
+      "c66505",
+      "c66506",
+      "c66507",
+      "c66508"
+    ],
+    "officialRole": "665",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "fengyangjun",
+    "name": "封阳君",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "cards": [
+      "c65501",
+      "c65502",
+      "c65503",
+      "c65504",
+      "c65505",
+      "c65506",
+      "c65507",
+      "c65508"
+    ],
+    "officialRole": "655",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "geluoduo",
+    "name": "歌留多",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 4
+    },
+    "cards": [
+      "c66101",
+      "c66102",
+      "c66103",
+      "c66104",
+      "c66105",
+      "c66106",
+      "c66107",
+      "c66108"
+    ],
+    "officialRole": "661",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "guijinyang",
+    "name": "鬼金羊",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 2,
+      "unreviewed": 6
+    },
+    "cards": [
+      "c65201",
+      "c65202",
+      "c65203",
+      "c65204",
+      "c65205",
+      "c65206",
+      "c65207",
+      "c65208"
+    ],
+    "officialRole": "652",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "guishibai",
+    "name": "鬼使白",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 6,
+      "unreviewed": 2
+    },
+    "cards": [
+      "c62701",
+      "c62702",
+      "c62703",
+      "c62704",
+      "c62705",
+      "c62706",
+      "c62707",
+      "c62708"
+    ],
+    "officialRole": "627",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "guishihei",
+    "name": "鬼使黑",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c62801",
+      "c62802",
+      "c62803",
+      "c62804",
+      "c62805",
+      "c62806",
+      "c62807",
+      "c62808"
+    ],
+    "officialRole": "628",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "guniao-yuxiang",
+    "name": "姑获鸟·玉响",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "cards": [
+      "c61001",
+      "c61002",
+      "c61003",
+      "c61004",
+      "c61005",
+      "c61006",
+      "c61007",
+      "c61008"
+    ],
+    "officialRole": "610",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "gunv",
+    "name": "骨女",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 6,
+      "unreviewed": 2
+    },
+    "cards": [
+      "c61901",
+      "c61902",
+      "c61903",
+      "c61904",
+      "c61905",
+      "c61906",
+      "c61907",
+      "c61908"
+    ],
+    "officialRole": "619",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "huang-qiming",
+    "name": "荒·启命",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 6,
+      "unreviewed": 2
+    },
+    "cards": [
+      "c61701",
+      "c61702",
+      "c61703",
+      "c61704",
+      "c61705",
+      "c61706",
+      "c61707",
+      "c61708"
+    ],
+    "officialRole": "617",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "huangjinyu-ling",
+    "name": "黄金羽灵",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w11-huangjinyu-ling-01",
+      "w11-huangjinyu-ling-02",
+      "w11-huangjinyu-ling-03",
+      "w11-huangjinyu-ling-04",
+      "w11-huangjinyu-ling-05",
+      "w11-huangjinyu-ling-06",
+      "w11-huangjinyu-ling-07",
+      "w11-huangjinyu-ling-08"
+    ],
+    "officialRole": "huangjinyu-ling",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  },
+  {
+    "unitId": "huimingdeng",
+    "name": "慧明灯",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "cards": [
+      "c60801",
+      "c60802",
+      "c60803",
+      "c60804",
+      "c60805",
+      "c60806",
+      "c60807",
+      "c60808"
+    ],
+    "officialRole": "608",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "huojinshen",
+    "name": "祸津神",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "cards": [
+      "c64401",
+      "c64402",
+      "c64403",
+      "c64404",
+      "c64405",
+      "c64406",
+      "c64407",
+      "c64408"
+    ],
+    "officialRole": "644",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "ji",
+    "name": "季",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "cards": [
+      "c60401",
+      "c60402",
+      "c60403",
+      "c60404",
+      "c60405",
+      "c60406",
+      "c60407",
+      "c60408"
+    ],
+    "officialRole": "604",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "jieshen-suiyuan",
+    "name": "缘结神·遂愿",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "cards": [
+      "c64801",
+      "c64802",
+      "c64803",
+      "c64804",
+      "c64805",
+      "c64806",
+      "c64807",
+      "c64808"
+    ],
+    "officialRole": "648",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "jinguang",
+    "name": "金光",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w12-jinguang-92157",
+      "w12-jinguang-92158",
+      "w12-jinguang-92159",
+      "w12-jinguang-92160",
+      "w12-jinguang-92161",
+      "w12-jinguang-92162",
+      "w12-jinguang-92163",
+      "w12-jinguang-92164"
+    ],
+    "officialRole": "origin2-jinguang",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave12"
+  },
+  {
+    "unitId": "jintianyuzaoqian",
+    "name": "烬天玉藻前",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 1,
+      "unreviewed": 7
+    },
+    "cards": [
+      "c66001",
+      "c66002",
+      "c66003",
+      "c66004",
+      "c66005",
+      "c66006",
+      "c66007",
+      "c66008"
+    ],
+    "officialRole": "660",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "jutun-wangkong",
+    "name": "酒吞童子·忘空",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 4
+    },
+    "cards": [
+      "c60201",
+      "c60202",
+      "c60203",
+      "c60204",
+      "c60205",
+      "c60206",
+      "c60207",
+      "c60208"
+    ],
+    "officialRole": "602",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "leiyin",
+    "name": "雷音",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "cards": [
+      "w12-leiyin-92133",
+      "w12-leiyin-92134",
+      "w12-leiyin-92135",
+      "w12-leiyin-92136",
+      "w12-leiyin-92137",
+      "w12-leiyin-92138",
+      "w12-leiyin-92139",
+      "w12-leiyin-92140"
+    ],
+    "officialRole": "origin2-leiyin",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave12"
+  },
+  {
+    "unitId": "longche",
+    "name": "胧车",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "c65301",
+      "c65302",
+      "c65303",
+      "c65304",
+      "c65305",
+      "c65306",
+      "c65307",
+      "c65308"
+    ],
+    "officialRole": "653",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "longjue",
+    "name": "龙珏",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c65401",
+      "c65402",
+      "c65403",
+      "c65404",
+      "c65405",
+      "c65406",
+      "c65407",
+      "c65408"
+    ],
+    "officialRole": "654",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "longzi",
+    "name": "泷",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c63401",
+      "c63402",
+      "c63403",
+      "c63404",
+      "c63405",
+      "c63406",
+      "c63407",
+      "c63408"
+    ],
+    "officialRole": "634",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "luohou",
+    "name": "罗睺",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w13-luohou-93141",
+      "w13-luohou-93142",
+      "w13-luohou-93143",
+      "w13-luohou-93144",
+      "w13-luohou-93145",
+      "w13-luohou-93146",
+      "w13-luohou-93147",
+      "w13-luohou-93148"
+    ],
+    "officialRole": "destiny-luohou",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave13"
+  },
+  {
+    "unitId": "maochuan",
+    "name": "猫川",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c63901",
+      "c63902",
+      "c63903",
+      "c63904",
+      "c63905",
+      "c63906",
+      "c63907",
+      "c63908"
+    ],
+    "officialRole": "639",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "maozhanggui-huanyan",
+    "name": "猫掌柜·焕宴",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "cards": [
+      "c65801",
+      "c65802",
+      "c65803",
+      "c65804",
+      "c65805",
+      "c65806",
+      "c65807",
+      "c65808"
+    ],
+    "officialRole": "658",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "mianqiling-xinsu",
+    "name": "面灵气·心宿",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c62901",
+      "c62902",
+      "c62903",
+      "c62904",
+      "c62905",
+      "c62906",
+      "c62907",
+      "c62908"
+    ],
+    "officialRole": "629",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "mingdeng-shou",
+    "name": "明灯使",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w11-mingdeng-shou-01",
+      "w11-mingdeng-shou-02",
+      "w11-mingdeng-shou-03",
+      "w11-mingdeng-shou-04",
+      "w11-mingdeng-shou-05",
+      "w11-mingdeng-shou-06",
+      "w11-mingdeng-shou-07",
+      "w11-mingdeng-shou-08"
+    ],
+    "officialRole": "mingdeng-shou",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  },
+  {
+    "unitId": "momo",
+    "name": "墨貘",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w12-momo-92149",
+      "w12-momo-92150",
+      "w12-momo-92151",
+      "w12-momo-92152",
+      "w12-momo-92153",
+      "w12-momo-92154",
+      "w12-momo-92155",
+      "w12-momo-92156"
+    ],
+    "officialRole": "origin2-momo",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave12"
+  },
+  {
+    "unitId": "nezuko",
+    "name": "祢豆子",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c18291",
+      "c18292",
+      "c18293",
+      "c18294",
+      "c18295",
+      "c18296",
+      "c18297",
+      "c18298"
+    ],
+    "officialRole": "182",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave10"
+  },
+  {
+    "unitId": "panguan-xuanmo",
+    "name": "判官·悬墨",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c60101",
+      "c60102",
+      "c60103",
+      "c60104",
+      "c60105",
+      "c60106",
+      "c60107",
+      "c60108"
+    ],
+    "officialRole": "601",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "pinfashen",
+    "name": "贫乏神",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 6,
+      "known-approximation": 2
+    },
+    "cards": [
+      "c65701",
+      "c65702",
+      "c65703",
+      "c65704",
+      "c65705",
+      "c65706",
+      "c65707",
+      "c65708"
+    ],
+    "officialRole": "657",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "qingfangzhu-fanchen",
+    "name": "青坊主·凡尘",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 2,
+      "unreviewed": 6
+    },
+    "cards": [
+      "c29901",
+      "c29902",
+      "c29903",
+      "c29904",
+      "c29905",
+      "c29906",
+      "c29907",
+      "c29908"
+    ],
+    "officialRole": "299",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "quanshen-lizhan",
+    "name": "犬神·历战",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "cards": [
+      "c29201",
+      "c29202",
+      "c29203",
+      "c29204",
+      "c29205",
+      "c29206",
+      "c29207",
+      "c29208"
+    ],
+    "officialRole": "292",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "rihefang-qingyang",
+    "name": "日和坊·晴阳",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c63701",
+      "c63702",
+      "c63703",
+      "c63704",
+      "c63705",
+      "c63706",
+      "c63707",
+      "c63708"
+    ],
+    "officialRole": "637",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "shenqi-huang",
+    "name": "神启荒",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w13-shenqi-huang-93117",
+      "w13-shenqi-huang-93118",
+      "w13-shenqi-huang-93119",
+      "w13-shenqi-huang-93120",
+      "w13-shenqi-huang-93121",
+      "w13-shenqi-huang-93122",
+      "w13-shenqi-huang-93123",
+      "w13-shenqi-huang-93124"
+    ],
+    "officialRole": "destiny-shenqi-huang",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave13"
+  },
+  {
+    "unitId": "shenqilou",
+    "name": "蜃气楼",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c29801",
+      "c29802",
+      "c29803",
+      "c29804",
+      "c29805",
+      "c29806",
+      "c29807",
+      "c29808"
+    ],
+    "officialRole": "298",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "shiyao-longyechaji",
+    "name": "时曜泷夜叉姬",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w13-shiyao-longyechaji-93101",
+      "w13-shiyao-longyechaji-93102",
+      "w13-shiyao-longyechaji-93103",
+      "w13-shiyao-longyechaji-93104",
+      "w13-shiyao-longyechaji-93105",
+      "w13-shiyao-longyechaji-93106",
+      "w13-shiyao-longyechaji-93107",
+      "w13-shiyao-longyechaji-93108"
+    ],
+    "officialRole": "destiny-shiyao-longyechaji",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave13"
+  },
+  {
+    "unitId": "shizhu",
+    "name": "石主",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w12-shizhu-92109",
+      "w12-shizhu-92110",
+      "w12-shizhu-92111",
+      "w12-shizhu-92112",
+      "w12-shizhu-92113",
+      "w12-shizhu-92114",
+      "w12-shizhu-92115",
+      "w12-shizhu-92116"
+    ],
+    "officialRole": "origin2-shizhu",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave12"
+  },
+  {
+    "unitId": "shouhu-ling",
+    "name": "守护灵",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w11-shouhu-ling-01",
+      "w11-shouhu-ling-02",
+      "w11-shouhu-ling-03",
+      "w11-shouhu-ling-04",
+      "w11-shouhu-ling-05",
+      "w11-shouhu-ling-06",
+      "w11-shouhu-ling-07",
+      "w11-shouhu-ling-08"
+    ],
+    "officialRole": "shouhu-ling",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  },
+  {
+    "unitId": "shuimo",
+    "name": "水沫",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w12-shuimo-92125",
+      "w12-shuimo-92126",
+      "w12-shuimo-92127",
+      "w12-shuimo-92128",
+      "w12-shuimo-92129",
+      "w12-shuimo-92130",
+      "w12-shuimo-92131",
+      "w12-shuimo-92132"
+    ],
+    "officialRole": "origin2-shuimo",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave12"
+  },
+  {
+    "unitId": "shuweng-zhixing",
+    "name": "书翁·志行",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 1,
+      "unreviewed": 7
+    },
+    "cards": [
+      "c64301",
+      "c64302",
+      "c64303",
+      "c64304",
+      "c64305",
+      "c64306",
+      "c64307",
+      "c64308"
+    ],
+    "officialRole": "643",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "sibing",
+    "name": "四饼",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 1,
+      "unreviewed": 7
+    },
+    "cards": [
+      "c64501",
+      "c64502",
+      "c64503",
+      "c64504",
+      "c64505",
+      "c64506",
+      "c64507",
+      "c64508"
+    ],
+    "officialRole": "645",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "tanjirou",
+    "name": "炭治郎",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c18201",
+      "c18202",
+      "c18203",
+      "c18204",
+      "c18205",
+      "c18206",
+      "c18208",
+      "c18209"
+    ],
+    "officialRole": "182",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave10"
+  },
+  {
+    "unitId": "taohua-luoying",
+    "name": "桃花妖·落英",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c61201",
+      "c61202",
+      "c61203",
+      "c61204",
+      "c61205",
+      "c61206",
+      "c61207",
+      "c61208"
+    ],
+    "officialRole": "612",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "tianzhao",
+    "name": "天照",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 4
+    },
+    "cards": [
+      "c62301",
+      "c62302",
+      "c62303",
+      "c62304",
+      "c62305",
+      "c62306",
+      "c62307",
+      "c62308"
+    ],
+    "officialRole": "623",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "tiaotiaogege",
+    "name": "跳跳哥哥",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c18301",
+      "c18302",
+      "c18303",
+      "c18304",
+      "c18305",
+      "c18306",
+      "c18307",
+      "c18308"
+    ],
+    "officialRole": "183",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave3"
+  },
+  {
+    "unitId": "tieshu-haojia",
+    "name": "铁鼠·豪贾",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c64901",
+      "c64902",
+      "c64903",
+      "c64904",
+      "c64905",
+      "c64906",
+      "c64907",
+      "c64908"
+    ],
+    "officialRole": "649",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "tongnantongnv",
+    "name": "童男童女",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c63201",
+      "c63202",
+      "c63203",
+      "c63204",
+      "c63205",
+      "c63206",
+      "c63207",
+      "c63208"
+    ],
+    "officialRole": "632",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "wushi-maoshi",
+    "name": "武士之灵·猫侍",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c62401",
+      "c62402",
+      "c62403",
+      "c62404",
+      "c62405",
+      "c62406",
+      "c62407",
+      "c62408"
+    ],
+    "officialRole": "624",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "xiaolunan-qianshou",
+    "name": "小鹿男·千守",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 1,
+      "known-approximation": 7
+    },
+    "cards": [
+      "c63501",
+      "c63502",
+      "c63503",
+      "c63504",
+      "c63505",
+      "c63506",
+      "c63507",
+      "c63508"
+    ],
+    "officialRole": "635",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "xingchen",
+    "name": "星尘",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w12-xingchen-92141",
+      "w12-xingchen-92142",
+      "w12-xingchen-92143",
+      "w12-xingchen-92144",
+      "w12-xingchen-92145",
+      "w12-xingchen-92146",
+      "w12-xingchen-92147",
+      "w12-xingchen-92148"
+    ],
+    "officialRole": "origin2-xingchen",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave12"
+  },
+  {
+    "unitId": "xinmo",
+    "name": "心魔",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w11-xinmo-01",
+      "w11-xinmo-02",
+      "w11-xinmo-03",
+      "w11-xinmo-04",
+      "w11-xinmo-05",
+      "w11-xinmo-06",
+      "w11-xinmo-07",
+      "w11-xinmo-08"
+    ],
+    "officialRole": "xinmo",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  },
+  {
+    "unitId": "xixueji-xiyi",
+    "name": "吸血姬·曦忆",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 6,
+      "known-approximation": 2
+    },
+    "cards": [
+      "c66301",
+      "c66302",
+      "c66303",
+      "c66304",
+      "c66305",
+      "c66306",
+      "c66307",
+      "c66308"
+    ],
+    "officialRole": "663",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "xuan",
+    "name": "璇",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w13-xuan-93125",
+      "w13-xuan-93126",
+      "w13-xuan-93127",
+      "w13-xuan-93128",
+      "w13-xuan-93129",
+      "w13-xuan-93130",
+      "w13-xuan-93131",
+      "w13-xuan-93132"
+    ],
+    "officialRole": "destiny-xuan",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave13"
+  },
+  {
+    "unitId": "xueqiu-jingling",
+    "name": "雪球精灵",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w11-xueqiu-jingling-01",
+      "w11-xueqiu-jingling-02",
+      "w11-xueqiu-jingling-03",
+      "w11-xueqiu-jingling-04",
+      "w11-xueqiu-jingling-05",
+      "w11-xueqiu-jingling-06",
+      "w11-xueqiu-jingling-07",
+      "w11-xueqiu-jingling-08"
+    ],
+    "officialRole": "xueqiu-jingling",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  },
+  {
+    "unitId": "yanling",
+    "name": "言灵",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 6,
+      "unreviewed": 2
+    },
+    "cards": [
+      "c61401",
+      "c61402",
+      "c61403",
+      "c61404",
+      "c61405",
+      "c61406",
+      "c61407",
+      "c61408"
+    ],
+    "officialRole": "614",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "yanling-huo",
+    "name": "焰铃",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w12-yanling-huo-92117",
+      "w12-yanling-huo-92118",
+      "w12-yanling-huo-92119",
+      "w12-yanling-huo-92120",
+      "w12-yanling-huo-92121",
+      "w12-yanling-huo-92122",
+      "w12-yanling-huo-92123",
+      "w12-yanling-huo-92124"
+    ],
+    "officialRole": "origin2-yanling-huo",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave12"
+  },
+  {
+    "unitId": "yanyanluo-fenshen",
+    "name": "烟烟罗分身",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w11-yanyanluo-fenshen-01",
+      "w11-yanyanluo-fenshen-02",
+      "w11-yanyanluo-fenshen-03",
+      "w11-yanyanluo-fenshen-04",
+      "w11-yanyanluo-fenshen-05",
+      "w11-yanyanluo-fenshen-06",
+      "w11-yanyanluo-fenshen-07",
+      "w11-yanyanluo-fenshen-08"
+    ],
+    "officialRole": "yanyanluo-fenshen",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  },
+  {
+    "unitId": "yanyanluo-fumiao",
+    "name": "烟烟罗·浮缈",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c63601",
+      "c63602",
+      "c63603",
+      "c63604",
+      "c63605",
+      "c63606",
+      "c63607",
+      "c63608"
+    ],
+    "officialRole": "636",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "yaodaoji-zhuren",
+    "name": "妖刀姬·呪刃",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 5,
+      "known-approximation": 3
+    },
+    "cards": [
+      "c28901",
+      "c28902",
+      "c28903",
+      "c28904",
+      "c28905",
+      "c28906",
+      "c28907",
+      "c28908"
+    ],
+    "officialRole": "289",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave7"
+  },
+  {
+    "unitId": "yatiangou-qiuye",
+    "name": "鸦天狗·秋叶",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 4
+    },
+    "cards": [
+      "c64201",
+      "c64202",
+      "c64203",
+      "c64204",
+      "c64205",
+      "c64206",
+      "c64207",
+      "c64208"
+    ],
+    "officialRole": "642",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "yijin-qianxun",
+    "name": "以津真天·千寻",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c65001",
+      "c65002",
+      "c65003",
+      "c65004",
+      "c65005",
+      "c65006",
+      "c65007",
+      "c65008"
+    ],
+    "officialRole": "650",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "yinfanhuiyeji",
+    "name": "因幡辉夜姬",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 2,
+      "unreviewed": 6
+    },
+    "cards": [
+      "c66601",
+      "c66602",
+      "c66603",
+      "c66604",
+      "c66605",
+      "c66606",
+      "c66607",
+      "c66608"
+    ],
+    "officialRole": "666",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "yingcao-pupu",
+    "name": "萤草·蒲蒲",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "cards": [
+      "c63001",
+      "c63002",
+      "c63003",
+      "c63004",
+      "c63005",
+      "c63006",
+      "c63007",
+      "c63008"
+    ],
+    "officialRole": "630",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "yinghuayao-lijing",
+    "name": "樱花妖·璃景",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c66401",
+      "c66402",
+      "c66403",
+      "c66404",
+      "c66405",
+      "c66406",
+      "c66407",
+      "c66408"
+    ],
+    "officialRole": "664",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "yixienamei",
+    "name": "伊邪那美",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c62501",
+      "c62502",
+      "c62503",
+      "c62504",
+      "c62505",
+      "c62506",
+      "c62507",
+      "c62508"
+    ],
+    "officialRole": "625",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "youning",
+    "name": "攸宁",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c64001",
+      "c64002",
+      "c64003",
+      "c64004",
+      "c64005",
+      "c64006",
+      "c64007",
+      "c64008"
+    ],
+    "officialRole": "640",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "yuedu",
+    "name": "月读",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "cards": [
+      "c62201",
+      "c62202",
+      "c62203",
+      "c62204",
+      "c62205",
+      "c62206",
+      "c62207",
+      "c62208"
+    ],
+    "officialRole": "622",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "yueying",
+    "name": "月隐",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w12-yueying-92101",
+      "w12-yueying-92102",
+      "w12-yueying-92103",
+      "w12-yueying-92104",
+      "w12-yueying-92105",
+      "w12-yueying-92106",
+      "w12-yueying-92107",
+      "w12-yueying-92108"
+    ],
+    "officialRole": "origin2-yueying",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave12"
+  },
+  {
+    "unitId": "yunv",
+    "name": "雨女",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c62001",
+      "c62002",
+      "c62003",
+      "c62004",
+      "c62005",
+      "c62006",
+      "c62007",
+      "c62008"
+    ],
+    "officialRole": "620",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "yuyuan-banruo",
+    "name": "御怨般若",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "cards": [
+      "w13-yuyuan-banruo-93133",
+      "w13-yuyuan-banruo-93134",
+      "w13-yuyuan-banruo-93135",
+      "w13-yuyuan-banruo-93136",
+      "w13-yuyuan-banruo-93137",
+      "w13-yuyuan-banruo-93138",
+      "w13-yuyuan-banruo-93139",
+      "w13-yuyuan-banruo-93140"
+    ],
+    "officialRole": "destiny-yuyuan-banruo",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave13"
+  },
+  {
+    "unitId": "zhaocaimao",
+    "name": "招财猫",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "cards": [
+      "c65901",
+      "c65902",
+      "c65903",
+      "c65904",
+      "c65905",
+      "c65906",
+      "c65907",
+      "c65908"
+    ],
+    "officialRole": "659",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave9"
+  },
+  {
+    "unitId": "zhiren",
+    "name": "纸人",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "cards": [
+      "w11-zhiren-01",
+      "w11-zhiren-02",
+      "w11-zhiren-03",
+      "w11-zhiren-04",
+      "w11-zhiren-05",
+      "w11-zhiren-06",
+      "w11-zhiren-07",
+      "w11-zhiren-08"
+    ],
+    "officialRole": "zhiren",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  },
+  {
+    "unitId": "zhiwu",
+    "name": "纸舞",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "cards": [
+      "c63301",
+      "c63302",
+      "c63303",
+      "c63304",
+      "c63305",
+      "c63306",
+      "c63307",
+      "c63308"
+    ],
+    "officialRole": "633",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "zhuiyueshen-shuiyue",
+    "name": "追月神·水月",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "cards": [
+      "c61801",
+      "c61802",
+      "c61803",
+      "c61804",
+      "c61805",
+      "c61806",
+      "c61807",
+      "c61808"
+    ],
+    "officialRole": "618",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave8"
+  },
+  {
+    "unitId": "fanqie",
+    "name": "番茄",
+    "remaining": 1,
+    "categories": {
+      "known-approximation": 1
+    },
+    "cards": [
+      "w11-fanqie-04"
+    ],
+    "officialRole": "fanqie",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  },
+  {
+    "unitId": "jieshen",
+    "name": "缘结神",
+    "remaining": 1,
+    "categories": {
+      "unreviewed": 1
+    },
+    "cards": [
+      "yuanjie"
+    ],
+    "officialRole": "216",
+    "sourceDefinitionAvailable": true,
+    "pack": "wave4"
+  },
+  {
+    "unitId": "jinran-buye",
+    "name": "烬染不夜",
+    "remaining": 1,
+    "categories": {
+      "known-approximation": 1
+    },
+    "cards": [
+      "w11-jinran-buye-01"
+    ],
+    "officialRole": "jinran-buye",
+    "sourceDefinitionAvailable": false,
+    "pack": "wave11"
+  }
+]

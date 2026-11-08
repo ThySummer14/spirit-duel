@@ -1,0 +1,1312 @@
+[
+  {
+    "unitId": "ember",
+    "name": "赤曜",
+    "pack": "original-custom",
+    "officialRole": null,
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "basalt",
+    "name": "岚岳",
+    "pack": "original-custom",
+    "officialRole": null,
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "lumen",
+    "name": "弦月",
+    "pack": "original-custom",
+    "officialRole": null,
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "rime",
+    "name": "白棱",
+    "pack": "original-custom",
+    "officialRole": null,
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "storm",
+    "name": "霆鸢",
+    "pack": "original-custom",
+    "officialRole": null,
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "ink",
+    "name": "玄砚",
+    "pack": "original-custom",
+    "officialRole": null,
+    "remaining": 18,
+    "categories": {
+      "unreviewed": 18
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "frostblade",
+    "name": "银狼",
+    "pack": "original-custom",
+    "officialRole": null,
+    "remaining": 15,
+    "categories": {
+      "unreviewed": 15
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "kongo",
+    "name": "金刚",
+    "pack": "original-custom",
+    "officialRole": null,
+    "remaining": 15,
+    "categories": {
+      "unreviewed": 15
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "guishiheibai",
+    "name": "鬼使黑/鬼使白",
+    "pack": "wave4",
+    "officialRole": "194",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "bayiqidashe",
+    "name": "八岐大蛇",
+    "pack": "wave4",
+    "officialRole": "220",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "jieshen",
+    "name": "缘结神",
+    "pack": "wave4",
+    "officialRole": "216",
+    "remaining": 1,
+    "categories": {
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "jinnaluo",
+    "name": "紧那罗",
+    "pack": "wave6",
+    "officialRole": "256",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "lingyanji",
+    "name": "铃彦姬",
+    "pack": "wave6",
+    "officialRole": "263",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 3,
+      "known-approximation": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yaodaoji-zhuren",
+    "name": "妖刀姬·呪刃",
+    "pack": "wave7",
+    "officialRole": "289",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 5,
+      "known-approximation": 3
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "qingxingdeng-huihuo",
+    "name": "青行灯·辉火",
+    "pack": "wave7",
+    "officialRole": "291",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "quanshen-lizhan",
+    "name": "犬神·历战",
+    "pack": "wave7",
+    "officialRole": "292",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "qingfangzhu-fanchen",
+    "name": "青坊主·凡尘",
+    "pack": "wave7",
+    "officialRole": "299",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 2,
+      "unreviewed": 6
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "panguan-xuanmo",
+    "name": "判官·悬墨",
+    "pack": "wave7",
+    "officialRole": "601",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "jutun-wangkong",
+    "name": "酒吞童子·忘空",
+    "pack": "wave7",
+    "officialRole": "602",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 4
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "fenpopo",
+    "name": "粉婆婆",
+    "pack": "wave7",
+    "officialRole": "603",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 6
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "ji",
+    "name": "季",
+    "pack": "wave7",
+    "officialRole": "604",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "kongquemingwang",
+    "name": "孔雀明王",
+    "pack": "wave7",
+    "officialRole": "605",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 6
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "jiao",
+    "name": "椒图",
+    "pack": "wave7",
+    "officialRole": "606",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 6,
+      "unreviewed": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "caitong-lvli",
+    "name": "茨木童子·旅立",
+    "pack": "wave7",
+    "officialRole": "607",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 6
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "huimingdeng",
+    "name": "慧明灯",
+    "pack": "wave7",
+    "officialRole": "608",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "shifagui",
+    "name": "食发鬼",
+    "pack": "wave7",
+    "officialRole": "609",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "guniao-yuxiang",
+    "name": "姑获鸟·玉响",
+    "pack": "wave7",
+    "officialRole": "610",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "tiannimei",
+    "name": "天逆每",
+    "pack": "wave7",
+    "officialRole": "611",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 6
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "taohua-luoying",
+    "name": "桃花妖·落英",
+    "pack": "wave7",
+    "officialRole": "612",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yimulian-linglai",
+    "name": "一目连·灵籁",
+    "pack": "wave7",
+    "officialRole": "613",
+    "remaining": 9,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yanling",
+    "name": "言灵",
+    "pack": "wave7",
+    "officialRole": "614",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 6,
+      "unreviewed": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "langyazi",
+    "name": "琅琊子",
+    "pack": "wave7",
+    "officialRole": "615",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 8,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "shantu-zuofu",
+    "name": "山兔/座敷童子",
+    "pack": "wave7",
+    "officialRole": "616",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "huang-qiming",
+    "name": "荒·启命",
+    "pack": "wave8",
+    "officialRole": "617",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 6,
+      "unreviewed": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "zhuiyueshen-shuiyue",
+    "name": "追月神·水月",
+    "pack": "wave8",
+    "officialRole": "618",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "gunv",
+    "name": "骨女",
+    "pack": "wave8",
+    "officialRole": "619",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 6,
+      "unreviewed": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yunv",
+    "name": "雨女",
+    "pack": "wave8",
+    "officialRole": "620",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "chen",
+    "name": "辰",
+    "pack": "wave8",
+    "officialRole": "621",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yuedu",
+    "name": "月读",
+    "pack": "wave8",
+    "officialRole": "622",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "tianzhao",
+    "name": "天照",
+    "pack": "wave8",
+    "officialRole": "623",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 4
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "wushi-maoshi",
+    "name": "武士之灵·猫侍",
+    "pack": "wave8",
+    "officialRole": "624",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yixienamei",
+    "name": "伊邪那美",
+    "pack": "wave8",
+    "officialRole": "625",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "daorenshen",
+    "name": "盗人神",
+    "pack": "wave8",
+    "officialRole": "626",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "guishibai",
+    "name": "鬼使白",
+    "pack": "wave8",
+    "officialRole": "627",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 6,
+      "unreviewed": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "guishihei",
+    "name": "鬼使黑",
+    "pack": "wave8",
+    "officialRole": "628",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "mianqiling-xinsu",
+    "name": "面灵气·心宿",
+    "pack": "wave8",
+    "officialRole": "629",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yingcao-pupu",
+    "name": "萤草·蒲蒲",
+    "pack": "wave8",
+    "officialRole": "630",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "ertong",
+    "name": "二瞳",
+    "pack": "wave8",
+    "officialRole": "631",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "tongnantongnv",
+    "name": "童男童女",
+    "pack": "wave8",
+    "officialRole": "632",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "zhiwu",
+    "name": "纸舞",
+    "pack": "wave8",
+    "officialRole": "633",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "longzi",
+    "name": "泷",
+    "pack": "wave8",
+    "officialRole": "634",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "xiaolunan-qianshou",
+    "name": "小鹿男·千守",
+    "pack": "wave8",
+    "officialRole": "635",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 1,
+      "known-approximation": 7
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yanyanluo-fumiao",
+    "name": "烟烟罗·浮缈",
+    "pack": "wave8",
+    "officialRole": "636",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "rihefang-qingyang",
+    "name": "日和坊·晴阳",
+    "pack": "wave8",
+    "officialRole": "637",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "fansi",
+    "name": "饭笥",
+    "pack": "wave8",
+    "officialRole": "638",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "maochuan",
+    "name": "猫川",
+    "pack": "wave8",
+    "officialRole": "639",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "youning",
+    "name": "攸宁",
+    "pack": "wave8",
+    "officialRole": "640",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "alaina",
+    "name": "阿莱娜",
+    "pack": "wave8",
+    "officialRole": "641",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "shenqilou",
+    "name": "蜃气楼",
+    "pack": "wave9",
+    "officialRole": "298",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yatiangou-qiuye",
+    "name": "鸦天狗·秋叶",
+    "pack": "wave9",
+    "officialRole": "642",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 4
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "shuweng-zhixing",
+    "name": "书翁·志行",
+    "pack": "wave9",
+    "officialRole": "643",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 1,
+      "unreviewed": 7
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "huojinshen",
+    "name": "祸津神",
+    "pack": "wave9",
+    "officialRole": "644",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 5,
+      "unreviewed": 3
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "sibing",
+    "name": "四饼",
+    "pack": "wave9",
+    "officialRole": "645",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 1,
+      "unreviewed": 7
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "dayueling-yuxin",
+    "name": "大岳丸·渝心",
+    "pack": "wave9",
+    "officialRole": "646",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 6,
+      "known-approximation": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "chili",
+    "name": "螭璃",
+    "pack": "wave9",
+    "officialRole": "647",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 5,
+      "known-approximation": 3
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "jieshen-suiyuan",
+    "name": "缘结神·遂愿",
+    "pack": "wave9",
+    "officialRole": "648",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "tieshu-haojia",
+    "name": "铁鼠·豪贾",
+    "pack": "wave9",
+    "officialRole": "649",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yijin-qianxun",
+    "name": "以津真天·千寻",
+    "pack": "wave9",
+    "officialRole": "650",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "baizangzhu-lixin",
+    "name": "白藏主·砺心",
+    "pack": "wave9",
+    "officialRole": "651",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 2,
+      "unreviewed": 6
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "guijinyang",
+    "name": "鬼金羊",
+    "pack": "wave9",
+    "officialRole": "652",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 2,
+      "unreviewed": 6
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "longche",
+    "name": "胧车",
+    "pack": "wave9",
+    "officialRole": "653",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "longjue",
+    "name": "龙珏",
+    "pack": "wave9",
+    "officialRole": "654",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "fengyangjun",
+    "name": "封阳君",
+    "pack": "wave9",
+    "officialRole": "655",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "chanxinyunwaijing",
+    "name": "禅心云外镜",
+    "pack": "wave9",
+    "officialRole": "656",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 6,
+      "known-approximation": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "pinfashen",
+    "name": "贫乏神",
+    "pack": "wave9",
+    "officialRole": "657",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 6,
+      "known-approximation": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "maozhanggui-huanyan",
+    "name": "猫掌柜·焕宴",
+    "pack": "wave9",
+    "officialRole": "658",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "zhaocaimao",
+    "name": "招财猫",
+    "pack": "wave9",
+    "officialRole": "659",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "jintianyuzaoqian",
+    "name": "烬天玉藻前",
+    "pack": "wave9",
+    "officialRole": "660",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 1,
+      "unreviewed": 7
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "geluoduo",
+    "name": "歌留多",
+    "pack": "wave9",
+    "officialRole": "661",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 4,
+      "unreviewed": 4
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "chulingshanfeng",
+    "name": "初翎山风",
+    "pack": "wave9",
+    "officialRole": "662",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "xixueji-xiyi",
+    "name": "吸血姬·曦忆",
+    "pack": "wave9",
+    "officialRole": "663",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 6,
+      "known-approximation": 2
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yinghuayao-lijing",
+    "name": "樱花妖·璃景",
+    "pack": "wave9",
+    "officialRole": "664",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "fenghuanghuo-jingyu",
+    "name": "凤凰火·净羽",
+    "pack": "wave9",
+    "officialRole": "665",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "yinfanhuiyeji",
+    "name": "因幡辉夜姬",
+    "pack": "wave9",
+    "officialRole": "666",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 2,
+      "unreviewed": 6
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "daixiaoguhuoniao",
+    "name": "待宵姑获鸟",
+    "pack": "wave9",
+    "officialRole": "667",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 3,
+      "unreviewed": 5
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "nezuko",
+    "name": "祢豆子",
+    "pack": "wave10",
+    "officialRole": "182",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "tanjirou",
+    "name": "炭治郎",
+    "pack": "wave10",
+    "officialRole": "182",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 8
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "fanqie",
+    "name": "番茄",
+    "pack": "wave11",
+    "officialRole": "fanqie",
+    "remaining": 1,
+    "categories": {
+      "known-approximation": 1
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "bingqiang",
+    "name": "冰墙",
+    "pack": "wave11",
+    "officialRole": "bingqiang",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "zhiren",
+    "name": "纸人",
+    "pack": "wave11",
+    "officialRole": "zhiren",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "yanyanluo-fenshen",
+    "name": "烟烟罗分身",
+    "pack": "wave11",
+    "officialRole": "yanyanluo-fenshen",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "jinran-buye",
+    "name": "烬染不夜",
+    "pack": "wave11",
+    "officialRole": "jinran-buye",
+    "remaining": 1,
+    "categories": {
+      "known-approximation": 1
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "xueqiu-jingling",
+    "name": "雪球精灵",
+    "pack": "wave11",
+    "officialRole": "xueqiu-jingling",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "huangjinyu-ling",
+    "name": "黄金羽灵",
+    "pack": "wave11",
+    "officialRole": "huangjinyu-ling",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "mingdeng-shou",
+    "name": "明灯使",
+    "pack": "wave11",
+    "officialRole": "mingdeng-shou",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "xinmo",
+    "name": "心魔",
+    "pack": "wave11",
+    "officialRole": "xinmo",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "shouhu-ling",
+    "name": "守护灵",
+    "pack": "wave11",
+    "officialRole": "shouhu-ling",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "yueying",
+    "name": "月隐",
+    "pack": "wave12",
+    "officialRole": "origin2-yueying",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "shizhu",
+    "name": "石主",
+    "pack": "wave12",
+    "officialRole": "origin2-shizhu",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "yanling-huo",
+    "name": "焰铃",
+    "pack": "wave12",
+    "officialRole": "origin2-yanling-huo",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "shuimo",
+    "name": "水沫",
+    "pack": "wave12",
+    "officialRole": "origin2-shuimo",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "leiyin",
+    "name": "雷音",
+    "pack": "wave12",
+    "officialRole": "origin2-leiyin",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 7,
+      "known-approximation": 1
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "xingchen",
+    "name": "星尘",
+    "pack": "wave12",
+    "officialRole": "origin2-xingchen",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "momo",
+    "name": "墨貘",
+    "pack": "wave12",
+    "officialRole": "origin2-momo",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "jinguang",
+    "name": "金光",
+    "pack": "wave12",
+    "officialRole": "origin2-jinguang",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "shiyao-longyechaji",
+    "name": "时曜泷夜叉姬",
+    "pack": "wave13",
+    "officialRole": "destiny-shiyao-longyechaji",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "baize-yuanqi",
+    "name": "白泽·缘起",
+    "pack": "wave13",
+    "officialRole": "destiny-baize-yuanqi",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "shenqi-huang",
+    "name": "神启荒",
+    "pack": "wave13",
+    "officialRole": "destiny-shenqi-huang",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "xuan",
+    "name": "璇",
+    "pack": "wave13",
+    "officialRole": "destiny-xuan",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "yuyuan-banruo",
+    "name": "御怨般若",
+    "pack": "wave13",
+    "officialRole": "destiny-yuyuan-banruo",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "luohou",
+    "name": "罗睺",
+    "pack": "wave13",
+    "officialRole": "destiny-luohou",
+    "remaining": 8,
+    "categories": {
+      "unreviewed": 8
+    },
+    "sourceDefinitionAvailable": false
+  },
+  {
+    "unitId": "tiaotiaogege",
+    "name": "跳跳哥哥",
+    "pack": "wave3",
+    "officialRole": "183",
+    "remaining": 8,
+    "categories": {
+      "known-approximation": 7,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  },
+  {
+    "unitId": "sanmu",
+    "name": "三目",
+    "pack": "wave3",
+    "officialRole": "185",
+    "remaining": 9,
+    "categories": {
+      "known-approximation": 8,
+      "unreviewed": 1
+    },
+    "sourceDefinitionAvailable": true
+  }
+]
