@@ -11,6 +11,7 @@ const DeckBuilderScreen := preload("res://scripts/ui/deck_builder.gd")
 const SaveStore := preload("res://scripts/save_store.gd")
 const CollectionScreen := preload("res://scripts/ui/collection_screen.gd")
 const CollectionStore := preload("res://scripts/collection_store.gd")
+const DisplayPreferences := preload("res://scripts/ui/display_preferences.gd")
 const Sfx := preload("res://scripts/ui/sfx.gd")
 const Backdrop := preload("res://scripts/ui/scene_backdrop.gd")
 ## Screen router: menu ↔ formation ↔ battle ↔ result
@@ -22,9 +23,29 @@ var _quick := false
 var _formation_slot := 0
 var _deck_return_codex := false
 var _menu_floor := MainMenuScreen.MIDDLE
+var _display_stats: Label
 
 
 func _ready() -> void:
+	DisplayPreferences.apply()
+	var stats_layer := CanvasLayer.new()
+	stats_layer.layer = 90
+	add_child(stats_layer)
+	_display_stats = ThemeBuilder.label("", 12, ThemeBuilder.PAPER)
+	_display_stats.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_display_stats.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+	_display_stats.offset_left = 12
+	_display_stats.offset_top = -28
+	_display_stats.add_theme_stylebox_override("normal", ThemeBuilder.panel(Color("101923"), Color.TRANSPARENT, 4, 0))
+	stats_layer.add_child(_display_stats)
+	var stats_timer := Timer.new()
+	stats_timer.wait_time = 0.5
+	stats_timer.timeout.connect(func():
+		_display_stats.visible = bool(DisplayPreferences.settings().stats)
+		if _display_stats.visible: _display_stats.text = DisplayPreferences.status()
+	)
+	add_child(stats_timer)
+	stats_timer.start()
 	if not OS.has_feature("web") and DisplayServer.get_name() != "headless":
 		var window := get_window()
 		var usable := DisplayServer.screen_get_usable_rect(window.current_screen)
@@ -155,6 +176,26 @@ func _show_settings() -> void:
 	v.add_theme_constant_override("separation", 12)
 	card.add_child(v)
 	v.add_child(ThemeBuilder.title_label("设置", 24))
+	v.add_child(ThemeBuilder.section_label("画面"))
+	if OS.has_feature("web"):
+		v.add_child(_display_option("渲染清晰度", "scale", ["流畅 · 75%", "原生高清 · 100%", "超清 · 125%"], DisplayPreferences.SCALES))
+	else:
+		v.add_child(ThemeBuilder.dim_label("使用屏幕原生分辨率，支持 Retina 高清显示。", 13))
+	v.add_child(_display_option("帧率上限", "fps", ["跟随屏幕刷新率", "60 FPS", "120 FPS", "144 FPS"], DisplayPreferences.FPS_LIMITS))
+	v.add_child(ThemeBuilder.dim_label("实际帧率受屏幕刷新率与设备性能影响。", 12))
+	var display_info := ThemeBuilder.label(DisplayPreferences.status(), 13, ThemeBuilder.GOLD_BRIGHT)
+	v.add_child(display_info)
+	var info_timer := Timer.new()
+	info_timer.wait_time = 0.5
+	info_timer.autostart = true
+	info_timer.timeout.connect(func(): display_info.text = DisplayPreferences.status())
+	display_info.add_child(info_timer)
+	var show_stats := CheckButton.new()
+	show_stats.text = "显示分辨率与帧率"
+	show_stats.button_pressed = bool(DisplayPreferences.settings().stats)
+	show_stats.toggled.connect(func(value): DisplayPreferences.set_option("stats", value))
+	v.add_child(show_stats)
+	v.add_child(ThemeBuilder.hline())
 	v.add_child(ThemeBuilder.section_label("音量"))
 	v.add_child(_volume_control("music", "背景音乐"))
 	v.add_child(_volume_control("sfx", "操作与战斗音效"))
@@ -232,3 +273,19 @@ func _on_match_over(winner: int, snapshot: Dictionary) -> void:
 	result.rematch.connect(_start_battle)
 	result.back_to_menu.connect(_show_menu)
 	_swap(result)
+
+
+func _display_option(title: String, key: String, labels: Array, values: Array) -> Control:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 14)
+	var label := ThemeBuilder.label(title, 14)
+	label.custom_minimum_size.x = 144
+	row.add_child(label)
+	var picker := OptionButton.new()
+	picker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	picker.set_meta("display_option", key)
+	for entry in labels: picker.add_item(entry)
+	picker.select(values.find(DisplayPreferences.settings()[key]))
+	picker.item_selected.connect(func(index): DisplayPreferences.set_option(key, values[index]))
+	row.add_child(picker)
+	return row

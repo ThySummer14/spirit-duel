@@ -30,12 +30,62 @@
   </div>
   <script src="$GODOT_URL"></script>
   <script>
+    // Own the drawing-buffer size so Retina and supersampling remain independent
+    // from CSS layout. Godot's None resize policy observes these canvas changes.
+    const gameCanvas = document.getElementById('canvas');
+    window.duelDisplay = {
+      scale: 1.25,
+      setScale(value) {
+        if (![0.75, 1, 1.25].includes(value)) return;
+        this.scale = value;
+        this.resize();
+      },
+      resize() {
+        const rect = gameCanvas.getBoundingClientRect();
+        const ratio = Math.min((window.devicePixelRatio || 1) * this.scale,
+          4096 / Math.max(1, rect.width, rect.height));
+        const width = Math.max(1, Math.round(rect.width * ratio));
+        const height = Math.max(1, Math.round(rect.height * ratio));
+        if (gameCanvas.width !== width || gameCanvas.height !== height) {
+          gameCanvas.width = width;
+          gameCanvas.height = height;
+        }
+      }
+    };
+    window.addEventListener('resize', () => duelDisplay.resize());
+    window.addEventListener('pageshow', () => duelDisplay.resize());
+    const watchDpi = () => {
+      matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`).addEventListener('change', () => {
+        duelDisplay.resize();
+        watchDpi();
+      }, { once: true });
+    };
+    watchDpi();
+    duelDisplay.resize();
     const GODOT_CONFIG = $GODOT_CONFIG;
     const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
     const engine = new Engine(GODOT_CONFIG);
     const overlay = document.getElementById('status');
     const progress = document.getElementById('progress');
     const notice = document.getElementById('notice');
+    // Preserve both wheel axes and subpixel precision in the formation carousel.
+    // Godot 4.6 otherwise selects Y first during diagonal trackpad gestures.
+    window.formationInput = { onWheel: null, handled: false };
+    document.getElementById('canvas').addEventListener('wheel', (event) => {
+      const input = window.formationInput;
+      if (!input.onWheel || event.ctrlKey || event.metaKey) return;
+      const rect = event.currentTarget.getBoundingClientRect();
+      const unit = event.deltaMode === 1 ? 24 : event.deltaMode === 2 ? rect.width : 1;
+      input.handled = false;
+      input.onWheel((event.clientX - rect.left) / rect.width,
+        (event.clientY - rect.top) / rect.height,
+        event.deltaX * unit / rect.width, event.deltaY * unit / rect.width,
+        event.shiftKey);
+      if (input.handled) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    }, { capture: true, passive: false });
     function failure(error) {
       console.error(error);
       notice.textContent = '载入失败，请刷新重试，或使用支持 WebGL 2 的浏览器。\n' + (error.message || String(error));

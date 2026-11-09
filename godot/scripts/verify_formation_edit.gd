@@ -73,13 +73,23 @@ func _run() -> void:
 
 	var candidate := _option(form, 0)
 	var replacement: String = candidate.data.id
+	var stable_slots := form._deck_row.get_children().map(func(slot): return slot.get_child(0).get_instance_id())
 	await _click(candidate)
 	_check(form._pending_card == replacement and form._cards_in_deck("yaodaoji") == original, "clicking a new card in a full deck selects the replacement")
 	_check(_slot(form, 0).selected, "a legal replacement slot highlights")
+	_check(form._deck_row.get_children().map(func(slot): return slot.get_child(0).get_instance_id()) == stable_slots, "choosing a replacement preserves all eight card widgets and their hover state")
+	await _click(form._cancel_btn)
+	_check(form._pending_card.is_empty() and form._cards_in_deck("yaodaoji") == original, "cancel replacement leaves the deck untouched")
+	await _click(candidate)
 	await _click(_slot(form, 0))
 	var next := original.duplicate()
 	next[0] = replacement
 	_check(form._pending_card.is_empty() and form._cards_in_deck("yaodaoji") == next, "tapping the paper slot swaps exactly one card")
+	_check(_slot(form, 1).get_instance_id() == stable_slots[1], "changing one card leaves the other slots alive")
+	await _click(form._undo_btn)
+	_check(form._cards_in_deck("yaodaoji") == original, "undo restores the exact previous eight cards")
+	await _click(candidate)
+	await _click(_slot(form, 0))
 	await _click(_slot(form, 0))
 	_check(form._cards_in_deck("yaodaoji").size() == 7 and form._confirm_btn.disabled, "removing a card opens a slot and disables an incomplete lineup")
 	candidate = form._card_box.get_children().filter(func(face): return form._can_insert(face.data))[0]
@@ -102,10 +112,29 @@ func _run() -> void:
 	var wheel := InputEventMouseButton.new()
 	wheel.position = start
 	wheel.button_index = MOUSE_BUTTON_WHEEL_RIGHT
-	wheel.factor = 1.0
+	wheel.factor = 0.03
 	wheel.pressed = true
 	root.push_input(wheel, true)
-	_check(form._card_scroll.scroll_horizontal < 160, "horizontal trackpad scrolling follows the same direction as dragging")
+	_check(form._card_scroll.scroll_horizontal > 160 and form._card_scroll.scroll_horizontal <= 164, "native wheel-right advances the viewport by a small amount, without a 72px jump")
+	form._card_scroll.scroll_horizontal = 160
+	var pan := InputEventPanGesture.new()
+	pan.position = start
+	pan.delta = Vector2(-0.3, 0.01)
+	root.push_input(pan, true)
+	_check(form._card_scroll.scroll_horizontal < 160, "negative native pan delta moves cards right, matching OS natural scrolling")
+	_check(form._card_scroll.scroll_horizontal >= 148, "native precise pan preserves the gesture distance")
+	form._card_scroll.scroll_horizontal = 160
+	pan.delta = Vector2(0.003, 0)
+	for i in 10: root.push_input(pan, true)
+	_check(form._card_scroll.scroll_horizontal == 161, "subpixel pan updates accumulate instead of rounding each event away")
+	form._inspect_card(candidate.data)
+	await process_frame
+	var before_modal := form._card_scroll.scroll_horizontal
+	pan.delta = Vector2(1, 0)
+	root.push_input(pan, true)
+	_check(form._card_scroll.scroll_horizontal == before_modal, "a card inspector blocks background carousel gestures")
+	for modal in get_nodes_in_group("formation_inspector"): modal.queue_free()
+	await process_frame
 
 	form._card_scroll.scroll_horizontal = 0
 	await process_frame
@@ -122,6 +151,13 @@ func _run() -> void:
 	await process_frame
 	_check(form._cards_in_deck("yaodaoji")[0] == replacement, "dropping on a filled paper slot replaces its card")
 	var other := Content.unit_def("yingcao")
+	form._card_scroll.scroll_horizontal = 180
+	form._show_unit(other)
+	await process_frame
+	form._show_unit(Content.unit_def("yaodaoji"))
+	await process_frame
+	await process_frame
+	_check(form._card_scroll.scroll_horizontal == 180, "returning to an inspected unit restores its card browsing position")
 	form._show_unit(other)
 	_check(form.selected_units() == LINEUP, "browsing an out-of-lineup unit does not edit the lineup")
 	form._add_focused()
@@ -130,7 +166,15 @@ func _run() -> void:
 	form._add_focused()
 	await _click(form._save_btn)
 	_check(SaveStore.get_lineup() == LINEUP and SaveStore.get_deck("yaodaoji")[0] == replacement, "saving commits the lineup and edited deck together")
+	for extent in [Vector2i(960, 600), Vector2i(1280, 800), Vector2i(1600, 740)]:
+		root.size = extent
+		await process_frame
+		await process_frame
+		await process_frame
+		_check(form._deck_paper.get_global_rect().end.y <= form.size.y, "deck remains in viewport at %s" % extent)
+		_check(form._deck_row.get_global_rect().end.x <= form.size.x, "all eight deck slots fit at %s" % extent)
 	form.queue_free()
+	Support.cleanup_audio()
 	await process_frame
 	Support.cleanup_stores(fixture)
 	print("FORMATION_EDIT checks=%d failures=%d" % [checks, failures])
