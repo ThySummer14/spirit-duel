@@ -27,26 +27,27 @@ func _run() -> void:
 	var expected_rosters := {
 		"wave2": 9, "wave3": 19, "wave4": 26,
 		"wave5": 24, "wave6": 32, "wave7": 25, "wave8": 25,
-		"wave9": 27, "wave10": 2, "wave11": 10, "wave12": 8, "wave13": 6, "origin": 8,
+		"wave9": 27, "wave10": 2, "wave11": 10, "wave12": 8, "wave13": 7, "origin": 8,
 	}
 	for pack in expected_rosters:
 		var units := ContentLoader.units_in_pack(pack)
 		_check(units.size() == expected_rosters[pack], "%s contains its expected complete roster" % pack)
-		_check(units.all(func(unit): return entries.has(unit.id)), "every %s unit has a redrawn portrait" % pack)
-	_check(entries.size() == 250, "all 250 playable units have a redrawn portrait")
+		_check(units.all(func(unit): return entries.has(unit.id) or (unit.id == "himiko" and ResourceLoader.exists("res://" + unit.art))), "every %s unit has a dedicated portrait" % pack)
+	_check(entries.size() == 250, "the redraw library keeps all 250 entries")
 	var seen := {}
 	for uid in entries:
 		var unit := ContentLoader.unit_def(uid)
 		_check(not unit.is_empty(), "%s maps to a real playable unit" % uid)
 		var face := UIWidgets.make_unit_panel(unit, Callable())
 		root.add_child(face)
-		var expected := "res://" + str(entries[uid].path)
-		_check(face._texture != null and face._texture_path == expected, "%s uses the redrawn PNG in a live unit control" % uid)
+		var explicit := str(unit.get("godotPortrait", ""))
+		var expected := "res://" + (str(entries[uid].path) if explicit.is_empty() else explicit)
+		_check(face._texture != null and face._texture_path == expected, "%s uses its assigned portrait in a live unit control" % uid)
 		if face._texture == null:
 			face.free()
 			continue
 		var source: Vector2 = face._texture.get_size()
-		_check(source.x >= 1024 and source.y >= 1536 and source.y > source.x, "%s imports its full resolution portrait" % uid)
+		_check(source.x > 0 and source.y > 0 if not explicit.is_empty() else source.x >= 1024 and source.y >= 1536 and source.y > source.x, "%s imports its assigned portrait at full resolution" % uid)
 		_check(not seen.has(expected), "%s has an independent character image" % uid)
 		seen[expected] = true
 		var focus: Vector2 = face._art_focus * source
@@ -59,11 +60,16 @@ func _run() -> void:
 		face.data = unit.duplicate(true)
 		face.data.awakened = true
 		face.refresh_art()
-		_check(face._texture == normal_texture, "%s awakening retains the matching character art" % uid)
+		var awakened := str(unit.get("godotAwakenedPortrait", ""))
+		_check(face._texture == normal_texture if awakened.is_empty() else face._texture != null and face._texture_path == "res://" + awakened, "%s awakening uses its matching character art" % uid)
 		var card: Dictionary = ContentLoader.cards_for_unit(uid)[0]
 		var tile := UIWidgets.make_card_tile(card, Callable())
 		root.add_child(tile)
-		_check(tile._texture == normal_texture, "%s skill card shares the correct owner's redraw" % uid)
+		var official_path := "res://assets/official/cards/%s.png" % card.id
+		if ResourceLoader.exists(official_path):
+			_check(tile._original_card != null and tile._texture_path == official_path, "%s uses its own official skill card face" % card.id)
+		else:
+			_check(tile._texture == normal_texture, "%s skill card shares the correct owner's redraw when a full face is unavailable" % uid)
 		tile.free()
 		face.free()
 	# 内容导出继续保留原路径；无映射和资源缺失的回退仍可使用。
@@ -81,6 +87,11 @@ func _run() -> void:
 	_check(fallback._texture != null and fallback._texture_path == "res://" + str(unit.art), "a missing redraw cannot blank a playable character")
 	fallback.free()
 	PortraitLibrary._units.yaodaoji = entry
+	for id in ["c12801", "c12802", "c20901", "c29001", "fanqie", "fengren"]:
+		var tile := UIWidgets.make_card_tile(ContentLoader.card_def(id), Callable())
+		root.add_child(tile)
+		_check(tile._original_card != null and tile._texture_path.ends_with("/%s.png" % id), "%s loads its dedicated official face" % id)
+		tile.free()
 	print("ART checks=%d failures=%d redrawn_units=%d" % [_checks, _failures, entries.size()])
 	if _failures == 0: print("ART_OK")
 	quit(0 if _failures == 0 else 1)

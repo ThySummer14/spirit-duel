@@ -132,16 +132,7 @@ func _count_of(card_id: String) -> int:
 
 
 func _limit_of(card: Dictionary) -> int:
-	if card.get("type") == "awakening":
-		return 1
-	if card.get("type") == "coop":
-		if _picked.any(func(id): return id != card.id and ContentLoader.card_def(str(id)).get("type") == "coop"):
-			return 0
-		var used := 0
-		for partner in ContentLoader.card_unit_ids(card):
-			if partner != _unit_id and partner in _lineup: used += SaveStore.get_deck(partner).count(card.id)
-		return maxi(0, 2 - used)
-	return int(card.get("deckLimit", 2))
+	return SaveStore.deck_card_limit(card, _unit_id, _picked, _lineup)
 
 
 func _rebuild() -> void:

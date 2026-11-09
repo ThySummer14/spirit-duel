@@ -63,12 +63,25 @@ static func set_seed(value: int) -> void:
 	save_data(data)
 
 
-static func deck_definition(unit_ids: Array) -> Dictionary:
+static func deck_card_limit(card: Dictionary, owner: String, picked: Array, lineup: Array, drafts: Dictionary = {}) -> int:
+	if card.get("type") == "awakening": return 1
+	if card.get("type") != "coop": return int(card.get("deckLimit", 2))
+	if picked.any(func(id): return id != card.id and ContentLoader.card_def(str(id)).get("type") == "coop"):
+		return 0
+	var used := 0
+	for partner in ContentLoader.card_unit_ids(card):
+		if partner != owner and partner in lineup:
+			var other_deck: Array = drafts[partner] if drafts.has(partner) else get_deck(partner)
+			used += other_deck.count(card.id)
+	return maxi(0, 2 - used)
+
+
+static func deck_definition(unit_ids: Array, drafts: Dictionary = {}) -> Dictionary:
 	## 组装 GameState.create 所需 deck：unitIds + cardIds（缺省用 starter）
 	var card_ids: Array = []
 	var slot_owners: Array = []
 	for uid in unit_ids:
-		var custom := get_deck(uid)
+		var custom: Array = drafts[uid] if drafts.has(uid) else get_deck(uid)
 		var cards := custom if custom.size() == 8 else ContentLoader.starter_card_ids(uid)
 		for id in cards:
 			card_ids.append(id)
@@ -86,7 +99,7 @@ static func get_formations(restore_legacy: bool = true) -> Array:
 	return out
 
 
-static func save_formation(slot: int, lineup: Array) -> bool:
+static func save_formation(slot: int, lineup: Array, drafts: Dictionary = {}, activate := false) -> bool:
 	if slot < 0 or slot >= 5 or not ContentLoader.valid_lineup(lineup):
 		return false
 	var unique := {}
@@ -98,4 +111,12 @@ static func save_formation(slot: int, lineup: Array) -> bool:
 	var formations := get_formations(false)
 	formations[slot].lineup = lineup.duplicate()
 	data.formations = formations
+	if activate: data.lineup = lineup.duplicate()
+	if not drafts.is_empty():
+		var decks: Dictionary = data.get("decks", {}) if data.get("decks") is Dictionary else {}
+		for uid in lineup:
+			if not drafts.has(uid): continue
+			if drafts[uid].size() != 8: return false
+			decks[uid] = drafts[uid].duplicate()
+		data.decks = decks
 	return save_data(data)

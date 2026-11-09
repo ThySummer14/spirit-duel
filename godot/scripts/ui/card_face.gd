@@ -79,12 +79,19 @@ func _ready() -> void:
 func refresh_art() -> void:
 	_original_card = null
 	if not unit_mode:
-		var original := "assets/official/cards/%s.png" % str(data.get("id", ""))
-		if data.has("coopFaceId"): original = str(data.get("coopFaceArt", ""))
-		if not original.is_empty() and ResourceLoader.exists("res://" + original):
-			original = "res://" + original
-			if not _textures.has(original): _textures[original] = load(original)
-			_original_card = _textures[original]
+		var explicit := str(data.get("cardArt", ""))
+		var candidates := [str(data.get("coopFaceArt", "")), "assets/official/cards/%s.png" % str(data.get("id", ""))]
+		if explicit.begins_with("assets/official/"): candidates.append(explicit)
+		for candidate in candidates:
+			if candidate.is_empty(): continue
+			var original: String = "res://" + candidate
+			if not _textures.has(original) and ResourceLoader.exists(original): _textures[original] = load(original)
+			_original_card = _textures.get(original)
+			if _original_card != null:
+				_texture = null
+				_texture_path = original
+				queue_redraw()
+				return
 	var unit := data if unit_mode else ContentLoader.unit_def(str(data.get("unitId", "")))
 	if unit_mode and not unit.has("art"):
 		unit = ContentLoader.unit_def(str(data.get("id", "")))

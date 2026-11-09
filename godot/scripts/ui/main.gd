@@ -25,7 +25,13 @@ var _menu_floor := MainMenuScreen.MIDDLE
 
 
 func _ready() -> void:
-	get_window().min_size = Vector2i(1280, 720)
+	if not OS.has_feature("web") and DisplayServer.get_name() != "headless":
+		var window := get_window()
+		var usable := DisplayServer.screen_get_usable_rect(window.current_screen)
+		if usable.has_area():
+			window.min_size = Vector2i(960, 540).min(usable.size)
+			window.size = window.size.min(usable.size)
+			window.position = window.position.clamp(usable.position, usable.end - window.size)
 	self.theme = ThemeBuilder.build_theme()
 	var saved_lineup: Array = SaveStore.get_lineup()
 	if ContentLoader.valid_lineup(saved_lineup):
@@ -88,9 +94,12 @@ func _show_formation() -> void:
 		_formation_slot = form.formation_slot
 		_show_deck_builder(unit_id)
 	)
+	form.lineup_saved.connect(func(unit_ids: Array):
+		_lineup = unit_ids
+		_formation_slot = form.formation_slot
+	)
 	form.confirmed.connect(func(unit_ids: Array):
 		_lineup = unit_ids
-		SaveStore.set_lineup(unit_ids)
 		_quick = false
 		_start_battle()
 	)

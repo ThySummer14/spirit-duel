@@ -3,10 +3,11 @@
 
 Everything is synthesised here (koto via Karplus-Strong, shakuhachi-like breathy
 sine, taiko, temple bell, paper noise), so there are no third-party samples.
-Output: godot/assets/audio/*.wav (mono, 16-bit).
+Output: godot/assets/audio/*.wav (16-bit mono effects and stereo music).
 
 Usage: python3 scripts/gen-godot-audio.py
 """
+import argparse
 import pathlib
 import wave
 
@@ -90,12 +91,13 @@ def chime(freq, dur=0.9, gain=1.0):
     return gain * y * env(len(t), 0.002, dur * 0.35)
 
 
-def taiko(freq=70, dur=0.9, gain=1.0, slap=0.3):
+def taiko(freq=70, dur=0.9, gain=1.0, slap=0.3, random=None):
     t = t_axis(dur)
     pitch = freq * (1 + 0.6 * np.exp(-t / 0.03))
     phase = 2 * np.pi * np.cumsum(pitch) / SR
     body = np.sin(phase) * np.exp(-t / 0.28)
-    hit = lowpass(noise(dur), 1800) * np.exp(-t / 0.02) * slap * 4
+    excitation = noise(dur) if random is None else random.standard_normal(len(t))
+    hit = lowpass(excitation, 1800) * np.exp(-t / 0.02) * slap * 4
     y = body + hit
     return gain * y / np.max(np.abs(y))
 
@@ -176,7 +178,7 @@ def save(name, x, peak=0.89, loop=False):
     data = (x * 32767).astype("<i2")
     OUT.mkdir(parents=True, exist_ok=True)
     with wave.open(str(OUT / f"{name}.wav"), "wb") as w:
-        w.setnchannels(1)
+        w.setnchannels(1 if data.ndim == 1 else data.shape[1])
         w.setsampwidth(2)
         w.setframerate(SR)
         w.writeframes(data.tobytes())
@@ -273,64 +275,151 @@ def sfx():
     save("defeat", trim(reverb(lose, 1.8, 0.35)), 0.8)
 
 
-def music_menu():
-    bpm = 66
-    beat = 60 / bpm
-    bars = 8
-    length = bars * 4 * beat
-    track = np.zeros(int(length * SR))
-    drone_t = t_axis(length)
-    drone = (np.sin(2 * np.pi * note(-12) * drone_t) + 0.5 * np.sin(2 * np.pi * note(-5) * drone_t)) * (0.6 + 0.4 * np.sin(2 * np.pi * drone_t / length) ** 2)
-    track += 0.08 * drone
-    melody = [(0, 0, 1.5), (2, 1.5, 0.5), (3, 2, 2), (4, 4, 1), (3, 5, 1), (2, 6, 2),
-              (1, 8, 1), (2, 9, 1), (0, 10, 2), (-1, 12, 1.5), (0, 13.5, 0.5), (1, 14, 2),
-              (4, 16, 1.5), (5, 17.5, 0.5), (4, 18, 1), (3, 19, 1), (2, 20, 2), (3, 22, 1), (1, 23, 1),
-              (0, 24, 1.5), (1, 25.5, 0.5), (2, 26, 1), (1, 27, 1), (0, 28, 4)]
-    for step, at, dur in melody:
-        place_wrap(track, koto(scale_note(step + 5), dur * beat + 1.0, 0.55, 0.42), at * beat)
-    # low koto pulse on each bar
-    for bar in range(bars):
-        root = [0, 0, -2, 0, 1, 0, -2, 0][bar]
-        place_wrap(track, koto(scale_note(root), 2.4, 0.3, 0.32), bar * 4 * beat)
-        place_wrap(track, koto(scale_note(root + 2), 2.0, 0.3, 0.2), bar * 4 * beat + 2 * beat)
-    # a breathy phrase in the second half
-    place_wrap(track, flute(scale_note(7), 3 * beat, 0.16), 16 * beat)
-    place_wrap(track, flute(scale_note(6), 2.5 * beat, 0.14), 20 * beat)
-    return reverb(track, 2.4, 0.35, wrap=True)
+def midi_hz(pitch):
+    return 440.0 * 2 ** ((pitch - 69) / 12)
 
 
-def music_battle():
-    bpm = 84
-    beat = 60 / bpm
-    bars = 8
-    length = bars * 4 * beat
-    track = np.zeros(int(length * SR))
-    drone_t = t_axis(length)
-    track += 0.06 * (np.sin(2 * np.pi * note(-17) * drone_t) + 0.4 * np.sin(2 * np.pi * note(-10) * drone_t))
-    kick = taiko(62, 0.9, slap=0.4)
-    rim = taiko(150, 0.25, slap=1.0)
-    for bar in range(bars):
-        b0 = bar * 4 * beat
-        place_wrap(track, kick * 0.55, b0)
-        place_wrap(track, kick * 0.32, b0 + 1.5 * beat)
-        place_wrap(track, rim * 0.18, b0 + 2 * beat)
-        place_wrap(track, kick * 0.4, b0 + 3 * beat)
-        if bar % 2 == 1:
-            place_wrap(track, rim * 0.14, b0 + 3.5 * beat)
-            place_wrap(track, rim * 0.12, b0 + 3.75 * beat)
-    ostinato = [0, 2, 3, 2, 0, 2, 4, 3]
-    for bar in range(bars):
-        shift = [0, 0, 1, 0, -1, 0, 1, 2][bar]
-        for i, s in enumerate(ostinato):
-            place_wrap(track, koto(scale_note(s + shift), 0.9, 0.6, 0.22 if i % 2 else 0.3), (bar * 4 + i * 0.5) * beat)
-    phrase = [(7, 0, 3), (8, 3, 1), (7, 4, 2), (5, 6, 2), (4, 8, 4), (5, 12, 2), (7, 14, 2),
-              (9, 16, 3), (8, 19, 1), (7, 20, 2), (5, 22, 2), (4, 24, 3), (3, 27, 1), (2, 28, 4)]
-    for s, at, dur in phrase:
-        place_wrap(track, flute(scale_note(s), dur * beat * 0.95, 0.2), at * beat)
-    return reverb(track, 1.8, 0.28, wrap=True)
+def swell(t, duration, attack, release):
+    enter = np.clip(t / attack, 0.0, 1.0)
+    exit = np.clip((duration - t) / release, 0.0, 1.0)
+    return np.sin(np.pi * enter / 2) ** 2 * np.sin(np.pi * exit / 2) ** 2
+
+
+def score_pluck(pitch, duration, touch):
+    """A plucked string with a soft bridge transient and a separate body resonance."""
+    t = t_axis(duration)
+    freq = midi_hz(pitch)
+    tone = np.zeros_like(t)
+    for h in range(1, 12):
+        partial = freq * h * (1 + 0.00015 * h * h)
+        if partial >= SR * 0.44:
+            break
+        level = np.sin(0.46 * h) / (h ** 1.17)
+        tone += level * np.sin(2 * np.pi * partial * t) * np.exp(-t * (1.45 + h * 0.63))
+    body = np.sin(2 * np.pi * freq * t + 0.28) * np.exp(-2.5 * t)
+    return (tone * (0.86 + touch * 0.14) + 0.20 * body) * swell(t, duration, 0.008, 0.12)
+
+
+def score_wind(pitch, duration, breath_noise):
+    t = t_axis(duration)
+    vibrato = np.sin(2 * np.pi * 4.7 * t) * np.clip((t - 0.18) / 0.48, 0, 1)
+    bend = -0.009 * np.exp(-t / 0.055) + 0.0038 * vibrato
+    phase = 2 * np.pi * np.cumsum(midi_hz(pitch) * (1 + bend)) / SR
+    tone = np.sin(phase) + 0.23 * np.sin(2 * phase + 0.4) + 0.11 * np.sin(3 * phase)
+    air = bandpass(breath_noise[:len(t)], 650, 3700)
+    return (tone + air * 0.19) * swell(t, duration, 0.15, 0.26)
+
+
+def score_strings(pitches, duration):
+    t = t_axis(duration)
+    left = np.zeros_like(t)
+    right = np.zeros_like(t)
+    for index, pitch in enumerate(pitches):
+        phase = 2 * np.pi * midi_hz(pitch) * t
+        movement = 0.09 * np.sin(2 * np.pi * (0.33 + 0.07 * index) * t + index)
+        left += np.sin(phase * 0.999 + movement) + 0.24 * np.sin(2 * phase)
+        right += np.sin(phase * 1.001 - movement + 0.25 * index) + 0.24 * np.sin(2 * phase + 0.5)
+    return np.column_stack((left, right)) * swell(t, duration, 0.68, 0.75)[:, None] / len(pitches)
+
+
+def score_room(track, random, tail, wet):
+    # Circular convolution keeps the room's decay continuous at the loop boundary.
+    t = t_axis(tail)
+    impulse = random.standard_normal((len(t), 2))
+    impulse = (impulse + np.roll(impulse, 1, axis=0) * 0.62 + np.roll(impulse, 2, axis=0) * 0.27)
+    impulse *= (np.clip(t / 0.014, 0, 1) * np.exp(-5.0 * t / tail))[:, None]
+    impulse /= np.sqrt(np.sum(impulse ** 2, axis=0))
+    signal = np.fft.rfft(track, axis=0)
+    response = np.fft.rfft(impulse, n=len(track), axis=0)
+    room = np.fft.irfft(signal * response, n=len(track), axis=0)
+    early = np.roll(track[:, ::-1], int(SR * 0.037), axis=0)
+    return track + 0.073 * early + wet * room
+
+
+MENU_CHORDS = (
+    (50, 57, 62, 66), (47, 54, 62, 69), (43, 55, 59, 66), (45, 57, 62, 64),
+    (50, 57, 62, 66), (47, 54, 59, 62), (43, 55, 59, 64), (45, 57, 61, 64),
+    (47, 54, 62, 66), (43, 55, 59, 62), (50, 57, 62, 69), (45, 57, 62, 64),
+    (43, 55, 59, 66), (47, 54, 62, 64), (45, 57, 61, 64), (50, 57, 62, 66),
+)
+MENU_MELODY = (
+    ((0.5, 66), (1.5, 69), (2.5, 71)), ((0, 69), (1.75, 66), (3, 64)),
+    ((0.5, 62), (2, 64), (3, 66)), ((0, 64), (2.5, 62)),
+    ((0.5, 66), (1.5, 69), (2.5, 74)), ((0, 71), (1.5, 69), (3, 66)),
+    ((0.5, 64), (2, 62), (3, 59)), ((0, 61), (2.5, 64)),
+    ((0.5, 66), (1.75, 69)), ((0, 71), (2.25, 74)),
+    ((0, 76), (1.75, 74), (3, 69)), ((0.5, 66), (2, 64)),
+    ((0.5, 62), (1.5, 66), (2.5, 69)), ((0, 71), (1.5, 69), (3, 66)),
+    ((0.5, 64), (2.25, 61)), ((0.5, 62), (2.5, 69)),
+)
+BATTLE_CHORDS = (
+    (38, 50, 57, 65), (46, 53, 58, 62), (43, 50, 55, 58), (45, 52, 57, 60),
+    (38, 50, 57, 65), (48, 55, 60, 64), (46, 53, 58, 65), (45, 52, 57, 61),
+    (43, 50, 55, 62), (46, 53, 58, 65), (38, 50, 57, 65), (48, 55, 60, 67),
+    (43, 50, 55, 58), (46, 53, 58, 62), (45, 52, 57, 60), (45, 52, 57, 61),
+)
+BATTLE_MELODY = (
+    ((0.5, 65), (1.5, 69), (2.75, 72)), ((0.25, 70), (1.75, 69), (3, 65)),
+    ((0.5, 67), (1.5, 65), (2.5, 62)), ((0.25, 64), (2, 69)),
+    ((0.5, 65), (1.5, 69), (2.75, 74)), ((0.25, 72), (2, 67)),
+    ((0.5, 65), (1.5, 62), (2.75, 65)), ((0.25, 64), (2.25, 61)),
+    ((0.5, 67), (2.25, 70)), ((0.25, 74), (1.75, 72), (3, 70)),
+    ((0.5, 69), (1.5, 65), (2.75, 62)), ((0.25, 64), (2, 67)),
+    ((0.5, 65), (2.25, 67)), ((0.25, 70), (1.75, 74), (3, 70)),
+    ((0.5, 69), (2.25, 65)), ((0.25, 64), (2.75, 61)),
+)
+
+
+def music_score(battle):
+    beat = 60 / (92 if battle else 72)
+    chords = BATTLE_CHORDS if battle else MENU_CHORDS
+    melody = BATTLE_MELODY if battle else MENU_MELODY
+    random = np.random.default_rng(318 if battle else 718)
+    track = np.zeros((round(len(chords) * 4 * beat * SR), 2))
+    breath = random.standard_normal(3 * SR)
+    pattern = ((0.0, 0), (0.75, 1), (1.5, 2), (2.25, 1), (3, 3), (3.5, 2)) if battle else (
+        (0.0, 0), (0.75, 1), (1.75, 2), (2.5, 3), (3.25, 1),
+    )
+
+    def add(clip, at, gain, pan=0.0):
+        stereo = clip if clip.ndim == 2 else clip[:, None] * np.sqrt((1 + np.array([-pan, pan])) / 2)
+        place_wrap(track, stereo * gain, at)
+
+    for index, (chord, phrase) in enumerate(zip(chords, melody)):
+        start = index * 4 * beat
+        add(score_strings(chord[1:], 4 * beat + 0.38), start, 0.09 if battle else 0.105)
+        for j, (position, degree) in enumerate(pattern):
+            touch = random.uniform(0.79, 1.0)
+            dur = 0.84 if battle else 1.45
+            offset = position * beat + random.uniform(0, 0.016)
+            add(score_pluck(chord[degree], dur, touch), start + offset,
+                (0.21 if degree == 0 else 0.15) * touch, -0.30 + 0.11 * (j % 3))
+        for j, (position, pitch) in enumerate(phrase):
+            touch = random.uniform(0.81, 1.0)
+            at = start + position * beat + random.uniform(0, 0.012)
+            if index in range(8, 12) or (battle and index % 4 == 3):
+                next_position = phrase[j + 1][0] if j + 1 < len(phrase) else 4.06
+                dur = max(0.40, (next_position - position) * beat + 0.16)
+                add(score_wind(pitch, dur, breath), at, 0.21 * touch, 0.20)
+            else:
+                add(score_pluck(pitch, 1.48, touch), at, 0.48 * touch, 0.14)
+        if battle:
+            hits = (0.0, 2.5) if index % 2 == 0 else (0.0, 1.5, 3.0)
+            for position in hits:
+                add(taiko(72, 0.45, slap=0.20, random=random), start + position * beat,
+                    0.19 if position == 0 else 0.095, -0.06)
+            add(taiko(185, 0.13, slap=0.64, random=random), start + 2 * beat, 0.062, 0.32)
+
+    mixed = score_room(track, random, 1.16 if battle else 1.72, 0.14 if battle else 0.20)
+    mixed -= np.mean(mixed, axis=0)
+    # A gentle saturation gives louder phrases headroom without hard clipping.
+    return np.tanh(mixed * 1.12)
 
 
 if __name__ == "__main__":
-    sfx()
-    save("bgm_menu", music_menu(), 0.7, loop=True)
-    save("bgm_battle", music_battle(), 0.7, loop=True)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--music-only", action="store_true", help="replace only the two background loops")
+    if not parser.parse_args().music_only:
+        sfx()
+    save("bgm_menu", music_score(False), 0.65, loop=True)
+    save("bgm_battle", music_score(True), 0.61, loop=True)
