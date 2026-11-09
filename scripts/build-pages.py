@@ -3,7 +3,7 @@
 
 GODOT_BIN must be Godot 4.6.3; GODOT_WEB_TEMPLATE optionally points to the
 official web_nothreads_release.zip when templates are not installed globally.
-Only the disposable build copy uses smaller, lossy portrait imports.
+Only the disposable build copy uses smaller, lossy image imports.
 """
 import json
 import os
@@ -41,6 +41,22 @@ def run_godot(binary, phase, *args):
     print(f"Godot {phase}: OK", flush=True)
 
 
+def configure_web_textures(project):
+    image_folders = (
+        ("redrawn", "0.8", 768),
+        ("official/cards", "0.93", None),
+        ("official/cooperation", "0.93", None),
+    )
+    for folder, quality, size_limit in image_folders:
+        for imported in (project / "assets" / folder).rglob("*.png.import"):
+            text = imported.read_text()
+            if size_limit is not None:
+                text = re.sub(r"^process/size_limit=\d+$", f"process/size_limit={size_limit}", text, flags=re.M)
+            text = re.sub(r"^compress/mode=\d+$", "compress/mode=1", text, flags=re.M)
+            text = re.sub(r"^compress/lossy_quality=[\d.]+$", f"compress/lossy_quality={quality}", text, flags=re.M)
+            imported.write_text(text)
+
+
 def main():
     binary = godot_binary()
     BUILD.mkdir(exist_ok=True)
@@ -53,12 +69,7 @@ def main():
     settings = PROJECT / "project.godot"
     settings.write_text(settings.read_text().replace('"4.8", "GL Compatibility"',
                                                       '"4.6", "GL Compatibility"'))
-    for imported in (PROJECT / "assets/redrawn").rglob("*.png.import"):
-        text = imported.read_text()
-        text = re.sub(r"^process/size_limit=\d+$", "process/size_limit=768", text, flags=re.M)
-        text = re.sub(r"^compress/mode=\d+$", "compress/mode=1", text, flags=re.M)
-        text = re.sub(r"^compress/lossy_quality=[\d.]+$", "compress/lossy_quality=0.8", text, flags=re.M)
-        imported.write_text(text)
+    configure_web_textures(PROJECT)
     custom_template = os.environ.get("GODOT_WEB_TEMPLATE")
     if custom_template:
         template = Path(custom_template).resolve()
