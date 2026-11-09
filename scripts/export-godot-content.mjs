@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CARD_DEFINITIONS, UNIT_DEFINITIONS, GAME_RULES } from '../game-content.js';
+import { COOP_CARD_DEFINITIONS } from '../game-content-cooperation.js';
 
 // 内容仅含可序列化数据；效果标识保留，执行器仍属于浏览器规则层 / Godot 纵向切片。
 const data = {
@@ -19,7 +20,7 @@ const data = {
     bonusUpgradeTurn: GAME_RULES.bonusUpgradeTurn,
   },
   units: UNIT_DEFINITIONS,
-  cards: CARD_DEFINITIONS,
+  cards: [...CARD_DEFINITIONS, ...COOP_CARD_DEFINITIONS],
 };
 const json = JSON.stringify(data, null, 2) + '\n';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');

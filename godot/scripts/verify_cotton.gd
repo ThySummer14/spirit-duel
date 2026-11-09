@@ -23,6 +23,43 @@ func events(gs, kind: String) -> Array:
 	return gs.rule_events.filter(func(e): return e.kind == kind)
 func knock(gs, idx: int) -> void:
 	gs._knockout_unit(gs.player(0).units[idx],1,0); gs._resolve_resolution_stack()
+
+func revival_restrictions() -> void:
+	var cases := [
+		["yifanmumian", "c26104", false], ["hudiejing", "c27404", false],
+		["baize", "c27302", false], ["chongshi", "c28306", false],
+		["linghaidie", "c28705", false], ["yitiao", "c27602", true],
+		["gulonghuo", "c29301", true], ["xuzuozhinan", "c28105", true],
+	]
+	for item in cases:
+		var gs := GS.create([item[0], "shantong", "yingcao", "bailang"], ["guishibai", "bingyong", "fenghuanghuo", "xuenv"], 62706)
+		for p in gs.players:
+			p.hand.clear()
+			p.energy = 40
+			p.levelUpUsed = true
+			for unit in p.units: unit.level = 3
+		var source_unit: Dictionary = gs.player(0).units[0]
+		if item[0] == "yitiao": source_unit.awakened = true
+		if item[0] == "xuzuozhinan": gs.player(1).units[1].hp = 1
+		var victim_idx := 0 if item[2] else 1
+		var victim: Dictionary = gs.player(0).units[victim_idx]
+		knock(gs, victim_idx)
+		var card_idx := give(gs, str(item[1]))
+		var target = null if item[2] else victim.uid
+		gs._apply_form(1, 0, Content.card_def("c62706"))
+		gs._resolve_resolution_stack()
+		var candidate := AI._best_card(gs, 0)
+		check(not gs.can_play_card(0, card_idx, target).ok and (not candidate.ok or candidate.target != target), "点灯人封锁手动及 AI 的即时复活 " + str(item[1]))
+		gs.VerifiedRules.Forms.remove(gs, 1, 0, "专项解除封锁")
+		check(gs.can_play_card(0, card_idx, target).ok and gs.play_card(0, card_idx, target) and int(victim.hp) > 0, "解除封锁后从真实手牌复活 " + str(item[1]))
+
+	var gs := game()
+	var p := gs.player(0)
+	p.night = 5
+	gs.VerifiedRules.Fortune.transform(gs, 0, 0, false)
+	knock(gs, 0)
+	check(events(gs, "night-triggered").is_empty() and int(p.units[0].knockout) == int(gs.rules.knockoutCountdown), "被纸人压制的一反木绵气绝时按普通倒计时，未触发入夜")
+
 func base_and_awake() -> void:
 	var gs := game(); var p: Dictionary = gs.player(0); var u: Dictionary = p.units[0]
 	check(u.attack == 2 and u.maxHp == 5 and u.passive_hooks.is_empty(), "base2/5 and old heal-on-other-KO mapping removed")
@@ -161,6 +198,7 @@ func run() -> void:
 	if not out.is_empty(): DirAccess.make_dir_recursive_absolute(out)
 	root.theme = ThemeBuilder.build_theme()
 	base_and_awake(); combat_heal_and_bounce(); snow_and_revive(); realm_and_search(); flurry_and_ai()
+	revival_restrictions()
 	if not rules_only: await ui_rules()
 	Support.cleanup_stores(stores); Support.cleanup_audio(); await process_frame; await process_frame
 	print("COTTON checks=%d failures=%d" % [checks,failures]); quit(0 if failures == 0 else 1)

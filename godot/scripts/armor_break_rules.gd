@@ -19,6 +19,7 @@ static func consume(gs, owner: int, idx: int) -> int:
 	else:
 		gs.player(owner).units[idx].armorBreak = 0
 		gs.VerifiedRules.StarBear.consumed_break(gs.player(owner).units[idx],value)
+		if not gs.VerifiedRules.DuskCycle.realms(gs, 1-owner, "peacock-mist").is_empty(): gs._recalc(gs.player(owner).units[idx])
 	if value > 0:
 		gs.VerifiedRules.event(gs, "armor-break-consumed", {"player": owner, "target": "" if idx < 0 else gs.player(owner).units[idx].uid, "amount": value})
 		gs.VerifiedRules.Poison.refresh_all(gs)
@@ -48,6 +49,7 @@ static func give(gs, source_owner: int, source_idx: int, owner: int, idx: int, v
 	else:
 		var unit: Dictionary = gs.player(owner).units[idx]
 		unit.shield = armor - cancelled
+		gs.VerifiedRules.YanmieTrio.armor_removed(gs, owner, idx, cancelled)
 		gs.VerifiedRules.StarBear.consumed_armor(unit,cancelled)
 		unit.shieldExpires = maxi(0, int(unit.get("shieldExpires", 0)) - cancelled)
 	if idx >= 0: gs.VerifiedRules.ArmorBlood.armor_changed(gs, gs.player(owner).units[idx])
@@ -62,6 +64,9 @@ static func give(gs, source_owner: int, source_idx: int, owner: int, idx: int, v
 	gs.VerifiedRules.Poison.refresh_all(gs)
 	if idx >= 0:
 		var victim: Dictionary = gs.player(owner).units[idx]
+		if not gs.VerifiedRules.DuskCycle.realms(gs, 1-owner, "peacock-mist").is_empty(): gs._recalc(victim)
+		gs.VerifiedRules.DuskCycle.armor_acquired(gs, owner, idx)
+		gs.VerifiedRules.DragonFlow.break_gained(gs, owner, idx)
 		# 'This turn's first gain' belongs to each enemy, including gains before
 		# the form entered. Replacing the form cannot reset that fact.
 		var first: bool = int(victim.get("armorBreakGainedTurn", -1)) != gs.turn_counter
@@ -100,6 +105,9 @@ static func respond_combat(gs, combat_id: int, owner: int, src: int, card: Dicti
 static func combat_damage(gs, source_owner: int, src: int, owner: int, idx: int, power: int, convert: bool, immune: bool = false, knockout_extra: int = -1, critical: bool = false) -> Dictionary:
 	var empty := {"damage": 0, "dealt": 0, "knocked": false, "overkill": 0}
 	if power < 0 or (power == 0 and (idx < 0 or not gs.VerifiedRules.Mianqiling.positive_zero(gs,owner,idx,source_owner,src,true))): return empty
+	if not convert:
+		var coop_redirected = gs.VerifiedRules.CoopLate.redirect_damage(gs, owner, idx, power, source_owner, src, knockout_extra, critical)
+		if coop_redirected != null: return coop_redirected
 	var transfer_pending: bool = idx >= 0 and gs.VerifiedRules.ArmorBlood.take_transfer(gs.player(owner).units[idx])
 	if not convert:
 		if gs.VerifiedRules.Poison.convert_damage(gs,source_owner,src,owner,idx,power): return empty

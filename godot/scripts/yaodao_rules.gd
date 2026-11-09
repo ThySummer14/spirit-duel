@@ -6,12 +6,12 @@ static func is_source(unit: Dictionary) -> bool:
 	return ContentLoader.runtime_unit_def(unit).get("yaodaoFlurry", false)
 
 static func permanent_swift(unit: Dictionary) -> bool:
-	return is_source(unit) and unit.get("awakened", false)
+	return is_source(unit) and unit.get("awakened", false) and not unit.get("coopFirstBlade", false)
 
 static func avatar_damaged(gs, owner: int, src: int, victim: int, dealt: int) -> void:
 	if dealt <= 0 or owner < 0 or victim == owner or src < 0 or src >= gs.player(owner).units.size(): return
 	var source: Dictionary = gs.player(owner).units[src]
-	if not is_source(source) or int(source.hp) <= 0 or int(source.level) < 1: return
+	if not is_source(source) or int(source.hp) <= 0 or int(source.level) < 1 or source.get("coopFirstBlade", false): return
 	if source.awakened: source.yaodaoFreeCombatTurn = gs.turn_counter
 	else: source.yaodaoInstantTurn = gs.turn_counter
 	gs.VerifiedRules.event(gs, "yaodao-flurry", {"player": owner, "uid": source.uid, "free": source.awakened})
@@ -61,6 +61,8 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 	match str(effect.get("action", "")):
 		"yaodao-awaken":
 			var source: Dictionary = gs.player(owner).units[src]
+			source.erase("coopFirstBlade")
+			source.erase("coopFirstBladeTurn")
 			source.awakened = true
 			source.passive_hooks = []
 			gs._grow_unit(source, int(effect.value.attack), int(effect.value.hp))

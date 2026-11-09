@@ -9,46 +9,52 @@ static func active(unit: Dictionary) -> bool:
 	return int(unit.hp) > 0 and int(unit.level) >= 1 and not unit.get("removed", false)
 
 static func has_charge(unit: Dictionary) -> bool:
+	if preload("res://scripts/forest_spirit_rules.gd").use_charge(unit): return true
 	var sg=preload("res://scripts/serpent_ghost_rules.gd").has_charge(unit)
 	if sg!=null:return bool(sg)
 	var def: Dictionary = ContentLoader.runtime_unit_def(unit)
-	return bool(unit.get("formRules",{}).get("rpCopiedCharge",false)) or bool(def.get("nativeCharge", false)) or bool(unit.get("formRules",{}).get("nativeCharge",false)) or role(unit) in ["sun", "smoke", "clone"] or unit.get("keywords", []).has("charge") or def.get("keywords", []).has("charge") or int(unit.get("charge", 0)) > 0
+	return bool(unit.get("formRules",{}).get("rpCopiedCharge",false)) or bool(def.get("nativeCharge", false)) or bool(unit.get("formRules",{}).get("nativeCharge",false)) or role(unit) in ["sun", "smoke", "clone"] or unit.get("keywords", []).has("charge") or def.get("keywords", []).has("charge") or (int(unit.get("charge", 0)) > 0 and not unit.get("coopMiddleStoredChargeOnly", false))
 
 static func free_charge(gs, owner: int) -> bool:
 	if int(gs.player(owner).get("sunFreeChargeTurn", -1)) == gs.turn_counter: return false
 	return gs.player(owner).units.any(func(u): return active(u) and role(u) == "sun" and u.awakened)
 
-static func quote_charge(gs, owner: int, idx: int, amount: int) -> Dictionary:
+static func quote_charge(gs, owner: int, idx: int, amount: int, allow_backup: bool = false) -> Dictionary:
 	var unit: Dictionary = gs.player(owner).units[idx]
 	var free := amount > 0 and free_charge(gs, owner)
 	var charge: int = 0 if free else mini(amount, int(unit.get("charge", 0)))
-	var damage: int = 0 if free else maxi(0, amount - charge)
+	var gift_quote: Dictionary = gs.VerifiedRules.GiftEnergy.payment(gs, owner, idx, amount) if allow_backup and not free and amount > charge else {}
+	var borrowed := int(gift_quote.get("backup", 0)) if gift_quote.get("ok", false) else 0
+	var damage: int = 0 if free else maxi(0, amount - charge - borrowed)
 	var incoming: int = damage + int(unit.get("armorBreak", 0)) + (1 if int(unit.get("brittle", 0)) > 0 else 0)
 	incoming = gs.VerifiedRules.Bingyong.limit_damage(unit, incoming)
 	var health: int = 0 if unit.get("barrier", false) else maxi(0, incoming - int(unit.get("shield", 0)))
 	var cap := int(unit.get("formRules", {}).get("damageCap", 0))
 	if cap > 0: health = mini(health, cap)
 	var ok: bool = amount >= 0 and (damage == 0 or (role(unit) == "sun" and int(unit.hp) > health))
-	return {"ok": ok, "amount": amount, "charge": charge, "health": health, "damage": damage, "free": free}
+	return {"ok": ok, "amount": amount, "charge": charge, "health": health, "damage": damage, "free": free, "borrowed": borrowed, "provider": gift_quote.get("provider", -1)}
 
 static func can_pay_charge(gs, owner: int, idx: int, amount: int) -> bool:
 	return bool(quote_charge(gs, owner, idx, amount).ok)
 
-static func pay_charge(gs, owner: int, idx: int, amount: int) -> bool:
-	var quote := quote_charge(gs, owner, idx, amount)
+static func pay_charge(gs, owner: int, idx: int, amount: int, allow_backup: bool = false) -> bool:
+	var quote := quote_charge(gs, owner, idx, amount, allow_backup)
 	if not quote.ok: return false
 	var unit: Dictionary = gs.player(owner).units[idx]
 	if quote.free: gs.player(owner).sunFreeChargeTurn = gs.turn_counter
 	unit.charge = int(unit.get("charge", 0)) - int(quote.charge)
+	gs.VerifiedRules.GiftEnergy.spent(gs, owner, idx, int(quote.charge))
+	if int(quote.borrowed) > 0: gs.VerifiedRules.GiftEnergy.spend(gs, owner, int(quote.provider), int(quote.borrowed))
 	if int(quote.damage) > 0: gs._damage_unit(owner, idx, int(quote.damage), owner, idx)
 	gs._recalc(unit)
 	gs.VerifiedRules.event(gs, "charge-paid", {"player": owner, "uid": unit.uid, "quote": quote})
 	return true
 
-static func gain_charge(gs, owner: int, idx: int, amount: int) -> void:
+static func gain_charge(gs, owner: int, idx: int, amount: int, grant_to_any: bool = false) -> void:
 	if amount <= 0: return
 	var unit: Dictionary = gs.player(owner).units[idx]
-	if not active(unit) or not has_charge(unit): return
+	if not active(unit) or (not grant_to_any and not has_charge(unit)): return
+	if grant_to_any and not has_charge(unit): unit.coopMiddleStoredChargeOnly = true
 	var gain := amount
 	if role(unit) == "smoke":
 		if unit.awakened: gain *= 2
@@ -60,7 +66,9 @@ static func gain_charge(gs, owner: int, idx: int, amount: int) -> void:
 
 static func begin_turn_charge(gs, owner: int) -> void:
 	for idx in gs.player(owner).units.size():
-		if active(gs.player(owner).units[idx]) and has_charge(gs.player(owner).units[idx]): gain_charge(gs, owner, idx, 1)
+		var u: Dictionary = gs.player(owner).units[idx]
+		if gs.VerifiedRules.ForestSpirit.spirit(u) and int(u.level) > 0: u.charge = mini(10, int(u.charge) + 1)
+		elif active(u) and has_charge(u): gain_charge(gs, owner, idx, 1)
 
 static func describe_card(gs, owner: int, card: Dictionary) -> Dictionary:
 	if not card.get("sunSmoke", false): return card
@@ -101,18 +109,13 @@ static func remove_departed(gs) -> void:
 			if clone.get("smokeClone", false) and int(clone.hp) > 0 and int(clone.front) == 0: remove_clone(gs, owner, clone)
 
 static func summon(gs, owner: int, src: int, mode: String = "") -> void:
-	var movement_old: Array = gs.player(owner).units.map(func(u): return int(u.front))
-	gs.VerifiedRules.TomatoFire.clear_summons(gs, owner)
 	var p: Dictionary = gs.player(owner)
 	var source: Dictionary = p.units[src]
-	for other in p.units:
-		if other.get("smokeClone", false): remove_clone(gs, owner, other, "新分身替换")
-		else: other.front = 0
-	gs.VerifiedRules.Xuenv.clear_wall(gs, owner)
+	gs.VerifiedRules.Weaver.leave_front(gs, owner)
 	var clone: Dictionary = source.duplicate(true)
 	clone.uid = "%s:smoke-clone-%d" % [p.id, gs.next_card_id]
 	gs.next_card_id += 1
-	clone.name = "烟烟罗的分身"
+	clone.name = "浮缈的分身" if source.id == "yanyanluo-fumiao" else "烟烟罗的分身"
 	clone.title = "烟雾分身"
 	clone.baseAttack = int(source.attack)
 	clone.baseMaxHp = int(source.maxHp)
@@ -129,6 +132,7 @@ static func summon(gs, owner: int, src: int, mode: String = "") -> void:
 	clone.erase("combatUnyielding")
 	clone.form = {}
 	clone.formRules = {"smokeChargePower": mode == "power", "smokeCopies": mode == "copy"}
+	for key in ["coopMiddleSunny", "coopMiddleSunnyTurn", "coopMiddleImmuneTurn", "coopMiddleLightTurn"]: clone.erase(key)
 	clone.formHooks = []
 	clone.passive_hooks = []
 	clone.formAbility = "继承本体召唤时力量/生命与一半能量；离开战斗区时移除。" + ("每有1能量便获得1力量。" if mode == "power" else "复制本体使用的法术牌。" if mode == "copy" else "")
@@ -148,7 +152,6 @@ static func summon(gs, owner: int, src: int, mode: String = "") -> void:
 	gs.VerifiedRules.House.remove_departed(gs)
 	gs.VerifiedRules.Doll.remove_departed(gs)
 	gs.VerifiedRules.Enma.refresh(gs)
-	for i in movement_old.size(): gs.VerifiedRules.Movement.moved(gs, owner, i, int(movement_old[i]))
 	gs._recalc(clone)
 	gs.VerifiedRules.event(gs, "summon-created", {"player": owner, "uid": clone.uid, "sourceUid": source.uid})
 	gs.VerifiedRules.automatic_response(gs, 1 - owner, "enemy-entered-front", clone.uid, {"kind": "response-complete"})

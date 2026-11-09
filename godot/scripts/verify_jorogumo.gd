@@ -81,6 +81,12 @@ func pursuit_cards() -> void:
 		check(u.hp==ownhp-1,"silkhasnoinventedcombatimmunityorselfheal")
 	var gs:=game(); var p:Dictionary=gs.player(0); var idx:=give(gs,"c27503"); var fire:int=p.energy
 	check(not gs.play_card(0,idx,p.units[1].uid) and p.energy==fire and p.hand.size()==1,"invalidpursuitallycostsnothing")
+	gs = game()
+	p = gs.player(0)
+	p.deck.clear()
+	idx = give(gs, "c27508")
+	var enemy: Dictionary = gs.player(1).units[0]
+	check(gs.can_play_card(0, idx, enemy.uid).ok and not AI._best_card(gs, 0).ok, "空库仍可手动诛灭，AI 避免后续强制抽牌败北")
 func realm_and_swarm() -> void:
 	var gs:=game(); var p:Dictionary=gs.player(0); var foe:Dictionary=gs.player(1); var u:Dictionary=p.units[0]
 	for enemy in foe.units: gs._grow_unit(enemy,0,10)

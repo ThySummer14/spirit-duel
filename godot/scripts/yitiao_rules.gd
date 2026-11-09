@@ -22,7 +22,7 @@ static func training(gs, owner: int, src: int, reason: String) -> void:
 
 static func upgraded(gs, owner: int, src: int) -> void:
 	var unit: Dictionary = gs.player(owner).units[src]
-	if source(unit) and not unit.get("removed", false): training(gs, owner, src, "升级")
+	if source(unit) and not unit.get("removed", false) and not unit.get("baseRulesSuppressed", false): training(gs, owner, src, "升级")
 
 static func guard_power(gs, unit: Dictionary) -> int:
 	if not active(unit) or not unit.get("formRules", {}).get("yitiaoGuard", false): return 0
@@ -65,7 +65,7 @@ static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	var src: int = gs._source_index(owner, card)
 	if src < 0: return false
 	var unit: Dictionary = gs.player(owner).units[src]
-	if card.get("yitiaoReviveReplacement", false): return gs.VerifiedRules.Rebirth.can_revive(unit)
+	if card.get("yitiaoReviveReplacement", false): return gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, unit)
 	return not (card.type == "awakening" and unit.awakened)
 
 static func announced(gs, frame: Dictionary, card: Dictionary) -> void:

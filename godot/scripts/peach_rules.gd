@@ -38,7 +38,8 @@ static func heal(gs, owner: int, src: int, target_owner: int, target: Dictionary
 	return restored
 
 static func revive(gs, owner: int, src: int, target: Dictionary, swift: bool = false, grow: bool = true) -> bool:
-	if target.is_empty() or target.get("summoned", false) or int(target.hp)>0 or not gs.VerifiedRules.Rebirth.can_revive(target): return false
+	if not gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, target): return false
+	var early := int(target.knockout) != 0
 	target.knockout = 0
 	target.hp = int(target.maxHp)
 	target.shield = 0
@@ -46,13 +47,17 @@ static func revive(gs, owner: int, src: int, target: Dictionary, swift: bool = f
 	target.front = 0
 	gs._log("%s 复活，恢复全部生命。" % target.name, gs.TONE_SUCCESS)
 	gs.VerifiedRules.event(gs, "peach-revive", {"player": owner, "uid": gs.player(owner).units[src].uid if src >= 0 else "avatar-%d" % owner, "target": target.uid})
-	gs.VerifiedRules.Movement.revived(gs, owner, gs._unit_index_by_uid(owner, target.uid))
+	gs.VerifiedRules.Movement.revived(gs, owner, gs._unit_index_by_uid(owner, target.uid), early)
 	if grow: _grow_after_restore(gs, owner, src, target)
 	if swift:
 		target.swift = true
 		gs._log("%s 获得迅捷：下次出击不消耗鬼火。" % target.name, gs.TONE_SUCCESS)
 		gs.VerifiedRules.event(gs, "swift-gained", {"player": owner, "uid": target.uid})
 	return true
+
+static func targets(gs, owner: int, card: Dictionary):
+	if card.get("effect") != "peach-revive": return null
+	return gs.player(owner).units.filter(func(u): return gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, u)).map(func(u): return u.uid)
 
 static func random_heal(gs, owner: int, src: int, amount: int, repeats: int) -> void:
 	for i in repeats:
@@ -82,7 +87,7 @@ static func search_deck(gs, owner: int, target: Dictionary) -> void:
 	var player: Dictionary = gs.player(owner)
 	var matches: Array = []
 	for i in player.deck.size():
-		if ContentLoader.card_def(str(player.deck[i].definitionId)).get("unitId") == target.id: matches.append(i)
+		if target.id in ContentLoader.card_unit_ids(ContentLoader.card_def(str(player.deck[i].definitionId))): matches.append(i)
 	if matches.is_empty():
 		gs._log("牌库中没有%s的牌。" % target.name, gs.TONE_NEUTRAL)
 		return
@@ -113,11 +118,12 @@ static func resolve_action(gs, owner: int, src: int, _card: Dictionary, effect: 
 		"peach-encourage": gs._apply_encourage(owner, int(effect.value.attack), int(effect.value.shield))
 		"peach-revive": revive(gs, owner, src, target, true)
 		"peach-revive-all":
-			var dead: Array = gs.player(owner).units.filter(func(u): return int(u.hp) <= 0 and not u.get("summoned", false))
+			var restored: Array = []
 			# The resurrection group is simultaneous: all return before its
 			# restoration triggers. No dependence on lineup position.
-			for unit in dead: revive(gs, owner, src, unit, false, false)
-			for unit in dead: _grow_after_restore(gs, owner, src, unit)
+			for unit in gs.player(owner).units.duplicate():
+				if revive(gs, owner, src, unit, false, false): restored.append(unit)
+			for unit in restored: _grow_after_restore(gs, owner, src, unit)
 		"peach-awaken":
 			var source: Dictionary = gs.player(owner).units[src]
 			source.awakened = true
@@ -143,11 +149,11 @@ static func score_card(gs, owner: int, card: Dictionary, target_id) -> Variant:
 		"peach-search":
 			if target.is_empty(): return -100
 			for instance in gs.player(owner).deck:
-				if ContentLoader.card_def(str(instance.definitionId)).get("unitId") == target.id: return 38 + int(target.attack)
+				if target.id in ContentLoader.card_unit_ids(ContentLoader.card_def(str(instance.definitionId))): return 38 + int(target.attack)
 			return -100
 		"peach-revive": return 65 + int(target.attack) * 2 if not target.is_empty() and int(target.hp) <= 0 else -100
 		"peach-revive-all":
-			var dead: int = gs.player(owner).units.filter(func(u): return int(u.hp) <= 0 and not u.get("summoned", false)).size()
+			var dead: int = gs.player(owner).units.filter(func(u): return gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, u)).size()
 			return 60 + dead * 20 if dead > 0 else -100
 		"peach-awaken": return 55
 	return null

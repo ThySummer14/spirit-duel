@@ -4086,6 +4086,53 @@
       ],
       "sha256": "878035bc432e1dccdd2401130e21e862d8f27845af92c264b640cf4828ba6b55",
       "manualReview": "2026-10-29逐图目检faction-sheet-1/2/3中的四种官方派系图标。"
+    },
+    "yuyuan-banruo": {
+      "id": "yuyuan-banruo",
+      "role": "destiny-yuyuan-banruo",
+      "path": "godot/assets/official/fate-banruo/unit-card.png",
+      "faction": "青岚",
+      "manualReview": "国服御怨般若式神牌的青色青岚标记，00:03。"
+    },
+    "xuan": {
+      "id": "xuan",
+      "role": "destiny-xuan",
+      "faction": "苍叶",
+      "url": "https://i.17173cdn.com/2fhnvk/YWxqaGBf/cms3/JLnoFubtqziiFoe.png",
+      "manualReview": "国服基础牌图派系图标目检。"
+    },
+    "shiyao-longyechaji": {
+      "id": "shiyao-longyechaji",
+      "role": "destiny-shiyao-longyechaji",
+      "faction": "青岚",
+      "url": "https://www.bilibili.com/video/BV13DvqB2Eay/",
+      "manualReview": "国服客户端的式神阵容派系图标。"
+    },
+    "shenqi-huang": {
+      "id": "shenqi-huang",
+      "faction": "紫岩",
+      "manualReview": "国服完整式神牌客户端画面左上角为紫岩图标，00:40。",
+      "url": "https://www.bilibili.com/video/BV1koBBBGEeU"
+    },
+    "baize-yuanqi": {
+      "id": "baize-yuanqi",
+      "role": "destiny-baize-yuanqi",
+      "path": "godot/assets/official/fate-baize/unit-card.png",
+      "faction": "青岚",
+      "manualReview": "国服首发式神录与 2026-09-15 客户端配卡牌面均为青岚。"
+    },
+    "himiko": {
+      "id": "himiko",
+      "faction": "红莲",
+      "manualReview": "网易官方完整式神牌名称上方原图为红莲图标。",
+      "url": "https://official-account-system.fp.ps.netease.com/file/694261a6ac33d31bb014f3a6tDNKHili07"
+    },
+    "luohou": {
+      "id": "luohou",
+      "role": "destiny-luohou",
+      "faction": "紫岩",
+      "url": "https://i.17173cdn.com/2fhnvk/YWxqaGBf/cms3/SBidxqbtqDrlxtE.png",
+      "manualReview": "国服基础牌图派系图标目检。"
     }
   },
   "unverified": {
@@ -4250,30 +4297,6 @@
       "reason": "未取得该独立入口的完整官方式神PNG派系图标；不按名称或历史近似推定。"
     },
     "jinguang": {
-      "faction": "",
-      "reason": "未取得该独立入口的完整官方式神PNG派系图标；不按名称或历史近似推定。"
-    },
-    "shiyao-longyechaji": {
-      "faction": "",
-      "reason": "未取得该独立入口的完整官方式神PNG派系图标；不按名称或历史近似推定。"
-    },
-    "baize-yuanqi": {
-      "faction": "",
-      "reason": "未取得该独立入口的完整官方式神PNG派系图标；不按名称或历史近似推定。"
-    },
-    "shenqi-huang": {
-      "faction": "",
-      "reason": "未取得该独立入口的完整官方式神PNG派系图标；不按名称或历史近似推定。"
-    },
-    "xuan": {
-      "faction": "",
-      "reason": "未取得该独立入口的完整官方式神PNG派系图标；不按名称或历史近似推定。"
-    },
-    "yuyuan-banruo": {
-      "faction": "",
-      "reason": "未取得该独立入口的完整官方式神PNG派系图标；不按名称或历史近似推定。"
-    },
-    "luohou": {
       "faction": "",
       "reason": "未取得该独立入口的完整官方式神PNG派系图标；不按名称或历史近似推定。"
     }

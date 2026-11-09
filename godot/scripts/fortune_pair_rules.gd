@@ -119,7 +119,7 @@ static func restore(unit: Dictionary) -> void:
 	unit.erase("paperSavedName")
 	unit.erase("paperSavedModifiers")
 
-static func transform(gs, owner: int, idx: int, small: bool) -> void:
+static func transform(gs, owner: int, idx: int, small: bool, replacement_id: String = "", replacement_name: String = "", replacement_body: int = 0) -> void:
 	var unit: Dictionary = gs.player(owner).units[idx]
 	if int(unit.hp) <= 0: return
 	if not unit.get("baseRulesSuppressed", false):
@@ -132,7 +132,7 @@ static func transform(gs, owner: int, idx: int, small: bool) -> void:
 		for key in ["attackBonus", "maxHpBonus", "permanentAttack"]:
 			if unit.has(key): unit.paperSavedModifiers[key] = unit[key]
 	# Replacing a form uses its real leave hooks and removes its timer.
-	gs.VerifiedRules.Forms.remove(gs, owner, idx, "戏谑套索变形")
+	gs.VerifiedRules.Forms.remove(gs, owner, idx, "变形")
 	unit.attackBonus = 0
 	unit.maxHpBonus = 0
 	unit.erase("temporaryAttack")
@@ -148,9 +148,14 @@ static func transform(gs, owner: int, idx: int, small: bool) -> void:
 	unit.barrier = false
 	unit.brittle = 0
 	unit.armorBreak = 0
-	var body := 1 if small else 3
+	var body := replacement_body if replacement_body > 0 else (1 if small else 3)
 	var name := "小纸人" if small else "纸人"
 	var token := {"id": "fortune-small-paper" if small else "fortune-paper", "name": name, "type": "form", "value": {"attack": body, "hp": body, "setBase": true}, "formRules": {}, "formAbility": "失去形态能力及初始、觉醒能力。", "paperTransform": true}
+	if not replacement_id.is_empty():
+		name = replacement_name
+		token.id = replacement_id
+		token.name = name
+		if replacement_body <= 0: token.formAbility = "气绝倒计时-1。"
 	gs._install_form(owner, idx, token)
 	unit.name = name
 	unit.baseRulesSuppressed = true
@@ -178,7 +183,7 @@ static func combat_finished(gs, owner: int, src: int, options: Dictionary) -> vo
 		for discard in 2:
 			var hand: Array = gs.player(owner).hand
 			var idx := int(floor(gs.randf01() * hand.size()))
-			var inst: Dictionary = hand.pop_at(idx)
+			var inst: Dictionary = gs.discard_hand_card(owner, idx)
 			if not gs.player(owner).has("discard"): gs.player(owner).discard = []
 			gs.player(owner).discard.append(inst)
 			gs.VerifiedRules.event(gs, "fortune-random-discard", {"player": owner, "card": inst.definitionId})

@@ -135,7 +135,7 @@ static func targets(gs, owner: int, card: Dictionary):
 	var result: Array=[]
 	for side in [owner,1-owner]:
 		for u in gs.player(side).units:
-			if int(u.hp)>0 and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")): result.append(str(u.uid))
+			if int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not (gs.VerifiedRules.Combat.has(u,"veil") or gs.VerifiedRules.Movement.has_veil(u))): result.append(str(u.uid))
 	return result
 
 static func describe_card(gs, owner: int, card: Dictionary) -> Dictionary:

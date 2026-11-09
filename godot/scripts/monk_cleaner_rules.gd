@@ -144,8 +144,7 @@ static func knockout_snapshot(unit: Dictionary) -> Dictionary:
 static func after_knockout(gs, owner: int, idx: int, saved: Dictionary) -> void:
 	if saved.is_empty() or gs.winner >= 0: return
 	var unit: Dictionary = gs.player(owner).units[idx]
-	unit.knockout = 0; unit.hp = int(unit.maxHp); unit.front = 0
-	gs.VerifiedRules.Movement.revived(gs,owner,idx)
+	gs.VerifiedRules.Peach.revive(gs, owner, idx, unit, false, false)
 	saved.snowPower = int(saved.get("snowPower",0)) + 2
 	if gs.player(owner).hand.size() < int(gs.rules.maxHandSize): gs.player(owner).hand.append(saved)
 	else: gs._log("手牌已满，回手的阶前雪被烧毁。",gs.TONE_DANGER)

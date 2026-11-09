@@ -95,7 +95,8 @@ static func _pool_by_rarity(pack_id: String = "all") -> Dictionary:
 	for card in ContentLoader.load_content().get("cards", []):
 		if bool(card.get("token", false)):
 			continue
-		if pack_id != "all" and str(ContentLoader.unit_def(str(card.unitId)).get("pack", "origin")) != pack_id:
+		var card_pack := str(card.get("pack", "wave9")) if card.get("type") == "coop" else str(ContentLoader.unit_def(str(card.unitId)).get("pack", "origin"))
+		if pack_id != "all" and card_pack != pack_id:
 			continue
 		var r := str(card.get("rarity", "common"))
 		if pools.has(r):

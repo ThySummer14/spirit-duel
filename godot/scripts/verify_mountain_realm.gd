@@ -36,6 +36,10 @@ func entries_and_destruction() -> void:
 	check(p.mountainDestroyedRealms.size()==1,"actual destroyed realm added to match history")
 	var before: int=p.avatarHp; gs.VerifiedRules.Huang.destroy(gs,0,{"uid":"fake"},"不存在")
 	check(p.avatarHp==before and p.mountainDestroyedRealms.size()==1,"missing/duplicate destruction cannot re-trigger or add history")
+	gs=game(); p=gs.player(0); foe=gs.player(1)
+	u=foe.units[0]; u.level=0
+	var cloud := give(gs,"c28001")
+	check(gs.play_card(0,cloud,u.uid) and u.hp==u.maxHp-3,"山云入场可实际指定存活的零勾式神")
 	gs=game(); p=gs.player(0); foe=gs.player(1); play(gs,"c28001",foe.units[0].uid); p.avatarHp=20
 	check(gs._damage_avatar(0,2,1,0)==2 and p.avatarHp==18 and p.realms[0].hp==1,"real avatar damage reduces front realm durability without premature departure")
 	check(gs._damage_avatar(0,3,1,0)==3 and p.avatarHp==18 and p.realms.is_empty(),"real durability knockout destroys cloud and heals3 after actual avatar loss")
@@ -103,6 +107,11 @@ func seek_and_travel() -> void:
 	check(gs.end_turn(0) and not p.units[2].unyielding and gs.end_turn(1) and p.units[2].unyielding,"travel only grants again at actual own start")
 	p.avatarHp=15; for u in p.units: u.hp=1
 	destroy(gs); check(p.avatarHp==21 and p.units.all(func(u):return int(u.hp)==int(u.maxHp)),"travel destruction heals all friendly characters6 including avatar")
+	gs=game(); p=gs.player(0)
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs, 0, 0, "mountain-scope-decoy", "普通召唤物", 0, 9, {"countsAsShikigami": false})
+	decoy.hp=1
+	play(gs,"c28008"); destroy(gs)
+	check(decoy.hp==7 and not decoy.unyielding,"水行之旅离场治疗普通召唤物，入场不屈仍只给式神")
 	gs=game(); p=gs.player(0); play(gs,"c28008"); gs._knockout_unit(p.units[0]); p.units[2].unyielding=false; p.units[2].hp=2
 	check(gs.end_turn(0) and gs.end_turn(1) and p.units[2].unyielding,"travel remains independent of knocked-out caster")
 	destroy(gs); check(p.units[0].hp==0,"travel healing never revives a dead unit")

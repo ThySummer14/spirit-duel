@@ -37,6 +37,8 @@ func _initialize() -> void:
 	_pull()
 	_chain()
 	_wrath()
+	_rashomon_progress()
+	_rashomon_effects()
 	_ai()
 	_summon_contract()
 	_serialized_chain()
@@ -206,6 +208,133 @@ func _wrath() -> void:
 	var before := int(gs.player(1).units[3].hp)
 	gs._damage_unit(1, 1, 99, 0, 1)
 	check(gs.player(1).units[3].hp == before, "reserve kill cannot splash again")
+func _rashomon_progress() -> void:
+	var gs := fixture()
+	var demon: Dictionary = gs.player(0).units[1]
+	gs._damage_unit(1, 0, 99, 0, 0)
+	gs._damage_unit(1, 1, 99, 0, 1)
+	var idx := give(gs, 0, "c11108")
+	var view := gs.hand_card_def(0, idx)
+	check(Native.RASHOMON_LABELS.size() == 12, "Rashomon has all twelve identified enhancement candidates")
+	check(view.currentCardStats.begins_with("击杀 1/3"), "reserve kill before drawing counts, another ally's kill does not")
+	var power := int(view.value.attack)
+	var life := int(view.value.hp)
+	check(gs.play_card(0, idx) and demon.attack == power and demon.maxHp == life, "Rashomon uses the instance's actual enhanced form")
+	gs._damage_unit(1, 2, 99, 0, 1)
+	check(demon.demonKills == 2 and demon.attack == power and demon.maxHp == life, "normal Rashomon freezes enhancement on entry while the match tracks future kills")
+	gs._knockout_unit(demon)
+	gs.VerifiedRules.Peach.revive(gs, 0, 1, demon, false, false)
+	idx = give(gs, 0, "c11108")
+	check(gs.hand_card_def(0, idx).currentCardStats.begins_with("击杀 2/3"), "kill progress persists through knockout and a new copy")
+	gs._damage_unit(1, 3, 99, 0, 1)
+	gs.VerifiedRules.Peach.revive(gs, 1, 1, gs.player(1).units[1], false, false)
+	gs._damage_unit(1, 1, 99, 0, 1)
+	check(demon.demonKills == 4 and gs.hand_card_def(0, idx).currentCardStats.begins_with("击杀 3/3"), "progress caps at three without changing total kill history")
+	var first: Array = gs.hand_card_def(0, idx).demonRashomonRolls
+	var sibling := give(gs, 0, "c11108")
+	var sibling_view: Array = gs.hand_card_def(0, sibling).demonRashomonRolls
+	check(first != sibling_view and first.size() == 3 and first[0] != first[1] and first[0] != first[2] and first[1] != first[2], "physical cards have stable separate results, without repeats within a copy")
+	var prior_rng := gs.rng_state
+	check(gs.hand_card_def(0, idx).demonRashomonRolls == first and gs.rng_state == prior_rng, "inspection never rerolls or consumes gameplay RNG")
+	demon.erase("demonRashomonSeeds")
+	var legacy_rolls: Array = gs.hand_card_def(0, idx).demonRashomonRolls
+	check(legacy_rolls.size() == 3 and gs.hand_card_def(0, idx).demonRashomonRolls == legacy_rolls and gs.rng_state == prior_rng, "old saves recover stable enhancements from prior kills")
+	check(AI.take_action(gs, 0) and demon.form.get("cardId") == "c11108", "AI can legally equip the base form")
+
+
+func _rashomon_with(gs: GS, wanted: Array) -> int:
+	var hand := give(gs, 0, "c11108")
+	var inst: Dictionary = gs.player(0).hand[hand]
+	var demon: Dictionary = gs.player(0).units[1]
+	for serial in 1000:
+		inst.instanceId = "rashomon-verify-%d" % serial
+		var rolls := Native.rashomon_rolls(gs, demon, inst)
+		if wanted.all(func(id): return id in rolls): return hand
+	return -1
+
+
+func _rashomon_effects() -> void:
+	for id in Native.RASHOMON_LABELS:
+		var gs := fixture()
+		var p := gs.player(0)
+		var foe := gs.player(1)
+		var demon: Dictionary = p.units[1]
+		var front: Dictionary = foe.units[0]
+		gs._damage_unit(1, 3, 99, 0, 1)
+		var hand := _rashomon_with(gs, [id])
+		check(hand >= 0, "client candidate %d is reachable" % id)
+		if hand < 0: continue
+		if id == 1015: p.energy = 0
+		if id == 2752: gs._knockout_unit(demon)
+		var view := gs.hand_card_def(0, hand)
+		check(view.formAbility.contains(Native.RASHOMON_LABELS[id]) and gs.play_card(0, hand), "visible real card resolves candidate %d" % id)
+		check(int(demon.maxHp) == (9 if id == 2755 else 5), "only permanent-stat candidate changes the printed health")
+		match id:
+			1002:
+				front.front = 1
+				front.hp = 1
+				front.attack = 0
+				check(gs.basic_attack(0, 1) and int(foe.avatarHp) == 28, "granted pierce hits the actual opposing avatar")
+			1003:
+				gs._damage_unit(0, 1, 99, 1, 0)
+				check(int(demon.hp) == 1 and not demon.unyielding, "granted unyielding stops one lethal hit and is consumed")
+				gs._damage_unit(0, 1, 1, 1, 0)
+				check(int(demon.hp) == 0, "consumed unyielding never blocks a second hit")
+			1004:
+				p.energy = 0
+				check(gs.basic_attack(0, 1) and p.energy == 0 and not demon.get("swift", false), "granted swift pays for one genuine basic attack")
+			1007:
+				front.front = 1
+				front.hp = 20
+				front.attack = 0
+				check(gs.basic_attack(0, 1) and int(front.hp) == 14, "granted combo lands two real hits")
+			1009:
+				var spell := gs.hand_card_def(1, give(gs, 1, "c10701"))
+				var targets := gs.valid_targets(1, spell)
+				check(gs.VerifiedRules.Combat.has(demon, "veil") and not targets.has(demon.uid) and targets.has(p.units[0].uid), "granted veil excludes the actual unit from opposing targeted cards")
+			1011:
+				front.front = 1
+				front.hp = 20
+				front.attack = 0
+				check(gs.basic_attack(0, 1) and int(front.hp) == 0, "granted lethal destroys a surviving damaged unit")
+			1012:
+				front.front = 1
+				check(gs.basic_attack(0, 1) and int(foe.avatarHp) == 27 and int(front.hp) == int(front.maxHp), "granted direct attack bypasses the living defender")
+			1013:
+				front.front = 1
+				check(gs.basic_attack(0, 1) and int(demon.front) == 0 and int(demon.hp) == 5 and int(front.hp) < int(front.maxHp), "granted remote attack stays in reserve and avoids the defender's counter")
+			1015:
+				check(p.energy == 0 and gs.kw_usage(0, "instant").used, "instant applies to playing the form, not later attacks")
+			1019:
+				p.avatarHp = 20
+				check(gs.basic_attack(0, 1) and int(p.avatarHp) == 23, "granted lifesteal heals the allied avatar by actual damage")
+			2752:
+				check(int(demon.hp) == 5 and int(demon.knockout) == 0, "revive makes the card legal from knockout and equips its actual form")
+			2755:
+				check(int(demon.attack) == 7 and int(demon.hp) == 9, "permanent card enhancement adds exactly four power and four life")
+		if id in [1003, 1004]:
+			gs = fixture()
+			demon = gs.player(0).units[1]
+			gs._damage_unit(1, 3, 99, 0, 1)
+			hand = _rashomon_with(gs, [id])
+			check(gs.play_card(0, hand) and play(gs, "c11104") and not demon.get("swift", false) and not demon.unyielding, "replacing Rashomon removes its unused one-time form grant")
+	var gs := fixture()
+	var p := gs.player(0)
+	var foe := gs.player(1)
+	gs._damage_unit(1, 2, 99, 0, 1)
+	gs._damage_unit(1, 3, 99, 0, 1)
+	var hand := _rashomon_with(gs, [1002, 1019])
+	check(hand >= 0 and gs.play_card(0, hand), "pierce and lifesteal can coexist")
+	var front: Dictionary = foe.units[0]
+	front.front = 1
+	front.hp = 1
+	front.attack = 0
+	p.avatarHp = 20
+	check(gs.basic_attack(0, 1) and int(p.avatarHp) == 23 and int(foe.avatarHp) == 28, "combined pierce and lifesteal heal both real damage recipients exactly once")
+	gs = fixture()
+	gs._knockout_unit(gs.player(0).units[1])
+	check(not gs.can_play_card(0, give(gs, 0, "c11108")).ok, "the unenhanced form cannot be used while knocked out")
+
 func _ai() -> void:
 	var gs := fixture()
 	var idx := give(gs, 0, "c12103")

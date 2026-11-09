@@ -60,7 +60,8 @@ static func spell_damage(gs, source_owner: int, src: int, amount: int) -> void:
 
 static func traits(gs, owner: int, src: int) -> Dictionary:
 	var unit: Dictionary = gs.player(owner).units[src]
-	return {"bloodLifeSteal": gs.VerifiedRules.Combat.has(unit, "lifesteal"), "bloodEmbrace": unit.get("bloodEmbrace", []).filter(func(e): return int(e.turn) == gs.turn_counter).duplicate(true)}
+	var lifesteal: bool = gs.VerifiedRules.Combat.has(unit, "lifesteal") or (gs.current_player == owner and gs.VerifiedRules.Hanafuda.shared(unit) and int(unit.hp) > 0)
+	return {"bloodLifeSteal": lifesteal, "bloodEmbrace": unit.get("bloodEmbrace", []).filter(func(e): return int(e.turn) == gs.turn_counter).duplicate(true)}
 
 static func combat_dealt(gs, owner: int, result: Dictionary, options: Dictionary) -> void:
 	var amount := int(result.get("transferredDealt", result.get("dealt", result.get("damage", 0))))
@@ -96,12 +97,13 @@ static func protects_avatar(gs, owner: int) -> bool:
 static func realm_veil(gs, owner: int) -> bool:
 	return gs.player(owner).units.any(func(u): return active(u) and u.get("formRules", {}).get("whaleRealmVeil", false))
 
-static func damage_realm(gs, owner: int, amount: int) -> void:
+static func damage_realm(gs, owner: int, amount: int, target: Dictionary = {}) -> void:
 	var realms: Array = gs.player(owner).realms
 	if amount <= 0 or realms.is_empty(): return
 	# The first placed realm bears the entire packet. Excess never spills into
 	# the next realm. Snapshot protection before removing a treasure this way.
-	var realm: Dictionary = realms[0]
+	var realm: Dictionary = realms[0] if target.is_empty() else target
+	if not realms.has(realm): return
 	realm.hp = maxi(0, int(realm.hp) - amount)
 	gs.VerifiedRules.event(gs, "realm-durability", {"player": owner, "realm": str(realm.get("uid", "")), "amount": amount, "remaining": realm.hp})
 	if int(realm.hp) == 0:

@@ -106,6 +106,8 @@ static func full_moon(gs, unit: Dictionary) -> void:
 	gs.VerifiedRules.Whale.remove_charms(unit)
 	gs.VerifiedRules.Onikiri.remove_charms(unit)
 	gs.VerifiedRules.Goldfish.remove_charm(unit)
+	gs.VerifiedRules.FoxLotus.remove_charm(gs,unit)
+	gs.VerifiedRules.Maple.remove_doll(gs,unit)
 	for key in ["spiderMark","garudaFeather","moonCharm","owlGuard","insectCorrosion","insectCorrosionOwners","pipeMarks"]: unit.erase(key)
 	gs._recalc(unit)
 	gs.VerifiedRules.OwlInsect.refresh(gs)
@@ -184,9 +186,7 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 			var unit: Dictionary = gs.player(side).units[idx]
 			if frame.destroy:
 				if int(unit.hp)>0: gs.VerifiedRules.Panguan.destroy(gs,owner,int(frame.sourceIndex),side,idx)
-			elif int(unit.hp)<=0 and gs.VerifiedRules.Rebirth.can_revive(unit):
-				unit.knockout=0; unit.hp=int(unit.maxHp); unit.shield=0; unit.shieldExpires=0; unit.front=0
-				gs.VerifiedRules.Movement.revived(gs,side,idx)
+			elif gs.VerifiedRules.Peach.revive(gs, side, -1, unit, false, false):
 				gs.VerifiedRules.event(gs,"moon-revived",{"player":owner,"victimPlayer":side,"target":unit.uid})
 		_: return false
 	return true

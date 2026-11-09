@@ -2,12 +2,15 @@ extends Control
 ## 扇形手牌：按张数收紧间距、轻微弧度与倾角；悬停的牌抬起、放大、置顶，相邻牌让位。
 ## 子节点即卡面，顺序与手牌下标一致（测试与键盘 1-9 依赖此顺序）。
 
-const CARD_SIZE := Vector2(142, 222)
+const CARD_SIZE := Vector2(124, 194)
+const REST_BOTTOM_MARGIN := 18.0
 const HOVER_LIFT := 46.0
 const HOVER_SCALE := 1.16
 
 var _hovered: Control
 var _tweens: Dictionary = {}
+var compact := false
+var _targeting := false
 
 
 func _ready() -> void:
@@ -18,6 +21,7 @@ func _ready() -> void:
 
 func reset() -> void:
 	_hovered = null
+	_targeting = false
 	for tw in _tweens.values():
 		if is_instance_valid(tw): tw.kill()
 	_tweens.clear()
@@ -30,6 +34,7 @@ func add_card(card: Control, at_index: int, from_global: Variant = null) -> void
 	card.pivot_offset = Vector2(CARD_SIZE.x * 0.5, CARD_SIZE.y)
 	if card.has_signal("hover_changed"):
 		card.hover_changed.connect(_on_hover.bind(card))
+	card.allow_extended_hit = not _targeting
 	if from_global is Vector2:
 		card.position = (from_global as Vector2) - global_position
 		card.scale = Vector2(0.55, 0.55)
@@ -38,10 +43,19 @@ func add_card(card: Control, at_index: int, from_global: Variant = null) -> void
 
 
 func _on_hover(hovering: bool, card: Control) -> void:
+	if _targeting: return
 	if hovering:
 		_hovered = card
 	elif _hovered == card:
 		_hovered = null
+	relayout()
+
+
+func set_targeting(active: bool) -> void:
+	if _targeting == active: return
+	_targeting = active
+	if active: _hovered = null
+	for card in get_children(): card.allow_extended_hit = not active
 	relayout()
 
 
@@ -54,9 +68,9 @@ func relayout() -> void:
 	var n := cards.size()
 	if n == 0: return
 	var w := size.x
-	var step := minf(CARD_SIZE.x + 12.0, (w - CARD_SIZE.x - 40.0) / maxf(1.0, n - 1))
+	var step := minf(58.0 if compact and _hovered == null else 108.0, (w - CARD_SIZE.x - 40.0) / maxf(1.0, n - 1))
 	var total := step * (n - 1) + CARD_SIZE.x
-	var start := (w - total) * 0.5
+	var start := (w - total) * (0.79 if compact else 0.63)
 	var hover_index := cards.find(_hovered)
 	if hover_index < 0: _hovered = null
 	for old_card in _tweens.keys():
@@ -70,7 +84,7 @@ func relayout() -> void:
 		var arc := minf(1.0, 7.0 / maxf(n, 1))
 		var rot := deg_to_rad(centered * 1.6 * arc)
 		# 留出底边与倾斜后的角点空间，十二张手牌也完整落在窗口内。
-		var y := size.y - CARD_SIZE.y - 36.0 + absf(centered) * absf(centered) * 0.65 * arc
+		var y := size.y - CARD_SIZE.y - (12.0 if compact else REST_BOTTOM_MARGIN) + absf(centered) * absf(centered) * 0.5 * arc
 		var x := start + i * step
 		if hover_index >= 0 and i != hover_index:
 			x += spread * signf(i - hover_index)

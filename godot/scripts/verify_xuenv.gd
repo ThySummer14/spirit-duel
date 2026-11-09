@@ -8,8 +8,8 @@ func check(ok: bool, message: String) -> void:
 	if not ok:
 		failures += 1
 		printerr("XUENV_FAIL ", message)
-func fixture() -> GS:
-	var gs := GS.create(["xuenv", "xuetongzi", "panguan", "taohuayao"], ["xuenv", "yaodaoji", "bingyong", "shantong"], 106107)
+func fixture(allies: Array = ["xuenv", "xuetongzi", "panguan", "taohuayao"]) -> GS:
+	var gs := GS.create(allies, ["xuenv", "yaodaoji", "bingyong", "shantong"], 106107)
 	for p in gs.players:
 		p.hand.clear()
 		p.energy = 40
@@ -69,6 +69,13 @@ func _initialize() -> void:
 	var energy: int = gs.player(0).energy
 	check(gs.play_card(0, 0, gs.player(1).units[2].uid), "manual snowball plays")
 	check(gs.player(0).snowballsPlayed == 1 and gs.player(0).energy == energy, "hand use counted and first instant free")
+	var insight = gs.VerifiedRules.Insight
+	insight.place(gs, 0, insight.instance(gs, 0, "xueqiu"))
+	insight.enter(gs, 0)
+	var zone_index: int = insight.zone(gs, 0).find_custom(func(inst): return inst.definitionId == "xueqiu")
+	var before_insight: int = gs.player(1).units[3].hp
+	check(gs.play_card(0, zone_index, gs.player(1).units[3].uid) and gs.player(1).units[3].hp == before_insight - 2, "insight zone's actual Snowball still resolves its enhanced damage")
+	check(gs.player(0).snowballsPlayed == 1 and not insight.active(gs, 0), "insight cast cannot increase Flurry's printed hand-use history")
 	check(gs.effective_card_cost(0, gs.hand_card_def(0, 0)) == 1, "second snowball costs one fire")
 	play(gs, "c10610")
 	check(gs.player(0).snowballBonus == 2 and int(gs.hand_card_def(0, 0).value) == 3, "heart stacks across all tokens")
@@ -138,6 +145,12 @@ func _initialize() -> void:
 	check(wall.hp == 2 and gs.player(1).units[1].frozen == 0, "spell damage to wall never stuns source")
 	play(gs, "c10609")
 	check(wall.removed and gs.front_unit(0).hp == 4 and gs.player(0).units.size() == 6, "new wall replaces prior without slot reuse")
+	gs = fixture(["xuenv", "xuetongzi", "panguan", "yinghuayao-lijing"])
+	play(gs, "c66404")
+	var blossom := gs.front_unit(0)
+	check(blossom.get("id") == "hf-glass-cherry" and blossom.hp > 0, "Sakura's genuine summon occupies the battle zone")
+	play(gs, "c10609")
+	check(blossom.removed and blossom.hp == 0 and gs.front_unit(0).iceWall, "Ice Wall removes the departed summon rather than leaving a ghost in reserve")
 	gs = fixture()
 	gs.player(0).snowballsPlayed = 3
 	gs.player(0).snowballBonus = 1

@@ -136,7 +136,10 @@ func discord_and_focus() -> void:
 
 func bowl_rules() -> void:
 	var gs:=game(); var p: Dictionary=gs.player(0); var foe: Dictionary=gs.player(1); var target: Dictionary=foe.units[1]
-	gs._grow_unit(target,0,40); play(gs,"c25108",target.uid)
+	gs._grow_unit(target,0,40); target.level=0
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs,1,0,"bowl-decoy","普通召唤物",0,9,{"countsAsShikigami":false})
+	var bowl := give(gs,"c25108")
+	check(not gs.can_play_card(0,bowl,decoy.uid).ok and gs.play_card(0,bowl,target.uid),"酒碗拒绝普通召唤物，可以作用于零勾式神")
 	check(target.frozen==1 and not Star.bowl(gs).is_empty(),"bowl uses real stun plus persistent replacement marker")
 	var hp: int=target.hp; var ours: int=p.avatarHp; var theirs: int=foe.avatarHp
 	gs._damage_avatar(0,2,1,0); gs._damage_avatar(1,3,0,0)

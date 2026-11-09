@@ -1,0 +1,75 @@
+extends "res://scripts/verify_insight.gd"
+
+const Fate := preload("res://scripts/destiny_choice_rules.gd")
+
+func _initialize() -> void:
+	var gs := game()
+	var p := gs.player(0)
+	var bottom := Insight.instance(gs, 0, "c10501")
+	var middle := Insight.instance(gs, 0, "c10503")
+	var top := Insight.instance(gs, 0, "c10508")
+	bottom.destinyTestMark = true
+	p.deck.assign([bottom, middle, top])
+	check(Fate.offer(gs, 0, 0, {"kind": "charm-extra-draw", "playerIndex": 0, "count": 1}), "两端不同的实例打开命运抉择")
+	check(p.hand.is_empty() and p.deck.back() == top, "选择前仍未抽牌或改变牌库")
+	check(Fate.choice_card(gs, 0, Fate.FOLLOW).id == top.definitionId and Fate.choice_card(gs, 0, Fate.REVERSE).id == bottom.definitionId, "展示真实牌库顶和底")
+	check(Fate.choice_card(gs, 1, Fate.REVERSE) == null and not Fate.choose(gs, 1, Fate.REVERSE), "对方不能读取或回答")
+	check(not Fate.choose(gs, 0, "invalid"), "拒绝无效选项")
+	check(Fate.choose(gs, 0, Fate.REVERSE), "接受逆天改命")
+	check(p.hand[0] == bottom and p.hand[0].destinyTestMark and p.deck == [top, middle], "交换保留原实例和中间顺序，随后恢复抽牌结算")
+	check(int(p.destinyReversed) == 1 and int(p.get("destinyFollowed", 0)) == 0, "逆天独立计数")
+	check(Fate.offer(gs, 0, 0) and Fate.choose(gs, 0, Fate.FOLLOW) and p.deck == [top, middle], "顺应保留牌库")
+	check(int(p.destinyFollowed) == 1 and Fate.reveal_top(gs, 0, 0) == middle and p.deck.size() == 2, "揭示牌库顶不移动卡牌")
+	check(gs.rule_events.any(func(e): return e.kind == "deck-revealed" and e.instanceId == middle.instanceId), "揭示提供可被监听的真实牌实例 ID")
+
+	var opponent := gs.player(1)
+	var high := Insight.instance(gs, 1, "c10908")
+	var low := Insight.instance(gs, 1, "c10101")
+	opponent.deck.assign([high, low])
+	check(Fate.offer(gs, 0, 1) and Fate.ai_choice(gs, 0) and opponent.deck == [low, high] and p.deck == [top, middle], "AI 逆天改动指定敌方牌库")
+	check(int(p.destinyReversed) == 2 and int(opponent.get("destinyReversed", 0)) == 0, "对方牌库的选择记录在实际选择方")
+	opponent.deck.assign([low])
+	check(not Fate.offer(gs, 0, 1) and gs.pending_choice.is_empty() and int(p.destinyFollowed) == 2, "只有一张牌直接保留位置")
+	opponent.deck.clear()
+	check(not Fate.offer(gs, 0, 1) and Fate.reveal_top(gs, 0, 1).is_empty() and int(p.destinyFollowed) == 2, "空牌库不记录抉择也不揭示")
+	cross_reveal()
+	cross_foreign_divination()
+	print("DESTINY_CHOICE checks=%d failures=%d" % [checks, failures])
+	quit(1 if failures > 0 else 0)
+
+func cross_reveal() -> void:
+	var gs := GS.create(["shenqi-huang", "shiyao-longyechaji", "xuan", "taohuayao"], FOE, 93125)
+	prepare(gs)
+	var p := gs.player(0)
+	var huang: Dictionary = p.units[0]
+	var bottom := Insight.instance(gs, 0, "w13-shenqi-huang-93117")
+	var top := Insight.instance(gs, 0, "w13-shiyao-longyechaji-93101")
+	p.deck.assign([bottom, top])
+	play(gs, "w13-shenqi-huang-93119")
+	var initial := int(huang.get("shenqiMeteors", 0))
+	check(Fate.offer(gs, 0, 0) and Fate.choice_card(gs, 0, Fate.REVERSE) != null and Fate.choose(gs, 0, Fate.FOLLOW), "命运抉择允许预览牌库底的神启荒牌")
+	check(int(huang.get("shenqiMeteors", 0)) == initial and p.hand.is_empty(), "仅预览时命轨不增加陨星或抽牌")
+	check(Fate.reveal_bottom(gs, 0, 0) == bottom, "正式揭示返回真实底牌")
+	gs._resolve_resolution_stack()
+	check(int(huang.get("shenqiMeteors", 0)) == initial+1 and p.hand.has(top), "正式揭示底牌触发命轨，抽牌仍从真实顶部取牌")
+
+func cross_foreign_divination() -> void:
+	var gs := GS.create(["luohou", "baize-yuanqi", "xuan", "taohuayao"], FOE, 93148)
+	prepare(gs)
+	var player := gs.player(0)
+	var opponent := gs.player(1)
+	var original_top := Insight.instance(gs, 1, "c11001")
+	var original_second := Insight.instance(gs, 1, "c11002")
+	var original_bottom := Insight.instance(gs, 1, "c11003")
+	opponent.deck.assign([original_bottom, original_second, original_top])
+	player.deck.clear()
+	play(gs, "w13-luohou-93148")
+	check(gs.pending_choice.get("type") == "native-divination" and gs.pending_choice.get("zoneOwner") == 1 and gs.pending_choice.get("playerIndex") == 0, "罗睺觉醒打开真实敌方牌库的占卜")
+	if gs.pending_choice.get("type") != "native-divination": return
+	var divination = gs.VerifiedRules.Divination
+	var shown: Array = gs.pending_choice.instanceIds.duplicate()
+	check(shown.size() == 2 and shown.all(func(iid): return opponent.deck.any(func(inst): return inst.instanceId == iid)), "占卜展示两个实际敌方牌库实例")
+	for iid in shown:
+		check(divination.resolve_choice(gs, 0, iid) and divination.resolve_choice(gs, 0, divination.TOP), "控制者可选择敌方实例原位放回牌库顶")
+	check(player.hand.any(func(inst): return inst.definitionId == "fate-baize-insight") and player.deck.is_empty(), "占卜触发控制者的洞悉，凶星没有进入控制者牌库")
+	check(opponent.deck.any(func(inst): return inst.definitionId == "luohou-malefic-star") and opponent.deck.filter(func(inst): return inst.definitionId != "luohou-malefic-star") == [original_bottom, original_second, original_top], "凶星只置入受占卜的牌库，并保留其他实物的相对顺序")

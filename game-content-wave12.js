@@ -886,12 +886,12 @@ export const WAVE12_CARD_DEFINITIONS = Object.freeze([
     rarity: "R",
     starter: 1,
     deckLimit: 2,
-    text: "对两个随机敌方角色造成 2 点伤害（简化为全体 1 伤）。",
-    officialText: "对两个随机敌方角色造成 2 点伤害（简化为全体 1 伤）。",
+    text: "对两个随机敌方角色各造成 2 点伤害。",
+    officialText: "对两个随机敌方角色各造成 2 点伤害。",
     target: "auto",
     tags: ["原创", "spell"],
     effects: [
-      ["always", "damage", "all-enemy-units", 1],
+      ["always", "damage", "two-random-enemy-characters", 2],
     ],
   }),
   wave12Card(92139, "leiyin", {

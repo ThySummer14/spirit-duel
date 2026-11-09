@@ -2,6 +2,19 @@ class_name DogDemonRules
 extends RefCounted
 ## Permanent training, form snapshots and source-owned kill chains have separate lifetimes.
 
+const RASHOMON := "c11108"
+const RASHOMON_LIMIT := 3
+const RASHOMON_KEYWORDS := {
+	1002: "pierce", 1003: "unyielding", 1004: "swift", 1007: "combo",
+	1009: "veil", 1011: "lethal", 1012: "direct", 1013: "remote",
+	1015: "instant", 1019: "lifesteal",
+}
+const RASHOMON_LABELS := {
+	1002: "贯通", 1003: "不屈", 1004: "迅捷", 1007: "连击",
+	1009: "帷幕", 1011: "必杀", 1012: "直击", 1013: "远程",
+	1015: "瞬发", 1019: "吸血", 2752: "复活茨木童子", 2755: "永久 +4/+4",
+}
+
 static func dog(unit: Dictionary) -> bool:
 	return bool(ContentLoader.runtime_unit_def(unit).get("dogTraining", false))
 
@@ -28,7 +41,7 @@ static func card_announced(gs, owner: int, src: int, card: Dictionary) -> void:
 	unit.dogTrainings = int(unit.get("dogTrainings", 0)) + 1
 	gs.VerifiedRules.event(gs, "dog-training-used", {"player": owner, "uid": unit.uid, "count": unit.dogTrainings})
 
-static func describe_card(gs, owner: int, card: Dictionary) -> Dictionary:
+static func describe_card(gs, owner: int, card: Dictionary, inst: Dictionary = {}) -> Dictionary:
 	var src: int = gs._source_index(owner, card)
 	if src < 0: return card
 	var unit: Dictionary = gs.player(owner).units[src]
@@ -52,7 +65,51 @@ static func describe_card(gs, owner: int, card: Dictionary) -> Dictionary:
 		view.target = "enemy-reserve-unit" if gs.front_index(1 - owner) < 0 else "auto"
 	elif card.get("effect") == "demon-restore-peak":
 		view.text += "\n本局最高力量：%d。" % maxi(int(unit.attack), int(unit.get("demonPeakStrength", 0)))
+	elif card.get("id") == RASHOMON:
+		describe_rashomon(gs, unit, view, inst)
 	return view
+
+
+static func rashomon_rolls(gs, unit: Dictionary, inst: Dictionary) -> Array:
+	var available := RASHOMON_LABELS.keys()
+	var history: Array = unit.get("demonRashomonSeeds", [])
+	var count := mini(int(unit.get("demonKills", 0)), RASHOMON_LIMIT)
+	var results: Array = []
+	var picker := RandomNumberGenerator.new()
+	for index in count:
+		# Earlier saves already track kills but have no recorded enhancement seed.
+		var seed := int(history[index]) if index < history.size() else ("%d:%s:%d" % [gs.seed, unit.uid, index]).hash()
+		var key := "%d:%s" % [seed, str(inst.get("instanceId", unit.uid))]
+		picker.seed = key.hash()
+		results.append(available.pop_at(picker.randi_range(0, available.size() - 1)))
+	return results
+
+
+static func describe_rashomon(gs, unit: Dictionary, view: Dictionary, inst: Dictionary) -> void:
+	var rolls := rashomon_rolls(gs, unit, inst)
+	view.demonRashomonRolls = rolls
+	view.currentCardStats = "击杀 %d/%d" % [rolls.size(), RASHOMON_LIMIT]
+	if rolls.is_empty(): return
+	var labels: PackedStringArray = []
+	var traits: Array = view.get("formRules", {}).get("combatKeywords", []).duplicate()
+	for id in rolls:
+		labels.append(RASHOMON_LABELS[id])
+		match id:
+			1003: view.formRules.demonRashomonUnyielding = true
+			1004: view.formRules.demonRashomonSwift = true
+			1015:
+				if not view.keywords.has("instant"): view.keywords.append("instant")
+			2752: view.allowKnockedSource = true
+			2755:
+				view.value.attack = int(view.value.attack) + 4
+				view.value.hp = int(view.value.hp) + 4
+				view.effects[0].value = view.value.duplicate(true)
+				view.currentCardStats += " · %d/%d" % [view.value.attack, view.value.hp]
+			_:
+				var keyword: String = RASHOMON_KEYWORDS[id]
+				if keyword not in traits: traits.append(keyword)
+	view.formRules.combatKeywords = traits
+	view.formAbility = "本次强化：" + "、".join(labels)
 
 static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	var src: int = gs._source_index(owner, card)
@@ -61,10 +118,25 @@ static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	return true
 
 static func form_entered(gs, owner: int, src: int, card: Dictionary) -> void:
+	var unit: Dictionary = gs.player(owner).units[src]
 	if card.get("dogTrainingForm", false):
-		var unit: Dictionary = gs.player(owner).units[src]
 		unit.formRules.dogCombatBonus = int(card.get("dogTrainingSnapshot", unit.get("dogTrainings", 0)))
 		unit.formAbility = "犬神的战斗牌额外获得+%d力量与+%d护甲（进场时固定）。" % [unit.formRules.dogCombatBonus, unit.formRules.dogCombatBonus]
+	if card.get("id") != RASHOMON: return
+	if 2752 in card.get("demonRashomonRolls", []) and int(unit.hp) <= 0:
+		gs.VerifiedRules.Peach.revive(gs, owner, src, unit, false, false)
+	if unit.formRules.get("demonRashomonSwift", false) and not unit.get("swift", false):
+		unit.swift = true
+		unit.formRules.demonRashomonGrantedSwift = true
+	if unit.formRules.get("demonRashomonUnyielding", false) and not unit.get("unyielding", false):
+		unit.unyielding = true
+		unit.formRules.demonRashomonGrantedUnyielding = true
+
+
+static func form_removed(unit: Dictionary) -> void:
+	var rules: Dictionary = unit.get("formRules", {})
+	if rules.get("demonRashomonGrantedSwift", false): unit.swift = false
+	if rules.get("demonRashomonGrantedUnyielding", false): unit.unyielding = false
 
 static func turn_start(gs, owner: int, src: int) -> void:
 	var unit: Dictionary = gs.player(owner).units[src]
@@ -95,6 +167,12 @@ static func unit_killed(gs, owner: int, src: int, victim: int, target: Dictionar
 	if owner < 0 or src < 0 or src >= gs.player(owner).units.size(): return
 	var unit: Dictionary = gs.player(owner).units[src]
 	if not demon(unit) or ((target.get("summon", false) or target.get("summoned", false)) and not target.get("countsAsShikigami", false)): return
+	if int(unit.get("demonKills", 0)) < RASHOMON_LIMIT:
+		var seeds: Array = unit.get("demonRashomonSeeds", [])
+		while seeds.size() < int(unit.get("demonKills", 0)):
+			seeds.append(("%d:%s:%d" % [gs.seed, unit.uid, seeds.size()]).hash())
+		seeds.append(("%d:%s:%d:%d" % [gs.rng_state, unit.uid, gs.turn_counter, seeds.size()]).hash())
+		unit.demonRashomonSeeds = seeds
 	unit.demonKills = int(unit.get("demonKills", 0)) + 1
 	gs.VerifiedRules.event(gs, "demon-kill-history", {"player": owner, "uid": unit.uid, "target": target.uid, "count": unit.demonKills})
 	if owner == victim or not was_front or int(unit.hp) <= 0 or not unit.get("formRules", {}).get("demonReserveWrath", false): return

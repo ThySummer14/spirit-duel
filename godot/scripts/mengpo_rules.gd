@@ -127,7 +127,7 @@ static func resolve_choice(gs, owner: int, iid: String) -> bool:
 	elif c.type == "mengpo-discard":
 		var idx: int = gs.player(owner).hand.find_custom(func(i): return str(i.instanceId) == iid)
 		if idx < 0: return false
-		var inst: Dictionary = gs.player(owner).hand.pop_at(idx)
+		var inst: Dictionary = gs.discard_hand_card(owner, idx)
 		gs._record("resolve_divination_choice", {"choice": c.type, "instanceId": iid, "card": inst.definitionId}, owner)
 		gs._log("意外之喜弃掉「%s」。" % Content.card_def(str(inst.definitionId)).name, gs.TONE_CARD)
 		gs.VerifiedRules.event(gs, "card-discarded", {"player": owner, "uid": gs.player(owner).units[src].uid, "card": Content.card_def(str(inst.definitionId)), "instanceId": iid})

@@ -64,6 +64,23 @@ export const WAVE10_UNIT_DEFINITIONS = Object.freeze([
       { id: "sister-sleep-a", event: "turn-started", effect: "passive-heal-self-if-front", params: {"amount": 2} }
     ]),
   },
+  {
+    id: "slayer-sister-body",
+    name: "祢豆子",
+    title: "鬼灭联动切换身份",
+    role: "倒计时 / 切换",
+    attack: 2,
+    maxHp: 6,
+    art: "assets/wave10/nezuko.svg",
+    awakenedArt: "assets/wave10/nezuko-awakened.svg",
+    color: "#c45c78",
+    pack: "wave10",
+    subpack: "guimie",
+    token: true,
+    selectable: false,
+    countsAsShikigami: true,
+    passive: passive("slayer-sister", "祢豆子", "倒计时2：切换为炭治郎。", []),
+  },
 ]);
 
 function eff(condition, action, target, value = null) {
@@ -102,6 +119,8 @@ function wave10Card(officialId, unitId, meta) {
 }
 
 export const WAVE10_CARD_DEFINITIONS = Object.freeze([
+  wave10Card(0, "tanjirou", {id: "sg-slayer-awaken", name: "觉醒·祢豆子", type: "spell", level: 3, token: true, deckLimit: 0}),
+  wave10Card(0, "tanjirou", {id: "sg-slayer-blood", name: "血鬼术·爆血", type: "spell", level: 1, token: true, deckLimit: 0}),
   wave10Card(18291, "nezuko", {
     id: "c18291",
     name: "牙之型",

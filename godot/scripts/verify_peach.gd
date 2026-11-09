@@ -11,8 +11,8 @@ func check(ok: bool, message: String) -> void:
 		failures += 1
 		printerr("PEACH_FAIL ", message)
 
-func fixture() -> GS:
-	var gs := GS.create(["taohuayao", "yimulian", "zhen", "basalt"], ["taohuayao", "yimulian", "zhen", "basalt"], 10809)
+func fixture(rivals: Array = ["taohuayao", "yimulian", "zhen", "basalt"]) -> GS:
+	var gs := GS.create(["taohuayao", "yimulian", "zhen", "basalt"], rivals, 10809)
 	for p in gs.players:
 		p.hand.clear()
 		p.energy = 20
@@ -198,6 +198,27 @@ func _revival() -> void:
 	check(p.units.all(func(u): return not u.get("swift", false)), "mass revival grants nobody swift")
 	check(source.attack == 2 and p.units[3].attack == 2, "pending boundary: simultaneous revival growth independent of lineup position")
 	check(not ContentLoader.card_def("c10807").get("verificationPending", []).is_empty(), "self-revival growth remains audited")
+	gs = fixture(["guishibai", "yimulian", "zhen", "basalt"])
+	p = gs.player(0)
+	gs.current_player = 1
+	check(gs.play_card(1, give(gs, "c62706", 1)), "enemy installs a genuine Lamplighter")
+	gs.current_player = 0
+	play(gs, "c10809")
+	var locked: Dictionary = p.units[1]
+	var unlocked: Dictionary = p.units[2]
+	gs._knockout_unit(locked)
+	gs._knockout_unit(unlocked)
+	unlocked.knockout = 0
+	unlocked.level = 0
+	var spring := give(gs, "c10808")
+	check(not gs.can_play_card(0, spring, locked.uid).ok and gs.can_play_card(0, spring, unlocked.uid).ok, "spring excludes Lamplighter-blocked targets and accepts revivable 0-level allies")
+	var atk: int = locked.attack
+	var life: int = locked.maxHp
+	play(gs, "c10807")
+	check(locked.hp == 0 and locked.attack == atk and locked.maxHp == life and unlocked.hp > 0 and unlocked.attack == unlocked.baseAttack + 2, "mass revival grows only actual revived allies")
+	p.hand.clear()
+	give(gs, "c10807")
+	check(not AI._best_card(gs, 0).ok, "AI saves mass revival when all casualties are locked")
 
 func _healer_order() -> void:
 	for grass_first in [true, false]:

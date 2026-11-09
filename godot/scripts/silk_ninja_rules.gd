@@ -32,8 +32,8 @@ static func targets(gs, owner: int, card: Dictionary):
 	var result:Array=[]
 	for side in ([owner,1-owner] if card.target=="any-living-unit" else [1-owner]):
 		for u in gs.player(side).units:
-			if int(u.hp)<=0 or u.get("removed",false):continue
-			if side!=owner and gs.VerifiedRules.Combat.has(u,"veil"):continue
+			if int(u.hp)<=0 or not gs.VerifiedRules.OwlInsect.shikigami(u):continue
+			if side!=owner and (gs.VerifiedRules.Combat.has(u,"veil") or gs.VerifiedRules.Movement.has_veil(u)):continue
 			if card.target=="unpoisoned-enemy-unit" and u.get("toxicPoisoned",false):continue
 			result.append(u.uid)
 	if card.target=="pursuit-enemy" and gs.front_index(1-owner)<0:result.append("avatar-%d"%(1-owner))
@@ -107,7 +107,7 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			var front:Dictionary=gs.front_unit(1-owner)
 			projectile(gs,owner,src,int(effect.value),card.id=="c28508" and front.get("toxicPoisoned",false))
 		"silk-daydream":
-			var targets:Array=gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and not u.get("removed",false)).map(func(u):return {"uid":u.uid,"poisoned":u.get("toxicPoisoned",false)})
+			var targets:Array=gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u)).map(func(u):return {"uid":u.uid,"poisoned":u.get("toxicPoisoned",false)})
 			for t in targets:
 				var u:Dictionary=gs._unit_by_uid(gs.player(1-owner).units,t.uid)
 				if int(u.hp)<=0:continue

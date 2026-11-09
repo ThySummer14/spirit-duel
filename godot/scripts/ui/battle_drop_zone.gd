@@ -1,12 +1,17 @@
 extends Container
 ## 战场行：准备区横带或前线阵台。拖拽进行中若可放置则发光提示。
 
+const RESERVE_STEP := 0.145
+const RESERVE_COLUMNS := [-2.0, -1.0, 1.0, 2.0]
+
 var can_drop: Callable
 var on_drop: Callable
 ## "reserve" 横带 / "front" 阵台
 var style := "reserve"
 var title := ""
-var accent := Color(0.85, 0.7, 0.4)
+var enemy := false
+var portrait_size := Vector2.ZERO
+var _stagger := 0.0
 var _drag_ok := false
 var _hover_ok := false
 var _font: Font
@@ -15,6 +20,17 @@ var _font: Font
 func _ready() -> void:
 	_font = preload("res://scripts/ui/theme_builder.gd").medium_font()
 	resized.connect(queue_redraw)
+
+
+func arrange(area: Rect2, extent: Vector2, stagger := 0.0) -> void:
+	position = area.position
+	size = area.size
+	portrait_size = extent
+	_stagger = stagger
+	for child in get_children():
+		if child.has_meta("unit_index"): child.custom_minimum_size = extent
+	queue_sort()
+	queue_redraw()
 
 
 func _notification(what: int) -> void:
@@ -42,15 +58,18 @@ func _process(_delta: float) -> void:
 func _draw() -> void:
 	# 空前线平时保持池面留白，拖牌时才显示可放置阵台。
 	if not _drag_ok: return
-	var c := size * 0.5
-	var pulse := 0.55 + 0.45 * sin(Time.get_ticks_msec() / 180.0)
-	draw_circle(c, minf(size.x, size.y) * 0.46, Color(0.61, 0.87, 0.97, 0.07 + (0.1 if _hover_ok else 0)))
-	draw_arc(c, minf(size.x, size.y) * 0.46, 0, TAU, 48, Color(0.7, 0.92, 1, 0.35 + pulse * 0.35), 2, true)
-	draw_string(_font, Vector2(0, size.y * 0.5 + 5), title, HORIZONTAL_ALIGNMENT_CENTER, size.x, 12, Color("e4f3df"))
+	var slot := Rect2((size - portrait_size) * 0.5, portrait_size)
+	var pulse := 0.5 + 0.5 * sin(Time.get_ticks_msec() / 180.0)
+	var gold := Color(1.0, 0.91, 0.70, 0.50 + 0.22 * pulse)
+	draw_rect(slot, Color(0.08, 0.06, 0.11, 0.30 if _hover_ok else 0.18))
+	draw_rect(slot, Color(gold, 0.30 + 0.22 * pulse), false, 1.0)
+	for direction in [Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1), Vector2(1, 1)]:
+		var corner: Vector2 = slot.get_center() + direction * slot.size * 0.5
+		draw_polyline(PackedVector2Array([corner - Vector2(direction.x, 0) * 14.0, corner, corner - Vector2(0, direction.y) * 14.0]), gold, 2.0, true)
+	draw_string(_font, Vector2(0, size.y * 0.5 + 5), title, HORIZONTAL_ALIGNMENT_CENTER, size.x, 12, Color("f3e6cb"))
 
 
 func _sort_portraits() -> void:
-	var enemy := bool(get_meta("enemy", false))
 	for child in get_children():
 		if not child is Control: continue
 		if not child.has_meta("unit_index"):
@@ -61,10 +80,9 @@ func _sort_portraits() -> void:
 		var pos := (size - card_size) * 0.5
 		if style == "reserve":
 			# 按式神原槽位排布，出入前线时其余肖像不会跳位。
-			var centers := [0.14, 0.37, 0.63, 0.86]
-			pos.x = size.x * centers[index % 4] - card_size.x * 0.5
-			var down := index % 2 == (0 if enemy else 1)
-			pos.y = 30.0 if down else 0.0
+			pos.x += size.x * RESERVE_STEP * RESERVE_COLUMNS[index % RESERVE_COLUMNS.size()]
+			var outside := index % 4 in [0, 3]
+			pos.y = _stagger if outside == enemy else 0.0
 		fit_child_in_rect(child, Rect2(pos, card_size))
 
 

@@ -82,7 +82,8 @@ func damage_and_combat() -> void:
 	var idx:=give(gs,"c24503"); foe.units[2].keywords=["veil"]; var card:=gs.hand_card_def(0,idx)
 	check(gs.valid_targets(0,card).has(foe.units[0].uid) and not gs.valid_targets(0,card).has(foe.units[2].uid) and not gs.valid_targets(0,card).has("avatar-1"),"hit live reserve target and actual veil/avatar restrictions")
 	check(not gs.can_play_card(0,idx,p.units[1].uid).ok and not gs.can_play_card(0,idx,foe.units[2].uid).ok,"direct hit API rejects ally and veil before payment")
-	var hp: int=foe.units[1].hp; force_die(gs,6); check(gs.play_card(0,idx,foe.units[1].uid),"actualhit chosen reserve")
+	foe.units[1].level=0
+	var hp: int=foe.units[1].hp; force_die(gs,6); check(gs.play_card(0,idx,foe.units[1].uid),"松果一击实际命中指定的零勾准备区式神")
 	check(foe.units[1].hp==hp-3 and foe.units[1].frozen==1 and u.front==1 and u.hp==6,"hit exact3 damage then successfulstun, source enters unhurt withoutcombat")
 	gs=game(); foe=gs.player(1); u=gs.player(0).units[0]; hp=foe.units[1].hp; force_die(gs,2); play(gs,"c24503",foe.units[1].uid)
 	check(foe.units[1].hp==hp-3 and foe.units[1].frozen==0 and u.front==1,"failedhitfortune keeps damage andentry, no fake stun")

@@ -121,9 +121,9 @@ func _run() -> void:
 		for i in 4: ally.append(ids[(offset + i) % ids.size()])
 		var match_seed := 20261005 + offset
 		var gs := GameState.create(ally, ContentLoader.opponent_lineup(ally, match_seed), match_seed)
-		# 回合开始被动可能额外抽牌/生成 token，因此只统计原始牌实例。
+		# 原始套牌的卡可能已被首回合能力移入启悟区，派生实例不计入套牌。
 		var initial_ids := {}
-		for instance in gs.player(0).deck + gs.player(0).hand:
+		for instance in gs.player(0).deck + gs.player(0).hand + gs.VerifiedRules.Insight.zone(gs, 0):
 			if str(instance.instanceId).begins_with("player-c"): initial_ids[instance.instanceId] = true
 		# 千姬等首个己方回合开始即召唤派生单位，只要求四名入选式神本体在场。
 		var base_units: Array = gs.player(0).units.filter(func(u): return not u.get("summoned", false))

@@ -4,6 +4,8 @@ const Content:=preload("res://scripts/content_loader.gd")
 # Linking is a pre-use replacement, not a draw or a second card use.
 static func candidates(gs, owner: int, card: Dictionary) -> Array:
 	if not gs.response_window.is_empty() or gs.phase=="opening" or card.get("twoFacesFromDeck",false):return []
+	var zen: Array = gs.VerifiedRules.ZenMisfortune.zen_candidates(gs, owner, card)
+	if not zen.is_empty(): return zen
 	var ms_pool:Array=gs.VerifiedRules.MirrorSong.candidates(gs,owner,card)
 	if not ms_pool.is_empty():return ms_pool
 	var result:Array=gs.VerifiedRules.BlackWhite.link_candidates(gs,owner,card)
@@ -14,12 +16,12 @@ static func extra_instances(gs, owner: int) -> Array:
 	var p:Dictionary=gs.player(owner);var ids:Array=[]
 	for grant in p.get("twoFacesDeckAccess",[]):
 		if int(grant.turn)==gs.turn_counter and grant.id not in ids:ids.append(grant.id)
-	return p.deck.filter(func(i):return str(i.instanceId) in ids and (not gs.VerifiedRules.SpiderLily.top_available(gs,owner) or i!=p.deck.back()))
+	return p.deck.filter(func(i):return str(i.instanceId) in ids and (not gs.playable_deck_top(owner) or i!=p.deck.back()))
 static func virtual_instance(gs, owner: int, index: int):
 	var p:Dictionary=gs.player(owner);var ready:Dictionary=p.get("linkReady",{})
 	if not ready.is_empty() and index>=0 and index==int(ready.get("hand",-1)):
 		return ready.selected
-	var extra:int=index-p.hand.size()-(1 if gs.VerifiedRules.SpiderLily.top_available(gs,owner) else 0);var cards:=extra_instances(gs,owner)
+	var extra:int=index-p.hand.size()-(1 if gs.playable_deck_top(owner) else 0);var cards:=extra_instances(gs,owner)
 	if extra>=0 and extra<cards.size():
 		var inst:Dictionary=cards[extra].duplicate(true);inst.twoFacesFromDeck=true;return inst
 	return null
@@ -42,10 +44,15 @@ static func start(gs, owner: int, index: int) -> bool:
 	var inst:Dictionary=gs.card_instance(owner,index)
 	if inst.is_empty() or inst.get("twoFacesFromDeck",false):return false
 	var card:Dictionary=Content.card_def(str(inst.definitionId));var pool:=candidates(gs,owner,card)
+	if inst.get("zenOrigin", false):
+		card = gs.VerifiedRules.ZenMisfortune.describe(gs, owner, inst, card)
+		pool = candidates(gs, owner, card)
 	if pool.is_empty():return false
 	# A target is chosen after the replacement. Check the original with any valid target.
 	var view:Dictionary=gs.hand_card_def(owner,index);var targets:Array=[null] if view.get("target","auto")=="auto" else gs.valid_targets(owner,view)
 	if not targets.any(func(t):return gs.can_play_card(owner,index,t).ok):return false
+	if card.get("unitId") == gs.VerifiedRules.ZenMisfortune.ZEN:
+		return start_zen(gs, owner, index, inst, pool)
 	var other:Dictionary=pool[int(gs.next_random()%pool.size())].duplicate(true)
 	var src:int=gs._source_index(owner,card)
 	var opts:Array=[inst.duplicate(true),other]
@@ -57,6 +64,8 @@ static func start(gs, owner: int, index: int) -> bool:
 	gs.phase="choice";gs.state_changed.emit();return true
 static func option_ready(choice: Dictionary, selected: Dictionary) -> Dictionary:
 	if choice.get("msLink",false):return preload("res://scripts/mirror_song_rules.gd").ready(choice,selected)
+	if choice.get("zenLink", false):
+		return {"hand":choice.hand,"selected":selected.duplicate(true),"original":choice.original.duplicate(true),"zenLinkedCards":choice.zenLinkedCards.duplicate(true)}
 	return {"hand":choice.hand,"selected":selected.duplicate(true),"original":choice.original.duplicate(true),"candidate":choice.candidate.duplicate(true),"originFromDeck":choice.originFromDeck}
 static func option_check(gs, owner: int, iid: String) -> Dictionary:
 	var choice:Dictionary=gs.pending_choice
@@ -78,7 +87,7 @@ static func choice_card(gs, owner: int, iid: String):
 	var result:=option_check(gs,owner,iid);var c:Dictionary=result.get("view",{}).duplicate(true)
 	c.choiceDisabled=not result.ok
 	c.choiceExplanation="选此牌，随后选目标" if result.ok else str(result.get("reason","当前不可用"))
-	if not gs.pending_choice.get("msLink",false):c.erase("currentCardStats")
+	if not gs.pending_choice.get("msLink",false) and not gs.pending_choice.get("zenLink",false):c.erase("currentCardStats")
 	return c
 static func resolve_choice(gs, owner: int, iid: String) -> bool:
 	if not option_check(gs,owner,iid).get("ok",false):return false
@@ -92,7 +101,8 @@ static func take(gs, owner: int, index: int):
 	if ms_taken!=null:return ms_taken
 	var p:Dictionary=gs.player(owner);var ready:Dictionary=p.get("linkReady",{})
 	if index==int(ready.get("hand",-1)):
-		var selected:Dictionary=ready.selected;var original:Dictionary=ready.original;var other:Dictionary=ready.candidate
+		var selected:Dictionary=ready.selected;var original:Dictionary=ready.original
+		if ready.has("zenLinkedCards"): return take_zen(gs, owner, index, ready)
 		if ready.originFromDeck:
 			p.deck=p.deck.filter(func(i):return i.instanceId!=original.instanceId)
 		else:p.hand.remove_at(index)
@@ -138,3 +148,34 @@ static func announced(gs, frame: Dictionary, card: Dictionary) -> void:
 static func resolve_frame(gs, frame: Dictionary) -> bool:
 	if frame.get("kind")!="link-finished":return false
 	completed(gs,int(frame.playerIndex),frame.card);return true
+
+static func start_zen(gs, owner: int, index: int, inst: Dictionary, pool: Array) -> bool:
+	var src: int = gs.VerifiedRules.ZenMisfortune.source_for_link(gs, owner)
+	var picks: Array = gs.VerifiedRules.ZenMisfortune.sample_links(gs, owner, src, pool)
+	var original := inst.duplicate(true)
+	original.zenLinked = true
+	var options := [original]
+	for option in picks:
+		var linked: Dictionary = option.duplicate(true)
+		linked.zenLinked = true
+		linked.linkVirtual = true
+		options.append(linked)
+	gs.pending_choice = {"type":"native-link","playerIndex":owner,"hand":index,"original":original,"options":options,
+		"zenLink":true,"zenLinkedCards":picks,"instanceIds":options.map(func(i): return str(i.instanceId)),
+		"heading":"连引","title":"选择本次使用的牌","hint":"本次仅使用一张。连引牌的阴阳效果分别结算。"}
+	gs.phase = "choice"
+	gs.state_changed.emit()
+	return true
+
+static func take_zen(gs, owner: int, index: int, ready: Dictionary) -> Dictionary:
+	var p: Dictionary = gs.player(owner)
+	var selected: Dictionary = ready.selected
+	var original: Dictionary = p.hand.pop_at(index)
+	if selected.instanceId != original.instanceId:
+		p.deck = p.deck.filter(func(i): return i.instanceId != selected.instanceId)
+		p.deck.append(original)
+	gs._shuffle(p.deck)
+	p.erase("linkReady")
+	gs.VerifiedRules.ZenMisfortune.links_resolved(gs, owner, gs.VerifiedRules.ZenMisfortune.source_for_link(gs, owner), ready.zenLinkedCards)
+	gs.VerifiedRules.event(gs, "link-used", {"player":owner,"card":str(selected.definitionId),"other":"zen"})
+	return selected

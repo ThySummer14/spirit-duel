@@ -481,6 +481,22 @@ function wave3Card(officialId, unitId, meta) {
 }
 
 export const WAVE3_CARD_DEFINITIONS = Object.freeze([
+  wave3Card(0, "sanmu", {"id": "sanmu-urgent-1", "name": "紧急委托·壹", "type": "spell", "level": 1, "text": "瞬发。条件：己方式神出击累计2。使三目永久获得1力量与1生命。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-urgent-2", "name": "紧急委托·贰", "type": "spell", "level": 1, "text": "瞬发。条件：抽牌累计3。使三目永久获得1力量与1生命。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-urgent-3", "name": "紧急委托·叁", "type": "spell", "level": 1, "text": "瞬发。条件：使用卡牌累计4。使三目永久获得1力量与1生命。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-urgent-4", "name": "紧急委托·肆", "type": "spell", "level": 1, "text": "瞬发。条件：造成伤害累计10。使三目永久获得1力量与1生命。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-daily-1", "name": "今日委托·壹", "type": "spell", "level": 1, "text": "条件：造成非战斗伤害累计20。（在牌库也有效）对所有敌方角色造成3点伤害。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-daily-2", "name": "今日委托·贰", "type": "combat", "level": 1, "text": "条件：己方式神攻击累计10。（在牌库也有效）本次战斗+3力量、+3护甲。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-daily-3", "name": "今日委托·叁", "type": "spell", "level": 1, "text": "条件：使用形态牌累计5。（在牌库也有效）使一个己方式神获得4力量与4生命。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-daily-4", "name": "今日委托·肆", "type": "spell", "level": 1, "text": "瞬发。条件：使用阵容套牌以外的牌累计4。（在牌库也有效）对一个角色造成6点伤害。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-daily-5", "name": "今日委托·伍", "type": "spell", "level": 1, "text": "条件：使敌方式神气绝累计5。（在牌库也有效）消灭一个式神。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-daily-6", "name": "今日委托·陆", "type": "spell", "level": 1, "text": "瞬发。条件：复活己方式神累计3。（在牌库也有效）复活一个己方式神并使其获得迅捷。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-daily-7", "name": "今日委托·柒", "type": "spell", "level": 1, "text": "瞬发。条件：己方回合经过累计6。（在牌库也有效）抽两张牌。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-clue-talk", "name": "线索·茶话", "type": "spell", "level": 3, "text": "本局游戏当三目使用委托牌时，为你恢复3生命。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-clue-ask", "name": "线索·征询", "type": "spell", "level": 3, "text": "条件：本局已使用3张委托牌。本局游戏当三目使用委托牌时，抽两张牌。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-clue-rest", "name": "线索·休暇", "type": "spell", "level": 3, "text": "条件：本局已使用5张委托牌。本局游戏己方回合结束时，复活三目并随机完成一个紧急委托。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-clue-study", "name": "线索·研习", "type": "spell", "level": 3, "text": "条件：本局已使用7张委托牌。本局游戏当己方式神使用牌时，对敌方牌手造成3点伤害。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
+  wave3Card(0, "sanmu", {"id": "sanmu-clue-solve", "name": "线索·判明", "type": "spell", "level": 3, "text": "条件：本局已使用10张委托牌。对敌方牌手造成30点伤害。", "token": true, "deckLimit": 0, "subpack": "canghai"}),
   wave3Card(16801, "tianjingxia", {
     id: "c16801",
     name: "骚声",

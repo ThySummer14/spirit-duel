@@ -38,7 +38,7 @@ static func countdown(gs, owner: int, src: int, mode: String, base_ability: bool
 			if not pool.is_empty(): target=str(pool[int(floor(gs.randf01()*pool.size()))].uid)
 		elif mode=="front":
 			var idx: int=gs.front_index(victim)
-			if idx>=0: target=str(gs.player(victim).units[idx].uid)
+			if idx>=0 and gs.VerifiedRules.OwlInsect.shikigami(gs.player(victim).units[idx]): target=str(gs.player(victim).units[idx].uid)
 		if target!="": frames.append({"kind":"pipe-hit","playerIndex":owner,"sourceIndex":src,"targetUid":target,"amount":amount,"baseAbility":base_ability and mode in ["random","front"]})
 		for unit in gs.player(victim).units:
 			if int(unit.hp)<=0: continue
@@ -88,7 +88,7 @@ static func give_veil(gs, owner: int) -> void:
 
 static func avatar_veil(gs, owner: int) -> bool:
 	if gs.player(owner).get("randomTargetPreview",false):return false
-	return bool(gs.player(owner).get("foxAvatarVeil",false))
+	return bool(gs.player(owner).get("foxAvatarVeil",false)) or gs.VerifiedRules.BaizeYuanqi.avatar_veil(gs, owner)
 
 static func single_target(gs, owner: int, frame: Dictionary, card: Dictionary) -> bool:
 	if card.get("type")!="combat" and not Content.is_spell(card): return false
@@ -194,6 +194,17 @@ static func expire_turn(gs) -> void:
 
 static func knocked_out(unit: Dictionary) -> void:
 	for key in ["foxPillow","foxVeil","pipeMarks","stunOwners"]: unit.erase(key)
+
+static func targets(gs, owner: int, card: Dictionary):
+	var action := str(card.get("effect", ""))
+	if action not in ["pipe-attach", "pipe-stun", "fox-pillow", "fox-rage"]: return null
+	var result: Array = []
+	for side in ([owner, 1-owner] if action == "fox-pillow" else [1-owner]):
+		for unit in gs.player(side).units:
+			if int(unit.hp) <= 0 or not gs.VerifiedRules.OwlInsect.shikigami(unit): continue
+			if side != owner and (gs.VerifiedRules.Combat.has(unit, "veil") or gs.VerifiedRules.Movement.has_veil(unit)): continue
+			result.append(str(unit.uid))
+	return result
 
 static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: Dictionary, target: Dictionary) -> bool:
 	var action := str(effect.get("action",""))

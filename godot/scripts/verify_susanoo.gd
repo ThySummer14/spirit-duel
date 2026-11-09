@@ -37,6 +37,12 @@ func attack_and_thunder() -> void:
 	check(not gs.play_card(0,idx,foe.units[0].uid) and not gs.play_card(0,idx,"avatar-1") and p.energy==fire,"invalidHPandavatartargetcannotpay")
 	check(gs.play_card(0,idx,foe.units[1].uid) and foe.units[1].hp==0 and foe.units[0].hp==foe.units[0].maxHp,"actualpursuitselectsreserveinsteadfront")
 	check(u.hp==hp and u.attack==3 and foe.avatarHp==face-2 and p.energy==fire,"printedzeroattackbonusandrealcombatimmunityplusfirstinstantallowance")
+	var decoy := gs._make_unit("susanoo-decoy", "fenghuanghuo")
+	decoy.summoned = true
+	decoy.countsAsShikigami = false
+	decoy.hp = 1
+	foe.units.append(decoy)
+	check(not gs.can_play_card(0, give(gs, "c28101"), decoy.uid).ok, "雷霆万钧不会选中仅有 1 生命的非式神召唤物")
 	gs=game(); foe=gs.player(1); foe.units[0].front=1; gs._grow_unit(foe.units[0],20,0); foe.units[0].hp=1; hp=gs.player(0).units[0].hp
 	play(gs,"c28101",foe.units[0].uid); check(gs.player(0).units[0].hp==hp,"thunderreallyimmuneshighcounterdamage")
 func tomb_and_domain() -> void:

@@ -30,6 +30,7 @@ var hover_lift := 0.0
 var drag_payload: Dictionary = {}
 var drop_check: Callable
 var drop_action: Callable
+var allow_extended_hit := true
 
 # 表现层状态，供 Tween 驱动
 var visual_offset := Vector2.ZERO:
@@ -43,6 +44,10 @@ var visual_scale := 1.0:
 var flash := 0.0:
 	set(v):
 		flash = v
+		queue_redraw()
+var presented_vitals: Dictionary = {}:
+	set(v):
+		presented_vitals = v
 		queue_redraw()
 var hovered := false
 
@@ -74,8 +79,10 @@ func _ready() -> void:
 func refresh_art() -> void:
 	_original_card = null
 	if not unit_mode:
-		var original := "res://assets/official/cards/%s.png" % str(data.get("id", ""))
-		if ResourceLoader.exists(original):
+		var original := "assets/official/cards/%s.png" % str(data.get("id", ""))
+		if data.has("coopFaceId"): original = str(data.get("coopFaceArt", ""))
+		if not original.is_empty() and ResourceLoader.exists("res://" + original):
+			original = "res://" + original
 			if not _textures.has(original): _textures[original] = load(original)
 			_original_card = _textures[original]
 	var unit := data if unit_mode else ContentLoader.unit_def(str(data.get("unitId", "")))
@@ -83,6 +90,8 @@ func refresh_art() -> void:
 		unit = ContentLoader.unit_def(str(data.get("id", "")))
 	var awakened: bool = data.get("awakened", false) or data.get("awakening", false) or data.get("type", "") == "awakening"
 	var artwork := PortraitLibrary.artwork(unit, awakened)
+	if not unit_mode and data.has("cardArt"):
+		artwork = {"path": "res://" + str(data.cardArt), "focus": Vector2(0.5, 0.5)}
 	var path: String = artwork.path
 	_art_focus = artwork.focus
 	_texture_path = path
@@ -139,11 +148,13 @@ func _draw() -> void:
 
 
 func hit_test(point: Vector2) -> bool:
+	if Rect2(Vector2.ZERO, size).has_point(point): return true
+	if not allow_extended_hit: return false
 	var lift := hover_lift * _hover_t
 	var factor := visual_scale * (1.0 + 0.04 * _hover_t * signf(hover_lift))
 	var offset := visual_offset + Vector2(0, -lift) + size * (1.0 - factor) * 0.5
 	# 原位置保留在范围中，让指针停在下缘时不会因牌面抬起而反复退出。
-	return Rect2(Vector2.ZERO, size).has_point(point) or Rect2(offset, size * factor).has_point(point)
+	return Rect2(offset, size * factor).has_point(point)
 
 
 func _has_point(point: Vector2) -> bool:
@@ -485,7 +496,7 @@ func _draw_original_card() -> void:
 
 
 func status_marks() -> Array:
-	return BattleStatus.unit_marks(data, current_turn)
+	return BattleStatus.unit_marks(data if presented_vitals.is_empty() else data.merged(presented_vitals, true), current_turn)
 
 
 func _draw_card_marks(pad: float) -> void:
@@ -604,7 +615,11 @@ func _draw_unit() -> void:
 	var w := size.x
 	var h := size.y
 	var r := _radius()
-	var knocked := int(data.get("knockout", 0)) > 0 or (data.has("hp") and int(data.get("hp", 1)) <= 0 and data.has("uid"))
+	var hp := int(presented_vitals.get("hp", data.get("hp", data.get("maxHp", 0))))
+	var max_hp := int(presented_vitals.get("maxHp", data.get("maxHp", hp)))
+	var shield := int(presented_vitals.get("shield", data.get("shield", 0)))
+	var turns := int(presented_vitals.get("knockout", data.get("knockout", 0)))
+	var knocked := turns > 0 or (data.has("hp") and hp <= 0 and data.has("uid"))
 	var frame := ThemeBuilder.ALLY if side == 0 else (ThemeBuilder.FOE if side == 1 else ContentLoader.unit_color(data))
 	var aura := play_aura_kind()
 	_draw_play_aura(aura, true)
@@ -612,7 +627,7 @@ func _draw_unit() -> void:
 		_glow(ThemeBuilder.GOLD_BRIGHT, _pulse(), 10)
 	elif playable and aura.is_empty():
 		_glow(Color("a0d5ff"), _pulse(), 6)
-	if int(data.get("shield", 0)) > 0:
+	if shield > 0:
 		_glow(Color("7cc0ff"), 0.9, 5)
 	draw_style_box(_box(Color("101119"), frame.darkened(0.1), r, 2, 0.55), Rect2(Vector2.ZERO, size))
 	var pad := maxf(2.5, w * 0.03)
@@ -647,12 +662,9 @@ func _draw_unit() -> void:
 		_center_text(h - pad - stat_r * 2.1, str(data.get("name", "?")), name_fs, ThemeBuilder.PAPER, _display, 2)
 	# 攻 / 命
 	var atk := int(data.get("attack", 0))
-	var hp := int(data.get("hp", data.get("maxHp", 0)))
-	var max_hp := int(data.get("maxHp", hp))
 	var base_atk := int(data.get("baseAttack", atk))
 	_stat_badge(Vector2(pad + stat_r * 1.05, h - pad - stat_r * 1.0), stat_r, str(atk), Color("4a7856"), Color("d9edc2"), Color("f1ffe9") if atk <= base_atk else Color("b6ffb8"))
 	_stat_badge(Vector2(w - pad - stat_r * 1.05, h - pad - stat_r * 1.0), stat_r, str(hp), Color("a8303a"), Color("f2a3a0"), Color.WHITE if hp >= max_hp else Color("ffc2b5"))
-	var shield := int(data.get("shield", 0))
 	if shield > 0:
 		var sc := Vector2(w - pad - stat_r * 1.05, h - pad - stat_r * 3.05)
 		var sr := stat_r * 0.78
@@ -671,8 +683,7 @@ func _draw_unit() -> void:
 	if knocked:
 		draw_style_box(_box(Color(0.05, 0.04, 0.09, 0.55), Color.TRANSPARENT, r, 0), Rect2(Vector2.ZERO, size))
 		var kfs := int(clampf(w * 0.17, 12, 26))
-		_center_text(h * 0.72, "幽魂" if data.get("samuraiGhost",false) else ("永久气绝" if data.get("catCannotRevive",false) else "气绝"), kfs, Color("e8e2ee"), _display, 4)
-		var turns := int(data.get("knockout", 0))
+		_center_text(h * 0.72, ("武魂" if data.get("id") == "wushi-maoshi" else "幽魂") if data.get("samuraiGhost",false) else ("永久气绝" if data.get("catCannotRevive",false) else "气绝"), kfs, Color("e8e2ee"), _display, 4)
 		if turns>0 or data.get("catCannotRevive",false) or data.get("samuraiCannotRevive",false):
 			var counter := Vector2(w * 0.5, h * 0.40)
 			BattleStatus.draw_symbol(self, counter, clampf(w * 0.27, 22, 36), "knockout", Color("9470c4"))

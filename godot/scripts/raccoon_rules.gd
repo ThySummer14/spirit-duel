@@ -15,8 +15,9 @@ static func ignores(gs, owner: int, u: Dictionary) -> bool:
 	return (active(u) and source(u) and u.awakened) or feast(gs,owner)
 
 static func instant(gs, owner: int, card: Dictionary) -> bool:
-	var src: int=gs._source_index(owner,card)
-	return src>=0 and int(gs.player(owner).units[src].frozen)>0 and feast(gs,owner)
+	if not feast(gs,owner): return false
+	var owners: Array = card.get("coopPartners",Content.card_unit_ids(card))
+	return gs.player(owner).units.any(func(u):return int(u.hp)>0 and int(u.frozen)>0 and u.id in owners)
 
 static func describe_card(gs, owner: int, card: Dictionary) -> Dictionary:
 	if not instant(gs,owner,card): return card
@@ -47,7 +48,7 @@ static func targets(gs, owner: int, card: Dictionary):
 	var out: Array=[]
 	for side in [owner,1-owner]:
 		for u in gs.player(side).units:
-			if int(u.hp)>0 and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")): out.append(str(u.uid))
+			if int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not (gs.VerifiedRules.Combat.has(u,"veil") or gs.VerifiedRules.Movement.has_veil(u))): out.append(str(u.uid))
 	return out
 
 static func end_turn(gs, owner: int) -> void:
@@ -79,7 +80,7 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 				if int(target.hp)>0 and (not only_stunned or int(target.frozen)>0): gs._damage_unit(victim,idx,3,owner,src)
 		"raccoon-discard":
 			if not feast(gs,1-owner) or int(u.hp)<=0 or int(u.frozen)<=0: return true
-			var ids: Array=gs.player(owner).hand.filter(func(inst):return Content.card_def(str(inst.definitionId)).get("unitId")==u.id).map(func(inst):return str(inst.instanceId))
+			var ids: Array=gs.player(owner).hand.filter(func(inst):return u.id in Content.card_unit_ids(Content.card_def(str(inst.definitionId)))).map(func(inst):return str(inst.instanceId))
 			if not ids.is_empty():
 				gs.pending_choice={"type":"raccoon-discard","playerIndex":owner,"zone":"hand","sourceIndex":src,"instanceIds":ids,"heading":"饮 啖 醉 饱","hint":"%s处于眩晕：选择弃掉一张其专属手牌，完成后继续回合开始。" % u.name}
 				gs.phase="choice"
@@ -91,7 +92,7 @@ static func resolve_choice(gs, owner: int, iid: String) -> bool:
 	if c.get("type")!="raccoon-discard" or int(c.playerIndex)!=owner or not c.instanceIds.has(iid): return false
 	var idx: int=gs.player(owner).hand.find_custom(func(inst):return str(inst.instanceId)==iid)
 	if idx<0: return false
-	var inst: Dictionary=gs.player(owner).hand.pop_at(idx)
+	var inst: Dictionary=gs.discard_hand_card(owner, idx)
 	gs._record("resolve_divination_choice",{"choice":"raccoon-discard","instanceId":iid,"card":inst.definitionId},owner)
 	gs._log("饮啖醉饱：弃掉「%s」。" % Content.card_def(str(inst.definitionId)).name,gs.TONE_CARD)
 	gs.VerifiedRules.event(gs,"raccoon-discarded",{"player":owner,"instance":inst})

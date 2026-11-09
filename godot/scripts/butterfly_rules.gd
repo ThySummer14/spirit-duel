@@ -35,7 +35,7 @@ static func targets(gs, owner: int, card: Dictionary):
 		var unit: Dictionary = gs.player(owner).units[i]
 		if i == src or unit.get("removed", false) or not gs.VerifiedRules.OwlInsect.shikigami(unit): continue
 		if int(unit.hp) <= 0:
-			if gs.VerifiedRules.Rebirth.can_revive(unit): targets.append(unit.uid)
+			if gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, unit): targets.append(unit.uid)
 		elif gs.VerifiedRules.Samurai.available(unit) and not unit.get("cannotAttack", false) and not gs.VerifiedRules.Stun.blocks(gs, owner, unit) and int(unit.level) > 0:
 			if gs.VerifiedRules.Combat.has(unit, "remote") or not gs.VerifiedRules.Bingyong.replacement_blocked(gs, owner, unit): targets.append(unit.uid)
 	return targets

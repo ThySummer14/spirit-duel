@@ -10,8 +10,8 @@ func check(ok: bool, detail: String) -> void:
 	checks+=1
 	if not ok: failures+=1; printerr("RACCOON_FAIL ",detail)
 
-func game() -> GS:
-	var gs:=GS.create(["limao","fenghuanghuo","yuzaoqian","baizangzhu"],["limao","yaodaoji","bingyong","baizangzhu"],248)
+func game(own: Array = ["limao","fenghuanghuo","yuzaoqian","baizangzhu"]) -> GS:
+	var gs:=GS.create(own,["limao","yaodaoji","bingyong","baizangzhu"],248)
 	for p in gs.players:
 		p.hand.clear(); p.energy=40; p.levelUpUsed=true
 		for u in p.units: u.level=3
@@ -58,7 +58,8 @@ func cards_and_targets() -> void:
 	check(p.units[3].hp==hp-3 and p.hand.size()==1 and p.hand[0].definitionId=="yaojiu" and p.units[0].shield==0,"persuade actual friendly3damage plus wine, never substitute armor")
 	var energy: int=p.energy; play(gs,"yaojiu",foe.units[1].uid)
 	check(foe.units[1].frozen==1 and p.energy==energy and gs.kw_usage(0,"instant").used,"first wine shares actual instant quota")
-	play(gs,"yaojiu",foe.units[2].uid); check(p.energy==energy-1,"second same-turn wine costs one actual fire")
+	foe.units[2].level=0
+	play(gs,"yaojiu",foe.units[2].uid); check(p.energy==energy-1 and foe.units[2].frozen>0,"第二张妖酒实扣鬼火并眩晕零勾式神")
 	foe.units[3].keywords=["veil"]; p.units[2].keywords=["veil"]
 	var h:=give(gs,"yaojiu"); var opts:=gs.valid_targets(0,gs.hand_card_def(0,h))
 	check(opts.has(p.units[0].uid) and opts.has(p.units[2].uid) and not opts.has(foe.units[3].uid) and not opts.has("avatar-1"),"wine supports friendly shikigami, obeys hostile veil and rejects avatars")
@@ -131,6 +132,31 @@ func discard_and_ai() -> void:
 	check(best.ok and best.target==p.units[0].uid and gs.play_card(0,best.hand,best.target) and p.units[0].hp==p.units[0].maxHp,"AI legally chooses awake self wine for full recovery")
 	for id in ["c24801","c24802","c24803","c24804","c24805","c24806","c24807","c24808"]: check(FileAccess.file_exists("res://assets/official/cards/"+id+".png"),"full original art "+id)
 
+func cooperative_hand() -> void:
+	var lineup := ["limao","fenghuanghuo","qingxingdeng","yuzaoqian"]
+	var gs := game(lineup); var p: Dictionary = gs.player(0)
+	play(gs,"c24808")
+	var h := give(gs,"c124129")
+	var mode := "c124129:qingxingdeng"
+	p.units[3].frozen = 1
+	check(not gs.card_payment(0,gs.playable_card(0,h,mode)).usesInstant,"a stunned non-owner does not make the non-instant cooperation face free")
+	p.units[1].frozen = 1
+	p.energy = 0
+	check(gs.hand_card_def(0,h).keywords.has("instant") and gs.can_play_card(0,h,null,mode).ok,"a stunned partner grants the shared hand card instant before selecting the other face")
+	check(gs.play_card(0,h,null,mode) and p.energy == 0 and gs.kw_usage(0,"instant").used,"real selected cooperation face uses only the single instant allowance")
+	h = give(gs,"c124129")
+	check(gs.effective_card_cost(0,gs.playable_card(0,h,mode)) == 1,"second use of that instant cooperation face still costs one fire")
+	gs = game(lineup); p = gs.player(0)
+	gs.current_player = 1
+	play(gs,"c24808",null,1)
+	p.units[1].frozen = 1
+	p.units[2].frozen = 1
+	var shared_iid: String = p.hand[give(gs,"c124129")].instanceId
+	var lamp_iid: String = p.hand[give(gs,"c12901")].instanceId
+	check(gs.end_turn(1) and gs.pending_choice.get("instanceIds",[]) == [shared_iid],"cooperation card is a dedicated hand card of the first stunned partner")
+	check(gs.resolve_divination_choice(0,shared_iid) and gs.pending_choice.get("instanceIds",[]) == [lamp_iid],"the next stunned partner cannot discard the already removed shared instance twice")
+	check(gs.resolve_divination_choice(0,lamp_iid) and gs.pending_choice.is_empty(),"normal turn start resumes after both actual discard choices")
+
 func ui_rules() -> void:
 	for physical in [Vector2i(1280,800),Vector2i(1600,740)]:
 		root.size=physical
@@ -169,12 +195,15 @@ func ui_rules() -> void:
 		if physical.x==1280: await capture("02-stunned-teammate-live-inspector")
 		escape(); await settled(b)
 		gs.current_player=1; play(gs,"c24808",null,1); p.units[0].frozen=1
-		hand(b,["c24801","c24807","c12401","c12404","c22101"]); var deck: int=p.deck.size(); check(gs.end_turn(1),"native actual enemy end reaches discard choice"); b._refresh(); await settled(b)
+		hand(b,["c24801","c24807","c124129","c12404","c22101"]); var deck: int=p.deck.size(); var shared_iid: String=p.hand[2].instanceId
+		check(gs.end_turn(1),"native actual enemy end reaches discard choice"); b._refresh(); await settled(b)
 		check(gs.pending_choice.get("type")=="raccoon-discard" and is_instance_valid(b._choice_layer) and faces(b._choice_layer).size()==2,"native modal exposes exactly first stunned unit's two dedicated cards")
 		if physical.x==1600: await capture("03-feast-own-dedicated-discard")
 		await click(choice_face(b)); await settled(b)
-		check(gs.pending_choice.get("type")=="raccoon-discard" and faces(b._choice_layer).size()==2,"native first discard opens second independent source choice")
-		await click(choice_face(b)); await settled(b)
+		check(gs.pending_choice.get("type")=="raccoon-discard" and faces(b._choice_layer).size()==2 and choice_face(b,"c124129")!=null,"native second discard shows the actual shared card")
+		if choice_face(b,"c124129")!=null:
+			await click(choice_face(b,"c124129")); await settled(b)
+		check(not p.hand.any(func(inst):return inst.instanceId==shared_iid),"native choice consumes the exact cooperation instance")
 		check(gs.pending_choice.is_empty() and p.deck.size()==deck-1 and p.hand.size()==4,"native second discard resumes ordinary draw exactly once")
 		b.queue_free(); await process_frame; await process_frame
 
@@ -182,7 +211,7 @@ func run() -> void:
 	var stores:=Support.isolate_stores(); var args:=OS.get_cmdline_user_args()
 	if not args.is_empty() and args[0]!="--rules-only": out=args[0]; DirAccess.make_dir_recursive_absolute(out)
 	root.theme=ThemeBuilder.build_theme()
-	passives(); cards_and_targets(); flame_and_realm(); discard_and_ai()
+	passives(); cards_and_targets(); flame_and_realm(); discard_and_ai(); cooperative_hand()
 	if not args.has("--rules-only"): await ui_rules()
 	Support.cleanup_stores(stores); Support.cleanup_audio(); await process_frame; await process_frame
 	print("RACCOON checks=%d failures=%d" % [checks,failures]); quit(0 if failures==0 else 1)

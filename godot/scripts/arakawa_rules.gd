@@ -51,7 +51,7 @@ static func targets(gs, owner: int, card: Dictionary):
 	var ids: Array = []
 	for side in [owner, 1-owner]:
 		for u in gs.player(side).units:
-			if int(u.hp) > 0 and not u.get("removed", false) and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side == owner or not gs.VerifiedRules.Combat.has(u, "veil")): ids.append(str(u.uid))
+			if int(u.hp) > 0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side == owner or not (gs.VerifiedRules.Combat.has(u, "veil") or gs.VerifiedRules.Movement.has_veil(u))): ids.append(str(u.uid))
 	return ids
 
 static func can_use(gs, owner: int, card: Dictionary) -> bool:

@@ -73,7 +73,7 @@ static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	return not (card.get("effect")=="pine-awaken" and u.awakened)
 static func targets(gs, owner: int, card: Dictionary):
 	if not card.get("pineRules",false) or card.get("target")!="enemy-unit": return null
-	return gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and not gs.VerifiedRules.Combat.has(u,"veil")).map(func(u):return str(u.uid))
+	return gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and not (gs.VerifiedRules.Combat.has(u,"veil") or gs.VerifiedRules.Movement.has_veil(u))).map(func(u):return str(u.uid))
 static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: Dictionary, target: Dictionary, target_id = null) -> bool:
 	var u: Dictionary=gs.player(owner).units[src]
 	match str(effect.get("action","")):

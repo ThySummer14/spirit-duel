@@ -15,15 +15,18 @@ signal back_requested
 const PICK_COUNT := 8
 
 var _unit_id := ""
+var _lineup: Array = []
 var _picked: Array = []
+var _cooperation_only := false
 var _pool_box: GridContainer
 var _status: Label
 var _list_scroll: ScrollContainer
 var _confirm_btn: Button
 
 
-func setup(unit_id: String) -> void:
+func setup(unit_id: String, lineup: Array = []) -> void:
 	_unit_id = unit_id
+	_lineup = lineup.duplicate()
 	var saved := SaveStore.get_deck(unit_id)
 	if saved.size() == PICK_COUNT:
 		_picked = saved.duplicate()
@@ -63,6 +66,13 @@ func _ready() -> void:
 		_rebuild()
 	)
 	header.add_child(reset)
+	var filter := CheckButton.new()
+	filter.text = "协战牌"
+	filter.toggled.connect(func(active):
+		_cooperation_only = active
+		_rebuild()
+	)
+	header.add_child(filter)
 	var back := Button.new()
 	back.text = "返回"
 	back.pressed.connect(func(): back_requested.emit())
@@ -124,6 +134,13 @@ func _count_of(card_id: String) -> int:
 func _limit_of(card: Dictionary) -> int:
 	if card.get("type") == "awakening":
 		return 1
+	if card.get("type") == "coop":
+		if _picked.any(func(id): return id != card.id and ContentLoader.card_def(str(id)).get("type") == "coop"):
+			return 0
+		var used := 0
+		for partner in ContentLoader.card_unit_ids(card):
+			if partner != _unit_id and partner in _lineup: used += SaveStore.get_deck(partner).count(card.id)
+		return maxi(0, 2 - used)
 	return int(card.get("deckLimit", 2))
 
 
@@ -134,6 +151,7 @@ func _rebuild() -> void:
 	var unit := ContentLoader.unit_def(_unit_id)
 	var cards := ContentLoader.cards_for_unit(_unit_id)
 	cards = cards.filter(func(card): return not bool(card.get("token", false)) and not bool(card.get("skin", false)))
+	if _cooperation_only: cards = cards.filter(func(card): return card.get("type") == "coop")
 	cards.sort_custom(func(a, b):
 		var la := int(a.get("level", 1))
 		var lb := int(b.get("level", 1))

@@ -16,7 +16,7 @@ static func can_use(gs, owner: int, card: Dictionary) -> bool:
 
 static func targets(gs, owner: int, card: Dictionary):
 	if not card.get("mountainRules",false) or card.get("target")!="selected-enemy": return null
-	return gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and not gs.VerifiedRules.Combat.has(u,"veil")).map(func(u):return str(u.uid))
+	return gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and not gs.VerifiedRules.Combat.has(u,"veil") and not gs.VerifiedRules.Movement.has_veil(u)).map(func(u):return str(u.uid))
 
 static func _grant_travel(gs, owner: int) -> void:
 	for u in gs.player(owner).units:
@@ -62,13 +62,12 @@ static func realm_destroyed(gs, owner: int, realm: Dictionary, reason: String) -
 		"mountain-color":
 			var pool: Array=[]; var largest: int=-1
 			for u in gs.player(owner).units:
-				if int(u.hp)>0 or u.get("summoned",false) or not gs.VerifiedRules.Rebirth.can_revive(u): continue
+				if not gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, u): continue
 				if int(u.knockout)>largest: largest=int(u.knockout); pool.clear()
 				if int(u.knockout)==largest: pool.append(u)
 			if not pool.is_empty():
 				var u: Dictionary=pool[int(floor(gs.randf01()*pool.size()))]
-				u.hp=int(u.maxHp); u.knockout=0; u.shield=0; u.shieldExpires=0; u.front=0
-				gs.VerifiedRules.Movement.revived(gs,owner,gs._unit_index_by_uid(owner,str(u.uid)))
+				gs.VerifiedRules.Peach.revive(gs, owner, src, u, false, false)
 				gs.VerifiedRules.event(gs,"mountain-revived",{"player":owner,"target":u.uid,"countdown":largest})
 		"mountain-ridge":
 			for idx in gs.player(1-owner).units.size():
@@ -82,7 +81,7 @@ static func realm_destroyed(gs, owner: int, realm: Dictionary, reason: String) -
 		"mountain-travel":
 			gs._heal_avatar(owner,6)
 			for u in gs.player(owner).units:
-				if gs.VerifiedRules.OwlInsect.shikigami(u): gs._heal_unit(u,6)
+				if int(u.hp)>0 and not u.get("removed",false): gs._heal_unit(u,6)
 	gs._card_effect_context=context
 	gs.VerifiedRules.event(gs,"mountain-realm-destroyed",{"player":owner,"realm":realm.uid,"card":Content.card_def(str(realm.cardId)),"reason":reason})
 

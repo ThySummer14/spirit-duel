@@ -188,7 +188,7 @@ static func score_card(gs, owner: int, card: Dictionary, target_id):
 	if not card.get("jorogumoRules",false): return null
 	var target: Dictionary = gs._unit_by_uid(gs._all_units(),target_id)
 	if card.id=="c27508":
-		if gs._unit_index_by_uid(owner,target_id)>=0: return -100
+		if gs._unit_index_by_uid(owner,target_id)>=0 or gs.player(owner).deck.is_empty(): return -100
 		return 95 if marked(target) else 70 if int(target.get("hp",0))<=5 else 40
 	if card.type=="combat": return 55+(20 if marked(target) else 0)+int(target.get("attack",0))*2
 	if card.id=="c27502": return 70+(15 if marked(target) else 0)

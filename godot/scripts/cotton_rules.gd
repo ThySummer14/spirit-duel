@@ -16,7 +16,7 @@ static func knockout_snapshot(gs, owner: int, dying: Dictionary) -> Array:
 	if owner < 0 or not gs.VerifiedRules.OwlInsect.shikigami(dying): return frames
 	for src in gs.player(owner).units.size():
 		var unit: Dictionary = gs.player(owner).units[src]
-		if not source(unit) or int(unit.level) < 1 or (not active(unit) and unit.uid != dying.uid): continue
+		if not source(unit) or int(unit.level) < 1 or unit.get("baseRulesSuppressed", false) or (not active(unit) and unit.uid != dying.uid): continue
 		if unit.awakened or unit.uid == dying.uid:
 			frames.append({"kind": "cotton-death-night", "playerIndex": owner, "sourceIndex": src, "awakened": bool(unit.awakened)})
 	if dying.get("formRules", {}).get("cottonSnow", false):
@@ -48,7 +48,7 @@ static func can_use(gs, owner: int, card: Dictionary) -> bool:
 static func targets(gs, owner: int, card: Dictionary):
 	if not card.get("cottonRules", false): return null
 	if card.get("effect") != "cotton-revive": return null
-	return gs.player(owner).units.filter(func(u): return not u.get("summoned", false) and not u.get("removed", false) and int(u.hp) <= 0 and gs.VerifiedRules.Rebirth.can_revive(u)).map(func(u): return str(u.uid))
+	return gs.player(owner).units.filter(func(u): return gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, u)).map(func(u): return str(u.uid))
 
 static func announced(gs, frame: Dictionary, card: Dictionary) -> void:
 	if not card.get("cottonReturn", false) or frame.get("automatic", false): return

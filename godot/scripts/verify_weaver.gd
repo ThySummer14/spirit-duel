@@ -118,6 +118,12 @@ func test_exile_funeral() -> void:
 	check(gs.play_card(0,i,foe.units[1].uid),"actual exile highHP armoredunyielding")
 	check(foe.units[1].hp==0 and snow(gs,1).attack==3 and foe.deck.size()==deck-1 and foe.avatarHp==hp,"harddestroy ignoresarmor/HP/unying andgives trueenemy summonplusdraw")
 	check(snow(gs).is_empty(),"exile compensation doesnot go to caster")
+	gs=game(); foe=gs.player(1); p=gs.player(0)
+	var substitute := Content.card_def("c25707")
+	gs._install_form(1,0,substitute,{"attack":3,"hp":5,"setBase":true})
+	deck=foe.deck.size(); foe.units[0].level=0
+	play(gs,"c23606",foe.units[0].uid)
+	check(foe.units[0].hp>0 and foe.units[0].form.is_empty() and snow(gs,1).is_empty() and foe.deck.size()==deck,"离魂被替身阻止气绝时不送织雪或抽牌")
 	gs=game(); foe=gs.player(1); p=gs.player(0); gs.VerifiedRules.Xuenv.summon_wall(gs,1,2); var wall: Dictionary=foe.units.back(); play(gs,"c23606",foe.units[0].uid)
 	check(wall.removed and wall.hp==0 and snow(gs,1).front==1,"compensatingenemy summondisplaces existingdifferent token")
 	gs=game(); foe=gs.player(1); p=gs.player(0)

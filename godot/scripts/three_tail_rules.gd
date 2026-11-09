@@ -19,10 +19,10 @@ static func announced(gs, frame: Dictionary, card: Dictionary) -> void:
 	for src in range(gs.player(owner).units.size()-1,-1,-1):
 		var u: Dictionary=gs.player(owner).units[src]
 		if active(u) and u.awakened:gs.resolution_stack.append({"kind":"three-tail-projectile","playerIndex":owner,"sourceIndex":src,"amount":1,"reason":"觉醒使用一勾牌"})
-static func projectile(gs, owner: int, src: int, amount: int, reason: String = "投射") -> void:
+static func projectile(gs, owner: int, src: int, amount: int, reason: String = "投射", critical: bool = false) -> void:
 	var idx: int=gs.front_index(1-owner)
-	if idx<0:gs._damage_avatar(1-owner,amount,owner,src)
-	else:gs._damage_unit(1-owner,idx,amount,owner,src)
+	if idx<0:gs._damage_avatar(1-owner,amount,owner,src,critical)
+	else:gs._damage_unit(1-owner,idx,amount,owner,src,false,-1,false,critical)
 	gs.VerifiedRules.event(gs,"three-tail-projectile",{"player":owner,"uid":gs.player(owner).units[src].uid,"amount":amount,"target":"avatar-%d"%(1-owner) if idx<0 else gs.player(1-owner).units[idx].uid,"reason":reason})
 static func _instance(gs, owner: int, id: String) -> void:
 	var inst: Dictionary={"instanceId":"three-tail-%d"%gs.next_card_id,"definitionId":id}
@@ -63,7 +63,7 @@ static func resolve_choice(gs, owner: int, iid: String) -> bool:
 	var p: Dictionary=gs.player(owner)
 	for idx in p.hand.size():
 		if str(p.hand[idx].instanceId)==iid:
-			var inst: Dictionary=p.hand.pop_at(idx)
+			var inst: Dictionary=gs.discard_hand_card(owner, idx)
 			gs.VerifiedRules.event(gs,"three-tail-discard",{"player":owner,"uid":p.units[int(c.sourceIndex)].uid,"card":Content.card_def(str(inst.definitionId)),"instanceId":iid})
 			break
 	gs.pending_choice={};gs.phase="main"

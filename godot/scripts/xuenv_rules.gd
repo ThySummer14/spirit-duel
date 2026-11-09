@@ -26,7 +26,7 @@ static func stunned(gs, victim: int, idx: int, new_stun: bool, owner: int = -1) 
 		token(gs, owner)
 
 static func announced(gs, frame: Dictionary, card: Dictionary) -> void:
-	if frame.get("automatic", false) or not card.get("snowball", false): return
+	if frame.get("automatic", false) or not frame.get("usedFromHand", false) or not card.get("snowball", false): return
 	var owner := int(frame.playerIndex)
 	var p: Dictionary = gs.player(owner)
 	p.snowballsPlayed = int(p.get("snowballsPlayed", 0)) + 1
@@ -95,7 +95,7 @@ static func remove_departed_walls(gs) -> void:
 			if unit.get("iceWall", false) and int(unit.front) == 0 and int(unit.hp) > 0: remove_wall(gs, owner, unit)
 
 static func summoned_knockout(unit: Dictionary) -> void:
-	if not unit.get("summoned", false): return
+	if not unit.get("summoned", false) or unit.get("nativeFieldSummon", false): return
 	unit.knockout = 0
 	unit.removed = true
 
@@ -103,17 +103,10 @@ static func summon_wall(gs, owner: int, src: int) -> void:
 	var p: Dictionary = gs.player(owner)
 	# Slots are never removed/reused during a match: queued source indices and
 	# snapshots stay valid. Inactive tombstones cannot be targeted/revived.
-	clear_wall(gs, owner)
-	for other in p.units: other.front = 0
+	gs.VerifiedRules.Weaver.leave_front(gs, owner)
 	var wall := {"uid": "%s:ice-wall-%d" % [p.id, gs.next_card_id], "id": "xuenv-ice-wall", "name": "冰墙", "title": "雪女召唤物", "art": "assets/wave11/bingqiang.svg", "color": "#9bb8d4", "baseAttack": 0, "baseMaxHp": 4, "attack": 0, "maxHp": 4, "hp": 4, "shield": 0, "shieldExpires": 0, "knockout": 0, "frozen": 0, "brittle": 0, "armorBreak": 0, "unyielding": false, "level": 1, "front": 1, "attackBonus": 0, "maxHpBonus": 0, "awakened": false, "form": {}, "formRules": {}, "formAbility": "不能攻击。眩晕对其造成战斗伤害的式神。离开战斗区时移除。", "charge": 0, "passive_hooks": [], "summoned": true, "summon": true, "countsAsShikigami": true, "iceWall": true, "cannotAttack": true, "summonerUid": p.units[src].uid}
 	gs.next_card_id += 1
 	p.units.append(wall)
-	gs.VerifiedRules.Enma.remove_departed(gs)
-	gs.VerifiedRules.Weaver.remove_departed(gs)
-	gs.VerifiedRules.Vine.remove_departed(gs)
-	gs.VerifiedRules.WindRaccoon.remove_departed(gs)
-	gs.VerifiedRules.House.remove_departed(gs)
-	gs.VerifiedRules.Doll.remove_departed(gs)
 	gs.VerifiedRules.Enma.refresh(gs)
 	gs._log("雪女在战斗区召唤了0/4冰墙。", gs.TONE_CARD)
 	gs.VerifiedRules.event(gs, "summon-created", {"player": owner, "uid": wall.uid, "sourceUid": p.units[src].uid})

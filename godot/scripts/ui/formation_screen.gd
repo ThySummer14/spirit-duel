@@ -188,8 +188,13 @@ func _rebuild_unit_list() -> void:
 		face.tooltip_text = str(unit.name)
 		_unit_list.add_child(face)
 	if units.is_empty(): _unit_list.add_child(ThemeBuilder.dim_label("没有匹配的式神"))
-	_confirm_btn.disabled = _selected.size() != PICK_COUNT
+	var formation_error := ContentLoader.lineup_rule_error(_selected) if _selected.size() == PICK_COUNT else ""
+	if not browse_only and _selected.size() == PICK_COUNT and formation_error.is_empty():
+		var deck := SaveStore.deck_definition(_selected)
+		formation_error = ContentLoader.cooperation_deck_error(deck.cardIds, deck.slotOwners)
+	_confirm_btn.disabled = _selected.size() != PICK_COUNT or not formation_error.is_empty()
 	_status_l.text = "式神录 · %d 名" % units.size() if browse_only else "已选 %d / 4 · 每位八张，共三十二张牌" % _selected.size()
+	if not browse_only and not formation_error.is_empty(): _status_l.text = formation_error
 	_clear(_selected_row)
 	for i in PICK_COUNT:
 		if i < _selected.size():

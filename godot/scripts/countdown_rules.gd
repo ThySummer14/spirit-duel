@@ -10,6 +10,8 @@ static func initialize(unit: Dictionary, definition: Dictionary) -> void:
 	unit.abilityHistory = []
 
 static func timer(unit: Dictionary) -> Dictionary:
+	var coffin := preload("res://scripts/coffin_rules.gd").timer(unit)
+	if not coffin.is_empty(): return coffin
 	if unit.get("baseRulesSuppressed", false): return {}
 	return unit.get("formCountdown", unit.get("abilityCountdown", unit.get("spellCountdown", {})))
 

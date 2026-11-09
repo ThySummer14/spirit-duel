@@ -18,6 +18,7 @@ static func remove(gs, owner: int, src: int, reason: String, returning_to_deck: 
 	var poison_hp:=int(gs.player(owner).units[src].hp) if gs.player(owner).units[src].get("toxicPoisoned",false) else -1
 	var unit: Dictionary = gs.player(owner).units[src]
 	if unit.get("form", {}).is_empty(): return
+	gs.VerifiedRules.YanmieTrio.remember_form(unit)
 	if not returning_to_deck:gs.VerifiedRules.Garuda.form_removed(gs,owner,src)
 	gs.VerifiedRules.Puppet.form_removed(gs,owner,src,returning_to_deck)
 	if not returning_to_deck:gs.VerifiedRules.OniAsura.form_removed(gs,owner,src)
@@ -25,6 +26,8 @@ static func remove(gs, owner: int, src: int, reason: String, returning_to_deck: 
 	var old: Dictionary = unit.get("formCountdown", {})
 	var light_rules: Dictionary = unit.get("formRules", {}).duplicate(true)
 	var name := str(unit.form.get("name", "形态"))
+	var old_form: Dictionary = unit.form
+	gs.VerifiedRules.DogDemon.form_removed(unit)
 	unit.form = {}
 	unit.formRules = {}
 	unit.formHooks = []
@@ -42,6 +45,10 @@ static func remove(gs, owner: int, src: int, reason: String, returning_to_deck: 
 	elif int(unit.hp) > 0: unit.hp = int(unit.maxHp)
 	gs._log("%s 的「%s」%s，移除形态。" % [unit.name, name, reason], gs.TONE_CARD)
 	gs.VerifiedRules.event(gs, "form-removed", {"player": owner, "uid": unit.uid, "name": name, "reason": reason})
+	gs.VerifiedRules.Langya.form_removed(gs, owner, light_rules)
+	gs.VerifiedRules.DragonFlow.form_removed(gs, owner, src, light_rules)
+	gs.VerifiedRules.DuskCycle.form_removed(gs, owner, src, old_form, returning_to_deck)
+	gs.VerifiedRules.Wave7Reworks.form_left(gs, owner, src, light_rules)
 	if not returning_to_deck and not old.is_empty() and ContentLoader.unit_def(unit.id).get("formLifecycle", {}).get("destroyed", false):
 		queue_trigger(gs, owner, src, old, reason)
 

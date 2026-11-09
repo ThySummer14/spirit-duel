@@ -77,6 +77,13 @@ func rules()->void:
  check(gs.basic_attack(0,2,p.units[2].uid) and HP.amount(p.units[2])==1 and p.units[2].shield==1,"revived ally consumes actual guard bonus")
  gs=game();gs._knockout_unit(gs.player(0).units[0]);gs._knockout_unit(gs.player(0).units[2]);h=give(gs,"c60806")
  check(not gs.can_play_card(0,h,gs.player(0).units[2].uid).ok,"revive card has no invented usable-while-knocked permission")
+ gs=game();p=gs.player(0);foe=gs.player(1)
+ foe.units[0].level=0;foe.units[1].summoned=true;h=give(gs,"c60802")
+ check(not gs.can_play_card(0,h,foe.units[1].uid).ok,"enrage rejects a non-shikigami summon")
+ check(gs.play_card(0,h,foe.units[0].uid) and foe.units[0].get("enraged",false),"enrage accepts a living zero-rank shikigami")
+ gs._knockout_unit(p.units[1]);gs._knockout_unit(p.units[2]);p.units[1].catCannotRevive=true;p.units[2].level=0
+ h=give(gs,"c60806")
+ check(not gs.can_play_card(0,h,p.units[1].uid).ok and gs.play_card(0,h,p.units[2].uid) and p.units[2].hp>0,"revive respects the actual revive lock and accepts legal zero-rank target")
  gs=game();p=gs.player(0);u=p.units[0];play(gs,"c60807");play(gs,"c60802",gs.player(1).units[1].uid)
  check(u.attack==6 and u.maxHp==6,"karma exact6/6")
  check(gs.basic_attack(0,0,u.uid) and HP.amount(u)==4 and u.shield==2,"karma guard adds2war2armor only when this body deploys")

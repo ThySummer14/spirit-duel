@@ -13,6 +13,7 @@ static func gain(gs, owner: int, realm: Dictionary, amount: int) -> void:
 	var gained := amount + (2 if realm.get("nativeRealm") == "huang-moon" else 0)
 	realm.hp = int(realm.hp) + gained
 	gs.VerifiedRules.event(gs, "realm-durability-gained", {"player": owner, "realm": realm.uid, "amount": gained, "remaining": realm.hp})
+	gs.VerifiedRules.Blueprint.durability(gs, owner, str(realm.uid))
 
 static func combat_dealt(gs, owner: int, src: int, result: Dictionary) -> void:
 	if int(result.get("transferredDealt", result.get("dealt", result.get("damage", 0)))) <= 0: return
@@ -21,14 +22,24 @@ static func combat_dealt(gs, owner: int, src: int, result: Dictionary) -> void:
 	if not is_source(unit) or int(unit.level) < 1: return
 	for realm in gs.player(owner).realms.duplicate(): gain(gs, owner, realm, 1)
 
-static func destroy(gs, owner: int, realm: Dictionary, reason: String) -> void:
+static func destroy(gs, owner: int, realm: Dictionary, reason: String, moved: bool = false) -> void:
 	var idx: int = gs.player(owner).realms.find(realm)
 	if idx < 0: return
 	gs.player(owner).realms.remove_at(idx)
+	gs.player(owner).blueprintRealmLeftTurn = gs.turn_counter
+	if realm.get("nativeRealm") == "peacock-mist": gs.VerifiedRules.DuskCycle.refresh_mist(gs, owner)
 	gs.VerifiedRules.Night.refresh(gs)
 	gs.VerifiedRules.Enma.refresh(gs)
 	gs._log("幻境「%s」%s。" % [realm.name, reason], gs.TONE_CARD)
-	gs.VerifiedRules.event(gs, "realm-destroyed", {"player": owner, "realm": realm.uid, "card": ContentLoader.card_def(str(realm.cardId)), "reason": reason})
+	var card := ContentLoader.card_def(str(realm.cardId))
+	gs.VerifiedRules.event(gs, "realm-moved" if moved else "realm-destroyed", {"player": owner, "realm": realm.uid, "card": gs.VerifiedRules.Langya.realm_card(realm, card), "reason": reason, "nativeRealm": realm.get("nativeRealm", "")})
+	gs.VerifiedRules.Langya.realm_destroyed(gs, owner, realm)
+	gs.VerifiedRules.TwinSight.realm_left(gs, owner, realm)
+	gs.VerifiedRules.PeachGrove.realm_left(gs, owner, realm)
+	if realm.get("nativeRealm") == "travel-mist": gs.VerifiedRules.DragonAbyss.Travel.refresh_mist(gs, owner)
+	if realm.get("nativeRealm") == "treasure-vault": gs.VerifiedRules.Treasure.realm_trigger(gs, owner)
+	if moved: return
+	gs.VerifiedRules.StarShopCards.realm_destroyed(gs, owner, realm)
 	gs.VerifiedRules.Mountain.realm_destroyed(gs,owner,realm,reason)
 	if not realm.get("returnOnDestroy", false): return
 	var inst: Dictionary = realm.returnInstance.duplicate(true)
@@ -69,7 +80,7 @@ static func resolve_choice(gs, owner: int, iid: String) -> bool:
 	if choice.get("type") != "huang-discard" or int(choice.playerIndex) != owner or not choice.instanceIds.has(iid): return false
 	var idx: int = gs.player(owner).hand.find_custom(func(i): return str(i.instanceId) == iid)
 	if idx < 0 or ContentLoader.card_def(str(gs.player(owner).hand[idx].definitionId)).get("type") != "realm": return false
-	var inst: Dictionary = gs.player(owner).hand.pop_at(idx)
+	var inst: Dictionary = gs.discard_hand_card(owner, idx)
 	gs._record("resolve_divination_choice", {"instanceId": iid, "card": inst.definitionId, "choice": "huang-discard"}, owner)
 	gs._log("余辉弃掉「%s」。" % ContentLoader.card_def(str(inst.definitionId)).name, gs.TONE_CARD)
 	gs.pending_choice = {}
@@ -113,8 +124,8 @@ static func announced(gs, owner: int, card: Dictionary) -> void:
 	if card.get("type") != "realm": return
 	for src in range(gs.player(owner).units.size() - 1, -1, -1):
 		var unit: Dictionary = gs.player(owner).units[src]
-		if not active(unit) or not is_source(unit): continue
-		if unit.awakened:
+		if not active(unit): continue
+		if is_source(unit) and unit.awakened:
 			unit.swift = true
 			gs.VerifiedRules.event(gs, "swift-gained", {"player": owner, "uid": unit.uid})
 		if unit.get("formRules", {}).get("huangSpiral", false):

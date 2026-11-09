@@ -52,8 +52,9 @@ func baseline_rules() -> void:
 func peck_rules() -> void:
 	var gs:=game(); var p: Dictionary=gs.player(0); var foe: Dictionary=gs.player(1)
 	var u: Dictionary=p.units[0]; u.hp=1
+	foe.units[0].level=0
 	var h:=give(gs,"c25701"); var energy: int=p.energy
-	check(gs.valid_targets(0,gs.hand_card_def(0,h)).size()==4,"peck targets all living hostile shikigami")
+	check(gs.valid_targets(0,gs.hand_card_def(0,h)).size()==4,"雀啄列出所有存活敌方式神，含零勾")
 	check(not gs.play_card(0,h,p.units[1].uid) and p.energy==energy,"friendly peck rejected without payment")
 	check(gs.play_card(0,h,foe.units[0].uid),"chosen peck command accepted")
 	check(foe.units[0].hp==1 and u.hp==4 and p.night==1 and u.shield==0,"peck3 then restore3; below3 only night+1")

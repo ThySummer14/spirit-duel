@@ -66,6 +66,8 @@ func koi_cards() -> void:
 	gs=game(); p=gs.player(0); gs._knockout_unit(p.units[2],1,0); give(gs,Content.cards_for_unit("shuweng")[0].id); Marks.start(gs,0,"ward"); choose(gs)
 	check(p.units[2].knockout==1,"livingkoireducescorrespondingKOshikigamiactualcountdown")
 	gs=game(); p=gs.player(0); give(gs,"c28201"); var ownhp:int=p.units[3].hp; var foehp:int=gs.player(1).units[0].hp
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs,0,0,"koi-decoy","普通召唤物",0,9,{"countsAsShikigami":false})
+	check(not gs.valid_targets(0,Content.card_def("c28205")).has(decoy.uid),"鲤鱼精甩尾不能指定普通召唤物")
 	play(gs,"c28205",p.units[3].uid); check(p.units[3].hp==maxi(0,ownhp-4) and gs.player(1).units[0].hp==foehp and gs.phase=="choice","tailwhipcanactuallyselectownunitthenward"); choose(gs)
 	gs=game(); p=gs.player(0); give(gs,"c28201"); play(gs,"c28206"); check(not p.units[0].awakened,"wardbeforeawakening"); choose(gs)
 	check(p.units[0].awakened and p.units[0].attack==5 and p.units[0].maxHp==5,"printedawakeningandpreawakeordinarygrowth"); Pair.end_turn(gs)
@@ -103,9 +105,12 @@ func fragrance_cards() -> void:
 	for id in ["c28201","c28202","c28203","c28204"]:give(gs,id,1)
 	play(gs,"c28806"); var offered:Array=gs.pending_choice.instanceIds.duplicate(); var kept:String=offered[0]; choose(gs)
 	check(foe.hand.size()==3 and not Marks.instance(gs,1,kept).is_empty() and Marks.instance(gs,1,str(offered[1])).is_empty(),"discardonlyunselectedofferednotwholehand")
-	gs=game(); foe=gs.player(1); give(gs,"c28201",1); var hps:Array=foe.units.map(func(u):return u.hp); play(gs,"c28807")
+	gs=game(); foe=gs.player(1); give(gs,"c28201",1)
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs,1,0,"fragrance-decoy","普通召唤物",0,9,{"countsAsShikigami":false})
+	var hps:Array=foe.units.map(func(u):return u.hp); play(gs,"c28807")
 	check(foe.units.map(func(u):return u.hp)==hps,"AOEwaitschoice"); choose(gs)
-	for i in foe.units.size(): check(foe.units[i].hp==maxi(0,int(hps[i])-3),"AOEallfouraftermark "+str(i))
+	for i in 4: check(foe.units[i].hp==maxi(0,int(hps[i])-3),"AOEallfouraftermark "+str(i))
+	check(decoy.hp==8 and events(gs,"fragrance-projectile").any(func(e):return e.target==decoy.uid),"普通召唤物只受蚀印的独立投射，排除随后式神群伤")
 func forced_legality() -> void:
 	var gs:=game(); var p:Dictionary=gs.player(0); var foe:Dictionary=gs.player(1)
 	gs._install_form(1,1,Content.card_def("c28808"),{"attack":5,"hp":7,"setBase":true}); gs.resolution_stack.clear()

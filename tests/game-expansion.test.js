@@ -55,6 +55,24 @@ function findUnit(state, playerIndex, unitId) {
   return state.players[playerIndex].units.find((unit) => unit.id === unitId);
 }
 
+test('连环雷 damages up to two distinct opposing characters', () => {
+  const makeGame = () => createGame({ seed: 92138, playerUnitIds: ['leiyin', 'lumen', 'basalt', 'ink'] });
+  const enemyLife = (state) => {
+    const enemy = state.players[1];
+    return [enemy.avatarHp, ...enemy.units.map((unit) => unit.hp)];
+  };
+  const cast = (state) => {
+    findUnit(state, 0, 'leiyin').level = 2;
+    const before = enemyLife(state);
+    const result = play(state, 0, 'w12-leiyin-92138');
+    return enemyLife(result).map((hp, index) => before[index] - hp).filter((damage) => damage > 0);
+  };
+  assert.deepEqual(cast(makeGame()), [2, 2]);
+  const avatarOnly = makeGame();
+  avatarOnly.players[1].units.forEach((unit) => { unit.hp = 0; });
+  assert.deepEqual(cast(avatarOnly), [2]);
+});
+
 test('focus draws an extra card only as the first card of the turn', () => {
   let state = createGame({ seed: 11 });
   const handBefore = state.players[0].hand.length;

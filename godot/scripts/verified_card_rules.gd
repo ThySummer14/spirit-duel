@@ -1,6 +1,9 @@
 class_name VerifiedCardRules
 extends RefCounted
 const ContentLoader := preload("res://scripts/content_loader.gd")
+const PaperDance := preload("res://scripts/paper_dance_rules.gd")
+const TwinSight := preload("res://scripts/twin_sight_rules.gd")
+const SandBook := preload("res://scripts/sand_book_rules.gd")
 const Countdown := preload("res://scripts/countdown_rules.gd")
 const Forms := preload("res://scripts/form_countdown_rules.gd")
 const SpellReplay := preload("res://scripts/spell_replay_rules.gd")
@@ -8,6 +11,7 @@ const ArmorBreak := preload("res://scripts/armor_break_rules.gd")
 const Poison := preload("res://scripts/poison_rules.gd")
 const TomatoFire := preload("res://scripts/tomato_fire_rules.gd")
 const Phoenix := preload("res://scripts/phoenix_rules.gd")
+const YanmieTrio := preload("res://scripts/yanmie_trio_rules.gd")
 const Peach := preload("res://scripts/peach_rules.gd")
 const Firefly := preload("res://scripts/firefly_rules.gd")
 const Yaodao := preload("res://scripts/yaodao_rules.gd")
@@ -49,8 +53,48 @@ const RednightWalnut := preload("res://scripts/rednight_walnut_rules.gd")
 const Cooking := preload("res://scripts/cooking_rules.gd")
 const EssenceFeast := preload("res://scripts/essence_feast_rules.gd")
 const SerpentGhost := preload("res://scripts/serpent_ghost_rules.gd")
+const Coffin := preload("res://scripts/coffin_rules.gd")
+const Commission := preload("res://scripts/commission_rules.gd")
+const Destiny := preload("res://scripts/destiny_choice_rules.gd")
+const Cooperation := preload("res://scripts/cooperation_rules.gd")
+const CoopFirst := preload("res://scripts/coop_first_rules.gd")
+const CoopMiddle := preload("res://scripts/coop_middle_rules.gd")
+const CoopLate := preload("res://scripts/coop_late_rules.gd")
+const Himiko := preload("res://scripts/himiko_rules.gd")
+const TimeRewind := preload("res://scripts/time_rewind_rules.gd")
 const MusicFire := preload("res://scripts/music_fire_rules.gd")
 const WisdomLamp := preload("res://scripts/wisdom_lamp_rules.gd")
+const Langya := preload("res://scripts/langyazi_rules.gd")
+const Guishihei := preload("res://scripts/guishihei_rules.gd")
+const Treasure := preload("res://scripts/treasure_rules.gd")
+const Insight := preload("res://scripts/insight_rules.gd")
+const Solar := preload("res://scripts/solar_rules.gd")
+const Astral := preload("res://scripts/astral_rules.gd")
+const Chen := preload("res://scripts/chen_rules.gd")
+const Rain := preload("res://scripts/rain_rules.gd")
+const Bone := preload("res://scripts/bone_rules.gd")
+const WaterMoon := preload("res://scripts/water_moon_rules.gd")
+const Wave7Reworks := preload("res://scripts/wave7_rework_rules.gd")
+const Hanafuda := preload("res://scripts/hanafuda_rules.gd")
+const Xuan := preload("res://scripts/xuan_rules.gd")
+const Luohou := preload("res://scripts/luohou_rules.gd")
+const LunarTrick := preload("res://scripts/lunar_trick_rules.gd")
+const LineageScroll := preload("res://scripts/lineage_scroll_rules.gd")
+const DragonFlow := preload("res://scripts/dragon_flow_rules.gd")
+const ZenMisfortune := preload("res://scripts/zen_misfortune_rules.gd")
+const Blueprint := preload("res://scripts/blueprint_rules.gd")
+const NineTails := preload("res://scripts/nine_tails_rules.gd")
+const FortuneCat := preload("res://scripts/fortune_cat_rules.gd")
+const Grudge := preload("res://scripts/grudge_rules.gd")
+const BaizeYuanqi := preload("res://scripts/baize_yuanqi_rules.gd")
+const FactionArt := preload("res://scripts/faction_art_rules.gd")
+const WindCharm := preload("res://scripts/wind_charm_rules.gd")
+const FortunateDuo := preload("res://scripts/fortunate_duo_rules.gd")
+const DuskCycle := preload("res://scripts/dusk_cycle_rules.gd")
+const PeachGrove := preload("res://scripts/peach_grove_rules.gd")
+const NativeSummons := preload("res://scripts/native_summons.gd")
+const CatSamurai := preload("res://scripts/cat_samurai_rules.gd")
+const Izanami := preload("res://scripts/izanami_rules.gd")
 const HairPower := preload("res://scripts/hair_power_rules.gd")
 const FearWing := preload("res://scripts/fear_wing_rules.gd")
 const Arakawa := preload("res://scripts/arakawa_rules.gd")
@@ -91,10 +135,20 @@ const Fortune := preload("res://scripts/fortune_pair_rules.gd")
 const Movement := preload("res://scripts/movement_rules.gd")
 const DogDemon := preload("res://scripts/dog_demon_rules.gd")
 const BookJue := preload("res://scripts/book_jue_rules.gd")
+const BattleShop := preload("res://scripts/battle_shop_rules.gd")
+const StarShopCards := preload("res://scripts/star_shop_card_rules.gd")
+const StarRealms := preload("res://scripts/star_realm_rules.gd")
+const ForestSpirit := preload("res://scripts/forest_spirit_rules.gd")
+const FoxFlame := preload("res://scripts/fox_flame_rules.gd")
+const GoatHeist := preload("res://scripts/goat_heist_rules.gd")
+const CarFrog := preload("res://scripts/car_frog_rules.gd")
+const GiftEnergy := preload("res://scripts/gift_energy_rules.gd")
+const DragonAbyss := preload("res://scripts/dragon_abyss_rules.gd")
 const SunSmoke := preload("res://scripts/sun_smoke_rules.gd")
 const FoxSuzuka := preload("res://scripts/fox_suzuka_rules.gd")
 const ArmorBlood := preload("res://scripts/armor_blood_rules.gd")
 const Huang := preload("res://scripts/huang_rules.gd")
+const ShenqiHuang := preload("res://scripts/shenqi_huang_rules.gd")
 const Mengpo := preload("res://scripts/mengpo_rules.gd")
 const UpgradeBlessing := preload("res://scripts/upgrade_blessing_rules.gd")
 const IronMouse := preload("res://scripts/iron_mouse_rules.gd")
@@ -122,6 +176,16 @@ const RabbitTide := preload("res://scripts/rabbit_tide_rules.gd")
 ## No card or character IDs in the executor; all capabilities live in content.
 
 static func event(gs, kind: String, details: Dictionary) -> void:
+	DragonAbyss.event(gs, kind, details)
+	if kind == "charm-attached":
+		var owner := int(details.get("player", -1))
+		if owner >= 0:
+			var idx: int = gs._unit_index_by_uid(owner, details.get("uid"))
+			if idx >= 0: DragonFlow.curse_attached(gs, owner, idx)
+	Wave7Reworks.event(gs, kind, details)
+	Hanafuda.event(gs, kind, details)
+	if kind == "shop-used": FortuneCat.used(gs, details)
+	if kind == "summon-created": Izanami.summon_entered(gs, details)
 	FearWing.rule_event(gs,kind,details)
 	MusicFire.rule_event(gs,kind,details)
 	SugarCat.rule_event(gs,kind,details)
@@ -139,8 +203,23 @@ static func event(gs, kind: String, details: Dictionary) -> void:
 	gs.next_rule_event_id += 1
 	gs.rule_events.append(entry)
 	if gs.rule_events.size() > 128: gs.rule_events.pop_front()
+	if kind == "deck-revealed":
+		ShenqiHuang.revealed(gs, details)
+		Himiko.revealed(gs, details)
+	PaperDance.event(gs, kind, details)
+	SandBook.event(gs, kind, details)
+	CoopFirst.event(gs, kind, details)
+	CoopMiddle.rule_event(gs, kind, details)
+	CoopLate.event(gs, kind, details)
 
 static func card_announced(gs, p_idx: int, src: int, card: Dictionary) -> void:
+	CoopLate.announced(gs, p_idx, src, card)
+	Langya.passive_trigger(gs, p_idx, src)
+	Treasure.announced(gs, p_idx, src, card)
+	Astral.announced(gs, p_idx, card)
+	Rain.announced(gs, p_idx, card)
+	WaterMoon.announced(gs, p_idx, src, card)
+	LunarTrick.announced(gs, p_idx, card)
 	RabbitTide.card_announced(gs,p_idx,src,card)
 	Enma.card_announced(gs,p_idx,src,card)
 	StarBear.card_announced(gs,p_idx,src,card)
@@ -148,6 +227,7 @@ static func card_announced(gs, p_idx: int, src: int, card: Dictionary) -> void:
 	Movement.announced(gs, p_idx, src)
 	Yijin.announced(gs, p_idx, src, card)
 	Firefly.card_announced(gs, p_idx, src, card)
+	YanmieTrio.announced(gs, p_idx, src)
 	DogDemon.card_announced(gs, p_idx, src, card)
 	var unit: Dictionary = gs.player(p_idx).units[src]
 	var cfg: Dictionary = ContentLoader.runtime_unit_def(unit).get("spellCountdown", {})
@@ -159,6 +239,7 @@ static func card_announced(gs, p_idx: int, src: int, card: Dictionary) -> void:
 		event(gs, "countdown-set", {"uid": unit.uid, "remaining": count, "player": p_idx})
 
 static func card_started(gs, p_idx: int, src: int, card: Dictionary, automatic: bool) -> void:
+	TimeRewind.record_play(gs, p_idx, card, automatic)
 	HandBlessing.started(gs,p_idx,src,card)
 	ArmorBlood.card_started(gs, p_idx, card)
 	Light.card_started(gs, p_idx, card)
@@ -194,7 +275,7 @@ static func reduce_countdown(gs, p_idx: int, src: int, amount: int, card_owner: 
 			gs._log("%s 气绝倒计时结束，恢复全部生命。" % unit.name, gs.TONE_SUCCESS)
 			Movement.revived(gs, p_idx, src)
 		return
-	if int(unit.level) < 1: return
+	if int(unit.level) < 1 and not unit.has("jumpCoffin"): return
 	if include_charms: Glutton.reduce_timer(gs,p_idx,src,amount)
 	var timer: Dictionary = Countdown.timer(unit)
 	if timer.is_empty(): return
@@ -206,6 +287,7 @@ static func reduce_countdown(gs, p_idx: int, src: int, amount: int, card_owner: 
 	event(gs, "countdown-tick", {"uid": unit.uid, "remaining": int(timer.remaining), "player": p_idx})
 	if int(timer.remaining) > 0: return
 	Pine.countdown_zero(gs,p_idx,src)
+	if Coffin.reached_zero(gs, p_idx, src, timer): return
 	# Overflow is discarded. Reset before queuing the cast; reductions that
 	# occur later are separate effects and see the reset countdown.
 	timer.remaining = int(timer.reset)
@@ -229,13 +311,55 @@ static func move_unit(gs, p_idx: int, unit: Dictionary) -> void:
 			return
 
 static func resolve_action(gs, p_idx: int, src: int, card: Dictionary, effect: Dictionary, target: Dictionary, target_id = null) -> bool:
+	if src >= 0:
+		if CoopFirst.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+		if CoopMiddle.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+		if CoopLate.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if Grudge.resolve(gs, p_idx, src, card, effect, target): return true
+	if BaizeYuanqi.resolve(gs, p_idx, src, card, effect, target): return true
+	if StarRealms.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if LineageScroll.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if DragonFlow.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if ZenMisfortune.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if Blueprint.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if NineTails.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if FortuneCat.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if WindCharm.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if FactionArt.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if FortunateDuo.resolve(gs, p_idx, src, card, effect, target, target_id): return true
+	if src >= 0 and DuskCycle.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
+	if src >= 0 and PeachGrove.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
+	if DragonAbyss.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
+	if Wave7Reworks.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
+	if Hanafuda.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
+	if Xuan.resolve_action(gs, p_idx, src, card, effect, target): return true
+	if Luohou.resolve(gs, p_idx, src, card, effect, target): return true
+	if YanmieTrio.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
+	if PaperDance.resolve_action(gs, p_idx, src, card, effect, target): return true
+	if TwinSight.resolve_action(gs, p_idx, src, card, effect, target): return true
+	if SandBook.resolve_action(gs, p_idx, src, card, effect, target): return true
 	if EssenceFeast.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if SerpentGhost.resolve_action(gs,p_idx,src,card,effect,target_id):return true
+	if Coffin.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
+	if Commission.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
+	if TimeRewind.resolve(gs, p_idx, src, card, effect, target_id): return true
 	if MusicFire.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if SugarCat.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if RabbitTide.resolve_action(gs,p_idx,src,card,effect,target,target_id): return true
 	if FearWing.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if WisdomLamp.resolve_action(gs,p_idx,src,card,effect,target_id):return true
+	if Langya.resolve_action(gs,p_idx,src,card,effect,target_id):return true
+	if Guishihei.resolve_action(gs, p_idx, src, card, effect, target): return true
+	if Treasure.resolve_action(gs, p_idx, src, card, effect, target_id): return true
+	if Solar.resolve_action(gs, p_idx, src, card, effect, target_id): return true
+	if Astral.resolve_action(gs, p_idx, src, card, effect): return true
+	if Chen.resolve_action(gs, p_idx, src, card, effect): return true
+	if Rain.resolve_action(gs, p_idx, src, card, effect, target_id): return true
+	if Bone.resolve_action(gs, p_idx, src, card, effect, target_id): return true
+	if WaterMoon.resolve_action(gs, p_idx, src, card, effect, target_id): return true
+	if card.get("lunarRules", false) and LunarTrick.resolve_action(gs, p_idx, src, card, effect, target_id): return true
+	if card.get("catRules", false) and CatSamurai.resolve_action(gs, p_idx, src, card, effect, target_id): return true
+	if card.get("izanamiRules", false) and Izanami.resolve_action(gs, p_idx, src, card, effect, target_id): return true
 	if HairPower.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if Cooking.resolve_action(gs,p_idx,src,card,effect,target_id):return true
 	if Arakawa.resolve_action(gs,p_idx,src,card,effect,target_id):return true
@@ -310,12 +434,15 @@ static func resolve_action(gs, p_idx: int, src: int, card: Dictionary, effect: D
 	if UpgradeBlessing.resolve_action(gs, p_idx, src, effect, target): return true
 	if Mengpo.resolve_action(gs, p_idx, src, card, effect): return true
 	if Huang.resolve_action(gs, p_idx, src, card, effect): return true
+	if ShenqiHuang.resolve_action(gs, p_idx, src, card, effect, target_id): return true
+	if Himiko.resolve_action(gs, p_idx, src, card, effect, target_id): return true
 	if ArmorBlood.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
 	if TomatoFire.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
 	if Movement.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
 	if FoxSuzuka.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
 	if Fortune.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
 	if Poison.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
+	if GiftEnergy.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
 	if SunSmoke.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
 	if BookJue.resolve_action(gs, p_idx, src, card, effect, target): return true
 	if Light.resolve_action(gs, p_idx, src, card, effect, target, target_id): return true
@@ -378,6 +505,23 @@ static func resolve_action(gs, p_idx: int, src: int, card: Dictionary, effect: D
 	return true
 
 static func end_turn(gs, p_idx: int) -> void:
+	Commission.end_turn(gs, p_idx)
+	if ForestSpirit.has_realm(gs, p_idx, "stars-car-realm"): CarFrog.special(gs, p_idx, CarFrog.front_frog(gs, p_idx))
+	LineageScroll.end_turn(gs, p_idx)
+	Blueprint.end_turn(gs, p_idx)
+	PeachGrove.end_turn(gs, p_idx)
+	DragonAbyss.Aki.end_turn(gs, p_idx)
+	for side in 2:
+		for u in gs.player(side).units:
+			if u.has("abyssJadeDebuff"):
+				u.erase("abyssJadeDebuff")
+				gs._recalc(u)
+	Wave7Reworks.end_turn(gs, p_idx)
+	Hanafuda.end_turn(gs, p_idx)
+	Luohou.end_turn(gs, p_idx)
+	CatSamurai.end_turn(gs, p_idx)
+	Izanami.expire(gs)
+	Guishihei.end_turn(gs)
 	WisdomLamp.end_turn(gs,p_idx)
 	MusicFire.end_turn(gs,p_idx)
 	SerpentGhost.end_turn(gs,p_idx)
@@ -423,6 +567,7 @@ static func end_turn(gs, p_idx: int) -> void:
 	Tide.end_turn(gs)
 	Forms.end_turn(gs)
 	Firefly.end_turn(gs, p_idx)
+	YanmieTrio.end_turn(gs, p_idx)
 	Shuten.end_turn(gs, p_idx)
 	SnowCrane.end_turn(gs, p_idx)
 	for source in gs.player(p_idx).units:
@@ -437,6 +582,8 @@ static func end_turn(gs, p_idx: int) -> void:
 	UpgradeBlessing.end_turn(gs)
 
 static func knocked_out(unit: Dictionary) -> void:
+	unit.erase("paperFall")
+	unit.erase("twinZeroTurn")
 	HairPower.clear(unit)
 	RedPurple.knocked_out(unit)
 	Toxic.knocked_out(unit)
@@ -506,10 +653,22 @@ static func cancel_pending_card(gs, frame: Dictionary) -> bool:
 	var card: Dictionary = frame.get("cardOverride", ContentLoader.card_def(str(frame.definitionId)))
 	gs._log("「%s」被魔音扰心阻止，整张牌不生效。" % card.name, gs.TONE_DANGER)
 	event(gs, "card-nullified", {"player": p_idx, "uid": str(p.units[int(frame.sourceIndex)].uid) if int(frame.sourceIndex)>=0 else "avatar-%d"%p_idx, "card": card, "resolutionId": rid})
+	Insight.used(gs, p_idx, card, card.get("playedInstance", {}), false)
 	return true
 
 static func announce_card(gs, frame: Dictionary) -> void:
 	var announced: Dictionary = frame.get("cardOverride", ContentLoader.card_def(str(frame.definitionId)))
+	Himiko.announced(gs, frame)
+	CoopMiddle.announced(gs, frame, announced)
+	DuskCycle.announced(gs, frame, announced)
+	PeachGrove.card_used(gs, frame, announced)
+	DragonAbyss.Travel.announced(gs, int(frame.playerIndex), int(frame.sourceIndex), announced)
+	DragonAbyss.Curse.announced(gs, frame, announced)
+	DragonAbyss.Discard.announced(gs, int(frame.playerIndex), announced)
+	Wave7Reworks.lamp_announce(gs, frame, announced)
+	Hanafuda.moon_announce(gs, int(frame.playerIndex), announced, frame.get("targetId"))
+	Xuan.announced(gs, int(frame.playerIndex), announced)
+	TwinSight.announced(gs, frame, announced)
 	RednightWalnut.announced(gs,frame,announced)
 	Arakawa.announced(gs,frame,announced)
 	EssenceFeast.announced(gs,frame,announced)
@@ -536,17 +695,34 @@ static func announce_card(gs, frame: Dictionary) -> void:
 	Mengpo.announced(gs, int(frame.playerIndex), announced)
 	FoxSuzuka.announced(gs, frame, announced)
 	BookJue.announced(gs, frame, announced)
+	GiftEnergy.announced(gs, frame, announced)
 	SunSmoke.smoke_copy(gs, frame, announced)
 	Xuenv.announced(gs, frame, announced)
 	FoxLotus.announced(gs,frame,announced)
 	Phoenix.card_announced(gs, frame, announced)
 	card_announced(gs, int(frame.playerIndex), int(frame.sourceIndex), announced)
-	if frame.get("automatic", false): return
+	LineageScroll.announce(gs, frame, announced)
+	Commission.announced(gs, frame, announced)
+	DragonFlow.announced(gs, frame, announced)
+	FortuneCat.announced(gs, frame)
+	if announced.get("type") == "realm":
+		var owner := int(frame.playerIndex)
+		gs.player(owner).blueprintRealmUsed = int(gs.player(owner).get("blueprintRealmUsed",0))+1
+	FactionArt.announce(gs, frame, announced)
+	if frame.get("automatic", false):
+		LunarTrick.counter(gs, frame, announced)
+		return
 	if cancel_pending_card(gs, frame): return
+	if FoxFlame.counter(gs, frame): return
 	if Onikiri.enemy_spell(gs,frame,announced): return
+	if ZenMisfortune.counter(gs, frame, announced): return
+	if LunarTrick.counter(gs, frame, announced): return
 	var owner := 1 - int(frame.playerIndex)
 	var check := frame.duplicate(true)
 	check.kind = "card-counter-check"
+	if FactionArt.can_counter(frame, announced) and automatic_response(gs, owner, "faction-counter", null, check): return
+	if announced.get("usedFromHand", false) and not announced.get("playedInstance", {}).is_empty():
+		if automatic_response(gs, owner, "sand-enemy-hand-use", null, check): return
 	if PipeFox.single_target(gs,owner,frame,announced) and automatic_response(gs,owner,"enemy-single-character",frame.targetId,check): return
 	automatic_response(gs, owner, "opponent-card-used", null, check)
 
@@ -555,11 +731,17 @@ static func automatic_response(gs, owner: int, trigger: String, target_id, conti
 	# 封魔符／封魔箭也能在己方回合被攻击时响应。
 	var p: Dictionary = gs.player(owner)
 	for i in gs.playable_card_count(owner):
-		var card: Dictionary = gs.hand_card_def(owner, i)
+		var card: Dictionary = gs.hand_card_def(owner, i).duplicate(true)
+		var origin: Dictionary = card.get("originCard", {})
+		if origin.get("w7Origin", false) and origin.get("autoResponse", "") == trigger and not trigger.is_empty():
+			card = origin
 		if owner == gs.current_player and not (card.get("yujiazhuRules", false) and card.id == "c18904"): continue
 		var response := str(card.get("autoResponse", ""))
 		if card.get("owlInterfere",false) and (trigger != "unit-attacked" or not OwlInsect.guarded(gs._unit_by_uid(p.units,target_id))): continue
 		if trigger == "unit-attacked":
+			if card.get("starsCarResponse", false):
+				var defended: Dictionary = gs._unit_by_uid(p.units, target_id)
+				if defended.get("id", "") != CarFrog.CAR and not CarFrog.frog(defended): continue
 			if response not in ["source-attacked", "front-attacked", "other-ally-attacked", "ally-attacked"]: continue
 			var defender: Dictionary = gs._unit_by_uid(p.units, target_id)
 			if defender.is_empty(): continue
@@ -594,17 +776,30 @@ static func automatic_response(gs, owner: int, trigger: String, target_id, conti
 		if not Panguan.can_use(gs, owner, card): continue
 		var actual_target = target_id
 		var targets_attacker: bool = card.get("owlInterfere",false) or card.id=="c24404" or (card.get("yujiazhuRules",false) and card.id=="c18904")
+		if card.get("starsCarResponse", false):
+			actual_target = gs.player(int(continuation.playerIndex)).units[int(continuation.sourceIndex)].uid
 		if targets_attacker:
 			actual_target = gs.player(int(continuation.playerIndex)).units[int(continuation.sourceIndex)].uid
 			# A forced response target still has to belong to the printed side.
 			# It is not a manual selection, so do not add a veil restriction.
 			if card.get("target", "auto") == "enemy-unit" and gs._unit_index_by_uid(1-owner, str(actual_target)) < 0: continue
+		if not Insight.allowed(gs, owner, card): continue
 		var payment: Dictionary = gs.card_payment(owner, card)
 		if int(p.energy) < int(payment.cost): continue
+		Treasure.pay(gs, owner, payment)
+		if payment.get("chenAwakenedFree", false): gs.player(owner).chenNextFree = false
+		Wave7Reworks.pay_lamp(gs, owner, card, payment)
 		gs._set_fire(owner,int(p.energy)-int(payment.cost),true)
 		Moon.consume_card(gs,card)
-		if payment.usesInstant: gs.kw_usage(owner, "instant").used = true
-		gs.take_card_instance(owner, i)
+		if payment.usesInstant: gs.consume_instant(owner)
+		var from_hand: bool = not Insight.active(gs, owner) and i < p.hand.size()
+		var spent: Dictionary = gs.take_card_instance(owner, i)
+		card.usedFromHand = from_hand and not spent.get("linkVirtual", false)
+		card.paidFire = int(payment.cost)
+		if card.get("insightFromZone", false): card.playedInstance = spent
+		if SandBook.source(gs, 1-owner) >= 0 and i < p.hand.size()+1 and not card.get("insightFromZone", false):
+			card.usedFromHand = true
+			card.playedInstance = spent
 		p.cardsPlayedThisTurn = int(p.cardsPlayedThisTurn) + 1
 		if card.get("coinDamageGuard", false) and trigger == "source-damaged":
 			card = card.duplicate(true)
@@ -614,6 +809,22 @@ static func automatic_response(gs, owner: int, trigger: String, target_id, conti
 			card.windResponded = true
 		gs.resolution_stack.append(continuation)
 		var combat_id := int(continuation.get("combatId", -1)) if card.get("responseModifiesCombat", false) else -1
+		if trigger == "stars-fox-counter": card.starsFoxCounter = continuation
+		if trigger == "lunar-counter":
+			card = card.duplicate(true)
+			card.lunarCounter = continuation
+		if trigger == "faction-counter":
+			card = card.duplicate(true)
+			card.restoredCounter = continuation
+		if response == "sand-enemy-hand-use":
+			card = card.duplicate(true)
+			card.sandCounter = {"resolutionId": continuation.resolutionId, "card": continuation.cardOverride}
+		if response == "word-sin":
+			card = card.duplicate(true)
+			card.wordOriginal = continuation
+		if response == "wingguard-end":
+			card = card.duplicate(true)
+			card.wingguardResponse = true
 		if card.get("foxCounter",false) and trigger=="enemy-single-character":
 			card=card.duplicate(true); card.foxCounterId=int(continuation.resolutionId)
 			card.foxCounterCard=continuation.get("cardOverride",ContentLoader.card_def(str(continuation.definitionId)))
@@ -654,6 +865,15 @@ static func passive_damage_avatar(gs, owner: int, src: int, victim: int, amount:
 # Food is played by the player, without an invented source shikigami.
 static func announce_neutral_food(gs, frame: Dictionary) -> void:
 	var card: Dictionary=frame.cardOverride
+	LineageScroll.announce(gs, frame, card)
+	Commission.announced(gs, frame, card)
+	FortuneCat.announced(gs, frame)
+	PeachGrove.card_used(gs, frame, card)
+	DragonAbyss.Travel.announced(gs, int(frame.playerIndex), -1, card)
+	DragonAbyss.Discard.announced(gs, int(frame.playerIndex), card)
+	LunarTrick.announced(gs, int(frame.playerIndex), card)
+	Astral.announced(gs, int(frame.playerIndex), card)
+	Rain.announced(gs, int(frame.playerIndex), card)
 	Arakawa.announced(gs,frame,card)
 	EssenceFeast.announced(gs,frame,card)
 	FoxSuzuka.announced(gs,frame,card)
@@ -662,6 +882,7 @@ static func announce_neutral_food(gs, frame: Dictionary) -> void:
 	event(gs,"neutral-card-announced",{"player":int(frame.playerIndex),"card":card.duplicate(true),"resolutionId":int(frame.resolutionId),"sourceIndex":-1})
 	if frame.get("automatic",false):return
 	if cancel_pending_card(gs,frame):return
+	if FoxFlame.counter(gs, frame): return
 	var enemy:=1-int(frame.playerIndex)
 	var continuation:=frame.duplicate(true);continuation.kind="card-counter-check"
 	if PipeFox.single_target(gs,enemy,frame,card) and automatic_response(gs,enemy,"enemy-single-character",frame.targetId,continuation):return

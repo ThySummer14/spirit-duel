@@ -60,7 +60,8 @@ func definitions_and_targets() -> void:
 			var card := Content.card_def(id)
 			check(card.get("blueGreenRules", false) and not card.get("effects", []).is_empty(), "real card dispatcher " + id)
 			check(FileAccess.file_exists("res://assets/official/cards/%s.png" % id) and not card.get("verificationPending", []).is_empty(), "original PNG and client pending boundary " + id)
-	check(not Content.card_def("c20602").get("verifiedRules", true) and Content.card_def("c20602").get("bgMingchePool", []).is_empty(), "unresolved Mingche pool is explicit and cannot count as restored")
+	var mingche := Content.card_def("c20602")
+	check(mingche.verifiedRules and mingche.bgMingchePool == ["pierce", "unyielding", "combo", "first-strike", "veil", "lethal", "remote", "lifesteal", "crit", "direct"], "Mingche carries the ten stock client traits")
 	check(Content.card_def("julijialuo-wan").effects[0].action == "bg-kurikara" and Content.card_def("julijialuo-wan").keywords.has("instant"), "derived card uses actual stunned-enemy area rule")
 	var h := give(gs, "c20701")
 	var foe: Dictionary = gs.player(1)
@@ -277,8 +278,14 @@ func fortune_and_damage_boundaries() -> void:
 	check(gs.hand_card_def(0, 2).value == 1, "newly obtained Mingche cannot inherit earlier fortune success")
 	check(gs.VerifiedRules.Light.roll(gs, 0, 1, 6, 2), "second actual success enhances hand copies")
 	check(gs.hand_card_def(0, 0).value == 3 and gs.hand_card_def(0, 1).value == 3 and gs.hand_card_def(0, 2).value == 2, "enhancement belongs to actual hand instances rather than a global card-name counter")
+	var rolled: Array = p.hand[0].bgMingcheTraits
+	check(rolled.size() == 2 and rolled.all(func(keyword): return keyword in gs.hand_card_def(0, 0).keywords), "sampled traits are visible on the original hand instance")
+	p.hand[0].bgMingcheTraits = ["direct", "veil"]
 	var attack := int(p.units[0].attack)
-	check(gs.play_card(0, 0) and foe.avatarHp == 30 - attack - 3 and p.units[0].shield == 1, "partial Mingche actually attacks with its enhanced power and grants one printed armor")
+	foe.units[0].front = 1
+	var front_hp := int(foe.units[0].hp)
+	check(gs.play_card(0, 0) and foe.avatarHp == 30 - attack - 3 and foe.units[0].hp == front_hp and p.units[0].shield == 1, "enhanced Mingche applies direct attack and one printed armor")
+	check(not gs.VerifiedRules.Combat.has(p.units[0], "veil"), "veil granted by the attack card expires after its own combat")
 	gs.end_turn(0)
 	check(gs.hand_card_def(0, 0).value == 1 and gs.hand_card_def(0, 1).value == 1, "per-turn Mingche power does not survive the actual turn boundary")
 	gs = game(); p = gs.player(0); foe = gs.player(1)
@@ -334,6 +341,15 @@ func ui_rules() -> void:
 		await capture("%d-03-direct-attack" % physical.x)
 		await click(b._enemy_plate); await settled(b)
 		check(foe.avatarHp == avatar - 5 and foe.units[0].hp == front_hp, "native dark-feather selection directs the real attack past front")
+		hand(b, ["c20602"])
+		check(b.gs.VerifiedRules.Light.roll(b.gs, 0, 1, 6, 1), "native fixture rolls a successful fortune")
+		b._refresh()
+		await settled(b)
+		var mingche: Dictionary = b._hand_row.get_child(0).data
+		check(mingche.keywords.size() == 1 and mingche.currentCardStats.contains("+2力量/+1护甲"), "native hand tile shows the rolled trait and actual combat values")
+		var energy := int(p.energy)
+		await click(b._hand_row.get_child(0)); await settled(b)
+		check(p.hand.is_empty() and p.energy == energy - 1, "native mouse plays the enhanced hand instance")
 		b.queue_free(); await process_frame; await process_frame
 
 func run() -> void:

@@ -39,7 +39,7 @@ static func end_turn(gs, owner: int) -> void:
 static func roll(gs, owner: int, threshold: int, sides: int = 6, source: int = -1, force_success: bool = false) -> bool:
 	var forced: int = gs.VerifiedRules.Fortune.forced_die(gs, owner, source)
 	var die_bonus: int = gs.VerifiedRules.River.die_bonus(gs, owner)
-	var first := mini(sides, (forced if forced > 0 else int(floor(gs.randf01() * sides)) + 1) + die_bonus)
+	var first := 1 if gs.VerifiedRules.ZenMisfortune.first_die(gs, owner, source) else mini(sides, (forced if forced > 0 else int(floor(gs.randf01() * sides)) + 1) + die_bonus)
 	gs.VerifiedRules.Fortune.record_die(gs, owner, first)
 	var result := first
 	var rerolled := false
@@ -51,6 +51,7 @@ static func roll(gs, owner: int, threshold: int, sides: int = 6, source: int = -
 			rerolled = true
 			break
 	var success := force_success or result >= threshold
+	result = gs.VerifiedRules.FortunateDuo.rolled(gs, owner, source, result, success)
 	var copies: int = gs.VerifiedRules.Fortune.repeat_count(gs, owner) if success else 0
 	gs.kw_usage(owner, "fortune").last = {"roll": result, "firstRoll": first, "sides": sides, "threshold": threshold, "success": success, "rerolled": rerolled, "effectRepeats": copies}
 	if success: gs.player(owner).fortuneSuccesses = int(gs.player(owner).get("fortuneSuccesses", 0)) + 1
@@ -60,6 +61,7 @@ static func roll(gs, owner: int, threshold: int, sides: int = 6, source: int = -
 		gs.VerifiedRules.River.success(gs, owner)
 	gs.VerifiedRules.event(gs, "fortune-result", {"player": owner, "sourceIndex": source, "roll": result, "firstRoll": first, "threshold": threshold, "success": success, "rerolled": rerolled, "effectRepeats": copies})
 	gs._log("%s 运势%d：%d%s，%s。" % [gs.player(owner).name, threshold, first, " → %d（重投）" % result if rerolled else "", "成功" if success else "失败"], gs.TONE_CARD)
+	gs.VerifiedRules.ZenMisfortune.fortune_result(gs, owner, source, success)
 	return success
 
 static func fortune_total(gs) -> int:
@@ -260,7 +262,7 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			if target.is_empty() or not targets(gs, owner, card).has(target.uid): return true
 			for i in p.hand.size():
 				if ContentLoader.card_def(str(p.hand[i].definitionId)).get("lightLantern", false):
-					p.hand.remove_at(i)
+					gs.discard_hand_card(owner, i)
 					if int(target.level) >= 3: gs._draw(owner, 1)
 					else: gs.raise_unit_level(owner, gs._unit_index_by_uid(owner, target.uid))
 					break
@@ -293,7 +295,7 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			gs._knockout_unit(unit, owner, src)
 			p.monkImmuneTurn = gs.turn_counter
 			gs.VerifiedRules.event(gs, "monk-immunity", {"player": owner, "untilTurn": gs.turn_counter})
-		"monk-rebirth": p.avatarHp = mini(int(p.maxAvatarHp), 10 + int(p.get("enemyAvatarAttacks", 0)))
+		"monk-rebirth": set_avatar_life(gs, owner, 10 + int(p.get("enemyAvatarAttacks", 0)))
 		"fortune-fire":
 			gs.resolution_stack.append({"kind": "charm-fortune-fire", "playerIndex": owner, "sourceIndex": src})
 			gs._draw(owner, 1)
@@ -303,6 +305,12 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 					gs.resolution_stack.append({"kind": "charm-fortune-reset", "playerIndex": side})
 		_: return false
 	return true
+
+static func set_avatar_life(gs, owner: int, amount: int) -> void:
+	var p: Dictionary = gs.player(owner)
+	if p.get("avatarToxicPoisoned", false): return
+	p.avatarHp = mini(amount, int(p.maxAvatarHp))
+	gs.VerifiedRules.Hanafuda.sync_shared(gs, owner)
 
 static func score_card(gs, owner: int, card: Dictionary, target_id) -> Variant:
 	var src: int = gs._source_index(owner, card)

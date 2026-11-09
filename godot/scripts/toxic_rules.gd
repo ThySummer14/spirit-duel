@@ -122,10 +122,10 @@ static func targets(gs, owner: int, card: Dictionary):
 	var list:Array=[]
 	if card.get("target")=="ally-knocked-unit":
 		for u in gs.player(owner).units:
-			if int(u.hp)<=0 and not u.get("summoned",false) and gs.VerifiedRules.Rebirth.can_revive(u):list.append(u.uid)
+			if gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, u):list.append(u.uid)
 	else:
 		for u in gs.player(1-owner).units:
-			if int(u.hp)>0 and not u.get("removed",false) and not gs.VerifiedRules.Combat.has(u,"veil"):list.append(u.uid)
+			if int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and not gs.VerifiedRules.Combat.has(u,"veil"):list.append(u.uid)
 	return list
 static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	if card.get("id","")=="c28404":return not gs.player(owner).units[gs._source_index(owner,card)].awakened

@@ -13,11 +13,11 @@ static func automatic_identity(u: Dictionary) -> bool:
 	return bool(Content.unit_def(str(u.get("id",""))).get("sparrowNight",false)) and not u.get("removed",false)
 
 static func living_enemies(gs, owner: int, excluded: String = "", reserve: bool = false) -> Array:
-	return gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and str(u.uid)!=excluded and (not reserve or int(u.front)==0))
+	return gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and str(u.uid)!=excluded and (not reserve or int(u.front)==0))
 
 static func targets(gs, owner: int, card: Dictionary):
 	if card.get("effect")!="sparrow-peck": return null
-	return living_enemies(gs,owner).filter(func(u):return not gs.VerifiedRules.Combat.has(u,"veil")).map(func(u):return str(u.uid))
+	return living_enemies(gs,owner).filter(func(u):return not (gs.VerifiedRules.Combat.has(u,"veil") or gs.VerifiedRules.Movement.has_veil(u))).map(func(u):return str(u.uid))
 
 static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	if not card.get("sparrowRules",false): return true
@@ -25,7 +25,7 @@ static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	if src<0: return false
 	var u: Dictionary=gs.player(owner).units[src]
 	if card.get("effect")=="sparrow-awaken": return not u.awakened
-	if card.get("effect")=="sparrow-dawn" and int(u.hp)<=0: return gs.VerifiedRules.Rebirth.can_revive(u)
+	if card.get("effect")=="sparrow-dawn" and int(u.hp)<=0: return gs.VerifiedRules.YanmieTrio.can_revive(gs,owner,u)
 	return true
 
 static func describe_card(gs, owner: int, _entry: Dictionary, card: Dictionary) -> Dictionary:
@@ -113,7 +113,7 @@ static func nest_present(gs, owner: int) -> bool:
 
 static func nest_entry(gs, owner: int, src: int) -> void:
 	gs.resolution_stack.append({"kind":"sparrow-nest-night","playerIndex":owner,"sourceIndex":src})
-	var pool: Array=gs.player(owner).units.filter(func(u):return int(u.hp)<=0 and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and gs.VerifiedRules.Rebirth.can_revive(u))
+	var pool: Array=gs.player(owner).units.filter(func(u):return gs.VerifiedRules.YanmieTrio.can_revive(gs,owner,u))
 	if not pool.is_empty():
 		var chosen: Dictionary=pool[int(floor(gs.randf01()*pool.size()))]
 		gs.VerifiedRules.Peach.revive(gs,owner,src,chosen,false,false)

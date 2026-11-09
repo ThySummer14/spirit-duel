@@ -47,7 +47,12 @@ func factions_and_cards() -> void:
 	var gs := game(); var p: Dictionary = gs.player(0); var u: Dictionary = p.units[0]
 	check(u.attack == 2 and u.maxHp == 5 and u.passive_hooks.is_empty(),"original2/5 has no old gain or draw passive")
 	check(Factions.printed(u) == "青岚" and Factions.printed(p.units[1]) == "红莲" and Factions.printed(p.units[2]) == "紫岩","printed independent four-faction identities")
-	check(Factions.data().units.size() == 215 and Factions.data().unverified.size() == 35,"image-backed catalog includes215 known and35 explicitly unverified")
+	var known: Dictionary = Factions.data().units
+	var unverified: Dictionary = Factions.data().unverified
+	check(Content.playable_units().all(func(definition):
+		var id := str(definition.id)
+		return known.has(id) != unverified.has(id) and (not known.has(id) or Factions.printed(definition) in Factions.VALUES)),
+		"每位可选式神均有唯一的已核派系或明确待核条目")
 	check(not Factions.known({"id":"ember"}) and not Factions.same({"id":"ember"},{"id":"ember"}) and not Factions.different({"id":"ember"},u),"unknown identities never become guessed factions")
 	check(not Factions.known({"id":"mianqiling","susanooOriginal":u.duplicate(true)}),"unverified replacement tomb does not borrow the original unit's faction")
 	for n in range(20801,20809):

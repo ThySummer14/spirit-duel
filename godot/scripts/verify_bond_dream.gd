@@ -48,6 +48,11 @@ func finish(gs) -> void:
 
 func bond_rules() -> void:
 	var gs := game(); var p: Dictionary = gs.player(0)
+	var definition := Content.card_def("yuanjie")
+	check(definition.type == "charm" and definition.nonHandDerivative and not Content.is_spell(definition), "缘结 definition is a deck charm")
+	var legacy := give(gs, "yuanjie")
+	check(not gs.play_card(0, legacy) and p.energy == 30 and p.hand.size() == 1, "a historical spell instance cannot grant its old draw and armor")
+	p.hand.clear()
 	check(p.units[0].attack == 1 and p.units[0].maxHp == 5 and p.units[1].attack == 2 and p.units[1].maxHp == 6, "base bodies use source values")
 	BD.end_turn(gs, 0)
 	check(marks(gs, 0, "bondMarks") == 1 and p.hand.is_empty(), "base ends by enchanting actual deck without synthetic token")
@@ -65,6 +70,12 @@ func bond_rules() -> void:
 	p.deck = [marked("c21005", "bond-heal", 1)]
 	gs._draw(0, 1)
 	check(p.avatarHp == 22 and p.units[3].hp == 3 and p.hand[0].instanceId == "bond-heal", "draw heals actual avatar and card's corresponding unit")
+	gs = game(["jieshen", "xuenv", "xuetongzi", "xieji"]); p = gs.player(0)
+	p.avatarHp = 20; p.units[1].hp = 1; p.units[2].hp = 1; p.units[3].hp = 1
+	p.deck = [marked("c106112", "bond-coop", 1)]
+	gs._draw(0, 1)
+	check(p.avatarHp == 22 and p.units[1].hp == 3 and p.units[2].hp == 3 and p.units[3].hp == 1, "协战 draw heals each owner and the avatar once")
+	check(p.hand.size() == 1 and p.hand[0].instanceId == "bond-coop" and gs.hand_card_def(0, 0).text.contains("抽到结附此灵咒"), "缘结 is visible on the single drawn cooperation instance")
 	gs = game(); p = gs.player(0)
 	play(gs, "c21608"); p.avatarHp = 20; p.units[3].hp = 1
 	p.deck = [marked("c21005", "bond-double", 1)]

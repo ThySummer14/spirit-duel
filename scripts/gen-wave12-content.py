@@ -122,7 +122,7 @@ CARDS = {
     C("雷走", "combat", 1, 1, "R", 1, "出击 +1。", "auto", [("source-ready","assault","source",1)]),
     C("弦怒之相", "form", 2, 1, "R", 1, "获得 +2/+4。", "auto", [("always","form","source",{"attack":2,"hp":4})]),
     C("爆雷", "spell", 2, 1, "SR", 1, "对敌方前线造成 4 点伤害。", "auto", [("always","damage-enemy-front","auto",4)]),
-    C("连环雷", "spell", 2, 1, "R", 1, "对两个随机敌方角色造成 2 点伤害（简化为全体 1 伤）。", "auto", [("always","damage","all-enemy-units",1)]),
+    C("连环雷", "spell", 2, 1, "R", 1, "对两个随机敌方角色各造成 2 点伤害。", "auto", [("always","damage","two-random-enemy-characters",2)]),
     C("雷盾", "spell", 1, 1, "R", 1, "获得 3 点护甲。", "auto", [("always","shield","source",3)], keywords=["RESPONSE"], timing="response", responseTo=["assault"]),
     C("觉醒·雷音", "awakening", 2, 1, "SSR", 1, "觉醒：震弦升级，获得 +1/+1。", "auto", [("always","awaken","source",{"attack":1,"hp":1})], deckLimit=1),
 ],

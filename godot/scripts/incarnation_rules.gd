@@ -10,6 +10,7 @@ static func config(u: Dictionary, gs = null, owner: int = -1) -> Dictionary:
 	if def.get("rebirthRole")=="skeleton":
 		return {"start":20,"action":8,"limit":1,"mode":"skeleton"} if u.awakened and int(u.hp)<=0 else {}
 	if int(u.hp)<=0: return {}
+	if u.get("starsFrogIncarnation", false): return {"start":20,"action":8,"limit":2,"mode":"stars-frog-army"}
 	if def.get("goldfishRules",false) and u.get("goldfishAttached",false): return {"start":20,"action":8,"limit":1,"mode":"goldfish"}
 	if def.get("foxLotusRole")=="lotus":
 		return {"start":20 if u.awakened else 25,"action":8 if u.awakened else 25,"limit":1,"mode":"lotus-awake" if u.awakened else "lotus"}
@@ -23,6 +24,7 @@ static func pool(gs, owner: int, src: int) -> Array:
 	if cfg.is_empty(): return out
 	if cfg.mode=="sg-chaos":return gs.VerifiedRules.SerpentGhost.incarnation_pool(gs,owner,src)
 	if cfg.mode=="goldfish": return gs.VerifiedRules.Goldfish.incarnation_pool(gs,owner,src)
+	if cfg.mode == "stars-frog-army": return gs.VerifiedRules.CarFrog.incarnation_pool(gs, owner)
 	for card in Content.cards_for_unit(str(u.id)):
 		if card.get("type") not in ["spell","combat"] or int(card.level)>int(u.level) or card.get("skin",false) or card.get("token",false): continue
 		match str(cfg.mode):
@@ -41,7 +43,7 @@ static func pool(gs, owner: int, src: int) -> Array:
 static func has_source(gs, owner: int) -> bool:
 	return gs.player(owner).units.any(func(u):
 		var def:=Content.runtime_unit_def(u)
-		return gs.VerifiedRules.SerpentGhost.has_incarnation(u) or def.get("rebirthRole")=="skeleton" or def.has("foxLotusRole") or def.get("goldfishRules",false))
+		return u.get("starsFrogIncarnation", false) or gs.VerifiedRules.SerpentGhost.has_incarnation(u) or def.get("rebirthRole")=="skeleton" or def.has("foxLotusRole") or def.get("goldfishRules",false))
 
 static func queue(gs, owner: int, turn_start: bool) -> void:
 	if gs.current_player==owner and has_source(gs,owner):

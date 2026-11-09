@@ -56,6 +56,9 @@ static func leave_front(gs, owner: int, except_index: int = -1) -> void:
 		if i==except_index: continue
 		var old: Dictionary=p.units[i]
 		if old.get("removed",false) or int(old.hp)<=0: continue
+		if old.get("lySoul",false) and int(old.front)==1:
+			gs.VerifiedRules.Langya.remove_soul(gs,owner,old)
+			continue
 		if old.get("rtSpear",false): gs.VerifiedRules.RabbitTide.remove_spear(gs,owner,old,"战斗区被替换")
 		if old.get("mfDoll",false): gs.VerifiedRules.MusicFire.remove_doll(gs,owner,old)
 		if old.get("efPowderBoxSummon",false): gs.VerifiedRules.EssenceFeast.remove_box(gs,owner,old)
@@ -79,6 +82,10 @@ static func leave_front(gs, owner: int, except_index: int = -1) -> void:
 		else:
 			var before:=int(old.front); old.front=0
 			gs.VerifiedRules.Movement.moved(gs,owner,i,before)
+	gs.VerifiedRules.Rain.remove_departed(gs)
+	gs.VerifiedRules.Bone.remove_departed(gs, owner)
+	gs.VerifiedRules.NativeSummons.remove_departed(gs, owner)
+	gs.VerifiedRules.TwinSight.remove_departed(gs, owner)
 	gs.VerifiedRules.Bamboo.remove_departed(gs)
 static func token(gs, owner: int, src: int, attack: int = 3, hp: int = 3) -> Dictionary:
 	var p: Dictionary=gs.player(owner)
@@ -213,7 +220,7 @@ static func revive_pine_fusion(gs, owner: int, idx: int, old_index: int) -> int:
 	return result
 static func targets(gs, owner: int, card: Dictionary):
 	if not card.get("weaverRules",false) or card.get("effect")!="weaver-exile": return null
-	return gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and not gs.VerifiedRules.Combat.has(u,"veil")).map(func(u):return str(u.uid))
+	return gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and not (gs.VerifiedRules.Combat.has(u,"veil") or gs.VerifiedRules.Movement.has_veil(u))).map(func(u):return str(u.uid))
 static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	if not card.get("weaverRules",false): return true
 	if card.get("effect")=="weaver-mourn":
@@ -244,8 +251,9 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 		"weaver-exile":
 			var idx: int=gs._unit_index_by_uid(1-owner,target.get("uid",""))
 			if idx>=0 and int(target.hp)>0:
-				gs.resolution_stack.append({"kind":"weaver-exile-gift","playerIndex":1-owner,"sourceIndex":-1})
-				gs.VerifiedRules.Panguan.destroy(gs,owner,src,1-owner,idx,card)
+				var depth: int = gs.resolution_stack.size()
+				if gs.VerifiedRules.Panguan.destroy(gs,owner,src,1-owner,idx,card):
+					gs.resolution_stack.insert(depth,{"kind":"weaver-exile-gift","playerIndex":1-owner,"sourceIndex":-1})
 		"weaver-funeral":
 			var depth: int=gs.resolution_stack.size()
 			var idx:=summon(gs,owner,src)

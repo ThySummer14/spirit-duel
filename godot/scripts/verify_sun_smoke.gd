@@ -38,6 +38,7 @@ func _initialize() -> void:
  _sun_spells()
  _smoke_spells()
  _clones()
+ _shared_summon_lifecycle()
  _response()
  _reset()
  _ai_json()
@@ -238,6 +239,20 @@ func _clones() -> void:
  p.units[1].charge = 0
  play(gs, "c16405")
  check(clone(gs).charge == 3, "replacement clone continues to copy later spells")
+func _shared_summon_lifecycle() -> void:
+ var gs := fixture()
+ var old: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs,0,2,"legacy-front","其他召唤物",2,4)
+ play(gs, "c16404")
+ var first := clone(gs)
+ check(first.get("smokeClone",false) and old.get("removed",false) and old.hp == 0 and old.knockout == 0, "Smoke clone removes the displaced native summon")
+ var removed: int = gs.rule_events.find_custom(func(e): return e.kind == "summon-removed" and e.uid == old.uid)
+ var entered: int = gs.rule_events.find_custom(func(e): return e.kind == "summon-created" and e.uid == first.uid)
+ check(removed >= 0 and entered > removed, "old summon leaves before smoke entry triggers inspect the board")
+ play(gs, "c16404")
+ check(first.get("removed",false) and clone(gs).uid != first.uid, "second clone replaces the first once")
+ play(gs, "c16404")
+ var removals: Array = gs.rule_events.filter(func(e): return e.kind == "summon-removed" and e.uid == first.uid)
+ check(removals.size() == 1, "third clone never announces another removal of the old tombstone")
 func _response() -> void:
  var gs := fixture(); var p: Dictionary = gs.player(0); var e: Dictionary = gs.player(1)
  give(gs, "c16602", 1); e.units[1].level = 2; p.units[1].level = 1; p.levelUpUsed = false
@@ -294,4 +309,7 @@ func _ai_json() -> void:
  check(AI._resolve_choice(gs, 0) and gs.player(0).hand[0].definitionId == "c16408", "AI legally chooses generated burst card")
  check(AI._score_card(gs, 0, Content.card_def("c16602"), gs.player(0).units[0].uid) < 0 and AI._score_card(gs, 0, Content.card_def("c16602"), gs.player(1).units[0].uid) > 0, "AI heat evaluates hostile target instead of friendly stun")
  for c in Content.cards_for_unit("rihefang") + Content.cards_for_unit("yanyanluo"):
-  check(c.get("sunSmoke", false) and not c.text.contains("简化") and not c.get("effects", []).is_empty(), "full native content " + c.id)
+  if c.get("type") == "coop":
+   check(c.id == "c164166" and c.coopFaces.size() == 2 and c.coopFaces.all(func(face): return face.get("verifiedRules", false) and str(face.effect).begins_with("coop-middle-")), "full native cooperative faces " + c.id)
+  else:
+   check(c.get("sunSmoke", false) and not c.text.contains("简化") and not c.get("effects", []).is_empty(), "full native content " + c.id)

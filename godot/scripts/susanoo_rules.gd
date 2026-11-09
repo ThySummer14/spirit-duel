@@ -113,11 +113,11 @@ static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	if src<0: return false
 	var u: Dictionary=gs.player(owner).units[src]
 	if card.id=="c28106" and u.awakened: return false
-	if card.id=="c28105" and int(u.hp)<=0: return bool(card.get("enhanced",false)) and gs.VerifiedRules.Rebirth.can_revive(u)
+	if card.id=="c28105" and int(u.hp)<=0: return bool(card.get("enhanced",false)) and gs.VerifiedRules.YanmieTrio.can_revive(gs,owner,u)
 	return true
 static func targets(gs, owner: int, card: Dictionary):
 	if card.get("id","") not in ["c28101","c28102","c28107"]: return null
-	var pool: Array=gs.player(1-owner).units.filter(func(u): return int(u.hp)>0 and not u.get("removed",false) and (card.id!="c28101" or int(u.hp)==1)).map(func(u):return u.uid)
+	var pool: Array=gs.player(1-owner).units.filter(func(u): return int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (card.id!="c28101" or int(u.hp)==1)).map(func(u):return u.uid)
 	if card.id=="c28102" and gs.front_index(1-owner)<0: pool.append("avatar-%d"%(1-owner))
 	return pool
 static func form_entered(gs, owner: int, src: int, card: Dictionary) -> void:
@@ -174,7 +174,7 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 	match kind:
 		"susanoo-lowest-attack":
 			if not active(u) or u.get("cannotAttack",false) or gs.VerifiedRules.Stun.blocks(gs,owner,u) or not u.get("formRules",{}).get("susanooDuel",false): return true
-			var pool: Array=gs.player(1-owner).units.filter(func(x): return int(x.hp)>0 and not x.get("removed",false))
+			var pool: Array=gs.player(1-owner).units.filter(func(x): return int(x.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(x))
 			if pool.is_empty(): return true
 			var minimum:=65536
 			for x in pool: minimum=mini(minimum,int(x.hp))
@@ -183,7 +183,7 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 			gs.VerifiedRules.event(gs,"susanoo-lowest-attack",{"player":owner,"uid":u.uid,"target":chosen.uid,"hp":minimum})
 			gs._resolve_combat(owner,src,0,false,false,false,false,chosen.uid,false,{"pursuit":true})
 		"susanoo-cut-second":
-			var pool: Array=gs.player(1-owner).units.filter(func(x):return int(x.hp)>0 and not x.get("removed",false) and str(x.uid)!=str(frame.excluded))
+			var pool: Array=gs.player(1-owner).units.filter(func(x):return int(x.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(x) and str(x.uid)!=str(frame.excluded))
 			if not pool.is_empty(): cut_damage(gs,owner,src,pool[int(floor(gs.randf01()*pool.size()))].uid)
 		"susanoo-cut-combat":
 			if active(u) and not gs.VerifiedRules.Stun.blocks(gs,owner,u): combat(gs,owner,src,frame.card,null,false)

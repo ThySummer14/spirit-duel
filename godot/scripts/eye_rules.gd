@@ -71,9 +71,12 @@ static func resolve_choice(gs, owner: int, iid: String) -> bool:
 		"eye-curse-life": p.maxAvatarHp = 8; p.avatarHp = mini(8, int(p.avatarHp))
 		"eye-curse-hand":
 			var count := int(p.hand.size() / 2)
-			for i in count: p.hand.remove_at(int(floor(gs.randf01() * p.hand.size())))
+			var eligible: Array = p.hand.duplicate()
+			for i in count:
+				var selected: Dictionary = eligible.pop_at(int(floor(gs.randf01() * eligible.size())))
+				gs.discard_hand_card(owner, p.hand.find(selected))
 		"eye-curse-units":
-			var pool: Array = p.units.filter(func(u): return int(u.hp) > 0)
+			var pool: Array = p.units.filter(func(u): return int(u.hp) > 0 and gs.VerifiedRules.OwlInsect.shikigami(u))
 			gs._shuffle(pool)
 			for i in mini(2, pool.size()): gs.VerifiedRules.Panguan.destroy(gs, 1-owner, gs._source_index(1-owner, {"unitId":"baimugui"}), owner, gs._unit_index_by_uid(owner, str(pool[i].uid)))
 		"eye-curse-lose": p.avatarHp = 0; gs._check_winner()
@@ -143,8 +146,10 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			if deck.is_empty(): return true
 			var top: Dictionary = Content.card_def(str(deck.back().definitionId))
 			gs.VerifiedRules.event(gs, "eye-top-revealed", {"player": owner, "victimPlayer": 1 - owner, "card": top})
-			var idx: int = gs._source_index(1 - owner, top)
-			if idx >= 0 and int(gs.player(1 - owner).units[idx].hp) > 0: gs.VerifiedRules.Panguan.destroy(gs, owner, src, 1-owner, idx, card)
+			for unit_id in Content.card_unit_ids(top):
+				var idx: int = gs._source_index(1 - owner, {"unitId": unit_id})
+				if idx >= 0 and int(gs.player(1 - owner).units[idx].hp) > 0:
+					gs.VerifiedRules.Panguan.destroy(gs, owner, src, 1 - owner, idx, card)
 		"eye-enemy-divination": gs.VerifiedRules.Divination.start(gs, 1 - owner, int(effect.value), owner)
 		_: return false
 	return true

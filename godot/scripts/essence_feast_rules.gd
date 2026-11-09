@@ -36,7 +36,7 @@ static func essence_targets(gs, owner: int) -> Array:
 	if not gs.VerifiedRules.PipeFox.avatar_veil(gs,1-owner):ids.append("avatar-%d"%(1-owner))
 	for side in [owner,1-owner]:
 		for u in gs.player(side).units:
-			if int(u.hp)>0 and not u.get("removed",false) and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")):ids.append(str(u.uid))
+			if int(u.hp)>0 and not u.get("removed",false) and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")):ids.append(str(u.uid))
 	return ids
 static func can_play_essence(gs, owner: int, hand: int, target) -> Dictionary:
 	var card:Dictionary=gs.hand_card_def(owner,hand)
@@ -46,16 +46,19 @@ static func can_play_essence(gs, owner: int, hand: int, target) -> Dictionary:
 static func play_essence(gs, owner: int, hand: int, target) -> bool:
 	var check:Dictionary=gs.can_play_card(owner,hand,target)
 	if not check.ok:return false
-	var c:Dictionary=check.card;var q:Dictionary=gs.card_payment(owner,c);c.playedInstance=gs.take_card_instance(owner,hand);c.usedFromHand=true
+	var c:Dictionary=check.card;var q:Dictionary=gs.card_payment(owner,c);c.playedInstance=gs.take_card_instance(owner,hand);c.usedFromHand=not c.get("insightFromZone",false)
+	gs.VerifiedRules.Wave7Reworks.pay_lamp(gs, owner, c, q)
 	gs._set_fire(owner,int(gs.player(owner).energy)-int(q.cost),true)
-	if q.usesInstant:gs.kw_usage(owner,"instant").used=true
+	if q.usesInstant:gs.consume_instant(owner)
 	gs.player(owner).cardsPlayedThisTurn=int(gs.player(owner).cardsPlayedThisTurn)+1
-	gs._record("play_card",{"hand":hand,"card":c.id,"target":target,"cardView":c.duplicate(true),"payment":q},owner)
+	var args := {"hand":hand,"card":c.id,"target":target,"cardView":c.duplicate(true),"payment":q}
+	if not c.usedFromHand: args.merge({"sourceZone":"insight","instanceId":c.playedInstance.instanceId})
+	gs._record("play_card",args,owner)
 	_push_essence(gs,owner,c,target,false);gs._resolve_resolution_stack();gs.state_changed.emit();return true
 static func _push_essence(gs, owner: int, card: Dictionary, target, automatic: bool) -> void:
 	var rid:int=gs.next_resolution_id;gs.next_resolution_id+=1
 	for kind in ["card-complete","card-effect","card-announce"]:
-		gs.resolution_stack.append({"kind":kind,"playerIndex":owner,"sourceIndex":-1,"resolutionId":rid,"definitionId":"shengmingjinghua","cardOverride":card.duplicate(true),"targetId":target,"automatic":automatic,"fromHand":not automatic,"effectIndex":0,"affectedUnits":[]})
+		gs.resolution_stack.append({"kind":kind,"playerIndex":owner,"sourceIndex":-1,"resolutionId":rid,"definitionId":"shengmingjinghua","cardOverride":card.duplicate(true),"targetId":target,"automatic":automatic,"fromHand":not automatic and not card.get("insightFromZone",false),"effectIndex":0,"affectedUnits":[]})
 static func healed(gs, owner: int, idx: int, requested: int, restored: int, excess: int) -> void:
 	if requested<=0 or gs.winner>=0:return
 	var p:Dictionary=gs.player(owner);var target:Dictionary={} if idx<0 else p.units[idx]
@@ -230,10 +233,10 @@ static func targets(gs, owner: int, card: Dictionary):
 	if t=="enemy-character" and not gs.VerifiedRules.PipeFox.avatar_veil(gs,1-owner):out.append("avatar-%d"%(1-owner))
 	for side in [owner] if t in ["ally-unit","ally-knocked"] else [1-owner] if t in ["enemy-unit","enemy-character"] else [owner,1-owner]:
 		for u in gs.player(side).units:
-			if u.get("removed",false) or not gs.VerifiedRules.OwlInsect.shikigami(u):continue
+			if u.get("removed",false) or (t!="enemy-character" and not gs.VerifiedRules.OwlInsect.shikigami(u)):continue
 			if t=="ally-knocked":
 				if int(u.hp)<=0 and not u.get("summoned",false) and gs.VerifiedRules.Rebirth.can_revive(u):out.append(str(u.uid))
-			elif int(u.hp)>0 and int(u.level)>0 and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")):
+			elif int(u.hp)>0 and (t=="enemy-character" or int(u.level)>0) and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")):
 				if card.id=="c63807" and (int(gs.player(owner).get("efTargetsTurnId",-1))!=gs.turn_counter or not gs.player(owner).get("efTargetsTurn",[]).has(str(u.uid))):continue
 				out.append(str(u.uid))
 	return out
@@ -315,7 +318,9 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 					if idx>=0:gs._heal_unit(gs.player(side).units[idx],int(card.get("efStacks",1)))
 			return true
 		if kind=="card-complete":
-			gs.VerifiedRules.Arakawa.completed(gs,frame,card);gs.VerifiedRules.HandBlessing.completed(gs,owner,-1,card);return true
+			gs.VerifiedRules.Arakawa.completed(gs,frame,card);gs.VerifiedRules.HandBlessing.completed(gs,owner,-1,card)
+			gs.VerifiedRules.Insight.used(gs, owner, card, card.get("playedInstance", {}), true, frame.targetId)
+			return true
 	if not kind.begins_with("ef-"):return false
 	match kind:
 		"ef-projectile":_projectile(gs,owner,src,int(frame.amount))

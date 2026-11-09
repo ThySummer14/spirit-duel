@@ -33,7 +33,9 @@ static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	var u:Dictionary=gs.player(owner).units[gs._source_index(owner,card)]
 	if card.id=="c29305" and u.awakened:return false
 	if card.get("chargeOnly",false) and u.has("lanternStored"):return false
-	if int(u.hp)<=0 and card.get("allowKnockedSource",false):return gs.VerifiedRules.Rebirth.can_revive(u)
+	if int(u.hp)<=0 and card.get("allowKnockedSource",false):
+		if card.id=="c29301":return gs.VerifiedRules.YanmieTrio.can_revive(gs,owner,u)
+		return gs.VerifiedRules.Rebirth.can_revive(u)
 	return true
 static func describe_card(gs, owner: int, card: Dictionary) -> Dictionary:
 	if not card.get("lanternRules",false):return card
@@ -52,7 +54,7 @@ static func store_card(gs, owner: int, hand: int, card: Dictionary, payment: Dic
 	gs._record("play_card",{"hand":hand,"card":card.id,"cardView":card.duplicate(true),"payment":payment.duplicate(),"charge":true},owner)
 	gs._set_fire(owner,int(gs.player(owner).energy)-int(payment.cost),true)
 	gs.VerifiedRules.Moon.consume_card(gs,card)
-	if payment.usesInstant:gs.kw_usage(owner,"instant").used=true
+	if payment.usesInstant:gs.consume_instant(owner)
 	u.lanternStored={"card":card.duplicate(true),"instance":inst.duplicate(true),"turn":gs.turn_counter,"order":gs.next_rule_event_id}
 	gs.VerifiedRules.ThreeTail.card_used(gs,owner,src,card,false)
 	gs._log("%s 蓄力「%s」，下个己方回合开始时自动施放。"%[u.name,card.name],gs.TONE_CARD)
@@ -131,7 +133,9 @@ static func resolve_frame(gs, f: Dictionary) -> bool:
 static func marks(gs, owner: int, idx: int) -> Array:
 	var u:Dictionary=gs.player(owner).units[idx];var result:Array=[]
 	if source(u):result.append("复活%d次 · 气绝投射%d · 歧路笼火%d"%[history(u),2+history(u),4+2*history(u)])
-	if u.has("lanternStored"):result.append("蓄力 · 歧路笼火 · 下个己方回合自动施放")
+	if u.has("lanternStored"):
+		var name := str(u.lanternStored.get("card", {}).get("name", "蓄力牌"))
+		result.append("蓄力 · %s · 下个己方回合自动施放" % name)
 	return result
 static func score_card(gs, owner: int, card: Dictionary):
 	if not card.get("lanternRules",false):return null

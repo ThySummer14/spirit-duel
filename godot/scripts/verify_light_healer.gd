@@ -9,8 +9,8 @@ func check(ok: bool, text: String) -> void:
 	if not ok:
 		failures += 1
 		printerr("LIGHT_HEALER_FAIL ", text)
-func fixture() -> GS:
-	var gs := GS.create(["qingxingdeng", "qingfangzhu", "zuofutongzi", "haifangzhu"], ["qingxingdeng", "qingfangzhu", "zuofutongzi", "haifangzhu"], 20261010)
+func fixture(rivals: Array = ["qingxingdeng", "qingfangzhu", "zuofutongzi", "haifangzhu"]) -> GS:
+	var gs := GS.create(["qingxingdeng", "qingfangzhu", "zuofutongzi", "haifangzhu"], rivals, 20261010)
 	for p in gs.players:
 		p.hand.clear()
 		p.energy = 4
@@ -288,6 +288,23 @@ func _fortune() -> void:
 	play(gs, "c13008")
 	check(p.avatarHp == 30 and p.hand.size() == 10 and gs.player(1).hand.size() == 10, "reset sets both lives and draws both to ten")
 	check(p.energy == 3 and gs.player(1).energy == 3, "reset grants both three fire")
+	gs = fixture(["xieenv", "qingfangzhu", "zuofutongzi", "haifangzhu"])
+	p = gs.player(0)
+	var foe := gs.player(1)
+	gs.current_player = 1
+	play(gs, "c28408", null, 1)
+	check(gs.basic_attack(1, 0) and p.get("avatarToxicPoisoned", false), "scorpion attack actually poisons the defending avatar")
+	gs.current_player = 0
+	var poisoned_life: int = p.avatarHp
+	play(gs, "c12508")
+	check(p.avatarHp == poisoned_life, "monk life setting respects the same poisoned avatar")
+	p.fortuneSuccesses = 12
+	p.energy = 1
+	foe.energy = 0
+	foe.avatarHp = 12
+	play(gs, "c13008")
+	check(p.avatarHp == poisoned_life and foe.avatarHp == 30, "fortune reset preserves poisoned avatar life and sets the unpoisoned opponent")
+	check(p.hand.size() == 10 and foe.hand.size() == 10 and p.energy == 3 and foe.energy == 3, "both sides still draw to ten and gain three fire")
 func _interactions() -> void:
 	var gs := fixture()
 	play(gs, "c12505")

@@ -1,5 +1,5 @@
 /**
- * 命运抉择（wave13）6 位式神 + SKIN 变体卡 — 由 scripts/gen-wave13-content.py 生成。
+ * 命运抉择（wave13）7 位式神 + SKIN 变体卡 — 由 scripts/gen-wave13-content.py 生成。
  * 命运抉择式神晚于卡库快照，效果按公开设定可玩化简化。
  */
 import { CARD_KEYWORDS } from './game-keywords.js?v=ae8562bd';
@@ -43,13 +43,40 @@ function wave13Card(officialId, unitId, meta) {
     value: effects[0]?.value ?? null,
     effects,
     pack: 'wave13',
-    token: false,
+    token: meta.token === true,
     skin: meta.skin === true,
     ...(meta.divination ? { divination: Object.freeze(meta.divination) } : {}),
   });
 }
 
 export const WAVE13_UNIT_DEFINITIONS = Object.freeze([
+  {
+    "id": "himiko",
+    "name": "卑弥呼",
+    "title": "日轮",
+    "role": "瞬发 / 鼓舞",
+    "strategy": "以瞬发连动投射，改变牌库顶与气绝时机。",
+    "maxHp": 4,
+    "attack": 2,
+    "art": "assets/wave13/himiko.png",
+    "awakenedArt": "assets/wave13/himiko-awakened.png",
+    "color": "#c99461",
+    "pack": "wave13",
+    "officialRole": "destiny-himiko",
+    "officialAbility": "每当己方式神使用手牌且未消耗鬼火时，投射：造成1点伤害。",
+    "passive": {
+      "id": "himiko-solar",
+      "name": "日轮投射",
+      "text": "每当己方式神使用手牌且未消耗鬼火时，投射：造成1点伤害。",
+      "hooks": []
+    },
+    "awakenedPassive": {
+      "id": "himiko-awakened",
+      "name": "日轮投射",
+      "text": "每回合你可以额外使用一张瞬发的卡牌。每当己方式神使用手牌且未消耗鬼火时，投射：造成1点伤害。",
+      "hooks": []
+    }
+  },
 
   {
     id: "shiyao-longyechaji",
@@ -118,23 +145,19 @@ export const WAVE13_UNIT_DEFINITIONS = Object.freeze([
   {
     id: "xuan",
     name: "璇",
-    title: "璇玑",
-    role: "平衡 / 光暗",
-    strategy: "璇玑双衡，光暗相济。",
-    maxHp: 6,
+    title: "占星师",
+    role: "极星 / 法术",
+    strategy: "抽取、专精并连用不同极星，许愿或驱动时空。",
+    maxHp: 4,
     attack: 2,
     art: "assets/wave13/xuan.svg",
     awakenedArt: "assets/wave13/xuan-awakened.svg",
     color: "#c8b8d8",
     pack: "wave13",
     officialRole: "destiny-xuan",
-    officialAbility: "命运抉择·璇（卡库快照后式神，按公开设定简化）。",
-    passive: passive("xuan-balance", "璇玑", "己方回合开始时，随机为一个己方受伤式神恢复 2 点生命。", [
-      { id: "bal-heal", event: "turn-started", effect: "passive-heal-ally-if-front-or-any", params: {"amount": 2} }
-    ]),
-    awakenedPassive: passive("xuan-balance-a", "天璇", "己方回合开始时，为所有己方恢复 2 点生命。", [
-      { id: "bal-heal-a", event: "turn-started", effect: "passive-heal-all-allies", params: {"amount": 2} }
-    ]),
+    officialAbility: "你的牌库额外拥有7张极星牌。当你抽到璇的非极星专属牌时，从牌库抽一张小于等于璇等级的极星牌。",
+    passive: passive("xuan-base", "极星", "你的牌库额外拥有7张极星牌。当你抽到璇的非极星专属牌时，从牌库抽一张小于等于璇等级的极星牌。", []),
+    awakenedPassive: passive("xuan-awake", "极星", "当你抽到璇的非极星专属牌时，从牌库抽一张极星牌。", []),
   },
   {
     id: "yuyuan-banruo",
@@ -160,27 +183,25 @@ export const WAVE13_UNIT_DEFINITIONS = Object.freeze([
   {
     id: "luohou",
     name: "罗睺",
-    title: "蚀日",
-    role: "暗蚀 / 压制",
-    strategy: "蚀日吞光，罗睺压境。",
-    maxHp: 7,
+    title: "凶星",
+    role: "占卜 / 控场",
+    strategy: "以占卜向牌库置入凶星，再调度抽取、伤害与弃牌。",
+    maxHp: 5,
     attack: 2,
     art: "assets/wave13/luohou.svg",
     awakenedArt: "assets/wave13/luohou-awakened.svg",
     color: "#6a5060",
     pack: "wave13",
     officialRole: "destiny-luohou",
-    officialAbility: "命运抉择·罗睺（卡库快照后式神，按公开设定简化）。",
-    passive: passive("luohou-eclipse", "蚀日", "己方回合开始时，随机对一个敌方式神造成 1 点伤害。", [
-      { id: "eclipse-zap", event: "turn-started", effect: "passive-damage-random-enemy", params: {"amount": 1} }
-    ]),
-    awakenedPassive: passive("luohou-eclipse-a", "吞日", "己方回合开始时，随机对一个敌方式神造成 2 点伤害。", [
-      { id: "eclipse-zap-a", event: "turn-started", effect: "passive-damage-random-enemy", params: {"amount": 2} }
-    ]),
+    officialAbility: "每回合一次，每当你占卜时，为占卜牌手的牌库置入一张「凶星」（不触发洗牌库）。",
+    passive: passive("luohou-base", "凶星", "每回合一次，每当你占卜时，为占卜牌手的牌库置入一张「凶星」（不触发洗牌库）。", []),
+    awakenedPassive: passive("luohou-awake", "凶星", "每当你占卜时，为占卜牌手的牌库置入2张「凶星」（不触发洗牌库）。", []),
   },
 ]);
 
 export const WAVE13_CARD_DEFINITIONS = Object.freeze([
+  wave13Card(0, "shiyao-longyechaji", {"name": "铭刻", "type": "spell", "level": 1, "text": "瞬发。将一张「溯时」置入你的牌库底。记录当前时曜泷夜叉姬的属性、形态和当前卡牌。", "token": true, "deckLimit": 0, "id": "shiyao-inscribe"}),
+  wave13Card(0, "shiyao-longyechaji", {"name": "溯时", "type": "spell", "level": 1, "text": "瞬发。复原时曜泷夜叉姬的属性和其他手牌，将一张「铭刻」置入手牌。", "token": true, "deckLimit": 0, "id": "shiyao-rewind"}),
 
   wave13Card(93101, "shiyao-longyechaji", {
     id: "w13-shiyao-longyechaji-93101",
@@ -465,6 +486,18 @@ export const WAVE13_CARD_DEFINITIONS = Object.freeze([
       ["always", "awaken", "source", {"attack": 1, "hp": 1}],
     ],
   }),
+  wave13Card(0, "baize-yuanqi", {"id": "fate-baize-insight", "name": "洞悉", "type": "spell", "level": 1, "token": true, "deckLimit": 0, "text": "瞬发。占卜 2，若你将至少一张白泽·缘起的牌置于牌库底，抽一张牌。"}),
+  wave13Card(669002, "baize-yuanqi", {
+    id: "fate-baize-reversal",
+    name: "因果逆转",
+    type: "spell",
+    level: 1,
+    token: true,
+    deckLimit: 0,
+    keywords: ["INSTANT"],
+    text: "瞬发。命运抉择，然后如果选择「逆天改命」，抽一张牌。",
+    effects: [["always", "yuanqi-reversal", "auto"]],
+  }),
   wave13Card(93117, "shenqi-huang", {
     id: "w13-shenqi-huang-93117",
     name: "星陨",
@@ -605,143 +638,113 @@ export const WAVE13_CARD_DEFINITIONS = Object.freeze([
   }),
   wave13Card(93125, "xuan", {
     id: "w13-xuan-93125",
-    name: "璇光",
+    name: "星渊",
     type: "spell",
     level: 1,
-    cost: 1,
-    rarity: "R",
+    rarity: "common",
     starter: 1,
-    deckLimit: 2,
-    text: "恢复 4 点生命。",
-    officialText: "恢复 4 点生命。",
-    target: "ally-unit",
+    text: "从你的牌库抽两张极星牌，将两张同名极星牌洗入牌库。",
     tags: ["命运", "spell"],
-    effects: [
-      ["always", "heal", "selected-ally", 4],
-    ],
+    target: "auto",
+    effects: [["always", "xuan-draw", "auto", 0]],
   }),
   wave13Card(93126, "xuan", {
     id: "w13-xuan-93126",
-    name: "玑衡",
+    name: "星坠",
     type: "spell",
-    level: 1,
-    cost: 1,
-    rarity: "R",
+    level: 2,
+    rarity: "common",
     starter: 1,
-    deckLimit: 2,
-    text: "一名友方角色获得 +1/+1。",
-    officialText: "一名友方角色获得 +1/+1。",
-    target: "ally-unit",
+    text: "不消耗鬼火打出你手牌中小于等于璇的极星牌。",
     tags: ["命运", "spell"],
-    effects: [
-      ["always", "buff-stats", "selected-ally", {"attack": 1, "hp": 1}],
-    ],
+    target: "auto",
+    effects: [["always", "xuan-fall", "auto", 0]],
   }),
   wave13Card(93127, "xuan", {
     id: "w13-xuan-93127",
-    name: "双衡",
+    name: "星之子",
     type: "spell",
     level: 1,
-    cost: 0,
-    rarity: "R",
+    rarity: "common",
     starter: 1,
-    deckLimit: 2,
-    text: "获得 2 点护甲。",
-    officialText: "获得 2 点护甲。",
-    target: "auto",
+    text: "瞬发。本回合每当你使用极星牌时，璇发起一次攻击，本次攻击具有远程。",
     tags: ["命运", "spell"],
+    target: "auto",
+    effects: [["always", "xuan-child", "auto", 0]],
     keywords: ["INSTANT"],
-    effects: [
-      ["always", "shield", "source", 2],
-    ],
   }),
   wave13Card(93128, "xuan", {
     id: "w13-xuan-93128",
-    name: "璇玑之相",
+    name: "七星之愿",
     type: "form",
-    level: 2,
-    cost: 1,
-    rarity: "R",
+    level: 1,
+    rarity: "ssr",
     starter: 1,
-    deckLimit: 2,
-    text: "获得 +2/+5。",
-    officialText: "获得 +2/+5。",
-    target: "auto",
+    text: "进场时选择一个愿望。倒计时7：实现该愿望并将此牌回手。每当你使用极星牌时，倒计时−1。",
     tags: ["命运", "form"],
-    effects: [
-      ["always", "form", "source", {"attack": 2, "hp": 5}],
-    ],
+    target: "auto",
+    effects: [["always", "xuan-wish", "auto", {"attack": 3, "hp": 5, "setBase": true}]],
   }),
   wave13Card(93129, "xuan", {
     id: "w13-xuan-93129",
-    name: "光暗",
-    type: "spell",
-    level: 2,
-    cost: 1,
-    rarity: "SR",
+    name: "时空·九曜",
+    type: "realm",
+    level: 3,
+    rarity: "rare",
     starter: 1,
-    deckLimit: 2,
-    text: "对一个式神造成 3 点伤害并恢复 3 点生命。",
-    officialText: "对一个式神造成 3 点伤害并恢复 3 点生命。",
-    target: "enemy-unit",
-    tags: ["命运", "spell"],
-    effects: [
-      ["always", "damage", "selected-enemy", 3],
-      ["always", "heal", "source", 3],
-    ],
+    text: "时空。当你使用法术牌时，若是本回合使用的第3张则抽1张牌；若是第5张则获得1点鬼火；若是第7张则对所有敌方角色造成3点伤害。",
+    tags: ["命运", "realm"],
+    target: "auto",
+    effects: [["always", "xuan-realm", "auto", 0]],
   }),
   wave13Card(93130, "xuan", {
     id: "w13-xuan-93130",
-    name: "天衡",
+    name: "群星启曜",
     type: "spell",
     level: 2,
-    cost: 1,
-    rarity: "R",
+    rarity: "rare",
     starter: 1,
-    deckLimit: 2,
-    text: "为所有己方式神恢复 2 点生命。",
-    officialText: "为所有己方式神恢复 2 点生命。",
-    target: "auto",
+    text: "瞬发。本回合你使用的极星牌额外生效1次。",
     tags: ["命运", "spell"],
-    effects: [
-      ["always", "heal", "all-ally-units", 2],
-    ],
+    target: "auto",
+    effects: [["always", "xuan-double", "auto", 0]],
+    keywords: ["INSTANT"],
   }),
   wave13Card(93131, "xuan", {
     id: "w13-xuan-93131",
-    name: "归一",
+    name: "星续璇光",
     type: "spell",
     level: 3,
-    cost: 1,
-    rarity: "SR",
+    rarity: "common",
     starter: 1,
-    deckLimit: 2,
-    text: "复活一个己方式神。",
-    officialText: "复活一个己方式神。",
-    target: "knocked-ally",
+    text: "瞬发。选择一张极星牌打出，在你的下两个回合，打出同名的极星牌。",
     tags: ["命运", "spell"],
-    effects: [
-      ["always", "revive", "selected-ally", 4],
-    ],
+    target: "auto",
+    effects: [["always", "xuan-echo", "auto", 0]],
+    keywords: ["INSTANT"],
   }),
   wave13Card(93132, "xuan", {
     id: "w13-xuan-93132",
     name: "觉醒·璇",
     type: "awakening",
     level: 2,
-    cost: 1,
-    rarity: "SSR",
+    rarity: "rare",
     starter: 1,
-    deckLimit: 1,
-    text: "觉醒：璇玑升级，获得 +1/+2。",
-    officialText: "觉醒：璇玑升级，获得 +1/+2。",
-    target: "auto",
+    text: "专精一张不重复的极星牌，将2张同名牌置入你的牌库。觉醒：当你抽到璇的非极星专属牌时，从牌库抽一张极星牌。",
     tags: ["命运", "awakening"],
-    deckLimit: 1,
-    effects: [
-      ["always", "awaken", "source", {"attack": 1, "hp": 2}],
-    ],
+    target: "auto",
+    effects: [["always", "xuan-awaken", "auto", {"attack": 1, "hp": 1}]],
   }),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-star-pivot", "name": "天枢", "type": "spell", "typeLabel": "法术牌", "level": 1, "rarity": "common", "keywords": ["instant"], "target": "auto", "tags": ["极星"], "text": "瞬发。命运抉择。", "officialText": "瞬发。命运抉择。", "effect": "xuan-pivot", "value": 0, "effects": [{"action": "xuan-pivot", "value": 0, "target": "auto"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanStar": "pivot", "xuanSpecialText": "瞬发。命运抉择，明示你牌库顶卡牌并抽一张牌。"}),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-star-light", "name": "天璇", "type": "spell", "typeLabel": "法术牌", "level": 2, "rarity": "common", "keywords": [], "target": "enemy-unit", "tags": ["极星"], "text": "对一个敌方式神造成4点伤害。", "officialText": "对一个敌方式神造成4点伤害。", "effect": "xuan-light", "value": 0, "effects": [{"action": "xuan-light", "value": 0, "target": "enemy-unit"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanStar": "light", "xuanSpecialText": "对敌方战斗区和阵型中间的两名式神造成4点伤害。"}),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-star-steal", "name": "天玑", "type": "spell", "typeLabel": "法术牌", "level": 1, "rarity": "common", "keywords": ["instant"], "target": "enemy-unit", "tags": ["极星"], "text": "瞬发。选择一个敌方式神，偷取该式神1点力量直到回合结束。", "officialText": "瞬发。选择一个敌方式神，偷取该式神1点力量直到回合结束。", "effect": "xuan-steal", "value": 0, "effects": [{"action": "xuan-steal", "value": 0, "target": "enemy-unit"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanStar": "steal", "xuanSpecialText": "选择一个敌方式神，偷取该式神2点力量直到回合结束。"}),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-star-lock", "name": "天权", "type": "spell", "typeLabel": "法术牌", "level": 1, "rarity": "common", "keywords": [], "target": "enemy-unit", "tags": ["极星"], "text": "眩晕一个敌方式神。", "officialText": "眩晕一个敌方式神。", "effect": "xuan-lock", "value": 0, "effects": [{"action": "xuan-lock", "value": 0, "target": "enemy-unit"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanStar": "lock", "xuanSpecialText": "眩晕一个敌方式神，弃一张他的专属牌。"}),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-star-retreat", "name": "玉衡", "type": "spell", "typeLabel": "法术牌", "level": 1, "rarity": "common", "keywords": [], "target": "any-unit", "tags": ["极星"], "text": "对一个式神造成3点伤害，使其移动至准备区。", "officialText": "对一个式神造成3点伤害，使其移动至准备区。", "effect": "xuan-retreat", "value": 0, "effects": [{"action": "xuan-retreat", "value": 0, "target": "any-unit"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanStar": "retreat", "xuanSpecialText": "瞬发。对一个式神造成3点伤害，使其移动至准备区。"}),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-star-might", "name": "开阳", "type": "spell", "typeLabel": "法术牌", "level": 2, "rarity": "common", "keywords": [], "target": "auto", "tags": ["极星"], "text": "使璇本回合获得+2力量/+2生命。", "officialText": "使璇本回合获得+2力量/+2生命。", "effect": "xuan-might", "value": 0, "effects": [{"action": "xuan-might", "value": 0, "target": "auto"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanStar": "might", "xuanSpecialText": "使璇本回合获得+3力量/+3生命和贯通。"}),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-star-doom", "name": "摇光", "type": "spell", "typeLabel": "法术牌", "level": 3, "rarity": "common", "keywords": [], "target": "auto", "tags": ["极星"], "text": "随机消灭一个敌方式神。", "officialText": "随机消灭一个敌方式神。", "effect": "xuan-doom", "value": 0, "effects": [{"action": "xuan-doom", "value": 0, "target": "auto"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanStar": "doom", "xuanSpecialText": "随机消灭一个敌方式神，等级由3勾改为2勾。"}),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-wish-heal", "name": "七星·愈疗", "type": "form", "typeLabel": "形态牌", "level": 1, "rarity": "ssr", "keywords": [], "target": "auto", "tags": ["命运", "form"], "text": "倒计时7：为你恢复12点生命并将此牌回手。每当你使用极星牌时，倒计时−1。", "officialText": "倒计时7：为你恢复12点生命并将此牌回手。每当你使用极星牌时，倒计时−1。", "effect": "xuan-wish-heal", "value": {"attack": 3, "hp": 5, "setBase": true}, "effects": [{"action": "xuan-wish-heal", "value": {"attack": 3, "hp": 5, "setBase": true}, "target": "auto"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanWish": "heal"}),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-wish-revive", "name": "七星·复苏", "type": "form", "typeLabel": "形态牌", "level": 1, "rarity": "ssr", "keywords": [], "target": "auto", "tags": ["命运", "form"], "text": "倒计时7：复活己方所有式神并将此牌回手。每当你使用极星牌时，倒计时−1。", "officialText": "倒计时7：复活己方所有式神并将此牌回手。每当你使用极星牌时，倒计时−1。", "effect": "xuan-wish-revive", "value": {"attack": 3, "hp": 5, "setBase": true}, "effects": [{"action": "xuan-wish-revive", "value": {"attack": 3, "hp": 5, "setBase": true}, "target": "auto"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanWish": "revive"}),
+  Object.freeze({"unitId": "xuan", "cost": 1, "pack": "wave13", "timing": "main", "responseTo": [], "skin": false, "id": "xuan-wish-stars", "name": "七星·明星", "type": "form", "typeLabel": "形态牌", "level": 1, "rarity": "ssr", "keywords": [], "target": "auto", "tags": ["命运", "form"], "text": "倒计时7：将7张不同的极星牌置入牌库并将此牌回手。每当你使用极星牌时，倒计时−1。", "officialText": "倒计时7：将7张不同的极星牌置入牌库并将此牌回手。每当你使用极星牌时，倒计时−1。", "effect": "xuan-wish-stars", "value": {"attack": 3, "hp": 5, "setBase": true}, "effects": [{"action": "xuan-wish-stars", "value": {"attack": 3, "hp": 5, "setBase": true}, "target": "auto"}], "copies": 0, "deckLimit": 0, "starterCopies": 0, "token": true, "xuanWish": "stars"}),
   wave13Card(93133, "yuyuan-banruo", {
     id: "w13-yuyuan-banruo-93133",
     name: "怨爪",
@@ -883,145 +886,116 @@ export const WAVE13_CARD_DEFINITIONS = Object.freeze([
       ["always", "awaken", "source", {"attack": 1, "hp": 1}],
     ],
   }),
-  wave13Card(93141, "luohou", {
-    id: "w13-luohou-93141",
-    name: "蚀日爪",
+  wave13Card(0, "yuyuan-banruo", {
+    id: "fate-banruo-avenge",
+    name: "予愿必还",
     type: "combat",
     level: 1,
-    cost: 1,
-    rarity: "R",
-    starter: 1,
-    deckLimit: 2,
-    text: "出击 +2。",
-    officialText: "出击 +2。",
-    target: "auto",
-    tags: ["命运", "combat"],
-    effects: [
-      ["source-ready", "assault", "source", 2],
-    ],
+    token: true,
+    deckLimit: 0,
+    text: "本次战斗般若受到伤害时，敌方牌手受到等量伤害。",
+    effects: [["always", "grudge-avenge", "auto"]],
   }),
-  wave13Card(93142, "luohou", {
-    id: "w13-luohou-93142",
-    name: "吞光",
-    type: "spell",
-    level: 1,
-    cost: 1,
-    rarity: "R",
-    starter: 1,
-    deckLimit: 2,
-    text: "对一个式神造成 2 点伤害。",
-    officialText: "对一个式神造成 2 点伤害。",
-    target: "enemy-unit",
-    tags: ["命运", "spell"],
-    effects: [
-      ["always", "damage", "selected-enemy", 2],
-    ],
-  }),
-  wave13Card(93143, "luohou", {
-    id: "w13-luohou-93143",
-    name: "暗蚀",
-    type: "spell",
-    level: 1,
-    cost: 0,
-    rarity: "R",
-    starter: 1,
-    deckLimit: 2,
-    text: "使一个敌方角色获得 1 破甲。",
-    officialText: "使一个敌方角色获得 1 破甲。",
-    target: "enemy-unit",
-    tags: ["命运", "spell"],
-    keywords: ["INSTANT"],
-    effects: [
-      ["always", "apply-armor-break", "selected-enemy", 1],
-    ],
-  }),
-  wave13Card(93144, "luohou", {
-    id: "w13-luohou-93144",
-    name: "罗睺之相",
-    type: "form",
-    level: 2,
-    cost: 1,
-    rarity: "R",
-    starter: 1,
-    deckLimit: 2,
-    text: "获得 +2/+5。",
-    officialText: "获得 +2/+5。",
-    target: "auto",
-    tags: ["命运", "form"],
-    effects: [
-      ["always", "form", "source", {"attack": 2, "hp": 5}],
-    ],
-  }),
-  wave13Card(93145, "luohou", {
-    id: "w13-luohou-93145",
-    name: "蚀界",
-    type: "spell",
-    level: 2,
-    cost: 1,
-    rarity: "SR",
-    starter: 1,
-    deckLimit: 2,
-    text: "对敌方前线造成 3 点伤害。",
-    officialText: "对敌方前线造成 3 点伤害。",
-    target: "auto",
-    tags: ["命运", "spell"],
-    effects: [
-      ["always", "damage-enemy-front", "auto", 3],
-    ],
-  }),
-  wave13Card(93146, "luohou", {
-    id: "w13-luohou-93146",
-    name: "黑日",
+  wave13Card(66808, "luohou", {
+    id: "w13-luohou-93141",
+    name: "死兆",
     type: "spell",
     level: 3,
     cost: 1,
-    rarity: "SR",
-    starter: 1,
-    deckLimit: 2,
-    text: "对所有敌方式神造成 2 点伤害。",
-    officialText: "对所有敌方式神造成 2 点伤害。",
-    target: "auto",
-    tags: ["命运", "spell"],
-    effects: [
-      ["always", "damage", "all-enemy-units", 2],
-    ],
-  }),
-  wave13Card(93147, "luohou", {
-    id: "w13-luohou-93147",
-    name: "蚀盾",
-    type: "spell",
-    level: 1,
-    cost: 1,
     rarity: "R",
     starter: 1,
     deckLimit: 2,
-    text: "获得 3 点护甲并施加 1 破甲给敌方前线。",
-    officialText: "获得 3 点护甲并施加 1 破甲给敌方前线。",
+    text: "占卜3，抽3张牌，每抽到一张「凶星」便对敌方所有式神造成1点伤害。",
     target: "auto",
+    tags: ["命运", "占卜", "凶星"],
+    effects: [["always", "luohou-death-omen", "auto", 0]],
+  }),
+  wave13Card(93142, "luohou", {
+    id: "w13-luohou-93142",
+    name: "煞星引灾",
+    type: "spell",
+    level: 2,
+    rarity: "common",
+    starter: 1,
+    text: "对一个式神造成5点伤害。将你手上的凶星置入牌库，每洗入一张凶星，再对该式神造成1点伤害。",
     tags: ["命运", "spell"],
-    effects: [
-      ["always", "shield", "source", 3],
-      ["always", "apply-armor-break", "selected-enemy", 1],
-    ],
+    target: "any-unit",
+    effects: [["always", "luohou-scorch", "any-unit", 0]],
+  }),
+  wave13Card(93143, "luohou", {
+    id: "w13-luohou-93143",
+    name: "卜卦",
+    type: "spell",
+    level: 1,
+    rarity: "common",
+    starter: 1,
+    text: "瞬发。将两张凶星洗入牌库，占卜2，抽一张牌。",
+    tags: ["命运", "spell"],
+    target: "auto",
+    effects: [["always", "luohou-augury", "auto", 0]],
+    keywords: ["INSTANT"],
+  }),
+  wave13Card(93144, "luohou", {
+    id: "w13-luohou-93144",
+    name: "黑煞之神",
+    type: "form",
+    level: 2,
+    rarity: "rare",
+    starter: 1,
+    text: "进场时占卜2，为你恢复3点生命。每回合一次，每当你抽到「星天外」的卡牌时，对敌方牌手造成3点伤害。",
+    tags: ["命运", "form"],
+    target: "auto",
+    effects: [["always", "luohou-black-form", "auto", {"attack": 4, "hp": 6, "setBase": true}]],
+  }),
+  wave13Card(93145, "luohou", {
+    id: "w13-luohou-93145",
+    name: "凶星凌日",
+    type: "spell",
+    level: 3,
+    rarity: "ssr",
+    starter: 1,
+    text: "占卜6，然后展示你牌库顶6张牌，移除所有「凶星」。每移除一张凶星，使得一张「凶星」置入敌方手牌。每有一张「凶星」无法置入，便投射：造成3点伤害。",
+    tags: ["命运", "spell"],
+    target: "auto",
+    effects: [["always", "luohou-transit", "auto", 0]],
+  }),
+  wave13Card(93146, "luohou", {
+    id: "w13-luohou-93146",
+    name: "时空：星天外",
+    type: "realm",
+    level: 1,
+    rarity: "rare",
+    starter: 1,
+    text: "时空。每当己方牌手于本回合第二次抽牌时，对所有敌方式神造成1点伤害。",
+    tags: ["命运", "realm"],
+    target: "auto",
+    effects: [["always", "luohou-realm", "auto", 0]],
+  }),
+  wave13Card(93147, "luohou", {
+    id: "w13-luohou-93147",
+    name: "趋凶避吉",
+    type: "spell",
+    level: 1,
+    rarity: "common",
+    starter: 1,
+    text: "弃一张牌，占卜2，获得1点鬼火。若弃掉的是「凶星」，随机弃敌方牌手一张牌。",
+    tags: ["命运", "spell"],
+    target: "auto",
+    effects: [["always", "luohou-discard", "auto", 0]],
   }),
   wave13Card(93148, "luohou", {
     id: "w13-luohou-93148",
     name: "觉醒·罗睺",
     type: "awakening",
     level: 2,
-    cost: 1,
-    rarity: "SSR",
+    rarity: "rare",
     starter: 1,
-    deckLimit: 1,
-    text: "觉醒：蚀日升级，获得 +1/+2。",
-    officialText: "觉醒：蚀日升级，获得 +1/+2。",
-    target: "auto",
+    text: "为敌方牌手占卜2。觉醒：每当你占卜时，为占卜牌手的牌库置入2张「凶星」（不触发洗牌库）。",
     tags: ["命运", "awakening"],
-    deckLimit: 1,
-    effects: [
-      ["always", "awaken", "source", {"attack": 1, "hp": 2}],
-    ],
+    target: "auto",
+    effects: [["always", "luohou-awake", "auto", {"attack": 1, "hp": 1}]],
   }),
+  Object.freeze({"id": "luohou-malefic-star", "unitId": "luohou", "name": "凶星", "type": "spell", "typeLabel": "法术牌", "level": 1, "cost": 1, "copies": 0, "deckLimit": 0, "starterCopies": 0, "rarity": "common", "tags": ["命运", "spell"], "keywords": ["malefic-star"], "timing": "main", "responseTo": [], "text": "回合结束时将弃掉此牌并对你造成2点伤害，若你操控罗睺，则改为为你恢复1点生命。抽到此牌时抽1张牌。", "officialText": "回合结束时将弃掉此牌并对你造成2点伤害，若你操控罗睺，则改为为你恢复1点生命。抽到此牌时抽1张牌。", "target": "auto", "effect": "luohou-malefic", "value": 0, "effects": [{"action": "luohou-malefic", "target": "auto", "value": 0}], "pack": "wave13", "token": true, "skin": false, "luohouMalefic": true, "luohouOuterStar": true, "subtype": "星天外"}),
   wave13Card(93149, "yaodaoji", {
     id: "skin-yaodaoji-93149",
     name: "妖刀万华·幻",
@@ -1095,6 +1069,226 @@ export const WAVE13_CARD_DEFINITIONS = Object.freeze([
     effects: [
       ["always", "draw", "ally-player", 1],
     ],
+  }),
+  wave13Card(93153, "himiko", {
+    "id": "w13-himiko-93153",
+    "name": "时汐之晷",
+    "type": "spell",
+    "level": 1,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 1,
+    "deckLimit": 2,
+    "text": "瞬发，命运抉择。然后揭示你牌库顶的牌，复活揭示卡牌对应的式神。",
+    "target": "auto",
+    "tags": [],
+    "keywords": [
+      "INSTANT"
+    ],
+    "effects": [
+      [
+        "always",
+        "himiko-revive",
+        "source",
+        0
+      ]
+    ]
+  }),
+  wave13Card(93154, "himiko", {
+    "id": "w13-himiko-93154",
+    "name": "时间之隙",
+    "type": "realm",
+    "level": 1,
+    "cost": 1,
+    "rarity": "SR",
+    "starter": 1,
+    "deckLimit": 2,
+    "text": "瞬发。选择一个式神，此幻境在场时，他的卡牌获得瞬发。每当己方式神使用手牌且未消耗鬼火时，该式神获得+1战力/+1护甲，此幻境-2耐久。",
+    "target": "any-unit",
+    "tags": [],
+    "keywords": [
+      "INSTANT"
+    ],
+    "effects": [
+      [
+        "always",
+        "himiko-gap",
+        "source",
+        0
+      ]
+    ]
+  }),
+  wave13Card(93155, "himiko", {
+    "id": "w13-himiko-93155",
+    "name": "时烬永耀",
+    "type": "combat",
+    "level": 1,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 1,
+    "deckLimit": 2,
+    "text": "瞬发，远程。鼓舞：+1战力/+1护甲。",
+    "target": "auto",
+    "tags": [],
+    "keywords": [
+      "INSTANT",
+      "REMOTE",
+      "ENCOURAGE"
+    ],
+    "effects": [
+      [
+        "always",
+        "himiko-remote",
+        "source",
+        0
+      ]
+    ]
+  }),
+  wave13Card(93156, "himiko", {
+    "id": "w13-himiko-93156",
+    "name": "觉醒·卑弥呼",
+    "type": "awakening",
+    "level": 2,
+    "cost": 1,
+    "rarity": "SSR",
+    "starter": 1,
+    "deckLimit": 2,
+    "text": "瞬发。将一张「日蚀」置入手牌。觉醒：每回合你可以额外使用一张瞬发的卡牌。每当己方式神使用手牌且未消耗鬼火时，投射：造成1点伤害。",
+    "target": "auto",
+    "tags": [],
+    "keywords": [
+      "INSTANT"
+    ],
+    "effects": [
+      [
+        "always",
+        "himiko-awaken",
+        "source",
+        {
+          "attack": 1,
+          "hp": 1
+        }
+      ]
+    ]
+  }),
+  wave13Card(93157, "himiko", {
+    "id": "w13-himiko-93157",
+    "name": "日耀时辉",
+    "type": "form",
+    "level": 2,
+    "cost": 1,
+    "rarity": "SR",
+    "starter": 1,
+    "deckLimit": 2,
+    "text": "每当己方式神使用卡牌且未消耗鬼火时，鼓舞：+1战力/+1护甲，且每回合一次，重置出击次数。",
+    "target": "auto",
+    "tags": [],
+    "keywords": [
+      "ENCOURAGE"
+    ],
+    "effects": [
+      [
+        "always",
+        "form",
+        "source",
+        {
+          "attack": 4,
+          "hp": 5,
+          "setBase": true
+        }
+      ]
+    ]
+  }),
+  wave13Card(93158, "himiko", {
+    "id": "w13-himiko-93158",
+    "name": "溯回时隙",
+    "type": "spell",
+    "level": 2,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 1,
+    "deckLimit": 2,
+    "text": "疾速。为敌方牌手命运抉择，然后揭示敌方牌库顶的牌，使揭示卡牌的式神气绝并使其气绝倒计时设为2。",
+    "target": "auto",
+    "tags": [],
+    "keywords": [],
+    "effects": [
+      [
+        "always",
+        "himiko-knockout",
+        "source",
+        0
+      ]
+    ]
+  }),
+  wave13Card(93159, "himiko", {
+    "id": "w13-himiko-93159",
+    "name": "征伐之种",
+    "type": "spell",
+    "level": 3,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 1,
+    "deckLimit": 2,
+    "text": "对所有敌方式神造成2点伤害。此牌被揭示时，置入手牌并获得瞬发和弹回。",
+    "target": "auto",
+    "tags": [],
+    "keywords": [],
+    "effects": [
+      [
+        "always",
+        "himiko-conquest",
+        "source",
+        2
+      ]
+    ]
+  }),
+  wave13Card(93160, "himiko", {
+    "id": "w13-himiko-93160",
+    "name": "日轮女王",
+    "type": "spell",
+    "level": 3,
+    "cost": 1,
+    "rarity": "SR",
+    "starter": 1,
+    "deckLimit": 2,
+    "text": "瞬发。随机将3张瞬发的非觉醒卡牌置入你的手牌。",
+    "target": "auto",
+    "tags": [],
+    "keywords": [
+      "INSTANT"
+    ],
+    "effects": [
+      [
+        "always",
+        "himiko-queen",
+        "source",
+        3
+      ]
+    ]
+  }),
+  wave13Card(93161, "himiko", {
+    "id": "himiko-eclipse",
+    "name": "日蚀",
+    "type": "spell",
+    "level": 3,
+    "cost": 0,
+    "rarity": "SSR",
+    "starter": 0,
+    "deckLimit": 0,
+    "text": "不消耗鬼火。获取一张己方式神的专属卡牌。卑弥呼基础能力投射伤害+1。",
+    "target": "auto",
+    "tags": [],
+    "keywords": [],
+    "effects": [
+      [
+        "always",
+        "himiko-eclipse",
+        "source",
+        1
+      ]
+    ],
+    "token": true
   }),
 ]);
 

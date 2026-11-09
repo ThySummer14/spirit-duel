@@ -158,6 +158,7 @@ static func resolve_choice(gs, owner: int, iid: String) -> bool:
 	for e in realms(gs):
 		if str(e.realm.uid)==iid:
 			gs.player(int(e.owner)).realms.erase(e.realm)
+			gs.VerifiedRules.TwinSight.realm_left(gs, int(e.owner), e.realm)
 			removed(gs,owner,int(c.sourceIndex),"幻境",iid)
 			gs.VerifiedRules.event(gs,"realm-removed",{"player":int(e.owner),"uid":iid,"reason":"饥不择食"})
 			break

@@ -4,6 +4,7 @@ const AI := preload("res://scripts/game_ai.gd")
 const Content := preload("res://scripts/content_loader.gd")
 const SC := preload("res://scripts/sugar_cat_rules.gd")
 const Food := preload("res://scripts/cooking_rules.gd")
+const SPECIAL_TRAITS := {"swift":"迅捷","inspired":"昂扬","pursuit":"追猎","remote":"远程","lethal":"必杀","pierce":"贯通"}
 
 func check(ok: bool, detail: String) -> void:
 	checks += 1
@@ -165,24 +166,95 @@ func sugar_cards() -> void:
 	check(old.hp == 1 and not old.get("removed", false), "bigcandy fusion retains actual unyielding once")
 	gs._damage_unit(0, gs.front_index(0), 99, 1, 0); gs._resolve_resolution_stack()
 	check(old.hp == 0 and old.get("removed", false) and old.has("weaverGrave"), "second lethal causes actual summon death with grave")
-	gs = game(); p = gs.player(0); p.units[1].scCookTurn = gs.turn_counter; n = Food.feast_count(gs, 0)
+
+func valid_special_feast(inst: Dictionary) -> bool:
+	var food: Dictionary = inst.get("foodData", {})
+	var parts: Array = food.get("parts", [])
+	if Food.food_kind(inst) != "feast" or food.get("quality") != 3 or food.has("mergedFrom") or parts.size() != 3: return false
+	var seen: Array = []
+	for part in parts:
+		var attack := int(part.get("attack", 0))
+		var hp := int(part.get("hp", 0))
+		var keyword := str(part.get("keyword", ""))
+		if (1 if attack == 3 else 0) + (1 if hp == 3 else 0) + (1 if SPECIAL_TRAITS.has(keyword) else 0) != 1: return false
+		if attack not in [0, 3] or hp not in [0, 3] or (not keyword.is_empty() and (not SPECIAL_TRAITS.has(keyword) or keyword in seen)): return false
+		if not keyword.is_empty(): seen.append(keyword)
+	return true
+
+func special_feast() -> void:
+	var card := Content.card_def("c24908")
+	check(card.cookingSpecialFeastKeywords == SPECIAL_TRAITS.keys() and "instant" in card.keywords, "甘如暖阳采用国服佳肴六词条并保留瞬发")
+	var gs := game()
+	var p := gs.player(0)
+	p.units[1].scCookTurn = gs.turn_counter
+	p.cookingFeasts = 4
+	p.avatarHp = 10
+	var ingredient := Food.gain_ingredient(gs, 0, 1, "mountain")
+	var other := Food.gain_ingredient(gs, 0, 1, "sea")
 	play(gs, "c24908")
-	check(not Content.card_def("c24908").verifiedRules and Content.card_def("c24908").implementationStatus == "partial", "specialfeast unknown independentpool stays explicitpartial")
-	check(Food.feast_count(gs, 0) == n and gs.rule_events.any(func(e): return e.kind == "food-definition-unverified"), "missingpool never silently invents ordinary3ingredientfeast")
-	# Only a test fixture supplies a known feast; this verifies the printed six
-	# threshold independently of the deliberately unverified production pool.
-	var special: Dictionary = Content.card_def("c24908"); var original_pool: Array = special.cookingDirectFeastPool.duplicate(true)
-	special.cookingDirectFeastPool = [[{"attack": 1, "hp": 1}]]
-	gs = game(); p = gs.player(0); p.units[1].scCookTurn = gs.turn_counter; p.cookingFeasts = 4; p.avatarHp = 10
-	play(gs, "c24908")
-	check(Food.feast_count(gs, 0) == 5 and p.avatarHp == 10 and p.units[0].attack == 2, "knownfixture feast below6 cannot grant printedthreshold rewards")
-	gs = game(); p = gs.player(0); p.units[1].scCookTurn = gs.turn_counter; p.cookingFeasts = 5; p.avatarHp = 10; p.units[2].hp = 0; p.units[2].knockout = 2
+	var first: Dictionary = p.hand.back()
+	check(valid_special_feast(first) and p.hand.has(ingredient) and p.hand.has(other) and cook_count(gs) == 0, "独立佳肴是三段三级效果，保留原食材")
+	check(Food.feast_count(gs, 0) == 5 and p.avatarHp == 10 and p.units[0].attack == 2, "实际第五张佳肴还未触发六张奖励")
+
+	p.units[2].hp = 0
+	p.units[2].knockout = 2
 	var body: Array = p.units.map(func(u): return [int(u.attack), int(u.maxHp)])
+	var first_recipe: Dictionary = first.foodData.duplicate(true)
 	play(gs, "c24908")
-	check(Food.feast_count(gs, 0) == 6 and p.avatarHp == 20, "knownfixture sixthfeast counts immediately and heals exactly10")
-	for i in p.units.size(): check(p.units[i].attack == body[i][0] + 5 and p.units[i].maxHp == body[i][1] + 5, "printedthreshold permanent5/5 applies allshikigami includingKO %d" % i)
-	check(p.units[2].hp == 0 and p.units[2].knockout == 2, "printedthreshold growth does not invent KOrevive")
-	special.cookingDirectFeastPool = original_pool
+	var second: Dictionary = p.hand.back()
+	check(valid_special_feast(second) and second.instanceId != first.instanceId and first.foodData == first_recipe, "各自真实佳肴实例保留各自已抽样的组合")
+	check(Food.feast_count(gs, 0) == 6 and p.avatarHp == 20, "实际第六张佳肴先计数再为牌手恢复10点")
+	for i in p.units.size():
+		check(p.units[i].attack == body[i][0] + 5 and p.units[i].maxHp == body[i][1] + 5, "永久+5/+5覆盖全部初始式神 %d" % i)
+	check(p.units[2].hp == 0 and p.units[2].knockout == 2, "六张佳肴奖励保留气绝状态")
+
+	var target: Dictionary = p.units[0]
+	var index: int = p.hand.find(second)
+	var feast_card := gs.hand_card_def(0, index)
+	var expected_attack: int = target.attack
+	var expected_hp: int = target.maxHp
+	var traits: Array = []
+	for part in second.foodData.parts:
+		expected_attack += int(part.get("attack", 0))
+		expected_hp += int(part.get("hp", 0))
+		if part.has("keyword"): traits.append(str(part.keyword))
+	check(traits.all(func(keyword): return str(feast_card.text).contains(SPECIAL_TRAITS[keyword])) and gs.play_card(0, index, target.uid), "生成的中立佳肴显示抽样结果，可从手牌使用")
+	check(int(target.attack) == expected_attack and int(target.maxHp) == expected_hp and traits.all(func(keyword):
+		if keyword == "swift": return target.swift
+		return gs.VerifiedRules.Combat.has(target, keyword)), "佳肴对实际目标结算抽到的数值与关键词")
+
+	for count in [5, 6]:
+		gs = game()
+		p = gs.player(0)
+		p.cookingFeasts = count
+		p.avatarHp = 10
+		var special_idx := give(gs, "c24908")
+		for _i in range(int(gs.rules.maxHandSize) - 1): give(gs, "c24902")
+		check(gs.play_card(0, special_idx) and cook_count(gs) == 1 and gs.rule_events.any(func(e): return e.kind == "food-burned"), "饴细工先烹饪填满手牌，直接生成的佳肴正常烧掉")
+		check(Food.feast_count(gs, 0) == count and Food.hand_food_count(gs, 0, "feast") == 0 and p.avatarHp == (20 if count == 6 else 10), "烧牌不增加佳肴计数，已有六张仍结算奖励")
+
+	gs = game()
+	p = gs.player(0)
+	p.units[1].scCookTurn = gs.turn_counter
+	var saved_card := card.duplicate(true)
+	saved_card.erase("cookingSpecialFeastKeywords")
+	gs._push_card_frames(0, "c24908", null, saved_card, 1, 0)
+	gs._resolve_resolution_stack()
+	check(p.hand.size() == 1 and valid_special_feast(p.hand[0]), "旧存档中已排队的卡牌继续按当前牌定义生成")
+
+	gs = game()
+	p = gs.player(0)
+	p.units[1].scCookTurn = gs.turn_counter
+	var found: Dictionary = {}
+	for _i in 32:
+		p.hand.clear()
+		p.energy = 40
+		play(gs, "c24908")
+		var sample: Dictionary = p.hand.back()
+		check(valid_special_feast(sample), "多次真实结算的佳肴都符合三级三段")
+		for part in sample.foodData.parts:
+			if part.has("keyword"): found[part.keyword] = true
+	check(SPECIAL_TRAITS.keys().all(func(keyword): return found.has(keyword)), "固定随机种子跑通全部六种佳肴词条")
 
 func ai_and_metadata() -> void:
 	var gs := game(); var p: Dictionary = gs.player(0)
@@ -191,17 +263,20 @@ func ai_and_metadata() -> void:
 			var id := "c%d%02d" % [prefix, n]; var c: Dictionary = Content.card_def(id)
 			check(c.get("sugarCatRules", false) and not c.effects.is_empty() and c.effects[0].action == "sc-card", "16cards use actualindependent executor " + id)
 			check(ResourceLoader.exists("res://assets/official/cards/%s.png" % id), "actualoriginal PNG exists " + id)
-			if id != "c24908": check(c.verifiedRules, "verified mainmechanism metadata " + id)
+			check(c.verifiedRules, "verified mainmechanism metadata " + id)
 	var h := give(gs, "c24904"); check(SC.score_card(gs, 0, gs.hand_card_def(0, h), p.units[0].uid) < 0, "AI refuses ownunit damage")
 	play(gs, "c24601"); check(AI._resolve_choice(gs, 0) and gs.pending_choice.is_empty(), "AI completes realingredient selection")
 	play(gs, "c24606"); check(AI._resolve_choice(gs, 0) and gs.pending_choice.is_empty() and front(gs).has("scCatType"), "AI completes realcat selection")
 	check(not SC.marks(gs, 0, p.units[0]).is_empty() and not SC.marks(gs, 0, p.units[1]).is_empty(), "nativeUI status includes summonhistory and onceperturn cooking")
+	gs = game(); p = gs.player(0); p.cookingFeasts = 5
+	give(gs, "c24908")
+	check(AI.take_action(gs, 0) and Food.feast_count(gs, 0) == 6, "AI 真实打出甘如暖阳并获得第六张佳肴")
 
 func ui_checks() -> void:
 	root.theme = ThemeBuilder.build_theme()
 	for physical in [Vector2i(1280, 800), Vector2i(1600, 740)]:
 		root.size = physical
-		if not out.is_empty(): DisplayServer.window_set_size(physical)
+		if DisplayServer.get_name() != "headless": DisplayServer.window_set_size(physical)
 		var b := Battle.new(); b.setup(["maozhanggui", "yixigong", "bingyong", "shantong"], ["bingyong", "shantong", "bailang", "hetong"], 246249)
 		b._ai_thinking = true
 		for p in b.gs.players:
@@ -229,13 +304,22 @@ func ui_checks() -> void:
 		await capture("%d-03-fusionfire-target" % physical.x)
 		await click(b._unit_widget(str(foe.units[1].uid))); await settled(b)
 		check(p.energy == energy - 1 and foe.units[1].hp < foe.units[1].maxHp, "mouse selectedreserve receives actual spell damage")
+		p.units[1].scCookTurn = gs.turn_counter
+		hand(b, ["c24908"]); await settled(b)
+		await click(b._hand_row.get_child(0)); await settled(b)
+		check(p.hand.size() == 1 and valid_special_feast(p.hand[0]), "鼠标打出甘如暖阳后手牌出现真实佳肴 %d" % physical.x)
+		if p.hand.size() == 1 and Food.food_kind(p.hand[0]) == "feast":
+			await click(b._hand_row.get_child(0)); await settled(b)
+			check(b._pending_target_card == 0 and gs.valid_targets(0, b._pending_target_card_def).has(p.units[0].uid), "鼠标选佳肴后进入实际己方目标选择 %d" % physical.x)
+			await click(b._unit_widget(str(p.units[0].uid))); await settled(b)
+			check(p.hand.is_empty() and used(gs, "feast").size() == 1, "鼠标选友方式神后佳肴消耗并结算 %d" % physical.x)
 		b.queue_free(); await process_frame; await process_frame
 
 func run() -> void:
 	var stores := Support.isolate_stores()
 	if not OS.get_cmdline_user_args().is_empty() and OS.get_cmdline_user_args()[0] != "--rules-only":
 		out = OS.get_cmdline_user_args()[0]; DirAccess.make_dir_recursive_absolute(out)
-	cat_cards(); sugar_cards(); ai_and_metadata()
+	cat_cards(); sugar_cards(); special_feast(); ai_and_metadata()
 	if not OS.get_cmdline_user_args().has("--rules-only"): await ui_checks()
 	Support.cleanup_stores(stores); Support.cleanup_audio(); await process_frame; await process_frame
 	print("SUGAR_CAT checks=%d failures=%d" % [checks, failures]); quit(0 if failures == 0 else 1)

@@ -2,9 +2,10 @@ class_name StunRules
 extends RefCounted
 ## One entry point for character stun and the match-long enemy stun ledger.
 static func blocks(gs, owner: int, unit: Dictionary, card: Dictionary = {}) -> bool:
-	return int(unit.get("frozen",0))>0 and not card.get("allowStunnedSource",false) and not gs.VerifiedRules.Raccoon.ignores(gs,owner,unit)
+	var stunned: bool = int(unit.get("frozen",0))>0 or gs.VerifiedRules.Coffin.stunned(unit)
+	return stunned and not card.get("allowStunnedSource",false) and not gs.VerifiedRules.Raccoon.ignores(gs,owner,unit)
 
-static func apply(gs, owner: int, idx: int, duration: int = 1, source_owner: int = -1) -> void:
+static func apply(gs, owner: int, idx: int, duration: int = 1, source_owner: int = -1, source_index: int = -1) -> void:
 	if duration <= 0 or gs.winner >= 0: return
 	if source_owner < 0: source_owner = 1 - owner
 	var p: Dictionary = gs.player(owner)
@@ -23,6 +24,10 @@ static func apply(gs, owner: int, idx: int, duration: int = 1, source_owner: int
 		enemy.enemyStuns = int(enemy.get("enemyStuns", 0)) + 1
 	gs.VerifiedRules.event(gs, "stun-applied", {"player": owner, "uid": "" if idx < 0 else target.uid, "remaining": int(target[key]), "newStun": first})
 	gs.VerifiedRules.Xuenv.stunned(gs, owner, idx, first, source_owner)
+	if source_index < 0 and int(gs._card_effect_context.get("playerIndex", -1)) == source_owner:
+		source_index = int(gs._card_effect_context.get("sourceIndex", -1))
+	gs.VerifiedRules.WindCharm.on_stun(gs, source_owner, owner, source_index)
+	gs.VerifiedRules.DragonFlow.stunned(gs, owner, idx)
 	gs.VerifiedRules.Raccoon.stunned(gs,owner,idx)
 	gs._log("%s 陷入眩晕。" % [p.name + "的牌手" if idx < 0 else target.name], gs.TONE_CARD)
 
@@ -30,7 +35,7 @@ static func count(gs, owner: int) -> int:
 	var p: Dictionary = gs.player(owner)
 	var total := 1 if int(p.get("avatarFrozen", 0)) > 0 else 0
 	for unit in p.units:
-		if int(unit.hp) > 0 and int(unit.frozen) > 0: total += 1
+		if int(unit.hp) > 0 and (int(unit.frozen) > 0 or gs.VerifiedRules.Coffin.stunned(unit)): total += 1
 	return total
 
 static func end_turn(gs, owner: int) -> void:

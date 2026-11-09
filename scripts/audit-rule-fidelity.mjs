@@ -2,6 +2,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CARD_DEFINITIONS, UNIT_DEFINITIONS, getCardDefinition, getUnitDefinition } from '../game-content.js';
+import { COOP_CARD_DEFINITIONS } from '../game-content-cooperation.js';
+import { mergeVerifiedDefinition } from '../game-verified-merge.js';
 
 // This is an inventory, not a natural-language proof of semantic equivalence.
 // Absence of a simplification marker means unreviewed, never restored.
@@ -10,14 +12,16 @@ const overlay = JSON.parse(readFileSync(resolve(root, 'godot/content/verified_ru
 const marker = /简化|近似|可玩化|暂未|占位/;
 const errors = [];
 const rows = [];
-for (const [kind, definitions] of [['units', UNIT_DEFINITIONS], ['cards', CARD_DEFINITIONS]]) {
+for (const [kind, definitions] of [['units', UNIT_DEFINITIONS], ['cards', [...CARD_DEFINITIONS, ...COOP_CARD_DEFINITIONS]]]) {
   const patches = overlay[kind] ?? {};
   for (const id of Object.keys(patches)) {
     if (!definitions.some((definition) => definition.id === id)) errors.push(`Unknown ${kind} reference: ${id}`);
   }
   for (const original of definitions) {
     const patch = patches[original.id];
-    const effective = kind === 'units' ? (getUnitDefinition(original.id) ?? original) : (getCardDefinition(original.id) ?? original);
+    const effective = kind === 'units'
+      ? (getUnitDefinition(original.id) ?? original)
+      : (getCardDefinition(original.id) ?? mergeVerifiedDefinition(original, patch));
     const texts = kind === 'units'
       ? [effective.passive?.text, effective.awakenedPassive?.text]
       : [effective.text, effective.formAbility];

@@ -144,6 +144,14 @@ func river_rules() -> void:
 	play(gs, "c21306")
 	check(p.deck.size() == 1 and p.deck[0].instanceId == "song-top" and gs.player(1).units.all(func(u): return int(u.hp) == int(u.maxHp)-3), "song reveals without drawing and uses actual top-card level for every enemy")
 	check(gs.rule_events.any(func(e): return e.kind == "river-top-revealed" and e.card.id == "c21308"), "song exposes actual revealed card")
+	gs = game(true); p = gs.player(0); dice(gs, 2)
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs, 1, 0, "river-scope-decoy", "普通召唤物", 0, 9, {"countsAsShikigami": false})
+	target = gs.player(1).units[0]; target.level = 0
+	var water := give(gs, "c21302")
+	check(not gs.can_play_card(0, water, decoy.uid).ok and gs.play_card(0, water, target.uid) and target.armorBreak == 4, "流水只能选择式神，零勾有效")
+	p.deck = [{"instanceId":"song-top","definitionId":"c21308"}]
+	play(gs, "c21306")
+	check(decoy.hp == 9 and int(target.hp) < int(target.maxHp), "大河之歌伤害零勾敌方式神且跳过非式神召唤物")
 	gs = game(true); p = gs.player(0); play(gs, "c21304"); p.avatarHp = 20; gs.player(1).units[0].front = 1; dice(gs, 6)
 	check(gs.basic_attack(0, 1) and not gs.pending_choice.is_empty() and gs.player(1).units[0].hp == gs.player(1).units[0].maxHp, "attack waits for fortune-triggered player choice before damage")
 	finish(gs); check(p.avatarHp == 24, "summer successful attack lifesteals actual4 damage")

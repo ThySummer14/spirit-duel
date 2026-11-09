@@ -72,12 +72,12 @@ static func promote(gs) -> void:
 	gs.resolution_stack = gs.resolution_stack.filter(func(f): return f.get("kind") != "yi-shuffle")
 	gs.resolution_stack.append_array(waiting)
 
-static func defer_draw(gs, owner: int, count: int) -> bool:
+static func defer_draw(gs, owner: int, count: int, required_level: int = -1, draw_context: Dictionary = {}) -> bool:
 	if count <= 0: return false
 	var waiting := _waiting(gs)
 	if waiting.is_empty(): return false
 	gs.resolution_stack = gs.resolution_stack.filter(func(f): return f.get("kind") != "yi-shuffle")
-	gs.resolution_stack.append({"kind": "yi-draw", "playerIndex": owner, "count": count, "context": gs._card_effect_context.duplicate(true)})
+	gs.resolution_stack.append({"kind": "yi-draw", "playerIndex": owner, "count": count, "requiredLevel": required_level, "drawContext": draw_context, "context": gs._card_effect_context.duplicate(true)})
 	gs.resolution_stack.append_array(waiting)
 	gs._resolve_resolution_stack()
 	return true
@@ -97,10 +97,10 @@ static func turn_start(gs, owner: int) -> void:
 static func targets(gs, owner: int, card: Dictionary):
 	if not card.get("yiRules", false): return null
 	if str(card.id) == "c23903":
-		return gs.player(1 - owner).units.filter(func(u): return int(u.hp) > 0 and not u.get("removed", false) and gs.VerifiedRules.OwlInsect.shikigami(u) and not gs.VerifiedRules.Combat.has(u, "veil")).map(func(u): return str(u.uid))
+		return gs.player(1 - owner).units.filter(func(u): return int(u.hp) > 0 and gs.VerifiedRules.OwlInsect.shikigami(u) and not gs.VerifiedRules.Combat.has(u, "veil")).map(func(u): return str(u.uid))
 	if str(card.id) == "c23904":
 		var src: int = gs._source_index(owner, card)
-		return gs.player(owner).units.filter(func(u): return u != gs.player(owner).units[src] and not u.get("removed", false) and gs.player(owner).deck.any(func(i): return Content.card_def(str(i.definitionId)).get("unitId") == u.id)).map(func(u): return str(u.uid))
+		return gs.player(owner).units.filter(func(u): return u != gs.player(owner).units[src] and not u.get("removed", false) and gs.player(owner).deck.any(func(i): return u.id in Content.card_unit_ids(Content.card_def(str(i.definitionId))))).map(func(u): return str(u.uid))
 	return null
 
 static func can_use(gs, owner: int, card: Dictionary) -> bool:
@@ -120,7 +120,7 @@ static func _start_hand(gs, owner: int) -> void:
 static func _start_search(gs, owner: int, target_id) -> void:
 	var target: Dictionary = gs._unit_by_uid(gs.player(owner).units, str(target_id))
 	if target.is_empty(): return
-	var ids: Array = gs.player(owner).deck.filter(func(i): return Content.card_def(str(i.definitionId)).get("unitId") == target.id).map(func(i): return str(i.instanceId))
+	var ids: Array = gs.player(owner).deck.filter(func(i): return target.id in Content.card_unit_ids(Content.card_def(str(i.definitionId)))).map(func(i): return str(i.instanceId))
 	if ids.is_empty(): return
 	gs.pending_choice = {"type": "yi-search", "playerIndex": owner, "zone": "deck", "instanceIds": ids, "targetUid": target_id, "heading": "神 之 一 手", "hint": "选择%s牌库中的一张真实专属牌置入手牌。" % target.name}
 	gs.phase = "choice"
@@ -175,6 +175,7 @@ static func review(gs, owner: int) -> void:
 			var inst: Dictionary = realm.get("cardInstance", {}).duplicate(true)
 			if inst.is_empty(): inst = realm.get("returnInstance", {}).duplicate(true)
 			gs.player(side).realms.erase(realm)
+			gs.VerifiedRules.TwinSight.realm_left(gs, side, realm)
 			returned[side] = _return(gs, side, inst) or returned[side]
 			gs.VerifiedRules.event(gs, "yi-realm-returned", {"player": side, "realm": realm.uid, "instanceId": inst.get("instanceId", ""), "tracked": not inst.is_empty()})
 	gs.VerifiedRules.Night.refresh(gs); gs.VerifiedRules.MonkCleaner.refresh(gs); gs.VerifiedRules.Enma.refresh(gs); gs.VerifiedRules.OwlInsect.refresh(gs)
@@ -217,13 +218,13 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 			gs.VerifiedRules.Divination.start(gs, owner, int(frame.count))
 		"yi-draw":
 			var context: Dictionary = gs._card_effect_context; gs._card_effect_context = frame.get("context", {})
-			gs._draw(owner, int(frame.count)); gs._card_effect_context = context
+			gs._draw(owner, int(frame.count), int(frame.get("requiredLevel", -1)), frame.get("drawContext", {})); gs._card_effect_context = context
 		"yi-awaken-complete": gs._awaken(owner, int(frame.sourceIndex), frame.card, {"attack": 1, "hp": 1})
 		"yi-damage-follow":
 			var enemy := 1 - owner; var idx: int = gs._unit_index_by_uid(enemy, str(frame.targetId))
 			if idx < 0 or int(gs.player(enemy).units[idx].hp) <= 0: return true
 			var target: Dictionary = gs.player(enemy).units[idx]
-			var pool: Array = gs.player(enemy).hand.filter(func(i): return Content.card_def(str(i.definitionId)).get("unitId") == target.id)
+			var pool: Array = gs.player(enemy).hand.filter(func(i): return target.id in Content.card_unit_ids(Content.card_def(str(i.definitionId))))
 			if not pool.is_empty():
 				var inst: Dictionary = pool[int(gs.next_random() % pool.size())]
 				gs.player(enemy).hand.erase(inst); gs.player(enemy).deck.append(clean_instance(inst)); gs._shuffle(gs.player(enemy).deck)

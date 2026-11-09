@@ -108,9 +108,10 @@ func fragrance_enter_soul() -> void:
 	check(packet[0].remainingPaint==5 and packet[1].remainingPaint==0,"fragrance first packet precedes field removal")
 	gs=game(); foe=gs.player(1); total=sum_hp(gs,1); play(gs,"c22905")
 	check(total-sum_hp(gs,1)==2 and events(gs,"paint-fragrance-hit")==1,"fragrance no-field retains initial random hit and heal")
-	gs=game(); foe=gs.player(1); foe.units[0].attack=9; foe.units[1].attack=1; foe.units[1].hp=50; foe.units[1].maxHp=50; foe.units[1].barrier=true; foe.units[1].keywords=["veil"]; foe.units[1].unyielding=true
+	gs=game(); foe=gs.player(1); foe.units[0].attack=9; foe.units[1].attack=1; foe.units[1].hp=50; foe.units[1].maxHp=50; foe.units[1].barrier=true; foe.units[1].keywords=["veil"]; foe.units[1].unyielding=true; foe.units[1].level=0
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs,1,0,"paint-decoy","普通召唤物",0,9,{"countsAsShikigami":false})
 	play(gs,"c22907")
-	check(foe.units[1].hp==0 and foe.units[0].hp>0 and Paint.durability(gs,0)==2,"enter destroys actual lowest power through veil, barrier, unyielding; creates field")
+	check(foe.units[1].hp==0 and foe.units[0].hp>0 and decoy.hp==9 and Paint.durability(gs,0)==2,"入画消灭最低力量零勾式神，跳过更低力量的普通召唤物")
 	gs=game(); foe=gs.player(1); for u in foe.units: gs._knockout_unit(u)
 	play(gs,"c22907"); check(Paint.durability(gs,0)==2,"enter still summons field with no living enemy")
 	gs=game(); p=gs.player(0); foe=gs.player(1); p.avatarHp=10; Paint.summon_field(gs,0,0,6,true)

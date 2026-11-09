@@ -115,7 +115,7 @@ static func store_hand(gs, owner: int, index: int, card: Dictionary, payment: Di
 	gs.player(owner).get("chargedModes", {}).erase(str(instance.get("instanceId", "")))
 	gs._set_fire(owner, int(gs.player(owner).energy) - int(payment.cost), true)
 	gs.VerifiedRules.Moon.consume_card(gs, card)
-	if payment.usesInstant: gs.kw_usage(owner, "instant").used = true
+	if payment.usesInstant: gs.consume_instant(owner)
 	gs._record("play_card", {"hand": index, "card": card.id, "target": target_id, "cardView": card.duplicate(true), "payment": payment.duplicate(true), "charge": true}, owner)
 	gs.VerifiedRules.Zhenjian.consume_card(gs,owner,src,card)
 	var result := _stored(gs, owner, src, card, instance, target_id)

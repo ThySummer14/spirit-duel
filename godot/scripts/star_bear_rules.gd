@@ -120,8 +120,16 @@ static func expire_turn(gs) -> void:
 static func knocked_out(u: Dictionary) -> void:
 	for key in ["starTargetTurn","starTargetPower","starTargetArmor","starTargetBreak","starBowlSerial"]: u.erase(key)
 
-static func targets(_gs, _owner: int, _card: Dictionary):
-	return null
+static func targets(gs, owner: int, card: Dictionary):
+	var effect := str(card.get("effect", ""))
+	if effect not in ["star-talk", "star-focus", "star-bowl"]: return null
+	var ids: Array = []
+	for side in ([owner, 1-owner] if effect == "star-talk" else [1-owner]):
+		for u in gs.player(side).units:
+			if int(u.hp) <= 0 or not gs.VerifiedRules.OwlInsect.shikigami(u): continue
+			if side != owner and (gs.VerifiedRules.Combat.has(u, "veil") or gs.VerifiedRules.Movement.has_veil(u)): continue
+			ids.append(str(u.uid))
+	return ids
 
 static func describe_card(gs, owner: int, _entry: Dictionary, card: Dictionary) -> Dictionary:
 	if not card.get("starBearCard",false): return card

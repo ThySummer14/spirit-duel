@@ -1,6 +1,7 @@
 class_name CookingRules
 extends RefCounted
 const Content := preload("res://scripts/content_loader.gd")
+const Glossary := preload("res://scripts/ui/keyword_glossary.gd")
 const INGREDIENT_IDS := {"mountain":"cooking-mountain", "sea":"cooking-sea", "vegetable":"cooking-vegetable"}
 const KIND_NAMES := {"mountain":"山珍", "sea":"海味", "vegetable":"时蔬", "ingredient":"食材", "unknown":"不明食材", "feast":"佳肴", "dark":"黑暗料理"}
 
@@ -78,12 +79,31 @@ static func gain_unknown(gs, owner: int, src: int) -> Dictionary:
 	return _gain(gs,owner,src,{"kind":"unknown","quality":1,"parts":[],"armorBreak":4})
 static func gain_feast(gs, owner: int, src: int, parts: Array = []) -> Dictionary:
 	if parts.is_empty():
-		# 甘如暖阳 has a larger independent keyword pool. Its unknown pool must
-		# not silently be replaced by three ordinary random ingredients.
-		var pool:Array=Content.card_def("c24908").get("cookingDirectFeastPool",[])
-		if pool.is_empty():gs.VerifiedRules.event(gs,"food-definition-unverified",{"player":owner,"card":"c24908"});return {}
-		parts=pool[int(gs.next_random()%pool.size())].duplicate(true)
+		gs.VerifiedRules.event(gs,"food-definition-unverified",{"player":owner,"sourceIndex":src})
+		return {}
 	return _gain(gs,owner,src,{"kind":"feast","quality":3,"parts":parts.duplicate(true)})
+static func random_feast_parts(gs, owner: int, src: int) -> Array:
+	var parts: Array = []
+	var keywords := _vegetable_pool(gs, owner, _quality(gs, owner, src), false)
+	for _slot in 3:
+		var kinds := ["mountain", "sea"] if keywords.is_empty() else ["mountain", "sea", "vegetable"]
+		var kind: String = kinds[int(gs.next_random() % kinds.size())]
+		var part: Dictionary = _ingredient_data(gs, owner, src, kind, false).parts[0]
+		if kind == "vegetable":
+			part.erase("keywordPool")
+			part.keyword = keywords.pop_at(int(gs.next_random() % keywords.size()))
+		parts.append(part)
+	return parts
+static func gain_special_feast(gs, owner: int, src: int) -> Dictionary:
+	var pool: Array = Content.card_def("c24908").cookingSpecialFeastKeywords.duplicate()
+	var parts: Array = []
+	# 国服实机显示三项三级效果，且数值项可重复。抽样权重仍待核验。
+	for _slot in 3:
+		match int(gs.next_random() % 3):
+			0: parts.append({"attack": 3})
+			1: parts.append({"hp": 3})
+			2: parts.append({"keyword": pool.pop_at(int(gs.next_random() % pool.size()))})
+	return gain_feast(gs, owner, src, parts)
 static func cook(gs, owner: int, src: int) -> void:
 	if gs.winner>=0 or src<0 or src>=gs.player(owner).units.size():return
 	var u:Dictionary=gs.player(owner).units[src]
@@ -117,7 +137,10 @@ static func _food_text(data: Dictionary) -> String:
 	for part in data.get("parts",[]):
 		if int(part.get("attack",0))!=0:lines.append("获得%d力量"%int(part.attack))
 		if int(part.get("hp",0))!=0:lines.append("获得%d生命"%int(part.hp))
-		if not str(part.get("keyword","")).is_empty():lines.append("获得"+{"inspired":"昂扬","pierce":"贯通","swift":"迅捷"}.get(str(part.keyword),str(part.keyword)))
+		var keyword := str(part.get("keyword", ""))
+		if not keyword.is_empty():
+			var label := Glossary.label(keyword)
+			lines.append("获得" + (keyword if label.is_empty() else label))
 		if part.has("keywordPool"):lines.append("随机获得"+"／".join(part.keywordPool))
 	return "使一个己方式神"+"，".join(lines)+"。"
 static func describe_food(_gs, _owner: int, inst: Dictionary, original: Dictionary = {}) -> Dictionary:
@@ -161,18 +184,21 @@ static func play_food(gs, owner: int, hand: int, target_id) -> bool:
 	var check:Dictionary=gs.can_play_card(owner,hand,target_id)
 	if not check.ok:return false
 	var card:Dictionary=check.card;var q:Dictionary=gs.card_payment(owner,card)
-	var inst:Dictionary=gs.take_card_instance(owner,hand);card.playedInstance=inst.duplicate(true);card.usedFromHand=true
+	gs.VerifiedRules.Wave7Reworks.pay_lamp(gs, owner, card, q)
+	var inst:Dictionary=gs.take_card_instance(owner,hand);card.playedInstance=inst.duplicate(true);card.usedFromHand=not card.get("insightFromZone",false)
 	gs._set_fire(owner,int(gs.player(owner).energy)-int(q.cost),true);consume_payment(gs,owner,q)
-	if q.get("usesInstant",false):gs.kw_usage(owner,"instant").used=true
+	if q.get("usesInstant",false):gs.consume_instant(owner)
 	gs.player(owner).cardsPlayedThisTurn=int(gs.player(owner).cardsPlayedThisTurn)+1
-	gs._record("play_card",{"hand":hand,"card":card.id,"target":target_id,"cardView":card.duplicate(true),"payment":q.duplicate(true),"neutralFood":true},owner)
-	_push_food(gs,owner,card,target_id,true,false);gs._resolve_resolution_stack();gs.state_changed.emit();return true
+	var args := {"hand":hand,"card":card.id,"target":target_id,"cardView":card.duplicate(true),"payment":q.duplicate(true),"neutralFood":true}
+	if not card.usedFromHand: args.merge({"sourceZone":"insight","instanceId":inst.instanceId})
+	gs._record("play_card",args,owner)
+	_push_food(gs,owner,card,target_id,card.usedFromHand,false);gs._resolve_resolution_stack();gs.state_changed.emit();return true
 static func auto_use_from_hand(gs, owner: int, src: int, target_uid, kind: String) -> bool:
 	var indices:Array=[]
 	for i in gs.player(owner).hand.size():
 		if food_kind(gs.player(owner).hand[i])==kind or (kind=="ingredient" and food_kind(gs.player(owner).hand[i])=="unknown"):indices.append(i)
 	if indices.is_empty():return false
-	var index:int=indices[int(gs.next_random()%indices.size())];var card:Dictionary=gs.hand_card_def(owner,index);var inst:Dictionary=gs.player(owner).hand.pop_at(index);card.playedInstance=inst;card.usedFromHand=true;card.cookingAbilitySource=src
+	var index:int=indices[int(gs.next_random()%indices.size())];var inst:Dictionary=gs.player(owner).hand.pop_at(index);var card:Dictionary=gs.describe_card_instance(owner,inst);card.playedInstance=inst;card.usedFromHand=true;card.cookingAbilitySource=src
 	_push_food(gs,owner,card,target_uid,true,true);return true
 static func auto_use_generated(gs, owner: int, src: int, target_uid, kind: String) -> bool:
 	if kind not in ["ingredient","unknown"]:return false
@@ -238,6 +264,7 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 		gs.VerifiedRules.Arakawa.completed(gs,frame,card)
 		gs.VerifiedRules.HandBlessing.completed(gs,owner,-1,card)
 		gs.VerifiedRules.event(gs,"neutral-card-completed",{"player":owner,"card":card.duplicate(true),"resolutionId":frame.resolutionId})
+		gs.VerifiedRules.Insight.used(gs, owner, card, card.get("playedInstance", {}), true, frame.targetId)
 		return true
 	var old_context:Dictionary=gs._card_effect_context;gs._card_effect_context=frame
 	if _apply_food(gs,owner,frame.targetId,card):

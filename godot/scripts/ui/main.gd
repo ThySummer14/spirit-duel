@@ -21,6 +21,7 @@ var _seed: int = 0
 var _quick := false
 var _formation_slot := 0
 var _deck_return_codex := false
+var _menu_floor := MainMenuScreen.MIDDLE
 
 
 func _ready() -> void:
@@ -54,6 +55,8 @@ func _default_lineup() -> Array:
 func _show_menu() -> void:
 	var menu := MainMenuScreen.new()
 	menu.lineup = _lineup.duplicate()
+	menu.floor_index = _menu_floor
+	menu.floor_changed.connect(func(index: int): _menu_floor = index)
 	menu.lineup_selected.connect(func(ids: Array):
 		_lineup = ids.duplicate()
 		SaveStore.set_lineup(ids)
@@ -111,7 +114,7 @@ func _show_codex() -> void:
 
 func _show_deck_builder(unit_id: String) -> void:
 	var deck := DeckBuilderScreen.new()
-	deck.setup(unit_id)
+	deck.setup(unit_id, [] if _deck_return_codex else _lineup)
 	deck.back_requested.connect(_return_from_deck)
 	deck.deck_confirmed.connect(func(uid: String, card_ids: Array):
 		SaveStore.set_deck(uid, card_ids)

@@ -86,6 +86,30 @@ func pearl() -> void:
 	check(target.hp==hp-3,"water bullet underlevel uses fixed3 trick")
 	gs=game();p=gs.player(0);gs._knockout_unit(p.units[3]);avatar=p.avatarHp;play(gs,"c60602",p.units[3].uid)
 	check(p.units[3].hp==p.units[3].maxHp and p.avatarHp==avatar-p.units[3].hp,"bright pearl revives then pays actual revived life as damage")
+
+	gs=game();p=gs.player(0);tough(gs)
+	var foe := gs.player(1)
+	foe.units[0].front = 1
+	foe.units[0].baseAttack = 4
+	gs._recalc(foe.units[0])
+	var summon := gs._make_unit("ordinary-pearl-summon", "shantong")
+	summon.summoned = true
+	summon.countsAsShikigami = false
+	summon.level = 0
+	gs._grow_unit(summon, 0, 8)
+	foe.units.append(summon)
+	var bullet := give(gs, "c60606")
+	check(not gs.can_play_card(0, bullet, summon.uid).ok, "水花弹的式神目标排除普通召唤物")
+	hp = int(p.units[1].hp)
+	var summon_hp := int(summon.hp)
+	play(gs, "c60608", summon.uid)
+	check(int(p.units[1].hp) == hp and int(summon.hp) == summon_hp - 4, "借水扬波把战斗反击伤害转移到所选敌方普通召唤物")
+	EF.gain_essence(gs, 0, 2)
+	var essence_index: int = p.hand.find_custom(func(inst): return inst.definitionId == "shengmingjinghua")
+	var can_heal := gs.can_play_card(0, essence_index, summon.uid)
+	check(can_heal.ok, "普通召唤物是生命精华的合法角色：" + str(can_heal.reason))
+	var heal_stacks := int(p.hand[essence_index].efStacks)
+	check(gs.play_card(0, essence_index, summon.uid) and int(summon.hp) == mini(summon_hp, summon_hp - 4 + heal_stacks), "生命精华实际恢复普通召唤物生命，层数 %d，当前生命 %d" % [heal_stacks, int(summon.hp)])
 func feast() -> void:
 	var gs:=game();var p:Dictionary=gs.player(0);tough(gs);var u:Dictionary=p.units[2]
 	Food.gain_ingredient(gs,0,0,"sea");check(gs.play_card(0,0,u.uid),"actual neutral food targets Fansi")
@@ -215,7 +239,7 @@ func ui_checks() -> void:
 	root.theme=ThemeBuilder.build_theme()
 	for size in [Vector2i(1280,800),Vector2i(1600,740)]:
 		root.size=size
-		if not out.is_empty():DisplayServer.window_set_size(size)
+		DisplayServer.window_set_size(size)
 		var b:=Battle.new();b.setup(["fenpopo","jiao","fansi","shantong"],["yaoginshi","bingyong","bailang","hetong"],603606638);b._ai_thinking=true
 		for side in b.gs.players:
 			side.hand.clear();side.energy=60;side.levelUpUsed=true
@@ -230,6 +254,24 @@ func ui_checks() -> void:
 		await click(b._hand_row.get_child(0));check(b._pending_target_card==0 and gs.valid_targets(0,b._pending_target_card_def).has(gs.player(1).units[2].uid),"native enhanced pursuit permits reserve")
 		await capture("%d-03-pursuit-target"%size.x);await click(b._unit_widget(str(gs.player(1).units[2].uid)));await settled(b)
 		check(gs.resolution_stack.is_empty() and int(p.units[2].get("efSatiety",0))==0,"native target battle drains and clears satiety")
+		var summon: Dictionary = gs._make_unit("native-essence-summon", "shantong")
+		summon.summoned = true
+		summon.countsAsShikigami = false
+		summon.front = 1
+		summon.hp = int(summon.maxHp) - 2
+		for enemy in gs.player(1).units: enemy.front = 0
+		gs.player(1).units.append(summon)
+		hand(b, [])
+		EF.gain_essence(gs, 0, 2)
+		b._refresh()
+		await settled(b)
+		await click(b._hand_row.get_child(0))
+		await settled(b)
+		var widget := b._unit_widget(summon.uid)
+		check(widget != null and b._pending_target_card == 0, "战斗界面可选择普通召唤物角色 " + str(size))
+		if widget != null: await click(widget)
+		await settled(b)
+		check(int(summon.hp) == int(summon.maxHp) and p.hand.is_empty(), "鼠标选择普通召唤物后生命精华实际治疗并消费 " + str(size))
 		b.queue_free();await process_frame;await process_frame
 func run() -> void:
 	var stores:=Support.isolate_stores();essence();powder();pearl();feast();target_and_copy();conditions();metadata_ai()

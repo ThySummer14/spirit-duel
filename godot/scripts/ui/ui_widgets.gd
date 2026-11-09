@@ -109,8 +109,8 @@ static func make_tooltip(card: Dictionary, reason: String = "") -> PanelContaine
 	header.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	header.add_child(ThemeBuilder.chip(str(card.get("typeLabel", "")), ThemeBuilder.type_color_of(str(card.get("type", "")))))
 	header.add_child(ThemeBuilder.chip(ThemeBuilder.rarity_label(str(card.get("rarity", ""))), rarity))
-	var owner := ContentLoader.unit_def(str(card.get("unitId", "")))
-	header.add_child(ThemeBuilder.chip("%s · 需 %d 勾玉" % [owner.get("name", "?"), int(card.get("level", 1))], ThemeBuilder.GOLD))
+	var owners := ContentLoader.card_unit_ids(card).map(func(id): return str(ContentLoader.unit_def(str(id)).get("name", id)))
+	header.add_child(ThemeBuilder.chip("%s · 需 %d 勾玉" % ["／".join(owners) if not owners.is_empty() else "?", int(card.get("level", 1))], ThemeBuilder.GOLD))
 	vbox.add_child(header)
 	if ResourceLoader.exists("res://assets/official/cards/%s.png" % str(card.get("id", ""))):
 		vbox.add_child(_wrapped("当前效果：%s" % str(card.get("text", "")), 13, ThemeBuilder.TEXT, 272))
@@ -206,6 +206,8 @@ static func make_unit_popover(unit: Dictionary, current_turn: int = -1) -> Panel
 	if chips.get_child_count() > 0: vbox.add_child(chips)
 	else: chips.free()
 	vbox.add_child(ThemeBuilder.hline())
+	if unit.has("summonRulesText"):
+		vbox.add_child(_titled("召唤物能力", str(unit.summonRulesText), ThemeBuilder.TYPE_FORM, false))
 	if unit.get("baseRulesSuppressed", false):
 		vbox.add_child(_titled("纸人能力", "失去原形态、初始能力和觉醒能力。", ThemeBuilder.TYPE_FORM, false))
 		return panel
@@ -302,10 +304,13 @@ static func show_card_modal(host: Control, card: Dictionary, extra: Control = nu
 	chips.add_child(ThemeBuilder.chip("%d 勾 · %d 鬼火" % [int(card.get("level", 1)), int(card.get("payment", {}).get("cost", card.get("cost", 0)))], ThemeBuilder.FIRE))
 	info.add_child(chips)
 	if card.has("payment"): info.add_child(_wrapped(BattleStatus.payment_text(card), 13, ThemeBuilder.OK, 300))
-	var owner := ContentLoader.unit_def(str(card.get("unitId", "")))
-	info.add_child(ThemeBuilder.dim_label("所属式神：%s" % owner.get("name", "?"), 13))
+	var owners := ContentLoader.card_unit_ids(card).map(func(id): return str(ContentLoader.unit_def(str(id)).get("name", id)))
+	info.add_child(ThemeBuilder.dim_label("所属式神 · %s" % ("／".join(owners) if not owners.is_empty() else "?"), 13))
 	info.add_child(ThemeBuilder.hline())
 	info.add_child(_wrapped(str(card.get("text", "")), 16, ThemeBuilder.PAPER, 300))
+	for face in card.get("coopFaces", []):
+		var owner := ContentLoader.unit_def(str(face.unitId))
+		info.add_child(_wrapped("%s · %s\n%s" % [owner.name, face.name, face.text], 14, ThemeBuilder.PAPER, 300))
 	if card.get("formAbility"):
 		info.add_child(_wrapped("形态能力：%s" % card.formAbility, 14, ThemeBuilder.GOLD_BRIGHT, 300))
 	var keywords = card.get("keywords", [])

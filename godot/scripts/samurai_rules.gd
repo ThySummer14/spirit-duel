@@ -9,16 +9,17 @@ static func ghost(u: Dictionary) -> bool:
 	return source(u) and bool(u.get("samuraiGhost",false)) and int(u.hp)<=0 and int(u.level)>0 and not u.get("removed",false)
 
 static func available(u: Dictionary) -> bool:
-	return int(u.get("hp",0))>0 or ghost(u)
+	return int(u.get("hp",0))>0 or ghost(u) or u.has("waveIbarakiGhost")
 
 static func swift(u: Dictionary) -> bool:
 	return source(u) and available(u) and int(u.level)>0 and bool(u.get("samuraiCannotRevive",false))
 
 static func power(u: Dictionary) -> int:
+	if u.has("waveIbarakiGhost"): return int(u.get("waveIbarakiAttack", 0))
 	return maxi(0,int(u.attack)-int(u.baseAttack)+int(Content.runtime_unit_def(u).get("ghostBaseAttack",1))+int(u.get("samuraiGhostBonus",0))) if ghost(u) else int(u.attack)
 
 static func knockout_snapshot(u: Dictionary) -> bool:
-	return source(u) and int(u.level)>0
+	return source(u) and int(u.level)>0 and (u.id != "wushi-maoshi" or not u.get("baseRulesSuppressed", false))
 
 static func knocked_out(gs, owner: int, u: Dictionary, eligible: bool = true) -> void:
 	if not eligible or not source(u) or int(u.level)<1: return
@@ -82,7 +83,7 @@ static func prepare_combat(gs, owner: int, src: int, options: Dictionary, _targe
 	if out.get("samuraiTangzhu",false):
 		out.erase("directAvatar")
 		out.samuraiNoDirect=true
-	elif ghost(u) and not out.get("pursuit",false): out.directAvatar=true
+	elif ghost(u) and u.id != "wushi-maoshi" and not out.get("pursuit",false): out.directAvatar=true
 	return out
 
 static func combat_finished(gs, owner: int, src: int, options: Dictionary) -> void:

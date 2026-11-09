@@ -7,6 +7,7 @@ const BOTTOM := "divination-place-bottom"
 static func start(gs, owner: int, count: int, controller: int = -1, context: Dictionary = {}) -> void:
 	if controller < 0: controller = owner
 	if controller != gs.current_player or count <= 0 or gs.player(owner).deck.is_empty(): return
+	gs.VerifiedRules.Luohou.divining(gs, owner, controller)
 	count += gs.VerifiedRules.Eye.bonus(gs, controller)
 	count=gs.VerifiedRules.Baize.prepare_divination(gs,owner,count,controller)
 	var ids: Array = []
@@ -25,7 +26,7 @@ static func instance(gs, owner: int, iid: String) -> Dictionary:
 
 static func choice_card(gs, owner: int, iid: String):
 	var choice: Dictionary = gs.pending_choice
-	if choice.get("type") != "native-divination": return null
+	if choice.get("type") != "native-divination" or int(choice.playerIndex) != owner or iid not in choice.instanceIds: return null
 	owner = int(choice.get("zoneOwner", owner))
 	if iid in [TOP, BOTTOM]:
 		var source: Dictionary = instance(gs, owner, str(choice.selected))
@@ -38,7 +39,8 @@ static func choice_card(gs, owner: int, iid: String):
 	var source: Dictionary = instance(gs, owner, iid)
 	if source.is_empty(): return {}
 	var view: Dictionary = gs.VerifiedRules.Eye.describe_card(gs, owner, source, ContentLoader.card_def(str(source.definitionId)))
-	return gs.VerifiedRules.BondDream.describe_card(gs, owner, source, view)
+	view = gs.VerifiedRules.BondDream.describe_card(gs, owner, source, view)
+	return gs.VerifiedRules.BaizeYuanqi.describe(gs, owner, source, view)
 
 static func resolve_choice(gs, owner: int, iid: String) -> bool:
 	var choice: Dictionary = gs.pending_choice
@@ -71,6 +73,8 @@ static func resolve_choice(gs, owner: int, iid: String) -> bool:
 			gs.VerifiedRules.River.divined(gs, owner)
 			gs.VerifiedRules.Eye.divined(gs, owner, int(choice.count))
 			gs.VerifiedRules.Baize.completed(gs,choice)
+			gs.VerifiedRules.TwinSight.divined(gs, owner)
+			gs.VerifiedRules.BaizeYuanqi.divined(gs, choice)
 			gs.VerifiedRules.event(gs, "divination-completed", {"player": owner, "top": choice.top.duplicate(), "bottom": choice.bottom.duplicate()})
 			gs._resolve_resolution_stack()
 		else:
@@ -87,8 +91,11 @@ static func ai_choice(gs, owner: int):
 	if choice.has("selected"):
 		var card: Dictionary = ContentLoader.card_def(str(instance(gs, deck_owner, str(choice.selected)).definitionId))
 		var src: int = gs._source_index(deck_owner, card)
+		var prefer_top = gs.VerifiedRules.Luohou.prefer_divination(gs, owner, deck_owner, card)
+		if prefer_top != null: return resolve_choice(gs, owner, TOP if prefer_top and TOP in choice.instanceIds else BOTTOM)
 		var usable: bool = src >= 0 and int(gs.player(deck_owner).units[src].hp) > 0 and int(gs.player(deck_owner).units[src].level) >= int(card.level)
-		return resolve_choice(gs, owner, BOTTOM if TOP not in choice.instanceIds or gs.VerifiedRules.Baize.prefer_bottom(gs,deck_owner,card) or not usable else TOP)
+		if choice.get("luohouOpponent", false): usable = not usable
+		return resolve_choice(gs, owner, BOTTOM if TOP not in choice.instanceIds or gs.VerifiedRules.Baize.prefer_bottom(gs,deck_owner,card) or gs.VerifiedRules.BaizeYuanqi.prefer_bottom(gs, owner, deck_owner, card) or not usable else TOP)
 	var best := str(choice.instanceIds[0])
 	var score := -999
 	for iid in choice.instanceIds:

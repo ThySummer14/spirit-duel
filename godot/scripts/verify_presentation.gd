@@ -232,6 +232,7 @@ func _verify_moving_hit_feedback() -> void:
 			click.pressed = pressed
 			root.push_input(click)
 	_check(battle.gs.command_log.size() == 1 and battle._input_locked(), "viewport clicks select an attacker and execute one attack")
+	_check(source.presented_vitals.get("hp", -1) == 10 and target.presented_vitals.get("hp", -1) == 10, "both portraits hold their pre-hit life while combat begins")
 	var enter := InputEventKey.new()
 	enter.keycode = KEY_ENTER
 	enter.pressed = true
@@ -245,6 +246,7 @@ func _verify_moving_hit_feedback() -> void:
 		_check(anchor.distance_to(battle._center_of(source)) > 50.0, "counterattack damage follows the lunging portrait instead of its empty resting slot")
 	await create_timer(battle._presentation_remaining() + 0.1).timeout
 	_check(attacker.hp == 7 and defender.hp == 8 and source.visual_offset.length() < 0.1 and source.z_index == 0, "the real attack settles with correct damage and a restored portrait")
+	_check(source.presented_vitals.is_empty() and target.presented_vitals.is_empty(), "both portrait displays release to settled life after impact")
 	battle.queue_free()
 	await process_frame
 
@@ -294,9 +296,12 @@ func _verify_battle_feel() -> void:
 	await process_frame
 	_check(battle._selected_attacker < 0 and battle._aim_context(Vector2.ZERO).is_empty(), "right-click cancels the aim without executing an action")
 	battle._on_hand_clicked(0, ContentLoader.card_def("brace"))
+	_check(battle._target_shade.visible and battle._target_preview.visible and battle._target_preview.data.id == "brace", "targeted card shows in the side preview while the table is dimmed")
+	_check(source.selected and source.self_modulate == Color.WHITE and defender.self_modulate != Color.WHITE, "legal ally remains bright while an invalid opponent is dimmed")
 	_check(battle._aim_context(source.get_global_rect().get_center()).valid, "targeted spells point to a legal ally")
 	_check(not battle._aim_context(defender.get_global_rect().get_center()).valid, "ally spells reject enemy targets")
 	battle._on_unit_clicked(own.units[0], 0, 0)
+	_check(not battle._target_shade.visible and not battle._target_preview.visible and defender.self_modulate == Color.WHITE, "resolving the selected target clears targeting presentation")
 	count = state.command_log.size()
 	var energy := int(own.energy)
 	var shield := int(own.units[0].shield)

@@ -9,8 +9,8 @@ func check(ok: bool, detail: String) -> void:
 	if not ok:
 		failures += 1
 		printerr("BOOK_JUE_FAIL ", detail)
-func fixture() -> GS:
-	var gs := GS.create(["shuweng", "jue", "fenghuanghuo", "taohuayao"], ["jue", "shuweng", "xuenv", "fenghuanghuo"], 20261013)
+func fixture(allies: Array = ["shuweng", "jue", "fenghuanghuo", "taohuayao"]) -> GS:
+	var gs := GS.create(allies, ["jue", "shuweng", "xuenv", "fenghuanghuo"], 20261013)
 	for p in gs.players:
 		p.hand.clear()
 		p.energy = 20
@@ -191,6 +191,25 @@ func _reveal() -> void:
 	var power: int = p.units[1].attack
 	idx = give(gs, "c11901", 1)
 	check(gs.play_card(1, idx) and enemy.avatarHp == 28 and p.avatarHp == 22 and p.units[1].attack == power, "hidden card no spirit sight or old awakening growth")
+
+	for form in ["c12006", "c12004"]:
+		gs = fixture(["shuweng", "jue", "yuedu", "taohuayao"])
+		p = gs.player(0)
+		enemy = gs.player(1)
+		play(gs, form)
+		idx = give(gs, "c11901", 1, true)
+		var original: Dictionary = enemy.hand[idx]
+		check(gs.basic_attack(0, 2) and gs.resolve_divination_choice(0, original.instanceId), "Moon Reader moves the same shown hand instance into insight")
+		var insight = gs.VerifiedRules.Insight
+		var zone_index: int = insight.zone(gs, 1).find(original)
+		check(zone_index >= 0 and original.revealed, "insight retains the actual previously revealed card instance")
+		gs.current_player = 1
+		insight.enter(gs, 1)
+		var quote := gs.hand_card_def(1, zone_index)
+		check(quote.cost == 1 and not quote.get("handRevealed", false), "a shown card outside the hand has no Maze tax")
+		var our_hp: int = p.avatarHp
+		var enemy_hp: int = enemy.avatarHp
+		check(gs.play_card(1, zone_index) and p.avatarHp == our_hp and enemy.avatarHp == enemy_hp, "actual insight cast never triggers Spirit Sight")
 func _dispatch() -> void:
 	var gs := fixture()
 	var p: Dictionary = gs.player(0)

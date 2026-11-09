@@ -17,7 +17,7 @@ static func discount(gs, owner: int) -> int:
 # reduced. Ordinary charging abilities continue to use SunSmoke's own API.
 static func quote_burst(gs, owner: int, src: int, nominal: int) -> Dictionary:
 	var reduction:=mini(maxi(0,nominal),discount(gs,owner))
-	var q:Dictionary=Charge.quote_charge(gs,owner,src,maxi(0,nominal-reduction))
+	var q:Dictionary=Charge.quote_charge(gs,owner,src,maxi(0,nominal-reduction),true)
 	q.nominalAmount=nominal;q.discount=reduction
 	return q
 static func can_pay_burst(gs, owner: int, src: int, nominal: int) -> bool:
@@ -25,7 +25,7 @@ static func can_pay_burst(gs, owner: int, src: int, nominal: int) -> bool:
 static func pay_burst(gs, owner: int, src: int, nominal: int) -> bool:
 	var q:=quote_burst(gs,owner,src,nominal)
 	if not q.ok:return false
-	if not Charge.pay_charge(gs,owner,src,int(q.amount)):return false
+	if not Charge.pay_charge(gs,owner,src,int(q.amount),true):return false
 	gs.VerifiedRules.event(gs,"burst-payment",{"player":owner,"uid":gs.player(owner).units[src].uid,"nominal":nominal,"cost":int(q.amount),"discount":int(q.discount),"free":bool(q.free)})
 	return true
 
@@ -118,7 +118,7 @@ static func respond_combat(gs, combat_id: int, owner: int, src: int, card: Dicti
 static func prayer_targets(gs, owner: int, src: int):
 	var u:Dictionary=gs.player(owner).units[src]
 	if not active(u) or not u.get("formRules",{}).get("yujPrayer",false):return null
-	var ids:Array=gs.player(1-owner).units.filter(func(t):return int(t.hp)>0 and not t.get("removed",false) and not gs.VerifiedRules.Combat.has(t,"veil")).map(func(t):return str(t.uid))
+	var ids:Array=gs.player(1-owner).units.filter(func(t):return int(t.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(t) and not gs.VerifiedRules.Combat.has(t,"veil")).map(func(t):return str(t.uid))
 	if gs.front_index(1-owner)<0:ids.append("avatar-%d"%(1-owner))
 	return ids
 static func prayer_started(gs, frame: Dictionary) -> bool:

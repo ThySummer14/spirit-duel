@@ -53,8 +53,9 @@ func night_rules() -> void:
 func doll_rules() -> void:
 	var gs:=game(); var p: Dictionary=gs.player(0); var foe: Dictionary=gs.player(1)
 	gs._grow_unit(foe.units[0],0,30); var hp: int=foe.units[0].hp
+	foe.units[0].level=0
 	play(gs,"c25901",foe.units[0].uid)
-	check(foe.units[0].hp==hp-3 and Maple.marked(foe.units[0]) and int(foe.units[0].armorBreak)==0 and not foe.units[0].get("poison",false),"symbol deals3 and real doll, no poison or armor-break substitute")
+	check(foe.units[0].hp==hp-3 and Maple.marked(foe.units[0]) and int(foe.units[0].armorBreak)==0 and not foe.units[0].get("poison",false),"红叶之符对零勾敌方式神实际造成3伤并结附娃娃")
 	check(gs.end_turn(0) and foe.units[0].hp==hp-3 and Maple.marked(foe.units[0]),"doll does not fire at source owner's end on opposing host")
 	check(gs.end_turn(1) and foe.units[0].hp==hp-5 and not Maple.marked(foe.units[0]) and Maple.night_value(gs,0)==1 and foe.avatarHp==29,"host owner's actual end removes doll, deals2, failed night10 gains1 and passive1")
 	gs=game(); p=gs.player(0); foe=gs.player(1); gs._grow_unit(foe.units[0],0,30); Maple.attach(gs,0,0,foe.units[0]); Maple.attach(gs,0,0,foe.units[0]); hp=foe.units[0].hp

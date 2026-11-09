@@ -187,10 +187,10 @@ static func resolve_frame(gs, f: Dictionary) -> bool:
 				"resent": gs.VerifiedRules.Stun.apply(gs,1-owner,idx,1,owner)
 				"curse":
 					var p: Dictionary=gs.player(1-owner); var target: Dictionary=p.units[idx]
-					var cards: Array=p.hand.filter(func(c):return Content.card_def(str(c.definitionId)).get("unitId")==str(target.id))
+					var cards: Array=p.hand.filter(func(c):return str(target.id) in Content.card_unit_ids(Content.card_def(str(c.definitionId))))
 					if not cards.is_empty():
 						var selected: Dictionary=cards[int(floor(gs.randf01()*cards.size()))]
-						p.hand.erase(selected)
+						gs.discard_hand_card(1-owner, p.hand.find(selected))
 						gs.VerifiedRules.event(gs,"card-discarded",{"player":1-owner,"uid":target.uid,"card":Content.card_def(str(selected.definitionId)),"instanceId":str(selected.instanceId)})
 				"substitute": gs._damage_unit(1-owner,idx,int(f.amount),owner,src)
 			gs.VerifiedRules.event(gs,"doll-reaction",{"player":owner,"uid":original.uid,"targetUid":str(f.targetUid),"dollKind":str(f.dollKind),"amount":int(f.amount)})

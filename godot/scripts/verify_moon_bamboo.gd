@@ -65,8 +65,11 @@ func moon_spells() -> void:
 	gs=game(); p=gs.player(0); foe=gs.player(1)
 	p.units[3].hp=1; p.units[3].moonCharm={"serial":1}; p.units[3].owlGuard={"sourceUid":p.units[2].uid}; p.units[3].treeHealthCombat=true
 	p.units[3].insectCorrosion=1; gs._recalc(p.units[3])
+	gs.VerifiedRules.Maple.attach(gs,1,0,p.units[3])
+	gs.VerifiedRules.FoxLotus.attach(gs,1,0,p.units[3])
 	play(gs,"c19702",p.units[3].uid)
 	check(p.units[3].hp==p.units[3].maxHp and not p.units[3].has("moonCharm") and not p.units[3].has("owlGuard") and not p.units[3].has("insectCorrosion") and p.units[3].treeHealthCombat,"full moon removes live charms, heals fully, preserves ability grants")
+	check(not gs.VerifiedRules.Maple.marked(p.units[3]) and not gs.VerifiedRules.FoxLotus.marked(p.units[3]) and p.units[3].attack==p.units[3].baseAttack,"满月移除实际红枫娃娃和莲华并清除莲华减力")
 	foe.units[2].level=0; check(gs.valid_targets(0,Content.card_def("c19702")).has(foe.units[2].uid),"full moon can target living inactive enemy")
 	gs._knockout_unit(foe.units[2]); check(not gs.valid_targets(0,Content.card_def("c19702")).has(foe.units[2].uid),"full moon excludes knocked targets")
 	gs=game(); p=gs.player(0); p.units[0].erase("moonCharm"); var old := inst(gs,"c17601"); old.bambooDurabilityBonus=5; p.hand.append(old)
@@ -147,6 +150,10 @@ func bamboo_triggers() -> void:
 	gs.VerifiedRules.move_unit(gs,0,stone); Bamboo.remove_departed(gs); check(p.units.size()==5 and p.units.back()==stone and stone.removed and int(stone.hp)==0 and not gs.VerifiedRules.Rebirth.can_revive(stone) and not stone.has("weaverGrave"),"stone departure keeps stable tombstone without generic revival or true-death grave")
 	gs=game(); p=gs.player(0); play(gs,"c17604"); play(gs,"c17604"); turn(gs,0)
 	check(p.units.back().attack==4 and p.units.back().hp==5,"stone10 summons4/5")
+	gs=game(); p=gs.player(0); play(gs,"c17604")
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs, 0, 1, "bamboo-scope-decoy", "普通召唤物", 0, 9, {"countsAsShikigami": false})
+	turn(gs,0)
+	check(decoy.get("removed",false) and gs.front_unit(0).get("bambooStone",false),"佛前石钵在前排没有式神时结算，即使有普通召唤物")
 	gs=game(); p=gs.player(0); foe=gs.player(1); play(gs,"c17605"); foe.units[2].front=1; var before: int=foe.units[2].hp; var reserve: int=foe.units[3].hp
 	turn(gs,0); check(foe.units[2].hp==before-2 and foe.units[3].hp==reserve,"dragon projects2 to actual front, no reserve below10")
 	var end_avatar: int=foe.avatarHp; turn(gs,1); check(foe.avatarHp==end_avatar-2,"dragon also projects at enemy end after front retreats")

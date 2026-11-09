@@ -70,11 +70,12 @@ static func remove_charm(gs, side: int, idx: int, reason: String = "灵咒被移
 		gs.VerifiedRules.event(gs,"otake-jade-removed",{"player":int(charm.owner),"carrierPlayer":side,"uid":u.uid,"charmUid":charm.uid,"reason":reason})
 	if jades.is_empty(): u.erase("otakeJades")
 	sync_stun(u); gs._recalc(u)
-static func attach(gs, owner: int, src: int, side: int, idx: int, prison: bool = false) -> void:
-	if idx<0 or not living(gs.player(side).units[idx]): return
+static func attach(gs, owner: int, src: int, side: int, idx: int, prison: bool = false, allow_unleveled: bool = false) -> void:
+	if idx<0: return
+	var u: Dictionary=gs.player(side).units[idx]
+	if not living(u) and not (allow_unleveled and int(u.hp)>0 and not u.get("removed",false)): return
 	var old:=owned(gs,owner)
 	if not old.is_empty(): remove_charm(gs,int(old.player),int(old.index),"重新结附",owner)
-	var u: Dictionary=gs.player(side).units[idx]
 	if not u.has("otakeJades"): u.otakeJades={}
 	var charm: Dictionary={"uid":"otake-jade-%d-%d" % [owner,gs.next_card_id],"owner":owner,"sourceUid":str(gs.player(owner).units[src].uid),"carrierUid":str(u.uid),"prison":prison and side!=owner}
 	gs.next_card_id+=1

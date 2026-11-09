@@ -45,7 +45,7 @@ static func targets(gs, owner: int, card: Dictionary):
 	var result: Array=[]
 	for side in [owner,1-owner]:
 		for u in gs.player(side).units:
-			if int(u.hp)>0 and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")): result.append(str(u.uid))
+			if int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not (gs.VerifiedRules.Combat.has(u,"veil") or gs.VerifiedRules.Movement.has_veil(u))): result.append(str(u.uid))
 	return result
 static func describe_card(gs, owner: int, entry: Dictionary, card: Dictionary) -> Dictionary:
 	if not card.get("paintRules",false): return card
@@ -134,7 +134,7 @@ static func _random_character(gs, owner: int, injured: bool = false) -> int:
 	if not injured or int(p.avatarHp)<int(p.get("maxAvatarHp",30)): pool.append(-1)
 	for i in p.units.size():
 		var u: Dictionary=p.units[i]
-		if int(u.hp)>0 and int(u.level)>0 and (not injured or int(u.hp)<int(u.maxHp)): pool.append(i)
+		if int(u.hp)>0 and not u.get("removed",false) and (not injured or int(u.hp)<int(u.maxHp)): pool.append(i)
 	if injured and pool.is_empty(): return _random_character(gs,owner,false)
 	return int(pool[int(floor(gs.randf01()*pool.size()))])
 static func _fragrance_hit(gs, owner: int, src: int) -> void:
@@ -184,7 +184,7 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			var pool: Array=[]; var lowest:=2147483647
 			for i in gs.player(1-owner).units.size():
 				var u: Dictionary=gs.player(1-owner).units[i]
-				if int(u.hp)<=0 or int(u.level)<=0 or not gs.VerifiedRules.OwlInsect.shikigami(u): continue
+				if int(u.hp)<=0 or not gs.VerifiedRules.OwlInsect.shikigami(u): continue
 				var power: int=u.attack
 				if power<lowest: lowest=power; pool.clear()
 				if power==lowest: pool.append(i)

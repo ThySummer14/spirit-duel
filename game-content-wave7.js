@@ -583,6 +583,14 @@ export const WAVE7_UNIT_DEFINITIONS = Object.freeze([
     ]),
   },
   {"id": "ef-powder-box", "name": "粉盒", "title": "粉婆婆召唤物", "attack": 3, "maxHp": 3, "art": "assets/wave7/fenpopo.svg", "awakenedArt": "assets/wave7/fenpopo.svg", "color": "#d8a6ba", "pack": "wave7", "selectable": false, "token": true, "summoned": true, "countsAsShikigami": true, "passive": {"id": "ef-box-fusion", "name": "融合", "text": "融合。离开战斗区时移除。", "hooks": []}, "verifiedRules": true, "sources": ["essence-feast-derived-20261104"], "verificationPending": ["采用同期2023粉盒3/3融合说明，中文独立派生完整tooltip及美术暂缺；离场/融合/复活全序待原客户端核验。"]},
+  ...[
+    { id: "fu-soul", name: "缚魂", attack: 0, maxHp: 1, text: "无法阻挡。" },
+    { id: "shu-soul", name: "束魂", attack: 5, maxHp: 6, text: "坚毅。" },
+  ].map(({ text, ...unit }) => ({
+    ...unit, title: "琅琊子召唤物", pack: "wave7", subpack: "taoyuan",
+    art: "assets/wave7/langyazi.svg", selectable: false, token: true, summoned: true,
+    passive: passive(unit.id + "-passive", unit.name, text, []),
+  })),
 ]);
 
 function eff(condition, action, target, value = null) {
@@ -4678,7 +4686,27 @@ export const WAVE7_CARD_DEFINITIONS = Object.freeze([
     "starter": 0,
     "effects": [],
     "subpack": "taoyuan"
-}),
+  }),
+  wave7Card(0, "langyazi", {
+    id: "ly-changshengdan",
+    name: "长生丹",
+    type: "form",
+    level: 3,
+    cost: 0,
+    deckLimit: 0,
+    token: true,
+    text: "替身。进场时复活琅琊子。当你受到致命伤害时，移除此形态并防止此伤害，将你的生命变为6。此形态被移除时，若敌方没有「永生咒」，则为敌方召唤一个「永生咒」。",
+    effects: [["always", "ly-form", "source", { attack: 6, hp: 6, setBase: true }]],
+    subpack: "taoyuan",
+  }),
+
+  wave7Card(0, "kongquemingwang", {"id": "peacock-quill", "name": "孔雀翎", "type": "spell", "level": 1, "text": "瞬发，堆叠（最大3）。使一个角色获得等同于堆叠数的破甲。", "token": true, "deckLimit": 0}),
+  wave7Card(0, "taohua-luoying", {"id": "fallpetal-wind", "name": "归风", "type": "spell", "level": 2, "text": "瞬发。对一个敌方式神造成等同于己方战力最高的式神的力量的伤害。回合结束时弃置此牌。", "token": true, "deckLimit": 0}),
+  wave7Card(0, "taohua-luoying", {"id": "fallpetal-bloom", "name": "灼华", "type": "spell", "level": 2, "text": "选择一个己方式神，复活或使其+2战力，令其发起一次攻击。本次攻击享受坚守及出击加成。", "token": true, "deckLimit": 0}),
+  wave7Card(0, "qingxingdeng-huihuo", {
+    id: "wave7-lamp-fire-token", name: "辉灯之火", type: "realm", level: 1,
+    token: true, deckLimit: 0, text: "唯一。使用手牌且鬼火为0时，移除此幻境代付至多1鬼火。", subpack: "randeng",
+  }),
 ]);
 
 export function getWave7UnitIds() {

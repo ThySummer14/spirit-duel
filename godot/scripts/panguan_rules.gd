@@ -6,7 +6,7 @@ static func is_source(unit: Dictionary) -> bool:
 	return ContentLoader.runtime_unit_def(unit).get("judgeLedger", false)
 
 static func extra_knockout(gs, victim: int) -> int:
-	var extra := 0
+	var extra: int = gs.VerifiedRules.DuskCycle.ink_knockout_extra(gs, victim)
 	for observer in gs.player(1 - victim).units:
 		if int(observer.hp) > 0 and int(observer.level) > 0:
 			extra += int(observer.get("formRules", {}).get("enemyKnockoutExtra", 0))
@@ -35,9 +35,12 @@ static func destroy(gs, owner: int, src: int, victim: int, idx: int, card: Dicti
 	if idx < 0 or idx >= gs.player(victim).units.size() or gs.winner >= 0: return false
 	var target: Dictionary = gs.player(victim).units[idx]
 	if int(target.hp) <= 0 or gs.VerifiedRules.Zhenjian.prevent_destroy(target) or gs.VerifiedRules.WisdomLamp.protected(gs,victim,target): return false
+	if gs.VerifiedRules.PeachGrove.petal_protects(gs, victim, target): return false
+	if gs.VerifiedRules.Chen.ward(gs, victim, idx): return false
 	gs._knockout_unit(target, owner, src, extra)
 	if int(target.hp)>0: return false
 	gs.VerifiedRules.Yaodao.unit_killed(gs, owner, src, victim, idx)
+	gs.VerifiedRules.DragonFlow.unit_killed(gs, owner, src, victim, idx)
 	gs.VerifiedRules.event(gs, "unit-destroyed", {"player": owner, "uid": "" if src < 0 else gs.player(owner).units[src].uid, "target": target.uid, "card": card})
 	return true
 

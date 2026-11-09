@@ -113,7 +113,6 @@ static func describe_card(gs, owner: int, inst: Dictionary, card: Dictionary) ->
 					if k not in c.keywords: c.keywords.append(k)
 					match str(k):
 						"direct": c.combatOption.directAvatar = true
-						"pursuit": c.combatOption.pursuit = true; c.target = "enemy-unit"
 						"lifesteal": c.combatOption.lifeSteal = true
 						"lethal": c.combatOption.lethal = true
 						"unyielding": c.combatOption.unyielding = true
@@ -187,7 +186,11 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 		"bg-combat":
 			var options: Dictionary = card.get("combatOption", {}).duplicate(true)
 			options.combatCard = card.duplicate(true)
-			gs._grant_unit_armor(gs.player(owner).units[src], int(options.get("shield", 0)))
+			var unit: Dictionary = gs.player(owner).units[src]
+			gs._grant_unit_armor(unit, int(options.get("shield", 0)))
+			if card.id == "c20602" and gs._kw(card, "veil"):
+				unit.bgMingcheVeil = int(unit.get("bgMingcheVeil", 0)) + 1
+				gs.resolution_stack.append({"kind": "bg-mingche-veil-end", "playerIndex": owner, "uid": unit.uid})
 			gs._record("assault", {"unit": src, "bonus": int(card.value), "target": target_id}, owner)
 			gs._resolve_combat(owner, src, int(card.value), gs._kw(card, "pierce"), gs._kw(card, "remote"), gs._kw(card, "combo"), gs._kw(card, "first-strike"), target_id, gs._kw(card, "crit"), options)
 		"bg-revelation": _revelation(gs, owner, src, card, target_id)
@@ -229,6 +232,13 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 	match kind:
 		"bg-blue-projectile": gs.VerifiedRules.base_damage_projectile(gs, owner, int(frame.sourceIndex), 2, "樱雪姬第二张青岚牌")
 		"bg-draw": gs._draw(owner, int(frame.count))
+		"bg-mingche-veil-end":
+			var idx: int = gs._unit_index_by_uid(owner, frame.uid)
+			if idx >= 0:
+				var u: Dictionary = gs.player(owner).units[idx]
+				var remaining := int(u.get("bgMingcheVeil", 0)) - 1
+				if remaining > 0: u.bgMingcheVeil = remaining
+				else: u.erase("bgMingcheVeil")
 		"bg-eye-stun":
 			var src := int(frame.sourceIndex)
 			var u: Dictionary = gs.player(owner).units[src]
@@ -267,7 +277,9 @@ static func avatar_bonus(gs, owner: int, src: int) -> int:
 	return realm_count(gs, owner, "bg-glass") if Factions.get_faction(gs.player(owner).units[src]) == "苍叶" else 0
 
 static func has_trait(u: Dictionary, keyword: String) -> bool:
-	return keyword == "direct" and int(u.get("hp", 0)) > 0 and u.get("bgDirect", false)
+	if int(u.get("hp", 0)) <= 0: return false
+	if keyword == "veil": return int(u.get("bgMingcheVeil", 0)) > 0 and not u.get("randomTargetPreview", false)
+	return keyword == "direct" and u.get("bgDirect", false)
 
 static func end_turn(gs, owner: int) -> void:
 	for i in gs.player(owner).units.size():

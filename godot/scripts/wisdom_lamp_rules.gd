@@ -1,6 +1,7 @@
 class_name WisdomLampRules
 extends RefCounted
 const Content := preload("res://scripts/content_loader.gd")
+const Choice := preload("res://scripts/restored_card_choices.gd")
 
 static func active(u: Dictionary) -> bool:
 	return int(u.get("hp",0))>0 and int(u.get("level",0))>0 and not u.get("removed",false) and not u.get("baseRulesSuppressed",false)
@@ -35,6 +36,10 @@ static func begin_turn(gs, owner: int) -> void:
 			gs.resolution_stack.append({"kind":"wl-move","playerIndex":owner,"sourceIndex":i})
 
 static func targets(gs, owner: int, card: Dictionary):
+	if card.get("id") == "c60802":
+		return Choice.targetable_shikigami(gs, owner, 1-owner).map(func(u): return u.uid)
+	if card.get("id") == "c60806":
+		return gs.player(owner).units.filter(func(u): return gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, u)).map(func(u): return u.uid)
 	if card.get("id","")!="c60801":return null
 	var out:Array=[]
 	if not damaged_last_turn(gs,owner):return out

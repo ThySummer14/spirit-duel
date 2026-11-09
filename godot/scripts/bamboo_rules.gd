@@ -89,7 +89,10 @@ static func ai_choice(gs, owner: int):
 	return resolve_choice(gs,owner,best)
 
 static func summon_stone(gs, owner: int, power: int) -> void:
-	if gs.front_index(owner)>=0: return
+	var front: Dictionary = gs.front_unit(owner)
+	if not front.is_empty():
+		if gs.VerifiedRules.OwlInsect.shikigami(front): return
+		gs.VerifiedRules.Weaver.leave_front(gs,owner)
 	var cfg: Dictionary = Content.unit_def("huiyeji").get("bambooStone",{})
 	var hp := int(cfg.get("hp",5))
 	var stone := {"uid":"%s:stone-%d" % [gs.player(owner).id,gs.next_card_id],"id":"bamboo-stone","name":"石钵","title":"佛前石钵召唤物","art":Content.unit_def("huiyeji").art,"color":"#adc9b3","baseAttack":power,"baseMaxHp":hp,"attack":power,"maxHp":hp,"hp":hp,"shield":0,"shieldExpires":0,"knockout":0,"frozen":0,"brittle":0,"armorBreak":0,"unyielding":false,"level":1,"front":1,"attackBonus":0,"maxHpBonus":0,"awakened":false,"form":{},"formRules":{},"formAbility":"离开战斗区时移除。","charge":0,"passive_hooks":[],"summoned":true,"countsAsShikigami":true,"bambooStone":true,"swift":false}
@@ -189,7 +192,7 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 			if idx<0: gs._damage_avatar(1-owner,2,owner,src)
 			else: gs._damage_unit(1-owner,idx,2,owner,src)
 			if frame.boost:
-				var pool: Array = gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and int(u.front)==0).map(func(u):return str(u.uid))
+				var pool: Array = gs.player(1-owner).units.filter(func(u):return int(u.hp)>0 and int(u.front)==0 and gs.VerifiedRules.OwlInsect.shikigami(u)).map(func(u):return str(u.uid))
 				for uid in pool: gs._damage_unit(1-owner,gs._unit_index_by_uid(1-owner,uid),1,owner,src)
 		"bamboo-random":
 			var id := str(cards()[int(floor(gs.randf01()*cards().size()))])

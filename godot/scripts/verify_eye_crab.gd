@@ -123,6 +123,14 @@ func eye_rules() -> void:
 	check(gs.pending_choice.get("type") == "eye-curse" and foe.hand.size() == int(gs.rules.maxHandSize), "burned cursed draw still opens curse without replacing held cards")
 	check(gs.resolve_divination_choice(1, "eye-curse-life") and gs.pending_choice.get("type") == "eye-curse", "two stacked curses trigger two independent choices")
 	check(gs.resolve_divination_choice(1, "eye-curse-hand") and foe.hand.size() == 6, "second stacked curse excludes first and discards half actual held hand")
+	gs = game(); foe = gs.player(1)
+	for idx in [1, 2, 3]: gs._knockout_unit(foe.units[idx])
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs, 1, 0, "eye-curse-decoy", "普通召唤物", 0, 9, {"countsAsShikigami": false})
+	gs.current_player = 1
+	foe.deck = [{"instanceId":"cursed-shikigami-only", "definitionId":"c17502", "eyeCurses":1}]
+	gs._draw(1, 1); gs._resolve_resolution_stack()
+	check(gs.resolve_divination_choice(1, "eye-curse-units"), "actual curse can be selected with fewer than two living shikigami")
+	check(foe.units[0].hp == 0 and decoy.hp == 9 and gs.front_unit(1).uid == decoy.uid, "random destruction can only choose living shikigami; an ordinary summon never fills the second slot")
 	gs = game(); p = gs.player(0); foe = gs.player(1)
 	play(gs, "c19608"); p.units[1].front = 1
 	var count_before: int = p.deck.size()
@@ -218,7 +226,15 @@ func run() -> void:
 	eye_rules(); crab_rules()
 	var stores := Support.isolate_stores()
 	if not OS.get_cmdline_user_args().is_empty(): out = OS.get_cmdline_user_args()[0]; DirAccess.make_dir_recursive_absolute(out)
-	root.theme = ThemeBuilder.build_theme(); root.size = Vector2i(1600, 740)
+	root.theme = ThemeBuilder.build_theme()
+	for size in [Vector2i(1280, 800), Vector2i(1600, 740)]:
+		root.size = size
+		if not out.is_empty(): DisplayServer.window_set_size(size)
+		await _ui_case(size.x)
+	Support.cleanup_audio(); await process_frame; Support.cleanup_stores(stores)
+	print("EYE_CRAB checks=%d failures=%d" % [checks, failures]); quit(0 if failures == 0 else 1)
+
+func _ui_case(width: int) -> void:
 	var b := Battle.new()
 	b.setup(["baimugui", "xieji", "hetong", "banruo"], ["bingyong", "yaodaoji", "shanfeng", "longyechaji"], 196210)
 	b._ai_thinking = true
@@ -229,7 +245,7 @@ func run() -> void:
 	b.gs.player(1).deck = [{"instanceId":"ui-enemy-wind", "definitionId":"c17502"},{"instanceId":"ui-enemy-blade", "definitionId":"c10101"}]
 	hand(b, ["c19607"]); await settled(b); await click(b._hand_row.get_child(0)); await settled(b)
 	check(b.gs.pending_choice.zoneOwner == 1 and choice_face(b, "c10101") != null, "mouse all-knowing displays actual enemy deck")
-	await capture("01-enemy-deck-divination")
+	await capture("%d-01-enemy-deck-divination" % width)
 	await click(choice_face(b, "c10101")); await settled(b)
 	await click(choice_face(b, Divination.TOP)); await settled(b)
 	await click(choice_face(b, "c17502")); await settled(b)
@@ -237,14 +253,20 @@ func run() -> void:
 	check(b.gs.pending_choice.is_empty() and b.gs.player(1).units[1].hp == 0, "mouse top/bottom choices resume real destruction")
 	hand(b, ["c21001", "c21005"]); await settled(b); await click(b._hand_row.get_child(0)); await settled(b)
 	check(b.gs.pending_choice.get("type") == "crab-sleep" and choice_face(b, "c21005") != null and choice_face(b, "c21005")._original_card != null, "mouse sleep offers original full face of true hand instance")
-	await capture("02-crab-copy-choice")
+	await capture("%d-02-crab-copy-choice" % width)
 	await click(choice_face(b, "c21005")); await settled(b)
 	check(b.gs.pending_choice.is_empty() and b.gs.player(0).hand.size() == 2, "mouse copy choice shuffles copies and draws real card")
 	b.gs.player(0).deck.append({"instanceId":"ui-cursed", "definitionId":"c19602", "eyeCurses":1})
 	b.gs._draw(0, 1); b.gs._resolve_resolution_stack(); b._refresh(); await settled(b)
 	check(choice_face(b, "eye-curse-life") != null and choice_face(b, "eye-curse-lose") != null, "mouse curse presents four different real consequences")
-	await capture("03-four-curse-choices")
+	await capture("%d-03-four-curse-choices" % width)
 	await click(choice_face(b, "eye-curse-life")); await settled(b)
 	check(b.gs.player(0).maxAvatarHp == 8 and b.gs.pending_choice.is_empty(), "mouse curse choice changes real max hp and resumes")
-	b.queue_free(); Support.cleanup_audio(); await process_frame; Support.cleanup_stores(stores)
-	print("EYE_CRAB checks=%d failures=%d" % [checks, failures]); quit(0 if failures == 0 else 1)
+	var p: Dictionary = b.gs.player(0)
+	for idx in [1, 2, 3]: b.gs._knockout_unit(p.units[idx])
+	var decoy: Dictionary = b.gs.VerifiedRules.NativeSummons.summon(b.gs,0,0,"eye-ui-front","普通召唤物",0,9,{"countsAsShikigami":false})
+	p.deck.append({"instanceId":"ui-unit-curse","definitionId":"c19602","eyeCurses":1})
+	b.gs._draw(0, 1); b.gs._resolve_resolution_stack(); b._refresh(); await settled(b)
+	await click(choice_face(b, "eye-curse-units")); await settled(b)
+	check(b.gs.pending_choice.is_empty() and p.units[0].hp == 0 and decoy.hp == 9 and b._unit_widget(str(decoy.uid)) != null, "mouse curse destroys the living shikigami but leaves the ordinary summon on the board")
+	b.queue_free(); await process_frame

@@ -50,15 +50,25 @@ static func end_turn(gs, owner: int) -> void:
    var result: Dictionary = gs._damage_unit(1 - owner, i, 1, owner, idx)
    healed += int(result.get("damage", 0))
   gs._heal_unit(unit, healed)
-static func revived(gs, owner: int, idx: int) -> void:
+static func revived(gs, owner: int, idx: int, early: bool = false) -> void:
+ gs.VerifiedRules.Commission.progress(gs, owner, "revive")
+ gs.VerifiedRules.ForestSpirit.revived(gs, owner, idx)
+ gs.VerifiedRules.DragonAbyss.Curse.revived(gs, owner, idx)
+ gs.VerifiedRules.YanmieTrio.revived(gs, owner, idx, early)
+ gs.VerifiedRules.DuskCycle.revived(gs, owner)
+ gs.VerifiedRules.DragonFlow.revived(gs, owner, idx)
+ gs.VerifiedRules.NineTails.revived(gs, owner, idx)
  gs.VerifiedRules.ApeSleeve.revived(gs,owner,idx)
  gs.VerifiedRules.RedPurple.refresh(gs)
  gs.VerifiedRules.Lantern.revived(gs,owner,idx)
  gs.VerifiedRules.Rebirth.revived(gs,owner,idx)
  gs.VerifiedRules.Samurai.revived(gs,owner,idx)
+ gs.VerifiedRules.Wave7Reworks.revived(gs, owner, idx)
  gs.VerifiedRules.Pine.revived(gs,owner,idx)
  gs.VerifiedRules.Puppet.revived(gs,owner,idx)
  gs.VerifiedRules.House.revived(gs,owner,idx)
+ gs.VerifiedRules.CoopFirst.revived(gs, owner, idx)
+ gs.VerifiedRules.CoopMiddle.knockout_changed(gs, owner, idx)
  gs.VerifiedRules.Doll.revived(gs,owner,idx)
  gs.VerifiedRules.TreeSakura.sync_power(gs.player(owner).units[idx])
  var unit: Dictionary = gs.player(owner).units[idx]
@@ -79,9 +89,13 @@ static func knocked_out(gs, unit: Dictionary) -> void:
  unit.erase("movementHolders")
  unit.erase("movementBaseFrozen")
 static func moved(gs, owner: int, idx: int, previous: int) -> void:
+ gs.VerifiedRules.Blueprint.moved(gs, owner, idx, previous)
+ gs.VerifiedRules.DragonAbyss.Aki.moved(gs, owner, idx, previous)
+ gs.VerifiedRules.DragonAbyss.Curse.moved(gs, owner, idx, previous)
  var unit: Dictionary = gs.player(owner).units[idx]
  if int(unit.front) == previous or not active(unit): return
  gs.VerifiedRules.event(gs, "unit-moved", {"player": owner, "uid": unit.uid, "front": int(unit.front)})
+ gs.VerifiedRules.PeachGrove.moved(gs, owner, idx, unit)
  if role(unit) != "crow": return
  if int(unit.get("movementCountTurn", -1)) != gs.turn_counter:
   unit.movementCountTurn = gs.turn_counter
@@ -91,7 +105,17 @@ static func moved(gs, owner: int, idx: int, previous: int) -> void:
 static func move_to(gs, owner: int, idx: int, front: int) -> bool:
  var unit: Dictionary = gs.player(owner).units[idx]
  if int(unit.hp) <= 0 or int(unit.front) == front: return false
+ if front == 1 and not gs.VerifiedRules.Langya.can_front(unit): return false
  if unit.get("summoned", false):
+  if unit.get("nativeFieldSummon", false):
+   gs.VerifiedRules.NativeSummons.remove(gs, owner, unit)
+   return true
+  if unit.id == gs.VerifiedRules.TwinSight.CAT:
+   gs.VerifiedRules.TwinSight.remove(gs,owner,unit)
+   return true
+  if unit.get("lySoul",false):
+   gs.VerifiedRules.Langya.remove_soul(gs,owner,unit)
+   return true
   if unit.get("efPowderBoxSummon",false):
    gs.VerifiedRules.EssenceFeast.remove_box(gs,owner,unit)
    return true

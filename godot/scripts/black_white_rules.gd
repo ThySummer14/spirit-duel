@@ -39,7 +39,7 @@ static func describe_card(_gs, _owner: int, inst: Dictionary, card: Dictionary) 
 static func targets(gs, owner: int, card: Dictionary):
 	if not card.get("blackWhiteRules",false):return null
 	if card.id=="c24002":
-		return gs.player(owner).units.filter(func(u):return int(u.hp)>0 and int(u.level)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (int(u.front)==1 or (not gs.VerifiedRules.Combat.has(u,"remote") and not gs.VerifiedRules.Bingyong.replacement_blocked(gs,owner,u)))).map(func(u):return str(u.uid))
+		return gs.player(owner).units.filter(func(u):return int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (int(u.front)==1 or (not gs.VerifiedRules.Combat.has(u,"remote") and not gs.VerifiedRules.Bingyong.replacement_blocked(gs,owner,u)))).map(func(u):return str(u.uid))
 	if card.id=="c24102":
 		return gs.player(owner).units.filter(func(u):return int(u.hp)<=0 and int(u.level)>0 and not u.get("removed",false) and gs.VerifiedRules.OwlInsect.shikigami(u) and gs.VerifiedRules.Rebirth.can_revive(u)).map(func(u):return str(u.uid))
 	return null

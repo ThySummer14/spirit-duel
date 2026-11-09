@@ -28,7 +28,7 @@ static func save_data(data: Dictionary) -> bool:
 
 
 static func get_lineup() -> Array:
-	return load_data().get("lineup", [])
+	return ContentLoader.restore_legacy_lineup(load_data().get("lineup", []))
 
 
 static func set_lineup(unit_ids: Array) -> void:
@@ -66,25 +66,28 @@ static func set_seed(value: int) -> void:
 static func deck_definition(unit_ids: Array) -> Dictionary:
 	## 组装 GameState.create 所需 deck：unitIds + cardIds（缺省用 starter）
 	var card_ids: Array = []
+	var slot_owners: Array = []
 	for uid in unit_ids:
 		var custom := get_deck(uid)
-		if custom.size() == 8:
-			card_ids.append_array(custom)
-		else:
-			card_ids.append_array(ContentLoader.starter_card_ids(uid))
-	return {"unitIds": unit_ids.duplicate(), "cardIds": card_ids}
+		var cards := custom if custom.size() == 8 else ContentLoader.starter_card_ids(uid)
+		for id in cards:
+			card_ids.append(id)
+			slot_owners.append(uid)
+	return {"unitIds": unit_ids.duplicate(), "cardIds": card_ids, "slotOwners": slot_owners}
 
 
-static func get_formations() -> Array:
+static func get_formations(restore_legacy: bool = true) -> Array:
 	var stored: Array = load_data().get("formations", [])
 	var out: Array = []
 	for i in 5:
-		out.append(stored[i] if i < stored.size() and stored[i] is Dictionary else {"name": "阵容" + ["一", "二", "三", "四", "五"][i], "lineup": []})
+		var slot: Dictionary = stored[i] if i < stored.size() and stored[i] is Dictionary else {"name": "阵容" + ["一", "二", "三", "四", "五"][i], "lineup": []}
+		if restore_legacy: slot.lineup = ContentLoader.restore_legacy_lineup(slot.get("lineup", []))
+		out.append(slot)
 	return out
 
 
 static func save_formation(slot: int, lineup: Array) -> bool:
-	if slot < 0 or slot >= 5 or lineup.size() != 4:
+	if slot < 0 or slot >= 5 or not ContentLoader.valid_lineup(lineup):
 		return false
 	var unique := {}
 	for uid in lineup:
@@ -92,7 +95,7 @@ static func save_formation(slot: int, lineup: Array) -> bool:
 			return false
 		unique[uid] = true
 	var data := load_data()
-	var formations := get_formations()
+	var formations := get_formations(false)
 	formations[slot].lineup = lineup.duplicate()
 	data.formations = formations
 	return save_data(data)

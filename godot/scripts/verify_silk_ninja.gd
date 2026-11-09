@@ -55,9 +55,12 @@ func silk_cards() -> void:
 	check(gs.pending_choice.get("which")=="erosion","ownturnduskKOrealerosionchoice");finish(gs);check(foe.hand[0].get("handCharm",{}).get("kind")=="erosion","duskmarksrealenemyinstance")
 	gs=game();p=gs.player(0);foe=gs.player(1);give(gs,"c28501",1);play(gs,"c28502");poisoned(gs,1,1);gs.current_player=1;gs._knockout_unit(foe.units[1],0,1);gs._resolve_resolution_stack()
 	check(gs.pending_choice.is_empty() and not foe.hand[0].has("handCharm"),"dusknotopponentturn")
-	gs=game();p=gs.player(0);foe=gs.player(1);gs._grow_unit(foe.units[0],0,10);gs._grow_unit(foe.units[1],0,10);poisoned(gs);hp=foe.units[1].hp;var face:int=foe.avatarHp;play(gs,"c28507")
+	gs=game();p=gs.player(0);foe=gs.player(1);gs._grow_unit(foe.units[0],0,10);gs._grow_unit(foe.units[1],0,10);poisoned(gs);hp=foe.units[1].hp;var face:int=foe.avatarHp
+	var decoy: Dictionary=gs.VerifiedRules.NativeSummons.summon(gs,1,0,"silk-daydream-decoy","普通召唤物",0,9,{"countsAsShikigami":false})
+	play(gs,"c28507")
 	check(foe.units[0].hp==0 and foe.units[1].hp==hp-2 and not foe.units[1].has("toxicPoisoned"),"daydreampoisonedtoxicbutordinaryothers")
 	check(foe.avatarHp==face-1,"daydreamnodirectavatar2onlyactualpoisonKOability")
+	check(decoy.hp==9,"群攻只伤式神，普通召唤物不受伤")
 	gs=game();foe=gs.player(1);foe.units[0].front=1;gs._grow_unit(foe.units[0],0,10);foe.units[0].hp=3;poisoned(gs);face=foe.avatarHp;play(gs,"c28508")
 	check(foe.units[0].hp==0 and foe.avatarHp==face-3,"SSRconditionalpierce2excessandbase1notfakehugetoxicoverflow")
 	gs=game();foe=gs.player(1);foe.units[0].front=1;foe.units[0].hp=2;face=foe.avatarHp;play(gs,"c28508")
@@ -107,6 +110,10 @@ func negative_and_ai() -> void:
 	var gs:=game();var p:Dictionary=gs.player(0);var foe:Dictionary=gs.player(1);foe.units[0].foxVeil=true;poisoned(gs,1,1);gs._knockout_unit(foe.units[2],0,3);gs.resolution_stack.clear()
 	var idx:=give(gs,"c28602");var ts:Array=gs.valid_targets(0,gs.hand_card_def(0,idx));check(foe.units[0].uid not in ts and foe.units[1].uid not in ts and foe.units[2].uid not in ts and "avatar-1" not in ts and foe.units[3].uid in ts,"latenttargetfiltersveilpoisonKOavatar")
 	var snap:=JSON.stringify(gs.snapshot());gs.hand_card_def(0,idx);gs.can_play_card(0,idx,foe.units[3].uid);check(JSON.stringify(gs.snapshot())==snap,"queriespuredonotconsumeimmunityrnghistory")
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs,1,0,"silk-decoy","普通召唤物",0,9,{"countsAsShikigami":false})
+	foe.units[3].level=0
+	check(not gs.can_play_card(0,idx,decoy.uid).ok and gs.play_card(0,idx,foe.units[3].uid) and foe.units[3].toxicPoisoned,"潜伏只对实际零勾式神附毒，不允许非式神召唤物")
+	check(not gs.can_play_card(0,give(gs,"c28505"),decoy.uid).ok,"於菊虫的指定剧毒同样拒绝普通召唤物")
 	gs=game();p=gs.player(0);p.nullifyNextCardTurn=gs.turn_counter;play(gs,"c28608");check(p.units[1].form.is_empty() and p.hand.is_empty(),"counteredshadowdoesnotgenerateorinstall")
 	for prefix in ["c285","c286"]:
 		for n in range(1,9):

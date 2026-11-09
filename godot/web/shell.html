@@ -23,7 +23,7 @@
   <noscript>请启用 JavaScript 后进入游戏。</noscript>
   <div id="status" role="status" aria-live="polite">
     <h1>灵枢战线</h1>
-    <p id="notice">正在载入月汐街…</p>
+    <p id="notice">正在登上蜃气楼…</p>
     <progress id="progress" aria-label="游戏加载进度"></progress>
     <p>首次进入需要下载游戏资源，建议使用电脑浏览器。<br>进入后点击画面即可启用声音；阵容与收藏保存在当前浏览器。</p>
     <a href="../">进入原网页版</a>
@@ -50,7 +50,7 @@
         if (total > 0) {
           progress.max = total;
           progress.value = current;
-          notice.textContent = '正在载入月汐街… ' + Math.round(current / total * 100) + '%';
+          notice.textContent = '正在登上蜃气楼… ' + Math.round(current / total * 100) + '%';
         }
       } }).then(() => {
         overlay.remove();

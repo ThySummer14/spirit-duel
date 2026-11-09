@@ -90,7 +90,7 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			var count := 0
 			for i in range(p.hand.size() - 1, -1, -1):
 				if ContentLoader.card_def(str(p.hand[i].definitionId)).get("unitId") == card.unitId:
-					p.hand.remove_at(i)
+					gs.discard_hand_card(owner, i)
 					count += 1
 			gs.VerifiedRules.event(gs, "feather-hand-discarded", {"player": owner, "count": count})
 			gs._draw(owner, count)

@@ -109,7 +109,7 @@ static func has_pursuit(unit: Dictionary) -> bool:
 	return active(unit) and bool(unit.get("rpPursuit", false))
 
 static func _swift(gs, owner: int, u: Dictionary) -> bool:
-	return bool(u.get("swift", false)) or gs.VerifiedRules.Glutton.has(u, "swift") or gs.VerifiedRules.Bailang.swift(u) or gs.VerifiedRules.IronMouse.swift(gs, u) or gs.VerifiedRules.TreeSakura.floating(u) or gs.VerifiedRules.Rebirth.swift(u) or gs.VerifiedRules.Samurai.swift(u) or gs.VerifiedRules.Yitiao.swift(u) or gs.VerifiedRules.Mianqiling.swift(u)
+	return bool(u.get("swift", false)) or gs.VerifiedRules.ShenqiHuang.swift(gs, u) or gs.VerifiedRules.Glutton.has(u, "swift") or gs.VerifiedRules.Bailang.swift(u) or gs.VerifiedRules.IronMouse.swift(gs, u) or gs.VerifiedRules.TreeSakura.floating(u) or gs.VerifiedRules.Rebirth.swift(u) or gs.VerifiedRules.Samurai.swift(u) or gs.VerifiedRules.Yitiao.swift(u) or gs.VerifiedRules.Mianqiling.swift(u)
 
 static func _unyielding(gs, u: Dictionary) -> bool:
 	return bool(u.get("unyielding", false)) or bool(u.get("combatUnyielding", false)) or bool(u.get("futakuchiUnyielding", false)) or bool(u.get("owlUnyielding", false)) or gs.VerifiedRules.Glutton.has(u, "unyielding") or gs.VerifiedRules.Enma.has(u, "unyielding") or gs.VerifiedRules.Shuten.has_unyielding(u) or gs.VerifiedRules.Bailang.unyielding(u) or gs.VerifiedRules.Mianqiling.unyielding(u) or bool(u.get("formRules", {}).get("riverUnyielding", false))

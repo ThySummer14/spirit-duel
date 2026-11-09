@@ -621,6 +621,14 @@ function wave8Card(officialId, unitId, meta) {
 }
 
 export const WAVE8_CARD_DEFINITIONS = Object.freeze([
+  wave8Card(63009, "yingcao-pupu", {
+    id: "yanmie-wisdom", name: "智慧之种", type: "form", level: 1, token: true, subpack: "yanmie",
+    text: "瞬发。选择一项：进场时对敌方牌手造成等于蒲蒲等级的伤害，或恢复己方牌手等量生命。",
+  }),
+  wave8Card(63209, "tongnantongnv", {
+    id: "yanmie-feather", name: "羽刃", type: "spell", level: 2, token: true, subpack: "yanmie",
+    text: "瞬发。对一个敌方式神造成等同于己方最高护甲值的伤害。回合结束时弃置。",
+  }),
   wave8Card(61701, "huang-qiming", {
     id: "c61701",
     name: "命运星河",
@@ -4523,6 +4531,328 @@ export const WAVE8_CARD_DEFINITIONS = Object.freeze([
     ],
     subpack: "qianlu",
   }),
+  wave8Card(0, "daorenshen", {
+    "id": "daorenshen-treasure",
+    "name": "财宝",
+    "text": "瞬发。选择一项：抽一张牌，然后弃一张手牌；本回合下一张1勾非中立牌不消耗鬼火；对一个敌方角色造成1点伤害。",
+    "type": "spell",
+    "level": 1,
+    "token": true,
+    "deckLimit": 0,
+    "keywords": [
+      "INSTANT"
+    ],
+    "effects": [
+      [
+        "always",
+        "treasure-use",
+        "source",
+        0
+      ]
+    ],
+    "subpack": "yanmie"
+  }),
+  wave8Card(0, "daorenshen", {
+    "id": "daorenshen-great-treasure",
+    "name": "巨额财宝",
+    "text": "瞬发。选择一项：抽两张牌；本回合下一张非中立牌不消耗鬼火；对一个敌方角色造成4点伤害。",
+    "type": "spell",
+    "level": 1,
+    "token": true,
+    "deckLimit": 0,
+    "keywords": [
+      "INSTANT"
+    ],
+    "effects": [
+      [
+        "always",
+        "treasure-use",
+        "source",
+        0
+      ]
+    ],
+    "subpack": "yanmie"
+  }),
+
+  wave8Card(0, "", {
+    "id": "insight-star",
+    "name": "星诫",
+    "type": "spell",
+    "level": 0,
+    "cost": 0,
+    "text": "不消耗鬼火。对一个敌方角色造成2点伤害。使用后移回启悟区。",
+    "target": "enemy-character",
+    "token": true,
+    "deckLimit": 0,
+    "effects": [
+      [
+        "always",
+        "insight-neutral",
+        "selected",
+        0
+      ]
+    ],
+    "subpack": "zhuxing"
+  }),
+  wave8Card(0, "", {
+    "id": "insight-moon",
+    "name": "月诫",
+    "type": "spell",
+    "level": 0,
+    "cost": 1,
+    "text": "条件：己方有一个未气绝的等级≥1的式神。消灭一个敌方幻境。",
+    "target": "enemy-realm",
+    "token": true,
+    "deckLimit": 0,
+    "effects": [
+      [
+        "always",
+        "insight-neutral",
+        "selected",
+        0
+      ]
+    ],
+    "subpack": "zhuxing"
+  }),
+  wave8Card(0, "", {
+    "id": "insight-sun",
+    "name": "日诫",
+    "type": "spell",
+    "level": 0,
+    "cost": 1,
+    "text": "条件：己方有一个未气绝的等级≥2的式神。消灭一个敌方式神，敌方牌手抽一张牌。",
+    "target": "enemy-unit",
+    "token": true,
+    "deckLimit": 0,
+    "effects": [
+      [
+        "always",
+        "insight-neutral",
+        "selected",
+        0
+      ]
+    ],
+    "subpack": "zhuxing"
+  }),
+
+  wave8Card(0, "", {
+    "id": "insight-starburst",
+    "name": "星爆",
+    "type": "spell",
+    "level": 0,
+    "cost": 1,
+    "text": "瞬发。对一个角色造成2点伤害，使用后不结束启悟状态。",
+    "target": "any-living-character",
+    "token": true,
+    "deckLimit": 0,
+    "keywords": [
+      "INSTANT"
+    ],
+    "effects": [
+      [
+        "always",
+        "insight-neutral",
+        "selected",
+        0
+      ]
+    ],
+    "subpack": "zhuxing"
+  }),
+
+  wave8Card(0, "chen", {
+    "id": "chen-qisha",
+    "name": "七杀星辰",
+    "type": "combat",
+    "level": 1,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 0,
+    "deckLimit": 0,
+    "text": "抽一张牌。此牌在启悟区时，辰获得+1力量。",
+    "target": "auto",
+    "keywords": [],
+    "effects": [
+      [
+        "always",
+        "assault",
+        "selected-any",
+        2
+      ],
+      [
+        "always",
+        "draw",
+        "ally-player",
+        1
+      ]
+    ],
+    "subpack": "zhuxing",
+    "combatOption": {
+      "shield": 0
+    },
+    "token": true
+  }),
+  wave8Card(0, "chen", {
+    "id": "chen-tianliang",
+    "name": "天梁星辰",
+    "type": "combat",
+    "level": 1,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 0,
+    "deckLimit": 0,
+    "text": "免疫战斗伤害。此牌在启悟区时，辰获得+2生命。",
+    "target": "auto",
+    "keywords": [],
+    "effects": [
+      [
+        "always",
+        "assault",
+        "selected-any",
+        2
+      ]
+    ],
+    "subpack": "zhuxing",
+    "combatOption": {
+      "shield": 0,
+      "immuneCombat": true
+    },
+    "token": true
+  }),
+  wave8Card(0, "chen", {
+    "id": "chen-tianxiang",
+    "name": "天相星辰",
+    "type": "combat",
+    "level": 2,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 0,
+    "deckLimit": 0,
+    "text": "追猎，坚毅。此牌在启悟区时，辰获得坚毅。",
+    "target": "enemy-unit",
+    "keywords": [
+      "PURSUIT"
+    ],
+    "effects": [
+      [
+        "always",
+        "assault",
+        "selected-any",
+        2
+      ]
+    ],
+    "subpack": "zhuxing",
+    "combatOption": {
+      "shield": 0,
+      "pursuit": true
+    },
+    "token": true
+  }),
+  wave8Card(0, "chen", {
+    "id": "chen-tianfu",
+    "name": "天府星辰",
+    "type": "combat",
+    "level": 2,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 0,
+    "deckLimit": 0,
+    "text": "必杀，穿刺。此牌在启悟区时，辰获得穿刺。",
+    "target": "auto",
+    "keywords": [
+      "LETHAL",
+      "PENETRATION"
+    ],
+    "effects": [
+      [
+        "always",
+        "assault",
+        "selected-any",
+        0
+      ]
+    ],
+    "subpack": "zhuxing",
+    "combatOption": {
+      "shield": 2,
+      "lethal": true,
+      "penetration": true
+    },
+    "token": true
+  }),
+  wave8Card(0, "chen", {
+    "id": "chen-tiantong",
+    "name": "天同星辰",
+    "type": "combat",
+    "level": 3,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 0,
+    "deckLimit": 0,
+    "text": "贯通。气绝时可以使用。复活辰。此牌在启悟区时，辰获得贯通。",
+    "target": "auto",
+    "keywords": [
+      "PIERCE"
+    ],
+    "effects": [
+      [
+        "always",
+        "chen-revive",
+        "source",
+        0
+      ],
+      [
+        "always",
+        "assault",
+        "selected-any",
+        2
+      ]
+    ],
+    "subpack": "zhuxing",
+    "combatOption": {
+      "shield": 1
+    },
+    "token": true
+  }),
+  wave8Card(0, "chen", {
+    "id": "chen-tianji",
+    "name": "天机星辰",
+    "type": "combat",
+    "level": 3,
+    "cost": 1,
+    "rarity": "R",
+    "starter": 0,
+    "deckLimit": 0,
+    "text": "吸血。此牌在启悟区时，辰获得帷幕。",
+    "target": "auto",
+    "keywords": [
+      "LIFESTEAL"
+    ],
+    "effects": [
+      [
+        "always",
+        "assault",
+        "selected-any",
+        2
+      ]
+    ],
+    "subpack": "zhuxing",
+    "combatOption": {
+      "shield": 1,
+      "bloodLifeSteal": true
+    },
+    "token": true
+  }),
+
+  wave8Card(0, "", {"id": "yuedu-false-moon", "name": "虚假之月", "type": "spell", "level": 0, "text": "瞬发。对你的牌手造成2点伤害并恢复敌方牌手2生命，启悟。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "wushi-maoshi", {"id": "maoshi-heart", "name": "武士之心", "type": "combat", "level": 1, "text": "武魂形态时获得瞬发。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "wushi-maoshi", {"id": "maoshi-grudge", "name": "怨灵斩", "type": "combat", "level": 2, "text": "增强：每有一个气绝的己方式神，此牌获得1力量。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "wushi-maoshi", {"id": "maoshi-sever", "name": "灭魂", "type": "combat", "level": 2, "text": "武魂形态时获得追猎与1力量。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "maochuan", {"id": "maochuan-cooperate", "name": "合作的代价", "type": "spell", "level": 1, "text": "瞬发。对一个己方式神造成4点伤害。留在手上时，己方回合结束随机对一个己方式神造成2点伤害。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "maochuan", {"id": "maochuan-advance", "name": "预支的代价", "type": "spell", "level": 1, "text": "瞬发。随机弃一张牌。留在手上时，己方回合结束移除牌库顶两张牌。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "maochuan", {"id": "maochuan-invest", "name": "投资的代价", "type": "spell", "level": 1, "text": "瞬发。眩晕一个己方式神。留在手上时，己方回合结束己方牌手受到4点伤害。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "maochuan", {"id": "maochuan-contract", "name": "契约的代价", "type": "spell", "level": 2, "text": "瞬发。消除一个己方式神的觉醒效果。留在手上时，己方回合开始使所有己方式神获得1力不足。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "maochuan", {"id": "maochuan-inflate", "name": "膨胀的代价", "type": "spell", "level": 2, "text": "瞬发。消灭一个己方式神。留在手上时，己方回合结束牌手获得2力不足与2脆弱。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "maochuan", {"id": "maochuan-monopoly", "name": "垄断的代价", "type": "spell", "level": 1, "text": "瞬发。对自己造成3点伤害，抽一张牌，并将此牌洗回牌库。留在手上时，己方回合结束受到1点伤害。", "token": true, "deckLimit": 0}),
+  wave8Card(0, "youning", {"id": "youning-six-meanings", "name": "诗六义", "type": "spell", "level": 3, "text": "从五种效果中选择三种不同效果生效。", "token": true, "deckLimit": 0}),
 ]);
 
 export function getWave8UnitIds() {

@@ -113,6 +113,11 @@ func history_and_prayer() -> void:
 	play(gs,"c18904",foe.units[2].uid);play(gs,"c18907",foe.units[2].uid);formed(gs);play(gs,"c18901",foe.units[0].uid);play(gs,"c18908")
 	var h:int=p.hand.size();var fire:int=p.energy;var charge:int=u.charge;var hp:int=foe.units[1].hp
 	check(gs.basic_attack_targets(0,0).has(foe.units[1].uid),"prayer target permits unformed enemy despite drive history")
+	var decoy := gs._make_unit("yuj-prayer-decoy", "fenghuanghuo")
+	decoy.summoned = true
+	decoy.countsAsShikigami = false
+	foe.units.append(decoy)
+	check(not gs.basic_attack_targets(0, 0).has(decoy.uid) and not gs.basic_attack(0, 0, decoy.uid), "奉祝之愿的指定出击不把非式神召唤物作为符咒目标")
 	check(gs.basic_attack(0,0,foe.units[1].uid),"prayer actual selected deployment")
 	check(events(gs,"automatic-card").size()==3 and p.hand.size()==h and p.energy==fire-1 and u.charge==charge,"prayer auto uses each history exactly once without cards or burst payment")
 	check(foe.units[1].frozen==1 and foe.units[1].attack==0 and foe.units[1].hp==hp-12 and u.hp==9,"prayer resolves seal and break before combat damage and counter")

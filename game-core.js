@@ -1507,6 +1507,19 @@ const EFFECT_HANDLERS = new Map([
         damageUnit(state, enemyIndex, targetUnitIndex, amount, playerIndex);
         return;
       }
+      if (effect.target === 'two-random-enemy-characters') {
+        const units = state.players[enemyIndex].units;
+        const candidates = [-1];
+        units.forEach((unit, index) => {
+          if (unit.hp > 0 && !unit.removed) candidates.push(index);
+        });
+        for (let hit = 0; hit < 2 && candidates.length && state.winner === null; hit += 1) {
+          const [index] = candidates.splice(Math.floor(nextRandom(state) * candidates.length), 1);
+          if (index < 0) damageAvatar(state, enemyIndex, amount, playerIndex, sourceIndex);
+          else if (units[index].hp > 0) damageUnit(state, enemyIndex, index, amount, playerIndex);
+        }
+        return;
+      }
       if (effect.target === 'all-enemy-units') {
         state.players[enemyIndex].units.forEach((unit, index) => {
           if (unit.hp > 0) damageUnit(state, enemyIndex, index, amount, playerIndex);
@@ -2713,6 +2726,7 @@ export function validateContentCatalog() {
     'selected-enemy',
     'selected-any',
     'all-enemy-units',
+    'two-random-enemy-characters',
     'all-ally-units',
     'all-other-allies',
     'enemy-avatar',

@@ -7,6 +7,9 @@ static var _units: Dictionary = {}
 
 
 static func artwork(unit: Dictionary, awakened: bool = false) -> Dictionary:
+	var data := ContentLoader.unit_def(str(unit.get("id", ""))) if not unit.has("godotPortrait") and str(unit.get("id", "")) == "luohou" else unit
+	var original := "res://" + str(data.get("godotAwakenedPortrait" if awakened else "godotPortrait", ""))
+	if original != "res://" and ResourceLoader.exists(original): return {"path": original, "focus": Vector2(0.5, 0.34)}
 	if not _loaded:
 		_loaded = true
 		if FileAccess.file_exists(MANIFEST_PATH):

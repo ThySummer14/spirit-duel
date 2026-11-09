@@ -200,6 +200,9 @@ func _counters() -> void:
 		var hp: int = foe.avatarHp
 		play(gs, blocked, target)
 		check(foe.hand.is_empty() and foe.energy == 19, "response consumes one hand card and printed fire: " + blocked)
+		var source := gs._source_index(0, ContentLoader.card_def(blocked))
+		check(p.units[source].get("wordLastUse", -1) == gs.turn_counter, "countered card is still recorded as used: " + blocked)
+		before[source].wordLastUse = gs.turn_counter
 		if blocked == "c29001":
 			check(p.units[1].has("spellCountdown"), "steel when-used ability survives combat counter")
 			before[1].spellCountdown = p.units[1].spellCountdown.duplicate(true)

@@ -1,6 +1,21 @@
 class_name SerpentGhostRules
 extends RefCounted
 const Content := preload("res://scripts/content_loader.gd")
+const SLAYER := "tanjirou"
+const SLAYER_SISTER := "slayer-sister-body"
+
+static func slayer(u: Dictionary) -> bool:
+	return str(u.get("id", "")) in [SLAYER, "nezuko"]
+
+static func duo_body(u: Dictionary, white: bool) -> String:
+	if slayer(u): return SLAYER_SISTER if white else SLAYER
+	return "sg-ghost-white" if white else "guishiheibai"
+
+static func printed(card: Dictionary) -> String:
+	return str(card.get("slayerSourceCard", card.get("id", "")))
+
+static func initialize_duo(u: Dictionary) -> void:
+	if u.id == "nezuko": set_duo_body(u, false)
 
 static func role(u: Dictionary) -> String:
 	if u.get("baseRulesSuppressed",false):return ""
@@ -44,12 +59,10 @@ static func _remove_temporary(gs, u: Dictionary) -> void:
 static func switch_ghost(gs, owner: int, src: int, white: bool, count_switch: bool=true) -> void:
 	var u:Dictionary=gs.player(owner).units[src]
 	if role(u)!="ghost" or u.get("sgSnake",false):return
-	if not u.get("form",{}).is_empty():gs.VerifiedRules.Forms.remove(gs,owner,src,"随鬼使切换")
+	if not u.get("form",{}).is_empty():gs.VerifiedRules.Forms.remove(gs,owner,src,"随式神切换")
 	_remove_temporary(gs,u)
-	u.sgWhite=white;u.erase("sgSwitchPending");u.baseAttack=2 if white else 3;u.baseMaxHp=6 if white else 4
-	u.name="鬼使白" if white else "鬼使黑";u.presentationId="sg-ghost-white" if white else "guishiheibai"
-	u.sgRuntimeDefinition="sg-ghost-white" if white else "guishiheibai"
-	u.art=Content.unit_def(str(u.sgRuntimeDefinition)).get("art","");u.awakenedArt=u.art
+	u.sgWhite=white;u.erase("sgSwitchPending")
+	set_duo_body(u, white)
 	u.passive_hooks=[];u.front=0;u.knockout=0;u.hp=1
 	u.sgWhiteCountdown=1 if u.get("sgWhiteAwakened",false) else 2
 	if not white:
@@ -58,6 +71,17 @@ static func switch_ghost(gs, owner: int, src: int, white: bool, count_switch: bo
 	u.unyielding=white and u.get("sgWhiteAwakened",false)
 	gs._recalc(u);u.hp=int(u.maxHp)
 	gs.VerifiedRules.event(gs,"sg-switch",{"player":owner,"uid":u.uid,"white":white,"count":int(u.get("sgBlackSwitches",0))})
+
+static func set_duo_body(u: Dictionary, white: bool) -> void:
+	var body := duo_body(u, white)
+	var definition := Content.unit_def(body)
+	u.sgRuntimeDefinition = body
+	u.presentationId = body
+	u.baseAttack = int(definition.get("attack", 2 if white else 3))
+	u.baseMaxHp = int(definition.get("maxHp", 6 if white else 4))
+	u.name = str(definition.get("name", u.name)) if slayer(u) else ("鬼使白" if white else "鬼使黑")
+	u.art = definition.get("art", "")
+	u.awakenedArt = u.art
 static func replace_knockout(gs, owner: int, u: Dictionary) -> bool:
 	if owner<0 or role(u)!="ghost" or u.get("sgWhite",false) or u.get("sgSwitchPending",false) or int(u.get("charge",0))<2:return false
 	u.charge=int(u.charge)-2;u.sgSwitchPending=true;u.hp=0;u.front=0;u.knockout=0
@@ -73,7 +97,7 @@ static func death_snapshot(gs, owner: int, u: Dictionary) -> Dictionary:
 	return {}
 static func after_knockout(gs, owner: int, u: Dictionary, saved: Dictionary) -> void:
 	if role(u)=="ghost" and u.get("sgWhite",false):
-		u.sgWhite=false;u.sgRuntimeDefinition="guishiheibai";u.presentationId="guishiheibai";u.name="鬼使黑";u.baseAttack=3;u.baseMaxHp=4;u.swift=false;gs._recalc(u)
+		u.sgWhite=false;set_duo_body(u, false);u.swift=false;gs._recalc(u)
 	if not saved.is_empty():
 		if saved.get("kind")=="sg-snake-transform":saved.original=u.duplicate(true)
 		gs.resolution_stack.append(saved)
@@ -143,25 +167,33 @@ static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	if u.get("sgChaos",false) or u.get("sgSwitchPending",false):return false
 	if u.get("sgSnake",false):return false
 	if int(card.get("movementBurst",0))>0 and not gs.VerifiedRules.Yujiazhu.can_pay_burst(gs,owner,src,int(card.movementBurst)):return false
-	if card.id=="c19402":return bool(u.get("sgWhite",false))
-	if card.id=="c19405":return not u.get("sgWhite",false)
-	if card.id=="c22008":return not u.awakened
-	if card.id=="sg-white-awaken":return u.get("sgWhite",false) and not u.get("sgWhiteAwakened",false)
+	var id := printed(card)
+	if id in ["c19402", "c18202"]:return bool(u.get("sgWhite",false))
+	if id in ["c19405", "c18205"]:return not u.get("sgWhite",false)
+	if id=="c22008":return not u.awakened
+	if id in ["sg-white-awaken", "sg-slayer-awaken"]:return u.get("sgWhite",false) and not u.get("sgWhiteAwakened",false)
 	return true
 static func describe_card(gs, owner: int, inst: Dictionary, card: Dictionary) -> Dictionary:
 	if not card.get("serpentGhostRules",false):return card
 	var c:=card.duplicate(true);var src:int=gs._source_index(owner,c)
 	if src<0:return c
 	var u:Dictionary=gs.player(owner).units[src]
+	var id := printed(c)
 	if c.id=="c19404" and gs.player(owner).get("sgGhostAwakeningChanged",false):
 		c=Content.card_def("sg-white-awaken").duplicate(true)
-	if c.id=="c19406":c.currentCardStats="切换回黑%d次 · 复制%d次"%[int(u.get("sgBlackSwitches",0)),int(u.get("sgBlackSwitches",0))]
+	if id=="c18204" and u.get("sgBlackAwakened", false):
+		c=Content.card_def("sg-slayer-awaken").duplicate(true)
+		c.unitId = u.id
+	if id in ["c19406", "c18206"]:
+		var count := int(u.get("sgBlackSwitches",0))
+		c.currentCardStats="切换回%s%d次 · 复制%d次"%["炭治郎" if slayer(u) else "黑", count, count]
 	if u.get("sgSnake",false):c.currentCardStats="蛇魔变形期间不可手动使用原专属牌"
-	if c.id in ["c19401","c19403"]:
+	if id in ["c19401", "c19403", "c18201", "c18203"]:
+		var grants_instant := id in ["c19401", "c18201"]
 		c.movementBurstOptions=[2];c.movementBurst=int(inst.get("movementBurst",0))
-		c.currentCardStats="爆能2 · "+("瞬发" if c.id=="c19401" else "追猎") if c.movementBurst==2 else "普通使用 · 可选择爆能2"
+		c.currentCardStats="爆能2 · "+("瞬发" if grants_instant else "追猎") if c.movementBurst==2 else "普通使用 · 可选择爆能2"
 		if c.movementBurst==2:
-			if c.id=="c19401":c.keywords.append("instant")
+			if grants_instant:c.keywords.append("instant")
 			else:c.keywords.append("pursuit");c.target="sg-pursuit";c.combatOption.pursuit=true
 	return c
 static func combat_finished(gs, owner: int, src: int, options: Dictionary) -> void:
@@ -195,7 +227,8 @@ static func damage_dealt(gs, owner: int, src: int, victim: int, idx: int, amount
 	var target:Dictionary=gs.player(victim).units[idx]
 	if active(target) and role(target)=="ghost" and target.get("sgWhite",false) and target.get("sgWhiteAwakened",false) and int(target.get("sgSoulTurn",-1))!=gs.turn_counter:
 		target.sgSoulTurn=gs.turn_counter
-		var c:Dictionary=Content.card_def("sg-white-soul").duplicate(true);c.sgSoulDamage=amount
+		var c:Dictionary=Content.card_def("sg-slayer-blood" if slayer(target) else "sg-white-soul").duplicate(true);c.sgSoulDamage=amount
+		c.unitId = target.id
 		gs._push_card_frames(victim,str(c.id),null,c,idx,0,true)
 static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: Dictionary, target_id) -> bool:
 	var action:=str(effect.get("action",""));if not action.begins_with("sg-"):return false
@@ -224,10 +257,10 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 		"sg-brothers":switch_ghost(gs,owner,src,false);gs._resolve_combat(owner,src,0,false,false,false,false,null,false,{"immuneCombat":true,"crabImmuneAll":true})
 		"sg-ghost-awaken":
 			gs._awaken(owner,src,card,{"attack":1,"hp":1});u.sgBlackAwakened=true;u.swift=true
-			gs.player(owner).sgGhostAwakeningChanged=true
+			if not slayer(u): gs.player(owner).sgGhostAwakeningChanged=true
 		"sg-white-awaken":
 			gs.VerifiedRules.Glutton.record_permanent(u,2,2,true);gs._grow_unit(u,2,2);u.sgWhiteAwakened=true;u.sgWhiteCountdown=1;u.unyielding=true
-		"sg-white-soul":gs.VerifiedRules.base_damage_projectile(gs,owner,src,int(card.get("sgSoulDamage",0)),"鬼使白索魂")
+		"sg-white-soul":gs.VerifiedRules.base_damage_projectile(gs,owner,src,int(card.get("sgSoulDamage",0)),str(card.name) if slayer(u) else "鬼使白索魂")
 		"sg-impermanence":switch_ghost(gs,owner,src,true);u.sgWhiteCountdown=1;gs._grow_unit(u,3,1);u.sgSwitchGrowth=3;u.sgSwitchHp=1;gs._resolve_combat(owner,src,0,false,false,false,false,null,false,{})
 		"sg-reap":
 			var n:int=int(card.get("sgReapOrdinal",0));var left:int=int(card.get("sgReapRemaining",int(u.get("sgBlackSwitches",0))))
@@ -276,7 +309,10 @@ static func knocked_out(u: Dictionary) -> void:
 	for key in ["sgOrdinaryGrowth","sgSwitchGrowth","sgSwitchHp","sgSnakeCombatImmune"]:u.erase(key)
 static func marks(_gs, _owner: int, u: Dictionary) -> Array:
 	var out:Array=[]
-	if role(u)=="ghost":out.append("鬼使白 · 倒计时%d"%int(u.get("sgWhiteCountdown",2)) if u.get("sgWhite",false) else "鬼使黑 · 切换回黑%d次"%int(u.get("sgBlackSwitches",0)))
+	if role(u)=="ghost":
+		var white := bool(u.get("sgWhite",false))
+		var label := str(u.name) if slayer(u) else ("鬼使白" if white else "鬼使黑")
+		out.append("%s · 倒计时%d"%[label,int(u.get("sgWhiteCountdown",2))] if white else "%s · 切换回初始身份%d次"%[label,int(u.get("sgBlackSwitches",0))])
 	if u.get("sgSnake",false):out.append("蛇魔 · 原身份"+str(u.sgOriginal.name))
 	if u.get("sgChaos",false):out.append("混沌化身 · 禁止手动操作")
 	return out

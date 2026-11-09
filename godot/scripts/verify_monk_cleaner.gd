@@ -270,7 +270,7 @@ func ui_rules() -> void:
 	await click(b._unit_widget(str(foe.units[2].uid))); await settled(b)
 	check(foe.units[2].hp == 0,"native pursuit actually kills selected40hp reserve")
 	gs._knockout_unit(p.units[1]); p.units[1].knockout = 0; p.units[1].hp = p.units[1].maxHp
-	hand(b,["c21108","c21102"]); p.energy = 0; gs.kw_usage(0,"instant").used = false; b._last_view = {}; b._refresh(); await settled(b)
+	hand(b,["c21108","c21102"]); p.energy = 0; gs.kw_usage(0,"instant").merge({"used": false, "count": 0}, true); b._last_view = {}; b._refresh(); await settled(b)
 	await click(b._hand_row.get_child(1)); await settled(b)
 	check(p.units[1].form.get("cardId") == "c21108" and p.units[1].attack == 6 and p.energy == 0,"native shine triggers held snow automatically without added fire")
 	gs._knockout_unit(p.units[1]); b._last_view = {}; b._refresh(); await settled(b)

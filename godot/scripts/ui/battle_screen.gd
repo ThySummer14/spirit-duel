@@ -54,7 +54,7 @@ var _end_btn: Button
 var _tooltip: Control
 var _pending_target_card := -1
 var _pending_target_card_def: Dictionary = {}
-var _pending_use_origin := false
+var _pending_use_origin: Variant = false
 var _origin_choice_layer: Control
 var _tab_index := 0
 var _ai_thinking := false
@@ -80,6 +80,7 @@ var _ally_info: Label
 var _enemy_realms: HFlowContainer
 var _ally_realms: HFlowContainer
 var _energy_orbs: Control
+var _enemy_energy_orbs: Control
 var _enemy_bar: Control
 var _ally_bar: Control
 var _clash: Control
@@ -94,8 +95,12 @@ var _banner: Control
 var _drag_kind := ""
 var _drag_payload: Dictionary = {}
 var _aim: Control
+var _target_shade: ColorRect
+var _target_preview: Control
 var _presentation_until := 0
 var _presentation_ticket := 0
+var _vitals_revision := 0
+var _avatar_vitals: Dictionary = {}
 var _motion_tweens: Dictionary = {}
 var _aim_pointer_viewport := Vector2.ZERO
 var _aim_pointer_known := false
@@ -126,6 +131,7 @@ func _reset_view_cache() -> void:
 	_cancel_battle_timers()
 	_presentation_until = 0
 	_presentation_ticket += 1
+	_avatar_vitals.clear()
 	for tw in _motion_tweens.values():
 		if is_instance_valid(tw): tw.kill()
 	_motion_tweens.clear()
@@ -138,6 +144,8 @@ func _reset_view_cache() -> void:
 	if is_instance_valid(_origin_choice_layer): _origin_choice_layer.queue_free()
 	_origin_choice_layer = null
 	if is_instance_valid(_aim): _aim.visible = false
+	if is_instance_valid(_target_shade): _target_shade.hide()
+	if is_instance_valid(_target_preview): _target_preview.hide()
 	if _choice_layer != null and is_instance_valid(_choice_layer): _choice_layer.queue_free()
 	_choice_layer = null
 	if _banner != null and is_instance_valid(_banner): _banner.queue_free()
@@ -173,12 +181,19 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var bg := Backdrop.new()
 	bg.scene = "battle"
-	bg.dim = 0.02
-	bg.tint = Color.WHITE
-	bg.vignette = 0.12
+	bg.dim = 0.12
+	bg.tint = Color("e9dce9")
+	bg.vignette = 0.21
 	bg.motes = 12
 	bg.mote_color = Color(0.85, 0.95, 1.0)
 	add_child(bg)
+	_target_shade = ColorRect.new()
+	_target_shade.name = "TargetShade"
+	_target_shade.color = Color(0.055, 0.035, 0.09, 0.39)
+	_target_shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_target_shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_target_shade.hide()
+	add_child(_target_shade)
 	_stage = Control.new()
 	_stage.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_stage.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -196,16 +211,14 @@ func _ready() -> void:
 	_board.offset_left = 178
 	_board.offset_right = -160
 	_board.offset_top = 42
-	_board.offset_bottom = -260
+	_board.offset_bottom = -120
 	_stage.add_child(_board)
-	_enemy_reserve = _make_row("reserve", "对方准备区", ThemeBuilder.FOE, UNIT_SIZE.y)
-	_place_zone(_enemy_reserve, Rect2(0, 0, 1, 0.38), true)
-	_enemy_front = _make_row("front", "对方前线", ThemeBuilder.FOE, FRONT_SIZE.y)
-	_place_zone(_enemy_front, Rect2(0.56, 0.32, 0.23, 0.34), true)
-	_ally_front = _make_row("front", "己方前线", ThemeBuilder.ALLY, FRONT_SIZE.y)
-	_place_zone(_ally_front, Rect2(0.25, 0.38, 0.23, 0.34), false)
-	_ally_reserve = _make_row("reserve", "己方准备区", ThemeBuilder.ALLY, UNIT_SIZE.y)
-	_place_zone(_ally_reserve, Rect2(0, 0.62, 1, 0.38), false)
+	_enemy_reserve = _make_row("reserve", "对方准备区", true)
+	_enemy_front = _make_row("front", "对方前线", true)
+	_ally_front = _make_row("front", "己方前线", false)
+	_ally_reserve = _make_row("reserve", "己方准备区", false)
+	_board.resized.connect(_layout_battlefield)
+	_layout_battlefield()
 	_clash = Control.new()
 	_clash.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_board.add_child(_clash)
@@ -215,8 +228,8 @@ func _ready() -> void:
 	prompt.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 	prompt.offset_left = 205
 	prompt.offset_right = -205
-	prompt.offset_top = -267
-	prompt.offset_bottom = -239
+	prompt.offset_top = -229
+	prompt.offset_bottom = -201
 	prompt.z_index = 12
 	_stage.add_child(_build_right_column())
 	_hand_scroll = Control.new()
@@ -245,6 +258,14 @@ func _ready() -> void:
 	_aim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_aim.visible = false
 	add_child(_aim)
+	_target_preview = CardFace.new()
+	_target_preview.name = "TargetCardPreview"
+	_target_preview.z_index = 10
+	_target_preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_target_preview.hide()
+	add_child(_target_preview)
+	resized.connect(_place_target_preview)
+	_place_target_preview()
 	Sfx.music("bgm_battle")
 	if gs != null:
 		_last_command_count = gs.command_log.size()
@@ -453,8 +474,14 @@ func _build_left_column() -> Control:
 	_energy_orbs.set_meta("energy", 0)
 	_energy_orbs.set_meta("max", 2)
 	_energy_orbs.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_energy_orbs.draw.connect(_draw_energy)
+	_energy_orbs.draw.connect(_draw_energy.bind(_energy_orbs))
 	col.add_child(_energy_orbs)
+	_enemy_energy_orbs = Control.new()
+	_enemy_energy_orbs.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_enemy_energy_orbs.position = Vector2(143, 82)
+	_enemy_energy_orbs.size = Vector2(106, 32)
+	_enemy_energy_orbs.draw.connect(_draw_energy.bind(_enemy_energy_orbs))
+	col.add_child(_enemy_energy_orbs)
 	_energy_l = ThemeBuilder.label("", 11, Color("eeeac1"))
 	ThemeBuilder.outline(_energy_l, 2, Color("45657a"))
 	_energy_l.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
@@ -550,6 +577,7 @@ func _build_prompt() -> Control:
 	wrap.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	wrap.custom_minimum_size = Vector2(0, 28)
 	var pill := PanelContainer.new()
+	pill.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var sb := StyleBoxEmpty.new()
 	sb.content_margin_left = 18
 	sb.content_margin_right = 10
@@ -558,31 +586,45 @@ func _build_prompt() -> Control:
 	pill.add_theme_stylebox_override("panel", sb)
 	wrap.add_child(pill)
 	_cmd_bar = HFlowContainer.new()
+	_cmd_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_cmd_bar.add_theme_constant_override("h_separation", 10)
 	_cmd_bar.alignment = FlowContainer.ALIGNMENT_CENTER
 	pill.add_child(_cmd_bar)
 	return wrap
 
 
-func _make_row(style: String, title: String, accent: Color, _height: float) -> Container:
+func _make_row(style: String, title: String, enemy: bool) -> Container:
 	var row := DropZone.new()
 	row.style = style
 	row.title = title
-	row.accent = accent
-	row.set_meta("title", title)
+	row.enemy = enemy
 	var is_front := style == "front"
+	if not is_front: row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.can_drop = func(payload): return is_front and _can_drop_command(payload, null)
 	row.on_drop = func(payload): _drop_command(payload, null)
+	_board.add_child(row)
 	return row
 
 
-func _place_zone(zone: Control, area: Rect2, enemy: bool) -> void:
-	_board.add_child(zone)
-	zone.anchor_left = area.position.x
-	zone.anchor_top = area.position.y
-	zone.anchor_right = area.end.x
-	zone.anchor_bottom = area.end.y
-	zone.set_meta("enemy", enemy)
+func _layout_battlefield() -> void:
+	var span := _board.size
+	if span.x <= 0.0 or span.y <= 0.0: return
+	var pitch := span.x * DropZone.RESERVE_STEP
+	# Leave room for the name tab and hit outline as well as the portrait itself.
+	var card_scale := clampf(minf((pitch - 16.0) / FRONT_SIZE.x, (span.y - 110.0) / 410.0), 0.1, 1.0)
+	var reserve_card := UNIT_SIZE * card_scale
+	var front_card := FRONT_SIZE * card_scale
+	var stagger := 39.0 * card_scale
+	var reserve_height := reserve_card.y + stagger
+	var hand_clearance := HandFan.CARD_SIZE.y + HandFan.REST_BOTTOM_MARGIN + _board.offset_bottom + 8.0
+	var ally_reserve_top := minf(span.y * 0.60, span.y - hand_clearance - reserve_height)
+	_enemy_reserve.arrange(Rect2(0, span.y * 0.045, span.x, reserve_height), reserve_card, stagger)
+	_ally_reserve.arrange(Rect2(0, maxf(0.0, ally_reserve_top), span.x, reserve_height), reserve_card, stagger)
+	var front_width := front_card.x + 16.0
+	var front_left := (span.x - front_width) * 0.5
+	var seam := span.y * 0.5
+	_enemy_front.arrange(Rect2(front_left, seam - 7.0 - front_card.y, front_width, front_card.y), front_card)
+	_ally_front.arrange(Rect2(front_left, seam + 7.0, front_width, front_card.y), front_card)
 
 
 func _build_side_panel() -> PanelContainer:
@@ -627,21 +669,21 @@ func _draw_clash() -> void:
 	_clash.draw_string(font, Vector2(0, c.y + 56), "交 战", HORIZONTAL_ALIGNMENT_CENTER, _clash.size.x, 13, Color(col, 0.8))
 
 
-func _draw_energy() -> void:
-	var e := int(_energy_orbs.get_meta("energy", 0))
-	var m := int(_energy_orbs.get_meta("max", 2))
+func _draw_energy(orbs: Control) -> void:
+	var e := int(orbs.get_meta("energy", 0))
+	var m := int(orbs.get_meta("max", 2))
 	for i in m:
 		var c := Vector2(12 + i * 26, 15)
 		var lit := i < e
 		var flame := PackedVector2Array([c + Vector2(-8, -1), c + Vector2(-3, -13), c + Vector2(0, -7), c + Vector2(4, -14), c + Vector2(8, -1)])
 		if lit:
-			_energy_orbs.draw_circle(c, 13, Color(1.0, 0.92, 0.5, 0.22))
-			_energy_orbs.draw_colored_polygon(flame, Color("c5bd59"))
-			_energy_orbs.draw_circle(c, 8, Color("fff6a5"))
-			_energy_orbs.draw_circle(c + Vector2(-2, -2), 3, Color(1, 1, 1, 0.6))
+			orbs.draw_circle(c, 13, Color(1.0, 0.92, 0.5, 0.22))
+			orbs.draw_colored_polygon(flame, Color("c5bd59"))
+			orbs.draw_circle(c, 8, Color("fff6a5"))
+			orbs.draw_circle(c + Vector2(-2, -2), 3, Color(1, 1, 1, 0.6))
 		else:
-			_energy_orbs.draw_circle(c, 8, Color(0.1, 0.12, 0.18, 0.9))
-			_energy_orbs.draw_arc(c, 8, 0, TAU, 24, Color(0.5, 0.7, 0.9, 0.4), 1.0, true)
+			orbs.draw_circle(c, 8, Color(0.1, 0.12, 0.18, 0.9))
+			orbs.draw_arc(c, 8, 0, TAU, 24, Color(0.5, 0.7, 0.9, 0.4), 1.0, true)
 
 
 # ——————————————————————————— 刷新 ———————————————————————————
@@ -672,8 +714,8 @@ func _clear_box(box: Container) -> void:
 func _refresh() -> void:
 	if gs == null or _stage == null:
 		return
-	_cancel_target_selection()
 	_selected_attacker = -1
+	_cancel_target_selection()
 	var p := gs.player(PLAYER)
 	var e := gs.player(AI)
 	for pair in [[_ally_stun, p], [_enemy_stun, e]]:
@@ -690,26 +732,37 @@ func _refresh() -> void:
 	var enc_shield := int(encourage.get("shield", 0))
 	_encourage_l.text = "出击加成 %s / %s" % [str(enc_attack) if enc_attack < 0 else "+%d" % enc_attack, str(enc_shield) if enc_shield < 0 else "+%d" % enc_shield] if enc_attack < 0 or enc_shield < 0 else "鼓舞 +%d / +%d" % [enc_attack, enc_shield]
 	_encourage_l.visible = int(encourage.get("attack", 0)) != 0 or int(encourage.get("shield", 0)) != 0
-	_ally_core.text = "%d" % int(p.avatarHp)
-	_enemy_core.text = "%d" % int(e.avatarHp)
+	_ally_core.text = "%d" % int(_avatar_vitals.get(PLAYER, {}).get("hp", p.avatarHp))
+	_enemy_core.text = "%d" % int(_avatar_vitals.get(AI, {}).get("hp", e.avatarHp))
 	_ally_bar.set_meta("ratio", clampf(float(p.avatarHp) / maxf(1.0, float(p.get("maxAvatarHp", 30))), 0.0, 1.0))
 	_enemy_bar.set_meta("ratio", clampf(float(e.avatarHp) / maxf(1.0, float(e.get("maxAvatarHp", 30))), 0.0, 1.0))
 	_ally_bar.queue_redraw()
 	_enemy_bar.queue_redraw()
 	for owner in [PLAYER, AI]:
 		var instant_label := _instant_l if owner == PLAYER else _enemy_instant_l
-		var instant_used: bool = gs.player(owner).get("keywordUsage", {}).get("instant", {}).get("used", false)
-		instant_label.text = "瞬发 · 已用" if instant_used else ("瞬发 · 可用" if gs.instant_available(owner) else "瞬发 · 待机")
-		instant_label.add_theme_color_override("font_color", ThemeBuilder.TEXT_DIM if instant_used or not gs.instant_available(owner) else ThemeBuilder.OK)
+		var count := gs.instant_count(owner)
+		var limit := gs.instant_limit(owner)
+		var available := gs.instant_available(owner)
+		instant_label.text = "瞬发 · 已用" if count >= limit else ("瞬发 · 可用" if available else "瞬发 · 待机")
+		if limit > 1: instant_label.text = "瞬发 · 剩余 %d/%d" % [maxi(0, limit - count), limit]
+		instant_label.add_theme_color_override("font_color", ThemeBuilder.OK if available else ThemeBuilder.TEXT_DIM)
 	_energy_l.text = "鬼火 %d/%d" % [int(p.energy), int(p.maxEnergy)]
 	_energy_orbs.set_meta("energy", int(p.energy))
 	_energy_orbs.set_meta("max", int(p.maxEnergy))
 	_energy_orbs.queue_redraw()
+	_enemy_energy_orbs.set_meta("energy", int(e.energy))
+	_enemy_energy_orbs.set_meta("max", int(e.maxEnergy))
+	_enemy_energy_orbs.queue_redraw()
 	var my_turn := gs.current_player == PLAYER
 	_turn_l.text = "第 %d 轮 · %s" % [gs.get_round(), "你的回合" if my_turn else "对手回合"]
 	_turn_l.add_theme_color_override("font_color", ThemeBuilder.GOLD_BRIGHT if my_turn else ThemeBuilder.FOE.lightened(0.35))
 	_ally_info.text = "手牌 %d · 牌库 %d" % [p.hand.size(), p.deck.size()] + (" · 归航牌库顶" if gs.VerifiedRules.SpiderLily.top_available(gs,PLAYER) else "")+(" · 帷幕" if gs.VerifiedRules.PipeFox.avatar_veil(gs,PLAYER) else "")
+	if gs.VerifiedRules.YanmieTrio.top_visible(gs, PLAYER):
+		_ally_info.text += " · 牌库顶「%s」" % ContentLoader.card_def(str(p.deck.back().definitionId)).get("name", "？")
+	if gs.VerifiedRules.Insight.active(gs, PLAYER): _ally_info.text += " · 启悟区 %d" % gs.VerifiedRules.Insight.zone(gs, PLAYER).size()
 	_enemy_info.text = "手牌 %d · 牌库 %d" % [e.hand.size(), e.deck.size()]+(" · 帷幕" if gs.VerifiedRules.PipeFox.avatar_veil(gs,AI) else "")
+	if gs.VerifiedRules.YanmieTrio.top_visible(gs, AI):
+		_enemy_info.text += " · 牌库顶「%s」" % ContentLoader.card_def(str(e.deck.back().definitionId)).get("name", "？")
 	if int(p.get("night",0))>0: _ally_info.text+=" · 入夜%d/10" % int(p.night)
 	if int(e.get("night",0))>0: _enemy_info.text+=" · 入夜%d/10" % int(e.night)
 	_deck_l.text = "牌库\n%d" % p.deck.size()
@@ -723,12 +776,13 @@ func _refresh() -> void:
 	_last_view["presentationStack"] = gs.resolution_stack.duplicate(true)
 	var commands: Array = gs.command_log.slice(_last_command_count).map(func(c): return gs.VerifiedRules.Bailang.public_command(c, PLAYER))
 	_last_command_count = gs.command_log.size()
-	if not previous.is_empty():
-		_hold_presentation(_presentation_duration(previous, _last_view, commands))
+	var duration := _presentation_duration(previous, _last_view, commands) if not previous.is_empty() else 0.0
+	_hold_presentation(duration)
 	_fill_units(_enemy_reserve, AI, false)
 	_fill_units(_enemy_front, AI, true)
 	_fill_units(_ally_front, PLAYER, true)
 	_fill_units(_ally_reserve, PLAYER, false)
+	var staged_vitals := _stage_vitals(previous, _last_view) if duration > 0.0 else {}
 	_fill_hand()
 	_fill_command_bar()
 	_fill_enemy_hand(e.hand.size())
@@ -743,7 +797,7 @@ func _refresh() -> void:
 		tw.tween_property(layer, "modulate:a", 0.0, 0.25)
 		tw.tween_callback(layer.queue_free)
 		_show_turn_banner(gs.current_player == PLAYER)
-	if not previous.is_empty(): _present_changes.call_deferred(previous, _last_view, commands, gs)
+	if not previous.is_empty(): _present_changes.call_deferred(previous, _last_view, commands, gs, staged_vitals)
 
 
 func _fill_realms(box: HFlowContainer, p: Dictionary) -> void:
@@ -760,12 +814,21 @@ func _fill_realms(box: HFlowContainer, p: Dictionary) -> void:
 		chip.set_meta("realm_uid", str(realm.get("uid", "")))
 		chip.tooltip_text = "幻境耐久 %d%s" % [int(realm.get("hp", 0)), " · 最前方承伤" if i == 0 else " · 前方幻境破碎后承伤"]
 		var card: Dictionary = ContentLoader.card_def(str(realm.get("cardId", ""))).duplicate(true)
+		if realm.has("coopFaceId"):
+			var face := gs.VerifiedRules.Cooperation.printed_face(card, str(realm.coopFaceId))
+			if not face.is_empty(): card = face.duplicate(true)
 		card=gs.VerifiedRules.Paint.realm_card(realm,card)
+		card = gs.VerifiedRules.Langya.realm_card(realm, card)
 		if realm.get("nativeRealm")=="bamboo":
 			card.text = "叠加能力：\n"+"\n".join(realm.get("bambooAbilities",[]).map(func(id): return str(ContentLoader.card_def(str(id)).text)))
 		if realm.get("nativeRealm") == "huang-sea" and not realm.get("returnOnDestroy", false):
 			card.text = "瞬发。此副本已失去回手能力。"
+		var blueprint_limit: int = gs.VerifiedRules.Blueprint.threshold(realm)
+		if blueprint_limit > 0: card.text += "\n蓝图耐久 %d/%d" % [int(realm.hp),blueprint_limit]
 		card.text = str(card.get("text", "")) + "\n当前耐久%d · 第%d个幻境%s。" % [int(realm.get("hp", 0)), i + 1, " · 帷幕" if veiled else ""]
+		if realm.has("himikoTarget"):
+			var chosen: Dictionary = gs._unit_by_uid(gs._all_units(), realm.himikoTarget)
+			if not chosen.is_empty(): card.text += "\n已选择「%s」。" % chosen.name
 		box.add_child(chip)
 		var inspect := Button.new()
 		inspect.flat = true
@@ -776,9 +839,9 @@ func _fill_realms(box: HFlowContainer, p: Dictionary) -> void:
 		chip.add_child(inspect)
 		inspect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		inspect.pressed.connect(func():
-			if _pending_target_card >= 0 and gs.valid_targets(PLAYER, _pending_target_card_def).has(realm.uid):
+			if _pending_target_card >= 0 and not _input_locked() and gs.can_play_card(PLAYER, _pending_target_card, realm.uid, _pending_use_origin).ok:
 				var hand_index := _pending_target_card
-				var origin := _pending_use_origin
+				var origin: Variant = _pending_use_origin
 				_pending_target_card = -1
 				_pending_target_card_def = {}
 				gs.play_card(PLAYER, hand_index, realm.uid, origin)
@@ -833,7 +896,7 @@ func _fill_units(box: Container, p_idx: int, front_only: bool) -> void:
 			box.remove_child(child)
 			child.queue_free()
 		elif not wanted.has(int(child.get_meta("unit_index", -1))) or int(child.get_meta("player", -1)) != p_idx:
-			child.set_meta("flip_from", child.global_position)
+			child.set_meta("flip_from", child.global_position + child.visual_offset)
 			box.remove_child(child)
 	for order in wanted.size():
 		var i: int = wanted[order]
@@ -852,13 +915,13 @@ func _fill_units(box: Container, p_idx: int, front_only: bool) -> void:
 		panel.refresh_art()
 		if panel.get_parent() != box:
 			if panel.get_parent() != null:
-				panel.set_meta("flip_from", panel.global_position)
+				panel.set_meta("flip_from", panel.global_position + panel.visual_offset)
 				panel.get_parent().remove_child(panel)
 			elif panel.is_inside_tree() == false and panel.has_meta("flip_from"):
 				pass
 			box.add_child(panel)
 		box.move_child(panel, order)
-		panel.custom_minimum_size = FRONT_SIZE if front_only else UNIT_SIZE
+		panel.custom_minimum_size = box.portrait_size
 		panel.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		panel.drag_payload = {"kind": "unit", "unit": i} if not _input_locked() and p_idx == PLAYER and gs.can_basic_attack(PLAYER, i).ok and gs.pending_choice.is_empty() and gs.response_window.is_empty() else {}
 		var highlight := not _input_locked() and p_idx == PLAYER and gs.current_player == PLAYER and gs.is_upgrade_pending(PLAYER) and gs.can_level_up(PLAYER, i) and gs.response_window.is_empty() and gs.pending_choice.is_empty()
@@ -870,6 +933,7 @@ func _fill_units(box: Container, p_idx: int, front_only: bool) -> void:
 	if wanted.is_empty() and box.get("style") == "reserve":
 		var empty := ThemeBuilder.label("—", 12, Color(1, 1, 1, 0.25))
 		empty.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		empty.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		box.add_child(empty)
 
 
@@ -877,6 +941,7 @@ func _fill_hand() -> void:
 	if gs == null or _hand_row == null:
 		return
 	var p := gs.player(PLAYER)
+	_hand_row.compact = gs.current_player != PLAYER and gs.response_window.is_empty()
 	# 记录旧位置，用于打出牌的飞出动画
 	for key in _hand_widgets:
 		var w: Control = _hand_widgets[key]
@@ -942,9 +1007,9 @@ func _short_reason(reason: String) -> String:
 
 
 func _hand_playability(index: int, use_origin: Variant = null) -> Dictionary:
-	if gs != null and gs.VerifiedRules.Movement.has_playable_burst(gs, PLAYER, index): return {"ok": true, "reason": ""}
+	if gs != null and (use_origin == null or use_origin is bool and not use_origin) and gs.VerifiedRules.Movement.has_playable_burst(gs, PLAYER, index): return {"ok": true, "reason": ""}
 	if _input_locked(): return {"ok": false, "reason": "动作结算中"}
-	for origin in ([false, true] if use_origin == null else [use_origin]):
+	for origin in (gs.card_play_modes(PLAYER, index) if use_origin == null else [use_origin]):
 		var card := gs.playable_card(PLAYER, index, origin)
 		if card.is_empty(): continue
 		var targets: Array = [null] if card.get("target", "auto") == "auto" else gs.valid_targets(PLAYER, card)
@@ -965,27 +1030,68 @@ func _cancel_target_selection() -> void:
 
 func _update_selection_highlights() -> void:
 	if gs == null or _enemy_reserve == null: return
-	var targets: Array = gs.valid_targets(PLAYER, _pending_target_card_def) if _pending_target_card >= 0 else []
+	var targets: Array = []
+	if _pending_target_card >= 0:
+		targets = gs.valid_targets(PLAYER, _pending_target_card_def).filter(func(uid):
+			return gs.can_play_card(PLAYER, _pending_target_card, uid, _pending_use_origin).ok)
 	if _selected_attacker >= 0 and _pending_target_card < 0:
 		targets.append_array(gs.basic_attack_targets(PLAYER, _selected_attacker))
-	var upgrade_mode := _pending_target_card < 0 and _selected_attacker < 0 and gs.is_upgrade_pending(PLAYER) and gs.response_window.is_empty() and gs.pending_choice.is_empty()
+	var ready_for_input := not _input_locked()
+	var dragging := not _drag_payload.is_empty() and ready_for_input
+	var card := _pending_target_card_def
+	if dragging and _drag_kind == "card": card = gs.hand_card_def(PLAYER, int(_drag_payload.get("hand", -1)))
+	var focusing: bool = ready_for_input and (_pending_target_card >= 0 or _selected_attacker >= 0 or (dragging and (_drag_kind == "unit" or card.get("target", "auto") != "auto")))
+	var upgrade_mode: bool = not focusing and not dragging and gs.is_upgrade_pending(PLAYER) and gs.response_window.is_empty() and gs.pending_choice.is_empty()
+	_target_shade.visible = focusing
+	_hand_row.set_targeting(focusing)
+	_target_preview.visible = focusing and not card.is_empty()
+	if _target_preview.visible:
+		var view := BattleStatus.card_view(gs, PLAYER, card)
+		if _target_preview.data != view:
+			_target_preview.data = view
+			_target_preview.refresh_art()
 	for box in [_enemy_reserve, _enemy_front, _ally_front, _ally_reserve]:
 		for face in box.get_children():
 			if not face is CardFace: continue
 			var idx := int(face.get_meta("unit_index", -1))
-			var is_upgrade := int(face.get_meta("player", -1)) == PLAYER and gs.can_level_up(PLAYER, idx)
-			face.selected = not _input_locked() and (targets.has(str(face.get_meta("unit_uid", ""))) or (upgrade_mode and is_upgrade) or (int(face.get_meta("player", -1)) == PLAYER and idx == _selected_attacker))
+			var mine := int(face.get_meta("player", -1)) == PLAYER
+			var uid := str(face.get_meta("unit_uid", ""))
+			var legal := _can_drop_command(_drag_payload, uid) if dragging else targets.has(uid)
+			var source := mine and idx == (_selected_attacker if not dragging else int(_drag_payload.get("unit", -1)))
+			face.selected = ready_for_input and (legal or source or (upgrade_mode and mine and gs.can_level_up(PLAYER, idx)))
+			face.self_modulate = Color("8a818b") if focusing and not face.selected else Color.WHITE
 			face.set_process(face.selected or face.playable)
 			face.queue_redraw()
-	if _enemy_target_btn != null:
-		var core_selected := (_selected_attacker >= 0 and _can_drop_command({"kind": "unit", "unit": _selected_attacker}, "ai-avatar")) or targets.has("avatar-1")
-		_set_plate_glow(_enemy_plate, core_selected)
-	_set_plate_glow(_ally_plate, targets.has("avatar-0"))
+	var enemy_core_selected := _can_drop_command(_drag_payload, "ai-avatar") if dragging else (targets.has("avatar-1") or (_selected_attacker >= 0 and _can_drop_command({"kind": "unit", "unit": _selected_attacker}, "ai-avatar")))
+	var ally_core_selected := _can_drop_command(_drag_payload, "avatar-0") if dragging else targets.has("avatar-0")
+	_set_plate_glow(_enemy_plate, enemy_core_selected)
+	_set_plate_glow(_ally_plate, ally_core_selected)
+	_enemy_plate.modulate = Color("a69bac") if focusing and not enemy_core_selected else Color.WHITE
+	_ally_plate.modulate = Color("a69bac") if focusing and not ally_core_selected else Color.WHITE
+	for realms in [_enemy_realms, _ally_realms]:
+		for chip in realms.get_children():
+			var uid := str(chip.get_meta("realm_uid", ""))
+			var legal := _can_drop_command(_drag_payload, uid) if dragging else targets.has(uid)
+			chip.modulate = Color("8a818b") if focusing and not legal else Color.WHITE
 	for face in _hand_widgets.values():
 		if is_instance_valid(face):
-			face.selected = _pending_target_card >= 0 and int(face.get_meta("hand_index", -1)) == _pending_target_card
+			var hand_index := int(_drag_payload.get("hand", -1)) if dragging else _pending_target_card
+			face.selected = hand_index >= 0 and int(face.get_meta("hand_index", -1)) == hand_index
+			face.self_modulate = Color("aaa0ad") if focusing and not face.selected else Color.WHITE
 			face.set_process(face.selected or face.playable)
 			face.queue_redraw()
+
+
+func _cast_preview_rect() -> Rect2:
+	var width := clampf(size.x * 0.105, 118.0, 156.0)
+	var extent := Vector2(width, width * 1.55)
+	return Rect2(Vector2(24, (size.y - extent.y) * 0.5), extent)
+
+
+func _place_target_preview() -> void:
+	var preview := _cast_preview_rect()
+	_target_preview.position = preview.position
+	_target_preview.size = preview.size
 
 
 func _set_plate_glow(plate: PanelContainer, on: bool) -> void:
@@ -1000,6 +1106,7 @@ func _set_plate_glow(plate: PanelContainer, on: bool) -> void:
 
 func _prompt(text: String, color: Color = ThemeBuilder.PAPER) -> void:
 	_prompt_l = ThemeBuilder.label(text, 12, color)
+	_prompt_l.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ThemeBuilder.outline(_prompt_l, 2, Color("405d73"))
 	_prompt_l.add_theme_font_override("font", ThemeBuilder.medium_font())
 	_prompt_l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -1069,6 +1176,8 @@ func _fill_command_bar() -> void:
 			_prompt("战技 · %s · 选择发光的目标" % gs.VerifiedRules.BattleSkill.ready(gs,PLAYER,_selected_attacker).name, ThemeBuilder.WARN)
 		elif gs.VerifiedRules.TreeSakura.floating(gs.player(PLAYER).units[_selected_attacker]):
 			_prompt("飘零之舞 · 选择发光角色；己方恢复生命", ThemeBuilder.WARN)
+		elif gs.VerifiedRules.Guishihei.attack_targets(gs, PLAYER, _selected_attacker) != null:
+			_prompt("索魂 · 选择敌方战斗区或带有索魂的式神", ThemeBuilder.WARN)
 		else: _prompt("追猎 · 选择发光的敌方式神" if gs.VerifiedRules.Combat.has(gs.player(PLAYER).units[_selected_attacker], "pursuit") else "点击敌方前线或敌方核心出击", ThemeBuilder.WARN)
 		_small_button("取消", _cancel_and_refresh_bar)
 		return
@@ -1082,6 +1191,17 @@ func _fill_command_bar() -> void:
 	for idx in gs.player(PLAYER).units.size():
 		if gs.VerifiedRules.Zhenjian.can_manual_release(gs,PLAYER,idx):
 			_small_button("释放蓄力 · " + str(gs.player(PLAYER).units[idx].name), _on_release_charge.bind(idx), true)
+	if gs.VerifiedRules.Insight.active(gs, PLAYER):
+		_small_button("结束启悟", func():
+			if gs.VerifiedRules.Insight.leave_action(gs, PLAYER):
+				_refresh()
+				_check_auto_ai())
+		_prompt("启悟 · 选择启悟区卡牌，或主动结束启悟", ThemeBuilder.GOLD_BRIGHT)
+		return
+	if gs.VerifiedRules.BattleShop.legal(gs, PLAYER):
+		var shop: Dictionary = gs.VerifiedRules.BattleShop.state(gs, PLAYER)
+		var shop_button := _small_button("神秘商店 · 赏金%d" % int(shop.bounty), func(): gs.VerifiedRules.BattleShop.show(gs, PLAYER), true)
+		shop_button.name = "BattleShopButton"
 	if _has_any_action():
 		_prompt("打出发光手牌，或拖动式神到交战区出击", ThemeBuilder.PAPER)
 	else:
@@ -1134,8 +1254,10 @@ func _update_choice_layer() -> void:
 	var hint := ThemeBuilder.dim_label("选择一张置入手牌 · 剩余%d次" % int(gs.pending_choice.remaining) if gs.pending_choice.get("type") == "lantern-choice" else str(gs.pending_choice.get("hint", "选择一张置于牌库顶，下回合即可抽到")), 14)
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(hint)
+	var is_destiny: bool = gs.pending_choice.get("type") == gs.VerifiedRules.Destiny.KIND
 	var scroll := ScrollContainer.new()
-	scroll.custom_minimum_size = Vector2(minf(1000, size.x - 80), 360 if gs.pending_choice.get("type") == "hand-blessing" else 288)
+	var scroll_height := 360 if gs.pending_choice.get("type") == "hand-blessing" else (318 if is_destiny else 288)
+	scroll.custom_minimum_size = Vector2(minf(1000, size.x - 80), scroll_height)
 	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	v.add_child(scroll)
 	var row := HBoxContainer.new()
@@ -1143,6 +1265,12 @@ func _update_choice_layer() -> void:
 	row.alignment = BoxContainer.ALIGNMENT_CENTER
 	row.add_theme_constant_override("separation", 18)
 	scroll.add_child(row)
+	var option_width := 144.0 if gs.pending_choice.get("type") == "stars-shop" else 168.0
+	var is_xuan := str(gs.pending_choice.get("type", "")).begins_with("xuan-")
+	if is_xuan:
+		row.add_theme_constant_override("separation", 12)
+		var count: int = gs.pending_choice.get("instanceIds", []).size()
+		option_width = clampf((scroll.custom_minimum_size.x - 12 * count) / maxi(1, count), 96, 152)
 	for iid in gs.pending_choice.get("instanceIds", []):
 		var def_id := ""
 		for card in gs.player(int(gs.pending_choice.get("zoneOwner", PLAYER))).get(str(gs.pending_choice.get("zone", "deck")), []):
@@ -1152,6 +1280,46 @@ func _update_choice_layer() -> void:
 		var def := ContentLoader.card_def(def_id) if def_id != "" else {}
 		for choice_card in [gs.VerifiedRules.Link.choice_card(gs,PLAYER,str(iid)),gs.VerifiedRules.Whale.choice_card(gs,PLAYER,str(iid)),gs.VerifiedRules.Yitiao.choice_card(gs,PLAYER,str(iid)),gs.VerifiedRules.Glutton.choice_card(gs,PLAYER,str(iid)),gs.VerifiedRules.ThreeTail.choice_card(gs,PLAYER,str(iid)),gs.VerifiedRules.Onikiri.choice_card(gs,PLAYER,str(iid)),gs.VerifiedRules.House.choice_card(gs,PLAYER,str(iid)),gs.VerifiedRules.Goldfish.choice_card(gs,PLAYER,str(iid)),gs.VerifiedRules.Moon.choice_card(gs,PLAYER,str(iid)),gs.VerifiedRules.Bamboo.choice_card(gs,PLAYER,str(iid))]:
 			if choice_card != null: def = choice_card
+		var yanmie_choice = gs.VerifiedRules.YanmieTrio.choice_card(gs, PLAYER, str(iid))
+		if yanmie_choice != null: def = yanmie_choice
+		var water_choice = gs.VerifiedRules.WaterMoon.choice_card(gs, PLAYER, str(iid))
+		if water_choice != null: def = water_choice
+		var grove_choice = gs.VerifiedRules.PeachGrove.choice_card(gs, PLAYER, str(iid))
+		if grove_choice != null: def = grove_choice
+		var stars_choice = gs.VerifiedRules.StarRealms.choice_card(gs, PLAYER, str(iid))
+		if stars_choice != null: def = stars_choice
+		var abyss_choice = gs.VerifiedRules.DragonAbyss.choice_card(gs, PLAYER, str(iid))
+		if abyss_choice != null: def = abyss_choice
+		var luohou_choice = gs.VerifiedRules.Luohou.choice_card(gs, PLAYER, str(iid))
+		if luohou_choice != null: def = luohou_choice
+		var xuan_choice = gs.VerifiedRules.Xuan.choice_card(gs, PLAYER, str(iid))
+		if xuan_choice != null: def = xuan_choice
+		var hana_choice = gs.VerifiedRules.Hanafuda.choice_card(gs, PLAYER, str(iid))
+		if hana_choice != null: def = hana_choice
+		var wave_choice = gs.VerifiedRules.Wave7Reworks.choice_card(gs, PLAYER, str(iid))
+		if wave_choice != null: def = wave_choice
+		var cat_choice = gs.VerifiedRules.CatSamurai.choice_card(gs, PLAYER, str(iid))
+		if cat_choice != null: def = cat_choice
+		var lineage = gs.VerifiedRules.LineageScroll.choice_card(gs, PLAYER, str(iid))
+		if lineage != null: def = lineage
+		var yuanqi_choice = gs.VerifiedRules.BaizeYuanqi.choice_card(gs, PLAYER, str(iid))
+		if yuanqi_choice != null: def = yuanqi_choice
+		var destiny_choice = gs.VerifiedRules.Destiny.choice_card(gs, PLAYER, str(iid))
+		if destiny_choice != null: def = destiny_choice
+		var commission = gs.VerifiedRules.Commission.choice_card(gs, PLAYER, str(iid))
+		if commission != null: def = commission
+		var dragon_flow = gs.VerifiedRules.DragonFlow.choice_card(gs, PLAYER, str(iid))
+		if dragon_flow != null: def = dragon_flow
+		var server_choice = gs.VerifiedRules.Blueprint.choice_card(gs, PLAYER, str(iid))
+		if server_choice != null: def = server_choice
+		var faction = gs.VerifiedRules.FactionArt.choice_card(gs, PLAYER, str(iid))
+		if faction != null: def = faction
+		var chen_choice = gs.VerifiedRules.Chen.choice_card(gs, PLAYER, str(iid))
+		if chen_choice != null: def = chen_choice
+		var solar_choice = gs.VerifiedRules.Solar.choice_card(gs, PLAYER, str(iid))
+		if solar_choice != null: def = solar_choice
+		var treasure_choice = gs.VerifiedRules.Treasure.choice_card(gs, PLAYER, str(iid))
+		if treasure_choice != null: def = treasure_choice
 		var sc_choice_card=gs.VerifiedRules.SugarCat.choice_card(gs,PLAYER,str(iid))
 		if sc_choice_card!=null:def=sc_choice_card
 		var rw_choice_card=gs.VerifiedRules.RednightWalnut.choice_card(gs,PLAYER,str(iid))
@@ -1186,10 +1354,14 @@ func _update_choice_layer() -> void:
 		if book_jue_choice_card != null: def = book_jue_choice_card
 		var movement_choice_card = gs.VerifiedRules.Movement.choice_card(gs, PLAYER, str(iid))
 		if movement_choice_card != null: def = movement_choice_card
+		var gift_choice = gs.VerifiedRules.GiftEnergy.choice_card(gs, PLAYER, str(iid))
+		if gift_choice != null: def = gift_choice
 		var sun_smoke_choice_card = gs.VerifiedRules.SunSmoke.choice_card(gs, PLAYER, str(iid))
 		if sun_smoke_choice_card != null: def = sun_smoke_choice_card
 		var hand_choice_card=gs.VerifiedRules.HandBlessing.choice_card(gs,PLAYER,str(iid))
 		if hand_choice_card!=null: def=hand_choice_card
+		var native_charm_choice = gs.VerifiedRules.SandBook.choice_card(gs, PLAYER, str(iid))
+		if native_charm_choice != null: def = native_charm_choice
 		var divination_choice_card = gs.VerifiedRules.Divination.choice_card(gs, PLAYER, str(iid))
 		if divination_choice_card != null: def = divination_choice_card
 		var eye_choice_card = gs.VerifiedRules.Eye.choice_card(gs, PLAYER, str(iid))
@@ -1207,10 +1379,21 @@ func _update_choice_layer() -> void:
 				if ready<0:ready=gs.VerifiedRules.Movement.ready_hand(gs, PLAYER)
 				if ready >= 0: _on_hand_clicked(ready, gs.hand_card_def(PLAYER, ready), false, true)
 				_check_auto_ai()
-		, Vector2(168, 262))
+		, Vector2(145, 226) if gs.pending_choice.get("type") == "hf-hana" else Vector2(option_width, option_width * 1.56 if is_xuan else 262))
 		if def.get("choiceDisabled",false):tile.enabled=false;tile.modulate.a=0.45
 		tile.hover_lift = 10.0
-		if gs.pending_choice.get("type") in ["goldfish-upgrade","hand-blessing","native-link"]:
+		if is_destiny:
+			var option := VBoxContainer.new()
+			option.add_theme_constant_override("separation", 8)
+			var follow := str(iid) == gs.VerifiedRules.Destiny.FOLLOW
+			var action := "顺应 · 保留牌库顶" if follow else "逆天 · 交换到牌库顶"
+			if not follow and gs.pending_choice.get("drawOnReverse", false): action += "并抽一张"
+			var label := ThemeBuilder.dim_label(action, 16)
+			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			option.add_child(label)
+			option.add_child(tile)
+			row.add_child(option)
+		elif gs.pending_choice.get("type") in ["goldfish-upgrade","hand-blessing","native-link","gift-waterfall"]:
 			var option := VBoxContainer.new()
 			option.add_theme_constant_override("separation",10)
 			option.add_child(tile)
@@ -1306,10 +1489,9 @@ func _on_unit_clicked(unit: Dictionary, p_idx: int, unit_index: int) -> void:
 	if gs == null or gs.winner >= 0 or gs.phase == "opening" or _input_locked():
 		return
 	if _pending_target_card >= 0 and not _pending_target_card_def.is_empty():
-		var opts: Array = gs.valid_targets(PLAYER, _pending_target_card_def)
-		if opts.has(unit.get("uid")):
+		if gs.can_play_card(PLAYER, _pending_target_card, unit.get("uid"), _pending_use_origin).ok:
 			var hi := _pending_target_card
-			var origin := _pending_use_origin
+			var origin: Variant = _pending_use_origin
 			_pending_target_card = -1
 			_pending_target_card_def = {}
 			_hide_tooltip()
@@ -1320,7 +1502,7 @@ func _on_unit_clicked(unit: Dictionary, p_idx: int, unit_index: int) -> void:
 		_reject_target("请选择发光的目标", _unit_widget(str(unit.get("uid", ""))))
 		return
 	if p_idx == AI and _selected_attacker >= 0 and not _can_drop_command({"kind": "unit", "unit": _selected_attacker}, str(unit.uid)):
-		_reject_target("需先攻击敌方前线", _unit_widget(str(unit.uid)))
+		_reject_target("请选择发光的攻击目标", _unit_widget(str(unit.uid)))
 		return
 	if _selected_attacker >= 0 and _can_drop_command({"kind": "unit", "unit": _selected_attacker}, str(unit.uid)):
 		_drop_command({"kind": "unit", "unit": _selected_attacker}, str(unit.uid))
@@ -1391,13 +1573,16 @@ func _show_unit_popover(unit: Dictionary, p_idx: int, unit_index: int) -> void:
 
 # ——————————————————————————— 操作 ———————————————————————————
 
-func _on_hand_clicked(index: int, card: Dictionary, use_origin: bool = false, choice_made: bool = false, dropped_target: Variant = null) -> void:
+func _on_hand_clicked(index: int, card: Dictionary, use_origin: Variant = false, choice_made: bool = false, dropped_target: Variant = null, mode_decided: bool = false) -> void:
 	if gs == null or gs.winner >= 0 or index < 0 or _input_locked():
 		return
-	if not _hand_playability(index, use_origin if choice_made else null).ok:
+	if not _hand_playability(index, use_origin if choice_made or mode_decided else null).ok:
 		Sfx.play("error", 0.6)
 		return
 	_cancel_target_selection()
+	if not choice_made and not mode_decided and (card.get("type") == "coop" or not card.get("giftAvailable", []).is_empty() or not card.get("nativePlayModes", []).is_empty()):
+		_show_origin_choice(index, dropped_target)
+		return
 	if not choice_made and gs.VerifiedRules.Link.start(gs,PLAYER,index):
 		_hide_tooltip();_refresh();return
 	if not choice_made and gs.VerifiedRules.ChargedPair.request_mode(gs,PLAYER,index):
@@ -1406,7 +1591,7 @@ func _on_hand_clicked(index: int, card: Dictionary, use_origin: bool = false, ch
 		_hide_tooltip()
 		_refresh()
 		return
-	if card.has("originCard") and not choice_made:
+	if card.has("originCard") and not choice_made and not mode_decided:
 		_show_origin_choice(index, dropped_target)
 		return
 	card = gs.playable_card(PLAYER, index, use_origin)
@@ -1447,19 +1632,32 @@ func _show_origin_choice(index: int, dropped_target: Variant = null) -> void:
 	var title := ThemeBuilder.title_label("选择使用的牌", 28)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(title)
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(minf(1100, size.x - 80), 365)
+	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	column.add_child(scroll)
 	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 36)
-	column.add_child(row)
-	for origin in [false, true]:
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_theme_constant_override("separation", 24)
+	scroll.add_child(row)
+	for origin in gs.card_play_modes(PLAYER, index):
 		var card := BattleStatus.card_view(gs, PLAYER, gs.playable_card(PLAYER, index, origin))
 		var option := VBoxContainer.new()
 		row.add_child(option)
-		var label := ThemeBuilder.dim_label("起源 · 法术" if origin else "战斗牌", 16)
+		var type_label := str(card.get("typeLabel", "牌"))
+		var option_label: String = str(card.nativePlayModeLabel) if card.has("nativePlayModeLabel") else "赐能 · " + str(card.get("text", "")) if origin is String else "起源 · %s" % type_label if origin else type_label
+		if card.has("coopFaceId"): option_label += "\n羁绊已满足" if card.coopBond else "\n羁绊未满足"
+		var label := ThemeBuilder.dim_label(option_label, 16)
+		label.custom_minimum_size.x = 196
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		option.add_child(label)
 		var playable := bool(_hand_playability(index, origin).ok)
 		var face := UIWidgets.make_card_tile(card, func():
-			if playable: _on_hand_clicked(index, card, origin, true, dropped_target)
+			if playable:
+				var continue_base: bool = origin is bool and not origin and not card.get("giftAvailable", []).is_empty()
+				_on_hand_clicked(index, card, origin, not continue_base, dropped_target, true)
 		, Vector2(196, 300))
 		face.set_meta("origin_option", origin)
 		face.modulate.a = 1.0 if playable else 0.4
@@ -1584,14 +1782,7 @@ func _notification(what: int) -> void:
 		_hide_tooltip()
 		_drag_kind = str(payload.get("kind", ""))
 		_drag_payload = payload.duplicate()
-		# 拖拽中高亮可放置的式神与核心
-		for box in [_enemy_reserve, _enemy_front, _ally_front, _ally_reserve]:
-			for face in box.get_children():
-				if face is CardFace:
-					face.selected = _can_drop_command(payload, str(face.get_meta("unit_uid", "")))
-					face.set_process(face.selected or face.playable)
-					face.queue_redraw()
-		_set_plate_glow(_enemy_plate, _can_drop_command(payload, "ai-avatar"))
+		_update_selection_highlights()
 	elif what == NOTIFICATION_DRAG_END and _drag_kind != "":
 		_drag_kind = ""
 		_drag_payload.clear()
@@ -1664,17 +1855,18 @@ func _can_drop_command(payload: Dictionary, target: Variant) -> bool:
 		return gs.basic_attack_targets(PLAYER, int(payload.unit)).has("avatar-1" if str(target) == "ai-avatar" else target)
 	if payload.get("kind") == "card":
 		var index := int(payload.get("hand", -1))
-		return gs.can_play_card(PLAYER, index, "avatar-1" if str(target) == "ai-avatar" else target, bool(payload.get("origin", false))).ok
+		if gs.hand_card_def(PLAYER, index).get("type") == "coop": return _hand_playability(index).ok
+		return gs.can_play_card(PLAYER, index, "avatar-1" if str(target) == "ai-avatar" else target, payload.get("origin", false)).ok
 	return false
 
 
 func _drop_command(payload: Dictionary, target: Variant) -> void:
 	if not _can_drop_command(payload, target): return
-	if payload.kind == "card" and gs.hand_card_def(PLAYER, int(payload.hand)).has("originCard"):
+	if payload.kind == "card" and gs.card_play_modes(PLAYER, int(payload.hand)).size() > 1:
 		_on_hand_clicked(int(payload.hand), gs.hand_card_def(PLAYER, int(payload.hand)), false, false, "avatar-1" if str(target) == "ai-avatar" else target)
 		return
 	_hide_tooltip()
-	if payload.kind == "unit" and target == null and (gs.VerifiedRules.BattleSkill.requires_target(gs,PLAYER,int(payload.unit)) or gs.VerifiedRules.Combat.has(gs.player(PLAYER).units[int(payload.unit)], "pursuit") or gs.VerifiedRules.TreeSakura.floating(gs.player(PLAYER).units[int(payload.unit)])):
+	if payload.kind == "unit" and target == null and gs.basic_attack_requires_target(PLAYER, int(payload.unit)):
 		_cancel_target_selection()
 		_selected_attacker = int(payload.unit)
 		_update_selection_highlights()
@@ -1684,7 +1876,7 @@ func _drop_command(payload: Dictionary, target: Variant) -> void:
 	if payload.kind == "unit":
 		gs.basic_attack(PLAYER, int(payload.unit), "avatar-1" if str(target) == "ai-avatar" else target)
 	else:
-		gs.play_card(PLAYER, int(payload.hand), "avatar-1" if str(target) == "ai-avatar" else target, bool(payload.get("origin", false)))
+		gs.play_card(PLAYER, int(payload.hand), "avatar-1" if str(target) == "ai-avatar" else target, payload.get("origin", false))
 	_refresh()
 	_check_auto_ai()
 
@@ -1705,7 +1897,9 @@ func _on_core_clicked(owner: int = AI) -> void:
 	if _pending_target_card >= 0:
 		var hi := _pending_target_card
 		if gs.can_play_card(PLAYER, hi, target_id, _pending_use_origin).ok:
-			gs.play_card(PLAYER, hi, target_id, _pending_use_origin)
+			var mode: Variant = _pending_use_origin
+			_cancel_target_selection()
+			gs.play_card(PLAYER, hi, target_id, mode)
 			_refresh()
 			_check_auto_ai()
 	elif _selected_attacker >= 0:
@@ -1863,8 +2057,10 @@ func _aim_context(pointer: Vector2) -> Dictionary:
 	var local_pointer := get_global_transform().affine_inverse() * pointer
 	if not Rect2(Vector2.ZERO, size).has_point(local_pointer): return {}
 	# 浮在池面上的资源控件也不属于目标区。
-	for hud in [_enemy_hand, _end_btn, _cmd_bar]:
+	for hud in [_enemy_hand, _end_btn]:
 		if is_instance_valid(hud) and hud.visible and hud.get_global_rect().has_point(pointer): return {}
+	for command in _cmd_bar.get_children():
+		if command is BaseButton and command.visible and command.get_global_rect().has_point(pointer): return {}
 	# Guide only over the battlefield, our hand, or the targetable enemy core.
 	# Header buttons, opponent hand and end-turn controls are not targeting space.
 	var in_play_area := false
@@ -1877,7 +2073,7 @@ func _aim_context(pointer: Vector2) -> Dictionary:
 	var payload := _drag_payload.duplicate()
 	if payload.is_empty():
 		if _pending_target_card >= 0:
-			payload = {"kind": "card", "hand": _pending_target_card}
+			payload = {"kind": "card", "hand": _pending_target_card, "origin": _pending_use_origin}
 		elif _selected_attacker >= 0:
 			payload = {"kind": "unit", "unit": _selected_attacker}
 		else: return {}
@@ -1892,6 +2088,7 @@ func _aim_context(pointer: Vector2) -> Dictionary:
 				source = face
 				break
 	if not is_instance_valid(source): return {}
+	if _drag_kind.is_empty() and _pending_target_card >= 0 and _target_preview.visible: source = _target_preview
 	var target: Variant = null
 	var over_target := false
 	var endpoint := pointer - global_position
@@ -1959,7 +2156,38 @@ func _motion_tween(widget: Control) -> Tween:
 	return tw
 
 
-func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [], state: GameState = null) -> void:
+func _stage_vitals(before: Dictionary, after: Dictionary) -> Dictionary:
+	var staged := {}
+	for owner in [PLAYER, AI]:
+		var old_player: Dictionary = before.players[owner]
+		var new_player: Dictionary = after.players[owner]
+		if int(old_player.avatarHp) != int(new_player.avatarHp):
+			_vitals_revision += 1
+			var hp := int(_avatar_vitals.get(owner, {}).get("hp", old_player.avatarHp))
+			var label := _ally_core if owner == PLAYER else _enemy_core
+			label.text = str(hp)
+			_avatar_vitals[owner] = {"hp": hp, "revision": _vitals_revision}
+			staged["avatar-%d" % owner] = {"owner": owner, "revision": _vitals_revision}
+		var previous := {}
+		for unit in old_player.units: previous[str(unit.uid)] = unit
+		for unit in new_player.units:
+			var uid := str(unit.uid)
+			var old: Dictionary = previous.get(uid, {})
+			if old.is_empty(): continue
+			var vitals := {}
+			for key in ["hp", "maxHp", "shield", "knockout"]:
+				if old.get(key, 0) != unit.get(key, 0): vitals[key] = old.get(key, 0)
+			if vitals.is_empty(): continue
+			var widget := _unit_widget(uid)
+			if widget == null: continue
+			_vitals_revision += 1
+			widget.set_meta("vitals_revision", _vitals_revision)
+			widget.presented_vitals = vitals.merged(widget.presented_vitals, true)
+			staged[uid] = {"revision": _vitals_revision, "fell": int(old.hp) > 0 and int(unit.hp) <= 0}
+	return staged
+
+
+func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [], state: GameState = null, staged_vitals: Dictionary = {}) -> void:
 	if state != null and state != gs: return
 	if not is_inside_tree() or _effects == null: return
 	for face in _unit_widgets.values():
@@ -1979,7 +2207,7 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 		w.remove_meta("flip_from")
 		if not w.is_inside_tree(): continue
 		w.visual_offset = from - w.global_position
-		if not attackers.has(uid):
+		if not attackers.has(uid) and not staged_vitals.get(uid, {}).get("fell", false):
 			_motion_tween(w).tween_property(w, "visual_offset", Vector2.ZERO, 0.22).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	# 2. 命令驱动的动作：出牌展示、出击前冲
 	var cues := EffectCues.build(before, after, commands)
@@ -2152,6 +2380,7 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 		_hold_presentation(impact + SpellEffect.TAIL + 0.1)
 	# Final numbers still use resolved state; random targets already have impacts.
 	var hit_steps := {}
+	var vital_times := {}
 	for cue in cues:
 		if cue.kind in ["damage", "guard"] and random_hits.any(func(h): return h.target == cue.target and h.player == cue.player): continue
 		var hit_time := impact
@@ -2161,12 +2390,36 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 			hit_time = float(cue_impacts.get(cast_key, impact)) + int(hit_steps.get(target_key, 0)) * 0.12
 			hit_steps[target_key] = int(hit_steps.get(target_key, 0)) + 1
 			if cue.has("combatStep"): hit_time = impact + int(cue.combatStep) * 0.16
+			var uid := str(cue.target) if not str(cue.target).is_empty() else "avatar-%d" % int(cue.player)
+			vital_times[uid] = maxf(float(vital_times.get(uid, 0.0)), hit_time)
 			_hold_presentation(hit_time + SpellEffect.TAIL + 0.15)
 			if int(cue.amount) > 0:
 				var target := _unit_widget(str(cue.target))
 				if target != null: _floating_on_unit("-%d" % int(cue.amount), target, ThemeBuilder.DANGER_SOFT, 42, hit_time)
 				else: _floating("-%d" % int(cue.amount), _center_of(_ally_plate if int(cue.player) == PLAYER else _enemy_plate), ThemeBuilder.DANGER_SOFT, 34, hit_time)
 		_present_spell_cue(cue, hit_time)
+	for uid in staged_vitals:
+		var stage: Dictionary = staged_vitals[uid]
+		var release_time := float(vital_times.get(uid, impact))
+		if stage.has("owner"):
+			var owner := int(stage.owner)
+			_delay(release_time, func():
+				if int(_avatar_vitals.get(owner, {}).get("revision", -1)) != int(stage.revision): return
+				_avatar_vitals.erase(owner)
+				var label := _ally_core if owner == PLAYER else _enemy_core
+				label.text = str(int(gs.player(owner).avatarHp))
+			)
+			continue
+		var widget := _unit_widget(uid)
+		if widget == null: continue
+		_delay(release_time, func():
+			if not is_instance_valid(widget) or int(widget.get_meta("vitals_revision", -1)) != int(stage.revision): return
+			widget.presented_vitals = {}
+			if stage.fell and not attackers.has(uid) and widget.visual_offset.length() > 2.0:
+				var fall := _motion_tween(widget)
+				fall.tween_interval(0.08)
+				fall.tween_property(widget, "visual_offset", Vector2.ZERO, 0.22).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		)
 	# 3. 数值变化：在冲击时刻呈现
 	var shake := 0.0
 	for p in [PLAYER, AI]:
@@ -2203,7 +2456,7 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 					Sfx.play("hit", clampf(0.45 + -delta * 0.12, 0.45, 1.0))
 					widget.flash = 1.0
 					widget.create_tween().tween_property(widget, "flash", 0.0, 0.3)
-					if not attackers.has(str(unit.uid)): _jitter(widget, 7.0)
+					if int(unit.hp) > 0 and not attackers.has(str(unit.uid)): _jitter(widget, 7.0)
 				)
 			elif delta > 0 and int(previous.hp) > 0 and unit.get("form", {}).get("cardId", "") == previous.get("form", {}).get("cardId", "") and not EffectCues.rule_changes(before, after).any(func(e): return e.kind in ["peach-heal", "peach-growth"] and e.get("target") == unit.uid):
 				_floating_on_unit("+%d" % delta, widget, ThemeBuilder.OK, 28, impact)
@@ -2233,7 +2486,8 @@ func _present_changes(before: Dictionary, after: Dictionary, commands: Array = [
 func _present_spell_cue(cue: Dictionary, impact: float) -> void:
 	var target := _unit_widget(str(cue.target)) if not str(cue.target).is_empty() else null
 	var saved_impact: Variant = target.get_meta("attack_impact_position") if is_instance_valid(target) and target.has_meta("attack_impact_position") and cue.kind == "damage" else null
-	_delay(maxf(0.0, impact - SpellEffect.TRAVEL), func():
+	var combat := cue.has("combatStep")
+	_delay(impact if combat else maxf(0.0, impact - SpellEffect.TRAVEL), func():
 		var source := _unit_widget(str(cue.source)) if not str(cue.source).is_empty() else null
 		var destination := Vector2.ZERO
 		if is_instance_valid(target) and target.is_inside_tree():
@@ -2244,10 +2498,11 @@ func _present_spell_cue(cue: Dictionary, impact: float) -> void:
 			destination = _center_of(_energy_orbs) if int(cue.player) == PLAYER else _center_of(_enemy_plate)
 		else: destination = _center_of(_ally_plate if int(cue.player) == PLAYER else _enemy_plate)
 		var effect := SpellEffect.new()
-		effect.family = str(cue.family)
+		effect.family = "slash" if combat and cue.kind == "damage" and cue.family == "arcane" else str(cue.family)
 		effect.destination = destination
 		effect.origin = _center_of(source) + source.visual_offset if is_instance_valid(source) else destination
-		effect.travel = cue.kind in ["damage", "heal", "revive", "freeze", "seal"] and effect.origin.distance_to(destination) > 30.0
+		effect.travel = not combat and cue.kind in ["damage", "heal", "revive", "freeze", "seal"] and effect.origin.distance_to(destination) > 30.0
+		if combat: effect.elapsed = SpellEffect.TRAVEL
 		effect.radius = (86.0 if cue.kind in ["heal", "revive"] else 62.0) if is_instance_valid(target) else 45.0
 		effect.set_meta("target_uid", str(cue.target))
 		effect.set_meta("kind", str(cue.kind))
@@ -2313,20 +2568,21 @@ func _delay(seconds: float, action: Callable) -> void:
 	timer.start(seconds)
 
 
-## 对手出牌：大卡从对手手牌处飞到场中央停留，再淡出
+## 对手出牌：沿用选牌区，让牌面展示不挡住交战对象
 func _showcase_card(card: Dictionary, delay: float, source_uid: String = "") -> void:
 	if card.is_empty(): return
 	var face := CardFace.new()
 	face.data = card
 	face.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	face.size = Vector2(196, 304)
+	var preview := _cast_preview_rect()
+	face.size = preview.size
 	face.pivot_offset = face.size * 0.5
 	var start := _enemy_hand.get_global_rect().get_center() - global_position - face.size * 0.5
 	var source := _unit_widget(source_uid) if not source_uid.is_empty() else null
 	if source != null:
 		start = _center_of(source) - face.size * 0.5
 		face.set_meta("automatic_source", source_uid)
-	var rest := Vector2(size.x * 0.5 - face.size.x * 0.5 + 40, size.y * 0.3 - face.size.y * 0.5 + 30)
+	var rest := preview.position
 	face.position = start
 	face.scale = Vector2(0.25, 0.25)
 	face.modulate.a = 0.0
@@ -2388,12 +2644,12 @@ func _lunge(p_idx: int, unit_index: int, before: Dictionary, delay: float, targe
 	for u in before.players[e].units:
 		if int(u.get("front", 0)) == 1 and int(u.hp) > 0:
 			var tw_widget := _unit_widget(str(u.uid))
-			if tw_widget != null: target_pos = _center_of(tw_widget)
+			if tw_widget != null: target_pos = _center_of(tw_widget) + tw_widget.visual_offset
 	# Pursuit has an explicit reserve target; its motion must follow that target.
 	if target_id != null:
 		var chosen := _unit_widget(str(target_id))
 		if chosen != null:
-			target_pos = _center_of(chosen)
+			target_pos = _center_of(chosen) + chosen.visual_offset
 			attacker.set_meta("attack_target_uid", str(target_id))
 	if target_pos == Vector2.ZERO:
 		target_pos = _center_of(_enemy_plate if p_idx == PLAYER else _ally_plate)

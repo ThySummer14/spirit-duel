@@ -53,7 +53,8 @@ static func started(gs, owner: int, src: int, defender: Dictionary, options: Dic
 static func finished(gs, owner: int, src: int, defender: Dictionary, options: Dictionary, kills: int) -> void:
  if not options.get("hairCombatBegun",false):return
  var u:Dictionary=gs.player(owner).units[src];var spent:=maxi(0,int(options.get("hairPowerSnapshot",amount(u))))
- clear(u);u.erase("hairGuardTraits")
+ if not options.get("wingguardKeepPower",false):clear(u)
+ u.erase("hairGuardTraits")
  if not defender.is_empty():clear(defender);defender.erase("hairGuardTraits")
  if kills>0 and options.get("hairWhip",false) and active(u):give(gs,owner,src,spent/2)
 static func knockout_snapshot(owner: int,u: Dictionary) -> Dictionary:return {"owner":owner,"front":int(u.front)==1}
@@ -123,10 +124,11 @@ static func grant_guard(gs,owner:int,power:int=0,armor:int=0)->void:
  gs.VerifiedRules.event(gs,"guard-gained",{"player":owner,"count":guard_count(gs,owner),"power":power,"armor":armor})
 static func guard_deploy(gs,owner:int,src:int)->bool:
  if guard_count(gs,owner)<=0:return false
+ var depth:int=gs.resolution_stack.size()
  var p:Dictionary=gs.player(owner);var u:Dictionary=p.units[src];var entry:Dictionary=p.guardDeployments.pop_front()
  var enc:Dictionary=gs._prepare_encourage(owner)
  var karma:int=gs.VerifiedRules.WisdomLamp.guard_bonus(u)
- give(gs,owner,src,int(entry.power)+int(enc.get("attack",0))+karma)
+ give(gs,owner,src,int(entry.power)+int(enc.get("attack",0))+int(enc.get("battlePower",0))+karma)
  var armor:=int(entry.armor)+int(enc.get("shield",0))+karma
  if armor>0:gs._grant_unit_armor(u,armor)
  elif armor<0:gs.VerifiedRules.ArmorBreak.give(gs,owner,src,owner,src,-armor,false)
@@ -138,4 +140,5 @@ static func guard_deploy(gs,owner:int,src:int)->bool:
   gs._fire_hooks(owner,src,"unit-entered-front",{});gs._run_form_hooks(owner,src,"unit-entered-front",{})
   gs.VerifiedRules.Movement.moved(gs,owner,src,old)
   gs.VerifiedRules.automatic_response(gs,1-owner,"enemy-entered-front",u.uid,{"kind":"hair-guard-complete","playerIndex":owner,"sourceIndex":src})
+ gs.VerifiedRules.PeachGrove.guard_attack(gs, owner, src, depth)
  gs._resolve_resolution_stack();gs.state_changed.emit();return true

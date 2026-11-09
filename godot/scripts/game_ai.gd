@@ -19,9 +19,11 @@ static func take_action(gs: GameState, p_idx: int) -> bool:
 		return unit >= 0 and gs.level_up(p_idx, unit)
 	for idx in gs.player(p_idx).units.size():
 		if gs.VerifiedRules.Zhenjian.can_manual_release(gs,p_idx,idx) and gs.release_charge(p_idx,idx):return true
+	if gs.VerifiedRules.BattleShop.ai_purchase(gs, p_idx): return true
 	var play := _best_card(gs, p_idx)
-	if play.ok and gs.play_card(p_idx, play.hand, play.target, bool(play.get("origin", false))):
+	if play.ok and gs.play_card(p_idx, play.hand, play.target, play.get("origin", false)):
 		return true
+	if gs.VerifiedRules.Insight.leave_action(gs, p_idx): return true
 	var attack := _best_attack(gs, p_idx)
 	if attack.ok and gs.basic_attack(p_idx, attack.unit, attack.target):
 		return true
@@ -60,11 +62,17 @@ static func take_turn(gs: GameState, p_idx: int) -> Array:
 			if gs.VerifiedRules.Zhenjian.can_manual_release(gs,p_idx,idx) and gs.release_charge(p_idx,idx):
 				actions.append({"cmd":"release_charge", "unit":idx}); released=true; break
 		if released: continue
+		if gs.VerifiedRules.BattleShop.ai_purchase(gs, p_idx):
+			actions.append({"cmd":"shop_buy"})
+			continue
 		var play := _best_card(gs, p_idx)
 		if play.ok:
-			if gs.play_card(p_idx, play.hand, play.target, bool(play.get("origin", false))):
+			if gs.play_card(p_idx, play.hand, play.target, play.get("origin", false)):
 				actions.append({"cmd": "play_card", "hand": play.hand, "target": play.target, "card": play.card_id})
 				continue
+		if gs.VerifiedRules.Insight.leave_action(gs, p_idx):
+			actions.append({"cmd": "end_insight"})
+			continue
 		var atk := _best_attack(gs, p_idx)
 		if atk.ok:
 			if gs.basic_attack(p_idx, atk.unit, atk.target):
@@ -105,7 +113,7 @@ static func _best_card(gs: GameState, p_idx: int) -> Dictionary:
 	var p := gs.player(p_idx)
 	var best := {"ok": false, "hand": -1, "target": null, "score": -1, "card_id": ""}
 	for h in gs.playable_card_count(p_idx):
-		for origin in [false, true]:
+		for origin in gs.card_play_modes(p_idx, h):
 			var card := gs.playable_card(p_idx, h, origin)
 			if card.is_empty(): continue
 			var targets: Array = [null] if card.get("target", "auto") == "auto" else gs.valid_targets(p_idx, card)
@@ -119,12 +127,75 @@ static func _best_card(gs: GameState, p_idx: int) -> Dictionary:
 
 
 static func _score_card(_gs: GameState, p_idx: int, card: Dictionary, _target) -> int:
+	var time_rewind_score = _gs.VerifiedRules.TimeRewind.score_card(_gs, p_idx, card)
+	if time_rewind_score != null: return int(time_rewind_score)
+	var yuanqi_score = _gs.VerifiedRules.BaizeYuanqi.score(_gs, p_idx, card, _target)
+	if yuanqi_score != null: return int(yuanqi_score)
+	var grudge_score = _gs.VerifiedRules.Grudge.score(_gs, p_idx, card, _target)
+	if grudge_score != null: return int(grudge_score)
+	if card.get("peacockRules", false) or card.get("seasonRules", false) or card.get("inkjudgeRules", false) or card.get("wordRules", false) or card.get("wingguardRules", false) or card.get("fallpetalRules", false) or card.id in ["peacock-quill", "fallpetal-wind", "fallpetal-bloom"]:
+		if card.id in ["peacock-quill", "c60101", "c61401"] and (_gs._unit_index_by_uid(p_idx, _target) >= 0 or str(_target) == "avatar-%d" % p_idx): return -20
+		return 61
+	var luohou_score = _gs.VerifiedRules.Luohou.score(_gs, p_idx, card, _target)
+	if luohou_score != null: return int(luohou_score)
+	var xuan_score = _gs.VerifiedRules.Xuan.score(_gs, p_idx, card, _target)
+	if xuan_score != null: return int(xuan_score)
+	var hana_score = _gs.VerifiedRules.Hanafuda.score(_gs, p_idx, card, _target)
+	if hana_score != null: return int(hana_score)
+	var wave_score = _gs.VerifiedRules.Wave7Reworks.score(_gs, p_idx, card, _target)
+	if wave_score != null: return int(wave_score)
+	var charm_batch_score = _gs.VerifiedRules.PaperDance.score(_gs, p_idx, card, _target)
+	if charm_batch_score == null: charm_batch_score = _gs.VerifiedRules.TwinSight.score(_gs, p_idx, card, _target)
+	if charm_batch_score == null: charm_batch_score = _gs.VerifiedRules.SandBook.score(_gs, p_idx, card)
+	if charm_batch_score != null: return int(charm_batch_score)
 	var box_score=_gs.VerifiedRules.BoxMaiden.score_card(_gs,p_idx,card,_target)
 	if box_score!=null:return int(box_score)
 	var fw_score=_gs.VerifiedRules.FearWing.score_card(_gs,p_idx,card,_target)
 	if fw_score!=null:return int(fw_score)
 	var wl_score=_gs.VerifiedRules.WisdomLamp.score_card(_gs,p_idx,card,_target)
 	if wl_score!=null:return int(wl_score)
+	var ly_score=_gs.VerifiedRules.Langya.score_card(_gs,p_idx,card,_target)
+	if ly_score!=null:return int(ly_score)
+	var yanmie_score = _gs.VerifiedRules.YanmieTrio.score(_gs, p_idx, card, _target)
+	if yanmie_score != null: return int(yanmie_score)
+	var water_score = _gs.VerifiedRules.WaterMoon.score(_gs, p_idx, card)
+	if water_score != null: return int(water_score)
+	var bone_score = _gs.VerifiedRules.Bone.score(_gs, p_idx, card, _target)
+	if bone_score != null: return int(bone_score)
+	var gh_score = _gs.VerifiedRules.Guishihei.score_card(_gs, p_idx, card, _target)
+	if gh_score != null: return int(gh_score)
+	if card.id == "yuedu-false-moon":
+		var amount := _gs.VerifiedRules.LunarTrick.false_moon_amount(_gs)
+		return -100 if int(_gs.player(p_idx).avatarHp) <= amount or _gs.VerifiedRules.LunarTrick.form(_gs, 1-p_idx, "lunarLimit") else 34
+	if card.get("lunarRules", false):
+		if card.id == "c62205": return -10
+		return 63
+	if card.get("catRules", false):
+		if card.id == "c62407" and not card.get("allowKnockedSource", false): return -20
+		return 61
+	if card.get("izanamiRules", false):
+		if card.id == "c62506" and _gs._unit_index_by_uid(p_idx, _target) >= 0: return -20
+		return 61
+	if card.get("insightNeutral", false):
+		if card.id == "insight-star": return 55
+		if card.id == "insight-starburst":
+			return 72 if str(_target) == "avatar-%d" % (1-p_idx) or _gs._unit_index_by_uid(1-p_idx, _target) >= 0 else -100
+		return 70
+	if card.get("chenRules", false):
+		if card.id == "c62103" and _gs.VerifiedRules.Chen.present(_gs, p_idx).is_empty(): return -100
+		if card.id == "c62101" and _gs.VerifiedRules.Chen.missing(_gs, p_idx, int(_gs.player(p_idx).units[_gs._source_index(p_idx, card)].level)).is_empty(): return -100
+		return 65
+	if card.get("rainRules", false):
+		if card.id == "c62006":
+			var enemy := _gs._unit_index_by_uid(1-p_idx, _target)
+			var ally := _gs._unit_index_by_uid(p_idx, _target)
+			if enemy >= 0: return 65 + int(_gs.player(1-p_idx).units[enemy].hp <= _gs.VerifiedRules.Insight.zone(_gs, p_idx).size()) * 10
+			var u: Dictionary = _gs.player(p_idx).units[ally] if ally >= 0 else _gs.player(p_idx)
+			return 45 + int(u.get("maxHp", u.get("maxAvatarHp", 0)) - u.get("hp", u.get("avatarHp", 0)))
+		return 65
+	if card.get("solarRules", false) or card.get("astralRules", false): return 65
+	var treasure_score = _gs.VerifiedRules.Treasure.score_card(_gs, p_idx, card, _target)
+	if treasure_score != null: return int(treasure_score)
 	var hair_score=_gs.VerifiedRules.HairPower.score_card(_gs,p_idx,card,_target)
 	if hair_score!=null:return int(hair_score)
 	var mf_score=_gs.VerifiedRules.MusicFire.score_card(_gs,p_idx,card,_target)
@@ -235,6 +306,10 @@ static func _score_card(_gs: GameState, p_idx: int, card: Dictionary, _target) -
 		return -100 if source.awakened else 65
 	var mengpo_score = _gs.VerifiedRules.Mengpo.score_card(_gs, p_idx, card, _target)
 	if mengpo_score != null: return int(mengpo_score)
+	var himiko_score = _gs.VerifiedRules.Himiko.score_card(_gs, p_idx, card, _target)
+	if himiko_score != null: return int(himiko_score)
+	var shenqi_score = _gs.VerifiedRules.ShenqiHuang.score_card(_gs, p_idx, card)
+	if shenqi_score != null: return int(shenqi_score)
 	var huang_score = _gs.VerifiedRules.Huang.score_card(_gs, p_idx, card, _target)
 	if huang_score != null: return int(huang_score)
 	var armor_blood_score = _gs.VerifiedRules.ArmorBlood.score_card(_gs, p_idx, card, _target)
@@ -402,6 +477,49 @@ static func _num(v) -> int:
 
 
 static func _resolve_choice(gs: GameState, p_idx: int) -> bool:
+	var lineage = gs.VerifiedRules.LineageScroll.ai_choice(gs, p_idx)
+	if lineage != null: return bool(lineage)
+	var yuanqi_choice = gs.VerifiedRules.BaizeYuanqi.ai_choice(gs, p_idx)
+	if yuanqi_choice != null: return bool(yuanqi_choice)
+	var himiko_choice = gs.VerifiedRules.Himiko.ai_choice(gs, p_idx)
+	if himiko_choice != null: return himiko_choice
+	var destiny_choice = gs.VerifiedRules.Destiny.ai_choice(gs, p_idx)
+	if destiny_choice != null: return bool(destiny_choice)
+	var commission_choice = gs.VerifiedRules.Commission.ai_choice(gs, p_idx)
+	if commission_choice != null: return bool(commission_choice)
+	var faction = gs.VerifiedRules.FactionArt.ai_choice(gs, p_idx)
+	if faction != null: return bool(faction)
+	var grove = gs.VerifiedRules.PeachGrove.ai_choice(gs, p_idx)
+	if grove != null: return bool(grove)
+	var luohou_choice = gs.VerifiedRules.Luohou.ai_choice(gs, p_idx)
+	if luohou_choice != null: return bool(luohou_choice)
+	var xuan_choice = gs.VerifiedRules.Xuan.ai_choice(gs, p_idx)
+	if xuan_choice != null: return gs.resolve_divination_choice(p_idx, str(xuan_choice))
+	var hana_choice = gs.VerifiedRules.Hanafuda.ai_choice(gs, p_idx)
+	if hana_choice != null: return gs.resolve_divination_choice(p_idx, str(hana_choice))
+	var wave_choice = gs.VerifiedRules.Wave7Reworks.ai_choice(gs, p_idx)
+	if wave_choice != null: return bool(wave_choice)
+	var gift = gs.VerifiedRules.GiftEnergy.ai_choice(gs, p_idx)
+	if gift != null: return gs.resolve_divination_choice(p_idx, str(gift))
+	if gs.pending_choice.get("type") == "solar-awaken":
+		var ids: Array = gs.pending_choice.instanceIds
+		return gs.resolve_divination_choice(p_idx, "solar-awaken" if "solar-awaken" in ids else str(ids[0]))
+	var yanmie_choice = gs.VerifiedRules.YanmieTrio.ai_choice(gs, p_idx)
+	if yanmie_choice != null: return yanmie_choice
+	var water_choice = gs.VerifiedRules.WaterMoon.ai_choice(gs, p_idx)
+	if water_choice != null: return bool(water_choice)
+	var stars_choice = gs.VerifiedRules.StarRealms.ai_choice(gs, p_idx)
+	if stars_choice != null: return stars_choice
+	var abyss_choice = gs.VerifiedRules.DragonAbyss.ai_choice(gs, p_idx)
+	if abyss_choice != null: return bool(abyss_choice)
+	var lunar_choice = gs.VerifiedRules.LunarTrick.ai_choice(gs, p_idx)
+	if lunar_choice != null: return bool(lunar_choice)
+	var cat_choice = gs.VerifiedRules.CatSamurai.ai_choice(gs, p_idx)
+	if cat_choice != null: return bool(cat_choice)
+	var chen_choice = gs.VerifiedRules.Chen.ai_choice(gs, p_idx)
+	if chen_choice != null: return bool(chen_choice)
+	var treasure_choice = gs.VerifiedRules.Treasure.ai_choice(gs, p_idx)
+	if treasure_choice != null: return bool(treasure_choice)
 	var sc_choice=gs.VerifiedRules.SugarCat.ai_choice(gs,p_idx)
 	if sc_choice!=null:return bool(sc_choice)
 	var rw_choice=gs.VerifiedRules.RednightWalnut.ai_choice(gs,p_idx)
@@ -464,6 +582,8 @@ static func _resolve_choice(gs: GameState, p_idx: int) -> bool:
 	if sun_smoke_choice != null: return bool(sun_smoke_choice)
 	var book_jue_choice = gs.VerifiedRules.BookJue.ai_choice(gs, p_idx)
 	if book_jue_choice != null: return bool(book_jue_choice)
+	var native_charm_choice = gs.VerifiedRules.SandBook.ai_choice(gs, p_idx)
+	if native_charm_choice != null: return bool(native_charm_choice)
 	var divination_choice = gs.VerifiedRules.Divination.ai_choice(gs, p_idx)
 	if divination_choice != null: return bool(divination_choice)
 	var ids: Array = gs.pending_choice.get("instanceIds", [])

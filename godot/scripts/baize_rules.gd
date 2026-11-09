@@ -77,7 +77,7 @@ static func completed(gs, choice: Dictionary) -> void:
 	if owner==controller and dazhi and gs.player(owner).get("baizeAwakened",false):
 		gs.resolution_stack.append({"kind":"baize-draw","awakened":true,"playerIndex":owner})
 static func revive_pool(gs, owner: int) -> Array:
-	return gs.player(owner).units.filter(func(u): return int(u.hp)<=0 and not u.get("summoned",false) and not u.get("removed",false) and gs.VerifiedRules.Rebirth.can_revive(u))
+	return gs.player(owner).units.filter(func(u): return gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, u))
 static func targets(gs, owner: int, card: Dictionary):
 	if not card.get("baizeRules",false): return null
 	if card.id=="c27302": return revive_pool(gs,owner).map(func(u): return u.uid)
@@ -135,6 +135,13 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 	return true
 static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: Dictionary, target: Dictionary, _target_id) -> bool:
 	match str(effect.get("action","")):
+		"damage":
+			if card.get("id")!="c27303": return false
+			var units: Array=gs.player(1-owner).units
+			for idx in units.size():
+				var u: Dictionary=units[idx]
+				if int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u):
+					gs._damage_unit(1-owner,idx,int(effect.value),owner,src)
 		"baize-divination": gs.VerifiedRules.Divination.start(gs,owner,int(effect.value),owner,card.get("baizeDivination",{}))
 		"baize-dazhi":
 			# Draw resumes only after every top/bottom decision and its triggers.

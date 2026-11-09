@@ -89,7 +89,7 @@ static func targets(gs, owner: int, card: Dictionary):
 	var ids: Array=[]
 	for side in [owner,1-owner] if card.id=="c27803" else [owner]:
 		for u in gs.player(side).units:
-			if int(u.hp)>0 and not u.get("removed",false) and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")): ids.append(u.uid)
+			if int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")): ids.append(u.uid)
 	return ids
 static func grant_turn(gs, owner: int, u: Dictionary, inspired: bool) -> void:
 	if int(u.hp)<=0: return

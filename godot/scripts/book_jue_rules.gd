@@ -38,9 +38,9 @@ static func turn_start(gs, owner: int, src: int) -> void:
 		for inst in pool: reveal(gs, enemy, inst, owner)
 	elif not pool.is_empty(): reveal(gs, enemy, pool[int(floor(gs.randf01() * pool.size()))], owner)
 
-static func describe_card(gs, owner: int, inst: Dictionary, card: Dictionary) -> Dictionary:
+static func describe_card(gs, owner: int, inst: Dictionary, card: Dictionary, from_hand: bool = true) -> Dictionary:
 	var out := card.duplicate(true)
-	out.handRevealed = bool(inst.get("revealed", false))
+	out.handRevealed = from_hand and bool(inst.get("revealed", false))
 	out.handInstanceId = str(inst.get("instanceId", ""))
 	var revealed: Array = gs.player(1 - owner).hand.filter(func(i): return i.get("revealed", false))
 	if card.get("bookHandForm", false):
@@ -62,7 +62,7 @@ static func describe_card(gs, owner: int, inst: Dictionary, card: Dictionary) ->
 		out.keywords = out.get("keywords", []).duplicate()
 		if not out.keywords.has("instant"): out.keywords.append("instant")
 		out.text += "\n敌方手牌全部已展示：瞬发。"
-	if inst.get("revealed", false):
+	if out.handRevealed:
 		out.text += "\n已展示给对手。"
 		for observer in gs.player(1 - owner).units:
 			if active(observer) and observer.get("formRules", {}).get("jueHandTax", false):
@@ -79,7 +79,7 @@ static func targets(gs, owner: int, card: Dictionary) -> Variant:
 	return null
 
 static func announced(gs, frame: Dictionary, card: Dictionary) -> void:
-	if frame.get("automatic", false): return
+	if frame.get("automatic", false) or not frame.get("usedFromHand", false): return
 	var owner := int(frame.playerIndex)
 	if card.get("handRevealed", false):
 		for src in gs.player(1 - owner).units.size():
@@ -226,7 +226,7 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 		"jue-read":
 			if not target.is_empty():
 				for inst in gs.player(1 - owner).hand:
-					if ContentLoader.card_def(str(inst.definitionId)).get("unitId") == target.id: reveal(gs, 1 - owner, inst, owner)
+					if target.id in ContentLoader.card_unit_ids(ContentLoader.card_def(str(inst.definitionId))): reveal(gs, 1 - owner, inst, owner)
 		"jue-bomb":
 			if target.is_empty(): return true
 			var amount := 2 + int(card.get("foxHandDamageBonus", 0))
@@ -234,7 +234,7 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 				var idx: int = gs._unit_index_by_uid(victim, target.uid)
 				if idx < 0: continue
 				for inst in gs.player(victim).hand:
-					if inst.get("revealed", false) and ContentLoader.card_def(str(inst.definitionId)).get("unitId") == target.id: amount += 2
+					if inst.get("revealed", false) and target.id in ContentLoader.card_unit_ids(ContentLoader.card_def(str(inst.definitionId))): amount += 2
 				gs._damage_unit(victim, idx, amount, owner, src)
 		"jue-grudge":
 			if target.is_empty() or not targets(gs, owner, card).has(target.uid): return true
@@ -260,7 +260,7 @@ static func score_card(gs, owner: int, card: Dictionary, target_id) -> Variant:
 	if card.get("effect") == "jue-grudge": return 80 + int(gs._unit_by_uid(gs.player(1 - owner).units, target_id).get("attack", 0))
 	if card.get("effect") == "jue-read":
 		var target: Dictionary = gs._unit_by_uid(gs.player(1 - owner).units, target_id)
-		var hidden: int = gs.player(1 - owner).hand.filter(func(i): return not i.get("revealed", false) and ContentLoader.card_def(str(i.definitionId)).get("unitId") == target.get("id")).size()
+		var hidden: int = gs.player(1 - owner).hand.filter(func(i): return not i.get("revealed", false) and target.get("id") in ContentLoader.card_unit_ids(ContentLoader.card_def(str(i.definitionId)))).size()
 		return 30 + hidden * 8 if hidden > 0 else -100
 	if card.get("effect") in ["book-awaken", "jue-awaken"]: return 55 if not gs.player(owner).units[src].awakened else -100
 	if card.get("type") == "form": return 50 if gs.player(owner).units[src].get("form", {}).get("cardId") != card.id else -100

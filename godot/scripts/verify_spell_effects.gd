@@ -7,6 +7,7 @@ const SpellEffect := preload("res://scripts/ui/battle_spell_effect.gd")
 const BattleScreen := preload("res://scripts/ui/battle_screen.gd")
 const VerifySupport := preload("res://scripts/verify_support.gd")
 const ThemeBuilder := preload("res://scripts/ui/theme_builder.gd")
+const AI := preload("res://scripts/game_ai.gd")
 var checks := 0
 var failures := 0
 
@@ -80,6 +81,18 @@ func _run() -> void:
 	var area_cues := Cues.build(initial, _snapshot(area), area.command_log)
 	var hits: Array = area_cues.filter(func(c): return c.kind == "damage" and c.player == 1 and not str(c.target).is_empty())
 	_check(hits.size() == 4 and hits.all(func(c): return c.family == "wind"), "four real opponents receive wind impacts")
+	var lightning := _fixture("w12-leiyin-92138")
+	initial = _snapshot(lightning)
+	var choice := AI._best_card(lightning, 0)
+	_check(choice.ok and choice.target == null and lightning.play_card(0, 0), "连环雷 is playable without a target choice")
+	var bolts: Array = lightning.rule_events.filter(func(e): return e.kind == "damage-resolved" and e.get("card", {}).get("id") == "w12-leiyin-92138")
+	_check(bolts.size() == 2 and bolts[0].target != bolts[1].target and bolts.all(func(e): return e.amount == 2), "连环雷 strikes exactly two distinct opposing characters for two")
+	var bolt_cues := Cues.build(initial, _snapshot(lightning), lightning.command_log)
+	_check(bolt_cues.filter(func(c): return c.kind == "damage" and c.family == "thunder").size() == 2, "連环雷 shows both actual targets")
+	lightning = _fixture("w12-leiyin-92138")
+	for unit in lightning.player(1).units: unit.hp = 0
+	var life: int = lightning.player(1).avatarHp
+	_check(lightning.play_card(0, 0) and lightning.player(1).avatarHp == life - 2, "a lone opposing avatar is hit only once")
 	var blocked := _fixture("c12404")
 	blocked.player(1).units[0].shield = 8
 	initial = _snapshot(blocked)
@@ -168,15 +181,24 @@ func _verify_native_lifecycle() -> void:
 		for unit in p.units: unit.level = 3
 	battle.gs.player(0).energy = 9
 	battle.gs.player(0).hand = [{"instanceId": "native-fire", "definitionId": "c12404"}]
+	var defender: Dictionary = battle.gs.player(1).units[0]
+	defender.hp = 3
+	defender.front = 1
 	battle._last_view = {}
 	battle._refresh()
 	await create_timer(0.12).timeout
+	var target := battle._unit_widget(str(defender.uid))
+	var starting_rect := target.get_global_rect()
 	_click(battle._hand_row.get_child(0))
-	_click(battle._unit_widget(str(battle.gs.player(1).units[0].uid)))
+	_click(target)
+	_check(int(defender.hp) == 0 and target.presented_vitals.get("hp", -1) == 3, "lethal spell keeps the front portrait alive until the visible hit")
+	await process_frame
+	_check((target.get_global_rect().position + target.visual_offset).distance_to(starting_rect.position) < 6.0, "lethal target stays in its old front position during projectile travel")
 	await create_timer(0.32).timeout
 	var effects := _effects(battle)
 	_check(battle.gs.command_log.size() == 1 and effects.any(func(f): return f.family == "fire"), "viewport card and target clicks start a real fire spell")
 	_check(battle._input_locked() and effects.all(func(f): return f.mouse_filter == Control.MOUSE_FILTER_IGNORE), "spell effects preserve the presentation lock and never intercept pointers")
+	_check(target.presented_vitals.is_empty(), "at impact, the portrait switches to the actual knockout state")
 	var ref: WeakRef = weakref(battle.gs)
 	battle.setup(["ember", "basalt", "lumen", "rime"], ["storm", "kongo", "frostblade", "ink"], 80613)
 	battle._ai_thinking = true

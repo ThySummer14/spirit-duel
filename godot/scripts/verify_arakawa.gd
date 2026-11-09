@@ -50,7 +50,9 @@ func rules() -> void:
 	play(gs,"c27101");check(gs.hand_card_def(0,h).value==4,"one other card no enhance")
 	play(gs,"c27101");check(gs.hand_card_def(0,h).value==6,"two other cards fixed+2")
 	e.units[1].hp=20;e.units[1].maxHp=20
-	check(gs.play_card(0,h,e.units[1].uid) and e.units[1].hp==14,"actual enhanced selected damage6")
+	e.units[1].level=0
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs,1,0,"torrent-decoy","普通召唤物",0,9,{"countsAsShikigami":false})
+	check(not gs.can_play_card(0,h,decoy.uid).ok and gs.play_card(0,h,e.units[1].uid) and e.units[1].hp==14,"怒涛排除普通召唤物并对零勾式神结算增强伤害")
 	gs=game();e=gs.player(1);u=gs.player(0).units[0]
 	e.units[0].attack=20
 	play(gs,"c27105");play(gs,"c27101")

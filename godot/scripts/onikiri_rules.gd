@@ -131,7 +131,7 @@ static func _response(gs, cut: Dictionary, launch: Dictionary) -> bool:
 		if int(p.energy)<int(payment.cost):continue
 		gs._set_fire(owner,int(p.energy)-int(payment.cost),true)
 		gs.VerifiedRules.Moon.consume_card(gs,card)
-		if payment.usesInstant:gs.kw_usage(owner,"instant").used=true
+		if payment.usesInstant:gs.consume_instant(owner)
 		p.hand.remove_at(idx);p.cardsPlayedThisTurn=int(p.cardsPlayedThisTurn)+1
 		card=card.duplicate(true);card.onikiriCutId=int(cut.cutId)
 		gs._push_card_frames(owner,id,null,card,src,gs.MAX_RESPONSE_DEPTH,false)

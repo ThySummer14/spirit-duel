@@ -22,7 +22,7 @@ static func draw_owned(gs, owner: int, target: Dictionary) -> void:
 	var p: Dictionary = gs.player(owner)
 	var indices: Array = []
 	for i in p.deck.size():
-		if ContentLoader.card_def(str(p.deck[i].definitionId)).get("unitId") == target.id: indices.append(i)
+		if target.id in ContentLoader.card_unit_ids(ContentLoader.card_def(str(p.deck[i].definitionId))): indices.append(i)
 	if indices.is_empty(): return
 	var index := int(indices[int(floor(gs.randf01() * indices.size()))])
 	var inst: Dictionary = p.deck.pop_at(index)
@@ -66,6 +66,13 @@ static func upgraded(gs, owner: int, idx: int, was_alive: bool = true) -> void:
 	gs.VerifiedRules.IronMouse.upgraded(gs, owner, idx)
 	gs.VerifiedRules.Yitiao.upgraded(gs, owner, idx)
 	gs.VerifiedRules.Crocodile.upgraded(gs,owner,idx)
+	gs.VerifiedRules.Chen.upgraded(gs, owner, idx)
+	gs.VerifiedRules.LineageScroll.upgraded(gs, owner, idx)
+	gs.VerifiedRules.FactionArt.upgraded(gs, owner, idx)
+	gs.VerifiedRules.DragonFlow.upgraded(gs, owner, idx)
+	gs.VerifiedRules.NineTails.upgraded(gs, owner, idx)
+	gs.VerifiedRules.DragonAbyss.Curse.leveled(gs, owner, idx)
+	gs.VerifiedRules.Wave7Reworks.upgraded(gs, owner, idx)
 	for src in gs.player(owner).units.size():
 		var source: Dictionary = gs.player(owner).units[src]
 		if not active(source): continue
@@ -99,7 +106,7 @@ static func describe_card(gs, owner: int, inst: Dictionary, card: Dictionary) ->
 static func restricted_type(card: Dictionary) -> bool:
 	# Some native awakenings are spell cards; their rule action carries the
 	# awakening identity even when the printed type remains 法术牌.
-	return card.get("type") in ["realm", "form", "awakening"] or card.get("effects", []).any(func(e): return "awaken" in str(e.get("action", "")).split("-"))
+	return card.get("awakeningCard", false) or card.get("type") in ["realm", "form", "awakening"] or card.get("effects", []).any(func(e): return "awaken" in str(e.get("action", "")).split("-"))
 
 static func card_blocked(gs, unit: Dictionary, card: Dictionary) -> bool:
 	return int(unit.get("blessingRestrictedTurn", -1)) == gs.turn_counter and restricted_type(card)

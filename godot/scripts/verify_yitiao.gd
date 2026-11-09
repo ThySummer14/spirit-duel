@@ -41,6 +41,14 @@ func upgrade_gifts() -> void:
 	for i in int(gs.rules.maxHandSize): give(gs,"c11902")
 	Yitiao.upgraded(gs,0,0)
 	check(p.hand.size() == int(gs.rules.maxHandSize) and events(gs,"yitiao-training-created").back().burned,"fullhandburnsgeneratedcardwithoutoverflow")
+	gs = game()
+	p = gs.player(0)
+	u = p.units[0]
+	u.level = 1
+	gs.VerifiedRules.Fortune.transform(gs, 0, 0, false)
+	gs.raise_unit_level(0, 0)
+	gs._resolve_resolution_stack()
+	check(u.level == 2 and p.hand.is_empty(), "一条在纸人变形时正常升级，但基础能力不产生勤勉修行")
 func persistent_skill() -> void:
 	var gs := game(); var p: Dictionary = gs.player(0); var foe: Dictionary = gs.player(1); var u: Dictionary = p.units[0]
 	var face: int = foe.avatarHp; play(gs,Yitiao.TRAINING)

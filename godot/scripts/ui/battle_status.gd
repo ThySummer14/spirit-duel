@@ -5,11 +5,16 @@ const ContentLoader := preload("res://scripts/content_loader.gd")
 const Combat := preload("res://scripts/combat_keyword_rules.gd")
 const Glossary := preload("res://scripts/ui/keyword_glossary.gd")
 const Countdown := preload("res://scripts/countdown_rules.gd")
+const Hanafuda := preload("res://scripts/hanafuda_rules.gd")
 
 static func unit_view(gs, owner: int, idx: int, viewer: int) -> Dictionary:
 	var view: Dictionary = gs.VerifiedRules.Bailang.unit_view(gs, owner, idx, viewer)
+	view.hfBloodCombatLifeSteal = owner == gs.current_player and Hanafuda.shared(view)
+	if int(view.get("coopFirstSnowSwift", -1)) == gs.turn_counter: view.swift = true
+	view.coopFirstFlameDetails = gs.VerifiedRules.CoopFirst.flame_details(view)
 	view.fortuneSixes = gs.VerifiedRules.Fortune.sixes(gs, owner)
 	view.fortuneDistinct = gs.player(owner).get("fortuneNumbers", []).size()
+	view.coopMiddleZero = gs.VerifiedRules.CoopMiddle.zero_power(gs, owner, view)
 	if view.get("baseRulesSuppressed", false) and not gs.VerifiedRules.Susanoo.tomb(view):
 		view.presentationId = "zhiren"
 		view.art = ContentLoader.unit_def("zhiren").art
@@ -24,9 +29,15 @@ static func unit_view(gs, owner: int, idx: int, viewer: int) -> Dictionary:
 	view.riverRollTotal = gs.VerifiedRules.River.total(gs, owner)
 	view.riverDieBonus = gs.VerifiedRules.River.die_bonus(gs, owner)
 	view.nightRealmPower = gs.VerifiedRules.Night.power(gs, view)
+	if view.id == "xuan":
+		var p: Dictionary = gs.player(owner)
+		view.xuanSpecialized = p.get("xuanSpecialized", []).size()
+		view.xuanChildCount = int(p.get("xuanChildCount", 0)) if int(p.get("xuanChildTurn", -1)) == gs.turn_counter else 0
+		view.xuanDoubleCount = int(p.get("xuanDoubleCount", 0)) if int(p.get("xuanDoubleTurn", -1)) == gs.turn_counter else 0
+		view.xuanEchoCount = p.get("xuanEchoes", []).size()
 	view.oniFirstCard=ContentLoader.card_def(str(gs.player(owner).get("oniFirstDrawCard",""))).get("name","") if int(gs.player(owner).get("oniFirstDrawTurn",-1))==gs.turn_counter else ""
 	if gs.VerifiedRules.Glutton.has(view,"swift"): view.swift=true
-	if gs.VerifiedRules.Rebirth.swift(view): view.swift=true
+	if gs.VerifiedRules.Rebirth.swift(view) or gs.VerifiedRules.ShenqiHuang.swift(gs, view): view.swift=true
 	if gs.VerifiedRules.Yitiao.swift(view): view.swift=true
 	view.incarnationConfig=gs.VerifiedRules.Incarnation.config(view,gs,owner)
 	view.ignoresStun=gs.VerifiedRules.Raccoon.ignores(gs,owner,view)
@@ -35,7 +46,7 @@ static func unit_view(gs, owner: int, idx: int, viewer: int) -> Dictionary:
 	view.lotusPowerPenalty=gs.VerifiedRules.FoxLotus.penalty(gs,view)
 	view.mapleNightValue=gs.VerifiedRules.Maple.night_value(gs,owner)
 	view.mapleDamageBonus=gs.VerifiedRules.Maple.damage_bonus(gs,owner,idx,false)
-	if gs.VerifiedRules.Samurai.ghost(view): view.attack=gs.VerifiedRules.Samurai.power(view)
+	if gs.VerifiedRules.Samurai.ghost(view) or view.has("waveIbarakiGhost"): view.attack = gs.VerifiedRules.Samurai.power(view)
 	if gs.VerifiedRules.Samurai.swift(view): view.swift=true
 	view.asuraReplacementReady=int(view.get("asuraTransferTurn",-1))!=gs.turn_counter
 	view.foxImmunityReady=int(view.get("foxImmuneTurn",-1))!=gs.turn_counter
@@ -54,6 +65,8 @@ static func unit_view(gs, owner: int, idx: int, viewer: int) -> Dictionary:
 	view.koiFragranceMarks=gs.VerifiedRules.KoiFragrance.unit_marks(gs,owner,idx)
 	view.yujMarks=gs.VerifiedRules.Yujiazhu.marks(gs,owner,idx)
 	view.wlMarks=gs.VerifiedRules.WisdomLamp.marks(gs,owner,view)
+	view.lyMarks=gs.VerifiedRules.Langya.marks(gs,owner,view)
+	view.ghMarks = gs.VerifiedRules.Guishihei.marks(view)
 	view.hairMarks=gs.VerifiedRules.HairPower.marks(view)
 	view.fearWingMarks=gs.VerifiedRules.FearWing.marks(view)
 	view.mfMarks=gs.VerifiedRules.MusicFire.marks(gs,owner,view)
@@ -62,6 +75,7 @@ static func unit_view(gs, owner: int, idx: int, viewer: int) -> Dictionary:
 	view.scMarks=gs.VerifiedRules.SugarCat.marks(gs,owner,view)
 	view.rtMarks=gs.VerifiedRules.RabbitTide.marks(gs,owner,view)
 	view.sgMarks=gs.VerifiedRules.SerpentGhost.marks(gs,owner,view)
+	view.sgMarks.append_array(gs.VerifiedRules.Coffin.marks(view))
 	view.arkMarks=gs.VerifiedRules.Arakawa.marks(gs,owner,view)
 	view.rwMarks=gs.VerifiedRules.RednightWalnut.marks(gs,owner,view)
 	view.apeSleeveMarks=gs.VerifiedRules.ApeSleeve.marks(gs,owner,view)
@@ -79,6 +93,7 @@ static func unit_view(gs, owner: int, idx: int, viewer: int) -> Dictionary:
 	if gs.VerifiedRules.Mianqiling.unyielding(view):view.unyielding=true
 	view.twoFacesMarks=gs.VerifiedRules.TwoFaces.marks(gs,owner,idx)
 	view.lanternMarks=gs.VerifiedRules.Lantern.marks(gs,owner,idx)
+	view.dragonAbyssMarks = gs.VerifiedRules.DragonAbyss.marks(gs, owner, view)
 	view.seaSpiritMarks=gs.VerifiedRules.SeaButterfly.unit_marks(gs,owner,idx)
 	view.toxicMarks=gs.VerifiedRules.Toxic.unit_marks(gs,owner,idx)+gs.VerifiedRules.SilkNinja.marks(gs,owner,idx)
 	view.susanooMarks=gs.VerifiedRules.Susanoo.unit_marks(gs,owner,idx)
@@ -125,9 +140,13 @@ static func card_view(gs, owner: int, card: Dictionary) -> Dictionary:
 static func payment_text(card: Dictionary) -> String:
 	var p: Dictionary = card.get("payment", {})
 	if p.is_empty(): return ""
+	if p.get("hfChain", false): return "连锁 · 本次免鬼火"
 	if p.get("lilyDeckFree", false): return "彼岸归航 · 1勾牌库顶免鬼火" + (" · 瞬发发动" if p.usesInstant else "")
+	if int(p.get("treasureDiscount", 0)) > 0: return "财宝减免 · 本次 %d 鬼火" % int(p.cost)
 	if p.get("coinFirstFree", false): return "觉醒·铁鼠 · 首枚钱币免鬼火（不占用瞬发）"
-	if p.usesInstant: return "%s · 本次 %d 鬼火（全队每回合一次）" % ["瞬发发动" if p.get("applied", false) else "瞬发可用", int(p.cost)]
+	if p.usesInstant:
+		var allowance := "一次" if int(p.get("instantLimit", 1)) == 1 else "两次"
+		return "%s · 本次 %d 鬼火（全队每回合%s）" % ["瞬发发动" if p.get("applied", false) else "瞬发可用", int(p.cost), allowance]
 	if p.get("usesSwift",false):return "疾速 · 本次消耗%s，%d鬼火"%["坚守次数" if p.get("usesGuard",false) else "出击次数",int(p.cost)]
 	if p.instant:
 		var why := "本回合已用" if p.instantUsed else "当前阶段不可用"
@@ -141,12 +160,49 @@ static func unit_marks(unit: Dictionary, turn: int = -1) -> Array:
 	var result: Array = []
 	var alive := int(unit.get("hp", 1)) > 0 and int(unit.get("knockout", 0)) == 0
 	var active := alive and int(unit.get("level", 1)) > 0
+	var flames: Array = unit.get("coopFirstFlames", [])
+	if not flames.is_empty():
+		var detail := "每种豪焰使使用的战斗牌额外+1力量/+1护甲。击杀式神后，%s。气绝时保留。" % str(unit.get("coopFirstFlameDetails", "触发已习得的豪焰"))
+		result.append(mark("coop-flames", "豪焰 %d/4" % flames.size(), detail, "e89072", flames.size()))
+	if active and int(unit.get("shenqiMeteors", 0)) > 0:
+		var count := int(unit.shenqiMeteors)
+		var critical := turn >= 0 and int(unit.get("shenqiCritTurn", -1)) == turn
+		var suffix := " · 本回合暴击" if critical else ""
+		var description := "攻击时投射%d点伤害。气绝时清空。%s" % [count, "本回合投射具有暴击。" if critical else ""]
+		result.append(mark("shenqi-meteor", "陨星 ×%d%s" % [count, suffix], description, "ad91d3", count))
+	if active and unit.has("hfWills"): result.append(mark("hanafuda-will", "遗愿 ×%d" % unit.hfWills.size(), "在战斗区气绝时发动。", "ae96d0"))
+	if active and int(unit.get("hfEntryPower", 0)) > 0: result.append(mark("hanafuda-entry", "入阵 · %d战力" % int(unit.hfEntryPower), "进入战斗区时获得战力。", "90c8b8"))
+	if active and unit.get("formRules", {}).get("hfBloodShared", false): result.append(mark("hanafuda-life", "共享生命", "吸血姬·曦忆与己方牌手共享生命值。", "d68c84"))
+	if int(unit.get("xuanSpecialized", 0)) > 0: result.append(mark("xuan-specialized", "专精 %d/7" % unit.xuanSpecialized, "本局游戏已专精的极星数量。", "93a8dd"))
+	if int(unit.get("xuanChildCount", 0)) > 0: result.append(mark("xuan-child", "星之子 ×%d" % unit.xuanChildCount, "本回合使用极星牌后，璇发起远程攻击。", "b3c6f0"))
+	if int(unit.get("xuanDoubleCount", 0)) > 0: result.append(mark("xuan-double", "群星启曜 ×%d" % unit.xuanDoubleCount, "本回合极星牌额外生效。", "dcc396"))
+	if int(unit.get("xuanEchoCount", 0)) > 0: result.append(mark("xuan-echo", "星续璇光 ×%d" % unit.xuanEchoCount, "己方回合开始打出已选定的极星牌。", "ad99c9"))
+	if alive and unit.get("dragonWet",false): result.append(mark("dragon-wet", "龙息之力·坤", "当前结附坤。无破甲的受伤者获得等量破甲。", "80b1db"))
+	if alive and unit.get("dragonDry",false): result.append(mark("dragon-dry", "龙息之力·乾", "当前结附乾。无破甲的受伤者获得等量破甲。", "ca9755"))
+	if alive and unit.get("cosmosBlessing",false): result.append(mark("cosmos-blessing", "庇佑", "抵消一次敌方法术伤害或敌方结附灵咒。", "a1cbdd"))
+	if alive and unit.has("flowIce"): result.append(mark("flow-ice", "冰冻 · 霁雪流", "再次受到封阳君伤害时，移除此灵咒并眩晕。", "a9d8ec"))
+	if alive and int(unit.get("misfortune",0)) > 0:
+		result.append(mark("misfortune", "不幸 %d" % int(unit.misfortune), "攻击时运势4。失败时攻击错误的敌方角色。", "ce90b2", int(unit.misfortune)))
+	if int(unit.get("grudge", 0)) > 0:
+		result.append(mark("grudge", "怨恨 %d/4" % int(unit.grudge), "气绝时保留。达到四层时获得「予愿必还」，并移除四层。", "c78eb2", int(unit.grudge)))
+	if int(unit.get("nineTails",0)) > 0:
+		result.append(mark("nine-tails", "九尾之力 %d/9" % int(unit.nineTails), "层数提高会解锁新的九尾效果。", "dda186", int(unit.nineTails)))
+	if int(unit.get("ninePending",0)) > 0:
+		result.append(mark("nine-tails-pending", "复活后结附九尾之力 ×%d" % int(unit.ninePending), "气绝时获得的层数将在复活后结附。", "dda186", int(unit.ninePending)))
+	if unit.get("forestSpirit", false): result.append(mark("forest-spirit", "森之灵 · 能量%d" % int(unit.charge), "可以使用爆能与赐能牌。无法攻击或防守。", "72ad83"))
+	if int(unit.get("foxFlameBlue", 0)) > 0: result.append(mark("fox-flame-blue", "狐焰·青 ×%d" % int(unit.foxFlameBlue), "对敌方式神造成的伤害-1，实际造成伤害后移除一层。", "72b5e4"))
+	if int(unit.get("foxFlameRed", 0)) > 0: result.append(mark("fox-flame-red", "狐焰·赤 ×%d" % int(unit.foxFlameRed), "对敌方式神伤害-1，来自敌方式神的伤害+1；任一实际伤害后移除一层。", "ee8868"))
+	if not unit.get("starsAmbush", []).is_empty(): result.append(mark("stars-ambush", "突袭", "下次出击若目标是敌方式神，触发突袭效果。", "e9c082"))
+	if alive and unit.get("waterLumen", false): result.append(mark("water-lumen", "流明", "鬼火为0时，专属牌获得瞬发。使用后移除。", "91bad7"))
+	if alive and unit.get("waterReturnLight", false): result.append(mark("water-return-light", "溯光", "专属牌获得瞬发。使用后移除。", "91bad7"))
 	if alive and unit.get("starDiscordLocked",false): result.append(mark("star-discord", "离间之音 · 不能用手牌", "敌方离间之音在场时，激怒式神不能使用手牌；仍可合法出击。", "b89be4"))
 	if alive and int(unit.get("starBowlSerial",0))>0 and int(unit.get("frozen",0))>0: result.append(mark("star-bowl", "敌在酒碗处 · 承担全场伤害", "眩晕持续期间，所有其他角色受到的伤害由该式神承担；护甲及破甲在实际受伤者结算。", "b89be4"))
 	if alive and unit.has("starTargetTurn"): result.append(mark("star-focus", "众矢之的 · 本回合出击目标", "本回合对方普通出击转向此式神；临时数值随回合结束移除。", "b89be4"))
 	for detail in unit.get("koiFragranceMarks",[]): result.append(mark("koi-fragrance-rule",str(detail),str(detail),"90c8b8"))
 	for detail in unit.get("yujMarks",[]):result.append(mark("yuj-rule",str(detail),str(detail),"c5b373"))
 	for detail in unit.get("wlMarks",[]):result.append(mark("wisdom-lamp",str(detail),str(detail),"e4cc88"))
+	for detail in unit.get("lyMarks",[]):result.append(mark("langyazi",str(detail),str(detail),"b090d0"))
+	for detail in unit.get("ghMarks", []): result.append(mark("guishihei", str(detail), str(detail), "d68c84"))
 	for detail in unit.get("hairMarks",[]):result.append(mark("battle-power",str(detail),str(detail),"8ec9db"))
 	for detail in unit.get("fearWingMarks",[]):result.append(mark("fear-wing",str(detail),str(detail),"ae74bb"))
 	for detail in unit.get("mfMarks",[]):result.append(mark("music-fire",str(detail),str(detail),"e49871"))
@@ -171,6 +227,7 @@ static func unit_marks(unit: Dictionary, turn: int = -1) -> Array:
 	for detail in unit.get("mianMarks",[]):result.append(mark("faction-rule",str(detail),str(detail),"8eb9d1"))
 	for detail in unit.get("twoFacesMarks",[]):result.append(mark("two-faces-rule",str(detail),str(detail),"d8bb80"))
 	for detail in unit.get("lanternMarks",[]):result.append(mark("lantern-rule",str(detail),str(detail),"e2ad70"))
+	for detail in unit.get("dragonAbyssMarks", []): result.append(mark("dragon-abyss-rule", str(detail), str(detail), "c7a8d5"))
 	for detail in unit.get("seaSpiritMarks",[]): result.append(mark("sea-spirit",str(detail),str(detail),"80cfce"))
 	for detail in unit.get("toxicMarks",[]): result.append(mark("toxic-rule",str(detail),str(detail),"b1ca70"))
 	for detail in unit.get("susanooMarks",[]): result.append(mark("susanoo-rule",str(detail),str(detail),"e5d080"))
@@ -180,6 +237,10 @@ static func unit_marks(unit: Dictionary, turn: int = -1) -> Array:
 	for detail in unit.get("jorogumoMarks",[]): result.append(mark("spider-rule",str(detail),str(detail),"d080c0"))
 	for detail in unit.get("yitiaoMarks",[]): result.append(mark("yitiao-rule",str(detail),str(detail),"d0b880"))
 	for detail in unit.get("battleSkillMarks",[]): result.append(mark("battle-skill",str(detail),str(detail),"d5a3cf"))
+	if unit.get("paperFall", false):
+		var bonus := preload("res://scripts/paper_dance_rules.gd").power(unit)
+		result.append(mark("paper-fall", "落纸 +%d力量" % bonus, "己方三种灵咒同时结附时，落纸提供3力量。", "d8adbc"))
+	if unit.has("twinZeroTurn"): result.append(mark("twin-sight-zero", "猫灵铃·迴", "本回合力量为0。", "b2a4d8"))
 	for detail in unit.get("cottonMarks",[]): result.append(mark("cotton-rule",str(detail),str(detail),"8ba9d8"))
 	for detail in unit.get("spiderLilyMarks",[]): result.append(mark("spider-lily-rule",str(detail),str(detail),"c46e85"))
 	for detail in unit.get("threeTailMarks",[]): result.append(mark("threeTail-rule",str(detail),str(detail),"bfa0b0"))
@@ -199,11 +260,19 @@ static func unit_marks(unit: Dictionary, turn: int = -1) -> Array:
 	for detail in unit.get("pineMarks",[]): result.append(mark("pine-rule",str(detail),str(detail),"c09040"))
 	if active and ContentLoader.runtime_unit_def(unit).get("paintBasic",false): result.append(mark("paint-field", "画境耐久%d" % int(unit.get("paintDurability",0)), "召唤画境时融合现有画境并继承耐久；相关法术会移除画境兑现效果。", "d4a0b8"))
 	if alive and unit.get("paintSummon",false): result.append(mark("paint-scroll", "丹青绘卷 · 回合开始自毁", "己方回合开始按当前生命召唤画境；离开战斗区移除。", "d4a0b8"))
-	if unit.get("samuraiGhost",false) and not unit.get("baseRulesSuppressed",false): result.append(mark("samurai-ghost", "幽魂 · 直击 · 不能阻挡", "仍处于气绝，生命为0；可以出击并使用专属牌，正常计时复活后恢复肉身。", "bdacd8"))
+	if unit.has("waveIbarakiGhost"):
+		result.append(mark("wave-ibaraki-ghost", "鬼蚀", "仅可使用起源牌，无法阻挡攻击。力量随鬼蚀之手变化。", "c7a8d5"))
+	if unit.get("samuraiGhost",false) and not unit.get("baseRulesSuppressed",false):
+		if unit.id == "wushi-maoshi": result.append(mark("samurai-ghost", "武魂 · 不能普通出击或阻挡", "仅能使用启悟区的牌和气绝时可用的牌。", "bdacd8"))
+		else: result.append(mark("samurai-ghost", "幽魂 · 直击 · 不能阻挡", "仍处于气绝，生命为0；可以出击并使用专属牌，正常计时复活后恢复肉身。", "bdacd8"))
 	if unit.get("samuraiCannotRevive",false): result.append(mark("samurai-no-revive", "不能复活 · 永久迅捷", "觉醒后任何复活方式均无效；每回合普通出击不消耗鬼火，仍占出击次数。", "bdacd8"))
 	if active and ContentLoader.runtime_unit_def(unit).get("mapleNight",false): result.append(mark("maple-night", "入夜%d/10" % int(unit.get("mapleNightValue",0)), "入夜条件未满足时获得1点入夜；获得入夜触发红叶投射，最多10点。", "d48b7c"))
 	if active and int(unit.get("mapleDamageBonus",0))>0: result.append(mark("maple-dance", "非战斗伤害+%d" % int(unit.mapleDamageBonus), "跹舞之姿按当前每5点入夜增强红叶造成的非战斗伤害。", "d48b7c"))
 	if alive and not unit.get("mapleDoll",{}).is_empty(): result.append(mark("maple-doll", "红枫娃娃 · 回合结束触发", "所属回合结束移除此灵咒并受2伤；来源方入夜10时对其他敌方角色各2伤，否则获得1入夜。", "d48b7c"))
+	if alive and unit.get("coopMiddleSunny", false): result.append(mark("coop-sunny-doll", "晴天娃娃 · " + ("本回合已触发" if turn >= 0 and int(unit.get("coopMiddleSunnyTurn", -1)) == turn else "可获得2能量"), "结附式神攻击或使用卡牌时获得2能量。每回合一次，不能叠加。", "f0c479"))
+	if alive and turn >= 0 and int(unit.get("coopMiddleImmuneTurn", -1)) == turn: result.append(mark("coop-sunny-immunity", "煦日 · 免疫战斗伤害", "持续至当前回合结束。", "f0c479"))
+	if turn >= 0 and int(unit.get("coopMiddleLightTurn", -1)) == turn: result.append(mark("coop-rekindle", "烛火重燃 · 非战斗伤害+1", "该式神造成的非战斗伤害增加1点，持续至当前回合结束。", "eaa179"))
+	if alive and unit.get("coopMiddleZero", false): result.append(mark("coop-fortune-zero", "幸运兔兔 · 力量为0", "持续至该式神所在方的回合结束。", "f0c479"))
 	if active and ContentLoader.runtime_unit_def(unit).get("mapleNight",false) and unit.awakened: result.append(mark("maple-awaken-end", "觉醒入夜10 · "+("已触发" if unit.get("mapleAwakenUsed",false) else "尚未触发"), "己方回合结束时入夜10：投射10伤害，本局仅生效一次。", "d48b7c"))
 	if alive and not unit.get("owlGuard",{}).is_empty(): result.append(mark("owl-guard", "鸮之守护 · 伤害-1", "护甲和暴击后每次减伤1；普通守护唯一，祈愿之翼后全体结附但不叠加。", "a3b7e8"))
 	if alive and unit.get("owlUnyielding",false): result.append(mark("owl-guard", "鸮之庇佑 · 不屈", "本次守护与形态组合提供一次不屈，生效后消耗。", "a3b7e8"))
@@ -285,7 +354,8 @@ static func unit_marks(unit: Dictionary, turn: int = -1) -> Array:
 		if unit.get("bloodTransfer", false): result.append(mark("blood-transfer", "血蝠之盾 · 下次伤害转移", "先结算本式神护甲与破甲，再由本方牌手承受剩余伤害；不等于不屈。", "e892a8"))
 		if int(unit.get("whaleGiftTurn", -1)) == turn and turn >= 0: result.append(mark("armor-power", "白骨之盾 · 本回合有甲+1力量", "临时获得基础能力；护甲的自然过期时间独立计算。", "81c8d6"))
 		if unit.get("bloodEmbrace", []).any(func(e): return int(e.turn) == turn): result.append(mark("blood-embrace", "初拥 · 本回合战斗伤害恢复牌手", "每段战斗伤害分别按伤害量恢复施放初拥的牌手；不提供固定回血。", "e892a8"))
-		if Combat.has(unit, "lifesteal"): result.append(mark("lifesteal", "吸血", Glossary.detail("lifesteal"), "e892a8"))
+		if Combat.has(unit, "lifesteal") or unit.get("hfBloodCombatLifeSteal", false): result.append(mark("lifesteal", "吸血", Glossary.detail("lifesteal"), "e892a8"))
+		if Hanafuda.shared(unit): result.append(mark("blood-shared", "二重禁忌 · 共享生命", "与己方牌手共用生命值。吸血姬·曦忆的法术具有吸血。", "e892a8"))
 		if unit.get("formRules", {}).get("bloodSpellLifeSteal", false): result.append(mark("spell-power", "猩红之月 · 己方法术吸血", "包括其他己方式神的法术；能力伤害不因此获得吸血。", "e892a8"))
 		if definition.get("tomatoFireRole") == "sister" and not unit.get("awakened", false): result.append(mark("extra-fire", "出击／战斗牌额外1鬼火", "费用已计入合法性与实际支付；气绝复活牌也需要额外1鬼火。", "e06040"))
 		if unit.has("tomatoSplash"): result.append(mark("tomato-splash", "番茄 · 永久力量+%d · 出击叠加%d" % [int(unit.get("tomatoPower", 0)), int(unit.tomatoSplash)], "每次攻击造成伤害，向另一个随机敌方角色造成3伤；每层分别结算。", "e06040"))
@@ -300,8 +370,9 @@ static func unit_marks(unit: Dictionary, turn: int = -1) -> Array:
 		if definition.get("snowCombat", false): result.append(mark("snow-immune", "冰雪免伤 · 攻击眩晕目标并先击一次" if unit.get("awakened", false) else "冰雪免伤 · 与眩晕单位交战", "仅符合条件时免疫战斗伤害；不免疫法术与直接消灭。", "91cfe8"))
 		var cap := int(unit.get("formRules", {}).get("damageCap", 0))
 		if cap > 0: result.append(mark("snow-cap", "雪融 · 每次至多受%d伤害" % cap, "护甲抵消后限制本次伤害；各段伤害分别结算。", "91cfe8", cap))
-		if definition.get("craneRetreat", false) and not unit.get("awakened", false): result.append(mark("crane-retreat", "攻击后退回准备区", "仍进入战斗区并承受正常反击；觉醒后由远程取代此能力。", "c6d7a0"))
-		if int(unit.get("cranePower", 0)) > 0: result.append(mark("crane-power", "影翼成长 +%d力量" % int(unit.cranePower), "每次攻击前成长；气绝后清除。", "c6d7a0", int(unit.cranePower)))
+		if unit.get("coopFirstCrane", false): result.append(mark("crane-retreat", "鹤唳回风 · 攻击后退回", "攻击后移回准备区、获得1点力量并恢复全部生命。", "c6d7a0"))
+		elif definition.get("craneRetreat", false) and not unit.get("awakened", false): result.append(mark("crane-retreat", "攻击后退回准备区", "仍进入战斗区并承受正常反击；觉醒后由远程取代此能力。", "c6d7a0"))
+		if int(unit.get("cranePower", 0)) > 0: result.append(mark("crane-power", "姑获鸟成长 +%d力量" % int(unit.cranePower), "攻击相关能力获得的力量，气绝后清除。", "c6d7a0", int(unit.cranePower)))
 		if int(unit.get("judgeInkAttack", 0)) > 0:
 			result.append(mark("judge-ink", "墨笔 · 力量 -%d / 生命 -%d" % [int(unit.judgeInkAttack), int(unit.judgeInkHp)], "减益随式神气绝移除，切换形态不会清除。", "bdacd8"))
 		if unit.get("formRules", {}).get("enemyKnockoutExtra", 0) > 0:
@@ -331,17 +402,19 @@ static func unit_marks(unit: Dictionary, turn: int = -1) -> Array:
 		if unit.get("stunInstant",false): result.append(mark("stun-instant", "饮啖醉饱 · 专属牌获得瞬发", "共享每个玩家回合一次瞬发额度；未眩晕的式神不获得该效果。", "b39ce6"))
 		if unit.has("movementHolders"): result.append(mark("crow-stun-hold", "英雄无畏 · 保持眩晕", "直到施放此牌的鸦天狗使用牌、攻击或气绝；其他眩晕独立保留。", "b39ce6"))
 		if unit.get("barrier", false): result.append(mark("barrier", "屏障 · 抵挡下一次伤害", "抵挡一次伤害后消失，与护甲和破甲分别结算。", "76d9cf"))
-		if unit.get("swift", false) or buff.get("swift", false) or (definition.get("yaodaoFlurry", false) and unit.get("awakened", false)):
-			var permanent: bool = (definition.get("yaodaoFlurry", false) and unit.get("awakened", false)) or unit.get("catPermanentSwift",false) or (definition.get("yitiaoRules",false) and unit.get("awakened",false))
+		var yaodao_swift: bool = definition.get("yaodaoFlurry", false) and unit.get("awakened", false) and not unit.get("coopFirstBlade", false)
+		if unit.get("swift", false) or (turn >= 0 and int(unit.get("dragonSwiftTurn",-1)) == turn) or buff.get("swift", false) or yaodao_swift:
+			var permanent: bool = yaodao_swift or unit.get("catPermanentSwift",false) or (definition.get("yitiaoRules",false) and unit.get("awakened",false))
 			result.append(mark("swift", "永久迅捷 · 每回合出击免鬼火" if permanent else "迅捷 · 下次普通出击不消耗鬼火", "不增加全队普通出击次数；战斗牌不消耗迅捷。", "a4df9a"))
 		if Combat.has(unit, "inspired"): result.append(mark("inspired", "昂扬 · 下次普通出击不消耗次数", "鬼火仍正常支付；战斗牌和自动攻击不消耗这次昂扬。", "ffda70"))
-		if unit.get("shutenFormUnyielding", false): result.append(mark("unyielding", "不屈 · 生效后移除", "本形态抵挡一次致命伤害，生命保留为1，生效后消失。", "f0ce7b"))
-		elif unit.get("unyielding", false) or unit.get("combatUnyielding", false) or unit.get("formRules", {}).get("riverUnyielding", false) or buff.get("unyielding", false): result.append(mark("unyielding", "不屈", "致命伤害保护，具体持续方式见来源牌文。", "f0ce7b"))
+		if unit.get("shutenFormUnyielding", false) or Hanafuda.unyielding(unit): result.append(mark("unyielding", "不屈 · 生效后移除", "本形态抵挡一次致命伤害，生命保留为1，生效后消失。", "f0ce7b"))
+		elif unit.get("unyielding", false) or unit.get("dragonUnyielding",false) or unit.get("combatUnyielding", false) or unit.get("formRules", {}).get("riverUnyielding", false) or buff.get("unyielding", false): result.append(mark("unyielding", "不屈", "致命伤害保护，具体持续方式见来源牌文。", "f0ce7b"))
 		if turn >= 0 and int(unit.get("shutenHowlTurn", -1)) == turn: result.append(mark("howl", "狂啸 · 本回合生命至少为1", "本回合所有伤害均不能将生命降到1以下，回合结束消失。", "f0b871"))
 		for spec in [["armorBreak", "armor-break", "破甲", "e98d60"], ["charge", "charge", "充能", "65d0df"], ["brittle", "brittle", "晶裂", "e08aa2"]]:
 			var amount := int(unit.get(spec[0], 0))
 			if amount > 0: result.append(mark(spec[1], "%s %d" % [spec[2], amount], "%s：当前剩余 %d。" % [spec[2], amount], spec[3], amount))
 		if turn >= 0 and int(unit.get("yaodaoInstantTurn", -1)) == turn: result.append(mark("instant", "战斗牌瞬发 · 本回合", "妖刀姬的战斗牌获得瞬发，共享全队本回合额度。", "87daca"))
+		if turn >= 0 and int(unit.get("coopFirstBladeTurn", -1)) == turn: result.append(mark("instant", "刀影叠岚 · 战斗牌瞬发", "本回合妖刀姬的战斗牌额外+1力量/+1护甲，并共享瞬发额度。", "87daca"))
 		if turn >= 0 and int(unit.get("yaodaoFreeCombatTurn", -1)) == turn: result.append(mark("free", "战斗牌免鬼火 · 本回合", "妖刀姬本回合战斗牌不消耗鬼火。", "aedecb"))
 		if unit.get("formRules", {}).get("lockEnemyFrontReplacement", false) and int(unit.get("front", 0)) == 1: result.append(mark("lock", "尘缚 · 敌方不能替换战斗区式神", "兵俑位于战斗区时生效，离开战斗区后解除。", "dfbb82"))
 		if int(unit.get("flashAttackReduction", 0)) > 0 and turn >= 0 and int(unit.get("flashAppliedTurn", -1)) == turn: result.append(mark("weaken", "闪烁 · 本回合力量 -%d" % int(unit.flashAttackReduction), "本回合结束恢复这部分力量。", "c6a1d9", int(unit.flashAttackReduction)))

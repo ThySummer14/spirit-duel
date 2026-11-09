@@ -68,7 +68,7 @@ static func targets(gs, owner: int, card: Dictionary):
 	for side in ([1-owner] if card.id=="c28701" else [owner,1-owner] if card.id=="c28707" else [owner]):
 		for u in gs.player(side).units:
 			if u.get("removed",false) or not gs.VerifiedRules.OwlInsect.shikigami(u):continue
-			if int(u.hp)<=0 and not (card.id=="c28705" and not u.get("summoned",false) and gs.VerifiedRules.Rebirth.can_revive(u)):continue
+			if int(u.hp)<=0 and not (card.id=="c28705" and gs.VerifiedRules.YanmieTrio.can_revive(gs, owner, u)):continue
 			if side!=owner and gs.VerifiedRules.Combat.has(u,"veil"):continue
 			ids.append(u.uid)
 	return ids

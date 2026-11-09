@@ -24,7 +24,7 @@ static func extra_cost(gs, owner: int, card: Dictionary) -> int:
 	# The official March 27 bug fix confirms this cost on knocked-out revival.
 	return 1 if role(u) == "sister" and not u.awakened else 0
 static func basic_cost(gs, owner: int, u: Dictionary) -> int:
-	var cost := 0 if gs.VerifiedRules.Mianqiling.swift(u) or gs.VerifiedRules.Glutton.has(u,"swift") or u.get("swift", false) or gs.VerifiedRules.Yaodao.permanent_swift(u) or gs.VerifiedRules.Bailang.swift(u) or gs.VerifiedRules.IronMouse.swift(gs, u) or gs.VerifiedRules.TreeSakura.floating(u) or gs.VerifiedRules.Rebirth.swift(u) or gs.VerifiedRules.Samurai.swift(u) or gs.VerifiedRules.Yitiao.swift(u) else 1
+	var cost := 0 if gs.VerifiedRules.ShenqiHuang.swift(gs, u) or gs.VerifiedRules.Mianqiling.swift(u) or gs.VerifiedRules.Glutton.has(u,"swift") or u.get("swift", false) or int(u.get("coopFirstSnowSwift", -1)) == gs.turn_counter or int(u.get("dragonSwiftTurn",-1)) == gs.turn_counter or gs.VerifiedRules.Yaodao.permanent_swift(u) or gs.VerifiedRules.Bailang.swift(u) or gs.VerifiedRules.IronMouse.swift(gs, u) or gs.VerifiedRules.TreeSakura.floating(u) or gs.VerifiedRules.Rebirth.swift(u) or gs.VerifiedRules.Samurai.swift(u) or gs.VerifiedRules.Yitiao.swift(u) or u.get("towerPermanentSwift", false) else 1
 	return cost + (1 if role(u) == "sister" and not u.awakened else 0) + gs.VerifiedRules.Jorogumo.tax(gs,owner,u)
 static func amplify(gs, owner: int, attack: int, shield: int) -> Dictionary:
 	var n := 0
@@ -34,13 +34,15 @@ static func amplify(gs, owner: int, attack: int, shield: int) -> Dictionary:
 static func prepare_encourage(gs, owner: int) -> Dictionary:
 	var usage: Dictionary = gs.kw_usage(owner, "encourage")
 	var kw: Dictionary = usage.get("traits", {}).duplicate(true)
-	var result := {"attack": int(usage.get("attack", 0)), "shield": int(usage.get("shield", 0)), "traits": kw, "active": int(usage.get("attack", 0)) != 0 or int(usage.get("shield", 0)) != 0 or not kw.is_empty()}
+	var result := {"attack": int(usage.get("attack", 0)), "shield": int(usage.get("shield", 0)), "battlePower": int(usage.get("battlePower", 0)), "traits": kw, "active": int(usage.get("battlePower", 0)) != 0 or int(usage.get("attack", 0)) != 0 or int(usage.get("shield", 0)) != 0 or not kw.is_empty()}
 	if not form_active(gs, owner, "retainEncourage"):
 		usage.attack = 0
 		usage.shield = 0
+		usage.battlePower = 0
 		usage.traits = {}
 	return result
 static func attack_encourage(gs, owner: int, options: Dictionary) -> Dictionary:
+	if options.has("jumpEncourage"): return options.jumpEncourage
 	return gs._prepare_encourage(owner) if options.get("basicAttack", false) or options.get("rpNightRaid", false) or options.get("combatCard",{}).get("battleSkillTriggered",false) or options.get("butterflyEncourageCombat", false) or (options.has("combatCard") and form_active(gs, owner, "encourageCombat")) else {}
 static func encourage_trait(gs, owner: int, key: String, expires: bool = false) -> void:
 	# An encouragement that grants only a keyword is still amplified by awakening.
@@ -96,13 +98,7 @@ static func sync_tomatoes(gs, owner: int) -> void:
 		gs._recalc(u)
 static func summon(gs, owner: int, src: int, kind: String, after: Dictionary = {}) -> int:
 	var p: Dictionary = gs.player(owner)
-	var movement_old: Array = p.units.map(func(u): return int(u.front))
-	gs.VerifiedRules.SunSmoke.remove_departed(gs)
-	clear_summons(gs, owner)
-	gs.VerifiedRules.Xuenv.clear_wall(gs, owner)
-	for other in p.units:
-		if other.get("smokeClone", false): gs.VerifiedRules.SunSmoke.remove_clone(gs, owner, other, "战斗区被替换")
-		other.front = 0
+	gs.VerifiedRules.Weaver.leave_front(gs, owner)
 	var is_tomato := kind == "tomato"
 	var cfg: Dictionary = Content.unit_def("tiaotiaomeimei" if is_tomato else "buzhinhuo").get("summonStats", {})
 	var atk := int(cfg.get("attack", 4 if is_tomato else 2))
@@ -118,7 +114,6 @@ static func summon(gs, owner: int, src: int, kind: String, after: Dictionary = {
 	gs.VerifiedRules.House.remove_departed(gs)
 	gs.VerifiedRules.Doll.remove_departed(gs)
 	gs.VerifiedRules.Enma.refresh(gs)
-	for i in movement_old.size(): gs.VerifiedRules.Movement.moved(gs, owner, i, int(movement_old[i]))
 	var idx: int = p.units.size() - 1
 	sync_tomatoes(gs, owner)
 	gs.VerifiedRules.event(gs, "summon-created", {"player": owner, "uid": u.uid, "sourceUid": p.units[src].uid, "summonKind": kind})

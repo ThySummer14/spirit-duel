@@ -14,19 +14,21 @@ static func queue_mark(gs, owner: int, which: String, context: Dictionary={}) ->
 	gs.resolution_stack.append({"kind":"pair-mark","playerIndex":owner,"which":which,"context":context.duplicate(true)})
 static func charmed(gs, actor: int, owner: int, inst: Dictionary, which: String) -> void:
 	if which=="ward":
-		var card:=Content.card_def(str(inst.definitionId)); var idx: int=gs._source_index(owner,card)
-		if idx<0: return
-		var target: Dictionary=gs.player(owner).units[idx]
-		for u in gs.player(actor).units:
-			if role(u)!="koi" or not active(u): continue
-			if int(target.hp)<=0:
-				gs.VerifiedRules.reduce_countdown(gs,owner,idx,1,actor)
-			else:
-				gs._grow_unit(target,1,1 if u.awakened else 0)
-				if u.awakened:
-					target.koiOrdinaryGrowth=int(target.get("koiOrdinaryGrowth",0))+1
-				else: target.koiTemporaryPower=int(target.get("koiTemporaryPower",0))+1
-			gs.VerifiedRules.event(gs,"koi-charm-growth",{"player":actor,"uid":u.uid,"target":target.uid,"awakened":bool(u.awakened)})
+		var card := Content.card_def(str(inst.definitionId))
+		for unit_id in Content.card_unit_ids(card):
+			var idx: int = gs._source_index(owner, {"unitId": unit_id})
+			if idx < 0: continue
+			var target: Dictionary = gs.player(owner).units[idx]
+			for u in gs.player(actor).units:
+				if role(u) != "koi" or not active(u): continue
+				if int(target.hp) <= 0:
+					gs.VerifiedRules.reduce_countdown(gs, owner, idx, 1, actor)
+				else:
+					gs._grow_unit(target, 1, 1 if u.awakened else 0)
+					if u.awakened:
+						target.koiOrdinaryGrowth = int(target.get("koiOrdinaryGrowth", 0)) + 1
+					else: target.koiTemporaryPower = int(target.get("koiTemporaryPower", 0)) + 1
+				gs.VerifiedRules.event(gs, "koi-charm-growth", {"player": actor, "uid": u.uid, "target": target.uid, "awakened": bool(u.awakened)})
 	else:
 		for i in range(gs.player(actor).units.size()-1,-1,-1):
 			var u: Dictionary=gs.player(actor).units[i]
@@ -69,7 +71,7 @@ static func targets(gs, owner: int, card: Dictionary):
 	var ids: Array=[]
 	for side in [owner,1-owner] if card.get("target")=="any-unit" else [1-owner]:
 		for u in gs.player(side).units:
-			if int(u.hp)>0 and not u.get("removed",false) and (side==owner or not gs.VerifiedRules.Combat.has(u,"veil")): ids.append(u.uid)
+			if int(u.hp)>0 and gs.VerifiedRules.OwlInsect.shikigami(u) and (side==owner or not (gs.VerifiedRules.Combat.has(u,"veil") or gs.VerifiedRules.Movement.has_veil(u))): ids.append(u.uid)
 	return ids
 static func can_use(gs, owner: int, card: Dictionary) -> bool:
 	if not card.get("koiFragranceRules",false): return true
@@ -108,6 +110,12 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 		"pair-awaken": gs._awaken(owner,src,card,{"attack":1,"hp":1})
 		"pair-koi-realm": gs._deploy_realm(owner,card); gs.VerifiedRules.HandBlessing.start(gs,owner,"ward")
 		"pair-fragrance-realm": gs._deploy_realm(owner,card); gs.VerifiedRules.HandBlessing.start(gs,owner,"erosion")
+		"damage":
+			if card.get("id") != "c28807": return false
+			for idx in gs.player(1-owner).units.size():
+				var u: Dictionary = gs.player(1-owner).units[idx]
+				if int(u.hp) > 0 and gs.VerifiedRules.OwlInsect.shikigami(u):
+					gs._damage_unit(1-owner,idx,int(effect.value),owner,src)
 		_: return false
 	return true
 static func resolve_frame(gs, frame: Dictionary) -> bool:

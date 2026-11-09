@@ -1,6 +1,7 @@
 class_name BondDreamRules
 extends RefCounted
 const Content := preload("res://scripts/content_loader.gd")
+const BOND := "yuanjie"
 
 static func active(unit: Dictionary) -> bool:
 	return int(unit.hp) > 0 and int(unit.level) > 0 and not unit.get("baseRulesSuppressed", false)
@@ -30,7 +31,7 @@ static func attach(gs, owner: int, victim: int, count: int, key: String, src: in
 	refresh(gs)
 
 static func fetched(gs, inst: Dictionary) -> void:
-	for key in ["bondMarks", "nightmareMarks", "eyeCurses"]: inst.erase(key)
+	for key in ["bondMarks", "nightmareMarks", "eyeCurses", "sandLimitless", "sandEndless"]: inst.erase(key)
 	refresh(gs)
 
 static func body(gs, unit: Dictionary) -> int:
@@ -83,7 +84,15 @@ static func grant_moon(gs, owner: int, unit: Dictionary) -> void:
 
 static func bond(gs, owner: int, inst: Dictionary) -> void:
 	var def: Dictionary = Content.card_def(str(inst.definitionId))
-	var idx: int = gs._source_index(owner, def)
+	var targets: Array[int] = []
+	if def.get("type") == "coop":
+		for id in Content.card_unit_ids(def):
+			var idx: int = gs._source_index(owner, {"unitId": id})
+			if idx >= 0 and not gs.player(owner).units[idx].get("removed", false): targets.append(idx)
+	else:
+		var idx: int = gs._source_index(owner, def)
+		if idx >= 0: targets.append(idx)
+	var amount := int(Content.card_def(BOND).value)
 	var sources := masters(gs, owner, "bondMaster")
 	var copies := 2 if sources.any(func(u): return u.awakened) else 1
 	# 每回合一次的形态以本次抽牌为一组，觉醒复制该组效果两次。
@@ -97,25 +106,24 @@ static func bond(gs, owner: int, inst: Dictionary) -> void:
 			unit.bondRewardTurns[reward] = gs.turn_counter
 		if reward != "": triggers.append(reward)
 	for copy in copies:
-		gs.VerifiedRules.ArmorBlood.heal(gs, owner, 2)
+		gs.VerifiedRules.ArmorBlood.heal(gs, owner, amount)
 		if gs.winner >= 0: return
-		if idx >= 0:
-			gs._heal_unit(gs.player(owner).units[idx], 2)
-			gs.player(owner).units[idx].bondAffectedTurn = gs.turn_counter
-			grant_moon(gs, owner, gs.player(owner).units[idx])
+		for idx in targets:
+			var target: Dictionary = gs.player(owner).units[idx]
+			gs._heal_unit(target, amount)
+			target.bondAffectedTurn = gs.turn_counter
+			grant_moon(gs, owner, target)
 		for reward in triggers:
 			match reward:
 				"fire": gs._set_fire(owner,int(gs.player(owner).energy)+1)
 				"revive":
-					if idx >= 0:
+					for idx in targets:
 						var target: Dictionary = gs.player(owner).units[idx]
-						if int(target.hp)<=0 and gs.VerifiedRules.Rebirth.can_revive(target):
-							target.hp = int(target.maxHp); target.knockout = 0
-							gs.VerifiedRules.Movement.revived(gs, owner, idx)
+						if int(target.hp) <= 0: gs.VerifiedRules.Peach.revive(gs, owner, -1, target, false, false)
 						gs._grow_unit(target, 1, 1)
 						grant_moon(gs, owner, target)
 				"draw": gs.resolution_stack.append({"kind": "charm-extra-draw", "playerIndex": owner, "count": 1})
-	gs.VerifiedRules.event(gs, "bond-resolved", {"player": owner, "instanceId": inst.instanceId, "copies": copies, "unitIndex": idx})
+	gs.VerifiedRules.event(gs, "bond-resolved", {"player": owner, "instanceId": inst.instanceId, "copies": copies, "unitIndex": targets.front() if not targets.is_empty() else -1, "unitIndices": targets})
 
 static func nightmare_after(gs, victim: int, inst: Dictionary) -> void:
 	var owners := {}
@@ -186,7 +194,7 @@ static func describe_card(gs, owner: int, inst: Dictionary, card: Dictionary) ->
 	if pursuit:
 		out.target = "enemy-unit"
 		out.combatOption = out.get("combatOption", {}).duplicate(true); out.combatOption.pursuit = true
-	if not inst.get("bondMarks", []).is_empty(): out.text += "\n缘结×%d：抽到时恢复对应式神与牌手2生命。" % inst.bondMarks.size()
+	if not inst.get("bondMarks", []).is_empty(): out.text += "\n缘结×%d：%s" % [inst.bondMarks.size(), Content.card_def(BOND).text]
 	if not inst.get("nightmareMarks", []).is_empty(): out.text += "\n梦魇×%d：抽到时对牌手造成3点伤害。" % inst.nightmareMarks.size()
 	if card.get("dreamShock", false) and int(gs.player(owner).get("nightmareDrawTurn", -1)) == gs.turn_counter:
 		out.keywords.append("instant"); out.enhanced = true; out.combatOption.shield = 3
@@ -237,7 +245,7 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 			var idx: int = gs._unit_index_by_uid(source, frame.mark.sourceUid)
 			gs._damage_avatar(owner, 3, source, idx)
 		"charm-nightmare-after": nightmare_after(gs, owner, frame.instance)
-		"charm-extra-draw": gs._draw(owner, int(frame.count))
+		"charm-extra-draw": gs._draw(owner, int(frame.count), int(frame.get("requiredLevel", -1)), frame.get("drawContext", {}))
 		"charm-divination": gs.VerifiedRules.Divination.start(gs, owner, 1)
 		"charm-spell-dream":
 			for idx in frame.sources: attach(gs, owner, 1 - owner, 1, "nightmareMarks", int(idx))
@@ -249,7 +257,7 @@ static func resolve_frame(gs, frame: Dictionary) -> bool:
 			if gs.player(owner).hand.is_empty(): return true
 			gs.pending_choice = {"type": "mengpo-discard", "playerIndex": owner, "sourceIndex": int(frame.sourceIndex), "zone": "hand", "instanceIds": gs.player(owner).hand.map(func(i): return str(i.instanceId)), "heading": "意 外 之 喜", "hint": "已抽两张牌 · 选择一张当前手牌弃掉"}; gs.phase = "choice"
 		"charm-fortune-reset":
-			gs.player(owner).avatarHp = mini(30, int(gs.player(owner).maxAvatarHp))
+			gs.VerifiedRules.Light.set_avatar_life(gs, owner, 30)
 			gs.resolution_stack.append({"kind": "charm-reset-fire", "playerIndex": owner})
 			gs._draw(owner, maxi(0, 10 - gs.player(owner).hand.size()))
 		"charm-reset-fire": gs.VerifiedRules.Light.gain_fire(gs, owner, 3)

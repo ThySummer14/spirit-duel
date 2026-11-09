@@ -98,6 +98,13 @@ func scorpion_cards() -> void:
 	var stamp:=JSON.stringify(gs.snapshot());gs.hand_card_def(0,i);gs.can_play_card(0,i);check(JSON.stringify(gs.snapshot())==stamp,"dynamicclawquerypure")
 	gs.turn_counter+=1;c=gs.hand_card_def(0,i);check(c.value==1 and c.combatOption.shield==1 and not c.enhanced,"enhancementexpiresactualturn")
 	gs=game();p=gs.player(0);foe=gs.player(1);gs._grow_unit(foe.units[0],0,20);play(gs,"c28407",foe.units[0].uid)
+	var decoy := gs._make_unit("toxic-den-decoy", "fenghuanghuo")
+	decoy.summoned = true
+	decoy.countsAsShikigami = false
+	foe.units.append(decoy)
+	var den := give(gs, "c28407")
+	check(not gs.can_play_card(0, den, decoy.uid).ok and gs.can_play_card(0, den, foe.units[0].uid).ok, "蝎窟进场只能选择敌方式神")
+	p.hand.remove_at(den)
 	check(p.realms.size()==1 and p.realms[0].hp==6 and foe.units[0].toxicPoisoned,"6durdenactualentryselectedtoxic")
 	gs._damage_avatar(0,1,1,0);gs._resolve_resolution_stack();check(foe.units[0].hp==0,"denactualpoisoncounteronunitavatardamage")
 	gs=game();p=gs.player(0);foe=gs.player(1);play(gs,"c28408");check(p.units[1].attack==3 and p.units[1].hp==9 and p.units[1].unyielding,"SSRfullPNG3/9andactualunyielding")

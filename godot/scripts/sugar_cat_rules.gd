@@ -88,7 +88,7 @@ static func describe_card(gs, owner: int, inst: Dictionary, card: Dictionary) ->
 	if c.id == "c24901": c.currentCardStats = "手牌食材及佳肴%d · 恢复%d生命" % [_foods(gs, owner), _foods(gs, owner)]
 	if c.id == "c24904": c.currentCardStats = "当前伤害%d" % (4 + _foods(gs, owner))
 	if c.id == "c24907": c.currentCardStats = "小糖人%d · 大糖人%d" % [Cooking.hand_food_count(gs, owner, "ingredient"), Cooking.hand_food_count(gs, owner, "feast")]
-	if c.id == "c24908": c.currentCardStats = "本局已获得佳肴%d／6；特殊佳肴定义待核验" % Cooking.feast_count(gs, owner)
+	if c.id == "c24908": c.currentCardStats = "本局已获得佳肴%d／6" % Cooking.feast_count(gs, owner)
 	return c
 static func targets(gs, owner: int, card: Dictionary):
 	if not card.get("sugarCatRules", false) or card.id not in ["c24901", "c24904"]: return null
@@ -244,8 +244,8 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			for _i in big: _frame(gs, "sc-candy", owner, src, {"big": true})
 			for _i in small: _frame(gs, "sc-candy", owner, src, {"big": false})
 		"c24908":
-			var gained := Cooking.gain_feast(gs, owner, src)
-			if not gained.is_empty() and Cooking.feast_count(gs, owner) >= 6:
+			Cooking.gain_special_feast(gs, owner, src)
+			if Cooking.feast_count(gs, owner) >= 6:
 				for u in gs.player(owner).units:
 					if gs.VerifiedRules.OwlInsect.shikigami(u): gs._grow_unit(u, 5, 5)
 				gs._heal_avatar(owner, 10)
@@ -301,7 +301,7 @@ static func score_card(gs, owner: int, card: Dictionary, target_id = null):
 	if not card.get("sugarCatRules", false): return null
 	if not can_use(gs, owner, card): return -100
 	if card.id in ["c24901", "c24904"] and (str(target_id) == "avatar-%d" % owner or _source(gs, owner, str(target_id)) >= 0): return -100
-	if card.id == "c24908": return -100 if card.get("cookingDirectFeastPool", []).is_empty() else 85
+	if card.id == "c24908": return 85 if Cooking.feast_count(gs, owner) >= 5 else 55
 	if card.type == "form":
 		var src: int = gs._source_index(owner, card); var u: Dictionary = gs.player(owner).units[src]
 		return 75 if u.get("form", {}).get("cardId", "") != card.id or int(u.hp) < int(u.maxHp) else -10

@@ -174,7 +174,7 @@ func ui_rules() -> void:
 		await click(b._unit_widget(foe.units[0].uid));await settled(b);check(p.energy==0 and u.charge==0 and p.hand.is_empty(),"native devour resolves selected6 then random injured destroy")
 		p.energy=0;u.charge=2;hand(b,["c29505"]);await settled(b);await click(b._hand_row.get_child(0));await settled(b)
 		check(u.awakened and u.charge==3,"native instant awakening uses charge with0fire")
-		b.gs.kw_usage(0,"instant").used=false;hand(b,["c29302"]);await settled(b);check("2能量" in str(b.gs.hand_card_def(0,0).currentCardStats),"native ally displays correct focus payment")
+		p.keywordUsage.erase("instant");hand(b,["c29302"]);await settled(b);check("2能量" in str(b.gs.hand_card_def(0,0).currentCardStats),"native ally displays correct focus payment")
 		await capture("%d-02-awakened-focus"%physical.x);await click(b._hand_row.get_child(0));await settled(b)
 		check(u.charge==1 and p.energy==0 and p.units[1].armorBreak==2,"native awakened replacement applies to ally")
 		b.queue_free();await process_frame;await process_frame

@@ -173,6 +173,16 @@ func cleanse_rules() -> void:
 
 func boundary_rules() -> void:
 	var gs := game(); var p: Dictionary=gs.player(0); var foe: Dictionary=gs.player(1)
+	var decoy: Dictionary = gs.VerifiedRules.NativeSummons.summon(gs, 1, 0, "pipe-scope-decoy", "普通召唤物", 0, 9, {"countsAsShikigami": false})
+	foe.units[2].level = 0
+	var mark_card := give(gs,"c23501")
+	check(not gs.can_play_card(0,mark_card,decoy.uid).ok and gs.play_card(0,mark_card,foe.units[2].uid),"飞弹拒绝非式神召唤物而能标记零勾式神")
+	var marked_hp: int = foe.units[2].hp
+	tick(gs,1)
+	check(decoy.hp==9 and foe.units[2].hp==marked_hp-2,"基础倒计时跳过非式神战斗区，仍兑现实际印记")
+	var pillow := give(gs,"c23302")
+	check(not gs.can_play_card(0,pillow,decoy.uid).ok and gs.play_card(0,pillow,foe.units[2].uid),"狐枕只选式神且可结算零勾")
+	gs=game(); p=gs.player(0); foe=gs.player(1)
 	turn(gs,0); check(p.units[0].abilityCountdown.remaining==2,"own timer does not naturally tick at enemy start")
 	turn(gs,1); check(p.units[0].abilityCountdown.remaining==1,"own timer naturally ticks at own start")
 	gs=game(); p=gs.player(0); foe=gs.player(1)

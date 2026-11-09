@@ -61,6 +61,16 @@ static func describe_card(gs, owner: int, card: Dictionary) -> Dictionary:
 		out.text += "\n当前顶牌：%s。" % ("空牌库" if deck.is_empty() else "%s（%d勾）" % [ContentLoader.card_def(str(deck.back().definitionId)).name, int(ContentLoader.card_def(str(deck.back().definitionId)).level)])
 	return out
 
+static func targets(gs, owner: int, card: Dictionary):
+	if card.get("effect") != "river-water": return null
+	var result: Array = []
+	for side in [owner, 1-owner]:
+		for unit in gs.player(side).units:
+			if int(unit.hp) <= 0 or not gs.VerifiedRules.OwlInsect.shikigami(unit): continue
+			if side != owner and (gs.VerifiedRules.Combat.has(unit, "veil") or gs.VerifiedRules.Movement.has_veil(unit)): continue
+			result.append(str(unit.uid))
+	return result
+
 static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: Dictionary, target: Dictionary) -> bool:
 	match str(effect.get("action", "")):
 		"river-divination": gs.VerifiedRules.Divination.start(gs, owner, int(effect.value))
@@ -86,7 +96,9 @@ static func resolve_action(gs, owner: int, src: int, card: Dictionary, effect: D
 			gs._log("大河之歌展示牌库顶「%s」（%d勾）。" % [top.name, int(top.level)], gs.TONE_CARD)
 			for idx in gs.player(1 - owner).units.size():
 				if gs.winner >= 0: break
-				gs._damage_unit(1 - owner, idx, int(top.level) + int(card.get("foxHandDamageBonus", 0)), owner, src)
+				var unit: Dictionary = gs.player(1-owner).units[idx]
+				if int(unit.hp) > 0 and gs.VerifiedRules.OwlInsect.shikigami(unit):
+					gs._damage_unit(1-owner, idx, int(top.level) + int(card.get("foxHandDamageBonus", 0)), owner, src)
 		_: return false
 	return true
 
